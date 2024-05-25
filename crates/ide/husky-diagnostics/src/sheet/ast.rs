@@ -153,8 +153,8 @@ impl Diagnose for (TokenVerseIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedStmtUnderModule => {
                 format!("Syntax Error: UnexpectedStmtInsideModule")
             }
-            OriginalAstError::ExpectedTypeItems(_) => {
-                format!("Syntax Error: ExpectedTypeItems")
+            OriginalAstError::EmptyImplBlock(_) => {
+                format!("Syntax Error: empty `impl` block")
             }
             OriginalAstError::ExpectedTypeVariants(_) => {
                 format!("Syntax Error: ExpectedTypeVariants")
@@ -220,7 +220,7 @@ impl Diagnose for (TokenVerseIdx, &OriginalAstError) {
             | OriginalAstError::ExpectedEntityKeywordGroup(_)
             | OriginalAstError::UnexpectedMemoFieldOutsideImplBlock
             | OriginalAstError::UnexpectedStmtUnderModule
-            | OriginalAstError::ExpectedTypeItems(_)
+            | OriginalAstError::EmptyImplBlock(_)
             | OriginalAstError::ExpectedTypeVariants(_)
             | OriginalAstError::ExpectedIdentForTypeVariant(_)
             | OriginalAstError::ExpectedFormBodyForConfig(_)

@@ -1,11 +1,11 @@
 ```rust
 [
     FoldingRange {
-        start_line: 0,
+        start_line: 2,
         start_character: Some(
             0,
         ),
-        end_line: 10,
+        end_line: 12,
         end_character: Some(
             6,
         ),
@@ -15,11 +15,11 @@
         collapsed_text: None,
     },
     FoldingRange {
-        start_line: 15,
+        start_line: 17,
         start_character: Some(
             0,
         ),
-        end_line: 16,
+        end_line: 18,
         end_character: Some(
             29,
         ),
@@ -29,11 +29,11 @@
         collapsed_text: None,
     },
     FoldingRange {
-        start_line: 18,
+        start_line: 20,
         start_character: Some(
             0,
         ),
-        end_line: 19,
+        end_line: 21,
         end_character: Some(
             37,
         ),
@@ -43,11 +43,11 @@
         collapsed_text: None,
     },
     FoldingRange {
-        start_line: 21,
+        start_line: 23,
         start_character: Some(
             0,
         ),
-        end_line: 22,
+        end_line: 24,
         end_character: Some(
             21,
         ),
@@ -57,11 +57,11 @@
         collapsed_text: None,
     },
     FoldingRange {
-        start_line: 26,
+        start_line: 28,
         start_character: Some(
             0,
         ),
-        end_line: 27,
+        end_line: 29,
         end_character: Some(
             29,
         ),
@@ -71,11 +71,11 @@
         collapsed_text: None,
     },
     FoldingRange {
-        start_line: 29,
+        start_line: 31,
         start_character: Some(
             0,
         ),
-        end_line: 30,
+        end_line: 32,
         end_character: Some(
             37,
         ),
@@ -85,11 +85,11 @@
         collapsed_text: None,
     },
     FoldingRange {
-        start_line: 32,
+        start_line: 34,
         start_character: Some(
             0,
         ),
-        end_line: 33,
+        end_line: 35,
         end_character: Some(
             21,
         ),

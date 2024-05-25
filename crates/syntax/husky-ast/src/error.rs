@@ -99,8 +99,8 @@ pub enum OriginalAstError {
     UnexpectedTraitInsideImplBlock,
     #[error("unexpected memomoized field outside implementation block")]
     UnexpectedMemoFieldOutsideImplBlock,
-    #[error("ExpectedTypeItems")]
-    ExpectedTypeItems(TokenVerseIdx),
+    #[error("empty `impl` block")]
+    EmptyImplBlock(TokenVerseIdx),
     #[error("ExpectedTypeVariants")]
     ExpectedTypeVariants(TokenVerseIdx),
     #[error("ExpectedIdentForTypeVariant")]

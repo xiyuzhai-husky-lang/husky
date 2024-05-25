@@ -1,0 +1,4 @@
+pub extern MnistTask;
+
+impl MnistTask:
+    assoc fn new() -> Self;

@@ -4,6 +4,61 @@ EntityTreeSheet {
     major_item_node_table: MajorEntityNodeTable {
         entries: [
             ItemNodeEntry {
+                node: ItemSynNode::Submodule(
+                    SubmoduleSynNode {
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            },
+                        ),
+                        visibility: Scope::Pub,
+                        ast_idx: 16,
+                        ident_token: IdentToken {
+                            ident: `task`,
+                            token_idx: TokenIdx(
+                                3,
+                            ),
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::Submodule(
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 1,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        },
+                    ),
+                ),
+                ident: `task`,
+                visibility: Scope::Pub,
+            },
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
@@ -23,11 +78,11 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 16,
+                        ast_idx: 17,
                         ident_token: IdentToken {
                             ident: `MnistLabel`,
                             token_idx: TokenIdx(
-                                3,
+                                6,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -83,11 +138,11 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 18,
+                        ast_idx: 19,
                         ident_token: IdentToken {
                             ident: `BinaryImage28`,
                             token_idx: TokenIdx(
-                                33,
+                                36,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -137,11 +192,11 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 22,
+                        ast_idx: 23,
                         ident_token: IdentToken {
                             ident: `BinaryGrid28`,
                             token_idx: TokenIdx(
-                                74,
+                                77,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -178,11 +233,11 @@ EntityTreeSheet {
                             FormSynNodePath(`mnist::input`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 26,
+                        ast_idx: 27,
                         ident_token: IdentToken {
                             ident: `input`,
                             token_idx: TokenIdx(
-                                115,
+                                118,
                             ),
                         },
                         block: DefnBlock::Form {
@@ -203,6 +258,19 @@ EntityTreeSheet {
     },
     item_symbol_table: EntitySymbolTable(
         [
+            EntitySymbolEntry {
+                ident: `task`,
+                visible_scope: Scope::Pub,
+                symbol: EntitySymbol::Submodule {
+                    submodule_item_path: SubmoduleItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                },
+            },
             EntitySymbolEntry {
                 ident: `MnistLabel`,
                 visible_scope: Scope::Pub,
@@ -269,15 +337,15 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 19,
+                    ast_idx: 20,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            35,
+                            38,
                         ),
                     },
                     trai_expr: 0,
                     for_token: TokenIdx(
-                        37,
+                        40,
                     ),
                     ty_sketch_expr: Path(
                         1,
@@ -321,10 +389,10 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 20,
+                    ast_idx: 21,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            47,
+                            50,
                         ),
                     },
                     ty_expr: 2,
@@ -363,15 +431,15 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 21,
+                    ast_idx: 22,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            59,
+                            62,
                         ),
                     },
                     trai_expr: 5,
                     for_token: TokenIdx(
-                        65,
+                        68,
                     ),
                     ty_sketch_expr: Path(
                         6,
@@ -415,15 +483,15 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 23,
+                    ast_idx: 24,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            76,
+                            79,
                         ),
                     },
                     trai_expr: 7,
                     for_token: TokenIdx(
-                        78,
+                        81,
                     ),
                     ty_sketch_expr: Path(
                         8,
@@ -467,10 +535,10 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 24,
+                    ast_idx: 25,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            88,
+                            91,
                         ),
                     },
                     ty_expr: 9,
@@ -509,15 +577,15 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 25,
+                    ast_idx: 26,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            100,
+                            103,
                         ),
                     },
                     trai_expr: 12,
                     for_token: TokenIdx(
-                        106,
+                        109,
                     ),
                     ty_sketch_expr: Path(
                         13,
