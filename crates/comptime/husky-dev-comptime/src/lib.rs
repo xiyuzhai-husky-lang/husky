@@ -50,7 +50,11 @@ impl<Task: IsTask> DevComptime<Task> {
                 Ok(package_path) => package_path,
                 Err(_e) => todo!(),
             };
-        let target_crate_path = CratePath::new(target_package_path, CrateKind::Main, &db)?;
+        let Some(target_crate_path) =
+            CratePath::new(target_package_path, CrateKind::Main, &db).into_result_option()?
+        else {
+            todo!()
+        };
         let target = DevComptimeTarget::SingleCrate(target_crate_path);
         let target_path = match target {
             DevComptimeTarget::None => None,

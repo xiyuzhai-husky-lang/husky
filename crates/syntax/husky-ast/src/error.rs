@@ -112,7 +112,7 @@ pub enum OriginalAstError {
     #[error("SubmoduleFileNotFound")]
     SubmoduleFileNotFound {
         ident_token: IdentToken,
-        error: VfsError,
+        error: Option<VfsError>,
     },
     #[error("VisibilityExprError")]
     VisibilityExprError(#[from] OriginalVisibilityExprError),

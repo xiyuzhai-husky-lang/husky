@@ -7,7 +7,7 @@ use cargo_manifest::{
     Package, Product, Resolver, True, Workspace,
 };
 use husky_corgi_config::transpilation_setup::{HasTranspilationSetup, TranspilationSetup};
-use husky_manifest::HasPackageManifest;
+use husky_manifest::HasManifest;
 use husky_vfs::linktime_target_path::LinktimeTargetPath;
 use pathdiff::diff_paths;
 

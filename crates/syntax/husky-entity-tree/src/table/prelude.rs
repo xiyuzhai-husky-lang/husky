@@ -1,6 +1,6 @@
 use super::*;
 use husky_entity_path::menu::item_path_menu;
-use husky_manifest::HasPackageManifest;
+use husky_manifest::HasManifest;
 
 #[derive(Debug, Clone, Copy)]
 #[salsa::derive_debug_with_db]

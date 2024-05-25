@@ -2,6 +2,7 @@ use crate::*;
 use husky_fs_specs::FsSpecsError;
 use husky_minimal_toml_utils::MinimalTomlError;
 use husky_path_utils::PathUtilsError;
+use maybe_result::MaybeResult;
 use thiserror::Error;
 
 // todo: make this copyable
@@ -51,6 +52,7 @@ impl From<&FsSpecsError> for VfsError {
 }
 
 pub type VfsResult<T> = Result<T, VfsError>;
+pub type VfsMaybeResult<T> = MaybeResult<T, VfsError>;
 
 impl VfsError {
     pub(crate) fn new_io_error(path: PathBuf, e: std::io::Error) -> VfsError {

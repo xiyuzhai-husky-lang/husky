@@ -1,7 +1,7 @@
 pub mod linktime_target;
 pub mod package;
 
-use crate::ManifestResultRef;
+use crate::*;
 
 pub trait HasSynopsis: Copy {
     type Synopsis;

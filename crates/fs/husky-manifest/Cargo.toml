@@ -18,8 +18,9 @@ husky-corgi-config.workspace = true
 husky-coword.workspace = true
 # fs
 husky-vfs.workspace = true
-# syntax
+# toml
 husky-toml-ast.workspace = true
+husky-corgi-config-ast.workspace = true
 husky-manifest-ast.workspace = true
 # utils
 husky-print-utils.workspace = true

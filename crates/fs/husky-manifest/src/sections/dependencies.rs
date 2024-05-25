@@ -26,7 +26,7 @@ pub(crate) fn package_dependencies_unchecked(
     db: &::salsa::Db,
     package_path: PackagePath,
 ) -> ManifestResult<PackageDependenciesSection> {
-    Ok(package_path.package_manifest(db)?.dependencies(db))
+    Ok(package_path.manifest(db)?.dependencies(db))
 }
 
 pub(crate) fn cyclic_dependent_package_paths(
