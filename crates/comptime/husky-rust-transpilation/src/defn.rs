@@ -18,7 +18,7 @@ use husky_hir_defn::defn::{HasHirDefn, HirDefn};
 use husky_hir_defn::*;
 use husky_hir_eager_expr::HirEagerExprRegion;
 use husky_hir_ty::ritchie::{HirContract, HirRitchieParameter, HirRitchieSimpleParameter};
-use husky_manifest::HasPackageManifest;
+use husky_manifest::HasManifest;
 use husky_vfs::ModulePathData;
 
 #[salsa::tracked(jar = RustTranspilationJar, return_ref)]

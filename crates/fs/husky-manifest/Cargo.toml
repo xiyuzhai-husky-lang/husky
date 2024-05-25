@@ -20,6 +20,7 @@ husky-coword.workspace = true
 husky-vfs.workspace = true
 # toml
 husky-toml-ast.workspace = true
+husky-corgi-config-ast.workspace = true
 husky-manifest-ast.workspace = true
 # utils
 husky-print-utils.workspace = true
