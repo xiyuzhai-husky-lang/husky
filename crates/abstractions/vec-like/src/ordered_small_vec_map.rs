@@ -57,7 +57,7 @@ fn ordered_small_vec_map_from_slice_fails_on_duplication() {
 
 impl<K, E, const N: usize> FromIterator<E> for OrderedSmallVecMap<E, N>
 where
-    K: PartialEq + Eq + Ord + Copy + std::fmt::Debug,
+    K: Ord + Copy + std::fmt::Debug,
     E: AsVecMapEntry<K = K> + std::fmt::Debug,
     [E; N]: Array<Item = E>,
 {

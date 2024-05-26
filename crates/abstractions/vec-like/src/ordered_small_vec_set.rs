@@ -75,6 +75,16 @@ where
     }
 }
 
+impl<K, const N: usize> From<Vec<K>> for OrderedSmallVecSet<K, N>
+where
+    K: Eq + Ord + Copy,
+    [K; N]: Array<Item = K>,
+{
+    fn from(value: Vec<K>) -> Self {
+        Self::from_iter(value.into_iter())
+    }
+}
+
 impl<K, const N: usize> OrderedSmallVecSet<K, N>
 where
     [K; N]: Array<Item = K>,
