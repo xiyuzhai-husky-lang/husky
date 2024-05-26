@@ -10,7 +10,8 @@ use std::{
     sync::Arc,
 };
 use vec_like::{
-    error::InsertEntryRepeatError, AsVecMapEntry, SmallVecMap, SmallVecSet, VecMap, VecSet,
+    error::InsertEntryRepeatError, ordered_small_vec_map::OrderedSmallVecMap, AsVecMapEntry,
+    OrderedSmallVecSet, SmallVecMap, SmallVecSet, VecMap, VecSet,
 };
 
 use crate::Db;
@@ -376,6 +377,17 @@ where
     }
 }
 
+impl<K, const N: usize> DebugWithDb for OrderedSmallVecSet<K, N>
+where
+    K: DebugWithDb,
+    [K; N]: Array<Item = K>,
+{
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
+        let elements = self.data().iter().map(|v| v.debug_with(db));
+        f.debug_list().entries(elements).finish()
+    }
+}
+
 impl<K, V> DebugWithDb for VecMap<V>
 where
     K: PartialEq + Eq,
@@ -389,7 +401,16 @@ where
 
 impl<K, V, const N: usize> DebugWithDb for SmallVecMap<V, N>
 where
-    K: PartialEq + Eq,
+    V: AsVecMapEntry<K = K> + DebugWithDb,
+    [V; N]: Array<Item = V>,
+{
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
+        let elements = self.data().iter().map(|v| v.debug_with(db));
+        f.debug_list().entries(elements).finish()
+    }
+}
+impl<K, V, const N: usize> DebugWithDb for OrderedSmallVecMap<V, N>
+where
     V: AsVecMapEntry<K = K> + DebugWithDb,
     [V; N]: Array<Item = V>,
 {

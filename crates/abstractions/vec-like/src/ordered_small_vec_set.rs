@@ -6,7 +6,6 @@ use smallvec::*;
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Hash, Serialize, Deserialize)]
 pub struct OrderedSmallVecSet<K, const N: usize>
 where
-    K: PartialEq + Eq + Ord + Copy,
     [K; N]: Array<Item = K>,
 {
     data: SmallVec<[K; N]>,
@@ -14,7 +13,6 @@ where
 
 impl<K, const N: usize> OrderedSmallVecSet<K, N>
 where
-    K: PartialEq + Eq + Ord + Copy,
     [K; N]: Array<Item = K>,
 {
     pub fn new_one_elem_set(elem: K) -> Self {
@@ -26,7 +24,6 @@ where
 
 impl<K, const N: usize> Default for OrderedSmallVecSet<K, N>
 where
-    K: PartialEq + Eq + Ord + Copy,
     [K; N]: Array<Item = K>,
 {
     fn default() -> Self {
@@ -38,7 +35,7 @@ where
 
 impl<K, const N: usize> Deref for OrderedSmallVecSet<K, N>
 where
-    K: PartialEq + Eq + Ord + Copy,
+    K: Eq + Ord + Copy,
     [K; N]: Array<Item = K>,
 {
     type Target = [K];
@@ -49,7 +46,7 @@ where
 }
 impl<K, const N: usize> AsRef<[K]> for OrderedSmallVecSet<K, N>
 where
-    K: PartialEq + Eq + Ord + Copy,
+    K: Eq + Ord + Copy,
     [K; N]: Array<Item = K>,
 {
     fn as_ref(&self) -> &[K] {
@@ -59,7 +56,7 @@ where
 
 impl<K, const N: usize> FromIterator<K> for OrderedSmallVecSet<K, N>
 where
-    K: PartialEq + Eq + Ord + Copy,
+    K: Eq + Ord + Copy,
     [K; N]: Array<Item = K>,
 {
     fn from_iter<T: IntoIterator<Item = K>>(t: T) -> Self {
@@ -71,7 +68,7 @@ where
 
 impl<K, const N: usize, const M: usize> From<[K; M]> for OrderedSmallVecSet<K, N>
 where
-    K: PartialEq + Eq + Ord + Copy,
+    K: Eq + Ord + Copy,
     [K; N]: Array<Item = K>,
 {
     fn from(value: [K; M]) -> Self {
@@ -81,7 +78,6 @@ where
 
 impl<K, const N: usize> OrderedSmallVecSet<K, N>
 where
-    K: PartialEq + Eq + Ord + Copy,
     [K; N]: Array<Item = K>,
 {
     pub fn len(&self) -> usize {
@@ -89,27 +85,27 @@ where
     }
     pub fn has(&self, key: K) -> bool
     where
-        K: Copy + PartialEq + Eq,
+        K: Copy + Eq,
     {
         self.data.iter().find(|entry| **entry == key).is_some()
     }
     pub fn has_ref(&self, key: &K) -> bool
     where
-        K: PartialEq + Eq,
+        K: Eq,
     {
         self.data.iter().find(|entry| *entry == key).is_some()
     }
 
     pub fn contains(&self, key: &K) -> bool
     where
-        K: PartialEq + Eq,
+        K: Eq,
     {
         self.data.iter().find(|entry| *entry == key).is_some()
     }
 
     pub fn insert_new(&mut self, new: K) -> Result<(), InsertEntryRepeatError<K>>
     where
-        K: Copy + PartialEq + Eq,
+        K: Copy + Ord,
     {
         match self.data.binary_search(&new) {
             Ok(old) => Err(InsertEntryRepeatError { old, new }),
@@ -126,7 +122,7 @@ where
 
     pub fn toggle(&mut self, value: K)
     where
-        K: PartialEq + Eq,
+        K: Ord,
     {
         match self.data.binary_search(&value) {
             Ok(old) => {
@@ -138,7 +134,7 @@ where
 
     pub fn remove(&mut self, value: K)
     where
-        K: PartialEq + Eq,
+        K: Ord,
     {
         match self.data.binary_search(&value) {
             Ok(old) => {
@@ -157,7 +153,7 @@ where
 
     pub fn insert(&mut self, value: K)
     where
-        K: Copy + PartialEq + Eq,
+        K: Copy + Ord,
     {
         match self.data.binary_search(&value) {
             Ok(_old) => (),
@@ -165,14 +161,13 @@ where
         }
     }
 
-    pub fn extend(&mut self, _other: &Self)
+    pub fn extend(&mut self, other: &Self)
     where
-        K: Copy + PartialEq + Eq,
+        K: Copy + Ord,
     {
-        todo!("maintain order")
-        // for entry in &other.data {
-        //     self.insert(*entry)
-        // }
+        for &element in &other.data {
+            self.insert(element)
+        }
     }
 
     pub fn data(&self) -> &[K] {
