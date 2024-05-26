@@ -1,6 +1,7 @@
 #![feature(impl_trait_in_assoc_type)]
 mod append_only;
 pub mod error;
+pub mod ordered_small_vec_map;
 mod ordered_small_vec_set;
 mod small_vec_map;
 mod small_vec_set;

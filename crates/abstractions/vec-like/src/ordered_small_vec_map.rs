@@ -5,14 +5,101 @@ use crate::{
 use smallvec::{smallvec, Array, SmallVec};
 
 #[derive(PartialEq, Eq, Clone, Hash, Serialize, Deserialize)]
-pub struct SmallVecMap<E, const N: usize>
+pub struct OrderedSmallVecMap<E, const N: usize>
 where
     [E; N]: Array<Item = E>,
 {
     entries: SmallVec<[E; N]>,
 }
 
-impl<V, const N: usize> std::convert::AsRef<[V]> for SmallVecMap<V, N>
+impl<K, Entry, const N: usize> From<[Entry; N]> for OrderedSmallVecMap<Entry, N>
+where
+    K: Ord + Copy + std::fmt::Debug,
+    Entry: AsVecMapEntry<K = K> + std::fmt::Debug,
+    [Entry; N]: Array<Item = Entry>,
+{
+    fn from(value: [Entry; N]) -> Self {
+        let iter: std::array::IntoIter<_, N> = value.into_iter();
+        Self::from_iter(iter)
+    }
+}
+
+#[test]
+fn ordered_small_vec_map_from_slice_works() {
+    type Entry = (i32, i32);
+
+    // construct a map from input and assert its entries being equal to entries_expected
+    fn t<const N: usize>(input: [Entry; N], entries_expected: &[Entry]) {
+        let map = OrderedSmallVecMap::from(input);
+        assert_eq!(map.entries.as_slice(), entries_expected);
+    }
+
+    t([], &[]);
+    t([(1, 2)], &[(1, 2)]);
+    t([(1, 2), (3, 4)], &[(1, 2), (3, 4)]);
+    t([(3, 4), (1, 2)], &[(1, 2), (3, 4)]);
+    t([(2, 3), (1, 2), (3, 4)], &[(1, 2), (2, 3), (3, 4)]);
+}
+
+#[test]
+#[should_panic]
+fn ordered_small_vec_map_from_slice_fails_on_duplication() {
+    type Entry = (i32, i32);
+
+    // construct a map from input and assert its entries being equal to entries_expected
+    fn t<const N: usize>(input: [Entry; N]) {
+        let _map = OrderedSmallVecMap::from(input);
+    }
+
+    t([(1, 2), (1, 2)]);
+}
+
+impl<K, E, const N: usize> FromIterator<E> for OrderedSmallVecMap<E, N>
+where
+    K: PartialEq + Eq + Ord + Copy + std::fmt::Debug,
+    E: AsVecMapEntry<K = K> + std::fmt::Debug,
+    [E; N]: Array<Item = E>,
+{
+    fn from_iter<T: IntoIterator<Item = E>>(iter: T) -> Self {
+        let mut map = Self::default();
+        for v in iter {
+            map.insert_new(v).unwrap()
+        }
+        map
+    }
+}
+
+#[test]
+fn ordered_small_vec_map_from_iter_works() {
+    type Entry = (i32, i32);
+
+    // construct a map from input and assert its entries being equal to entries_expected
+    fn t<const N: usize>(input: [Entry; N], entries_expected: &[Entry]) {
+        let map: OrderedSmallVecMap<_, N> = OrderedSmallVecMap::from_iter(input);
+        assert_eq!(map.entries.as_slice(), entries_expected);
+    }
+
+    t([], &[]);
+    t([(1, 2)], &[(1, 2)]);
+    t([(1, 2), (3, 4)], &[(1, 2), (3, 4)]);
+    t([(3, 4), (1, 2)], &[(1, 2), (3, 4)]);
+    t([(2, 3), (1, 2), (3, 4)], &[(1, 2), (2, 3), (3, 4)]);
+}
+
+#[test]
+#[should_panic]
+fn ordered_small_vec_map_from_iter_fails_on_duplication() {
+    type Entry = (i32, i32);
+
+    // construct a map from input and assert its entries being equal to entries_expected
+    fn t<const N: usize>(input: [Entry; N]) {
+        let _map = OrderedSmallVecMap::<_, N>::from_iter(input);
+    }
+
+    t([(1, 2), (1, 2)]);
+}
+
+impl<V, const N: usize> std::convert::AsRef<[V]> for OrderedSmallVecMap<V, N>
 where
     [V; N]: Array<Item = V>,
 {
@@ -21,7 +108,7 @@ where
     }
 }
 
-impl<E, const N: usize> IntoIterator for SmallVecMap<E, N>
+impl<E, const N: usize> IntoIterator for OrderedSmallVecMap<E, N>
 where
     [E; N]: Array<Item = E>,
 {
@@ -34,7 +121,7 @@ where
     }
 }
 
-impl<E, const N: usize> std::fmt::Debug for SmallVecMap<E, N>
+impl<E, const N: usize> std::fmt::Debug for OrderedSmallVecMap<E, N>
 where
     E: std::fmt::Debug,
     [E; N]: Array<Item = E>,
@@ -44,7 +131,7 @@ where
     }
 }
 
-impl<K, E, const N: usize> SmallVecMap<E, N>
+impl<K, E, const N: usize> OrderedSmallVecMap<E, N>
 where
     E: AsVecMapEntry<K = K>,
     [E; N]: Array<Item = E>,
@@ -59,7 +146,7 @@ where
     pub fn data(&self) -> &[E] {
         &self.entries
     }
-    pub fn data_mut(&mut self) -> &mut [E] {
+    pub unsafe fn data_mut(&mut self) -> &mut [E] {
         &mut self.entries
     }
 
@@ -92,7 +179,7 @@ where
         self.entries.iter().find(|entry| entry.key() == key)
     }
 
-    pub fn get_entry_mut(&mut self, key: K) -> Option<&mut E>
+    pub unsafe fn get_entry_mut(&mut self, key: K) -> Option<&mut E>
     where
         K: Copy + Eq,
     {
@@ -126,7 +213,7 @@ where
         self.entries.iter().map(|entry| entry.key())
     }
 
-    pub fn get_mut(&mut self, key: K) -> Option<&mut E>
+    pub unsafe fn get_mut(&mut self, key: K) -> Option<&mut E>
     where
         K: Copy + Eq,
     {
@@ -135,52 +222,34 @@ where
 
     pub fn insert_new(&mut self, new: E) -> Result<(), InsertEntryRepeatError<E>>
     where
-        K: Copy + Eq,
+        K: Ord + Copy,
     {
-        if self.has(new.key()) {
-            let new_key = new.key();
-            Err(InsertEntryRepeatError {
-                old: self
-                    .entries
-                    .iter()
-                    .position(|entry| entry.key() == new_key)
-                    .unwrap()
-                    .into(),
-                new,
-            })
-        } else {
-            self.entries.push(new);
-            Ok(())
+        let key = new.key();
+        match self.entries.binary_search_by(|e| e.key().cmp(&key)) {
+            Ok(old) => Err(InsertEntryRepeatError { old, new }),
+            Err(index) => Ok(self.entries.insert(index, new)),
         }
     }
 
-    pub unsafe fn insert_new_unchecked(&mut self, new: E)
+    pub fn insert(&mut self, new: E)
     where
-        K: Copy + Eq,
+        K: Ord + Copy,
     {
-        debug_assert!(!self.has(new.key()));
-        self.entries.push(new)
-    }
-
-    pub fn insert(&mut self, value: E)
-    where
-        K: Copy + Eq,
-    {
-        if self.has(value.key()) {
-            ()
-        } else {
-            self.entries.push(value)
+        let key = new.key();
+        match self.entries.binary_search_by(|e| e.key().cmp(&key)) {
+            Ok(old) => (),
+            Err(index) => self.entries.insert(index, new),
         }
     }
-    pub fn insert_from_ref(&mut self, value: &E)
+    pub fn insert_from_ref(&mut self, new_entry: &E)
     where
         E: Clone,
-        K: Copy + Eq,
+        K: Ord + Copy,
     {
-        if self.has(value.key()) {
-            ()
-        } else {
-            self.entries.push(value.clone())
+        let key = new_entry.key();
+        match self.entries.binary_search_by(|e| e.key().cmp(&key)) {
+            Ok(old) => (),
+            Err(index) => self.entries.insert(index, new_entry.clone()),
         }
     }
 
@@ -193,7 +262,7 @@ where
 
     pub fn extend(&mut self, iter: impl Iterator<Item = E>) -> Result<(), InsertEntryRepeatError<E>>
     where
-        K: Copy + Eq,
+        K: Ord + Copy,
     {
         for v in iter {
             self.insert_new(v)?
@@ -203,7 +272,7 @@ where
 
     pub fn extend_from_other(&mut self, other: Self) -> Result<(), InsertEntryRepeatError<E>>
     where
-        K: Copy + Eq,
+        K: Ord + Copy,
     {
         for v in other.entries {
             self.insert_new(v)?
@@ -214,7 +283,7 @@ where
     pub fn extend_from_ref(&mut self, other: &Self)
     where
         E: Clone,
-        K: Copy + Eq,
+        K: Ord + Copy,
     {
         for entry in &other.entries {
             self.insert_from_ref(entry)
@@ -224,17 +293,17 @@ where
     pub fn toggle(&mut self, key: K)
     where
         E: DefaultVecMapEntry<K>,
-        K: Copy + Eq,
+        K: Ord + Copy,
     {
         if let Some(position) = self.entries.iter().position(|entry| entry.key() == key) {
             self.entries.remove(position);
         } else {
-            self.entries.push(E::default_from_key(key))
+            self.insert(E::default_from_key(key))
         }
     }
 }
 
-impl<K, V, const N: usize> SmallVecPairMap<K, V, N>
+impl<K, V, const N: usize> OrderedSmallVecPairMap<K, V, N>
 where
     [(K, V); N]: Array<Item = (K, V)>,
 {
@@ -302,45 +371,18 @@ where
     }
 
     #[inline(always)]
-    pub fn map_collect<U>(&self, f: impl Fn(&V) -> U) -> SmallVecPairMap<K, U, N>
+    pub fn map_collect<U>(&self, f: impl Fn(&V) -> U) -> OrderedSmallVecPairMap<K, U, N>
     where
         K: Copy,
         [(K, U); N]: Array<Item = (K, U)>,
     {
-        SmallVecPairMap {
+        OrderedSmallVecPairMap {
             entries: self.entries.iter().map(|(k, v)| (*k, f(v))).collect(),
         }
     }
 }
-impl<K, Entry, const N: usize> From<[Entry; N]> for SmallVecMap<Entry, N>
-where
-    K: PartialEq + Eq + Copy + std::fmt::Debug,
-    Entry: AsVecMapEntry<K = K> + std::fmt::Debug,
-    [Entry; N]: Array<Item = Entry>,
-{
-    fn from(value: [Entry; N]) -> Self {
-        let iter: std::array::IntoIter<_, N> = value.into_iter();
-        Self::from_iter(iter)
-    }
-}
 
-impl<K, E, const N: usize> FromIterator<E> for SmallVecMap<E, N>
-where
-    K: PartialEq + Eq + Copy + std::fmt::Debug,
-    E: AsVecMapEntry<K = K> + std::fmt::Debug,
-    [E; N]: Array<Item = E>,
-{
-    fn from_iter<T: IntoIterator<Item = E>>(iter: T) -> Self {
-        let mut map = Self::default();
-        for v in iter {
-            debug_assert!(!map.has(v.key()));
-            unsafe { map.insert_new_unchecked(v) }
-        }
-        map
-    }
-}
-
-impl<K, E, const N: usize> Deref for SmallVecMap<E, N>
+impl<K, E, const N: usize> Deref for OrderedSmallVecMap<E, N>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
     E: AsVecMapEntry<K = K>,
@@ -353,7 +395,7 @@ where
     }
 }
 
-impl<E, const N: usize> Default for SmallVecMap<E, N>
+impl<E, const N: usize> Default for OrderedSmallVecMap<E, N>
 where
     [E; N]: Array<Item = E>,
 {
@@ -364,7 +406,7 @@ where
     }
 }
 
-impl<K, E, const N: usize> std::ops::Index<K> for SmallVecMap<E, N>
+impl<K, E, const N: usize> std::ops::Index<K> for OrderedSmallVecMap<E, N>
 where
     K: PartialEq + Eq + Copy + std::fmt::Debug,
     E: AsVecMapEntry<K = K>,
@@ -377,15 +419,15 @@ where
     }
 }
 
-impl<K, E, const N: usize> std::ops::IndexMut<K> for SmallVecMap<E, N>
-where
-    K: PartialEq + Eq + Copy + std::fmt::Debug,
-    E: AsVecMapEntry<K = K>,
-    [E; N]: Array<Item = E>,
-{
-    fn index_mut(&mut self, index: K) -> &mut Self::Output {
-        self.get_mut(index).unwrap()
-    }
-}
+// impl<K, E, const N: usize> std::ops::IndexMut<K> for OrderedSmallVecMap<E, N>
+// where
+//     K: PartialEq + Eq + Copy + std::fmt::Debug,
+//     E: AsVecMapEntry<K = K>,
+//     [E; N]: Array<Item = E>,
+// {
+//     fn index_mut(&mut self, index: K) -> &mut Self::Output {
+//         self.get_mut(index).unwrap()
+//     }
+// }
 
-pub type SmallVecPairMap<K, V, const N: usize> = SmallVecMap<(K, V), N>;
+pub type OrderedSmallVecPairMap<K, V, const N: usize> = OrderedSmallVecMap<(K, V), N>;
