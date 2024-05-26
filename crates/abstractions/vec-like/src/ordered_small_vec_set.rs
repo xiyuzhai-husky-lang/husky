@@ -35,7 +35,6 @@ where
 
 impl<K, const N: usize> Deref for OrderedSmallVecSet<K, N>
 where
-    K: Eq + Ord + Copy,
     [K; N]: Array<Item = K>,
 {
     type Target = [K];

@@ -12,14 +12,15 @@ where
     entries: SmallVec<[E; N]>,
 }
 
-impl<K, Entry, const N: usize> From<[Entry; N]> for OrderedSmallVecMap<Entry, N>
+impl<K, Entry, const M: usize, const N: usize> From<[Entry; M]> for OrderedSmallVecMap<Entry, N>
 where
     K: Ord + Copy + std::fmt::Debug,
     Entry: AsVecMapEntry<K = K> + std::fmt::Debug,
+    [Entry; M]: Array<Item = Entry>,
     [Entry; N]: Array<Item = Entry>,
 {
-    fn from(value: [Entry; N]) -> Self {
-        let iter: std::array::IntoIter<_, N> = value.into_iter();
+    fn from(value: [Entry; M]) -> Self {
+        let iter: std::array::IntoIter<_, M> = value.into_iter();
         Self::from_iter(iter)
     }
 }
@@ -30,7 +31,7 @@ fn ordered_small_vec_map_from_slice_works() {
 
     // construct a map from input and assert its entries being equal to entries_expected
     fn t<const N: usize>(input: [Entry; N], entries_expected: &[Entry]) {
-        let map = OrderedSmallVecMap::from(input);
+        let map = OrderedSmallVecMap::<_, N>::from(input);
         assert_eq!(map.entries.as_slice(), entries_expected);
     }
 
@@ -48,7 +49,7 @@ fn ordered_small_vec_map_from_slice_fails_on_duplication() {
 
     // construct a map from input and assert its entries being equal to entries_expected
     fn t<const N: usize>(input: [Entry; N]) {
-        let _map = OrderedSmallVecMap::from(input);
+        let _map = OrderedSmallVecMap::<_, N>::from(input);
     }
 
     t([(1, 2), (1, 2)]);
@@ -382,10 +383,9 @@ where
     }
 }
 
-impl<K, E, const N: usize> Deref for OrderedSmallVecMap<E, N>
+impl<E, const N: usize> Deref for OrderedSmallVecMap<E, N>
 where
-    K: PartialEq + Eq + Copy + std::fmt::Debug,
-    E: AsVecMapEntry<K = K>,
+    E: AsVecMapEntry,
     [E; N]: Array<Item = E>,
 {
     type Target = [E];
