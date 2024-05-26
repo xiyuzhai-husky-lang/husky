@@ -12,6 +12,14 @@ where
     entries: SmallVec<[E; N]>,
 }
 
+impl<E, const N: usize> std::ops::Deref for SmallVecMap<E, N> {
+    type Target = [E];
+
+    fn deref(&self) -> &Self::Target {
+        &self.entries
+    }
+}
+
 impl<V, const N: usize> std::convert::AsRef<[V]> for SmallVecMap<V, N>
 where
     [V; N]: Array<Item = V>,
@@ -312,21 +320,22 @@ where
         }
     }
 }
-impl<K, Entry, const N: usize> From<[Entry; N]> for SmallVecMap<Entry, N>
+impl<K, Entry, const M: usize, const N: usize> From<[Entry; M]> for SmallVecMap<Entry, N>
 where
-    K: PartialEq + Eq + Copy + std::fmt::Debug,
+    K: Eq + Copy + std::fmt::Debug,
     Entry: AsVecMapEntry<K = K> + std::fmt::Debug,
+    [Entry; M]: Array<Item = Entry>,
     [Entry; N]: Array<Item = Entry>,
 {
-    fn from(value: [Entry; N]) -> Self {
-        let iter: std::array::IntoIter<_, N> = value.into_iter();
+    fn from(value: [Entry; M]) -> Self {
+        let iter: std::array::IntoIter<_, M> = value.into_iter();
         Self::from_iter(iter)
     }
 }
 
 impl<K, E, const N: usize> FromIterator<E> for SmallVecMap<E, N>
 where
-    K: PartialEq + Eq + Copy + std::fmt::Debug,
+    K: Eq + Copy + std::fmt::Debug,
     E: AsVecMapEntry<K = K> + std::fmt::Debug,
     [E; N]: Array<Item = E>,
 {
@@ -340,16 +349,13 @@ where
     }
 }
 
-impl<K, E, const N: usize> Deref for SmallVecMap<E, N>
-where
-    K: PartialEq + Eq + Copy + std::fmt::Debug,
-    E: AsVecMapEntry<K = K>,
-    [E; N]: Array<Item = E>,
-{
-    type Target = [E];
+impl<'a, E, const N: usize> IntoIterator for &'a SmallVecMap<E, N> {
+    type Item = &'a E;
 
-    fn deref(&self) -> &Self::Target {
-        &self.entries
+    type IntoIter = impl Iterator<Item = Self::Item>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        (&self.entries).into_iter()
     }
 }
 
