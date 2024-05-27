@@ -65,6 +65,19 @@ where
     }
 }
 
+impl<'a, K, const N: usize> IntoIterator for &'a OrderedSmallVecSet<K, N>
+where
+    K: 'a,
+{
+    type Item = &'a K;
+
+    type IntoIter = impl Iterator<Item = Self::Item>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        (&self.data).into_iter()
+    }
+}
+
 impl<K, const N: usize, const M: usize> From<[K; M]> for OrderedSmallVecSet<K, N>
 where
     K: Eq + Ord + Copy,

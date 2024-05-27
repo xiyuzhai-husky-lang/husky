@@ -3,6 +3,7 @@ use super::*;
 #[cfg(test)]
 use crate::summand::VarDepsSummand;
 use crate::summand::VarDepsSummands;
+use vec_like::OrderedSmallVecSet;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
@@ -110,6 +111,22 @@ where
         }
         result
     }
+
+    pub fn eval<'a>(&self, f: impl Fn(A) -> OrderedSmallVecSet<S, 4>) -> OrderedSmallVecSet<S, 4>
+    where
+        A: 'a,
+        S: 'a + Copy,
+    {
+        let mut result: OrderedSmallVecSet<S, 4> = Default::default();
+        for summand in &self.summands {
+            let mut deps = f(summand.base);
+            for &exclude in &summand.excludes {
+                deps.remove(exclude)
+            }
+            result.extend(&deps)
+        }
+        result
+    }
 }
 
 #[test]
@@ -207,5 +224,45 @@ fn var_deps_sum_rewrite_works() {
         "(a[s,t])",
         &[("a", &[("b", &["r", "s"])])],
         "(b[r,s,t])",
+    );
+}
+
+#[test]
+fn var_deps_sum_eval_works() {
+    fn t(sum: &[(A, &[S])], sum_str: &str, deps_values: &[(A, &[S])], expected: &[S]) {
+        let sum: VarDepsSum0 = sum.into();
+        let substitutes: Vec<(A, OrderedSmallVecSet<S, 4>)> = deps_values
+            .iter()
+            .map(|&(base, substitute)| (base, substitute.iter().copied().collect()))
+            .collect();
+        assert_eq!(sum.to_string(), sum_str);
+        assert_eq!(
+            &sum.eval(|base| substitutes
+                .iter()
+                .find_map(|&(base0, ref substitute)| (base0 == base).then_some(substitute.clone()))
+                .unwrap()) as &[_],
+            expected
+        );
+    }
+
+    t(&[], "()", &[], &[]);
+    t(&[], "()", &[("a", &["r", "s", "t"])], &[]);
+    t(
+        &[("a", &[])],
+        "(a)",
+        &[("a", &["r", "s", "t"])],
+        &["r", "s", "t"],
+    );
+    t(
+        &[("a", &["r"])],
+        "(a[r])",
+        &[("a", &["r", "s", "t"])],
+        &["s", "t"],
+    );
+    t(
+        &[("a", &["r", "s"])],
+        "(a[r,s])",
+        &[("a", &["r", "s", "t"])],
+        &["t"],
     );
 }
