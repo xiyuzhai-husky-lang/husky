@@ -2,11 +2,11 @@
 mod append_only;
 pub mod error;
 pub mod ordered_small_vec_map;
-mod ordered_small_vec_set;
-mod small_vec_map;
-mod small_vec_set;
-mod vec_map;
-mod vec_set;
+pub mod ordered_small_vec_set;
+pub mod small_vec_map;
+pub mod small_vec_set;
+pub mod vec_map;
+pub mod vec_set;
 
 pub use append_only::*;
 pub use ordered_small_vec_set::*;

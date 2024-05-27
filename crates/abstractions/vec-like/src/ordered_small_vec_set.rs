@@ -182,6 +182,23 @@ where
     pub fn data(&self) -> &[K] {
         self.data.as_ref()
     }
+
+    /// ```
+    /// use vec_like::ordered_small_vec_set::OrderedSmallVecSet;
+    ///
+    /// let a: OrderedSmallVecSet<i32, 5> = [1,2].into();
+    /// let b: OrderedSmallVecSet<i32, 5> = [3,2].into();
+    /// assert_eq!(a.interset(&b).data(),&[2]);
+    /// ```
+    pub fn interset(&self, other: &Self) -> Self
+    where
+        K: Ord + Copy,
+    {
+        self.iter()
+            .copied()
+            .filter(|&element| other.has(element))
+            .collect()
+    }
 }
 
 #[test]
