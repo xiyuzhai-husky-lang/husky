@@ -10,6 +10,14 @@ pub struct VarDepsSum<A, S> {
     summands: VarDepsSummands<A, S>,
 }
 
+impl<A, S> Default for VarDepsSum<A, S> {
+    fn default() -> Self {
+        Self {
+            summands: Default::default(),
+        }
+    }
+}
+
 impl<A, S> From<Vec<(A, Vec<S>)>> for VarDepsSum<A, S>
 where
     A: Ord + Copy + std::fmt::Debug,
@@ -67,8 +75,8 @@ where
     A: Copy + Ord + std::fmt::Debug,
     S: Copy + Ord,
 {
-    pub fn union(&self, other: &Self) -> Self {
-        let mut summands = self.summands.clone();
+    pub fn union(self, other: &Self) -> Self {
+        let mut summands = self.summands;
         for summand in &other.summands {
             summands.insert_with_or_update(
                 summand.base,
@@ -89,6 +97,18 @@ where
             summand
         });
         Self { summands }
+    }
+
+    pub fn rewrite<'a>(&self, f: impl Fn(A) -> &'a Self) -> Self
+    where
+        A: 'a,
+        S: 'a,
+    {
+        let mut result = Self::default();
+        for summand in &self.summands {
+            result = result.union(&f(summand.base).exclude(&summand.excludes));
+        }
+        result
     }
 }
 
@@ -131,12 +151,7 @@ fn var_deps_sum_union_works() {
 
 #[test]
 fn var_deps_sum_excludes_works() {
-    fn t(
-        sum: &[(&'static str, &[&'static str])],
-        sum_str: &str,
-        excludes: &[&'static str],
-        expected: &str,
-    ) {
+    fn t(sum: &[(A, &[S])], sum_str: &str, excludes: &[S], expected: &str) {
         let sum: VarDepsSum0 = sum.into();
         assert_eq!(sum.to_string(), sum_str);
         assert_eq!(sum.exclude(excludes).to_string(), expected);
@@ -151,5 +166,46 @@ fn var_deps_sum_excludes_works() {
         "(a[r,t])",
         &["r", "s", "t"],
         "(a[r,s,t])",
+    );
+}
+
+#[test]
+fn var_deps_sum_rewrite_works() {
+    fn t(sum: &[(A, &[S])], sum_str: &str, substitutes: &[(A, &[(A, &[S])])], expected: &str) {
+        let sum: VarDepsSum0 = sum.into();
+        let substitutes: Vec<(A, VarDepsSum0)> = substitutes
+            .iter()
+            .map(|&(base, substitute)| (base, substitute.into()))
+            .collect();
+        assert_eq!(sum.to_string(), sum_str);
+        assert_eq!(
+            sum.rewrite(|base| substitutes
+                .iter()
+                .find_map(|&(base0, ref substitute)| (base0 == base).then_some(substitute))
+                .unwrap())
+                .to_string(),
+            expected
+        );
+    }
+
+    t(&[], "()", &[], "()");
+    t(&[], "()", &[("a", &[("a", &["r", "s", "t"])])], "()");
+    t(
+        &[("a", &[])],
+        "(a)",
+        &[("a", &[("a", &["r", "s", "t"])])],
+        "(a[r,s,t])",
+    );
+    t(
+        &[("a", &[])],
+        "(a)",
+        &[("a", &[("b", &["r", "s", "t"])])],
+        "(b[r,s,t])",
+    );
+    t(
+        &[("a", &["s", "t"])],
+        "(a[s,t])",
+        &[("a", &[("b", &["r", "s"])])],
+        "(b[r,s,t])",
     );
 }
