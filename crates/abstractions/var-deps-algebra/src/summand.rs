@@ -21,6 +21,18 @@ where
         }
     }
 }
+impl<A, S> From<&(A, &[S])> for VarDepsSummand<A, S>
+where
+    A: Copy,
+    S: Ord + Copy,
+{
+    fn from(&(base, excludes): &(A, &[S])) -> Self {
+        Self {
+            base,
+            excludes: excludes.iter().copied().collect(),
+        }
+    }
+}
 
 impl<A, S> std::fmt::Display for VarDepsSummand<A, S>
 where

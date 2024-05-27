@@ -22,6 +22,18 @@ where
     }
 }
 
+impl<A, S> From<&[(A, &[S])]> for VarDepsSum<A, S>
+where
+    A: Ord + Copy + std::fmt::Debug,
+    S: Ord + Copy + std::fmt::Debug,
+{
+    fn from(summands: &[(A, &[S])]) -> Self {
+        Self {
+            summands: summands.into_iter().map(Into::into).collect(),
+        }
+    }
+}
+
 impl<A, S> std::fmt::Display for VarDepsSum<A, S>
 where
     A: std::fmt::Display,
@@ -41,13 +53,13 @@ where
 
 #[test]
 fn var_deps_sum_display_works() {
-    fn t(sum: Vec<(&'static str, Vec<&'static str>)>, expected: &str) {
+    fn t(sum: &[(&'static str, &[&'static str])], expected: &str) {
         let sum: VarDepsSum0 = sum.into();
         assert_eq!(sum.to_string(), expected);
     }
-    t(vec![], "()");
-    t(vec![("a", vec![])], "(a)");
-    t(vec![("a", vec!["s"])], "(a[s])");
+    t(&[], "()");
+    t(&[("a", &[])], "(a)");
+    t(&[("a", &["s"])], "(a[s])");
 }
 
 impl<A, S> VarDepsSum<A, S>
@@ -69,13 +81,22 @@ where
         }
         Self { summands }
     }
+
+    pub fn exclude(&self, excludes: &[S]) -> Self {
+        let summands = self.summands.map_collect_on_entries(|summand| {
+            let mut summand = summand.clone();
+            summand.excludes.extend(excludes);
+            summand
+        });
+        Self { summands }
+    }
 }
 
 #[test]
 fn var_deps_sum_union_works() {
     fn t(
-        a: Vec<(&'static str, Vec<&'static str>)>,
-        b: Vec<(&'static str, Vec<&'static str>)>,
+        a: &[(&'static str, &[&'static str])],
+        b: &[(&'static str, &[&'static str])],
         a_str: &str,
         b_str: &str,
         expected: &str,
@@ -87,41 +108,48 @@ fn var_deps_sum_union_works() {
         assert_eq!(a.union(&b).to_string(), expected);
     }
 
-    t(vec![], vec![], "()", "()", "()");
-    t(vec![("a", vec![])], vec![], "(a)", "()", "(a)");
+    t(&[], &[], "()", "()", "()");
+    t(&[("a", &[])], &[], "(a)", "()", "(a)");
+    t(&[("a", &[])], &[("b", &[])], "(a)", "(b)", "(a, b)");
+    t(&[("a", &[])], &[("a", &[])], "(a)", "(a)", "(a)");
+    t(&[("a", &["s"])], &[("a", &[])], "(a[s])", "(a)", "(a)");
     t(
-        vec![("a", vec![])],
-        vec![("b", vec![])],
-        "(a)",
-        "(b)",
-        "(a, b)",
-    );
-    t(
-        vec![("a", vec![])],
-        vec![("a", vec![])],
-        "(a)",
-        "(a)",
-        "(a)",
-    );
-    t(
-        vec![("a", vec!["s"])],
-        vec![("a", vec![])],
-        "(a[s])",
-        "(a)",
-        "(a)",
-    );
-    t(
-        vec![("a", vec!["r", "s"])],
-        vec![("a", vec!["s", "t"])],
+        &[("a", &["r", "s"])],
+        &[("a", &["s", "t"])],
         "(a[r,s])",
         "(a[s,t])",
         "(a[s])",
     );
     t(
-        vec![("a", vec!["r", "s"]), ("b", vec!["r"])],
-        vec![("a", vec!["s", "t"])],
+        &[("a", &["r", "s"]), ("b", &["r"])],
+        &[("a", &["s", "t"])],
         "(a[r,s], b[r])",
         "(a[s,t])",
         "(a[s], b[r])",
+    );
+}
+
+#[test]
+fn var_deps_sum_excludes_works() {
+    fn t(
+        sum: &[(&'static str, &[&'static str])],
+        sum_str: &str,
+        excludes: &[&'static str],
+        expected: &str,
+    ) {
+        let sum: VarDepsSum0 = sum.into();
+        assert_eq!(sum.to_string(), sum_str);
+        assert_eq!(sum.exclude(excludes).to_string(), expected);
+    }
+
+    t(&[], "()", &[], "()");
+    t(&[], "()", &["r", "s", "t"], "()");
+    t(&[("a", &[])], "(a)", &["r", "s", "t"], "(a[r,s,t])");
+    t(&[("a", &["r"])], "(a[r])", &["s", "t"], "(a[r,s,t])");
+    t(
+        &[("a", &["r", "t"])],
+        "(a[r,t])",
+        &["r", "s", "t"],
+        "(a[r,s,t])",
     );
 }
