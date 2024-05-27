@@ -49,3 +49,79 @@ fn var_deps_sum_display_works() {
     t(vec![("a", vec![])], "(a)");
     t(vec![("a", vec!["s"])], "(a[s])");
 }
+
+impl<A, S> VarDepsSum<A, S>
+where
+    A: Copy + Ord + std::fmt::Debug,
+    S: Copy + Ord,
+{
+    pub fn union(&self, other: &Self) -> Self {
+        let mut summands = self.summands.clone();
+        for summand in &other.summands {
+            summands.insert_with_or_update(
+                summand.base,
+                || summand.clone(),
+                |existing_summand| {
+                    existing_summand.excludes =
+                        existing_summand.excludes.interset(&summand.excludes)
+                },
+            )
+        }
+        Self { summands }
+    }
+}
+
+#[test]
+fn var_deps_sum_union_works() {
+    fn t(
+        a: Vec<(&'static str, Vec<&'static str>)>,
+        b: Vec<(&'static str, Vec<&'static str>)>,
+        a_str: &str,
+        b_str: &str,
+        expected: &str,
+    ) {
+        let a: VarDepsSum0 = a.into();
+        let b: VarDepsSum0 = b.into();
+        assert_eq!(a.to_string(), a_str);
+        assert_eq!(b.to_string(), b_str);
+        assert_eq!(a.union(&b).to_string(), expected);
+    }
+
+    t(vec![], vec![], "()", "()", "()");
+    t(vec![("a", vec![])], vec![], "(a)", "()", "(a)");
+    t(
+        vec![("a", vec![])],
+        vec![("b", vec![])],
+        "(a)",
+        "(b)",
+        "(a, b)",
+    );
+    t(
+        vec![("a", vec![])],
+        vec![("a", vec![])],
+        "(a)",
+        "(a)",
+        "(a)",
+    );
+    t(
+        vec![("a", vec!["s"])],
+        vec![("a", vec![])],
+        "(a[s])",
+        "(a)",
+        "(a)",
+    );
+    t(
+        vec![("a", vec!["r", "s"])],
+        vec![("a", vec!["s", "t"])],
+        "(a[r,s])",
+        "(a[s,t])",
+        "(a[s])",
+    );
+    t(
+        vec![("a", vec!["r", "s"]), ("b", vec!["r"])],
+        vec![("a", vec!["s", "t"])],
+        "(a[r,s], b[r])",
+        "(a[s,t])",
+        "(a[s], b[r])",
+    );
+}

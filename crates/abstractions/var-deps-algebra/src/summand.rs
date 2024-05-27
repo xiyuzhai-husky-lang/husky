@@ -4,7 +4,7 @@ const EXCLUDES_N: usize = 4;
 const SUMMANDS_N: usize = 4;
 
 #[salsa::derive_debug_with_db]
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct VarDepsSummand<A, S> {
     pub base: A,
     pub excludes: OrderedSmallVecSet<S, EXCLUDES_N>,
@@ -35,7 +35,7 @@ where
         f.write_str("[")?;
         for (i, exclude) in self.excludes.iter().enumerate() {
             if i > 0 {
-                f.write_str(", ")?;
+                f.write_str(",")?;
             }
             exclude.fmt(f)?
         }
