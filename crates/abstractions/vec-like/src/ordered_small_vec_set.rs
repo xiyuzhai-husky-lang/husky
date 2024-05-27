@@ -170,11 +170,11 @@ where
         }
     }
 
-    pub fn extend(&mut self, other: &Self)
+    pub fn extend(&mut self, other: &[K])
     where
         K: Copy + Ord,
     {
-        for &element in &other.data {
+        for &element in other {
             self.insert(element)
         }
     }

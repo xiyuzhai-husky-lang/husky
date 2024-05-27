@@ -333,6 +333,27 @@ where
             self.insert(E::default_from_key(key))
         }
     }
+
+    /// `f` should preserve the key
+    #[inline(always)]
+    pub fn map_collect_on_entries<E2>(&self, f: impl Fn(&E) -> E2) -> OrderedSmallVecMap<E2, N>
+    where
+        K: Copy + Eq + std::fmt::Debug,
+        E2: AsVecMapEntry<K = K>,
+        [E2; N]: Array<Item = E2>,
+    {
+        OrderedSmallVecMap {
+            entries: self
+                .entries
+                .iter()
+                .map(|entry| {
+                    let mapped_entry = f(entry);
+                    debug_assert_eq!(entry.key(), mapped_entry.key());
+                    mapped_entry
+                })
+                .collect(),
+        }
+    }
 }
 
 impl<K, V, const N: usize> OrderedSmallVecPairMap<K, V, N>
