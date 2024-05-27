@@ -3,11 +3,13 @@ use super::*;
 const EXCLUDES_N: usize = 4;
 const SUMMANDS_N: usize = 4;
 
+pub type VarDepsExcludes<S> = OrderedSmallVecSet<S, EXCLUDES_N>;
+
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct VarDepsSummand<A, S> {
     pub base: A,
-    pub excludes: OrderedSmallVecSet<S, EXCLUDES_N>,
+    pub excludes: VarDepsExcludes<S>,
 }
 
 impl<A, S> From<(A, Vec<S>)> for VarDepsSummand<A, S>
