@@ -70,6 +70,19 @@ where
     }
 }
 
+impl<E, const N: usize> IntoIterator for OrderedSmallVecMap<E, N>
+where
+    [E; N]: Array<Item = E>,
+{
+    type Item = E;
+
+    type IntoIter = impl Iterator<Item = Self::Item>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.entries.into_iter()
+    }
+}
+
 #[test]
 fn ordered_small_vec_map_from_iter_works() {
     type Entry = (i32, i32);
@@ -109,16 +122,16 @@ where
     }
 }
 
-impl<E, const N: usize> IntoIterator for OrderedSmallVecMap<E, N>
+impl<'a, E, const N: usize> IntoIterator for &'a OrderedSmallVecMap<E, N>
 where
     [E; N]: Array<Item = E>,
 {
-    type Item = E;
+    type Item = &'a E;
 
-    type IntoIter = smallvec::IntoIter<[E; N]>;
+    type IntoIter = impl Iterator<Item = Self::Item>;
 
     fn into_iter(self) -> Self::IntoIter {
-        self.entries.into_iter()
+        (&self.entries).into_iter()
     }
 }
 
@@ -242,6 +255,24 @@ where
             Err(index) => self.entries.insert(index, new),
         }
     }
+
+    pub fn insert_with_or_update(
+        &mut self,
+        key: K,
+        new_entry: impl FnOnce() -> E,
+        update: impl FnOnce(&mut E),
+    ) where
+        K: Ord + Copy + std::fmt::Debug,
+    {
+        match self.entries.binary_search_by(|e| e.key().cmp(&key)) {
+            Ok(old) => {
+                update(&mut self.entries[old]);
+                debug_assert_eq!(self.entries[old].key(), key);
+            }
+            Err(index) => self.entries.insert(index, new_entry()),
+        }
+    }
+
     pub fn insert_from_ref(&mut self, new_entry: &E)
     where
         E: Clone,
