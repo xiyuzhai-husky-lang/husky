@@ -316,6 +316,13 @@ impl IsTrace for Trace {}
 
 #[salsa::tracked(jar = TraceJar, return_ref)]
 fn root_traces(db: &::salsa::Db, crate_path: CratePath) -> Vec<Trace> {
+    match crate_path.crate_kind(db) {
+        CrateKind::Lib | CrateKind::Main => (),
+        CrateKind::Task | CrateKind::Requirements => return vec![],
+        CrateKind::Bin(_) => todo!(),
+        CrateKind::IntegratedTest(_) => todo!(),
+        CrateKind::Example => todo!(),
+    }
     let root_module_path = crate_path.root_module_path(db);
     module_item_paths(db, root_module_path)
         .iter()
@@ -370,6 +377,13 @@ fn find_traces<R>(
     db: &::salsa::Db,
     f: impl Fn(Trace) -> R,
 ) -> Vec<(Trace, R)> {
+    match crate_path.crate_kind(db) {
+        CrateKind::Lib | CrateKind::Main => (),
+        CrateKind::Task | CrateKind::Requirements => return vec![],
+        CrateKind::Bin(_) => todo!(),
+        CrateKind::IntegratedTest(_) => todo!(),
+        CrateKind::Example => todo!(),
+    }
     let mut traces: Vec<(Trace, R)> = vec![];
     for &root_trace in root_traces(db, crate_path) {
         find_traces_aux(root_trace, max_depth - 1, &f, &mut traces, db)
