@@ -6,13 +6,13 @@ pub mod literal;
 pub mod ritchie;
 pub mod symbolic_variable;
 pub mod trai_constraint;
-pub mod ty_as_trai_item;
+pub mod trai_for_ty_item;
 
 use self::{
     abstraction::EthAbstraction, application::EthApplication, curry::EthCurry,
     lambda_variable::EthLambdaVariable, ritchie::EthRitchie,
     symbolic_variable::EthSymbolicVariable, trai_constraint::EthTraitConstraint,
-    ty_as_trai_item::EthTypeAsTraitItem,
+    trai_for_ty_item::EthTypeAsTraitItem,
 };
 use crate::{instantiation::*, term::application::TermFunctionReduced};
 use crate::{term::application::term_uncheck_from_dec_term_application_aux, *};
