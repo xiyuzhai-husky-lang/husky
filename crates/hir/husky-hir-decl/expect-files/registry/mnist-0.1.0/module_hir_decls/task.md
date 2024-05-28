@@ -41,6 +41,13 @@
             ),
         ),
     ),
+    HirDecl::Attr(
+        AttrHirDecl::Task(
+            TaskAttrHirDecl {
+                path: AttrItemPath(`mnist::task::MnistTask::@task(0)`),
+            },
+        ),
+    ),
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {

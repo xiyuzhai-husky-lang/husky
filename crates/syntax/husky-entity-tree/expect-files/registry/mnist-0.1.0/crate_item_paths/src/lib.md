@@ -225,6 +225,10 @@
             TypePath(`mnist::task::MnistTask`, `Extern`),
         ),
     ),
+    ItemPath::Attr(
+        Room32,
+        AttrItemPath(`mnist::task::MnistTask::@task(0)`),
+    ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(`mnist::task::MnistTask(0)`),

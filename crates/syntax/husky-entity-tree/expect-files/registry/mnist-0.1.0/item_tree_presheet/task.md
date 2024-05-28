@@ -23,11 +23,11 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 1,
+                        ast_idx: 2,
                         ident_token: IdentToken {
                             ident: `MnistTask`,
                             token_idx: TokenIdx(
-                                3,
+                                5,
                             ),
                         },
                         block: DefnBlock::Type {

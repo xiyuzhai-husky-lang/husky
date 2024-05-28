@@ -5,7 +5,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 2,
+                    raw: 3,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -23,13 +23,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `new`,
                     token_idx: TokenIdx(
-                        10,
+                        12,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        11,
+                        13,
                     ),
                     drained: false,
                 },
@@ -37,16 +37,23 @@ AstSheet {
                     body: None,
                 },
             },
-            AstData::Identifiable {
+            AstData::Attr {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
                     raw: 0,
+                },
+                ident: `task`,
+            },
+            AstData::Identifiable {
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: 1,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                1,
+                                3,
                             ),
                         },
                     },
@@ -61,13 +68,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `MnistTask`,
                     token_idx: TokenIdx(
-                        3,
+                        5,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        4,
+                        6,
                     ),
                     drained: false,
                 },
@@ -79,7 +86,7 @@ AstSheet {
             AstData::ImplBlock {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 1,
+                    raw: 2,
                 },
                 items: Some(
                     Type(
@@ -94,7 +101,7 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        1..3,
+        1..4,
     ),
     nested_top_level_asts: [],
     siblings: [
@@ -105,7 +112,7 @@ AstSheet {
             0..1,
         ),
         ArenaIdxRange(
-            1..3,
+            1..4,
         ),
     ],
 }

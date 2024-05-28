@@ -4,6 +4,8 @@ Ok(
         token_infos: [
             None,
             None,
+            None,
+            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,

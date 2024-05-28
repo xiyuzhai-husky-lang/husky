@@ -41,7 +41,7 @@ impl ItemSynNodeDecl {
             ItemSynNodeDecl::ImplBlock(slf) => Some(slf.syn_expr_region(db)),
             ItemSynNodeDecl::AssocItem(slf) => Some(slf.syn_expr_region(db)),
             ItemSynNodeDecl::TypeVariant(slf) => Some(slf.syn_expr_region(db)),
-            ItemSynNodeDecl::Attr(slf) => Some(slf.syn_expr_region(db)),
+            ItemSynNodeDecl::Attr(slf) => slf.syn_expr_region(db),
         }
     }
 

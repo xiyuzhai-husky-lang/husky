@@ -60,6 +60,7 @@ pub struct EthSignatureJar(
     // attr_eth_template,
     crate::signature::attr::derive::DeriveAttrEthTemplate,
     crate::signature::attr::derive::DeriveAttrShardEthTemplate,
+    crate::signature::attr::task::TaskAttrEthTemplate,
     // helpers
     crate::helpers::trai_for_ty::ty_side_impl_block_signature_templates_map,
     crate::helpers::trai_for_ty::trai_side_path_leading_trai_for_ty_impl_block_eth_templates_map,
