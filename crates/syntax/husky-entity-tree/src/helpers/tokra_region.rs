@@ -5,6 +5,7 @@ pub mod item_defn;
 pub use self::item_decl::*;
 pub use self::item_defn::*;
 
+use self::crate_decl::{CrateDeclTokraRegionDataRef, HasCrateDeclTokraRegion};
 use super::*;
 use husky_entity_path::region::RegionPath;
 use husky_regional_token::*;
@@ -21,8 +22,9 @@ use region_path::SynNodeRegionPath;
 #[derive(Debug, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum TokraRegionDataRef<'a> {
-    Decl(ItemDeclTokraRegionDataRef<'a>),
-    Defn(ItemDefnTokraRegionDataRef<'a>),
+    CrateDecl(CrateDeclTokraRegionDataRef<'a>),
+    ItemDecl(ItemDeclTokraRegionDataRef<'a>),
+    ItemDefn(ItemDefnTokraRegionDataRef<'a>),
 }
 
 impl<'a> std::ops::Index<RegionalTokenIdx> for TokraRegionDataRef<'a> {
@@ -30,8 +32,9 @@ impl<'a> std::ops::Index<RegionalTokenIdx> for TokraRegionDataRef<'a> {
 
     fn index(&self, index: RegionalTokenIdx) -> &Self::Output {
         match self {
-            TokraRegionDataRef::Decl(token_region) => &token_region[index],
-            TokraRegionDataRef::Defn(token_region) => &token_region[index],
+            TokraRegionDataRef::CrateDecl(slf) => &slf[index],
+            TokraRegionDataRef::ItemDecl(slf) => &slf[index],
+            TokraRegionDataRef::ItemDefn(slf) => &slf[index],
         }
     }
 }
@@ -47,7 +50,7 @@ impl SynNodeRegionPath {
 
     pub fn tokra_region_data_ref<'a>(self, db: &'a ::salsa::Db) -> Option<TokraRegionDataRef<'a>> {
         Some(match self {
-            SynNodeRegionPath::CrateDecl(_) => todo!(),
+            SynNodeRegionPath::CrateDecl(slf) => slf.decl_tokra_region(db)?.data(db).into(),
             SynNodeRegionPath::ItemDecl(slf) => slf.decl_tokra_region(db).data(db).into(),
             SynNodeRegionPath::ItemDefn(slf) => slf.defn_tokra_region(db)?.data(db).into(),
         })

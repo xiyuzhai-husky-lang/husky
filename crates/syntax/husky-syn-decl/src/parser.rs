@@ -70,17 +70,18 @@ pub(crate) struct CrateDeclParser<'db> {
 /// # constructor
 
 impl<'db> CrateDeclParser<'db> {
-    pub(crate) fn new(db: &'db ::salsa::Db, crate_path: CratePath) -> Self {
+    pub(crate) fn new(db: &'db ::salsa::Db, crate_path: CratePath) -> Option<Self> {
         let module_path = crate_path.root_module_path(db);
+        let tokra_region_data = crate_path.decl_tokra_region(db)?.data(db);
         let Ok(module_symbol_context) = db.module_symbol_context(module_path) else {
             unreachable!("expected valid module")
         };
-        Self {
+        Some(Self {
             db,
             crate_path,
             module_symbol_context,
-            tokra_region_data: crate_path.decl_tokra_region(db).data(db),
-        }
+            tokra_region_data,
+        })
     }
 }
 

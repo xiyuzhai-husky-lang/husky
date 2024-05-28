@@ -105,6 +105,8 @@ pub struct EntityTreeJar(
     crate::helpers::trai_side_derive_any_trai_for_ty_impl_block_paths_map,
     crate::helpers::trai_side_path_leading_trai_for_ty_impl_block_paths_map,
     crate::helpers::tokra_region::crate_decl::CrateDeclTokraRegion,
+    crate::helpers::tokra_region::crate_decl::CrateDeclTokraRegionSourceMap,
+    crate::helpers::tokra_region::crate_decl::crate_decl_tokra_region,
     crate::helpers::tokra_region::item_decl::ItemDeclTokraRegion,
     crate::helpers::tokra_region::item_decl::item_syn_node_decl_tokra_region_with_source_map,
     crate::helpers::tokra_region::item_defn::ItemDefnTokraRegion,

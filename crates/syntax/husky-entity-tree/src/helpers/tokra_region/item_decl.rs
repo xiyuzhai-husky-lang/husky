@@ -49,12 +49,12 @@ impl<'a> std::ops::Index<RegionalTokenIdx> for ItemDeclTokraRegionDataRef<'a> {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct DeclTokraRegionSourceMap {
+pub struct ItemDeclTokraRegionSourceMap {
     regional_token_idx_base: RegionalTokenIdxBase,
     ast_idx: AstIdx,
 }
 
-impl DeclTokraRegionSourceMap {
+impl ItemDeclTokraRegionSourceMap {
     pub fn regional_token_idx_base(&self) -> RegionalTokenIdxBase {
         self.regional_token_idx_base
     }
@@ -64,11 +64,11 @@ impl DeclTokraRegionSourceMap {
     }
 }
 
-fn build_decl_tokra_region(
+fn build_item_decl_tokra_region(
     module_path: ModulePath,
     opt_ast_idx: Option<AstIdx>,
     db: &::salsa::Db,
-) -> (ItemDeclTokraRegion, DeclTokraRegionSourceMap) {
+) -> (ItemDeclTokraRegion, ItemDeclTokraRegionSourceMap) {
     let token_sheet_data = db.token_sheet_data(module_path);
     let ast_sheet = module_path.ast_sheet(db);
     let Some(ast_idx) = opt_ast_idx else { todo!() };
@@ -118,7 +118,7 @@ fn build_decl_tokra_region(
     });
     let decl_tokra_region =
         ItemDeclTokraRegion::new_inner(db, tokens, saved_regional_stream_state, ast);
-    let decl_tokra_region_source_map = DeclTokraRegionSourceMap {
+    let decl_tokra_region_source_map = ItemDeclTokraRegionSourceMap {
         regional_token_idx_base,
         ast_idx,
     };
@@ -131,7 +131,7 @@ impl ItemSynNodePathId {
     }
 
     // use this only when necessary
-    pub fn decl_tokra_region_source_map(self, db: &::salsa::Db) -> DeclTokraRegionSourceMap {
+    pub fn decl_tokra_region_source_map(self, db: &::salsa::Db) -> ItemDeclTokraRegionSourceMap {
         item_syn_node_decl_tokra_region_with_source_map(db, self).1
     }
 
@@ -164,6 +164,6 @@ impl ItemSynNodePathId {
 fn item_syn_node_decl_tokra_region_with_source_map(
     db: &::salsa::Db,
     id: ItemSynNodePathId,
-) -> (ItemDeclTokraRegion, DeclTokraRegionSourceMap) {
-    build_decl_tokra_region(id.module_path(db), id.opt_ast_idx(db), db)
+) -> (ItemDeclTokraRegion, ItemDeclTokraRegionSourceMap) {
+    build_item_decl_tokra_region(id.module_path(db), id.opt_ast_idx(db), db)
 }
