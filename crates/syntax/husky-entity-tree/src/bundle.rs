@@ -1,12 +1,20 @@
-use crate::*;
+mod error;
+
+use crate::{
+    collector::EntityTreeCollector,
+    node::impl_block::{
+        ill_formed_impl_block::ImplBlockIllForm, ty_impl_block::TypeImplBlockSynNodePath,
+    },
+    *,
+};
 use husky_entity_path::path::{
     impl_block::{trai_for_ty_impl_block::TraitForTypeImplBlockPath, TypeSketch},
     major_item::{trai::TraitPath, ty::TypePath},
 };
+use husky_vfs::CratePath;
 use vec_like::VecMap;
-mod error;
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn item_tree_crate_bundle(
     db: &::salsa::Db,
     crate_path: CratePath,

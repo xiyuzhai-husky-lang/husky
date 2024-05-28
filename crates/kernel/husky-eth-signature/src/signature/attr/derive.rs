@@ -3,7 +3,7 @@ use husky_dec_signature::signature::attr::derive::{
     DeriveAttrDecTemplate, DeriveAttrShardDecTemplate,
 };
 use husky_entity_path::path::major_item::{trai::TraitPath, ty::TypePath};
-use husky_entity_tree::HasAttrPaths;
+use husky_entity_tree::node::attr::HasAttrPaths;
 use husky_term_prelude::TypeFinalDestinationExpectation;
 use vec_like::{OrderedSmallVecSet, SmallVecPairMap, VecMapGetEntry};
 

@@ -31,7 +31,7 @@ use husky_toml_ast::TomlAstJar;
     CorgiConfigAstJar,
     ManifestJar,
     husky_ast::jar::AstJar,
-    EntityTreeJar,
+    husky_entity_tree::jar::EntityTreeJar,
     SynDeclJar,
     SynDefnJar,
     SynExprJar,

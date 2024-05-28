@@ -1,14 +1,14 @@
 use super::*;
 use husky_entity_path::path::submodule::SubmoduleItemPath;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db]
 #[salsa::as_id]
 #[salsa::deref_id]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct SubmoduleSynNodePath(ItemSynNodePathId);
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct SubmoduleSynNodePathData {
     disambiguated_item_path: DisambiguatedItemPath<SubmoduleItemPath>,
 }

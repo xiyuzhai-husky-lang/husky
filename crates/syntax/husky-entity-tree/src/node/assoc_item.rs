@@ -3,12 +3,11 @@ pub mod trai_for_ty_item;
 pub mod trai_item;
 pub mod ty_item;
 
-pub use self::ill_formed_item::*;
-pub use self::trai_for_ty_item::*;
-pub use self::trai_item::*;
-pub use self::ty_item::*;
-
-use crate::*;
+use self::ill_formed_item::*;
+use self::trai_for_ty_item::*;
+use self::trai_item::*;
+use self::ty_item::*;
+use super::*;
 use husky_coword::IdentPairMap;
 use husky_entity_kind::*;
 use husky_entity_path::path::{assoc_item::AssocItemPath, ItemPath};

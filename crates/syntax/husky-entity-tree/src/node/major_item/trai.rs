@@ -1,4 +1,8 @@
 use super::*;
+use crate::node::{
+    assoc_item::trai_item::APPROXIMATE_UPPER_BOUND_ON_NUMBER_OF_TRAIT_ITEMS,
+    trai_item::{trai_item_syn_nodes, TraitItemSynNode, TraitItemSynNodePath},
+};
 use husky_entity_path::path::{assoc_item::trai_item::TraitItemPath, major_item::trai::TraitPath};
 use vec_like::SmallVecPairMap;
 
@@ -125,7 +129,7 @@ impl HasAssocItemPaths for TraitPath {
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn trai_item_paths(
     db: &::salsa::Db,
     path: TraitPath,

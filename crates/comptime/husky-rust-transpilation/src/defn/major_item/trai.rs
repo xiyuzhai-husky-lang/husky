@@ -1,6 +1,6 @@
 use super::*;
 use crate::builder::keyword::RustKeyword;
-use husky_entity_tree::HasAssocItemPaths;
+use husky_entity_tree::node::HasAssocItemPaths;
 use husky_hir_decl::decl::TraitHirDecl;
 use husky_hir_defn::defn::major_item::trai::TraitHirDefn;
 

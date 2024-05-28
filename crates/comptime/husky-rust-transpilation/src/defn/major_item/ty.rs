@@ -1,7 +1,7 @@
 use super::*;
 use crate::{defn::attr::Attrs, expr::site::HirEagerExprSite};
 use husky_coword::Ident;
-use husky_entity_tree::{HasAttrPaths, HasTypeVariantPaths};
+use husky_entity_tree::node::{attr::HasAttrPaths, ty_variant::HasTypeVariantPaths};
 use husky_hir_decl::decl::{
     HasHirDecl, PropsFieldHirInitialization, PropsStructFieldHirDecl, TupleFieldHirDecl,
     TypeVariantHirDecl,

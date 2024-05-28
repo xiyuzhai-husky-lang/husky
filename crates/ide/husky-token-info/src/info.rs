@@ -1,7 +1,11 @@
 use crate::*;
 use husky_entity_kind::EntityKind;
 use husky_entity_path::path::{EntityPath, PrincipalEntityPath};
-use husky_entity_tree::{OnceUseRuleIdx, UseExprIdx, UseOneRuleState};
+use husky_entity_tree::{
+    expr::r#use::UseExprIdx,
+    node::ItemSynNodePath,
+    presheet::{OnceUseRuleIdx, UseOneRuleState},
+};
 use husky_sem_expr::SemExprIdx;
 use husky_syn_expr::{
     entity_path::SynPrincipalEntityPathSynExprIdx, CurrentVariableIdx, CurrentVariableKind,

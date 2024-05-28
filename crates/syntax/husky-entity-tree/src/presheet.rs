@@ -7,11 +7,17 @@ pub use use_all_rule::*;
 
 pub(crate) use action::*;
 
-use crate::*;
+use crate::{
+    node::{
+        impl_block::{ImplBlockSynNode, ImplBlockSynNodePath},
+        ItemSynNodePathRegistry,
+    },
+    *,
+};
 use husky_token::{TokenDb, TokenSheetData};
 use vec_like::{AsVecMapEntry, VecPairMap};
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn item_tree_presheet(db: &::salsa::Db, module_path: ModulePath) -> EntityTreePresheet {
     EntityTreePresheetBuilder::new(db, module_path).build()
 }

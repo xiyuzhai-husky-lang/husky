@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_tree::node::attr::AttrSynNodePath;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new_inner)]
 pub struct MarkerAttrSynNodeDecl {

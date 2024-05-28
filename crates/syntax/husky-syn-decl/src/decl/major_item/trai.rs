@@ -1,5 +1,6 @@
 use super::*;
 use husky_entity_path::path::major_item::trai::TraitPath;
+use husky_entity_tree::node::major_item::trai::TraitSynNodePath;
 
 #[salsa::tracked]
 pub struct TraitSynNodeDecl {

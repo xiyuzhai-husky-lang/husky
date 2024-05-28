@@ -1,5 +1,9 @@
 use crate::*;
-use husky_entity_tree::{helpers::tokra_region::DeclTokraRegionDataRef, *};
+use husky_entity_tree::jar::EntityTreeDb;
+use husky_entity_tree::{
+    helpers::tokra_region::DeclTokraRegionDataRef, node::ItemSynNodePath,
+    region_path::SynNodeRegionPath, symbol::ModuleSymbolContext,
+};
 
 pub(crate) struct DeclParser<'a> {
     db: &'a ::salsa::Db,

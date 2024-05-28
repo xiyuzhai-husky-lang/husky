@@ -12,6 +12,7 @@ use self::method_ritchie::*;
 use super::*;
 use husky_entity_kind::TypeItemKind;
 use husky_entity_path::path::assoc_item::ty_item::TypeItemPath;
+use husky_entity_tree::node::assoc_item::ty_item::TypeItemSynNodePath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]

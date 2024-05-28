@@ -1,5 +1,8 @@
 use crate::*;
-use husky_entity_tree::node::script::ScriptSynNodePath;
+use husky_entity_tree::{
+    node::script::ScriptSynNodePath, prelude::PreludeResult, region_path::SynNodeRegionPath,
+    symbol::ModuleSymbolContext,
+};
 use husky_token::TokenDb;
 use husky_vfs::{script::Script, CratePath};
 
@@ -14,6 +17,7 @@ where
         Error = SynExprError,
     >,
 {
+    use husky_entity_tree::{region_path::SynNodeRegionPath, symbol::ModuleSymbolContext};
     use husky_vfs::{VfsDb, VfsTestUtilsDb};
     use parsec::IsStreamParser;
 

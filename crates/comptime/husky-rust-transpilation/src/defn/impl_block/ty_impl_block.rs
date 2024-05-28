@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_tree::HasAssocItemPaths;
+use husky_entity_tree::node::HasAssocItemPaths;
 use husky_hir_decl::decl::TypeImplBlockHirDecl;
 use husky_hir_defn::defn::impl_block::ty_impl_block::TypeImplBlockHirDefn;
 

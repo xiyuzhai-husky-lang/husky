@@ -15,6 +15,7 @@ use super::*;
 use crate::decl::major_item::form::r#static::MajorStaticSynNodeDecl;
 use husky_entity_kind::MajorFormKind;
 use husky_entity_path::path::major_item::form::MajorFormPath;
+use husky_entity_tree::node::major_item::form::FormSynNodePath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]

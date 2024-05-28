@@ -26,7 +26,7 @@ use salsa::snapshot::SnapshotClone;
     husky_toml_ast::TomlAstJar,
     husky_corgi_config_ast::CorgiConfigAstJar,
     husky_manifest_ast::jar::ManifestAstJar,
-    husky_entity_tree::EntityTreeJar,
+    husky_entity_tree::jar::EntityTreeJar,
     husky_syn_expr::jar::SynExprJar,
     husky_syn_decl::jar::SynDeclJar,
     husky_syn_defn::jar::SynDefnJar,

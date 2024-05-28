@@ -3,7 +3,7 @@ use crate::*;
 use husky_vfs::*;
 use vec_like::VecSet;
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn submodules(db: &::salsa::Db, module_path: ModulePath) -> Vec<SubmodulePath> {
     let ast_sheet = module_path.ast_sheet(db);
     ast_sheet
@@ -19,7 +19,7 @@ pub(crate) fn submodules(db: &::salsa::Db, module_path: ModulePath) -> Vec<Submo
 }
 
 /// all modules, must be included in module tree
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn all_modules_within_crate(
     db: &::salsa::Db,
     crate_path: CratePath,

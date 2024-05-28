@@ -1,11 +1,11 @@
+use super::*;
+use crate::node::trai_for_ty_item::{TraitForTypeItemSynNode, TraitForTypeItemSynNodePath};
 use husky_entity_kind::{AssocItemKind, EntityKind};
 use husky_entity_path::path::{
     assoc_item::trai_for_ty_item::TraitForTypeItemPath,
     impl_block::trai_for_ty_impl_block::TraitForTypeImplBlockPath, major_item::trai::TraitPath,
 };
 use vec_like::SmallVecPairMap;
-
-use super::*;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -83,7 +83,7 @@ impl TraitForTypeImplBlockSynNodePathData {
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn trai_for_ty_impl_block_items(
     db: &::salsa::Db,
     syn_node_path: TraitForTypeImplBlockSynNodePath,
@@ -242,7 +242,7 @@ impl HasAssocItemPaths for TraitForTypeImplBlockPath {
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn trai_for_ty_impl_block_item_paths(
     db: &::salsa::Db,
     path: TraitForTypeImplBlockPath,

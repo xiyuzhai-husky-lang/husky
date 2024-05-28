@@ -1,5 +1,7 @@
 use crate::*;
 use husky_entity_path::path::{impl_block::ImplBlockPath, ItemPath};
+use husky_entity_tree::jar::EntityTreeDb;
+use husky_entity_tree::node::{impl_block::ImplBlockSynNodePath, ItemSynNodePath};
 
 #[salsa::tracked(constructor = new)]
 pub struct SynNodeDeclSheet {

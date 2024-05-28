@@ -1,4 +1,4 @@
-use crate::{ParentUseExprData, *};
+use crate::*;
 use husky_coword::Ident;
 use husky_entity_path::path::{major_item::ty::TypePath, MajorEntityPath};
 use husky_token::{IdentToken, PathNameToken, SelfModToken};

@@ -4,7 +4,10 @@ mod stmt;
 pub use self::root::*;
 
 use crate::*;
-use husky_entity_tree::helpers::tokra_region::TokraRegionDataRef;
+use husky_entity_tree::{
+    helpers::tokra_region::TokraRegionDataRef, jar::EntityTreeDb, node::ItemSynNodePath,
+    region_path::SynNodeRegionPath, symbol::ModuleSymbolContext,
+};
 use husky_vfs::ModulePath;
 
 pub struct SynExprContext<'a> {

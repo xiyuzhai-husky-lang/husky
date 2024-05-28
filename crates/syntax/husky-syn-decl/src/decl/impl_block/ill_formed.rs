@@ -1,3 +1,5 @@
+use husky_entity_tree::node::impl_block::ill_formed_impl_block::IllFormedImplBlockSynNodePath;
+
 use super::*;
 
 #[salsa::tracked]

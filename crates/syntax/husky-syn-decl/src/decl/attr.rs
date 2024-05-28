@@ -15,6 +15,7 @@ use self::{
 use super::*;
 use husky_coword::coword_menu;
 use husky_entity_path::path::attr::AttrItemPath;
+use husky_entity_tree::node::attr::AttrSynNodePath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]

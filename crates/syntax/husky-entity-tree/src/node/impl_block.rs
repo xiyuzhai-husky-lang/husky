@@ -1,13 +1,11 @@
-mod ill_formed_impl_block;
-mod trai_for_ty_impl_block;
-mod ty_impl_block;
+pub mod ill_formed_impl_block;
+pub mod trai_for_ty_impl_block;
+pub mod ty_impl_block;
 
-pub use self::ill_formed_impl_block::*;
-pub use self::trai_for_ty_impl_block::*;
-pub use self::ty_impl_block::*;
-
-use crate::*;
-
+use self::ill_formed_impl_block::*;
+use self::trai_for_ty_impl_block::*;
+use self::ty_impl_block::*;
+use super::*;
 use husky_entity_path::path::{
     impl_block::{ImplBlockPath, ImplBlockRegistry, TypeSketch},
     major_item::MajorItemPath,
@@ -15,9 +13,7 @@ use husky_entity_path::path::{
 };
 use husky_token::ImplToken;
 use husky_token::*;
-
 use parsec::{HasStreamState, IsStreamParser};
-
 use thiserror::Error;
 
 #[salsa::derive_debug_with_db]

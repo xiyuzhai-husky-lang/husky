@@ -7,7 +7,7 @@ use husky_dec_signature::signature::{
     HasDecTemplate,
 };
 use husky_entity_path::path::impl_block::trai_for_ty_impl_block::TraitForTypeImplBlockPath;
-use husky_entity_tree::HasAssocItemPaths;
+use husky_entity_tree::node::HasAssocItemPaths;
 use husky_eth_term::term::symbolic_variable::EthSymbolicVariable;
 use husky_term_prelude::TypeFinalDestinationExpectation;
 use vec_like::VecMapGetEntry;
