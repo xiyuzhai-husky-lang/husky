@@ -30,7 +30,7 @@ impl ExternSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     // get declaration from tokens
     pub(super) fn parse_extern_ty_node_decl(
         &self,

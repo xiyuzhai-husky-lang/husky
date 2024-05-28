@@ -19,6 +19,12 @@ impl SynDeclDb for ::salsa::Db {
 #[salsa::jar]
 pub struct SynDeclJar(
     // decl
+    // - crate
+    crate::decl::crate_::crate_syn_node_decl,
+    crate::decl::crate_::lib::LibCrateSynNodeDecl,
+    crate::decl::crate_::main::MainCrateSynNodeDecl,
+    crate::decl::crate_::requirements::RequirementsCrateSynNodeDecl,
+    crate::decl::crate_::task::TaskCrateSynNodeDecl,
     // - submodule
     crate::decl::submodule::SubmoduleSynNodeDecl,
     crate::decl::submodule::submodule_syn_node_decl,

@@ -27,7 +27,7 @@ impl TypeMemoizedFieldSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     pub(super) fn parse_ty_memo_syn_node_decl(
         &self,
         syn_node_path: TypeItemSynNodePath,

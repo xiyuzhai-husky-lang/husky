@@ -49,7 +49,7 @@ pub fn instantiation_eth_term_fmt_context(
             .map(|&(symbol, name)| (EthSymbolicVariable::from_dec(db, symbol).expect("ok"), name)),
     )
     .expect("no repetitions");
-    EthTermFmtContext::new(db, RegionPath::Decl(path), symbol_names)
+    EthTermFmtContext::new(db, RegionPath::ItemDecl(path), symbol_names)
 }
 
 impl EthInstantiation {

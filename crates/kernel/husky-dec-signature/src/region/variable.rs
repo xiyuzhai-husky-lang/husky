@@ -251,7 +251,7 @@ impl DecSymbolicVariableRegion {
     ) {
         if symbol_region.allow_self_ty().to_bool() && self.self_ty.is_none() {
             self.self_ty = match region_path {
-                SynNodeRegionPath::Decl(ItemSynNodePath::MajorItem(
+                SynNodeRegionPath::ItemDecl(ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Trait(trai_path),
                 )) => Some(
                     self.add_trai_item_self_ty_symbol(
@@ -263,7 +263,7 @@ impl DecSymbolicVariableRegion {
                     )
                     .into(),
                 ),
-                SynNodeRegionPath::Decl(ItemSynNodePath::MajorItem(
+                SynNodeRegionPath::ItemDecl(ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Type(ty_node_path),
                 )) => Some(
                     self.ty_item_self_ty_term(
@@ -273,7 +273,7 @@ impl DecSymbolicVariableRegion {
                             .expect("should have valid item path"),
                     ),
                 ),
-                SynNodeRegionPath::Decl(ItemSynNodePath::ImplBlock(syn_node_path)) => {
+                SynNodeRegionPath::ItemDecl(ItemSynNodePath::ImplBlock(syn_node_path)) => {
                     match syn_node_path {
                         ImplBlockSynNodePath::TypeImplBlock(syn_node_path) => {
                             None // reserved for later stage

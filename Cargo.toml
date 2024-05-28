@@ -33,7 +33,9 @@ members = [
     "crates/vmir/*",
     "library/core",
     "registry/*",
-    "playground/learn-rusqlite", "playground/goodstein-rs"]
+    "playground/learn-rusqlite",
+    "playground/goodstein-rs"
+]
 resolver = "2"
 
 [workspace.package]
@@ -158,7 +160,12 @@ serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 serde_with = "3.4.0"
 # turn on "union" to guarantee the size of SmallVec is unaffected by dependencies
-smallvec = { version = "1.12", features = ["union", "serde", "const_generics", "may_dangle"] }
+smallvec = { version = "1.12", features = [
+    "union",
+    "serde",
+    "const_generics",
+    "may_dangle"
+] }
 stacker = "0.1.15"
 syn = { version = "2.0.38", features = ["full", "extra-traits", "visit-mut"] }
 tempfile = "3.2"
@@ -284,8 +291,8 @@ husky-sem-opr = { path = "crates/semantics/husky-sem-opr" }
 husky-sem-place-contract = { path = "crates/semantics/husky-sem-place-contract" }
 # syntax
 husky-ast = { path = "crates/syntax/husky-ast" }
-husky-decl-ast = { path = "crates/syntax/husky-decl-ast" }
-husky-defn-ast = { path = "crates/syntax/husky-defn-ast" }
+husky-item-decl-ast = { path = "crates/syntax/husky-item-decl-ast" }
+husky-item-defn-ast = { path = "crates/syntax/husky-item-defn-ast" }
 husky-scope-expr = { path = "crates/syntax/husky-scope-expr" }
 husky-syn-expr = { path = "crates/syntax/husky-syn-expr" }
 husky-syn-decl = { path = "crates/syntax/husky-syn-decl" }

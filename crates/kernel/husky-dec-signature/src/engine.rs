@@ -73,7 +73,8 @@ impl<'a> DecTermEngine<'a> {
     fn infer_all(mut self) -> SynExprDecTermRegion {
         // ad hoc, todo: make it clear what it means for defn and snippet region
         match self.path() {
-            SynNodeRegionPath::Decl(_) => {
+            SynNodeRegionPath::CrateDecl(_) => todo!(),
+            SynNodeRegionPath::ItemDecl(_) => {
                 self.infer_current_svar_terms();
                 self.symbolic_variable_region
                     .infer_self_ty_parameter_and_self_value_parameter(
@@ -84,7 +85,7 @@ impl<'a> DecTermEngine<'a> {
                     );
                 self.infer_expr_roots();
             }
-            SynNodeRegionPath::Defn(_) => (),
+            SynNodeRegionPath::ItemDefn(_) => (),
         };
         self.finish()
     }

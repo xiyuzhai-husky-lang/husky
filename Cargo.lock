@@ -4415,30 +4415,10 @@ name = "husky-decl"
 version = "0.1.0"
 
 [[package]]
-name = "husky-decl-ast"
-version = "0.1.0"
-dependencies = [
- "husky-ast",
- "husky-regional-token",
- "idx-arena",
- "salsa",
-]
-
-[[package]]
 name = "husky-decl-macro-utils"
 version = "0.1.0"
 dependencies = [
  "husky-path-utils",
-]
-
-[[package]]
-name = "husky-defn-ast"
-version = "0.1.0"
-dependencies = [
- "husky-ast",
- "husky-regional-token",
- "idx-arena",
- "salsa",
 ]
 
 [[package]]
@@ -4677,11 +4657,11 @@ dependencies = [
  "husky-corgi-config",
  "husky-corgi-config-ast",
  "husky-coword",
- "husky-decl-ast",
- "husky-defn-ast",
  "husky-entity-kind",
  "husky-entity-path",
  "husky-entity-tree",
+ "husky-item-decl-ast",
+ "husky-item-defn-ast",
  "husky-manifest",
  "husky-manifest-ast",
  "husky-opr",
@@ -5215,6 +5195,26 @@ dependencies = [
  "composite-pattern",
  "husky-print-utils",
  "relative-path",
+]
+
+[[package]]
+name = "husky-item-decl-ast"
+version = "0.1.0"
+dependencies = [
+ "husky-ast",
+ "husky-regional-token",
+ "idx-arena",
+ "salsa",
+]
+
+[[package]]
+name = "husky-item-defn-ast"
+version = "0.1.0"
+dependencies = [
+ "husky-ast",
+ "husky-regional-token",
+ "idx-arena",
+ "salsa",
 ]
 
 [[package]]
@@ -6078,10 +6078,10 @@ dependencies = [
  "husky-corgi-config",
  "husky-corgi-config-ast",
  "husky-coword",
- "husky-decl-ast",
  "husky-entity-kind",
  "husky-entity-path",
  "husky-entity-tree",
+ "husky-item-decl-ast",
  "husky-iter-utils",
  "husky-manifest",
  "husky-manifest-ast",
@@ -6146,13 +6146,13 @@ dependencies = [
  "husky-corgi-config",
  "husky-corgi-config-ast",
  "husky-coword",
- "husky-decl-ast",
- "husky-defn-ast",
  "husky-entity-kind",
  "husky-entity-path",
  "husky-entity-tree",
  "husky-expect-test-snippets-utils",
  "husky-expr",
+ "husky-item-decl-ast",
+ "husky-item-defn-ast",
  "husky-manifest",
  "husky-manifest-ast",
  "husky-opr",
@@ -6463,8 +6463,6 @@ dependencies = [
  "husky-dec-signature",
  "husky-dec-term",
  "husky-dec-ty",
- "husky-decl-ast",
- "husky-defn-ast",
  "husky-entity-kind",
  "husky-entity-path",
  "husky-entity-protocol",
@@ -6472,6 +6470,8 @@ dependencies = [
  "husky-eth-signature",
  "husky-eth-term",
  "husky-fly-term",
+ "husky-item-decl-ast",
+ "husky-item-defn-ast",
  "husky-manifest",
  "husky-manifest-ast",
  "husky-print-utils",

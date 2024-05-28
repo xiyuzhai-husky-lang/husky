@@ -1,8 +1,9 @@
-pub mod decl;
-pub mod defn;
+pub mod crate_decl;
+pub mod item_decl;
+pub mod item_defn;
 
-pub use self::decl::*;
-pub use self::defn::*;
+pub use self::item_decl::*;
+pub use self::item_defn::*;
 
 use super::*;
 use husky_entity_path::region::RegionPath;
@@ -20,8 +21,8 @@ use region_path::SynNodeRegionPath;
 #[derive(Debug, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum TokraRegionDataRef<'a> {
-    Decl(DeclTokraRegionDataRef<'a>),
-    Defn(DefnTokraRegionDataRef<'a>),
+    Decl(ItemDeclTokraRegionDataRef<'a>),
+    Defn(ItemDefnTokraRegionDataRef<'a>),
 }
 
 impl<'a> std::ops::Index<RegionalTokenIdx> for TokraRegionDataRef<'a> {
@@ -38,15 +39,17 @@ impl<'a> std::ops::Index<RegionalTokenIdx> for TokraRegionDataRef<'a> {
 impl SynNodeRegionPath {
     pub fn regional_token_idx_base(self, db: &::salsa::Db) -> Option<RegionalTokenIdxBase> {
         match self {
-            SynNodeRegionPath::Decl(slf) => Some(slf.decl_regional_token_idx_base(db)),
-            SynNodeRegionPath::Defn(slf) => slf.defn_regional_token_idx_base(db),
+            SynNodeRegionPath::CrateDecl(_) => todo!(),
+            SynNodeRegionPath::ItemDecl(slf) => Some(slf.decl_regional_token_idx_base(db)),
+            SynNodeRegionPath::ItemDefn(slf) => slf.defn_regional_token_idx_base(db),
         }
     }
 
     pub fn tokra_region_data_ref<'a>(self, db: &'a ::salsa::Db) -> Option<TokraRegionDataRef<'a>> {
         Some(match self {
-            SynNodeRegionPath::Decl(slf) => slf.decl_tokra_region(db).data(db).into(),
-            SynNodeRegionPath::Defn(slf) => slf.defn_tokra_region(db)?.data(db).into(),
+            SynNodeRegionPath::CrateDecl(_) => todo!(),
+            SynNodeRegionPath::ItemDecl(slf) => slf.decl_tokra_region(db).data(db).into(),
+            SynNodeRegionPath::ItemDefn(slf) => slf.defn_tokra_region(db)?.data(db).into(),
         })
     }
 }
@@ -58,9 +61,12 @@ pub trait HasRegionalTokenIdxBase {
 impl HasRegionalTokenIdxBase for RegionPath {
     fn regional_token_idx_base(self, db: &salsa::Db) -> Option<RegionalTokenIdxBase> {
         match self {
-            RegionPath::Snippet(_) => Some(RegionalTokenIdxBase::new_snippet()),
-            RegionPath::Decl(slf) => Some(slf.syn_node_path(db).decl_regional_token_idx_base(db)),
-            RegionPath::Defn(slf) => slf.syn_node_path(db).defn_regional_token_idx_base(db),
+            RegionPath::CrateDecl(_) => todo!(),
+            RegionPath::ItemDecl(slf) => {
+                Some(slf.syn_node_path(db).decl_regional_token_idx_base(db))
+            }
+            RegionPath::ItemDefn(slf) => slf.syn_node_path(db).defn_regional_token_idx_base(db),
+            RegionPath::Script(_) => Some(RegionalTokenIdxBase::new_snippet()),
         }
     }
 }

@@ -1,5 +1,7 @@
 pub mod assoc_item;
 pub mod attr;
+#[path = "decl/crate.rs"]
+pub mod crate_;
 pub mod impl_block;
 pub mod major_item;
 pub mod submodule;
@@ -21,9 +23,9 @@ use husky_token_data::{TokenData, TokenDataResult};
 type SmallVecImpl<T> = smallvec::SmallVec<[T; 2]>;
 
 /// A `NodeDecl` is a tolerant information-preserving declaration
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum ItemSynNodeDecl {
     Submodule(SubmoduleSynNodeDecl),
     MajorItem(MajorItemSynNodeDecl),

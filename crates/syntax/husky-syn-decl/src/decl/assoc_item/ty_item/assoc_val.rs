@@ -20,7 +20,7 @@ impl TypeAssocValSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a> {}
+impl<'a> ItemDeclParser<'a> {}
 
 #[salsa::tracked]
 pub struct TypeAssocValSynDecl {

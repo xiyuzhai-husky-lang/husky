@@ -164,8 +164,9 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             sem_expr_region_data: db.sem_expr_region(syn_expr_region).data(db),
             syn_expr_region: syn_expr_region.into(),
             regional_token_idx_base: match syn_expr_region_data.path() {
-                SynNodeRegionPath::Decl(path) => path.decl_regional_token_idx_base(db),
-                SynNodeRegionPath::Defn(path) => {
+                SynNodeRegionPath::CrateDecl(_) => todo!(),
+                SynNodeRegionPath::ItemDecl(path) => path.decl_regional_token_idx_base(db),
+                SynNodeRegionPath::ItemDefn(path) => {
                     path.defn_regional_token_idx_base(db).expect("todo")
                 }
             },

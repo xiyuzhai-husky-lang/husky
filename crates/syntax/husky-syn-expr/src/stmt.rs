@@ -8,7 +8,7 @@ pub use self::loop_stmt::*;
 pub use self::match_stmt::*;
 
 use crate::*;
-use husky_defn_ast::{DefnAst, DefnAstIdx, DefnAstIdxRange};
+use husky_item_defn_ast::{ItemDefnAst, ItemDefnAstIdx, ItemDefnAstIdxRange};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use parsec::IsStreamParser;
 
@@ -95,7 +95,7 @@ pub type SynStmtIdxRange = ArenaIdxRange<SynStmtData>;
 pub type SynStmtMap<V> = ArenaMap<SynStmtData, V>;
 
 impl<'a> SynExprContext<'a> {
-    pub(crate) fn parse_stmts(&mut self, body: DefnAstIdxRange) -> SynStmtIdxRange {
+    pub(crate) fn parse_stmts(&mut self, body: ItemDefnAstIdxRange) -> SynStmtIdxRange {
         let block_end = self.form_body_end(body);
         let stmts = body
             .into_iter()
@@ -104,7 +104,7 @@ impl<'a> SynExprContext<'a> {
         self.alloc_stmts(stmts)
     }
 
-    pub fn parse_block_expr(&mut self, body: DefnAstIdxRange) -> SynExprIdx {
+    pub fn parse_block_expr(&mut self, body: ItemDefnAstIdxRange) -> SynExprIdx {
         let stmts = self.parse_stmts(body);
         let expr = self.alloc_expr(SynExprData::Block { stmts });
         self.add_expr_root(SynExprRootKind::BlockExpr, expr);
@@ -113,15 +113,15 @@ impl<'a> SynExprContext<'a> {
 
     fn parse_stmt(
         &mut self,
-        ast_idx: DefnAstIdx,
+        ast_idx: ItemDefnAstIdx,
         block_end: RegionalTokenIdxRangeEnd,
     ) -> SynStmtData {
         match self.defn_tokra_region_data()[ast_idx] {
-            DefnAst::BasicStmtOrBranch {
+            ItemDefnAst::BasicStmtOrBranch {
                 regional_token_verse_idx: token_verse_idx,
                 body,
             } => self.parse_basic_stmt(token_verse_idx, block_end, body),
-            DefnAst::IfElseStmts {
+            ItemDefnAst::IfElseStmts {
                 if_branch,
                 elif_branches,
                 else_branch,
@@ -130,7 +130,7 @@ impl<'a> SynExprContext<'a> {
                 elif_branches: self.parse_elif_branches(elif_branches),
                 else_branch: self.parse_else_branch(else_branch),
             },
-            DefnAst::MatchStmt {
+            ItemDefnAst::MatchStmt {
                 regional_token_verse_idx,
                 case_branches,
                 ..
@@ -147,7 +147,7 @@ impl<'a> SynExprContext<'a> {
                     case_branches: self.parse_case_branches(case_branches),
                 }
             }
-            DefnAst::Err => todo!(),
+            ItemDefnAst::Err => todo!(),
         }
     }
 
@@ -155,7 +155,7 @@ impl<'a> SynExprContext<'a> {
         &mut self,
         token_verse_idx: RegionalTokenVerseIdx,
         block_end: RegionalTokenIdxRangeEnd,
-        body: Option<DefnAstIdxRange>,
+        body: Option<ItemDefnAstIdxRange>,
     ) -> SynStmtData {
         let mut parser = self.token_verse_expr_parser(token_verse_idx);
         match parser.try_parse_option::<BasicStmtKeywordRegionalToken>() {
