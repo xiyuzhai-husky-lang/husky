@@ -7,18 +7,6 @@
                 TypeVariantPath(
                     ItemPathId(
                         Id {
-                            value: 2,
-                        },
-                    ),
-                ),
-                Ok(
-                    DecTerm(`mnist::MnistLabel`),
-                ),
-            ),
-            (
-                TypeVariantPath(
-                    ItemPathId(
-                        Id {
                             value: 3,
                         },
                     ),
@@ -116,6 +104,18 @@
                     ItemPathId(
                         Id {
                             value: 11,
+                        },
+                    ),
+                ),
+                Ok(
+                    DecTerm(`mnist::MnistLabel`),
+                ),
+            ),
+            (
+                TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 12,
                         },
                     ),
                 ),

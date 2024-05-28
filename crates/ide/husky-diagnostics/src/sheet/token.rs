@@ -46,10 +46,13 @@ impl Diagnose for (&TextRange, &TokenDataError) {
             TokenDataError::InvalidFloatSuffix => format!("Syntax Error: invalid float suffix"),
             TokenDataError::InvalidIdent => format!("Syntax Error: invalid identifier"),
             TokenDataError::NothingAfterSingleQuote => format!("Syntax Error: nothing after `'`"),
-            TokenDataError::InvalidLabel => format!("Syntax Error: InvalidLabel"),
+            TokenDataError::InvalidLabel => format!("Syntax Error: invalid label"),
             TokenDataError::NewLineAfterSingleQuote => todo!(),
             TokenDataError::NoNegativeForLiteral(_) => todo!(),
-            TokenDataError::MissingLcurl => todo!(),
+            TokenDataError::RcurlMissingMatchingLcurl => {
+                format!("Syntax Error: `{{` missing matching `}}`")
+            }
+            TokenDataError::ExpectedKeywordAfterAssoc => format!("expected keyword after `assoc`"),
         }
     }
 

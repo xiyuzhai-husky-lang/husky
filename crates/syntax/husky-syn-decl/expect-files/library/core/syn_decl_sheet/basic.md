@@ -10,7 +10,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::basic::bool`, `Extern`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
@@ -92,7 +92,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::basic::never`, `Extern`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
@@ -174,7 +174,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::basic::unit`, `Extern`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
@@ -256,7 +256,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::basic::Trait`, `Extern`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
@@ -338,7 +338,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::basic::Module`, `Extern`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
@@ -420,7 +420,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::basic::Lifetime`, `Extern`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
@@ -502,7 +502,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::basic::Place`, `Extern`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
@@ -584,7 +584,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::basic::Universe`, `Extern`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {

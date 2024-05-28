@@ -9,7 +9,7 @@ use crate::FlyLifetime;
 /// `PlaceQual` qualifies the place of a base type `T`
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum FlyQuary {
-    Const,
+    Compterm,
     /// reduce to
     /// - ImmutableOnStack if base type is known to be copyable
     /// - ImmutableReferenced if base type is known to be noncopyable
@@ -100,12 +100,12 @@ pub type FlyPlaceResult<T> = Result<T, FlyPlaceError>;
 impl FlyQuary {
     pub(crate) fn bind(&self, contract: Contract) -> FlyPlaceResult<()> {
         match (contract, self) {
-            (Contract::Const, FlyQuary::Const) => Ok(()),
-            (Contract::Const, _) => Err(FlyPlaceError::CannotConvertToConst),
+            (Contract::Compterm, FlyQuary::Compterm) => Ok(()),
+            (Contract::Compterm, _) => Err(FlyPlaceError::CannotConvertToConst),
             (Contract::Leash, FlyQuary::Leashed { .. }) => Ok(()),
             (Contract::Leash, _) => todo!("error"),
             (Contract::Pure, _) => Ok(()),
-            (Contract::Move, FlyQuary::Const) => Ok(()),
+            (Contract::Move, FlyQuary::Compterm) => Ok(()),
             (Contract::Move, FlyQuary::StackPure { place }) => Ok(()),
             (Contract::Move, FlyQuary::ImmutableOnStack { place }) => Ok(()),
             (Contract::Move, FlyQuary::MutableOnStack { place }) => Ok(()),
@@ -114,7 +114,7 @@ impl FlyQuary {
             (Contract::Move, FlyQuary::RefMut { .. }) => todo!(),
             (Contract::Move, FlyQuary::Leashed { .. }) => Ok(()),
             (Contract::Move, FlyQuary::Todo) => todo!(),
-            (Contract::Borrow, FlyQuary::Const) => todo!(),
+            (Contract::Borrow, FlyQuary::Compterm) => todo!(),
             (Contract::Borrow, FlyQuary::StackPure { place }) => todo!(),
             (Contract::Borrow, FlyQuary::ImmutableOnStack { place }) => todo!(),
             (Contract::Borrow, FlyQuary::MutableOnStack { place }) => todo!(),
@@ -123,7 +123,7 @@ impl FlyQuary {
             (Contract::Borrow, FlyQuary::RefMut { .. }) => todo!(),
             (Contract::Borrow, FlyQuary::Leashed { .. }) => todo!(),
             (Contract::Borrow, FlyQuary::Todo) => todo!(),
-            (Contract::BorrowMut, FlyQuary::Const) => todo!(),
+            (Contract::BorrowMut, FlyQuary::Compterm) => todo!(),
             (Contract::BorrowMut, FlyQuary::StackPure { place }) => todo!(),
             (Contract::BorrowMut, FlyQuary::ImmutableOnStack { place }) => todo!(),
             (Contract::BorrowMut, FlyQuary::MutableOnStack { place }) => todo!(),
@@ -132,7 +132,7 @@ impl FlyQuary {
             (Contract::BorrowMut, FlyQuary::RefMut { .. }) => Ok(()),
             (Contract::BorrowMut, FlyQuary::Leashed { .. }) => todo!(),
             (Contract::BorrowMut, FlyQuary::Todo) => todo!(),
-            (Contract::At, FlyQuary::Const) => todo!(),
+            (Contract::At, FlyQuary::Compterm) => todo!(),
             (Contract::At, FlyQuary::StackPure { place }) => todo!(),
             (Contract::At, FlyQuary::ImmutableOnStack { place }) => todo!(),
             (Contract::At, FlyQuary::MutableOnStack { place }) => todo!(),
@@ -156,7 +156,7 @@ impl FlyQuary {
             | FlyQuary::Ref { guard: Left(place) }
             | FlyQuary::RefMut { place, .. } => Some(place),
             FlyQuary::EtherealSymbol(svar) => Some(svar.into()),
-            FlyQuary::Const
+            FlyQuary::Compterm
             | FlyQuary::Transient
             | FlyQuary::Leashed { .. }
             | FlyQuary::Todo

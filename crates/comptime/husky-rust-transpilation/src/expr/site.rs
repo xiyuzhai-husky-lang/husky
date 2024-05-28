@@ -61,7 +61,7 @@ impl HirEagerExprSite {
             HirContract::Move => Default::default(),
             HirContract::Borrow => RustBinding::Reref.into(),
             HirContract::BorrowMut => RustBinding::RerefMut.into(),
-            HirContract::Const => todo!(),
+            HirContract::Compterm => todo!(),
             HirContract::Leash => todo!(),
             HirContract::At => todo!(),
         };
@@ -103,7 +103,7 @@ impl HirEagerExprSite {
         let rust_bindings: RustBindings = match initial_value_entry.quary() {
             HirQuary::Transient => Default::default(),
             _ => match contract {
-                HirContract::Pure | HirContract::Const | HirContract::Leash
+                HirContract::Pure | HirContract::Compterm | HirContract::Leash
                     if !initial_value_entry.is_always_copyable() =>
                 {
                     RustBinding::Reref.into()

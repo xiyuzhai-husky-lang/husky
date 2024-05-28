@@ -54,7 +54,7 @@ impl FlyIndirection {
     fn act(self, initial_place: FlyQuary) -> FlyQuary {
         match self {
             FlyIndirection::QualifiedPlace(qualified_place) => match qualified_place {
-                FlyQuary::Const => todo!(),
+                FlyQuary::Compterm => todo!(),
                 FlyQuary::StackPure { .. } => todo!(),
                 FlyQuary::ImmutableOnStack { .. } => todo!(),
                 FlyQuary::MutableOnStack { .. } => todo!(),

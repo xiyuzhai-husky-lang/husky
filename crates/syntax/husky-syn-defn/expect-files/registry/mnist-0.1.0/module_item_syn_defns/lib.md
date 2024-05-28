@@ -1,22 +1,22 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist::MnistLabel`, `Enum`),
+        ItemPath::Submodule(
+            Room32,
+            SubmoduleItemPath(
+                ItemPathId(
+                    Id {
+                        value: 1,
+                    },
+                ),
             ),
         ),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 2,
-                    },
-                ),
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`mnist::MnistLabel`, `Enum`),
             ),
         ),
         None,
@@ -132,6 +132,19 @@
                 ItemPathId(
                     Id {
                         value: 11,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 12,
                     },
                 ),
             ),

@@ -2,10 +2,9 @@ pub mod form;
 pub mod trai;
 pub mod ty;
 
-pub use self::form::*;
-pub use self::trai::*;
-pub use self::ty::*;
-
+use self::form::*;
+use self::trai::*;
+use self::ty::*;
 use super::*;
 use husky_entity_path::path::major_item::MajorItemPath;
 

@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::decl::backprop::BackpropAttrSynDecl;
+use husky_syn_decl::decl::attr::backprop::BackpropAttrSynDecl;
 
 #[salsa::interned]
 pub struct BackpropAttrHirDecl {

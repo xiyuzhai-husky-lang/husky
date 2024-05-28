@@ -1,4 +1,5 @@
 use crate::*;
+use husky_syn_decl::decl::major_item::form::ty_alias::TypeAliasSynDecl;
 
 #[salsa::interned]
 pub struct TypeAliasDecTemplate {

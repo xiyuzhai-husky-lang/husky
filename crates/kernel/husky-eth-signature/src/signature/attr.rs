@@ -1,6 +1,8 @@
 pub mod derive;
+pub mod task;
 
 use self::derive::*;
+use self::task::*;
 use super::*;
 use husky_dec_signature::signature::attr::AttrDecTemplate;
 use husky_entity_path::path::attr::AttrItemPath;
@@ -11,7 +13,8 @@ use husky_entity_path::path::attr::AttrItemPath;
 #[non_exhaustive]
 pub enum AttrEthTemplate {
     Derive(DeriveAttrEthTemplate),
-    Effect,
+    Affect,
+    Task(TaskAttrEthTemplate),
 }
 
 impl HasEthTemplate for AttrItemPath {
@@ -22,7 +25,7 @@ impl HasEthTemplate for AttrItemPath {
     }
 }
 
-// #[salsa::tracked]
+#[salsa::tracked]
 fn attr_eth_template(
     db: &::salsa::Db,
     path: AttrItemPath,
@@ -30,6 +33,9 @@ fn attr_eth_template(
     match path.dec_template(db)? {
         AttrDecTemplate::Derive(dec_template) => {
             DeriveAttrEthTemplate::from_dec(db, dec_template).map(Into::into)
+        }
+        AttrDecTemplate::Task(dec_template) => {
+            TaskAttrEthTemplate::from_dec(db, dec_template).map(Into::into)
         }
     }
 }

@@ -1,5 +1,5 @@
 use super::*;
-use husky_hir_decl::decl::MajorValHirDecl;
+use husky_hir_decl::decl::val::MajorValHirDecl;
 use husky_hir_expr::helpers::hir_body_with_expr_region;
 
 #[salsa::interned(constructor = new_inner)]

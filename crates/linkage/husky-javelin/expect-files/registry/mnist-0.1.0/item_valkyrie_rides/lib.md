@@ -1,6 +1,19 @@
 ```rust
 [
     (
+        ItemPath::Submodule(
+            Room32,
+            SubmoduleItemPath(
+                ItemPathId(
+                    Id {
+                        value: 1,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::MajorItem(
             MajorItemPath::Type(
                 TypePath(`mnist::MnistLabel`, `Enum`),
@@ -13,24 +26,6 @@
                         [],
                     ),
                 ),
-                rides: [],
-            },
-        ),
-    ),
-    (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 2,
-                    },
-                ),
-            ),
-        ),
-        Some(
-            ValkyrieRides {
-                hir_template_parameters: None,
                 rides: [],
             },
         ),
@@ -186,6 +181,24 @@
                 ItemPathId(
                     Id {
                         value: 11,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [],
+            },
+        ),
+    ),
+    (
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 12,
                     },
                 ),
             ),

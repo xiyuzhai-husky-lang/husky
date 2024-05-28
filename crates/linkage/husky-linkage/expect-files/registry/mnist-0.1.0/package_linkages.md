@@ -14,44 +14,6 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 2,
-                    },
-                ),
-            ),
-            instantiation: LinInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::EnumVariantDiscriminator {
-            self_ty: LinTypePathLeading {
-                ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                template_arguments: [],
-            },
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 2,
-                    },
-                ),
-            ),
-            instantiation: LinInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::EnumVariantConstructor {
-            self_ty: LinTypePathLeading {
-                ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                template_arguments: [],
-            },
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
                         value: 3,
                     },
                 ),
@@ -376,6 +338,44 @@
                 ItemPathId(
                     Id {
                         value: 11,
+                    },
+                ),
+            ),
+            instantiation: LinInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::EnumVariantConstructor {
+            self_ty: LinTypePathLeading {
+                ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                template_arguments: [],
+            },
+            path: TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 12,
+                    },
+                ),
+            ),
+            instantiation: LinInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::EnumVariantDiscriminator {
+            self_ty: LinTypePathLeading {
+                ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                template_arguments: [],
+            },
+            path: TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 12,
                     },
                 ),
             ),
@@ -417,6 +417,24 @@
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist::BinaryGrid28(0)::new_zeros`,
+                    TypeItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
+            ),
+            instantiation: LinInstantiation {
+                symbol_resolutions: [],
+                separator: Some(
+                    0,
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::AssocRitchie {
+            path: AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `mnist::task::MnistTask(0)::new`,
                     TypeItemKind::AssocRitchie(
                         RitchieItemKind::Fn,
                     ),

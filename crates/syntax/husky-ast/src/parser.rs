@@ -148,7 +148,7 @@ impl<'a> AstParser<'a> {
                         // however, type impl block should always have items
                         Some(
                             self.try_parse_expected::<TypeItems, _>(
-                                OriginalAstError::ExpectedTypeItems,
+                                OriginalAstError::EmptyImplBlock,
                             )?
                             .into(),
                         )

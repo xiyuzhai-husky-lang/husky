@@ -102,5 +102,25 @@
             },
         },
     ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::TypeItem(
+                    TypeItemPath(
+                        `mnist::task::MnistTask(0)::new`,
+                        TypeItemKind::AssocRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
+                ),
+                instantiation: JavInstantiation {
+                    symbol_resolutions: [],
+                    separator: Some(
+                        0,
+                    ),
+                },
+            },
+        },
+    ),
 ]
 ```

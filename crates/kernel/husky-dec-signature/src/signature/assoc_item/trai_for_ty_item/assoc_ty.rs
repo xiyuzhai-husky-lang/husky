@@ -1,5 +1,6 @@
 use super::*;
 use husky_entity_path::path::assoc_item::trai_for_ty_item::TraitForTypeItemPath;
+use husky_syn_decl::decl::assoc_item::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeSynDecl;
 
 #[salsa::interned]
 pub struct TraitForTypeAssocTypeDecTemplate {

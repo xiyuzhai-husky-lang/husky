@@ -155,7 +155,7 @@
                                         current_variable_arena: Arena {
                                             data: [
                                                 CurrentVariableEntry {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -528,7 +528,7 @@
                             inherited_syn_symbol_arena: Arena {
                                 data: [
                                     InheritedVariable {
-                                        modifier: Const,
+                                        modifier: Compterm,
                                         kind: InheritedVariableKind::Template(
                                             InheritedTemplateVariable::Type {
                                                 ident: `T`,
@@ -846,7 +846,7 @@
                                         current_variable_arena: Arena {
                                             data: [
                                                 CurrentVariableEntry {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
@@ -1477,7 +1477,7 @@
                             inherited_syn_symbol_arena: Arena {
                                 data: [
                                     InheritedVariable {
-                                        modifier: Const,
+                                        modifier: Compterm,
                                         kind: InheritedVariableKind::Template(
                                             InheritedTemplateVariable::Type {
                                                 ident: `T`,
@@ -1836,7 +1836,7 @@
                                         current_variable_arena: Arena {
                                             data: [
                                                 CurrentVariableEntry {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
@@ -3138,7 +3138,7 @@
                             inherited_syn_symbol_arena: Arena {
                                 data: [
                                     InheritedVariable {
-                                        modifier: Const,
+                                        modifier: Compterm,
                                         kind: InheritedVariableKind::Template(
                                             InheritedTemplateVariable::Type {
                                                 ident: `T`,

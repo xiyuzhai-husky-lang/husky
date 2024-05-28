@@ -310,7 +310,7 @@ pub enum TemplateSymbolSynAttr {
 impl CurrentVariableData {
     fn modifier(&self, pattern_expr_region: &SynPatternRegion) -> VariableModifier {
         match self {
-            CurrentVariableData::TemplateParameter { .. } => VariableModifier::Const,
+            CurrentVariableData::TemplateParameter { .. } => VariableModifier::Compterm,
             CurrentVariableData::SimpleParenateParameter {
                 pattern_variable_idx,
                 ..
@@ -336,7 +336,7 @@ impl CurrentVariableData {
                 ..
             } => VariableModifier::new(*symbol_modifier_keyword_group),
             CurrentVariableData::LoopVariable { .. } => VariableModifier::Pure,
-            CurrentVariableData::SelfType => VariableModifier::Const,
+            CurrentVariableData::SelfType => VariableModifier::Compterm,
             CurrentVariableData::SelfValue {
                 symbol_modifier_keyword_group,
             } => VariableModifier::new(*symbol_modifier_keyword_group),

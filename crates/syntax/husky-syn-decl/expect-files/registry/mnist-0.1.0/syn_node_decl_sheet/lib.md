@@ -2,6 +2,51 @@
 SynNodeDeclSheet {
     decls: [
         (
+            ItemSynNodePath::Submodule(
+                Room32,
+                SubmoduleSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::Submodule(
+                            SubmoduleSynNodePathData {
+                                disambiguated_item_path: DisambiguatedItemPath {
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    },
+                ),
+            ),
+            ItemSynNodeDecl::Submodule(
+                SubmoduleSynNodeDecl {
+                    syn_node_path: SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 1,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        },
+                    ),
+                },
+            ),
+        ),
+        (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
                     TypeSynNodePath(
@@ -133,7 +178,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
                     TypeSynNodeDecl::Extern(
-                        ExternTypeSynNodeDecl {
+                        ExternSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -243,7 +288,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
                     TypeSynNodeDecl::Extern(
-                        ExternTypeSynNodeDecl {
+                        ExternSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(

@@ -1234,7 +1234,7 @@ EntityTreeSheet {
                     `mnist_classifier::line_segment_sketch::convexity`,
                 ),
                 progress: Ok(
-                    71,
+                    72,
                 ),
             },
             UseAllRule {

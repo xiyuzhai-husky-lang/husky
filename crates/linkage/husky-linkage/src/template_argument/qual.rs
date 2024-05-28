@@ -16,7 +16,7 @@ impl LinQual {
     // ad hoc
     pub fn from_hir(contracted_quary: HirContractedQuary) -> Self {
         match contracted_quary.quary() {
-            HirQuary::Const => todo!(),
+            HirQuary::Compterm => todo!(),
             HirQuary::StackPure { .. }
             | HirQuary::ImmutableOnStack { .. }
             | HirQuary::MutableOnStack { .. }
@@ -26,7 +26,7 @@ impl LinQual {
                     HirContract::Move => LinQual::Transient,
                     HirContract::Borrow => LinQual::Ref,
                     HirContract::BorrowMut => LinQual::RefMut,
-                    HirContract::Const => todo!(),
+                    HirContract::Compterm => todo!(),
                     HirContract::Leash => LinQual::Ref,
                     HirContract::At => todo!(),
                 },

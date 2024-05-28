@@ -1,5 +1,7 @@
 use super::*;
-use husky_syn_decl::decl::{HasSynDecl, TypeAssocRitchieSynDecl, TypeItemSynDecl};
+use husky_syn_decl::decl::{
+    assoc_item::ty_item::assoc_ritchie::TypeAssocRitchieSynDecl, HasSynDecl,
+};
 
 #[salsa::interned]
 pub struct TypeAssocRitchieHirDecl {

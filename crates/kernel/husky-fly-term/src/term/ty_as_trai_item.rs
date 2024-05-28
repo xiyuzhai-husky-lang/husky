@@ -1,7 +1,7 @@
 use super::*;
 use husky_coword::Ident;
 use husky_entity_path::path::assoc_item::trai_item::TraitItemPath;
-use husky_eth_term::term::ty_as_trai_item::EthTypeAsTraitItem;
+use husky_eth_term::term::trai_for_ty_item::EthTypeAsTraitItem;
 
 impl FlyTerm {
     pub fn new_ty_as_trai_item(

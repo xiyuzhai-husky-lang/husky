@@ -13,7 +13,7 @@ use husky_fly_term::jar::FlyTermJar;
 use husky_manifest::jar::ManifestJar;
 use husky_manifest_ast::jar::ManifestAstJar;
 use husky_sem_expr::SemExprJar;
-use husky_syn_decl::SynDeclJar;
+use husky_syn_decl::jar::SynDeclJar;
 use husky_syn_defn::jar::SynDefnJar;
 use husky_syn_expr::jar::SynExprJar;
 use husky_term_prelude::jar::TermPreludeJar;

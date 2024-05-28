@@ -23,7 +23,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
                     TypeSynNodeDecl::Extern(
-                        ExternTypeSynNodeDecl {
+                        ExternSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -133,7 +133,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
                     TypeSynNodeDecl::Extern(
-                        ExternTypeSynNodeDecl {
+                        ExternSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -243,7 +243,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
                     TypeSynNodeDecl::Extern(
-                        ExternTypeSynNodeDecl {
+                        ExternSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -353,7 +353,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
                     TypeSynNodeDecl::Extern(
-                        ExternTypeSynNodeDecl {
+                        ExternSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -463,7 +463,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
                     TypeSynNodeDecl::Extern(
-                        ExternTypeSynNodeDecl {
+                        ExternSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -573,7 +573,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
                     TypeSynNodeDecl::Extern(
-                        ExternTypeSynNodeDecl {
+                        ExternSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -683,7 +683,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
                     TypeSynNodeDecl::Extern(
-                        ExternTypeSynNodeDecl {
+                        ExternSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -793,7 +793,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
                     TypeSynNodeDecl::Extern(
-                        ExternTypeSynNodeDecl {
+                        ExternSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -903,7 +903,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
                     TypeSynNodeDecl::Extern(
-                        ExternTypeSynNodeDecl {
+                        ExternSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -1013,7 +1013,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
                     TypeSynNodeDecl::Extern(
-                        ExternTypeSynNodeDecl {
+                        ExternSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -1123,7 +1123,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
                     TypeSynNodeDecl::Extern(
-                        ExternTypeSynNodeDecl {
+                        ExternSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -1233,7 +1233,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
                     TypeSynNodeDecl::Extern(
-                        ExternTypeSynNodeDecl {
+                        ExternSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -1343,7 +1343,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
                     TypeSynNodeDecl::Extern(
-                        ExternTypeSynNodeDecl {
+                        ExternSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -1453,7 +1453,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
                     TypeSynNodeDecl::Extern(
-                        ExternTypeSynNodeDecl {
+                        ExternSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(

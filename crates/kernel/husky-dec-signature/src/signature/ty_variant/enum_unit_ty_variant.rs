@@ -1,4 +1,5 @@
 use super::*;
+use husky_syn_decl::decl::ty_variant::unit_ty_variant::TypeUnitVariantSynDecl;
 
 #[salsa::interned]
 pub struct EnumUnitTypeVariantDecTemplate {

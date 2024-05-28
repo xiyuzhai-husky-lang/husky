@@ -1,6 +1,6 @@
 use super::*;
 use husky_eth_signature::signature::HasEthTemplate;
-use husky_syn_decl::decl::TypeMethodRitchieSynDecl;
+use husky_syn_decl::decl::assoc_item::ty_item::method_ritchie::TypeMethodRitchieSynDecl;
 
 #[salsa::interned]
 pub struct TypeMethodRitchieHirDecl {

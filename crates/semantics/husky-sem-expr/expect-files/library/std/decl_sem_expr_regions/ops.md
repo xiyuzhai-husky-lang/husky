@@ -41,7 +41,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Const,
+                                Compterm,
                             ),
                             base: FlyTermBase::Eth(
                                 EthTerm(`Type`),

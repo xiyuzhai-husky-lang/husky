@@ -12,6 +12,14 @@ where
     entries: SmallVec<[E; N]>,
 }
 
+impl<E, const N: usize> std::ops::Deref for SmallVecMap<E, N> {
+    type Target = [E];
+
+    fn deref(&self) -> &Self::Target {
+        &self.entries
+    }
+}
+
 impl<V, const N: usize> std::convert::AsRef<[V]> for SmallVecMap<V, N>
 where
     [V; N]: Array<Item = V>,
@@ -46,7 +54,6 @@ where
 
 impl<K, E, const N: usize> SmallVecMap<E, N>
 where
-    K: PartialEq + Eq,
     E: AsVecMapEntry<K = K>,
     [E; N]: Array<Item = E>,
 {
@@ -66,7 +73,7 @@ where
 
     pub fn from_smallvec(data: SmallVec<[E; N]>) -> Result<Self, FromVecEntryRepeatError>
     where
-        K: Copy,
+        K: Copy + Eq,
     {
         for i in 0..data.len() {
             for j in (i + 1)..data.len() {
@@ -88,21 +95,21 @@ where
 
     pub fn get_entry(&self, key: K) -> Option<&E>
     where
-        K: Copy,
+        K: Copy + Eq,
     {
         self.entries.iter().find(|entry| entry.key() == key)
     }
 
     pub fn get_entry_mut(&mut self, key: K) -> Option<&mut E>
     where
-        K: Copy,
+        K: Copy + Eq,
     {
         self.entries.iter_mut().find(|entry| entry.key() == key)
     }
 
     pub fn iget_entry(&self, key: K) -> Option<(usize, &E)>
     where
-        K: Copy,
+        K: Copy + Eq,
     {
         self.entries
             .iter()
@@ -112,7 +119,7 @@ where
 
     pub fn has(&self, key: K) -> bool
     where
-        K: Copy,
+        K: Copy + Eq,
     {
         self.entries
             .iter()
@@ -129,14 +136,14 @@ where
 
     pub fn get_mut(&mut self, key: K) -> Option<&mut E>
     where
-        K: Copy,
+        K: Copy + Eq,
     {
         self.entries.iter_mut().find(|entry| entry.key() == key)
     }
 
     pub fn insert_new(&mut self, new: E) -> Result<(), InsertEntryRepeatError<E>>
     where
-        K: Copy,
+        K: Copy + Eq,
     {
         if self.has(new.key()) {
             let new_key = new.key();
@@ -157,7 +164,7 @@ where
 
     pub unsafe fn insert_new_unchecked(&mut self, new: E)
     where
-        K: Copy,
+        K: Copy + Eq,
     {
         debug_assert!(!self.has(new.key()));
         self.entries.push(new)
@@ -165,7 +172,7 @@ where
 
     pub fn insert(&mut self, value: E)
     where
-        K: Copy,
+        K: Copy + Eq,
     {
         if self.has(value.key()) {
             ()
@@ -176,7 +183,7 @@ where
     pub fn insert_from_ref(&mut self, value: &E)
     where
         E: Clone,
-        K: Copy,
+        K: Copy + Eq,
     {
         if self.has(value.key()) {
             ()
@@ -187,14 +194,14 @@ where
 
     pub fn position(&self, key: K) -> Option<usize>
     where
-        K: Copy,
+        K: Copy + Eq,
     {
         self.entries.iter().position(|entry| entry.key() == key)
     }
 
     pub fn extend(&mut self, iter: impl Iterator<Item = E>) -> Result<(), InsertEntryRepeatError<E>>
     where
-        K: Copy,
+        K: Copy + Eq,
     {
         for v in iter {
             self.insert_new(v)?
@@ -204,7 +211,7 @@ where
 
     pub fn extend_from_other(&mut self, other: Self) -> Result<(), InsertEntryRepeatError<E>>
     where
-        K: Copy,
+        K: Copy + Eq,
     {
         for v in other.entries {
             self.insert_new(v)?
@@ -215,7 +222,7 @@ where
     pub fn extend_from_ref(&mut self, other: &Self)
     where
         E: Clone,
-        K: Copy,
+        K: Copy + Eq,
     {
         for entry in &other.entries {
             self.insert_from_ref(entry)
@@ -225,7 +232,7 @@ where
     pub fn toggle(&mut self, key: K)
     where
         E: DefaultVecMapEntry<K>,
-        K: Copy,
+        K: Copy + Eq,
     {
         if let Some(position) = self.entries.iter().position(|entry| entry.key() == key) {
             self.entries.remove(position);
@@ -313,21 +320,22 @@ where
         }
     }
 }
-impl<K, Entry, const N: usize> From<[Entry; N]> for SmallVecMap<Entry, N>
+impl<K, Entry, const M: usize, const N: usize> From<[Entry; M]> for SmallVecMap<Entry, N>
 where
-    K: PartialEq + Eq + Copy + std::fmt::Debug,
+    K: Eq + Copy + std::fmt::Debug,
     Entry: AsVecMapEntry<K = K> + std::fmt::Debug,
+    [Entry; M]: Array<Item = Entry>,
     [Entry; N]: Array<Item = Entry>,
 {
-    fn from(value: [Entry; N]) -> Self {
-        let iter: std::array::IntoIter<_, N> = value.into_iter();
+    fn from(value: [Entry; M]) -> Self {
+        let iter: std::array::IntoIter<_, M> = value.into_iter();
         Self::from_iter(iter)
     }
 }
 
 impl<K, E, const N: usize> FromIterator<E> for SmallVecMap<E, N>
 where
-    K: PartialEq + Eq + Copy + std::fmt::Debug,
+    K: Eq + Copy + std::fmt::Debug,
     E: AsVecMapEntry<K = K> + std::fmt::Debug,
     [E; N]: Array<Item = E>,
 {
@@ -341,16 +349,13 @@ where
     }
 }
 
-impl<K, E, const N: usize> Deref for SmallVecMap<E, N>
-where
-    K: PartialEq + Eq + Copy + std::fmt::Debug,
-    E: AsVecMapEntry<K = K>,
-    [E; N]: Array<Item = E>,
-{
-    type Target = [E];
+impl<'a, E, const N: usize> IntoIterator for &'a SmallVecMap<E, N> {
+    type Item = &'a E;
 
-    fn deref(&self) -> &Self::Target {
-        &self.entries
+    type IntoIter = impl Iterator<Item = Self::Item>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        (&self.entries).into_iter()
     }
 }
 

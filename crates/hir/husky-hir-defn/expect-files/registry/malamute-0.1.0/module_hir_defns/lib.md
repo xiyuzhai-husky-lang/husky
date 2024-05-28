@@ -1418,7 +1418,7 @@
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Const,
+                                                quary: Compterm,
                                             },
                                             is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
@@ -1480,7 +1480,7 @@
                                                         1,
                                                         Trivial(
                                                             TrivialHirEagerCoercion {
-                                                                expectee_quary: Const,
+                                                                expectee_quary: Compterm,
                                                             },
                                                         ),
                                                     ),

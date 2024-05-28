@@ -1,4 +1,5 @@
 use super::*;
+use husky_syn_decl::decl::major_item::ty::r#enum::EnumSynDecl;
 
 #[salsa::interned]
 pub struct EnumDecTemplate {

@@ -1,0 +1,4 @@
+(executable
+ (public_name super_computation_graph_ocaml)
+ (name main)
+ (libraries super_computation_graph_ocaml))

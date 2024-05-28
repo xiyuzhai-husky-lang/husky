@@ -20,7 +20,7 @@ impl<'a> SemExprBuilder<'a> {
             Some(lopd_ty) => {
                 match lopd_ty.quary() {
                     Some(quary) => match quary {
-                        FlyQuary::Const => todo!(),
+                        FlyQuary::Compterm => todo!(),
                         FlyQuary::StackPure { place } => todo!(),
                         FlyQuary::ImmutableOnStack { place } => todo!(),
                         FlyQuary::MutableOnStack { .. } => (),

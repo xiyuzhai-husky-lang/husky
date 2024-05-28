@@ -1,4 +1,5 @@
 use super::*;
+use husky_syn_decl::decl::major_item::ty::union::UnionSynDecl;
 
 #[salsa::interned]
 pub struct UnionTypeDecTemplate {
@@ -10,7 +11,7 @@ impl UnionTypeDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
         path: TypePath,
-        decl: UnionTypeSynDecl,
+        decl: UnionSynDecl,
     ) -> DecSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
         let dec_term_region = syn_expr_dec_term_region(db, syn_expr_region);

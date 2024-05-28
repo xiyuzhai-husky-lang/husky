@@ -1,5 +1,16 @@
 ```rust
 [
+    HirDecl::Submodule(
+        SubmoduleHirDecl {
+            path: SubmoduleItemPath(
+                ItemPathId(
+                    Id {
+                        value: 1,
+                    },
+                ),
+            ),
+        },
+    ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
             TypeHirDecl::Enum(
@@ -39,53 +50,6 @@
                     },
                 },
             ),
-        ),
-    ),
-    HirDecl::TypeVariant(
-        TypeVariantHirDecl::Unit(
-            EnumUnitTypeVariantHirDecl {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 2,
-                        },
-                    ),
-                ),
-                hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
-                        ItemPath::TypeVariant(
-                            Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                    expr_arena: Arena {
-                        data: [],
-                    },
-                    stmt_arena: Arena {
-                        data: [],
-                    },
-                    pattern_arena: Arena {
-                        data: [],
-                    },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
-                        arena: Arena {
-                            data: [],
-                        },
-                    },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
-                        arena: Arena {
-                            data: [],
-                        },
-                        self_value_variable: None,
-                    },
-                },
-            },
         ),
     ),
     HirDecl::TypeVariant(
@@ -482,6 +446,53 @@
                                 ItemPathId(
                                     Id {
                                         value: 11,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                    expr_arena: Arena {
+                        data: [],
+                    },
+                    stmt_arena: Arena {
+                        data: [],
+                    },
+                    pattern_arena: Arena {
+                        data: [],
+                    },
+                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                    },
+                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
+            },
+        ),
+    ),
+    HirDecl::TypeVariant(
+        TypeVariantHirDecl::Unit(
+            EnumUnitTypeVariantHirDecl {
+                path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 12,
+                        },
+                    ),
+                ),
+                hir_eager_expr_region: HirEagerExprRegion {
+                    region_path: RegionPath::Decl(
+                        ItemPath::TypeVariant(
+                            Room32,
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 12,
                                     },
                                 ),
                             ),

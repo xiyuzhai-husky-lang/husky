@@ -1,5 +1,7 @@
 pub mod assoc_item;
 pub mod attr;
+#[path = "decl/crate.rs"]
+pub mod crate_;
 pub mod impl_block;
 pub mod major_item;
 pub mod submodule;

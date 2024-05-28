@@ -1,0 +1,5 @@
+use mnist::task::MnistTask
+
+type Task = MnistTask
+
+static TASK: mnist::task::MnistTask = MnistTask::new()

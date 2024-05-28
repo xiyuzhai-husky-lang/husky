@@ -2,6 +2,29 @@
 SynDeclSheet {
     decls: [
         (
+            ItemPath::Submodule(
+                Room32,
+                SubmoduleItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                ),
+            ),
+            SynDecl::Submodule(
+                SubmoduleSynDecl {
+                    path: SubmoduleItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
+        (
             ItemPath::MajorItem(
                 MajorItemPath::Type(
                     TypePath(`mnist::MnistLabel`, `Enum`),
@@ -92,7 +115,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`mnist::BinaryImage28`, `Extern`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
@@ -174,7 +197,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {

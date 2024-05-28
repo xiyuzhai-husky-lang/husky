@@ -25,7 +25,7 @@ impl<'a> SemExprBuilder<'a> {
                 let lopd_base_ty = lopd_ty.base_ty_data(self);
                 match lopd_ty.quary() {
                     Some(lopd_place) => match lopd_place {
-                        FlyQuary::Const => {
+                        FlyQuary::Compterm => {
                             // ad hoc
                             // should return err
                             ()

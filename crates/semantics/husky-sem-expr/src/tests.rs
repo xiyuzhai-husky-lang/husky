@@ -34,7 +34,7 @@ use husky_vfs::ModulePath;
 pub(crate) struct DB;
 
 fn decl_sem_expr_regions(db: &::salsa::Db, module_path: ModulePath) -> Vec<SemExprRegion> {
-    use husky_syn_decl::HasSynDeclSheet;
+    use husky_syn_decl::sheet::HasSynDeclSheet;
 
     module_path
         .syn_decl_sheet(db)

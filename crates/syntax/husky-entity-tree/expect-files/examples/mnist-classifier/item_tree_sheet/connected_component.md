@@ -738,6 +738,45 @@ EntityTreeSheet {
                 ),
             },
             EntitySymbolEntry {
+                ident: `task`,
+                visible_scope: Scope::PubUnder(
+                    `mnist_classifier::connected_component`,
+                ),
+                symbol: EntitySymbol::Use(
+                    UseSymbol {
+                        original_symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Submodule {
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 275,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                path: PrincipalEntityPath::Module(
+                                    `mnist::task`,
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier`,
+                                ),
+                                ast_idx: 24,
+                                use_expr_idx: 20,
+                            },
+                        ),
+                        path: PrincipalEntityPath::Module(
+                            `mnist::task`,
+                        ),
+                        visibility: Scope::PubUnder(
+                            `mnist_classifier::connected_component`,
+                        ),
+                        ast_idx: 119,
+                        use_expr_idx: 3,
+                    },
+                ),
+            },
+            EntitySymbolEntry {
                 ident: `MnistLabel`,
                 visible_scope: Scope::PubUnder(
                     `mnist_classifier::connected_component`,
@@ -2458,7 +2497,7 @@ EntityTreeSheet {
                     `mnist_classifier::connected_component`,
                 ),
                 progress: Ok(
-                    45,
+                    46,
                 ),
             },
             UseAllRule {
@@ -2470,7 +2509,7 @@ EntityTreeSheet {
                     `mnist_classifier::connected_component`,
                 ),
                 progress: Ok(
-                    71,
+                    72,
                 ),
             },
         ],

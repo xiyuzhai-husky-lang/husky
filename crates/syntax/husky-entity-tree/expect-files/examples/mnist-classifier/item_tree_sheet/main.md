@@ -679,6 +679,33 @@ EntityTreeSheet {
                 ),
             },
             EntitySymbolEntry {
+                ident: `task`,
+                visible_scope: Scope::PubUnder(
+                    `mnist_classifier`,
+                ),
+                symbol: EntitySymbol::Use(
+                    UseSymbol {
+                        original_symbol: EntitySymbol::Submodule {
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 275,
+                                    },
+                                ),
+                            ),
+                        },
+                        path: PrincipalEntityPath::Module(
+                            `mnist::task`,
+                        ),
+                        visibility: Scope::PubUnder(
+                            `mnist_classifier`,
+                        ),
+                        ast_idx: 24,
+                        use_expr_idx: 20,
+                    },
+                ),
+            },
+            EntitySymbolEntry {
                 ident: `MnistLabel`,
                 visible_scope: Scope::PubUnder(
                     `mnist_classifier`,
@@ -2175,7 +2202,7 @@ EntityTreeSheet {
                     `mnist_classifier`,
                 ),
                 progress: Ok(
-                    4,
+                    5,
                 ),
             },
             UseAllRule {
@@ -2187,7 +2214,7 @@ EntityTreeSheet {
                     `mnist_classifier`,
                 ),
                 progress: Ok(
-                    52,
+                    53,
                 ),
             },
             UseAllRule {
@@ -2199,7 +2226,7 @@ EntityTreeSheet {
                     `mnist_classifier`,
                 ),
                 progress: Ok(
-                    64,
+                    65,
                 ),
             },
             UseAllRule {
@@ -2211,7 +2238,7 @@ EntityTreeSheet {
                     `mnist_classifier`,
                 ),
                 progress: Ok(
-                    47,
+                    48,
                 ),
             },
             UseAllRule {
@@ -2223,7 +2250,7 @@ EntityTreeSheet {
                     `mnist_classifier`,
                 ),
                 progress: Ok(
-                    71,
+                    72,
                 ),
             },
             UseAllRule {
@@ -2247,7 +2274,7 @@ EntityTreeSheet {
                     `mnist_classifier`,
                 ),
                 progress: Ok(
-                    53,
+                    54,
                 ),
             },
         ],

@@ -1,5 +1,6 @@
 use crate::*;
 use husky_entity_kind::ritchie::RitchieItemKind;
+use husky_syn_decl::decl::major_item::form::function_ritchie::MajorFunctionRitchieSynDecl;
 
 #[salsa::interned]
 pub struct MajorFunctionRitchieDecTemplate {
