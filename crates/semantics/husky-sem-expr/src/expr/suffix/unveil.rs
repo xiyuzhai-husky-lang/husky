@@ -4,6 +4,7 @@ use husky_entity_path::{
     menu::item_path_menu,
     path::major_item::ty::{PreludeIndirectionTypePath, TypePath},
 };
+use husky_entity_tree::node::HasAssocItemPaths;
 use husky_eth_signature::{
     error::{EtherealSignatureError, EtherealSignatureMaybeResult, EtherealSignatureResult},
     helpers::trai_for_ty::*,

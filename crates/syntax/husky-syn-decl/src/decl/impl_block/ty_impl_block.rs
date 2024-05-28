@@ -1,6 +1,8 @@
-use husky_entity_path::path::impl_block::ty_impl_block::TypeImplBlockPath;
-
 use super::*;
+use husky_entity_path::path::impl_block::ty_impl_block::TypeImplBlockPath;
+use husky_entity_tree::node::{
+    impl_block::ty_impl_block::TypeImplBlockSynNodePath, HasSynNodePath,
+};
 
 #[salsa::tracked]
 pub struct TypeImplBlockSynNodeDecl {

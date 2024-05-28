@@ -1,4 +1,5 @@
 use super::*;
+use crate::node::trai::TraitSynNodePath;
 use husky_entity_path::path::assoc_item::trai_item::TraitItemPath;
 use smallvec::SmallVec;
 
@@ -166,7 +167,7 @@ impl TraitItemSynNode {
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn trai_item_syn_nodes(
     db: &::salsa::Db,
     trai_node_path: TraitSynNodePath,

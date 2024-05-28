@@ -4,7 +4,9 @@ use husky_entity_path::path::{
     impl_block::TypeSketch,
     major_item::{trai::TraitPath, ty::TypePath},
 };
-use husky_entity_tree::*;
+use husky_entity_tree::node::{
+    impl_block::ImplBlockSynNodePath, major_item::MajorItemSynNodePath, ItemSynNodePath,
+};
 use husky_syn_expr::*;
 use husky_term_prelude::symbol::SymbolName;
 use husky_vfs::Toolchain;

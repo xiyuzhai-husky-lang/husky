@@ -2,7 +2,7 @@ use crate::*;
 use husky_corgi_config::jar::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_coword::jar::CowordJar;
-use husky_entity_tree::EntityTreeJar;
+use husky_entity_tree::jar::EntityTreeJar;
 use husky_manifest::jar::ManifestJar;
 use husky_manifest_ast::jar::ManifestAstJar;
 use husky_syn_decl::jar::SynDeclJar;

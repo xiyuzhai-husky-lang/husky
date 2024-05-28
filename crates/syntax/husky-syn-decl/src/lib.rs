@@ -19,7 +19,7 @@ use self::sheet::*;
 #[cfg(test)]
 use self::tests::*;
 use derive_getters::Getters;
-use husky_entity_tree::*;
+use husky_entity_tree::node::HasSynNodePath;
 use husky_syn_expr::*;
 use husky_vfs::ModulePath;
 use parsec::IsStreamParser;

@@ -1,4 +1,4 @@
-use husky_entity_tree::HasTypeVariantPaths;
+use husky_entity_tree::node::ty_variant::HasTypeVariantPaths;
 use husky_hir_decl::decl::TypeVariantHirDecl;
 
 use super::*;

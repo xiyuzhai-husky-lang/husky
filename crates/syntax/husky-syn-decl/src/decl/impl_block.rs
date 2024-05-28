@@ -7,6 +7,7 @@ use self::trai_for_ty_impl_block::*;
 use self::ty_impl_block::*;
 use super::*;
 use husky_entity_path::path::impl_block::ImplBlockPath;
+use husky_entity_tree::node::impl_block::ImplBlockSynNodePath;
 use husky_regional_token::ImplRegionalToken;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

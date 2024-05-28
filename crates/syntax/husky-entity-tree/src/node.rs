@@ -1,19 +1,18 @@
-mod assoc_item;
-mod attr;
-mod impl_block;
-mod major_item;
+pub mod assoc_item;
+pub mod attr;
+pub mod impl_block;
+pub mod major_item;
 pub mod script;
-mod submodule;
-mod ty_variant;
+pub mod submodule;
+pub mod ty_variant;
 
-pub use self::assoc_item::*;
-pub use self::attr::*;
-pub use self::impl_block::*;
-pub use self::major_item::*;
-pub use self::submodule::*;
-pub use self::ty_variant::*;
-
+use self::assoc_item::*;
+use self::attr::*;
+use self::impl_block::{ImplBlockSynNode, ImplBlockSynNodePath, ImplBlockSynNodePathData};
+use self::major_item::*;
 use self::script::{ScriptSynNodePath, ScriptSynNodePathData};
+use self::submodule::*;
+use self::ty_variant::*;
 use crate::*;
 use enum_class::Room32;
 use husky_entity_path::path::ItemPath;
@@ -43,7 +42,7 @@ impl std::ops::Deref for ItemSynNodePath {
     }
 }
 
-#[salsa::interned(jar = EntityTreeJar)]
+#[salsa::interned]
 pub struct ItemSynNodePathId {
     pub data: ItemSynNodePathData,
 }

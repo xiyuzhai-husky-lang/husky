@@ -10,7 +10,7 @@ use self::symbol::*;
 use crate::*;
 use husky_dec_signature::{jar::DecSignatureDb, region::SynExprDecTermRegion};
 use husky_entity_path::menu::{item_path_menu, ItemPathMenu};
-use husky_entity_tree::helpers::AvailableTraitItemsTable;
+use husky_entity_tree::{helpers::AvailableTraitItemsTable, region_path::SynNodeRegionPath};
 use husky_eth_signature::signature::HasEthTemplate;
 use husky_eth_term::term::{symbolic_variable::EthSymbolicVariable, EthTerm};
 use husky_fly_term::quary::FlyQuary;

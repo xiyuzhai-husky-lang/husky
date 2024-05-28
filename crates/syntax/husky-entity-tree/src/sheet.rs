@@ -1,4 +1,14 @@
-use crate::*;
+use crate::{
+    node::impl_block::{
+        ill_formed_impl_block::{
+            IllFormedImplBlockSynNode, IllFormedImplBlockSynNodePath, ImplBlockIllForm,
+        },
+        trai_for_ty_impl_block::{TraitForTypeImplBlockSynNode, TraitForTypeImplBlockSynNodePath},
+        ty_impl_block::{TypeImplBlockSynNode, TypeImplBlockSynNodePath},
+        ImplBlockSynNode, ImplBlockSynNodePath,
+    },
+    *,
+};
 use husky_entity_path::path::{
     impl_block::{trai_for_ty_impl_block::TraitForTypeImplBlockPath, ImplBlockPath},
     ItemPath,

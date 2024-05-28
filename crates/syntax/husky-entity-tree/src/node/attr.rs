@@ -151,7 +151,7 @@ impl HasAttrPaths for ItemPathId {
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn item_attr_paths(db: &::salsa::Db, item_path_id: ItemPathId) -> SmallVec<[AttrItemPath; 2]> {
     item_path_id
         .item_path(db)
@@ -168,7 +168,7 @@ impl ItemSynNodePathId {
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn item_attr_syn_nodes(
     db: &::salsa::Db,
     item_syn_node_path_id: ItemSynNodePathId,

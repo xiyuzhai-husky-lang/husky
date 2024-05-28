@@ -1,4 +1,4 @@
-use husky_entity_tree::EntityTreeResult;
+use husky_entity_tree::error::EntityTreeResult;
 use husky_text_protocol::range::TextRange;
 
 use husky_token::{verse::idx::TokenVerseIdx, TokenDb};

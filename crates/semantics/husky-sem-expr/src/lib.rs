@@ -30,7 +30,6 @@ use either::*;
 use husky_dec_signature::*;
 use husky_entity_kind::*;
 use husky_entity_path::*;
-use husky_entity_tree::*;
 use husky_eth_term::*;
 use husky_fly_term::*;
 use husky_syn_defn::*;

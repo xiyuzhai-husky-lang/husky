@@ -44,7 +44,7 @@ impl<'a> CratePrelude<'a> {
 
 pub struct UniversalPrelude {}
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn none_core_crate_universal_prelude(
     db: &::salsa::Db,
     toolchain: Toolchain,
@@ -81,7 +81,7 @@ pub(crate) fn none_core_crate_universal_prelude(
     table
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn crate_specific_symbol_context(
     db: &::salsa::Db,
     crate_path: CratePath,

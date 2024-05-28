@@ -1,4 +1,5 @@
 use super::*;
+use crate::node::impl_block::ty_impl_block::TypeImplBlockSynNodePath;
 use husky_entity_path::path::{assoc_item::ty_item::TypeItemPath, major_item::ty::TypePath};
 use smallvec::SmallVec;
 
@@ -154,7 +155,7 @@ impl TypeItemSynNode {
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn ty_impl_block_items(
     db: &::salsa::Db,
     syn_node_path: TypeImplBlockSynNodePath,
@@ -216,7 +217,7 @@ impl HasItemNodePaths for TypePath {
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn ty_item_syn_node_paths(
     db: &::salsa::Db,
     path: TypePath,
@@ -272,7 +273,7 @@ impl HasItemPathsMap for TypePath {
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn ty_item_paths_map(
     db: &::salsa::Db,
     path: TypePath,

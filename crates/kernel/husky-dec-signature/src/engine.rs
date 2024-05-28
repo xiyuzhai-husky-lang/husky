@@ -4,7 +4,7 @@ pub(crate) use self::pattern_ty::*;
 
 use crate::*;
 use husky_entity_path::path::{major_item::MajorItemPath, PrincipalEntityPath};
-use husky_entity_tree::SynNodeRegionPath;
+use husky_entity_tree::region_path::SynNodeRegionPath;
 use husky_print_utils::p;
 use husky_syn_expr::*;
 use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr};
@@ -208,7 +208,7 @@ impl<'a> DecTermEngine<'a> {
                     *vars,
                 ),
                 SyndicateTypeConstraint::SimpleClosureParameter { .. } => {
-                    p!(self.path());
+                    // p!(self.path());
                     todo!()
                 }
                 SyndicateTypeConstraint::FieldVariable {
@@ -379,7 +379,10 @@ impl<'a> DecTermEngine<'a> {
             SynExprData::PrincipalEntityPath { opt_path, .. } => match opt_path {
                 Some(path) => Ok(DecTerm::EntityPath(match path {
                     PrincipalEntityPath::Module(path) => {
-                        p!(self.syn_expr_region_data.path().debug(db), path.debug(db));
+                        husky_print_utils::p!(
+                            self.syn_expr_region_data.path().debug(db),
+                            path.debug(db)
+                        );
                         todo!()
                     }
                     PrincipalEntityPath::MajorItem(path) => match path {

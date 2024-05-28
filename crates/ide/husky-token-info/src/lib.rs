@@ -10,7 +10,7 @@ pub use self::info::*;
 pub use self::sheet::*;
 
 use engine::*;
-use husky_entity_tree::*;
+use husky_entity_tree::error::*;
 use husky_token::*;
 use husky_vfs::*;
 

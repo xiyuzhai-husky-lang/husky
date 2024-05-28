@@ -3,7 +3,7 @@ pub(crate) use husky_ast::test_utils::*;
 use crate::*;
 use husky_corgi_config::jar::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
-use husky_entity_tree::EntityTreeJar;
+use husky_entity_tree::jar::EntityTreeJar;
 use husky_manifest::jar::ManifestJar;
 use husky_manifest_ast::jar::ManifestAstJar;
 use husky_token::TokenJar;

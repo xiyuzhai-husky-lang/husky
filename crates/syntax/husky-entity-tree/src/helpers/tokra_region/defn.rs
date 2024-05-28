@@ -2,11 +2,12 @@ use husky_ast::range::AstTokenIdxRangeSheet;
 use husky_defn_ast::{DefnAst, DefnAstArena, DefnAstArenaRef, DefnAstIdx, DefnAstIdxRange};
 use husky_regional_token::start::RegionalTokenVerseStart;
 use husky_token::{TokenDb, TokenIdxRange, TokenSheetData};
+use node::{ItemSynNodePathData, ItemSynNodePathId};
 
 use super::*;
 
 /// dedy is short for definition body
-#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
+#[salsa::tracked]
 pub struct DefnTokraRegion {
     #[return_ref]
     _tokens_data: Vec<TokenData>,
@@ -148,7 +149,7 @@ impl<'a> std::ops::Index<DefnAstIdx> for DefnTokraRegionDataRef<'a> {
     }
 }
 
-#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
+#[salsa::tracked]
 pub struct DefnTokraRegionSourceMap {
     pub regional_token_verse_idx_base: RegionalTokenVerseIdxBase,
     pub regional_token_idx_base: RegionalTokenIdxBase,
@@ -177,7 +178,7 @@ impl ItemSynNodePathId {
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar)]
+#[salsa::tracked]
 fn item_syn_defn_tokra_region_with_source_map(
     db: &::salsa::Db,
     id: ItemSynNodePathId,

@@ -8,6 +8,7 @@ use husky_entity_path::path::{
     PrincipalEntityPath,
 };
 use husky_regional_token::RegionalTokenIdxRange;
+use node::HasAssocItemPaths;
 use vec_like::VecMapGetEntry;
 
 /// given the ident of the item, what are the traits and trait item paths and maybe their scopes?
@@ -84,7 +85,7 @@ impl<'a> AvailableTraitItemsTable<'a> {
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn non_core_crate_prelude_trait_item_records(
     db: &::salsa::Db,
     toolchain: Toolchain,
@@ -95,7 +96,7 @@ fn non_core_crate_prelude_trait_item_records(
     )
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn module_specific_trait_item_records(
     db: &::salsa::Db,
     module_path: ModulePath,

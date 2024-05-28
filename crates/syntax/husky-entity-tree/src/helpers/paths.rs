@@ -1,4 +1,5 @@
 use super::*;
+use crate::node::attr::HasAttrPaths;
 use husky_coword::coword_menu;
 use husky_entity_kind::MajorFormKind;
 use husky_entity_path::path::{
@@ -6,6 +7,7 @@ use husky_entity_path::path::{
     submodule::SubmoduleItemPath,
     ItemPath, ItemPathId,
 };
+use node::{impl_block::ImplBlockSynNodePath, major_item::MajorItemSynNodePath};
 
 pub trait HasItemPaths: Copy {
     fn item_paths<'a>(self, _db: &'a ::salsa::Db) -> &'a [ItemPath];
@@ -25,7 +27,7 @@ impl HasItemPaths for CratePath {
 
 /// include everything defined under a module,
 /// submodules, major items, associated items, impl blocks, attrs
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub fn module_item_syn_node_paths(
     db: &::salsa::Db,
     module_path: ModulePath,
@@ -79,7 +81,7 @@ pub fn module_item_syn_node_paths(
 
 /// include everything defined under a module,
 /// submodules, major items, associated items, impl blocks, attrs
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub fn module_item_paths(db: &::salsa::Db, module_path: ModulePath) -> Vec<ItemPath> {
     module_item_syn_node_paths(db, module_path)
         .iter()
@@ -99,7 +101,7 @@ fn module_item_paths_works() {
     )
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub fn module_test_paths(db: &::salsa::Db, module_path: ModulePath) -> Vec<MajorFormPath> {
     module_item_paths(db, module_path)
         .iter()
@@ -119,7 +121,7 @@ fn module_test_paths_works() {
     )
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub fn crate_item_paths(db: &::salsa::Db, crate_path: CratePath) -> Vec<ItemPath> {
     crate_path
         .module_paths(db)
@@ -140,7 +142,7 @@ fn crate_item_paths_works() {
     )
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub fn crate_test_paths(db: &::salsa::Db, crate_path: CratePath) -> Vec<MajorFormPath> {
     crate_item_paths(db, crate_path)
         .iter()
@@ -160,7 +162,7 @@ fn crate_test_paths_works() {
     )
 }
 
-#[salsa::tracked(jar = EntityTreeJar)]
+#[salsa::tracked]
 fn to_test_path(db: &::salsa::Db, path_id: ItemPathId) -> Option<MajorFormPath> {
     match path_id.item_path(db) {
         ItemPath::MajorItem(MajorItemPath::Form(path)) => match path.major_form_kind(db) {
@@ -177,7 +179,7 @@ fn to_test_path(db: &::salsa::Db, path_id: ItemPathId) -> Option<MajorFormPath> 
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub fn module_submodule_item_paths(
     db: &::salsa::Db,
     module_path: ModulePath,
@@ -208,7 +210,7 @@ fn item_path_id_conversion_works() {
     )
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub fn crate_module_paths(db: &::salsa::Db, crate_path: CratePath) -> Vec<ModulePath> {
     let root_module_path = crate_path.root_module_path(db);
     let mut module_paths = vec![];

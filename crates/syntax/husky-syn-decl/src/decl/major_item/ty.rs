@@ -18,6 +18,7 @@ use self::unit_struct::*;
 use super::*;
 use husky_entity_kind::TypeKind;
 use husky_entity_path::path::major_item::ty::TypePath;
+use husky_entity_tree::node::major_item::ty::TypeSynNodePath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]

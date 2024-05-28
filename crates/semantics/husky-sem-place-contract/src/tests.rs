@@ -8,7 +8,7 @@ pub use husky_ast::test_utils::*;
     husky_token_data::jar::TokenDataJar,
     husky_token::TokenJar,
     husky_ast::jar::AstJar,
-    husky_entity_tree::EntityTreeJar,
+    husky_entity_tree::jar::EntityTreeJar,
     husky_toml_token::jar::TomlTokenJar,
     husky_toml_ast::TomlAstJar,
     husky_manifest_ast::jar::ManifestAstJar,

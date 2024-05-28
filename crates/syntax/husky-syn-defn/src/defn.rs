@@ -2,7 +2,14 @@ use crate::*;
 
 use husky_entity_kind::{TraitItemKind, TypeItemKind};
 use husky_entity_path::path::ItemPath;
-use husky_entity_tree::helpers::paths::{module_item_paths, module_item_syn_node_paths};
+use husky_entity_tree::{
+    helpers::paths::{module_item_paths, module_item_syn_node_paths},
+    node::{
+        assoc_item::AssocItemSynNodePath, major_item::MajorItemSynNodePath, HasSynNodePath,
+        ItemSynNodePath, ItemSynNodePathId,
+    },
+};
+use husky_syn_decl::decl::HasSynNodeDecl;
 use husky_syn_expr::helpers::block_expr::parse_defn_block_expr;
 
 #[salsa::derive_debug_with_db]

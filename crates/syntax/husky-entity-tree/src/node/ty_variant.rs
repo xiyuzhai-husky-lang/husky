@@ -1,4 +1,4 @@
-use super::*;
+use super::{ty::TypeSynNodePath, *};
 use husky_entity_kind::TypeKind;
 use husky_entity_path::path::{major_item::ty::TypePath, ty_variant::TypeVariantPath};
 
@@ -137,7 +137,7 @@ impl TypeVariantSynNode {
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn ty_variant_syn_nodes(
     db: &::salsa::Db,
     ty_node_path: TypeSynNodePath,
@@ -194,7 +194,7 @@ impl HasTypeVariantPaths for TypePath {
 }
 
 /// guaranteed that each ident is unique
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn ty_variant_paths(db: &::salsa::Db, path: TypePath) -> Vec<(Ident, TypeVariantPath)> {
     path.syn_node_path(db)
         .ty_variant_syn_nodes(db)

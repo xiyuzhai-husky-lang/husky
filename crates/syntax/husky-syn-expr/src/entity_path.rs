@@ -6,6 +6,7 @@ pub use self::principal_entity_path::*;
 
 use crate::*;
 use husky_entity_path::path::MajorEntityPath;
+use husky_entity_tree::{jar::EntityTreeDb, subitem::SubitemPath};
 use parsec::IsStreamParser;
 
 // todo: change this to trait impl

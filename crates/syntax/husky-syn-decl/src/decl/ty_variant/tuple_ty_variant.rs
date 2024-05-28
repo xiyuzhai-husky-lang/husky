@@ -1,5 +1,5 @@
 use super::*;
-
+use husky_entity_tree::node::ty_variant::TypeVariantSynNodePath;
 use parsec::{PunctuatedSmallList, TryParseFromStream};
 
 // todo: GADT

@@ -1,6 +1,6 @@
-use parsec::PunctuatedSmallList;
-
 use super::*;
+use husky_entity_tree::node::attr::AttrSynNodePath;
+use parsec::PunctuatedSmallList;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new_inner)]
 pub struct DeriveAttrSynNodeDecl {
