@@ -25,6 +25,6 @@ impl DeriveAttrDecTemplate {
                 ))
             })
             .collect::<SynExprDecTermResultRef<_>>()?;
-        Ok(DeriveAttrDecTemplate::new(db, shards))
+        Ok(Self::new(db, shards))
     }
 }

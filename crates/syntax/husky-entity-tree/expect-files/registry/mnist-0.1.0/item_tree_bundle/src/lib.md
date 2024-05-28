@@ -637,11 +637,11 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 1,
+                                ast_idx: 2,
                                 ident_token: IdentToken {
                                     ident: `MnistTask`,
                                     token_idx: TokenIdx(
-                                        3,
+                                        5,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -714,10 +714,10 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 2,
+                            ast_idx: 3,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    5,
+                                    7,
                                 ),
                             },
                             ty_expr: 14,
@@ -960,7 +960,7 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `MnistTask`,
                         token_idx: TokenIdx(
-                            6,
+                            8,
                         ),
                     },
                 ),

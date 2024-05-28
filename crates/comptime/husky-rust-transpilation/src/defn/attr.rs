@@ -33,6 +33,7 @@ impl Attrs {
                 AttrHirDecl::Backprop(_) => (),
                 AttrHirDecl::Derive(decl) => derive_attrs.merge(decl.trais(db), db),
                 AttrHirDecl::Affect(_) => (),
+                AttrHirDecl::Task(_) => (),
                 AttrHirDecl::Test(_) => is_test = true,
             }
         }

@@ -60,6 +60,7 @@ pub struct HirDeclJar(
     crate::decl::attr::derive::DeriveAttrHirDecl,
     crate::decl::attr::affect::AffectAttrHirDecl,
     crate::decl::attr::marker::MarkerAttrHirDecl,
+    crate::decl::attr::task::TaskAttrHirDecl,
     crate::decl::attr::test::TestAttrHirDecl,
     // helpers
     crate::helpers::enum_ty_has_only_unit_variants,

@@ -23,6 +23,19 @@
         ),
     ),
     (
+        Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 182,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         ImplBlock(
             TypeImplBlock(
                 TypeImplBlockPath(
@@ -50,7 +63,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 182,
+                            value: 183,
                         },
                     ),
                 ),

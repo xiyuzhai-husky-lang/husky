@@ -1,6 +1,14 @@
 ```rust
 TokenSheetData {
     tokens: [
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Pound,
+            ),
+        ),
+        TokenData::Ident(
+            `task`,
+        ),
         TokenData::Keyword(
             Keyword::Pub,
         ),
@@ -85,7 +93,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            5,
+                            3,
                         ),
                     ),
                     indent: 0,
@@ -93,7 +101,15 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            8,
+                            7,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            10,
                         ),
                     ),
                     indent: 4,
