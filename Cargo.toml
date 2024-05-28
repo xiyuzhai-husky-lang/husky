@@ -291,6 +291,7 @@ husky-sem-opr = { path = "crates/semantics/husky-sem-opr" }
 husky-sem-place-contract = { path = "crates/semantics/husky-sem-place-contract" }
 # syntax
 husky-ast = { path = "crates/syntax/husky-ast" }
+husky-crate-decl-ast = { path = "crates/syntax/husky-crate-decl-ast" }
 husky-item-decl-ast = { path = "crates/syntax/husky-item-decl-ast" }
 husky-item-defn-ast = { path = "crates/syntax/husky-item-defn-ast" }
 husky-scope-expr = { path = "crates/syntax/husky-scope-expr" }

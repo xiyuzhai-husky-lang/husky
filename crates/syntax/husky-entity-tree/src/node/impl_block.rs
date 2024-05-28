@@ -6,6 +6,7 @@ use self::ill_formed_impl_block::*;
 use self::trai_for_ty_impl_block::*;
 use self::ty_impl_block::*;
 use super::*;
+use husky_ast::ImplBlockItems;
 use husky_entity_path::path::{
     impl_block::{ImplBlockPath, ImplBlockRegistry, TypeSketch},
     major_item::MajorItemPath,

@@ -152,7 +152,7 @@ impl<'a> std::ops::Index<ItemDefnAstIdx> for ItemDefnTokraRegionDataRef<'a> {
 }
 
 #[salsa::tracked]
-pub struct DefnTokraRegionSourceMap {
+pub struct ItemDefnTokraRegionSourceMap {
     pub regional_token_verse_idx_base: RegionalTokenVerseIdxBase,
     pub regional_token_idx_base: RegionalTokenIdxBase,
     #[return_ref]
@@ -161,15 +161,15 @@ pub struct DefnTokraRegionSourceMap {
 
 impl ItemSynNodePathId {
     pub fn defn_tokra_region(self, db: &::salsa::Db) -> Option<ItemDefnTokraRegion> {
-        Some(item_syn_defn_tokra_region_with_source_map(db, self)?.0)
+        Some(item_defn_tokra_region_with_source_map(db, self)?.0)
     }
 
     // use this only when necessary
     pub fn defn_tokra_region_source_map(
         self,
         db: &::salsa::Db,
-    ) -> Option<DefnTokraRegionSourceMap> {
-        Some(item_syn_defn_tokra_region_with_source_map(db, self)?.1)
+    ) -> Option<ItemDefnTokraRegionSourceMap> {
+        Some(item_defn_tokra_region_with_source_map(db, self)?.1)
     }
 
     pub fn defn_regional_token_idx_base(self, db: &::salsa::Db) -> Option<RegionalTokenIdxBase> {
@@ -181,15 +181,15 @@ impl ItemSynNodePathId {
 }
 
 #[salsa::tracked]
-fn item_syn_defn_tokra_region_with_source_map(
+fn item_defn_tokra_region_with_source_map(
     db: &::salsa::Db,
     id: ItemSynNodePathId,
-) -> Option<(ItemDefnTokraRegion, DefnTokraRegionSourceMap)> {
-    let builder = DefnTokraRegionBuilder::new(id, db)?;
+) -> Option<(ItemDefnTokraRegion, ItemDefnTokraRegionSourceMap)> {
+    let builder = ItemDefnTokraRegionBuilder::new(id, db)?;
     Some(builder.build())
 }
 
-struct DefnTokraRegionBuilder<'a> {
+struct ItemDefnTokraRegionBuilder<'a> {
     ast_sheet: &'a AstSheet,
     ast_token_idx_range_sheet: &'a AstTokenIdxRangeSheet,
     defn_ast_arena: ItemDefnAstArena,
@@ -203,7 +203,7 @@ struct DefnTokraRegionBuilder<'a> {
     db: &'a ::salsa::Db,
 }
 
-impl<'a> DefnTokraRegionBuilder<'a> {
+impl<'a> ItemDefnTokraRegionBuilder<'a> {
     fn new(id: ItemSynNodePathId, db: &'a ::salsa::Db) -> Option<Self> {
         let module_path = id.module_path(db);
         let opt_ast_idx = id.opt_ast_idx(db);
@@ -274,42 +274,12 @@ impl<'a> DefnTokraRegionBuilder<'a> {
         })
     }
 
-    fn build(mut self) -> (ItemDefnTokraRegion, DefnTokraRegionSourceMap) {
+    fn build(mut self) -> (ItemDefnTokraRegion, ItemDefnTokraRegionSourceMap) {
         let root_body = self.build_asts(self.root_body);
         let asts_token_idx_range = self
             .ast_token_idx_range_sheet
             .asts_token_idx_range(self.root_body);
-        let nested_seqs: Vec<_> = self
-            .ast_sheet
-            .nested_top_level_asts()
-            .iter()
-            .copied()
-            .filter_map(|(token_idx, ast_idx_range)| {
-                asts_token_idx_range.contains(token_idx).then(|| {
-                    let nested_token_verse_sequence =
-                        &self.token_sheet_data.token_verses().nested_sequences()[token_idx];
-                    let verse_starts = nested_token_verse_sequence
-                        .verses_data()
-                        .iter()
-                        .map(|verse| {
-                            RegionalTokenVerseStart::from_token_verse_start(
-                                verse.start(),
-                                self.regional_token_idx_base,
-                            )
-                        })
-                        .collect();
-                    (
-                        RegionalTokenIdx::from_token_idx(token_idx, self.regional_token_idx_base),
-                        self.build_asts(ast_idx_range),
-                        verse_starts,
-                        RegionalTokenIdx::from_token_idx(
-                            nested_token_verse_sequence.end(),
-                            self.regional_token_idx_base,
-                        ),
-                    )
-                })
-            })
-            .collect();
+        let nested_seqs = self.build_nested_seqs(asts_token_idx_range);
         self.finish(root_body, nested_seqs)
     }
 
@@ -395,6 +365,49 @@ impl<'a> DefnTokraRegionBuilder<'a> {
         Some(regional_ast_idx)
     }
 
+    fn build_nested_seqs(
+        &mut self,
+        asts_token_idx_range: TokenIdxRange,
+    ) -> Vec<(
+        RegionalTokenIdx,
+        ArenaIdxRange<ItemDefnAst>,
+        Vec<RegionalTokenVerseStart>,
+        RegionalTokenIdx,
+    )> {
+        let nested_seqs: Vec<_> = self
+            .ast_sheet
+            .nested_top_level_asts()
+            .iter()
+            .copied()
+            .filter_map(|(token_idx, ast_idx_range)| {
+                asts_token_idx_range.contains(token_idx).then(|| {
+                    let nested_token_verse_sequence =
+                        &self.token_sheet_data.token_verses().nested_sequences()[token_idx];
+                    let verse_starts = nested_token_verse_sequence
+                        .verses_data()
+                        .iter()
+                        .map(|verse| {
+                            RegionalTokenVerseStart::from_token_verse_start(
+                                verse.start(),
+                                self.regional_token_idx_base,
+                            )
+                        })
+                        .collect();
+                    (
+                        RegionalTokenIdx::from_token_idx(token_idx, self.regional_token_idx_base),
+                        self.build_asts(ast_idx_range),
+                        verse_starts,
+                        RegionalTokenIdx::from_token_idx(
+                            nested_token_verse_sequence.end(),
+                            self.regional_token_idx_base,
+                        ),
+                    )
+                })
+            })
+            .collect();
+        nested_seqs
+    }
+
     fn finish(
         self,
         root_body: ItemDefnAstIdxRange,
@@ -404,7 +417,7 @@ impl<'a> DefnTokraRegionBuilder<'a> {
             Vec<RegionalTokenVerseStart>,
             RegionalTokenIdx,
         )>,
-    ) -> (ItemDefnTokraRegion, DefnTokraRegionSourceMap) {
+    ) -> (ItemDefnTokraRegion, ItemDefnTokraRegionSourceMap) {
         // todo: nested??
         let token_verses = self.token_sheet_data.token_verses();
         let verses_data = token_verses.main_sequence().verses_data();
@@ -433,7 +446,7 @@ impl<'a> DefnTokraRegionBuilder<'a> {
                 self.regional_token_idx_range_map,
                 nested_seqs,
             ),
-            DefnTokraRegionSourceMap::new(
+            ItemDefnTokraRegionSourceMap::new(
                 self.db,
                 self.regional_token_verse_idx_base,
                 self.regional_token_idx_base,

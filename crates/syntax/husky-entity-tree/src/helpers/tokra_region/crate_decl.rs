@@ -1,4 +1,6 @@
 use super::*;
+use husky_ast::range::AstTokenIdxRangeSheet;
+use husky_item_defn_ast::ItemDefnAstArena;
 
 #[salsa::tracked(constructor = new_inner)]
 pub struct CrateDeclTokraRegion {
@@ -38,4 +40,18 @@ impl<'a> CrateDeclTokraRegionDataRef<'a> {
         todo!("verses");
         RegionalTokenStream::new_decl_regional_token_stream(self.tokens_data, Some(todo!()))
     }
+}
+
+struct CrateDeclTokraRegionBuilder<'a> {
+    ast_sheet: &'a AstSheet,
+    ast_token_idx_range_sheet: &'a AstTokenIdxRangeSheet,
+    defn_ast_arena: ItemDefnAstArena,
+    root_body: AstIdxRange,
+    regional_token_verse_idx_base: RegionalTokenVerseIdxBase,
+    regional_token_idx_base: RegionalTokenIdxBase,
+    token_sheet_data: &'a TokenSheetData,
+    ast_idx_map: Vec<AstIdx>,
+    regional_token_idx_range_map: Vec<RegionalTokenIdxRange>,
+    tokens_data: Vec<TokenData>,
+    db: &'a ::salsa::Db,
 }

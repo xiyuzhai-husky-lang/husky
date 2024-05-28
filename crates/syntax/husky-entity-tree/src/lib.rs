@@ -36,10 +36,11 @@ use self::symbol::*;
 use self::table::*;
 #[cfg(test)]
 use self::tests::*;
-use husky_ast::*;
+use husky_ast::{AstData, AstIdx, AstIdxRange, AstSheet, HasAstSheet};
 use husky_coword::Ident;
 use husky_scope::*;
 use husky_scope_expr::*;
+use husky_token::TokenSheetData;
 use husky_token_data::*;
 use husky_vfs::*;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};

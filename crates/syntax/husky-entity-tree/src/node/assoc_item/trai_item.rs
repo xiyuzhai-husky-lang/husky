@@ -1,5 +1,6 @@
 use super::*;
 use crate::node::trai::TraitSynNodePath;
+use husky_ast::DefnBlock;
 use husky_entity_path::path::assoc_item::trai_item::TraitItemPath;
 use smallvec::SmallVec;
 

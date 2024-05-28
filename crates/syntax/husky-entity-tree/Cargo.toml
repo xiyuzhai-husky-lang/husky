@@ -36,6 +36,7 @@ husky-scope.workspace = true
 husky-ast.workspace = true
 husky-opr.workspace = true
 husky-scope-expr.workspace = true
+husky-crate-decl-ast.workspace = true
 husky-item-decl-ast.workspace = true
 husky-item-defn-ast.workspace = true
 # infer
