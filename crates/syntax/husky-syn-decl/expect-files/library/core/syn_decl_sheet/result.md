@@ -94,7 +94,7 @@ SynDeclSheet {
                                         current_variable_arena: Arena {
                                             data: [
                                                 CurrentVariableEntry {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -116,7 +116,7 @@ SynDeclSheet {
                                                     },
                                                 },
                                                 CurrentVariableEntry {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     access_start: RegionalTokenIdx(
                                                         8,
                                                     ),
@@ -497,7 +497,7 @@ SynDeclSheet {
                                     current_variable_arena: Arena {
                                         data: [
                                             CurrentVariableEntry {
-                                                modifier: Const,
+                                                modifier: Compterm,
                                                 access_start: RegionalTokenIdx(
                                                     4,
                                                 ),
@@ -519,7 +519,7 @@ SynDeclSheet {
                                                 },
                                             },
                                             CurrentVariableEntry {
-                                                modifier: Const,
+                                                modifier: Compterm,
                                                 access_start: RegionalTokenIdx(
                                                     6,
                                                 ),
@@ -541,7 +541,7 @@ SynDeclSheet {
                                                 },
                                             },
                                             CurrentVariableEntry {
-                                                modifier: Const,
+                                                modifier: Compterm,
                                                 access_start: RegionalTokenIdx(
                                                     8,
                                                 ),
@@ -563,7 +563,7 @@ SynDeclSheet {
                                                 },
                                             },
                                             CurrentVariableEntry {
-                                                modifier: Const,
+                                                modifier: Compterm,
                                                 access_start: RegionalTokenIdx(
                                                     10,
                                                 ),
@@ -914,7 +914,7 @@ SynDeclSheet {
                                                     current_variable_arena: Arena {
                                                         data: [
                                                             CurrentVariableEntry {
-                                                                modifier: Const,
+                                                                modifier: Compterm,
                                                                 access_start: RegionalTokenIdx(
                                                                     4,
                                                                 ),
@@ -936,7 +936,7 @@ SynDeclSheet {
                                                                 },
                                                             },
                                                             CurrentVariableEntry {
-                                                                modifier: Const,
+                                                                modifier: Compterm,
                                                                 access_start: RegionalTokenIdx(
                                                                     6,
                                                                 ),
@@ -958,7 +958,7 @@ SynDeclSheet {
                                                                 },
                                                             },
                                                             CurrentVariableEntry {
-                                                                modifier: Const,
+                                                                modifier: Compterm,
                                                                 access_start: RegionalTokenIdx(
                                                                     8,
                                                                 ),
@@ -980,7 +980,7 @@ SynDeclSheet {
                                                                 },
                                                             },
                                                             CurrentVariableEntry {
-                                                                modifier: Const,
+                                                                modifier: Compterm,
                                                                 access_start: RegionalTokenIdx(
                                                                     10,
                                                                 ),
@@ -1113,7 +1113,7 @@ SynDeclSheet {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [
                                                 InheritedVariable {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
                                                             ident: `T1`,
@@ -1121,7 +1121,7 @@ SynDeclSheet {
                                                     ),
                                                 },
                                                 InheritedVariable {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
                                                             ident: `T2`,
@@ -1129,7 +1129,7 @@ SynDeclSheet {
                                                     ),
                                                 },
                                                 InheritedVariable {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
                                                             ident: `E1`,
@@ -1137,7 +1137,7 @@ SynDeclSheet {
                                                     ),
                                                 },
                                                 InheritedVariable {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
                                                             ident: `E2`,
@@ -1480,7 +1480,7 @@ SynDeclSheet {
                                                     current_variable_arena: Arena {
                                                         data: [
                                                             CurrentVariableEntry {
-                                                                modifier: Const,
+                                                                modifier: Compterm,
                                                                 access_start: RegionalTokenIdx(
                                                                     4,
                                                                 ),
@@ -1502,7 +1502,7 @@ SynDeclSheet {
                                                                 },
                                                             },
                                                             CurrentVariableEntry {
-                                                                modifier: Const,
+                                                                modifier: Compterm,
                                                                 access_start: RegionalTokenIdx(
                                                                     6,
                                                                 ),
@@ -1524,7 +1524,7 @@ SynDeclSheet {
                                                                 },
                                                             },
                                                             CurrentVariableEntry {
-                                                                modifier: Const,
+                                                                modifier: Compterm,
                                                                 access_start: RegionalTokenIdx(
                                                                     8,
                                                                 ),
@@ -1546,7 +1546,7 @@ SynDeclSheet {
                                                                 },
                                                             },
                                                             CurrentVariableEntry {
-                                                                modifier: Const,
+                                                                modifier: Compterm,
                                                                 access_start: RegionalTokenIdx(
                                                                     10,
                                                                 ),
@@ -1822,7 +1822,7 @@ SynDeclSheet {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [
                                                 InheritedVariable {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
                                                             ident: `T1`,
@@ -1830,7 +1830,7 @@ SynDeclSheet {
                                                     ),
                                                 },
                                                 InheritedVariable {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
                                                             ident: `T2`,
@@ -1838,7 +1838,7 @@ SynDeclSheet {
                                                     ),
                                                 },
                                                 InheritedVariable {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
                                                             ident: `E1`,
@@ -1846,7 +1846,7 @@ SynDeclSheet {
                                                     ),
                                                 },
                                                 InheritedVariable {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
                                                             ident: `E2`,

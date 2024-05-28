@@ -2,7 +2,7 @@ use super::*;
 use either::*;
 
 #[salsa::tracked]
-pub struct MajorConstSynNodeDecl {
+pub struct MajorComptermSynNodeDecl {
     #[id]
     pub syn_node_path: FormSynNodePath,
     #[return_ref]
@@ -16,7 +16,7 @@ pub struct MajorConstSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl MajorConstSynNodeDecl {
+impl MajorComptermSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         chain_as_ref_err_collect!(
             self.colon_token(db),
@@ -30,7 +30,7 @@ impl<'a> DeclParser<'a> {
     pub(super) fn parse_termic_syn_node_decl(
         &self,
         syn_node_path: FormSynNodePath,
-    ) -> MajorConstSynNodeDecl {
+    ) -> MajorComptermSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::False, AllowSelfValue::False, None);
         let colon_token =
             parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedColonBeforeValReturnType);
@@ -38,7 +38,7 @@ impl<'a> DeclParser<'a> {
         let eq_or_eol_semicolon_token =
             parser.try_parse_expected(OriginalSynNodeDeclError::ExpectEqTokenForMemo);
         let expr = parser.parse_expr_root(None, SynExprRootKind::ValExpr);
-        MajorConstSynNodeDecl::new(
+        MajorComptermSynNodeDecl::new(
             self.db(),
             syn_node_path,
             colon_token,
@@ -63,7 +63,7 @@ impl MajorComptermSynDecl {
     pub(super) fn from_node_decl(
         db: &::salsa::Db,
         path: MajorFormPath,
-        syn_node_decl: MajorConstSynNodeDecl,
+        syn_node_decl: MajorComptermSynNodeDecl,
     ) -> SynDeclResult<Self> {
         let val_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let expr = syn_node_decl.expr(db);

@@ -8,7 +8,7 @@ use husky_place::place::{idx::PlaceIdx, EthPlace};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum HirQuary {
-    Const,
+    Compterm,
     /// reduce to
     /// - ImmutableOnStack if base type is known to be copyable
     /// - ImmutableReferenced if base type is known to be noncopyable
@@ -134,7 +134,7 @@ impl From<HirQuaryTemplateVariable> for HirQuary {
 impl HirQuary {
     pub fn from_fly(fly_quary: FlyQuary) -> HirQuary {
         match fly_quary {
-            FlyQuary::Const => HirQuary::Const,
+            FlyQuary::Compterm => HirQuary::Compterm,
             FlyQuary::StackPure { place } => HirQuary::StackPure { place },
             FlyQuary::ImmutableOnStack { place } => HirQuary::ImmutableOnStack { place },
             FlyQuary::MutableOnStack { place } => HirQuary::MutableOnStack { place },

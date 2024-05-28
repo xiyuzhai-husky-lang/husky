@@ -257,7 +257,7 @@ fn calc_self_value_ty(
         },
         VariableModifier::Ref => todo!(),
         VariableModifier::RefMut => todo!(),
-        VariableModifier::Const => todo!(),
+        VariableModifier::Compterm => todo!(),
         VariableModifier::Ambersand(_) => FlyQuary::Ref {
             guard: Left(registry.issue_new(place_data).into()),
         },

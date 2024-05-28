@@ -99,7 +99,7 @@ pub enum HirContract {
     Move,
     Borrow,
     BorrowMut,
-    Const,
+    Compterm,
     Leash,
     At,
 }
@@ -111,7 +111,7 @@ impl HirContract {
             Contract::Move => HirContract::Move,
             Contract::Borrow => HirContract::Borrow,
             Contract::BorrowMut => HirContract::BorrowMut,
-            Contract::Const => HirContract::Const,
+            Contract::Compterm => HirContract::Compterm,
             Contract::Leash => HirContract::Leash,
             Contract::At => HirContract::At,
         }
@@ -123,7 +123,7 @@ impl HirContract {
             HirContract::Pure
             | HirContract::Borrow
             | HirContract::BorrowMut
-            | HirContract::Const
+            | HirContract::Compterm
             | HirContract::Leash
             | HirContract::At => false,
         }
