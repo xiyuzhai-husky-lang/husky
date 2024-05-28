@@ -15,6 +15,7 @@ use self::submodule::*;
 use self::ty_variant::*;
 use crate::*;
 use enum_class::Room32;
+use husky_ast::DefnBlock;
 use husky_entity_path::path::ItemPath;
 use husky_token::IdentToken;
 use smallvec::{smallvec, SmallVec};

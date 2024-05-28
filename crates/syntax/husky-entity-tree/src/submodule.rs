@@ -1,5 +1,6 @@
 use crate::*;
 
+use husky_ast::DefnBlock;
 use husky_vfs::*;
 use vec_like::VecSet;
 

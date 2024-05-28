@@ -108,8 +108,8 @@ pub struct EntityTreeJar(
     crate::helpers::tokra_region::item_decl::ItemDeclTokraRegion,
     crate::helpers::tokra_region::item_decl::item_syn_node_decl_tokra_region_with_source_map,
     crate::helpers::tokra_region::item_defn::ItemDefnTokraRegion,
-    crate::helpers::tokra_region::item_defn::DefnTokraRegionSourceMap,
-    crate::helpers::tokra_region::item_defn::item_syn_defn_tokra_region_with_source_map,
+    crate::helpers::tokra_region::item_defn::ItemDefnTokraRegionSourceMap,
+    crate::helpers::tokra_region::item_defn::item_defn_tokra_region_with_source_map,
     crate::helpers::ingredient::crate_ingredient_paths,
     crate::helpers::ingredient::item_path_ingredient_index,
 );

@@ -1,5 +1,6 @@
 use super::*;
 use crate::node::ty_item::{ty_impl_block_items, TypeItemSynNode, TypeItemSynNodePath};
+use husky_ast::TypeItems;
 use husky_entity_path::path::{
     assoc_item::ty_item::TypeItemPath,
     impl_block::{ty_impl_block::TypeImplBlockPath, ImplBlockRegistry},

@@ -1,4 +1,5 @@
 use super::{ty::TypeSynNodePath, *};
+use husky_ast::DefnBlock;
 use husky_entity_kind::TypeKind;
 use husky_entity_path::path::{major_item::ty::TypePath, ty_variant::TypeVariantPath};
 

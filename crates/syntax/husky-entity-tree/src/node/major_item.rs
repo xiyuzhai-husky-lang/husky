@@ -6,6 +6,7 @@ use self::form::*;
 use self::trai::*;
 use self::ty::*;
 use super::*;
+use husky_ast::DefnBlock;
 use husky_entity_path::path::major_item::MajorItemPath;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
