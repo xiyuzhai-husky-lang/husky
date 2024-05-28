@@ -3,20 +3,12 @@ ValkyrieJavelinPantheon {
     package_path: PackagePath {
         toolchain: Toolchain {
             data: ToolchainData::Local {
-                library_path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../library",
-                    ),
-                },
+                library_path: "../../../library",
             },
         },
         name: `quick-sort`,
         data: PackagePathSource::Local {
-            path: VirtualPath {
-                _data: VirtualPathBuf(
-                    "../../../examples/algorithms/quick-sort",
-                ),
-            },
+            path: "../../../examples/algorithms/quick-sort",
         },
     },
     instantiation_map: {
@@ -46,20 +38,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `quick-sort`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/algorithms/quick-sort",
-                    ),
-                },
+                path: "../../../examples/algorithms/quick-sort",
             },
         },
         ValkyrieJavelin(
@@ -76,20 +60,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `quick-sort`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/algorithms/quick-sort",
-                    ),
-                },
+                path: "../../../examples/algorithms/quick-sort",
             },
         },
     },

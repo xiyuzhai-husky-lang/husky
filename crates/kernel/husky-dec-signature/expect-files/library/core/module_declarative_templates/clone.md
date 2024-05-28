@@ -66,11 +66,7 @@
                             DecSymbolicVariable {
                                 toolchain: Toolchain {
                                     data: ToolchainData::Local {
-                                        library_path: VirtualPath {
-                                            _data: VirtualPathBuf(
-                                                "../../../library",
-                                            ),
-                                        },
+                                        library_path: "../../../library",
                                     },
                                 },
                                 ty: Ok(
