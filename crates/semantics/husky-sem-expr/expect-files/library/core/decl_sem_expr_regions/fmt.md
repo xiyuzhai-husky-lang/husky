@@ -1,7 +1,7 @@
 ```rust
 [
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Trait(
                     TraitPath(`core::fmt::Debug`),
@@ -9,7 +9,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Trait(
                         TraitPath(`core::fmt::Debug`),

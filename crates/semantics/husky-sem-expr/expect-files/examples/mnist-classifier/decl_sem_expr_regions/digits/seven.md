@@ -1,7 +1,7 @@
 ```rust
 [
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
@@ -9,7 +9,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
@@ -155,7 +155,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
@@ -165,7 +165,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
@@ -569,7 +569,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
@@ -577,7 +577,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
@@ -723,7 +723,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
@@ -733,7 +733,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
@@ -1137,7 +1137,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
@@ -1147,7 +1147,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
@@ -1551,7 +1551,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
@@ -1559,7 +1559,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),

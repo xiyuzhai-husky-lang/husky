@@ -1,7 +1,7 @@
 ```rust
 [
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Trait(
                     TraitPath(`ml_task::IsMlTask`),
@@ -9,7 +9,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Trait(
                         TraitPath(`ml_task::IsMlTask`),

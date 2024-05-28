@@ -6,15 +6,17 @@ use crate::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db]
 pub enum SynNodeRegionPath {
-    Decl(ItemSynNodePath),
-    Defn(ItemSynNodePath),
+    CrateDecl(CratePath),
+    ItemDecl(ItemSynNodePath),
+    ItemDefn(ItemSynNodePath),
 }
 
 impl SynNodeRegionPath {
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         match self {
-            SynNodeRegionPath::Decl(path) => path.module_path(db),
-            SynNodeRegionPath::Defn(path) => path.module_path(db),
+            SynNodeRegionPath::CrateDecl(crate_path) => crate_path.root_module_path(db),
+            SynNodeRegionPath::ItemDecl(item_path) => item_path.module_path(db),
+            SynNodeRegionPath::ItemDefn(item_path) => item_path.module_path(db),
         }
     }
 
@@ -28,8 +30,13 @@ impl SynNodeRegionPath {
 
     pub fn region_path(self, db: &::salsa::Db) -> Option<RegionPath> {
         Some(match self {
-            SynNodeRegionPath::Decl(path) => RegionPath::Decl(path.unambiguous_item_path(db)?),
-            SynNodeRegionPath::Defn(path) => RegionPath::Defn(path.unambiguous_item_path(db)?),
+            SynNodeRegionPath::CrateDecl(crate_path) => RegionPath::CrateDecl(crate_path),
+            SynNodeRegionPath::ItemDecl(item_path) => {
+                RegionPath::ItemDecl(item_path.unambiguous_item_path(db)?)
+            }
+            SynNodeRegionPath::ItemDefn(item_path) => {
+                RegionPath::ItemDefn(item_path.unambiguous_item_path(db)?)
+            }
         })
     }
 }

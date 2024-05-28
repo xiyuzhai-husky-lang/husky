@@ -1,7 +1,7 @@
 ```rust
 [
     SemExprRegion {
-        path: RegionPath::Defn(
+        path: RegionPath::ItemDefn(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::major::connected_components`, `Val`),
@@ -9,7 +9,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Defn(
+            path: RegionPath::ItemDefn(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::major::connected_components`, `Val`),
@@ -482,7 +482,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Defn(
+        path: RegionPath::ItemDefn(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
@@ -490,7 +490,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Defn(
+            path: RegionPath::ItemDefn(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
@@ -3122,7 +3122,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Defn(
+        path: RegionPath::ItemDefn(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
@@ -3130,7 +3130,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Defn(
+            path: RegionPath::ItemDefn(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
@@ -4913,7 +4913,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Defn(
+        path: RegionPath::ItemDefn(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
@@ -4921,7 +4921,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Defn(
+            path: RegionPath::ItemDefn(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
@@ -5316,7 +5316,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Defn(
+        path: RegionPath::ItemDefn(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
@@ -5324,7 +5324,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Defn(
+            path: RegionPath::ItemDefn(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
@@ -5974,7 +5974,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Defn(
+        path: RegionPath::ItemDefn(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
@@ -5982,7 +5982,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Defn(
+            path: RegionPath::ItemDefn(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
@@ -6377,7 +6377,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Defn(
+        path: RegionPath::ItemDefn(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
@@ -6385,7 +6385,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Defn(
+            path: RegionPath::ItemDefn(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::major::major_concave_components`, `Val`),

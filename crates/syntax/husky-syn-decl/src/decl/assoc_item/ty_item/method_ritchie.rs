@@ -32,7 +32,7 @@ impl TypeMethodRitchieSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     pub(super) fn parse_ty_method_node_decl(
         &self,
         syn_node_path: TypeItemSynNodePath,

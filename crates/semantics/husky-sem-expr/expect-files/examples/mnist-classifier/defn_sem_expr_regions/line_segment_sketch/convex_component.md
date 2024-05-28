@@ -1,7 +1,7 @@
 ```rust
 [
     SemExprRegion {
-        path: RegionPath::Defn(
+        path: RegionPath::ItemDefn(
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
@@ -14,7 +14,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Defn(
+            path: RegionPath::ItemDefn(
                 ItemPath::AssocItem(
                     AssocItemPath::TraitForTypeItem(
                         TraitForTypeItemPath(

@@ -17,7 +17,7 @@ impl TraitAssocTypeSynNodeDecl {
 }
 
 /// # parse
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     pub(super) fn parse_trai_assoc_ty_node_decl(
         &self,
         syn_node_path: TraitItemSynNodePath,

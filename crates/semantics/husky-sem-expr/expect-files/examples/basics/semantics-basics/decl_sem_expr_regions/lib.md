@@ -1,7 +1,7 @@
 ```rust
 [
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`semantics_basics::some_neural_network`, `Ritchie(
@@ -11,7 +11,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`semantics_basics::some_neural_network`, `Ritchie(

@@ -21,7 +21,7 @@ Ok(
                     },
                 },
             },
-            crate_kind: Main,
+            kind: Main,
         },
         task_crate_path: CratePath {
             package_path: PackagePath {
@@ -50,7 +50,7 @@ Ok(
                     },
                 },
             },
-            crate_kind: Task,
+            kind: Task,
         },
     },
 )

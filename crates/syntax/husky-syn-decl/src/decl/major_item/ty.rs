@@ -85,10 +85,10 @@ impl HasSynNodeDecl for TypeSynNodePath {
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_node_decl(db: &::salsa::Db, syn_node_path: TypeSynNodePath) -> TypeSynNodeDecl {
-    DeclParser::new(db, syn_node_path.into()).parse_ty_node_decl(syn_node_path)
+    ItemDeclParser::new(db, syn_node_path.into()).parse_ty_node_decl(syn_node_path)
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     fn parse_ty_node_decl(&self, _syn_node_path: TypeSynNodePath) -> TypeSynNodeDecl {
         let ItemSynNodePath::MajorItem(MajorItemSynNodePath::Type(syn_node_path)) =
             self.syn_node_path()
@@ -106,7 +106,7 @@ impl<'a> DeclParser<'a> {
     }
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     pub(super) fn parse_struct_ty_node_decl(
         &self,
         syn_node_path: TypeSynNodePath,

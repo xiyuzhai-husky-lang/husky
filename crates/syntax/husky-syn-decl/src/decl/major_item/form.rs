@@ -63,10 +63,10 @@ pub(crate) fn form_syn_node_decl(
     db: &::salsa::Db,
     syn_node_path: FormSynNodePath,
 ) -> FormSynNodeDecl {
-    DeclParser::new(db, syn_node_path.into()).parse_form_syn_node_decl(syn_node_path)
+    ItemDeclParser::new(db, syn_node_path.into()).parse_form_syn_node_decl(syn_node_path)
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     fn parse_form_syn_node_decl(&self, syn_node_path: FormSynNodePath) -> FormSynNodeDecl {
         match syn_node_path.form_kind(self.db()) {
             MajorFormKind::Val => self.parse_val_syn_node_decl(syn_node_path).into(),

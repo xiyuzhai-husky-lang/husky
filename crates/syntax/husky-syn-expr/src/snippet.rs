@@ -30,7 +30,7 @@ where
     let token_sheet_data = db.snippet_token_sheet_data(script);
     let expr_context = SynExprContext::new2(
         db,
-        SynNodeRegionPath::Defn(ScriptSynNodePath::new(script, db).into()),
+        SynNodeRegionPath::ItemDefn(ScriptSynNodePath::new(script, db).into()),
         ModuleSymbolContext::new_default(db, crate_path).unwrap(),
         None,
         AllowSelfType::False,
@@ -52,7 +52,7 @@ pub fn parse_expr_from_script(
     let token_sheet_data = db.snippet_token_sheet_data(script);
     let expr_context = SynExprContext::new2(
         db,
-        SynNodeRegionPath::Defn(ScriptSynNodePath::new(script, db).into()),
+        SynNodeRegionPath::ItemDefn(ScriptSynNodePath::new(script, db).into()),
         ModuleSymbolContext::new_default(db, crate_path)?,
         None,
         AllowSelfType::False,

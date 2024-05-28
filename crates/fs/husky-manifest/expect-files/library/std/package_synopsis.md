@@ -15,7 +15,7 @@ Ok(
                 name: `std`,
                 data: PackagePathSource::Library,
             },
-            crate_kind: Lib,
+            kind: Lib,
         },
         task_crate_path: None,
     },

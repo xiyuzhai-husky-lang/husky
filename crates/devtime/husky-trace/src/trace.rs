@@ -316,7 +316,7 @@ impl IsTrace for Trace {}
 
 #[salsa::tracked(jar = TraceJar, return_ref)]
 fn root_traces(db: &::salsa::Db, crate_path: CratePath) -> Vec<Trace> {
-    match crate_path.crate_kind(db) {
+    match crate_path.kind(db) {
         CrateKind::Lib | CrateKind::Main => (),
         CrateKind::Task | CrateKind::Requirements => return vec![],
         CrateKind::Bin(_) => todo!(),
@@ -377,7 +377,7 @@ fn find_traces<R>(
     db: &::salsa::Db,
     f: impl Fn(Trace) -> R,
 ) -> Vec<(Trace, R)> {
-    match crate_path.crate_kind(db) {
+    match crate_path.kind(db) {
         CrateKind::Lib | CrateKind::Main => (),
         CrateKind::Task | CrateKind::Requirements => return vec![],
         CrateKind::Bin(_) => todo!(),

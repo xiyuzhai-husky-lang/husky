@@ -15,7 +15,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Form(
                                         FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
@@ -162,7 +162,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Form(
                                         FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),

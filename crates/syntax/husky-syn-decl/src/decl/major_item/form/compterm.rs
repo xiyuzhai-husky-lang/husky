@@ -26,7 +26,7 @@ impl MajorComptermSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     pub(super) fn parse_termic_syn_node_decl(
         &self,
         syn_node_path: FormSynNodePath,

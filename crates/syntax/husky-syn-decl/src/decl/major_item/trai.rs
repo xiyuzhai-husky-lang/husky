@@ -35,10 +35,10 @@ pub(crate) fn trai_syn_node_decl(
     db: &::salsa::Db,
     syn_node_path: TraitSynNodePath,
 ) -> TraitSynNodeDecl {
-    DeclParser::new(db, syn_node_path.into()).parse_trai_syn_node_decl(syn_node_path)
+    ItemDeclParser::new(db, syn_node_path.into()).parse_trai_syn_node_decl(syn_node_path)
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     fn parse_trai_syn_node_decl(&self, syn_node_path: TraitSynNodePath) -> TraitSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::False, None);
         let template_parameters = parser.try_parse_option();

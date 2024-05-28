@@ -35,7 +35,7 @@
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -116,7 +116,7 @@
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
@@ -197,7 +197,7 @@
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -278,7 +278,7 @@
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -359,7 +359,7 @@
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -440,7 +440,7 @@
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -502,7 +502,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(`mnist_classifier::geom2d::Point2d(0)`),
@@ -588,7 +588,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -660,7 +660,7 @@
                         (
                             9,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -992,7 +992,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -1037,7 +1037,7 @@
                         (
                             5,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -1361,7 +1361,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -1420,7 +1420,7 @@
                         (
                             11,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -1898,7 +1898,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -1943,7 +1943,7 @@
                         (
                             12,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -2419,7 +2419,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -2478,7 +2478,7 @@
                         (
                             4,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -2709,7 +2709,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(`mnist_classifier::geom2d::Vector2d(0)`),
@@ -2782,7 +2782,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -2827,7 +2827,7 @@
                         (
                             5,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -3151,7 +3151,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -3210,7 +3210,7 @@
                         (
                             11,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -3688,7 +3688,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -3733,7 +3733,7 @@
                         (
                             12,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -4209,7 +4209,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -4268,7 +4268,7 @@
                         (
                             11,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -4720,7 +4720,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -4779,7 +4779,7 @@
                         (
                             11,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -5231,7 +5231,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -5290,7 +5290,7 @@
                         (
                             27,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -6159,7 +6159,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -6218,7 +6218,7 @@
                         (
                             4,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -6497,7 +6497,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -6569,7 +6569,7 @@
                         (
                             40,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -7808,7 +7808,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(`mnist_classifier::geom2d::ClosedRange(0)`),
@@ -7893,7 +7893,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -7952,7 +7952,7 @@
                         (
                             27,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -8963,7 +8963,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -9022,7 +9022,7 @@
                         (
                             11,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -9445,7 +9445,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(`mnist_classifier::geom2d::BoundingBox(0)`),
@@ -9530,7 +9530,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -9589,7 +9589,7 @@
                         (
                             11,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -10151,7 +10151,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -10210,7 +10210,7 @@
                         (
                             11,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -10760,7 +10760,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -10805,7 +10805,7 @@
                         (
                             3,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -11045,7 +11045,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -11090,7 +11090,7 @@
                         (
                             3,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -11330,7 +11330,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -11375,7 +11375,7 @@
                         (
                             3,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -11615,7 +11615,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -11660,7 +11660,7 @@
                         (
                             3,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -11875,7 +11875,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)`),
@@ -11948,7 +11948,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -11993,7 +11993,7 @@
                         (
                             3,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -12233,7 +12233,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -12278,7 +12278,7 @@
                         (
                             3,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -12518,7 +12518,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -12563,7 +12563,7 @@
                         (
                             3,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -12803,7 +12803,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -12848,7 +12848,7 @@
                         (
                             3,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(

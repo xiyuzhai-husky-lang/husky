@@ -1,5 +1,5 @@
 [package]
-name = "husky-decl-ast"
+name = "husky-item-decl-ast"
 version.workspace = true
 edition = "2021"
 

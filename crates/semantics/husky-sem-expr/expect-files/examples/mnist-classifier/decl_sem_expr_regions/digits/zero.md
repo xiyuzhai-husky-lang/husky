@@ -1,7 +1,7 @@
 ```rust
 [
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
@@ -9,7 +9,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
@@ -155,7 +155,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
@@ -165,7 +165,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
@@ -569,7 +569,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -577,7 +577,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),

@@ -1,7 +1,7 @@
 ```rust
 [
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Type(
                     TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -9,7 +9,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Type(
                         TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -842,7 +842,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
@@ -852,7 +852,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
@@ -1953,7 +1953,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
                     TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
@@ -1961,7 +1961,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TypeImplBlock(
                         TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
@@ -2109,7 +2109,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
                     TypeItemPath(
@@ -2120,7 +2120,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
                         TypeItemPath(
@@ -2273,7 +2273,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
                     TypeItemPath(
@@ -2284,7 +2284,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
                         TypeItemPath(
@@ -2437,7 +2437,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
                     TypeItemPath(
@@ -2448,7 +2448,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
                         TypeItemPath(

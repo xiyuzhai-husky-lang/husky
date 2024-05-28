@@ -1,26 +1,26 @@
 use super::*;
 use crate::node::ItemSynNodePathId;
-use husky_decl_ast::DeclAst;
+use husky_item_decl_ast::ItemDeclAst;
 use husky_token::{TokenDb, TokenIdxRange};
 
 ///
 #[salsa::tracked(constructor = new_inner)]
-pub struct DeclTokraRegion {
+pub struct ItemDeclTokraRegion {
     #[return_ref]
     tokens_data: Vec<TokenData>,
     pub saved_regional_token_stream_state: Option<RegionalTokenStreamState>,
-    pub ast: DeclAst,
+    pub ast: ItemDeclAst,
 }
 
 #[derive(Debug, Clone, Copy)]
-pub struct DeclTokraRegionDataRef<'a> {
+pub struct ItemDeclTokraRegionDataRef<'a> {
     saved_regional_token_stream_state: Option<RegionalTokenStreamState>,
     tokens_data: &'a [TokenData],
 }
 
-impl DeclTokraRegion {
-    pub fn data<'a>(self, db: &'a ::salsa::Db) -> DeclTokraRegionDataRef<'a> {
-        DeclTokraRegionDataRef {
+impl ItemDeclTokraRegion {
+    pub fn data<'a>(self, db: &'a ::salsa::Db) -> ItemDeclTokraRegionDataRef<'a> {
+        ItemDeclTokraRegionDataRef {
             tokens_data: self.tokens_data(db),
             saved_regional_token_stream_state: self.saved_regional_token_stream_state(db),
         }
@@ -31,7 +31,7 @@ impl DeclTokraRegion {
     }
 }
 
-impl<'a> DeclTokraRegionDataRef<'a> {
+impl<'a> ItemDeclTokraRegionDataRef<'a> {
     pub fn regional_token_stream(self) -> RegionalTokenStream<'a> {
         RegionalTokenStream::new_decl_regional_token_stream(
             self.tokens_data,
@@ -40,7 +40,7 @@ impl<'a> DeclTokraRegionDataRef<'a> {
     }
 }
 
-impl<'a> std::ops::Index<RegionalTokenIdx> for DeclTokraRegionDataRef<'a> {
+impl<'a> std::ops::Index<RegionalTokenIdx> for ItemDeclTokraRegionDataRef<'a> {
     type Output = TokenData;
 
     fn index(&self, idx: RegionalTokenIdx) -> &Self::Output {
@@ -68,7 +68,7 @@ fn build_decl_tokra_region(
     module_path: ModulePath,
     opt_ast_idx: Option<AstIdx>,
     db: &::salsa::Db,
-) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
+) -> (ItemDeclTokraRegion, DeclTokraRegionSourceMap) {
     let token_sheet_data = db.token_sheet_data(module_path);
     let ast_sheet = module_path.ast_sheet(db);
     let Some(ast_idx) = opt_ast_idx else { todo!() };
@@ -76,7 +76,7 @@ fn build_decl_tokra_region(
         AstData::Attr {
             token_verse_idx,
             ident: _,
-        } => (token_verse_idx, DeclAst::Attr, None),
+        } => (token_verse_idx, ItemDeclAst::Attr, None),
         AstData::Identifiable {
             token_verse_idx,
             visibility_expr: _,
@@ -87,7 +87,7 @@ fn build_decl_tokra_region(
             block: _,
         } => (
             token_verse_idx,
-            DeclAst::Identifiable {},
+            ItemDeclAst::Identifiable {},
             Some(saved_stream_state),
         ),
         AstData::TypeVariant {
@@ -98,13 +98,13 @@ fn build_decl_tokra_region(
             saved_stream_state,
         } => (
             token_verse_idx,
-            DeclAst::TypeVariant,
+            ItemDeclAst::TypeVariant,
             Some(saved_stream_state),
         ),
         AstData::ImplBlock {
             token_verse_idx,
             items: _,
-        } => (token_verse_idx, DeclAst::ImplBlock, None),
+        } => (token_verse_idx, ItemDeclAst::ImplBlock, None),
         _ => unreachable!(),
     };
     let tokens = token_sheet_data[token_verse_idx].to_vec();
@@ -117,7 +117,7 @@ fn build_decl_tokra_region(
         )
     });
     let decl_tokra_region =
-        DeclTokraRegion::new_inner(db, tokens, saved_regional_stream_state, ast);
+        ItemDeclTokraRegion::new_inner(db, tokens, saved_regional_stream_state, ast);
     let decl_tokra_region_source_map = DeclTokraRegionSourceMap {
         regional_token_idx_base,
         ast_idx,
@@ -126,7 +126,7 @@ fn build_decl_tokra_region(
 }
 
 impl ItemSynNodePathId {
-    pub fn decl_tokra_region(self, db: &::salsa::Db) -> DeclTokraRegion {
+    pub fn decl_tokra_region(self, db: &::salsa::Db) -> ItemDeclTokraRegion {
         item_syn_node_decl_tokra_region_with_source_map(db, self).0
     }
 
@@ -164,6 +164,6 @@ impl ItemSynNodePathId {
 fn item_syn_node_decl_tokra_region_with_source_map(
     db: &::salsa::Db,
     id: ItemSynNodePathId,
-) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
+) -> (ItemDeclTokraRegion, DeclTokraRegionSourceMap) {
     build_decl_tokra_region(id.module_path(db), id.opt_ast_idx(db), db)
 }

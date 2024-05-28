@@ -53,7 +53,7 @@
                         },
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -107,7 +107,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
@@ -162,7 +162,7 @@
                     },
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
+                    region_path: RegionPath::ItemDecl(
                         ItemPath::Attr(
                             Room32,
                             AttrItemPath(`mnist_classifier::raw_contour::Direction::@derive(0)`),
@@ -203,7 +203,7 @@
                     ),
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
+                    region_path: RegionPath::ItemDecl(
                         ItemPath::TypeVariant(
                             Room32,
                             TypeVariantPath(
@@ -250,7 +250,7 @@
                     ),
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
+                    region_path: RegionPath::ItemDecl(
                         ItemPath::TypeVariant(
                             Room32,
                             TypeVariantPath(
@@ -297,7 +297,7 @@
                     ),
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
+                    region_path: RegionPath::ItemDecl(
                         ItemPath::TypeVariant(
                             Room32,
                             TypeVariantPath(
@@ -344,7 +344,7 @@
                     ),
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
+                    region_path: RegionPath::ItemDecl(
                         ItemPath::TypeVariant(
                             Room32,
                             TypeVariantPath(
@@ -788,7 +788,7 @@
                         },
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
@@ -974,7 +974,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
+                    region_path: RegionPath::ItemDecl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockPath(`mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)`),
@@ -1039,7 +1039,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(
@@ -1098,7 +1098,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
+                    region_path: RegionPath::ItemDecl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
@@ -1145,7 +1145,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(
@@ -1203,7 +1203,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(
@@ -1261,7 +1261,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(
@@ -1319,7 +1319,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(
@@ -1418,7 +1418,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
                                     TypeItemPath(

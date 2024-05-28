@@ -64,11 +64,11 @@ pub(crate) fn trai_for_ty_item_syn_node_decl(
     db: &::salsa::Db,
     syn_node_path: TraitForTypeItemSynNodePath,
 ) -> TraitForTypeItemSynNodeDecl {
-    let parser = DeclParser::new(db, syn_node_path.into());
+    let parser = ItemDeclParser::new(db, syn_node_path.into());
     parser.parse_trai_for_ty_item_syn_node_decl()
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     fn parse_trai_for_ty_item_syn_node_decl(&self) -> TraitForTypeItemSynNodeDecl {
         let db = self.db();
         let ItemSynNodePath::AssocItem(AssocItemSynNodePath::TraitForTypeItem(syn_node_path)) =

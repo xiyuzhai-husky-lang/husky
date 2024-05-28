@@ -10,7 +10,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Trait(
                                     TraitPath(`core::cmp::PartialEq`),
@@ -52,7 +52,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Trait(
                                     TraitPath(`core::cmp::Eq`),
@@ -94,7 +94,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Trait(
                                     TraitPath(`core::cmp::PartialOrd`),
@@ -136,7 +136,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Trait(
                                     TraitPath(`core::cmp::Ord`),

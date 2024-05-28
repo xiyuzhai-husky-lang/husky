@@ -1,6 +1,6 @@
 use super::*;
-use husky_defn_ast::{DefnAstArenaRef, DefnAstIdx, DefnAstIdxRange};
-use husky_entity_tree::helpers::tokra_region::DefnTokraRegionDataRef;
+use husky_entity_tree::helpers::tokra_region::ItemDefnTokraRegionDataRef;
+use husky_item_defn_ast::{ItemDefnAstArenaRef, ItemDefnAstIdx, ItemDefnAstIdxRange};
 
 impl<'a> SynExprContext<'a> {
     pub(crate) fn parse_root_body(&mut self) -> SynExprIdx {
@@ -20,23 +20,26 @@ impl<'a> SynExprContext<'a> {
             .token_stream(regional_token_verse_idx)
     }
 
-    pub(crate) fn asts(&self) -> DefnAstArenaRef<'a> {
+    pub(crate) fn asts(&self) -> ItemDefnAstArenaRef<'a> {
         self.defn_tokra_region_data().ast_arena()
     }
 
-    pub(crate) fn ast_token_idx_range(&self, defn_ast_idx: DefnAstIdx) -> RegionalTokenIdxRange {
+    pub(crate) fn ast_token_idx_range(
+        &self,
+        defn_ast_idx: ItemDefnAstIdx,
+    ) -> RegionalTokenIdxRange {
         self.defn_tokra_region_data()
             .ast_token_idx_range(defn_ast_idx)
     }
 
-    pub(crate) fn form_body_end(&self, body: DefnAstIdxRange) -> RegionalTokenIdxRangeEnd {
+    pub(crate) fn form_body_end(&self, body: ItemDefnAstIdxRange) -> RegionalTokenIdxRangeEnd {
         self.defn_tokra_region_data()
             .ast_token_idx_range(body.end() - 1)
             .end()
     }
 
     #[track_caller]
-    pub fn defn_tokra_region_data(&self) -> DefnTokraRegionDataRef<'a> {
+    pub fn defn_tokra_region_data(&self) -> ItemDefnTokraRegionDataRef<'a> {
         match self.tokra_region_data {
             TokraRegionDataRef::Decl(_) => unreachable!(),
             TokraRegionDataRef::Defn(tokra_region_data) => tokra_region_data,

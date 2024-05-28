@@ -10,7 +10,7 @@
                     ),
                     fields: [],
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`syntax_errors::ast::A`, `Struct`),
@@ -57,7 +57,7 @@
                     },
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
+                    region_path: RegionPath::ItemDecl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(`syntax_errors::ast::A(0)`),

@@ -48,7 +48,7 @@ impl<'a> SynExprContext<'a> {
         let module_path = syn_node_path.module_path(db);
         Self::new2(
             db,
-            SynNodeRegionPath::Defn(syn_node_path),
+            SynNodeRegionPath::ItemDefn(syn_node_path),
             db.module_symbol_context(module_path).unwrap(),
             Some(decl_expr_region),
             allow_self_type,

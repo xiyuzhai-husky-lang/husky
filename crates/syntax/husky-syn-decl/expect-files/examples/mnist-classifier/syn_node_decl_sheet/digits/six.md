@@ -35,7 +35,7 @@ SynNodeDeclSheet {
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`mnist_classifier::digits::six::six_match`, `Val`, (0)),
@@ -155,7 +155,7 @@ SynNodeDeclSheet {
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`, (0)),
@@ -275,7 +275,7 @@ SynNodeDeclSheet {
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`mnist_classifier::digits::six::is_six`, `Val`, (0)),
@@ -536,7 +536,7 @@ SynNodeDeclSheet {
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
@@ -812,7 +812,7 @@ SynNodeDeclSheet {
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(

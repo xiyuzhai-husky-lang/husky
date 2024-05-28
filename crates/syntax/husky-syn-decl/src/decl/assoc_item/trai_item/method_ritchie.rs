@@ -42,7 +42,7 @@ impl TraitMethodRitchieSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     pub(super) fn parse_trai_method_ritchie_syn_node_decl(
         &self,
         syn_node_path: TraitItemSynNodePath,
