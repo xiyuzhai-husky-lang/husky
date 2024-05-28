@@ -43,7 +43,7 @@ impl HasEthTemplate for TypeItemPath {
     }
 }
 
-// #[salsa::tracked]
+#[salsa::tracked]
 pub(crate) fn ty_item_eth_template(
     db: &::salsa::Db,
     path: TypeItemPath,

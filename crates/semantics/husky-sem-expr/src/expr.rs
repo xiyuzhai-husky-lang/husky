@@ -40,7 +40,7 @@ use husky_entity_path::path::{
 use husky_eth_signature::signature::assoc_item::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeEtherealSignature;
 use husky_eth_term::term::{
     application::EthApplication, symbolic_variable::EthSymbolicVariable,
-    ty_as_trai_item::EthTypeAsTraitItem, EthTerm,
+    trai_for_ty_item::EthTypeAsTraitItem, EthTerm,
 };
 use husky_fly_term::{
     dispatch::{

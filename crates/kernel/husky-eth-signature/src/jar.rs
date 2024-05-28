@@ -2,6 +2,7 @@
 pub struct EthSignatureJar(
     // assoc_items
     // - type items
+    crate::signature::assoc_item::ty_item::ty_item_eth_template,
     crate::signature::assoc_item::ty_item::ty_item_eth_templates_map,
     crate::signature::assoc_item::ty_item::method_ritchie::TypeMethodRitchieEthTemplate,
     crate::signature::assoc_item::ty_item::method_curry::TypeMethodCurryEthTemplate,
@@ -13,6 +14,7 @@ pub struct EthSignatureJar(
     crate::signature::assoc_item::trai_item::assoc_ritchie::TraitAssocRitchieEthTemplate,
     crate::signature::assoc_item::trai_item::method_ritchie::TraitMethodFnEthTemplate,
     // - trait for type items
+    crate::signature::assoc_item::trai_for_ty_item::trai_for_ty_item_eth_template,
     crate::signature::assoc_item::trai_for_ty_item::assoc_ritchie::TraitForTypeAssocRitchieEthTemplate,
     crate::signature::assoc_item::trai_for_ty_item::assoc_val::TraitForTypeAssocValEthTemplate,
     crate::signature::assoc_item::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeEthTemplate,
@@ -48,16 +50,16 @@ pub struct EthSignatureJar(
     // impl block
     // - type
     crate::signature::impl_block::ty_impl_block::TypeImplBlockEthTemplate,
+    crate::signature::impl_block::ty_impl_block::ty_impl_block_eth_template,
     // - trait for type
     crate::signature::impl_block::trai_for_ty_impl_block::TraitForTypeImplBlockEthTemplate,
     crate::signature::impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilder,
     crate::signature::impl_block::trai_for_ty_impl_block::trai_for_ty_impl_block_eth_template,
-    crate::signature::impl_block::ty_impl_block::ty_impl_block_eth_template,
     crate::signature::impl_block::trai_for_ty_impl_block::trai_for_ty_impl_block_with_ty_instantiated_assoc_output_ethereal_signature_builder,
     crate::signature::impl_block::trai_for_ty_impl_block::trai_for_ty_impl_block_with_ty_instantiated_item_eth_template,
     // attr
+    crate::signature::attr::attr_eth_template,
     crate::signature::attr::derive::ty_path_derive_attr_eth_templates_map,
-    // attr_eth_template,
     crate::signature::attr::derive::DeriveAttrEthTemplate,
     crate::signature::attr::derive::DeriveAttrShardEthTemplate,
     crate::signature::attr::task::TaskAttrEthTemplate,

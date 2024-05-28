@@ -25,7 +25,7 @@ impl HasEthTemplate for AttrItemPath {
     }
 }
 
-// #[salsa::tracked]
+#[salsa::tracked]
 fn attr_eth_template(
     db: &::salsa::Db,
     path: AttrItemPath,
