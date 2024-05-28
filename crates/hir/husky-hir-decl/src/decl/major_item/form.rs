@@ -19,7 +19,7 @@ use husky_syn_decl::decl::major_item::form::FormSynDecl;
 pub enum MajorFormHirDecl {
     Ritchie(MajorFunctionRitchieHirDecl),
     Val(MajorValHirDecl),
-    Const(MajorComptermHirDecl),
+    Compterm(MajorComptermHirDecl),
     Static(MajorStaticHirDecl),
     TypeAlias(MajorTypeAliasHirDecl),
 }
@@ -30,7 +30,7 @@ impl MajorFormHirDecl {
             MajorFormHirDecl::Ritchie(decl) => Some(decl.template_parameters(db)),
             MajorFormHirDecl::Val(_decl) => None,
             MajorFormHirDecl::TypeAlias(_) => todo!(),
-            MajorFormHirDecl::Const(_decl) => None,
+            MajorFormHirDecl::Compterm(_decl) => None,
             MajorFormHirDecl::Static(_) => None,
         }
     }
@@ -40,7 +40,7 @@ impl MajorFormHirDecl {
             MajorFormHirDecl::Ritchie(decl) => decl.hir_expr_region(db).into(),
             MajorFormHirDecl::Val(decl) => decl.hir_eager_expr_region(db).into(),
             MajorFormHirDecl::TypeAlias(decl) => decl.hir_eager_expr_region(db).into(),
-            MajorFormHirDecl::Const(_) => todo!(),
+            MajorFormHirDecl::Compterm(_) => todo!(),
             MajorFormHirDecl::Static(_) => todo!(),
         }
     }
@@ -50,7 +50,7 @@ impl MajorFormHirDecl {
             MajorFormHirDecl::Ritchie(decl) => decl.path(db),
             MajorFormHirDecl::Val(decl) => decl.path(db),
             MajorFormHirDecl::TypeAlias(decl) => decl.path(db),
-            MajorFormHirDecl::Const(_) => todo!(),
+            MajorFormHirDecl::Compterm(_) => todo!(),
             MajorFormHirDecl::Static(_) => todo!(),
         }
     }
@@ -72,7 +72,7 @@ fn major_form_hir_decl(db: &::salsa::Db, path: MajorFormPath) -> Option<MajorFor
         }
         FormSynDecl::Val(syn_decl) => Some(MajorValHirDecl::from_syn(path, syn_decl, db).into()),
         FormSynDecl::TypeAlias(_) => None,
-        FormSynDecl::Const(syn_decl) => {
+        FormSynDecl::Compterm(syn_decl) => {
             Some(MajorComptermHirDecl::from_syn(path, syn_decl, db).into())
         }
         FormSynDecl::Static(syn_decl) => {

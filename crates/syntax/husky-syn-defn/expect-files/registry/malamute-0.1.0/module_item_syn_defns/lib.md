@@ -336,7 +336,7 @@
                                                     current_variable_arena: Arena {
                                                         data: [
                                                             CurrentVariableEntry {
-                                                                modifier: Const,
+                                                                modifier: Compterm,
                                                                 access_start: RegionalTokenIdx(
                                                                     6,
                                                                 ),
@@ -371,7 +371,7 @@
                                                                 },
                                                             },
                                                             CurrentVariableEntry {
-                                                                modifier: Const,
+                                                                modifier: Compterm,
                                                                 access_start: RegionalTokenIdx(
                                                                     13,
                                                                 ),
@@ -504,7 +504,7 @@
                                         inherited_syn_symbol_arena: Arena {
                                             data: [
                                                 InheritedVariable {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
                                                             ident: `Label`,
@@ -512,7 +512,7 @@
                                                     ),
                                                 },
                                                 InheritedVariable {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Constant {
                                                             ident: `label`,
@@ -664,7 +664,7 @@
                             inherited_syn_symbol_arena: Arena {
                                 data: [
                                     InheritedVariable {
-                                        modifier: Const,
+                                        modifier: Compterm,
                                         kind: InheritedVariableKind::Template(
                                             InheritedTemplateVariable::Type {
                                                 ident: `Label`,
@@ -672,7 +672,7 @@
                                         ),
                                     },
                                     InheritedVariable {
-                                        modifier: Const,
+                                        modifier: Compterm,
                                         kind: InheritedVariableKind::Template(
                                             InheritedTemplateVariable::Constant {
                                                 ident: `label`,
@@ -1000,7 +1000,7 @@
                                                     current_variable_arena: Arena {
                                                         data: [
                                                             CurrentVariableEntry {
-                                                                modifier: Const,
+                                                                modifier: Compterm,
                                                                 access_start: RegionalTokenIdx(
                                                                     4,
                                                                 ),
@@ -1022,7 +1022,7 @@
                                                                 },
                                                             },
                                                             CurrentVariableEntry {
-                                                                modifier: Const,
+                                                                modifier: Compterm,
                                                                 access_start: RegionalTokenIdx(
                                                                     11,
                                                                 ),
@@ -1320,7 +1320,7 @@
                                         inherited_syn_symbol_arena: Arena {
                                             data: [
                                                 InheritedVariable {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
                                                             ident: `Label`,
@@ -1328,7 +1328,7 @@
                                                     ),
                                                 },
                                                 InheritedVariable {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Constant {
                                                             ident: `label`,
@@ -1986,7 +1986,7 @@
                             inherited_syn_symbol_arena: Arena {
                                 data: [
                                     InheritedVariable {
-                                        modifier: Const,
+                                        modifier: Compterm,
                                         kind: InheritedVariableKind::Template(
                                             InheritedTemplateVariable::Type {
                                                 ident: `Label`,
@@ -1994,7 +1994,7 @@
                                         ),
                                     },
                                     InheritedVariable {
-                                        modifier: Const,
+                                        modifier: Compterm,
                                         kind: InheritedVariableKind::Template(
                                             InheritedTemplateVariable::Constant {
                                                 ident: `label`,
@@ -2362,7 +2362,7 @@
                                                     current_variable_arena: Arena {
                                                         data: [
                                                             CurrentVariableEntry {
-                                                                modifier: Const,
+                                                                modifier: Compterm,
                                                                 access_start: RegionalTokenIdx(
                                                                     6,
                                                                 ),
@@ -2397,7 +2397,7 @@
                                                                 },
                                                             },
                                                             CurrentVariableEntry {
-                                                                modifier: Const,
+                                                                modifier: Compterm,
                                                                 access_start: RegionalTokenIdx(
                                                                     13,
                                                                 ),
@@ -2695,7 +2695,7 @@
                                         inherited_syn_symbol_arena: Arena {
                                             data: [
                                                 InheritedVariable {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
                                                             ident: `Label`,
@@ -2703,7 +2703,7 @@
                                                     ),
                                                 },
                                                 InheritedVariable {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Constant {
                                                             ident: `label`,
@@ -3592,7 +3592,7 @@
                             inherited_syn_symbol_arena: Arena {
                                 data: [
                                     InheritedVariable {
-                                        modifier: Const,
+                                        modifier: Compterm,
                                         kind: InheritedVariableKind::Template(
                                             InheritedTemplateVariable::Type {
                                                 ident: `Label`,
@@ -3600,7 +3600,7 @@
                                         ),
                                     },
                                     InheritedVariable {
-                                        modifier: Const,
+                                        modifier: Compterm,
                                         kind: InheritedVariableKind::Template(
                                             InheritedTemplateVariable::Constant {
                                                 ident: `label`,

@@ -66,7 +66,7 @@ impl SymbolType {
                 place: engine.issue_new_place_idx(place_data()).into(),
                 lifetime: None,
             },
-            VariableModifier::Const => FlyQuary::Const,
+            VariableModifier::Compterm => FlyQuary::Compterm,
             VariableModifier::Ambersand(_) => todo!(),
             VariableModifier::AmbersandMut(_) => todo!(),
             VariableModifier::Le => todo!(),
@@ -99,7 +99,7 @@ impl SymbolType {
                         place: engine.issue_new_place_idx(place_data).into(),
                     },
                     Some(false) => match quary {
-                        FlyQuary::Const => todo!(),
+                        FlyQuary::Compterm => todo!(),
                         FlyQuary::StackPure { place }
                         | FlyQuary::ImmutableOnStack { place }
                         | FlyQuary::MutableOnStack { place } => {
@@ -135,7 +135,7 @@ impl SymbolType {
             },
             VariableModifier::Ref => todo!(),
             VariableModifier::RefMut => todo!(),
-            VariableModifier::Const => todo!(),
+            VariableModifier::Compterm => todo!(),
             VariableModifier::Ambersand(_) => todo!(),
             VariableModifier::AmbersandMut(_) => todo!(),
             VariableModifier::Le => todo!(),

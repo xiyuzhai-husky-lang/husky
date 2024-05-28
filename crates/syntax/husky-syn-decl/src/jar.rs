@@ -53,7 +53,7 @@ pub struct SynDeclJar(
     crate::decl::major_item::form::form_syn_decl,
     crate::decl::major_item::form::val::MajorValSynNodeDecl,
     crate::decl::major_item::form::val::MajorValSynDecl,
-    crate::decl::major_item::form::compterm::MajorConstSynNodeDecl,
+    crate::decl::major_item::form::compterm::MajorComptermSynNodeDecl,
     crate::decl::major_item::form::compterm::MajorComptermSynDecl,
     crate::decl::major_item::form::r#static::MajorStaticSynNodeDecl,
     crate::decl::major_item::form::r#static::MajorStaticSynDecl,

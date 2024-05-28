@@ -12,7 +12,7 @@ impl TranspileToRustWith for MajorFormHirDefn {
             MajorFormHirDefn::Ritchie(hir_defn) => hir_defn.transpile_to_rust(builder),
             MajorFormHirDefn::Val(hir_defn) => hir_defn.transpile_to_rust(builder),
             MajorFormHirDefn::TypeAlias(_) => todo!(),
-            MajorFormHirDefn::Const(_) => todo!(),
+            MajorFormHirDefn::Compterm(_) => todo!(),
             MajorFormHirDefn::Static(_) => todo!(),
         }
     }

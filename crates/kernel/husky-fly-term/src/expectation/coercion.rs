@@ -65,7 +65,7 @@ impl ExpectCoercion {
     #[inline(always)]
     pub fn new_const(ty: FlyTerm) -> Self {
         Self {
-            contract: Contract::Const,
+            contract: Contract::Compterm,
             ty_expected: ty,
         }
     }

@@ -56,7 +56,9 @@ pub(crate) fn form_syn_dec_template(
         }
         FormSynDecl::Val(decl) => MajorValDecTemplate::from_decl(db, decl).map(Into::into),
         FormSynDecl::TypeAlias(decl) => TypeAliasDecTemplate::from_decl(db, decl).map(Into::into),
-        FormSynDecl::Const(decl) => MajorComptermDecTemplate::from_decl(db, decl).map(Into::into),
+        FormSynDecl::Compterm(decl) => {
+            MajorComptermDecTemplate::from_decl(db, decl).map(Into::into)
+        }
         FormSynDecl::Static(decl) => MajorStaticDecTemplate::from_decl(db, decl).map(Into::into),
     }
 }

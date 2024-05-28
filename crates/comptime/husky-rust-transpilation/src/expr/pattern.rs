@@ -26,7 +26,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerPatternIdx {
                             builder.keyword(RustKeyword::Ref);
                             builder.keyword(RustKeyword::Mut)
                         }
-                        VariableModifier::Const => todo!(),
+                        VariableModifier::Compterm => todo!(),
                         VariableModifier::Ambersand(_) => todo!(),
                         VariableModifier::AmbersandMut(_) => todo!(),
                         VariableModifier::Le => todo!(),

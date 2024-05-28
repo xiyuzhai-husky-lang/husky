@@ -171,7 +171,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerSelfValueParameter {
                 builder.punctuation(RustPunctuation::Ambersand);
                 builder.keyword(RustKeyword::Mut)
             }
-            HirContract::Const => todo!(),
+            HirContract::Compterm => todo!(),
             HirContract::Leash => todo!(),
             HirContract::At => todo!(),
         }
@@ -201,7 +201,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerParenateParameter {
                         builder.punctuation(RustPunctuation::Ambersand);
                         builder.keyword(RustKeyword::Mut)
                     }
-                    HirContract::Const => todo!(),
+                    HirContract::Compterm => todo!(),
                     HirContract::Leash => todo!(),
                     HirContract::At => todo!(),
                 }
