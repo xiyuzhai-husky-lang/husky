@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::decl::ExternTypeSynDecl;
+use husky_syn_decl::decl::major_item::ty::r#extern::ExternSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar, constructor = new_inner)]
 pub struct ExternTypeHirDecl {
@@ -10,7 +10,7 @@ pub struct ExternTypeHirDecl {
 }
 
 impl ExternTypeHirDecl {
-    pub(super) fn from_syn(path: TypePath, _syn_decl: ExternTypeSynDecl, db: &::salsa::Db) -> Self {
+    pub(super) fn from_syn(path: TypePath, _syn_decl: ExternSynDecl, db: &::salsa::Db) -> Self {
         let TypeSynDecl::Extern(syn_decl) = path.syn_decl(db).expect("hir stage ok") else {
             unreachable!()
         };

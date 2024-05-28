@@ -1496,7 +1496,7 @@ EntityTreeSheet {
                 use_expr_idx: 0,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    77,
+                    78,
                 ),
             },
             UseAllRule {

@@ -1,6 +1,6 @@
 use super::*;
 use crate::builder::keyword::RustKeyword;
-use husky_hir_decl::decl::{MajorFunctionRitchieHirDecl, MajorValHirDecl};
+use husky_hir_decl::decl::{function_ritchie::MajorFunctionRitchieHirDecl, val::MajorValHirDecl};
 use husky_hir_defn::defn::major_item::form::{
     function_ritchie::MajorFunctionRitchieHirDefn, val::MajorValHirDefn, MajorFormHirDefn,
 };
@@ -12,7 +12,7 @@ impl TranspileToRustWith for MajorFormHirDefn {
             MajorFormHirDefn::Ritchie(hir_defn) => hir_defn.transpile_to_rust(builder),
             MajorFormHirDefn::Val(hir_defn) => hir_defn.transpile_to_rust(builder),
             MajorFormHirDefn::TypeAlias(_) => todo!(),
-            MajorFormHirDefn::Const(_) => todo!(),
+            MajorFormHirDefn::Compterm(_) => todo!(),
             MajorFormHirDefn::Static(_) => todo!(),
         }
     }

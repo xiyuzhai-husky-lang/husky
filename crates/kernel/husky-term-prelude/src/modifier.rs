@@ -7,7 +7,7 @@ pub enum VariableModifier {
     Mut,
     Ref,
     RefMut,
-    Const,
+    Compterm,
     Ambersand(Option<Label>),
     AmbersandMut(Option<Label>),
     Le,

@@ -2,12 +2,14 @@ pub mod affect;
 pub mod backprop;
 pub mod derive;
 pub mod marker;
+pub mod task;
 pub mod test;
 
 use self::derive::*;
 use self::{
     affect::{AffectAttrSynDecl, AffectAttrSynNodeDecl},
     backprop::{BackpropAttrSynDecl, BackpropAttrSynNodeDecl},
+    task::{TaskAttrSynDecl, TaskAttrSynNodeDecl},
     test::{TestAttrSynDecl, TestAttrSynNodeDecl},
 };
 use super::*;
@@ -20,18 +22,22 @@ pub enum AttrSynNodeDecl {
     Backprop(BackpropAttrSynNodeDecl),
     Derive(DeriveAttrSynNodeDecl),
     Effect(AffectAttrSynNodeDecl),
+    Task(TaskAttrSynNodeDecl),
     Test(TestAttrSynNodeDecl),
+    Err,
 }
 
 /// # getters
 impl AttrSynNodeDecl {
-    pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
-        match self {
+    pub fn syn_expr_region(self, db: &::salsa::Db) -> Option<SynExprRegion> {
+        Some(match self {
             AttrSynNodeDecl::Derive(slf) => slf.syn_expr_region(db),
             AttrSynNodeDecl::Backprop(slf) => slf.syn_expr_region(db),
             AttrSynNodeDecl::Effect(slf) => slf.syn_expr_region(db),
+            AttrSynNodeDecl::Task(slf) => slf.syn_expr_region(db),
             AttrSynNodeDecl::Test(slf) => slf.syn_expr_region(db),
-        }
+            AttrSynNodeDecl::Err => return None,
+        })
     }
 
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
@@ -39,7 +45,9 @@ impl AttrSynNodeDecl {
             AttrSynNodeDecl::Derive(slf) => slf.errors(db),
             AttrSynNodeDecl::Backprop(slf) => slf.errors(db),
             AttrSynNodeDecl::Effect(slf) => slf.errors(db),
+            AttrSynNodeDecl::Task(slf) => slf.errors(db),
             AttrSynNodeDecl::Test(slf) => slf.errors(db),
+            AttrSynNodeDecl::Err => todo!(),
         }
     }
 }
@@ -66,10 +74,13 @@ fn attr_syn_node_decl(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> AttrS
         attr_ident if attr_ident == coword_menu.affect_ident() => {
             AttrSynNodeDecl::Effect(AffectAttrSynNodeDecl::new(db, syn_node_path))
         }
+        attr_ident if attr_ident == coword_menu.task_ident() => {
+            AttrSynNodeDecl::Task(TaskAttrSynNodeDecl::new(db, syn_node_path))
+        }
         attr_ident if attr_ident == coword_menu.test_ident() => {
             AttrSynNodeDecl::Test(TestAttrSynNodeDecl::new(db, syn_node_path))
         }
-        _ => todo!(),
+        _ => AttrSynNodeDecl::Err,
     }
 }
 
@@ -79,6 +90,7 @@ pub enum AttrSynDecl {
     Backprop(BackpropAttrSynDecl),
     Derive(DeriveAttrSynDecl),
     Effect(AffectAttrSynDecl),
+    Task(TaskAttrSynDecl),
     Test(TestAttrSynDecl),
 }
 
@@ -97,12 +109,16 @@ impl AttrSynDecl {
             AttrSynNodeDecl::Backprop(syn_node_decl) => {
                 BackpropAttrSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            AttrSynNodeDecl::Effect(node_decl) => {
-                AffectAttrSynDecl::from_node(path, node_decl, db)?.into()
+            AttrSynNodeDecl::Effect(syn_node_decl) => {
+                AffectAttrSynDecl::from_node(path, syn_node_decl, db)?.into()
+            }
+            AttrSynNodeDecl::Task(syn_node_decl) => {
+                TaskAttrSynDecl::from_node(path, syn_node_decl, db)?.into()
             }
             AttrSynNodeDecl::Test(node_decl) => {
                 TestAttrSynDecl::from_node(path, node_decl, db)?.into()
             }
+            AttrSynNodeDecl::Err => todo!(),
         })
     }
 }
@@ -113,6 +129,7 @@ impl AttrSynDecl {
         match self {
             AttrSynDecl::Backprop(slf) => slf.path(db),
             AttrSynDecl::Derive(slf) => slf.path(db),
+            AttrSynDecl::Task(slf) => slf.path(db),
             AttrSynDecl::Test(slf) => slf.path(db),
             AttrSynDecl::Effect(slf) => slf.path(db),
         }
@@ -122,6 +139,7 @@ impl AttrSynDecl {
         match self {
             AttrSynDecl::Backprop(slf) => slf.syn_expr_region(db),
             AttrSynDecl::Derive(slf) => slf.syn_expr_region(db),
+            AttrSynDecl::Task(slf) => slf.syn_expr_region(db),
             AttrSynDecl::Test(slf) => slf.syn_expr_region(db),
             AttrSynDecl::Effect(slf) => slf.syn_expr_region(db),
         }

@@ -24,8 +24,8 @@ pub struct EthTermJar(
     // - application expansion
     crate::term::application::EtherealApplicationArguments,
     // ty as trait item
-    crate::term::ty_as_trai_item::EthTypeAsTraitItem,
-    crate::term::ty_as_trai_item::reduce_eth_ty_as_trai_item,
+    crate::term::trai_for_ty_item::EthTypeAsTraitItem,
+    crate::term::trai_for_ty_item::reduce_eth_ty_as_trai_item,
     // trait constraint
     crate::term::trai_constraint::EthTraitConstraint,
     crate::menu::term_menu,
@@ -33,12 +33,12 @@ pub struct EthTermJar(
     crate::term::ethereal_term_from_application_or_ritchie_call_declarative_term,
     crate::term::ethereal_term_from_list_declarative_term,
     crate::term::ethereal_term_from_dec_term_wrapper,
-    // // trai
+    // trai
     // trai_side_trai_for_ty_impl_blocks_aux,
     // ty_side_trai_for_ty_impl_blocks_aux,
     // trai_for_type_impl_template_from_impl_block,
     // // template
-    // TemplateParameters,
+    // // TemplateParameters,
     // ty_path_template_parameters,
     // instantiation
     crate::instantiation::instantiation_eth_term_fmt_context,

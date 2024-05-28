@@ -1,5 +1,9 @@
 #[salsa::jar]
 pub struct HirDeclJar(
+    // crate
+    crate::decl::crate_::lib::LibCrateHirDecl,
+    crate::decl::crate_::main::MainCrateHirDecl,
+    crate::decl::crate_::task::TaskCrateHirDecl,
     // attr
     crate::decl::attr::attr_hir_decl,
     // template
@@ -9,6 +13,7 @@ pub struct HirDeclJar(
     // assoc_items
     // - type items
     // ty_item_hir_decl,
+    crate::decl::assoc_item::ty_item::ty_item_hir_decl,
     crate::decl::TypeMethodRitchieHirDecl,
     crate::decl::TypeMemoFieldHirDecl,
     crate::decl::TypeAssocRitchieHirDecl,
@@ -37,10 +42,10 @@ pub struct HirDeclJar(
     crate::decl::trai_hir_decl,
     crate::decl::TraitHirDecl,
     // major form
-    crate::decl::major_form_hir_decl,
-    crate::decl::MajorFunctionRitchieHirDecl,
-    crate::decl::MajorTypeAliasHirDecl,
-    crate::decl::MajorValHirDecl,
+    crate::decl::major_item::form::major_form_hir_decl,
+    crate::decl::major_item::form::function_ritchie::MajorFunctionRitchieHirDecl,
+    crate::decl::major_item::form::ty_alias::MajorTypeAliasHirDecl,
+    crate::decl::major_item::form::val::MajorValHirDecl,
     crate::decl::major_item::form::compterm::MajorComptermHirDecl,
     crate::decl::major_item::form::r#static::MajorStaticHirDecl,
     // ty variant
@@ -60,6 +65,7 @@ pub struct HirDeclJar(
     crate::decl::attr::derive::DeriveAttrHirDecl,
     crate::decl::attr::affect::AffectAttrHirDecl,
     crate::decl::attr::marker::MarkerAttrHirDecl,
+    crate::decl::attr::task::TaskAttrHirDecl,
     crate::decl::attr::test::TestAttrHirDecl,
     // helpers
     crate::helpers::enum_ty_has_only_unit_variants,

@@ -10,7 +10,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::array::Array`, `Extern`),
                             template_parameters: [
                                 TemplateSynParameterData {
@@ -139,7 +139,7 @@ SynDeclSheet {
                                         current_variable_arena: Arena {
                                             data: [
                                                 CurrentVariableEntry {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     access_start: RegionalTokenIdx(
                                                         9,
                                                     ),
@@ -161,7 +161,7 @@ SynDeclSheet {
                                                     },
                                                 },
                                                 CurrentVariableEntry {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     access_start: RegionalTokenIdx(
                                                         12,
                                                     ),

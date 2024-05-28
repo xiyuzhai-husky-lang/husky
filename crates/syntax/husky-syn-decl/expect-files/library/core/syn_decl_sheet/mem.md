@@ -10,7 +10,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::mem::Ref`, `Extern`),
                             template_parameters: [
                                 TemplateSynParameterData {
@@ -109,7 +109,7 @@ SynDeclSheet {
                                         current_variable_arena: Arena {
                                             data: [
                                                 CurrentVariableEntry {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     access_start: RegionalTokenIdx(
                                                         7,
                                                     ),
@@ -138,7 +138,7 @@ SynDeclSheet {
                                                     },
                                                 },
                                                 CurrentVariableEntry {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     access_start: RegionalTokenIdx(
                                                         10,
                                                     ),
@@ -207,7 +207,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::mem::RefMut`, `Extern`),
                             template_parameters: [
                                 TemplateSynParameterData {
@@ -306,7 +306,7 @@ SynDeclSheet {
                                         current_variable_arena: Arena {
                                             data: [
                                                 CurrentVariableEntry {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     access_start: RegionalTokenIdx(
                                                         7,
                                                     ),
@@ -335,7 +335,7 @@ SynDeclSheet {
                                                     },
                                                 },
                                                 CurrentVariableEntry {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     access_start: RegionalTokenIdx(
                                                         10,
                                                     ),
@@ -404,7 +404,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::mem::Leash`, `Extern`),
                             template_parameters: [
                                 TemplateSynParameterData {
@@ -483,7 +483,7 @@ SynDeclSheet {
                                         current_variable_arena: Arena {
                                             data: [
                                                 CurrentVariableEntry {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     access_start: RegionalTokenIdx(
                                                         7,
                                                     ),
@@ -546,7 +546,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::mem::At`, `Extern`),
                             template_parameters: [
                                 TemplateSynParameterData {
@@ -629,7 +629,7 @@ SynDeclSheet {
                                         current_variable_arena: Arena {
                                             data: [
                                                 CurrentVariableEntry {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -650,7 +650,7 @@ SynDeclSheet {
                                                     },
                                                 },
                                                 CurrentVariableEntry {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     access_start: RegionalTokenIdx(
                                                         8,
                                                     ),
@@ -859,7 +859,7 @@ SynDeclSheet {
                                     current_variable_arena: Arena {
                                         data: [
                                             CurrentVariableEntry {
-                                                modifier: Const,
+                                                modifier: Compterm,
                                                 access_start: RegionalTokenIdx(
                                                     4,
                                                 ),

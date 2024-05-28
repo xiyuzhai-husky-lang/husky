@@ -1737,7 +1737,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Hol(
                                         HolTerm(
@@ -1751,7 +1751,7 @@
                                     4,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
                                             HolTerm(
@@ -2021,7 +2021,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Hol(
                                         HolTerm(
@@ -2035,7 +2035,7 @@
                                     10,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
                                             HolTerm(
@@ -2854,7 +2854,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
@@ -2866,7 +2866,7 @@
                                     25,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -3066,7 +3066,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Hol(
                                         HolTerm(
@@ -3080,7 +3080,7 @@
                                     29,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
                                             HolTerm(
@@ -3395,7 +3395,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
@@ -3407,7 +3407,7 @@
                                     35,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
@@ -3604,7 +3604,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Hol(
                                         HolTerm(
@@ -3618,7 +3618,7 @@
                                     39,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
                                             HolTerm(
@@ -3950,7 +3950,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
@@ -3962,7 +3962,7 @@
                                     46,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -4504,7 +4504,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Hol(
                                         HolTerm(
@@ -4518,7 +4518,7 @@
                                     55,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
                                             HolTerm(
@@ -4947,7 +4947,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
@@ -4959,7 +4959,7 @@
                                     64,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -5201,7 +5201,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Hol(
                                         HolTerm(
@@ -5215,7 +5215,7 @@
                                     69,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
                                             HolTerm(
@@ -5241,7 +5241,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Hol(
                                         HolTerm(
@@ -5255,7 +5255,7 @@
                                     70,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
                                             HolTerm(
@@ -5479,7 +5479,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
@@ -5491,7 +5491,7 @@
                                     74,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -5613,7 +5613,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
@@ -5625,7 +5625,7 @@
                                     77,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
@@ -5747,7 +5747,7 @@
                                                     ExpectCoercionOutcome {
                                                         coercion: Trivial(
                                                             TrivialFlyCoercion {
-                                                                expectee_quary: Const,
+                                                                expectee_quary: Compterm,
                                                             },
                                                         ),
                                                     },
@@ -5846,7 +5846,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
@@ -5858,7 +5858,7 @@
                                     80,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -5977,7 +5977,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
@@ -5989,7 +5989,7 @@
                                     83,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -8306,7 +8306,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
                                             HolTerm(
@@ -8343,7 +8343,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
                                             HolTerm(
@@ -8357,7 +8357,7 @@
                                                 ExpectCoercionOutcome {
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
-                                                            expectee_quary: Const,
+                                                            expectee_quary: Compterm,
                                                         },
                                                     ),
                                                 },
@@ -8494,7 +8494,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
                                             HolTerm(
@@ -8531,7 +8531,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
                                             HolTerm(
@@ -8545,7 +8545,7 @@
                                                 ExpectCoercionOutcome {
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
-                                                            expectee_quary: Const,
+                                                            expectee_quary: Compterm,
                                                         },
                                                     ),
                                                 },
@@ -8967,7 +8967,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -8979,7 +8979,7 @@
                                                 ExpectCoercionOutcome {
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
-                                                            expectee_quary: Const,
+                                                            expectee_quary: Compterm,
                                                         },
                                                     ),
                                                 },
@@ -9089,7 +9089,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
                                             HolTerm(
@@ -9126,7 +9126,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
                                             HolTerm(
@@ -9140,7 +9140,7 @@
                                                 ExpectCoercionOutcome {
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
-                                                            expectee_quary: Const,
+                                                            expectee_quary: Compterm,
                                                         },
                                                     ),
                                                 },
@@ -9281,7 +9281,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
@@ -9293,7 +9293,7 @@
                                                 ExpectCoercionOutcome {
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
-                                                            expectee_quary: Const,
+                                                            expectee_quary: Compterm,
                                                         },
                                                     ),
                                                 },
@@ -9399,7 +9399,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
                                             HolTerm(
@@ -9436,7 +9436,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
                                             HolTerm(
@@ -9450,7 +9450,7 @@
                                                 ExpectCoercionOutcome {
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
-                                                            expectee_quary: Const,
+                                                            expectee_quary: Compterm,
                                                         },
                                                     ),
                                                 },
@@ -9628,7 +9628,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -9640,7 +9640,7 @@
                                                 ExpectCoercionOutcome {
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
-                                                            expectee_quary: Const,
+                                                            expectee_quary: Compterm,
                                                         },
                                                     ),
                                                 },
@@ -9907,7 +9907,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
                                             HolTerm(
@@ -9944,7 +9944,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
                                             HolTerm(
@@ -9958,7 +9958,7 @@
                                                 ExpectCoercionOutcome {
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
-                                                            expectee_quary: Const,
+                                                            expectee_quary: Compterm,
                                                         },
                                                     ),
                                                 },
@@ -10184,7 +10184,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -10196,7 +10196,7 @@
                                                 ExpectCoercionOutcome {
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
-                                                            expectee_quary: Const,
+                                                            expectee_quary: Compterm,
                                                         },
                                                     ),
                                                 },
@@ -10329,7 +10329,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
                                             HolTerm(
@@ -10370,7 +10370,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
                                             HolTerm(
@@ -10384,7 +10384,7 @@
                                                 ExpectCoercionOutcome {
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
-                                                            expectee_quary: Const,
+                                                            expectee_quary: Compterm,
                                                         },
                                                     ),
                                                 },
@@ -10502,7 +10502,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -10514,7 +10514,7 @@
                                                 ExpectCoercionOutcome {
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
-                                                            expectee_quary: Const,
+                                                            expectee_quary: Compterm,
                                                         },
                                                     ),
                                                 },
@@ -10599,7 +10599,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
@@ -10611,7 +10611,7 @@
                                                 ExpectCoercionOutcome {
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
-                                                            expectee_quary: Const,
+                                                            expectee_quary: Compterm,
                                                         },
                                                     ),
                                                 },
@@ -10702,7 +10702,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -10714,7 +10714,7 @@
                                                 ExpectCoercionOutcome {
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
-                                                            expectee_quary: Const,
+                                                            expectee_quary: Compterm,
                                                         },
                                                     ),
                                                 },
@@ -10807,7 +10807,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -10819,7 +10819,7 @@
                                                 ExpectCoercionOutcome {
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
-                                                            expectee_quary: Const,
+                                                            expectee_quary: Compterm,
                                                         },
                                                     ),
                                                 },
@@ -11469,7 +11469,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
@@ -11481,7 +11481,7 @@
                                     4,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -12080,7 +12080,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -12092,7 +12092,7 @@
                                                 ExpectCoercionOutcome {
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
-                                                            expectee_quary: Const,
+                                                            expectee_quary: Compterm,
                                                         },
                                                     ),
                                                 },
@@ -12588,7 +12588,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
@@ -12600,7 +12600,7 @@
                                     4,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -12927,7 +12927,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
@@ -12939,7 +12939,7 @@
                                     9,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -13681,7 +13681,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -13693,7 +13693,7 @@
                                                 ExpectCoercionOutcome {
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
-                                                            expectee_quary: Const,
+                                                            expectee_quary: Compterm,
                                                         },
                                                     ),
                                                 },
@@ -13834,7 +13834,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -13846,7 +13846,7 @@
                                                 ExpectCoercionOutcome {
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
-                                                            expectee_quary: Const,
+                                                            expectee_quary: Compterm,
                                                         },
                                                     ),
                                                 },

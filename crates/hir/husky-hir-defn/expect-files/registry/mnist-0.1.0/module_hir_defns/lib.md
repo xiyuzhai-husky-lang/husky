@@ -1,5 +1,18 @@
 ```rust
 [
+    HirDefn::Submodule(
+        SubmoduleHirDefn {
+            hir_decl: SubmoduleHirDecl {
+                path: SubmoduleItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                ),
+            },
+        },
+    ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
             TypeHirDefn::Enum(
@@ -42,62 +55,6 @@
                     },
                 },
             ),
-        ),
-    ),
-    HirDefn::TypeVariant(
-        TypeVariantHirDefn::Unit(
-            EnumUnitVariantHirDefn {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 2,
-                        },
-                    ),
-                ),
-                hir_decl: EnumUnitTypeVariantHirDecl {
-                    path: TypeVariantPath(
-                        ItemPathId(
-                            Id {
-                                value: 2,
-                            },
-                        ),
-                    ),
-                    hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
-                            ItemPath::TypeVariant(
-                                Room32,
-                                TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 2,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_arena: Arena {
-                            data: [],
-                        },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
-                            arena: Arena {
-                                data: [],
-                            },
-                        },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
-                            arena: Arena {
-                                data: [],
-                            },
-                            self_value_variable: None,
-                        },
-                    },
-                },
-            },
         ),
     ),
     HirDefn::TypeVariant(
@@ -574,6 +531,62 @@
                                     ItemPathId(
                                         Id {
                                             value: 11,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
+                },
+            },
+        ),
+    ),
+    HirDefn::TypeVariant(
+        TypeVariantHirDefn::Unit(
+            EnumUnitVariantHirDefn {
+                path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 12,
+                        },
+                    ),
+                ),
+                hir_decl: EnumUnitTypeVariantHirDecl {
+                    path: TypeVariantPath(
+                        ItemPathId(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        region_path: RegionPath::Decl(
+                            ItemPath::TypeVariant(
+                                Room32,
+                                TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 12,
                                         },
                                     ),
                                 ),

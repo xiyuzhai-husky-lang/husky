@@ -1,5 +1,8 @@
 use super::*;
-use husky_syn_decl::*;
+use husky_syn_decl::{
+    error::{OriginalSynNodeDeclError, SynNodeDeclError},
+    jar::SynDeclDb,
+};
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
 pub struct DeclDiagnosticSheet {

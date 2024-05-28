@@ -90,7 +90,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::frontend::Cv2dFrontend`, `Extern`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
@@ -172,7 +172,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::frontend::Cv3dFrontend`, `Extern`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
@@ -254,7 +254,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::frontend::NlpFrontend`, `Extern`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
@@ -336,7 +336,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::frontend::Rl2dFrontend`, `Extern`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {

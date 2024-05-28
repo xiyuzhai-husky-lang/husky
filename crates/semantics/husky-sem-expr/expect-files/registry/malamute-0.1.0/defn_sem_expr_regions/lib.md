@@ -211,7 +211,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Const,
+                                Compterm,
                             ),
                             base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
@@ -221,7 +221,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Const,
+                                Compterm,
                             ),
                             base: FlyTermBase::Eth(
                                 EthTerm(`Label`),
@@ -768,7 +768,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Label`),
@@ -780,7 +780,7 @@
                                     3,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Label`),
@@ -823,7 +823,7 @@
                                                     ExpectCoercionOutcome {
                                                         coercion: Trivial(
                                                             TrivialFlyCoercion {
-                                                                expectee_quary: Const,
+                                                                expectee_quary: Compterm,
                                                             },
                                                         ),
                                                     },
@@ -1373,7 +1373,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Const,
+                                Compterm,
                             ),
                             base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
@@ -1383,7 +1383,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Const,
+                                Compterm,
                             ),
                             base: FlyTermBase::Eth(
                                 EthTerm(`Label`),
@@ -1568,7 +1568,7 @@
                                     fill: Some(
                                         FlyTerm {
                                             place: Some(
-                                                Const,
+                                                Compterm,
                                             ),
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Label`),
@@ -1579,7 +1579,7 @@
                                         HoleConstraint::CoercibleFrom {
                                             target: FlyTerm {
                                                 place: Some(
-                                                    Const,
+                                                    Compterm,
                                                 ),
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Label`),
@@ -1950,7 +1950,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Label`),
@@ -1962,7 +1962,7 @@
                                                 ExpectCoercionOutcome {
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
-                                                            expectee_quary: Const,
+                                                            expectee_quary: Compterm,
                                                         },
                                                     ),
                                                 },
@@ -3468,7 +3468,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Const,
+                                Compterm,
                             ),
                             base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
@@ -3478,7 +3478,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Const,
+                                Compterm,
                             ),
                             base: FlyTermBase::Eth(
                                 EthTerm(`Label`),

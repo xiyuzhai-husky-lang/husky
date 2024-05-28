@@ -1,11 +1,10 @@
-mod ill_formed;
-mod trai_for_ty_impl_block;
-mod ty_impl_block;
+pub mod ill_formed;
+pub mod trai_for_ty_impl_block;
+pub mod ty_impl_block;
 
-pub use self::ill_formed::*;
-pub use self::trai_for_ty_impl_block::*;
-pub use self::ty_impl_block::*;
-
+use self::ill_formed::*;
+use self::trai_for_ty_impl_block::*;
+use self::ty_impl_block::*;
 use super::*;
 use husky_entity_path::path::impl_block::ImplBlockPath;
 use husky_regional_token::ImplRegionalToken;

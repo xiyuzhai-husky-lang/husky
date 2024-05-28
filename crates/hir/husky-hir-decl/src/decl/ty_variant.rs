@@ -9,7 +9,7 @@ pub use self::enum_unit_ty_variant::*;
 use super::*;
 use husky_entity_kind::TypeKind;
 use husky_entity_path::path::ty_variant::TypeVariantPath;
-use husky_syn_decl::decl::TypeVariantSynDecl;
+use husky_syn_decl::decl::ty_variant::TypeVariantSynDecl;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]

@@ -81,7 +81,7 @@ SynDeclSheet {
                                         current_variable_arena: Arena {
                                             data: [
                                                 CurrentVariableEntry {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),

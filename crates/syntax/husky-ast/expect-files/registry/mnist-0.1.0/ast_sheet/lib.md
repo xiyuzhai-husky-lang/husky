@@ -5,36 +5,6 @@ AstSheet {
             AstData::TypeVariant {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 1,
-                },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 2,
-                        },
-                    ),
-                ),
-                vertical_token: VerticalToken(
-                    TokenIdx(
-                        4,
-                    ),
-                ),
-                ident_token: IdentToken {
-                    ident: `Zero`,
-                    token_idx: TokenIdx(
-                        5,
-                    ),
-                },
-                saved_stream_state: TokenStreamState {
-                    next_token_idx: TokenIdx(
-                        6,
-                    ),
-                    drained: true,
-                },
-            },
-            AstData::TypeVariant {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
                     raw: 2,
                 },
                 variant_path: TypeVariantPath(
@@ -46,18 +16,18 @@ AstSheet {
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        6,
+                        7,
                     ),
                 ),
                 ident_token: IdentToken {
-                    ident: `One`,
+                    ident: `Zero`,
                     token_idx: TokenIdx(
-                        7,
+                        8,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        8,
+                        9,
                     ),
                     drained: true,
                 },
@@ -76,18 +46,18 @@ AstSheet {
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        8,
+                        9,
                     ),
                 ),
                 ident_token: IdentToken {
-                    ident: `Two`,
+                    ident: `One`,
                     token_idx: TokenIdx(
-                        9,
+                        10,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        10,
+                        11,
                     ),
                     drained: true,
                 },
@@ -106,18 +76,18 @@ AstSheet {
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        10,
+                        11,
                     ),
                 ),
                 ident_token: IdentToken {
-                    ident: `Three`,
+                    ident: `Two`,
                     token_idx: TokenIdx(
-                        11,
+                        12,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        12,
+                        13,
                     ),
                     drained: true,
                 },
@@ -136,18 +106,18 @@ AstSheet {
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        12,
+                        13,
                     ),
                 ),
                 ident_token: IdentToken {
-                    ident: `Four`,
+                    ident: `Three`,
                     token_idx: TokenIdx(
-                        13,
+                        14,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        14,
+                        15,
                     ),
                     drained: true,
                 },
@@ -166,18 +136,18 @@ AstSheet {
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        14,
+                        15,
                     ),
                 ),
                 ident_token: IdentToken {
-                    ident: `Five`,
+                    ident: `Four`,
                     token_idx: TokenIdx(
-                        15,
+                        16,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        16,
+                        17,
                     ),
                     drained: true,
                 },
@@ -196,18 +166,18 @@ AstSheet {
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        16,
+                        17,
                     ),
                 ),
                 ident_token: IdentToken {
-                    ident: `Six`,
+                    ident: `Five`,
                     token_idx: TokenIdx(
-                        17,
+                        18,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        18,
+                        19,
                     ),
                     drained: true,
                 },
@@ -226,18 +196,18 @@ AstSheet {
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        18,
+                        19,
                     ),
                 ),
                 ident_token: IdentToken {
-                    ident: `Seven`,
+                    ident: `Six`,
                     token_idx: TokenIdx(
-                        19,
+                        20,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        20,
+                        21,
                     ),
                     drained: true,
                 },
@@ -256,18 +226,18 @@ AstSheet {
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        20,
+                        21,
                     ),
                 ),
                 ident_token: IdentToken {
-                    ident: `Eight`,
+                    ident: `Seven`,
                     token_idx: TokenIdx(
-                        21,
+                        22,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        22,
+                        23,
                     ),
                     drained: true,
                 },
@@ -286,18 +256,48 @@ AstSheet {
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        22,
+                        23,
+                    ),
+                ),
+                ident_token: IdentToken {
+                    ident: `Eight`,
+                    token_idx: TokenIdx(
+                        24,
+                    ),
+                },
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        25,
+                    ),
+                    drained: true,
+                },
+            },
+            AstData::TypeVariant {
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: 11,
+                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 12,
+                        },
+                    ),
+                ),
+                vertical_token: VerticalToken(
+                    TokenIdx(
+                        25,
                     ),
                 ),
                 ident_token: IdentToken {
                     ident: `Nine`,
                     token_idx: TokenIdx(
-                        23,
+                        26,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        24,
+                        27,
                     ),
                     drained: true,
                 },
@@ -305,7 +305,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 14,
+                    raw: 15,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -323,13 +323,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `visualize`,
                     token_idx: TokenIdx(
-                        41,
+                        44,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        42,
+                        45,
                     ),
                     drained: false,
                 },
@@ -340,13 +340,13 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 16,
+                    raw: 17,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                50,
+                                53,
                             ),
                         },
                     },
@@ -362,13 +362,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `new_zeros`,
                     token_idx: TokenIdx(
-                        53,
+                        56,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        54,
+                        57,
                     ),
                     drained: false,
                 },
@@ -379,7 +379,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 18,
+                    raw: 19,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -395,13 +395,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `Output`,
                     token_idx: TokenIdx(
-                        69,
+                        72,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        70,
+                        73,
                     ),
                     drained: false,
                 },
@@ -412,7 +412,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 21,
+                    raw: 22,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -430,13 +430,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `visualize`,
                     token_idx: TokenIdx(
-                        82,
+                        85,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        83,
+                        86,
                     ),
                     drained: false,
                 },
@@ -447,13 +447,13 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 23,
+                    raw: 24,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                91,
+                                94,
                             ),
                         },
                     },
@@ -469,13 +469,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `new_zeros`,
                     token_idx: TokenIdx(
-                        94,
+                        97,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        95,
+                        98,
                     ),
                     drained: false,
                 },
@@ -486,7 +486,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 25,
+                    raw: 26,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -502,13 +502,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `Output`,
                     token_idx: TokenIdx(
-                        110,
+                        113,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        111,
+                        114,
                     ),
                     drained: false,
                 },
@@ -531,6 +531,45 @@ AstSheet {
                     },
                     visibility: Scope::Pub,
                 },
+                item_kind: EntityKind::Module,
+                ident_token: IdentToken {
+                    ident: `task`,
+                    token_idx: TokenIdx(
+                        3,
+                    ),
+                },
+                is_generic: false,
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        4,
+                    ),
+                    drained: true,
+                },
+                block: DefnBlock::Submodule {
+                    path: SubmoduleItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                },
+            },
+            AstData::Identifiable {
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: 1,
+                },
+                visibility_expr: VisibilityExpr {
+                    data: VisibilityExprData::Pub {
+                        pub_token: PubToken {
+                            token_idx: TokenIdx(
+                                4,
+                            ),
+                        },
+                    },
+                    visibility: Scope::Pub,
+                },
                 item_kind: EntityKind::MajorItem {
                     module_item_kind: MajorItemKind::Type(
                         TypeKind::Enum,
@@ -540,13 +579,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `MnistLabel`,
                     token_idx: TokenIdx(
-                        3,
+                        6,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        4,
+                        7,
                     ),
                     drained: true,
                 },
@@ -564,20 +603,20 @@ AstSheet {
             AstData::Attr {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 11,
+                    raw: 12,
                 },
                 ident: `derive`,
             },
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 12,
+                    raw: 13,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                31,
+                                34,
                             ),
                         },
                     },
@@ -592,13 +631,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `BinaryImage28`,
                     token_idx: TokenIdx(
-                        33,
+                        36,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        34,
+                        37,
                     ),
                     drained: false,
                 },
@@ -610,7 +649,7 @@ AstSheet {
             AstData::ImplBlock {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 13,
+                    raw: 14,
                 },
                 items: Some(
                     TraitForType(
@@ -625,7 +664,7 @@ AstSheet {
             AstData::ImplBlock {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 15,
+                    raw: 16,
                 },
                 items: Some(
                     Type(
@@ -640,7 +679,7 @@ AstSheet {
             AstData::ImplBlock {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 17,
+                    raw: 18,
                 },
                 items: Some(
                     TraitForType(
@@ -655,13 +694,13 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 19,
+                    raw: 20,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                72,
+                                75,
                             ),
                         },
                     },
@@ -676,13 +715,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `BinaryGrid28`,
                     token_idx: TokenIdx(
-                        74,
+                        77,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        75,
+                        78,
                     ),
                     drained: false,
                 },
@@ -694,7 +733,7 @@ AstSheet {
             AstData::ImplBlock {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 20,
+                    raw: 21,
                 },
                 items: Some(
                     TraitForType(
@@ -709,7 +748,7 @@ AstSheet {
             AstData::ImplBlock {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 22,
+                    raw: 23,
                 },
                 items: Some(
                     Type(
@@ -724,7 +763,7 @@ AstSheet {
             AstData::ImplBlock {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 24,
+                    raw: 25,
                 },
                 items: Some(
                     TraitForType(
@@ -739,13 +778,13 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 26,
+                    raw: 27,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                113,
+                                116,
                             ),
                         },
                     },
@@ -760,13 +799,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `input`,
                     token_idx: TokenIdx(
-                        115,
+                        118,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        116,
+                        119,
                     ),
                     drained: false,
                 },
@@ -778,7 +817,7 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        16..27,
+        16..28,
     ),
     nested_top_level_asts: [],
     siblings: [
@@ -822,7 +861,7 @@ AstSheet {
             16..16,
         ),
         ArenaIdxRange(
-            16..27,
+            16..28,
         ),
     ],
 }

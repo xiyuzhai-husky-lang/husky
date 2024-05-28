@@ -47,7 +47,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`usize`),
@@ -59,7 +59,7 @@
                                     0,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`usize`),
@@ -187,7 +187,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`usize`),
@@ -199,7 +199,7 @@
                                     4,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`usize`),
@@ -490,7 +490,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Const,
+                                        contract: Compterm,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
@@ -507,7 +507,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`usize`),
@@ -519,7 +519,7 @@
                                                 ExpectCoercionOutcome {
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
-                                                            expectee_quary: Const,
+                                                            expectee_quary: Compterm,
                                                         },
                                                     ),
                                                 },
@@ -638,7 +638,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Const,
+                                        contract: Compterm,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
@@ -655,7 +655,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`usize`),
@@ -667,7 +667,7 @@
                                                 ExpectCoercionOutcome {
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
-                                                            expectee_quary: Const,
+                                                            expectee_quary: Compterm,
                                                         },
                                                     ),
                                                 },

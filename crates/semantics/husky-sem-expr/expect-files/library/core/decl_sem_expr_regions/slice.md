@@ -41,7 +41,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Const,
+                                Compterm,
                             ),
                             base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
@@ -125,7 +125,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Const,
+                                Compterm,
                             ),
                             base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
@@ -246,7 +246,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
@@ -258,7 +258,7 @@
                                     1,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
@@ -368,7 +368,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Const,
+                                Compterm,
                             ),
                             base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
@@ -470,7 +470,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
@@ -631,7 +631,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Const,
+                                Compterm,
                             ),
                             base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
@@ -883,7 +883,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Const,
+                                Compterm,
                             ),
                             base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
@@ -1130,7 +1130,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
@@ -1142,7 +1142,7 @@
                                     2,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
@@ -1274,7 +1274,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Const,
+                                Compterm,
                             ),
                             base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
@@ -1401,7 +1401,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
@@ -1498,7 +1498,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
@@ -1510,7 +1510,7 @@
                                     0,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
@@ -1562,7 +1562,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Const,
+                                Compterm,
                             ),
                             base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
@@ -1612,7 +1612,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
@@ -1718,7 +1718,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
@@ -1730,7 +1730,7 @@
                                     1,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
@@ -1840,7 +1840,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Const,
+                                Compterm,
                             ),
                             base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
@@ -1942,7 +1942,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
@@ -2103,7 +2103,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Const,
+                                Compterm,
                             ),
                             base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
@@ -2289,7 +2289,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Const,
+                                Compterm,
                             ),
                             base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
@@ -2475,7 +2475,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Const,
+                                Compterm,
                             ),
                             base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
@@ -2603,7 +2603,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
@@ -2615,7 +2615,7 @@
                                     0,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
@@ -2757,7 +2757,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Const,
+                                Compterm,
                             ),
                             base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
@@ -2810,7 +2810,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
@@ -2945,7 +2945,7 @@
                             immediate_ty_result: Ok(
                                 FlyTerm {
                                     place: Some(
-                                        Const,
+                                        Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
@@ -2957,7 +2957,7 @@
                                     0,
                                     FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
@@ -3099,7 +3099,7 @@
                     SymbolType(
                         FlyTerm {
                             place: Some(
-                                Const,
+                                Compterm,
                             ),
                             base: FlyTermBase::Eth(
                                 EthTerm(`Type`),
@@ -3152,7 +3152,7 @@
                                     },
                                     expectee: FlyTerm {
                                         place: Some(
-                                            Const,
+                                            Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Type`),

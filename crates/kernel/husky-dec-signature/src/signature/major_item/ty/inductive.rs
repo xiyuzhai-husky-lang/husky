@@ -1,16 +1,17 @@
 use super::*;
+use husky_syn_decl::decl::major_item::ty::inductive::InductiveSynDecl;
 
 #[salsa::interned]
-pub struct InductiveTypeDecTemplate {
+pub struct InductiveDecTemplate {
     #[return_ref]
     pub template_parameters: DecTemplateParameters,
 }
 
-impl InductiveTypeDecTemplate {
+impl InductiveDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
         path: TypePath,
-        decl: InductiveTypeSynDecl,
+        decl: InductiveSynDecl,
     ) -> DecSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
         let dec_term_region = syn_expr_dec_term_region(db, syn_expr_region);

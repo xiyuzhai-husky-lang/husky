@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::decl::TraitForTypeAssocRitchieSynDecl;
+use husky_syn_decl::decl::assoc_item::trai_for_ty_item::assoc_ritchie::TraitForTypeAssocRitchieSynDecl;
 
 #[salsa::interned]
 pub struct TraitForTypeAssocRitchieHirDecl {

@@ -4,16 +4,15 @@ pub mod r#static;
 pub mod ty_alias;
 pub mod val;
 
-pub use self::function_ritchie::*;
-pub use self::ty_alias::*;
-pub use self::val::*;
-
+use self::function_ritchie::*;
+use self::ty_alias::*;
+use self::val::*;
 use self::{
-    compterm::{MajorConstSynDecl, MajorConstSynNodeDecl},
+    compterm::{MajorComptermSynDecl, MajorComptermSynNodeDecl},
     r#static::MajorStaticSynDecl,
 };
 use super::*;
-use crate::r#static::MajorStaticSynNodeDecl;
+use crate::decl::major_item::form::r#static::MajorStaticSynNodeDecl;
 use husky_entity_kind::MajorFormKind;
 use husky_entity_path::path::major_item::form::MajorFormPath;
 
@@ -23,7 +22,7 @@ use husky_entity_path::path::major_item::form::MajorFormPath;
 pub enum FormSynNodeDecl {
     FunctionRitchie(MajorFunctionRitchieSynNodeDecl),
     Val(MajorValSynNodeDecl),
-    Const(MajorConstSynNodeDecl),
+    Compterm(MajorComptermSynNodeDecl),
     Static(MajorStaticSynNodeDecl),
     TypeAlias(TypeAliasSynNodeDecl),
 }
@@ -33,7 +32,7 @@ impl FormSynNodeDecl {
         match self {
             FormSynNodeDecl::FunctionRitchie(slf) => slf.syn_expr_region(db),
             FormSynNodeDecl::Val(slf) => slf.syn_expr_region(db),
-            FormSynNodeDecl::Const(slf) => slf.syn_expr_region(db),
+            FormSynNodeDecl::Compterm(slf) => slf.syn_expr_region(db),
             FormSynNodeDecl::Static(slf) => slf.syn_expr_region(db),
             FormSynNodeDecl::TypeAlias(slf) => slf.syn_expr_region(db),
         }
@@ -44,7 +43,7 @@ impl FormSynNodeDecl {
             FormSynNodeDecl::FunctionRitchie(slf) => slf.errors(db),
             FormSynNodeDecl::Val(slf) => slf.errors(db),
             FormSynNodeDecl::TypeAlias(slf) => slf.errors(db),
-            FormSynNodeDecl::Const(slf) => slf.errors(db),
+            FormSynNodeDecl::Compterm(slf) => slf.errors(db),
             FormSynNodeDecl::Static(slf) => slf.errors(db),
         }
     }
@@ -87,7 +86,7 @@ impl<'a> DeclParser<'a> {
 pub enum FormSynDecl {
     Ritchie(MajorFunctionRitchieSynDecl),
     Val(MajorValSynDecl),
-    Const(MajorConstSynDecl),
+    Compterm(MajorComptermSynDecl),
     Static(MajorStaticSynDecl),
     TypeAlias(TypeAliasSynDecl),
 }
@@ -108,8 +107,8 @@ impl FormSynDecl {
             FormSynNodeDecl::TypeAlias(syn_node_decl) => {
                 TypeAliasSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            FormSynNodeDecl::Const(syn_node_decl) => {
-                MajorConstSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+            FormSynNodeDecl::Compterm(syn_node_decl) => {
+                MajorComptermSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             FormSynNodeDecl::Static(syn_node_decl) => {
                 MajorStaticSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
@@ -122,7 +121,7 @@ impl FormSynDecl {
             FormSynDecl::Ritchie(decl) => decl.template_parameters(db),
             FormSynDecl::Val(_decl) => &[],
             FormSynDecl::TypeAlias(_) => todo!(),
-            FormSynDecl::Const(_) => todo!(),
+            FormSynDecl::Compterm(_) => todo!(),
             FormSynDecl::Static(_) => todo!(),
         }
     }
@@ -132,7 +131,7 @@ impl FormSynDecl {
             FormSynDecl::Ritchie(slf) => slf.syn_expr_region(db),
             FormSynDecl::Val(slf) => slf.syn_expr_region(db),
             FormSynDecl::TypeAlias(slf) => slf.syn_expr_region(db),
-            FormSynDecl::Const(slf) => slf.syn_expr_region(db),
+            FormSynDecl::Compterm(slf) => slf.syn_expr_region(db),
             FormSynDecl::Static(slf) => slf.syn_expr_region(db),
         }
     }
@@ -142,7 +141,7 @@ impl FormSynDecl {
             FormSynDecl::Ritchie(slf) => slf.path(db),
             FormSynDecl::Val(slf) => slf.path(db),
             FormSynDecl::TypeAlias(slf) => slf.path(db),
-            FormSynDecl::Const(slf) => slf.path(db),
+            FormSynDecl::Compterm(slf) => slf.path(db),
             FormSynDecl::Static(slf) => slf.path(db),
         }
     }

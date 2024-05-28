@@ -358,7 +358,7 @@ impl DecSymbolicVariableRegion {
                 kind: SymbolicVariableSignatureKind::TemplateParameter,
                 term: Some(var),
                 ty,
-                modifier: VariableModifier::Const,
+                modifier: VariableModifier::Compterm,
             },
             name,
             trai_expr_idxs,
@@ -375,7 +375,7 @@ impl DecSymbolicVariableRegion {
         name: SymbolName,
     ) {
         let symbol = match modifier {
-            VariableModifier::Const => todo!(),
+            VariableModifier::Compterm => todo!(),
             _ => None,
         };
         self.add_new_current_variable(

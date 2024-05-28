@@ -1,6 +1,6 @@
 use super::*;
 use husky_entity_kind::ritchie::RitchieItemKind;
-use husky_syn_decl::decl::MajorFunctionRitchieSynDecl;
+use husky_syn_decl::decl::major_item::form::function_ritchie::MajorFunctionRitchieSynDecl;
 
 #[salsa::interned]
 pub struct MajorFunctionRitchieHirDecl {

@@ -23,7 +23,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
                     TypeSynNodeDecl::Extern(
-                        ExternTypeSynNodeDecl {
+                        ExternSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -161,7 +161,7 @@ SynNodeDeclSheet {
                                         current_variable_arena: Arena {
                                             data: [
                                                 CurrentVariableEntry {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     access_start: RegionalTokenIdx(
                                                         7,
                                                     ),
@@ -190,7 +190,7 @@ SynNodeDeclSheet {
                                                     },
                                                 },
                                                 CurrentVariableEntry {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     access_start: RegionalTokenIdx(
                                                         10,
                                                     ),
@@ -272,7 +272,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
                     TypeSynNodeDecl::Extern(
-                        ExternTypeSynNodeDecl {
+                        ExternSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -410,7 +410,7 @@ SynNodeDeclSheet {
                                         current_variable_arena: Arena {
                                             data: [
                                                 CurrentVariableEntry {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     access_start: RegionalTokenIdx(
                                                         7,
                                                     ),
@@ -439,7 +439,7 @@ SynNodeDeclSheet {
                                                     },
                                                 },
                                                 CurrentVariableEntry {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     access_start: RegionalTokenIdx(
                                                         10,
                                                     ),
@@ -521,7 +521,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
                     TypeSynNodeDecl::Extern(
-                        ExternTypeSynNodeDecl {
+                        ExternSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -633,7 +633,7 @@ SynNodeDeclSheet {
                                         current_variable_arena: Arena {
                                             data: [
                                                 CurrentVariableEntry {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     access_start: RegionalTokenIdx(
                                                         7,
                                                     ),
@@ -709,7 +709,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
                     TypeSynNodeDecl::Extern(
-                        ExternTypeSynNodeDecl {
+                        ExternSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
@@ -831,7 +831,7 @@ SynNodeDeclSheet {
                                         current_variable_arena: Arena {
                                             data: [
                                                 CurrentVariableEntry {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
@@ -852,7 +852,7 @@ SynNodeDeclSheet {
                                                     },
                                                 },
                                                 CurrentVariableEntry {
-                                                    modifier: Const,
+                                                    modifier: Compterm,
                                                     access_start: RegionalTokenIdx(
                                                         8,
                                                     ),
@@ -1120,7 +1120,7 @@ SynNodeDeclSheet {
                                     current_variable_arena: Arena {
                                         data: [
                                             CurrentVariableEntry {
-                                                modifier: Const,
+                                                modifier: Compterm,
                                                 access_start: RegionalTokenIdx(
                                                     4,
                                                 ),

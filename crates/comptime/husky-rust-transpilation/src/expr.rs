@@ -290,7 +290,7 @@ fn transpile_hir_eager_expr_to_rust(
                         HirContract::Move => todo!(),
                         HirContract::Borrow => todo!(),
                         HirContract::BorrowMut => builder.method_ritchie_ident_mut(ident),
-                        HirContract::Const => todo!(),
+                        HirContract::Compterm => todo!(),
                         HirContract::Leash => todo!(),
                         HirContract::At => todo!(),
                     },
@@ -402,7 +402,7 @@ impl HirEagerExprSite {
     fn hir_eager_expr_needs_deref(&self, entry: &HirEagerExprEntry) -> bool {
         match *entry.data() {
             HirEagerExprData::Variable(_) => match entry.quary() {
-                HirQuary::Const | HirQuary::StackPure { .. } => !entry.is_always_copyable(),
+                HirQuary::Compterm | HirQuary::StackPure { .. } => !entry.is_always_copyable(),
                 HirQuary::Ref { .. } => true,
                 HirQuary::RefMut { .. } => true,
                 _ => false,
@@ -415,11 +415,13 @@ impl HirEagerExprSite {
             | HirEagerExprData::Suffix { .. }
             | HirEagerExprData::Unveil { .. }
             | HirEagerExprData::Unwrap { .. } => match entry.quary() {
-                HirQuary::Const | HirQuary::StackPure { .. } => !entry.is_always_copyable(),
+                HirQuary::Compterm | HirQuary::StackPure { .. } => !entry.is_always_copyable(),
                 quary => match quary.place() {
                     Some(place) => match entry.place_contract_site().get(place) {
                         Some(contract) => match contract {
-                            HirContract::Pure | HirContract::Const => !entry.is_always_copyable(),
+                            HirContract::Pure | HirContract::Compterm => {
+                                !entry.is_always_copyable()
+                            }
                             HirContract::Move => false,
                             HirContract::Borrow => true,
                             HirContract::BorrowMut => true,

@@ -388,9 +388,7 @@ where
                         ritchie_item_kind_token,
                     )))
                 }
-                _ => Ok(Some(EntityKindKeywordGroup::Static(StaticToken {
-                    token_idx,
-                }))),
+                _ => Err(TokenDataError::ExpectedKeywordAfterAssoc),
             },
             _ => Ok(None),
         }

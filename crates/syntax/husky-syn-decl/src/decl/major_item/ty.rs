@@ -1,21 +1,20 @@
-mod r#enum;
-mod r#extern;
-mod inductive;
-mod props_struct;
-mod structure;
-mod tuple_struct;
-mod union;
-mod unit_struct;
+pub mod r#enum;
+pub mod r#extern;
+pub mod inductive;
+pub mod props_struct;
+pub mod structure;
+pub mod tuple_struct;
+pub mod union;
+pub mod unit_struct;
 
-pub use self::inductive::*;
-pub use self::props_struct::*;
-pub use self::r#enum::*;
-pub use self::r#extern::*;
-pub use self::structure::*;
-pub use self::tuple_struct::*;
-pub use self::union::*;
-pub use self::unit_struct::*;
-
+use self::inductive::*;
+use self::props_struct::*;
+use self::r#enum::*;
+use self::r#extern::*;
+use self::structure::*;
+use self::tuple_struct::*;
+use self::union::*;
+use self::unit_struct::*;
 use super::*;
 use husky_entity_kind::TypeKind;
 use husky_entity_path::path::major_item::ty::TypePath;
@@ -28,10 +27,10 @@ pub enum TypeSynNodeDecl {
     PropsStruct(PropsStructSynNodeDecl),
     UnitStruct(UnitStructSynNodeDecl),
     TupleStruct(TupleStructSynNodeDecl),
-    Inductive(InductiveTypeSynNodeDecl),
-    Structure(StructureTypeSynNodeDecl),
-    Extern(ExternTypeSynNodeDecl),
-    Union(UnionTypeSynNodeDecl),
+    Inductive(InductiveSynNodeDecl),
+    Structure(StructureSynNodeDecl),
+    Extern(ExternSynNodeDecl),
+    Union(UnionSynNodeDecl),
 }
 
 impl TypeSynNodeDecl {
@@ -156,10 +155,10 @@ pub enum TypeSynDecl {
     PropsStruct(PropsStructSynDecl),
     UnitStruct(UnitStructSynDecl),
     TupleStruct(TupleStructSynDecl),
-    Inductive(InductiveTypeSynDecl),
-    Structure(StructureTypeSynDecl),
-    Extern(ExternTypeSynDecl),
-    Union(UnionTypeSynDecl),
+    Inductive(InductiveSynDecl),
+    Structure(StructureSynDecl),
+    Extern(ExternSynDecl),
+    Union(UnionSynDecl),
 }
 
 impl TypeSynDecl {
@@ -222,16 +221,16 @@ impl TypeSynDecl {
                 TupleStructSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             TypeSynNodeDecl::Inductive(syn_node_decl) => {
-                InductiveTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                InductiveSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             TypeSynNodeDecl::Structure(syn_node_decl) => {
-                StructureTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                StructureSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             TypeSynNodeDecl::Extern(syn_node_decl) => {
-                ExternTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                ExternSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             TypeSynNodeDecl::Union(syn_node_decl) => {
-                UnionTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                UnionSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
         })
     }

@@ -1,6 +1,6 @@
 use super::*;
 use husky_hir_decl::{
-    decl::MajorFunctionRitchieHirDecl,
+    decl::major_item::form::function_ritchie::MajorFunctionRitchieHirDecl,
     parameter::parenate::{
         eager::HirEagerParenateParameter, lazy::HirLazyParenateParameter, HirParenateParameters,
     },

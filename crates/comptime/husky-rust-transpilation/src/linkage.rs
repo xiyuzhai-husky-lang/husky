@@ -474,7 +474,7 @@ impl<E> TranspileToRustWith<E> for LinkageRitchieParameter {
             HirContract::Move => (),
             HirContract::Borrow => builder.punctuation(RustPunctuation::Ambersand),
             HirContract::BorrowMut => todo!(),
-            HirContract::Const => todo!(),
+            HirContract::Compterm => todo!(),
             HirContract::Leash => todo!(),
             HirContract::At => todo!(),
         }

@@ -1,6 +1,6 @@
-use husky_entity_path::path::impl_block::trai_for_ty_impl_block::TraitForTypeImplBlockPath;
-
 use super::*;
+use husky_entity_path::path::impl_block::trai_for_ty_impl_block::TraitForTypeImplBlockPath;
+use husky_syn_decl::decl::impl_block::trai_for_ty_impl_block::SelfTypeDecl;
 
 #[salsa::interned]
 pub struct TraitForTypeImplBlockDecTemplate {

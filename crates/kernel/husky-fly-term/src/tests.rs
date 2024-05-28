@@ -9,7 +9,7 @@ use husky_entity_tree::EntityTreeJar;
 use husky_eth_signature::jar::EthSignatureJar;
 use husky_manifest::jar::ManifestJar;
 use husky_manifest_ast::jar::ManifestAstJar;
-use husky_syn_decl::SynDeclJar;
+use husky_syn_decl::jar::SynDeclJar;
 use husky_syn_expr::jar::SynExprJar;
 use husky_term_prelude::jar::TermPreludeJar;
 use husky_token::TokenJar;

@@ -10,7 +10,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
-                        ExternTypeDecTemplate {
+                        ExternDecTemplate {
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -30,7 +30,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
-                        ExternTypeDecTemplate {
+                        ExternDecTemplate {
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -50,7 +50,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
-                        ExternTypeDecTemplate {
+                        ExternDecTemplate {
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -70,7 +70,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
-                        ExternTypeDecTemplate {
+                        ExternDecTemplate {
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -90,7 +90,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
-                        ExternTypeDecTemplate {
+                        ExternDecTemplate {
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -110,7 +110,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
-                        ExternTypeDecTemplate {
+                        ExternDecTemplate {
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -130,7 +130,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
-                        ExternTypeDecTemplate {
+                        ExternDecTemplate {
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -150,7 +150,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
                     TypeDecTemplate::Extern(
-                        ExternTypeDecTemplate {
+                        ExternDecTemplate {
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },

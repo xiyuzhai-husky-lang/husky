@@ -1,5 +1,5 @@
 use crate::*;
-use husky_syn_decl::decl::compterm::MajorConstSynDecl;
+use husky_syn_decl::decl::major_item::form::compterm::MajorComptermSynDecl;
 
 #[salsa::interned]
 pub struct MajorComptermDecTemplate {
@@ -9,7 +9,7 @@ pub struct MajorComptermDecTemplate {
 impl MajorComptermDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
-        decl: MajorConstSynDecl,
+        decl: MajorComptermSynDecl,
     ) -> DecSignatureResult<MajorComptermDecTemplate> {
         let syn_expr_region = decl.syn_expr_region(db);
         let dec_term_region = syn_expr_dec_term_region(db, syn_expr_region);

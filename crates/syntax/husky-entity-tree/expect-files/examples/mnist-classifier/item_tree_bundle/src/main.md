@@ -681,6 +681,33 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
+                        ident: `task`,
+                        visible_scope: Scope::PubUnder(
+                            `mnist_classifier`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Submodule {
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 275,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                path: PrincipalEntityPath::Module(
+                                    `mnist::task`,
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier`,
+                                ),
+                                ast_idx: 24,
+                                use_expr_idx: 20,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
                         ident: `MnistLabel`,
                         visible_scope: Scope::PubUnder(
                             `mnist_classifier`,
@@ -2177,7 +2204,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier`,
                         ),
                         progress: Ok(
-                            4,
+                            5,
                         ),
                     },
                     UseAllRule {
@@ -2189,7 +2216,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier`,
                         ),
                         progress: Ok(
-                            52,
+                            53,
                         ),
                     },
                     UseAllRule {
@@ -2201,7 +2228,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier`,
                         ),
                         progress: Ok(
-                            64,
+                            65,
                         ),
                     },
                     UseAllRule {
@@ -2213,7 +2240,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier`,
                         ),
                         progress: Ok(
-                            47,
+                            48,
                         ),
                     },
                     UseAllRule {
@@ -2225,7 +2252,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier`,
                         ),
                         progress: Ok(
-                            71,
+                            72,
                         ),
                     },
                     UseAllRule {
@@ -2249,7 +2276,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier`,
                         ),
                         progress: Ok(
-                            53,
+                            54,
                         ),
                     },
                 ],
@@ -2985,6 +3012,45 @@ EntityTreeCrateBundle {
                                             Gn,
                                         )`),
                                     ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier::connected_component`,
+                                ),
+                                ast_idx: 119,
+                                use_expr_idx: 3,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `task`,
+                        visible_scope: Scope::PubUnder(
+                            `mnist_classifier::connected_component`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Submodule {
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 275,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        path: PrincipalEntityPath::Module(
+                                            `mnist::task`,
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 24,
+                                        use_expr_idx: 20,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::Module(
+                                    `mnist::task`,
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::connected_component`,
@@ -4715,7 +4781,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier::connected_component`,
                         ),
                         progress: Ok(
-                            45,
+                            46,
                         ),
                     },
                     UseAllRule {
@@ -4727,7 +4793,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier::connected_component`,
                         ),
                         progress: Ok(
-                            71,
+                            72,
                         ),
                     },
                 ],
@@ -5766,6 +5832,45 @@ EntityTreeCrateBundle {
                                             Gn,
                                         )`),
                                     ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier::raw_contour`,
+                                ),
+                                ast_idx: 193,
+                                use_expr_idx: 9,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `task`,
+                        visible_scope: Scope::PubUnder(
+                            `mnist_classifier::raw_contour`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Submodule {
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 275,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        path: PrincipalEntityPath::Module(
+                                            `mnist::task`,
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 24,
+                                        use_expr_idx: 20,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::Module(
+                                    `mnist::task`,
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::raw_contour`,
@@ -8003,7 +8108,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier::raw_contour`,
                         ),
                         progress: Ok(
-                            45,
+                            46,
                         ),
                     },
                     UseAllRule {
@@ -8027,7 +8132,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier::raw_contour`,
                         ),
                         progress: Ok(
-                            53,
+                            54,
                         ),
                     },
                     UseAllRule {
@@ -10151,7 +10256,7 @@ EntityTreeCrateBundle {
                         use_expr_idx: 0,
                         visibility: Scope::Pub,
                         progress: Ok(
-                            77,
+                            78,
                         ),
                     },
                     UseAllRule {
@@ -10691,6 +10796,45 @@ EntityTreeCrateBundle {
                                             Gn,
                                         )`),
                                     ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier::line_segment_sketch::concave_component`,
+                                ),
+                                ast_idx: 73,
+                                use_expr_idx: 14,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `task`,
+                        visible_scope: Scope::PubUnder(
+                            `mnist_classifier::line_segment_sketch::concave_component`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Submodule {
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 275,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        path: PrincipalEntityPath::Module(
+                                            `mnist::task`,
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 24,
+                                        use_expr_idx: 20,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::Module(
+                                    `mnist::task`,
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::line_segment_sketch::concave_component`,
@@ -13611,7 +13755,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                         progress: Ok(
-                            45,
+                            46,
                         ),
                     },
                     UseAllRule {
@@ -15858,7 +16002,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                         progress: Ok(
-                            71,
+                            72,
                         ),
                     },
                     UseAllRule {
@@ -16725,6 +16869,45 @@ EntityTreeCrateBundle {
                                             Gn,
                                         )`),
                                     ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier::fermi`,
+                                ),
+                                ast_idx: 21,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `task`,
+                        visible_scope: Scope::PubUnder(
+                            `mnist_classifier::fermi`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Submodule {
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 275,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        path: PrincipalEntityPath::Module(
+                                            `mnist::task`,
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 24,
+                                        use_expr_idx: 20,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::Module(
+                                    `mnist::task`,
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::fermi`,
@@ -18279,7 +18462,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier::fermi`,
                         ),
                         progress: Ok(
-                            45,
+                            46,
                         ),
                     },
                 ],
@@ -19422,6 +19605,45 @@ EntityTreeCrateBundle {
                                             Gn,
                                         )`),
                                     ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier::digits`,
+                                ),
+                                ast_idx: 19,
+                                use_expr_idx: 26,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `task`,
+                        visible_scope: Scope::PubUnder(
+                            `mnist_classifier::digits`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Submodule {
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 275,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        path: PrincipalEntityPath::Module(
+                                            `mnist::task`,
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 24,
+                                        use_expr_idx: 20,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::Module(
+                                    `mnist::task`,
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
@@ -22003,7 +22225,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                         progress: Ok(
-                            45,
+                            46,
                         ),
                     },
                 ],
@@ -23003,6 +23225,57 @@ EntityTreeCrateBundle {
                                             Gn,
                                         )`),
                                     ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier::digits::zero`,
+                                ),
+                                ast_idx: 24,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `task`,
+                        visible_scope: Scope::PubUnder(
+                            `mnist_classifier::digits::zero`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Submodule {
+                                                    submodule_item_path: SubmoduleItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 275,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::Module(
+                                                    `mnist::task`,
+                                                ),
+                                                visibility: Scope::PubUnder(
+                                                    `mnist_classifier`,
+                                                ),
+                                                ast_idx: 24,
+                                                use_expr_idx: 20,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::Module(
+                                            `mnist::task`,
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 19,
+                                        use_expr_idx: 26,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::Module(
+                                    `mnist::task`,
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::zero`,
@@ -25281,7 +25554,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier::digits::zero`,
                         ),
                         progress: Ok(
-                            64,
+                            65,
                         ),
                     },
                 ],
@@ -26389,6 +26662,57 @@ EntityTreeCrateBundle {
                                             Gn,
                                         )`),
                                     ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier::digits::one`,
+                                ),
+                                ast_idx: 61,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `task`,
+                        visible_scope: Scope::PubUnder(
+                            `mnist_classifier::digits::one`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Submodule {
+                                                    submodule_item_path: SubmoduleItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 275,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::Module(
+                                                    `mnist::task`,
+                                                ),
+                                                visibility: Scope::PubUnder(
+                                                    `mnist_classifier`,
+                                                ),
+                                                ast_idx: 24,
+                                                use_expr_idx: 20,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::Module(
+                                            `mnist::task`,
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 19,
+                                        use_expr_idx: 26,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::Module(
+                                    `mnist::task`,
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::one`,
@@ -28667,7 +28991,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier::digits::one`,
                         ),
                         progress: Ok(
-                            64,
+                            65,
                         ),
                     },
                 ],
@@ -29773,6 +30097,57 @@ EntityTreeCrateBundle {
                                             Gn,
                                         )`),
                                     ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier::digits::six`,
+                                ),
+                                ast_idx: 48,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `task`,
+                        visible_scope: Scope::PubUnder(
+                            `mnist_classifier::digits::six`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Submodule {
+                                                    submodule_item_path: SubmoduleItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 275,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::Module(
+                                                    `mnist::task`,
+                                                ),
+                                                visibility: Scope::PubUnder(
+                                                    `mnist_classifier`,
+                                                ),
+                                                ast_idx: 24,
+                                                use_expr_idx: 20,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::Module(
+                                            `mnist::task`,
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 19,
+                                        use_expr_idx: 26,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::Module(
+                                    `mnist::task`,
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::six`,
@@ -32051,7 +32426,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier::digits::six`,
                         ),
                         progress: Ok(
-                            64,
+                            65,
                         ),
                     },
                 ],
@@ -33165,6 +33540,57 @@ EntityTreeCrateBundle {
                                             Gn,
                                         )`),
                                     ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier::digits::three`,
+                                ),
+                                ast_idx: 27,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `task`,
+                        visible_scope: Scope::PubUnder(
+                            `mnist_classifier::digits::three`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Submodule {
+                                                    submodule_item_path: SubmoduleItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 275,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::Module(
+                                                    `mnist::task`,
+                                                ),
+                                                visibility: Scope::PubUnder(
+                                                    `mnist_classifier`,
+                                                ),
+                                                ast_idx: 24,
+                                                use_expr_idx: 20,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::Module(
+                                            `mnist::task`,
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 19,
+                                        use_expr_idx: 26,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::Module(
+                                    `mnist::task`,
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::three`,
@@ -35443,7 +35869,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier::digits::three`,
                         ),
                         progress: Ok(
-                            64,
+                            65,
                         ),
                     },
                 ],
@@ -36655,6 +37081,57 @@ EntityTreeCrateBundle {
                                             Gn,
                                         )`),
                                     ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier::digits::four`,
+                                ),
+                                ast_idx: 37,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `task`,
+                        visible_scope: Scope::PubUnder(
+                            `mnist_classifier::digits::four`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Submodule {
+                                                    submodule_item_path: SubmoduleItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 275,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::Module(
+                                                    `mnist::task`,
+                                                ),
+                                                visibility: Scope::PubUnder(
+                                                    `mnist_classifier`,
+                                                ),
+                                                ast_idx: 24,
+                                                use_expr_idx: 20,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::Module(
+                                            `mnist::task`,
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 19,
+                                        use_expr_idx: 26,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::Module(
+                                    `mnist::task`,
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::four`,
@@ -38933,7 +39410,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier::digits::four`,
                         ),
                         progress: Ok(
-                            64,
+                            65,
                         ),
                     },
                 ],
@@ -39827,6 +40304,57 @@ EntityTreeCrateBundle {
                                             Gn,
                                         )`),
                                     ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier::digits::five`,
+                                ),
+                                ast_idx: 1,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `task`,
+                        visible_scope: Scope::PubUnder(
+                            `mnist_classifier::digits::five`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Submodule {
+                                                    submodule_item_path: SubmoduleItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 275,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::Module(
+                                                    `mnist::task`,
+                                                ),
+                                                visibility: Scope::PubUnder(
+                                                    `mnist_classifier`,
+                                                ),
+                                                ast_idx: 24,
+                                                use_expr_idx: 20,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::Module(
+                                            `mnist::task`,
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 19,
+                                        use_expr_idx: 26,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::Module(
+                                    `mnist::task`,
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::five`,
@@ -42105,7 +42633,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier::digits::five`,
                         ),
                         progress: Ok(
-                            64,
+                            65,
                         ),
                     },
                 ],
@@ -43268,6 +43796,57 @@ EntityTreeCrateBundle {
                                             Gn,
                                         )`),
                                     ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier::digits::seven`,
+                                ),
+                                ast_idx: 36,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `task`,
+                        visible_scope: Scope::PubUnder(
+                            `mnist_classifier::digits::seven`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Submodule {
+                                                    submodule_item_path: SubmoduleItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 275,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::Module(
+                                                    `mnist::task`,
+                                                ),
+                                                visibility: Scope::PubUnder(
+                                                    `mnist_classifier`,
+                                                ),
+                                                ast_idx: 24,
+                                                use_expr_idx: 20,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::Module(
+                                            `mnist::task`,
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 19,
+                                        use_expr_idx: 26,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::Module(
+                                    `mnist::task`,
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::seven`,
@@ -45546,7 +46125,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier::digits::seven`,
                         ),
                         progress: Ok(
-                            64,
+                            65,
                         ),
                     },
                 ],
@@ -46546,6 +47125,57 @@ EntityTreeCrateBundle {
                                             Gn,
                                         )`),
                                     ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier::digits::eight`,
+                                ),
+                                ast_idx: 13,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `task`,
+                        visible_scope: Scope::PubUnder(
+                            `mnist_classifier::digits::eight`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Submodule {
+                                                    submodule_item_path: SubmoduleItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 275,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::Module(
+                                                    `mnist::task`,
+                                                ),
+                                                visibility: Scope::PubUnder(
+                                                    `mnist_classifier`,
+                                                ),
+                                                ast_idx: 24,
+                                                use_expr_idx: 20,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::Module(
+                                            `mnist::task`,
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 19,
+                                        use_expr_idx: 26,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::Module(
+                                    `mnist::task`,
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::eight`,
@@ -48824,7 +49454,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier::digits::eight`,
                         ),
                         progress: Ok(
-                            64,
+                            65,
                         ),
                     },
                 ],
@@ -49930,6 +50560,57 @@ EntityTreeCrateBundle {
                                             Gn,
                                         )`),
                                     ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier::digits::nine`,
+                                ),
+                                ast_idx: 33,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `task`,
+                        visible_scope: Scope::PubUnder(
+                            `mnist_classifier::digits::nine`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Submodule {
+                                                    submodule_item_path: SubmoduleItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 275,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::Module(
+                                                    `mnist::task`,
+                                                ),
+                                                visibility: Scope::PubUnder(
+                                                    `mnist_classifier`,
+                                                ),
+                                                ast_idx: 24,
+                                                use_expr_idx: 20,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::Module(
+                                            `mnist::task`,
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 19,
+                                        use_expr_idx: 26,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::Module(
+                                    `mnist::task`,
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::nine`,
@@ -52208,7 +52889,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier::digits::nine`,
                         ),
                         progress: Ok(
-                            64,
+                            65,
                         ),
                     },
                 ],
@@ -53322,6 +54003,57 @@ EntityTreeCrateBundle {
                                             Gn,
                                         )`),
                                     ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier::digits::two`,
+                                ),
+                                ast_idx: 43,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `task`,
+                        visible_scope: Scope::PubUnder(
+                            `mnist_classifier::digits::two`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Submodule {
+                                                    submodule_item_path: SubmoduleItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 275,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::Module(
+                                                    `mnist::task`,
+                                                ),
+                                                visibility: Scope::PubUnder(
+                                                    `mnist_classifier`,
+                                                ),
+                                                ast_idx: 24,
+                                                use_expr_idx: 20,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::Module(
+                                            `mnist::task`,
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 19,
+                                        use_expr_idx: 26,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::Module(
+                                    `mnist::task`,
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits::two`,
@@ -55600,7 +56332,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier::digits::two`,
                         ),
                         progress: Ok(
-                            64,
+                            65,
                         ),
                     },
                 ],
@@ -56283,6 +57015,45 @@ EntityTreeCrateBundle {
                                             Gn,
                                         )`),
                                     ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier::major`,
+                                ),
+                                ast_idx: 18,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `task`,
+                        visible_scope: Scope::PubUnder(
+                            `mnist_classifier::major`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Submodule {
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 275,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        path: PrincipalEntityPath::Module(
+                                            `mnist::task`,
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 24,
+                                        use_expr_idx: 20,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::Module(
+                                    `mnist::task`,
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::major`,
@@ -57794,7 +58565,7 @@ EntityTreeCrateBundle {
                             `mnist_classifier::major`,
                         ),
                         progress: Ok(
-                            45,
+                            46,
                         ),
                     },
                 ],

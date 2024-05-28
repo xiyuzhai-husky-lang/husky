@@ -1,6 +1,5 @@
-use husky_syn_decl::decl::UnitStructSynDecl;
-
 use super::*;
+use husky_syn_decl::decl::major_item::ty::unit_struct::UnitStructSynDecl;
 
 #[salsa::interned]
 pub struct UnitStructHirDecl {

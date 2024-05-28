@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::decl::derive::DeriveAttrSynDecl;
+use husky_syn_decl::decl::attr::derive::DeriveAttrSynDecl;
 
 #[salsa::interned]
 pub struct DeriveAttrDecTemplate {
@@ -25,6 +25,6 @@ impl DeriveAttrDecTemplate {
                 ))
             })
             .collect::<SynExprDecTermResultRef<_>>()?;
-        Ok(DeriveAttrDecTemplate::new(db, shards))
+        Ok(Self::new(db, shards))
     }
 }

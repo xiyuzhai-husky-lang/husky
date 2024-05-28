@@ -6,6 +6,61 @@ EntityTreeCrateBundle {
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
                     ItemNodeEntry {
+                        node: ItemSynNode::Submodule(
+                            SubmoduleSynNode {
+                                syn_node_path: SubmoduleSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 1,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    },
+                                ),
+                                visibility: Scope::Pub,
+                                ast_idx: 16,
+                                ident_token: IdentToken {
+                                    ident: `task`,
+                                    token_idx: TokenIdx(
+                                        3,
+                                    ),
+                                },
+                            },
+                        ),
+                        syn_node_path: ItemSynNodePath::Submodule(
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
+                        ident: `task`,
+                        visibility: Scope::Pub,
+                    },
+                    ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
@@ -25,11 +80,11 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 16,
+                                ast_idx: 17,
                                 ident_token: IdentToken {
                                     ident: `MnistLabel`,
                                     token_idx: TokenIdx(
-                                        3,
+                                        6,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -85,11 +140,11 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 18,
+                                ast_idx: 19,
                                 ident_token: IdentToken {
                                     ident: `BinaryImage28`,
                                     token_idx: TokenIdx(
-                                        33,
+                                        36,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -139,11 +194,11 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 22,
+                                ast_idx: 23,
                                 ident_token: IdentToken {
                                     ident: `BinaryGrid28`,
                                     token_idx: TokenIdx(
-                                        74,
+                                        77,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -180,11 +235,11 @@ EntityTreeCrateBundle {
                                     FormSynNodePath(`mnist::input`, `Val`, (0)),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 26,
+                                ast_idx: 27,
                                 ident_token: IdentToken {
                                     ident: `input`,
                                     token_idx: TokenIdx(
-                                        115,
+                                        118,
                                     ),
                                 },
                                 block: DefnBlock::Form {
@@ -205,6 +260,19 @@ EntityTreeCrateBundle {
             },
             item_symbol_table: EntitySymbolTable(
                 [
+                    EntitySymbolEntry {
+                        ident: `task`,
+                        visible_scope: Scope::Pub,
+                        symbol: EntitySymbol::Submodule {
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
+                            ),
+                        },
+                    },
                     EntitySymbolEntry {
                         ident: `MnistLabel`,
                         visible_scope: Scope::Pub,
@@ -271,15 +339,15 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 19,
+                            ast_idx: 20,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    35,
+                                    38,
                                 ),
                             },
                             trai_expr: 0,
                             for_token: TokenIdx(
-                                37,
+                                40,
                             ),
                             ty_sketch_expr: Path(
                                 1,
@@ -323,10 +391,10 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 20,
+                            ast_idx: 21,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    47,
+                                    50,
                                 ),
                             },
                             ty_expr: 2,
@@ -365,15 +433,15 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 21,
+                            ast_idx: 22,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    59,
+                                    62,
                                 ),
                             },
                             trai_expr: 5,
                             for_token: TokenIdx(
-                                65,
+                                68,
                             ),
                             ty_sketch_expr: Path(
                                 6,
@@ -417,15 +485,15 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 23,
+                            ast_idx: 24,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    76,
+                                    79,
                                 ),
                             },
                             trai_expr: 7,
                             for_token: TokenIdx(
-                                78,
+                                81,
                             ),
                             ty_sketch_expr: Path(
                                 8,
@@ -469,10 +537,10 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 24,
+                            ast_idx: 25,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    88,
+                                    91,
                                 ),
                             },
                             ty_expr: 9,
@@ -511,15 +579,15 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 25,
+                            ast_idx: 26,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    100,
+                                    103,
                                 ),
                             },
                             trai_expr: 12,
                             for_token: TokenIdx(
-                                106,
+                                109,
                             ),
                             ty_sketch_expr: Path(
                                 13,
@@ -545,6 +613,131 @@ EntityTreeCrateBundle {
             ),
             errors: [],
         },
+        EntityTreeSheet {
+            module_path: `mnist::task`,
+            major_item_node_table: MajorEntityNodeTable {
+                entries: [
+                    ItemNodeEntry {
+                        node: ItemSynNode::MajorItem(
+                            MajorItemSynNode {
+                                syn_node_path: MajorItemSynNodePath::Type(
+                                    TypeSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TypePath(`mnist::task::MnistTask`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                                visibility: Scope::Pub,
+                                ast_idx: 2,
+                                ident_token: IdentToken {
+                                    ident: `MnistTask`,
+                                    token_idx: TokenIdx(
+                                        5,
+                                    ),
+                                },
+                                block: DefnBlock::Type {
+                                    path: TypePath(`mnist::task::MnistTask`, `Extern`),
+                                    variants: None,
+                                },
+                            },
+                        ),
+                        syn_node_path: ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`mnist::task::MnistTask`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        ident: `MnistTask`,
+                        visibility: Scope::Pub,
+                    },
+                ],
+            },
+            item_symbol_table: EntitySymbolTable(
+                [
+                    EntitySymbolEntry {
+                        ident: `MnistTask`,
+                        visible_scope: Scope::Pub,
+                        symbol: EntitySymbol::MajorItem {
+                            major_item_path: MajorItemPath::Type(
+                                TypePath(`mnist::task::MnistTask`, `Extern`),
+                            ),
+                        },
+                    },
+                ],
+            ),
+            impl_block_syn_node_table: [
+                (
+                    ImplBlockSynNodePath::TypeImplBlock(
+                        TypeImplBlockSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                        TypeImplBlockSynNodePathData {
+                                            path: TypeImplBlockPath(`mnist::task::MnistTask(0)`),
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                    ImplBlockSynNode::TypeImplBlock(
+                        TypeImplBlockSynNode {
+                            syn_node_path: TypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(`mnist::task::MnistTask(0)`),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            ast_idx: 3,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    7,
+                                ),
+                            },
+                            ty_expr: 14,
+                            items: TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    0..1,
+                                ),
+                            },
+                        },
+                    ),
+                ),
+            ],
+            once_use_rules: OnceUseRules(
+                [],
+            ),
+            use_all_rules: UseAllRules(
+                [],
+            ),
+            errors: [],
+        },
     ],
     principal_item_path_expr_arena: Arena {
         data: [
@@ -553,7 +746,7 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `Visualize`,
                         token_idx: TokenIdx(
-                            36,
+                            39,
                         ),
                     },
                 ),
@@ -568,7 +761,7 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `BinaryImage28`,
                         token_idx: TokenIdx(
-                            38,
+                            41,
                         ),
                     },
                 ),
@@ -583,7 +776,7 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `BinaryImage28`,
                         token_idx: TokenIdx(
-                            48,
+                            51,
                         ),
                     },
                 ),
@@ -598,7 +791,7 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `IntIndex`,
                         token_idx: TokenIdx(
-                            64,
+                            67,
                         ),
                     },
                 ),
@@ -613,13 +806,13 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `ops`,
                         token_idx: TokenIdx(
-                            62,
+                            65,
                         ),
                     },
                 ),
                 colon_colon_token: ColonColonToken(
                     TokenIdx(
-                        63,
+                        66,
                     ),
                 ),
                 subexpr: 3,
@@ -629,13 +822,13 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `core`,
                         token_idx: TokenIdx(
-                            60,
+                            63,
                         ),
                     },
                 ),
                 colon_colon_token: ColonColonToken(
                     TokenIdx(
-                        61,
+                        64,
                     ),
                 ),
                 subexpr: 4,
@@ -645,7 +838,7 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `BinaryImage28`,
                         token_idx: TokenIdx(
-                            66,
+                            69,
                         ),
                     },
                 ),
@@ -660,7 +853,7 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `Visualize`,
                         token_idx: TokenIdx(
-                            77,
+                            80,
                         ),
                     },
                 ),
@@ -675,7 +868,7 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `BinaryGrid28`,
                         token_idx: TokenIdx(
-                            79,
+                            82,
                         ),
                     },
                 ),
@@ -690,7 +883,7 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `BinaryGrid28`,
                         token_idx: TokenIdx(
-                            89,
+                            92,
                         ),
                     },
                 ),
@@ -705,7 +898,7 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `IntIndex`,
                         token_idx: TokenIdx(
-                            105,
+                            108,
                         ),
                     },
                 ),
@@ -720,13 +913,13 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `ops`,
                         token_idx: TokenIdx(
-                            103,
+                            106,
                         ),
                     },
                 ),
                 colon_colon_token: ColonColonToken(
                     TokenIdx(
-                        104,
+                        107,
                     ),
                 ),
                 subexpr: 10,
@@ -736,13 +929,13 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `core`,
                         token_idx: TokenIdx(
-                            101,
+                            104,
                         ),
                     },
                 ),
                 colon_colon_token: ColonColonToken(
                     TokenIdx(
-                        102,
+                        105,
                     ),
                 ),
                 subexpr: 11,
@@ -752,13 +945,28 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `BinaryGrid28`,
                         token_idx: TokenIdx(
-                            107,
+                            110,
                         ),
                     },
                 ),
                 major_path: MajorEntityPath::MajorItem(
                     MajorItemPath::Type(
                         TypePath(`mnist::BinaryGrid28`, `Extern`),
+                    ),
+                ),
+            },
+            MajorItemPathExpr::Root {
+                name_token: PathNameToken::Ident(
+                    IdentToken {
+                        ident: `MnistTask`,
+                        token_idx: TokenIdx(
+                            8,
+                        ),
+                    },
+                ),
+                major_path: MajorEntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`mnist::task::MnistTask`, `Extern`),
                     ),
                 ),
             },

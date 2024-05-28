@@ -22,12 +22,12 @@ impl DeriveAttrEthTemplate {
         db: &::salsa::Db,
         declarative_template: DeriveAttrDecTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let trai_term = declarative_template
+        let shards = declarative_template
             .shards(db)
             .iter()
             .map(|&shard| DeriveAttrShardEthTemplate::from_dec(shard, db))
             .collect::<EtherealSignatureResult<_>>()?;
-        Ok(DeriveAttrEthTemplate::new(db, trai_term))
+        Ok(Self::new(db, shards))
     }
 }
 
@@ -91,7 +91,7 @@ fn ty_path_derive_attr_eth_templates_map(
         Default::default();
     for attr_path in ty_path.attr_paths(db) {
         let AttrEthTemplate::Derive(template) = attr_path.eth_template(db)? else {
-            todo!()
+            continue;
         };
         for shard in template.shards(db) {
             let trai_path = shard.trai_term(db).leading_trai_path(db).expect("todo");

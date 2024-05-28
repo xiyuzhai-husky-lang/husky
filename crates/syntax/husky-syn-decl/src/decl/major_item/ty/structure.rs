@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked]
-pub struct StructureTypeSynNodeDecl {
+pub struct StructureSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
     #[return_ref]
@@ -9,7 +9,7 @@ pub struct StructureTypeSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl StructureTypeSynNodeDecl {
+impl StructureSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameter_decl_list(db)
@@ -27,7 +27,7 @@ impl<'a> DeclParser<'a> {
     ) -> TypeSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::True, None);
         let template_parameters = parser.try_parse_option();
-        StructureTypeSynNodeDecl::new(
+        StructureSynNodeDecl::new(
             self.db(),
             syn_node_path,
             template_parameters,
@@ -38,7 +38,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked]
-pub struct StructureTypeSynDecl {
+pub struct StructureSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
@@ -46,12 +46,12 @@ pub struct StructureTypeSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl StructureTypeSynDecl {
+impl StructureSynDecl {
     #[inline(always)]
     pub(super) fn from_node_decl(
         db: &::salsa::Db,
         path: TypePath,
-        syn_node_decl: StructureTypeSynNodeDecl,
+        syn_node_decl: StructureSynNodeDecl,
     ) -> SynDeclResult<Self> {
         let template_parameters = syn_node_decl
             .template_parameter_decl_list(db)
@@ -65,7 +65,7 @@ impl StructureTypeSynDecl {
             })
             .unwrap_or_default();
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
-        Ok(StructureTypeSynDecl::new(
+        Ok(StructureSynDecl::new(
             db,
             path,
             template_parameters,

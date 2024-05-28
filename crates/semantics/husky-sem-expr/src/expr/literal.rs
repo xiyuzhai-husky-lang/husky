@@ -12,7 +12,7 @@ impl<'a> SemExprBuilder<'a> {
         expectation: &impl ExpectFlyTerm,
     ) -> SemExprTypeResult<FlyTerm> {
         self.calc_literal_expr_ty_aux(expr_idx, literal_token_idx, expectation)
-            .map(|term| term.with_quary(FlyQuary::Const))
+            .map(|term| term.with_quary(FlyQuary::Compterm))
     }
 
     fn calc_literal_expr_ty_aux(

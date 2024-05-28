@@ -682,7 +682,7 @@
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Const,
+                                                quary: Compterm,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -760,7 +760,7 @@
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Const,
+                                                quary: Compterm,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -5457,7 +5457,7 @@
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Const,
+                                                quary: Compterm,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -5498,7 +5498,7 @@
                                                         5,
                                                         Trivial(
                                                             TrivialHirEagerCoercion {
-                                                                expectee_quary: Const,
+                                                                expectee_quary: Compterm,
                                                             },
                                                         ),
                                                     ),
@@ -5552,7 +5552,7 @@
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Const,
+                                                quary: Compterm,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -5589,7 +5589,7 @@
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Const,
+                                                quary: Compterm,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -5652,7 +5652,7 @@
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Const,
+                                                quary: Compterm,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -5672,7 +5672,7 @@
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Const,
+                                                quary: Compterm,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -5686,7 +5686,7 @@
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Const,
+                                                quary: Compterm,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -5896,7 +5896,7 @@
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Const,
+                                                quary: Compterm,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -5933,7 +5933,7 @@
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Const,
+                                                quary: Compterm,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -5965,7 +5965,7 @@
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Const,
+                                                quary: Compterm,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -5981,7 +5981,7 @@
                                             coercion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
-                                                        expectee_quary: Const,
+                                                        expectee_quary: Compterm,
                                                     },
                                                 ),
                                             ),
@@ -5992,7 +5992,7 @@
                                             coercion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
-                                                        expectee_quary: Const,
+                                                        expectee_quary: Compterm,
                                                     },
                                                 ),
                                             ),
@@ -6678,7 +6678,7 @@
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Const,
+                                                quary: Compterm,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -6797,7 +6797,7 @@
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Const,
+                                                quary: Compterm,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -7025,7 +7025,7 @@
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Const,
+                                                quary: Compterm,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -7066,7 +7066,7 @@
                                                         17,
                                                         Trivial(
                                                             TrivialHirEagerCoercion {
-                                                                expectee_quary: Const,
+                                                                expectee_quary: Compterm,
                                                             },
                                                         ),
                                                     ),
@@ -7120,7 +7120,7 @@
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Const,
+                                                quary: Compterm,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -7157,7 +7157,7 @@
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Const,
+                                                quary: Compterm,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -7220,7 +7220,7 @@
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Const,
+                                                quary: Compterm,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -7240,7 +7240,7 @@
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Const,
+                                                quary: Compterm,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -7254,7 +7254,7 @@
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Const,
+                                                quary: Compterm,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -7498,7 +7498,7 @@
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Const,
+                                                quary: Compterm,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -7535,7 +7535,7 @@
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Const,
+                                                quary: Compterm,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -7567,7 +7567,7 @@
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Const,
+                                                quary: Compterm,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -7583,7 +7583,7 @@
                                             coercion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
-                                                        expectee_quary: Const,
+                                                        expectee_quary: Compterm,
                                                     },
                                                 ),
                                             ),
@@ -7594,7 +7594,7 @@
                                             coercion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
-                                                        expectee_quary: Const,
+                                                        expectee_quary: Compterm,
                                                     },
                                                 ),
                                             ),
