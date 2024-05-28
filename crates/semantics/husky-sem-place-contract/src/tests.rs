@@ -17,7 +17,7 @@ pub use husky_ast::test_utils::*;
     husky_manifest::jar::ManifestJar,
     husky_syn_expr::jar::SynExprJar,
     husky_syn_defn::jar::SynDefnJar,
-    husky_syn_decl::SynDeclJar,
+    husky_syn_decl::jar::SynDeclJar,
     husky_term_prelude::jar::TermPreludeJar,
     husky_dec_term::jar::DecTermJar,
     husky_dec_signature::jar::DecSignatureJar,

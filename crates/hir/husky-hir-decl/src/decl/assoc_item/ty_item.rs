@@ -12,7 +12,7 @@ pub use self::method_ritchie::*;
 
 use super::*;
 use husky_entity_path::path::assoc_item::ty_item::TypeItemPath;
-use husky_syn_decl::decl::TypeItemSynDecl;
+use husky_syn_decl::decl::assoc_item::ty_item::TypeItemSynDecl;
 
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
@@ -89,25 +89,3 @@ pub(crate) fn ty_item_hir_decl(db: &::salsa::Db, path: TypeItemPath) -> Option<T
         }
     }
 }
-// TypeItemEthTemplate::AssocRitchie(eth_template) => {
-//     Some(TypeAssocRitchieHirDecl::from_syn(path, eth_template, db).into())
-// }
-// TypeItemEthTemplate::MethodFn(syn_decl) => {
-//     Some(TypeMethodRitchieHirDecl::from_syn(path, syn_decl, db).into())
-// }
-// TypeItemEthTemplate::MethodFunction(_) => None,
-// TypeItemEthTemplate::MemoizedField(eth_template) => {
-//     Some(TypeMemoFieldHirDecl::from_syn(path, eth_template, db).into())
-// }
-
-// TypeItemDecTemplate::AssocRitchie(template) => {
-//     TypeAssocRitchieHirDecl::from_dec(db, path, template)?.into()
-// }
-// TypeItemDecTemplate::MethodFn(template) => {
-//     TypeMethodRitchieHirDecl::from_dec(db, template)?.into()
-// }
-// TypeItemDecTemplate::AssocType(_) => todo!(),
-// TypeItemDecTemplate::AssocVal(_) => todo!(),
-// TypeItemDecTemplate::MemoizedField(template) => {
-//     TypeMemoFieldHirDecl::from_dec(db, template)?.into()
-// }

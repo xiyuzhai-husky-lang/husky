@@ -90,7 +90,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::visual::Visual`, `Extern`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {

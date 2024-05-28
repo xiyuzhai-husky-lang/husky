@@ -1,11 +1,10 @@
-mod props_ty_variant;
-mod tuple_ty_variant;
-mod unit_ty_variant;
+pub mod props_ty_variant;
+pub mod tuple_ty_variant;
+pub mod unit_ty_variant;
 
-pub use self::props_ty_variant::*;
-pub use self::tuple_ty_variant::*;
-pub use self::unit_ty_variant::*;
-
+use self::props_ty_variant::*;
+use self::tuple_ty_variant::*;
+use self::unit_ty_variant::*;
 use super::*;
 use husky_entity_path::path::ty_variant::TypeVariantPath;
 use husky_token_data::Punctuation;

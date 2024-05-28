@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::decl::r#static::MajorStaticSynDecl;
+use husky_syn_decl::decl::major_item::form::r#static::MajorStaticSynDecl;
 
 #[salsa::interned]
 pub struct MajorStaticHirDecl {

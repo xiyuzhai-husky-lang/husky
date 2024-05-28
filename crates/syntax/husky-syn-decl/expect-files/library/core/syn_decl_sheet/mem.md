@@ -10,7 +10,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::mem::Ref`, `Extern`),
                             template_parameters: [
                                 TemplateSynParameterData {
@@ -207,7 +207,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::mem::RefMut`, `Extern`),
                             template_parameters: [
                                 TemplateSynParameterData {
@@ -404,7 +404,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::mem::Leash`, `Extern`),
                             template_parameters: [
                                 TemplateSynParameterData {
@@ -546,7 +546,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::mem::At`, `Extern`),
                             template_parameters: [
                                 TemplateSynParameterData {

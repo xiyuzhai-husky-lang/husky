@@ -1,6 +1,6 @@
-use husky_term_prelude::ritchie::RitchieKind;
-
 use super::*;
+use husky_syn_decl::decl::major_item::ty::props_struct::PropsStructSynDecl;
+use husky_term_prelude::ritchie::RitchieKind;
 
 #[salsa::interned]
 pub struct PropsStructDecTemplate {

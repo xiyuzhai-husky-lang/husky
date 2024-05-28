@@ -51,7 +51,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked]
-pub struct MajorConstSynDecl {
+pub struct MajorComptermSynDecl {
     #[id]
     pub path: MajorFormPath,
     pub return_ty: ReturnTypeBeforeEqSyndicate,
@@ -59,7 +59,7 @@ pub struct MajorConstSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl MajorConstSynDecl {
+impl MajorComptermSynDecl {
     pub(super) fn from_node_decl(
         db: &::salsa::Db,
         path: MajorFormPath,

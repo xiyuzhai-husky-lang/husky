@@ -17,8 +17,11 @@ use husky_fly_term::quary::FlyQuary;
 use husky_place::{PlaceInfo, PlaceRegistry};
 use husky_regional_token::{RegionalTokenIdx, RegionalTokensData};
 use husky_syn_decl::decl::{
-    AssocItemSynNodeDecl, HasSynNodeDecl, ItemSynNodeDecl, TraitForTypeItemSynNodeDecl,
-    TraitItemSynNodeDecl, TypeItemSynNodeDecl,
+    assoc_item::{
+        trai_for_ty_item::TraitForTypeItemSynNodeDecl, trai_item::TraitItemSynNodeDecl,
+        ty_item::TypeItemSynNodeDecl, AssocItemSynNodeDecl,
+    },
+    HasSynNodeDecl, ItemSynNodeDecl,
 };
 use husky_token_data::{IntegerLikeLiteralTokenData, LiteralTokenData, TokenData};
 use husky_vfs::Toolchain;

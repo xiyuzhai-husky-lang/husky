@@ -5,6 +5,7 @@ use self::derive::*;
 use self::task::*;
 use super::*;
 use husky_entity_path::path::attr::AttrItemPath;
+use husky_syn_decl::decl::attr::AttrSynDecl;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]

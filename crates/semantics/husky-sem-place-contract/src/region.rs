@@ -45,7 +45,7 @@ fn decl_sem_place_contract_regions(
     db: &::salsa::Db,
     module_path: ModulePath,
 ) -> Vec<&SemPlaceContractRegion> {
-    use husky_syn_decl::HasSynDeclSheet;
+    use husky_syn_decl::sheet::HasSynDeclSheet;
 
     module_path
         .syn_decl_sheet(db)

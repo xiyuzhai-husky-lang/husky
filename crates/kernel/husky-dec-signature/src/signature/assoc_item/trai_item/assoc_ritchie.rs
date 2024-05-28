@@ -1,4 +1,5 @@
 use crate::*;
+use husky_syn_decl::decl::assoc_item::trai_item::assoc_ritchie::TraitAssocRitchieSynDecl;
 
 #[salsa::interned]
 pub struct TraitAssocRitchieDecTemplate {

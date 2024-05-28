@@ -29,7 +29,7 @@ use husky_vfs::ModulePath;
     CorgiConfigAstJar,
     ManifestJar,
     SynExprJar,
-    SynDeclJar,
+    husky_syn_decl::jar::SynDeclJar,
     husky_term_prelude::jar::TermPreludeJar,
     husky_dec_term::jar::DecTermJar,
     Jar
@@ -41,7 +41,7 @@ fn module_dec_templates(
     db: &::salsa::Db,
     module_path: ModulePath,
 ) -> Vec<(ItemPath, DecSignatureResult<DecTemplate>)> {
-    syn_decl_sheet(db, module_path)
+    husky_syn_decl::sheet::syn_decl_sheet(db, module_path)
         .decls(db)
         .iter()
         .copied()

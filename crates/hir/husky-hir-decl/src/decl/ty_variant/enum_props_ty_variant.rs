@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::decl::TypePropsVariantSynDecl;
+use husky_syn_decl::decl::ty_variant::props_ty_variant::TypePropsVariantSynDecl;
 use husky_syn_expr::PropsFieldSyndicate;
 
 #[salsa::interned]

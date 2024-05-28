@@ -5,14 +5,13 @@ pub mod ty_alias;
 pub mod val;
 
 use self::compterm::*;
-pub use self::function_ritchie::*;
+use self::function_ritchie::*;
 use self::r#static::*;
-pub use self::ty_alias::*;
-pub use self::val::*;
-
+use self::ty_alias::*;
+use self::val::*;
 use super::*;
 use husky_entity_path::path::major_item::form::MajorFormPath;
-use husky_syn_decl::decl::FormSynDecl;
+use husky_syn_decl::decl::major_item::form::FormSynDecl;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]

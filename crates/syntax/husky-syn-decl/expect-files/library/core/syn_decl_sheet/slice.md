@@ -10,7 +10,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::slice::Slice`, `Extern`),
                             template_parameters: [
                                 TemplateSynParameterData {
@@ -152,7 +152,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                             template_parameters: [
                                 TemplateSynParameterData {

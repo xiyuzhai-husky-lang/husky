@@ -4,14 +4,14 @@ pub mod impl_block;
 pub mod major_item;
 pub mod ty_variant;
 
-use husky_entity_path::path::ItemPath;
-
 use self::assoc_item::*;
 use self::attr::*;
 use self::impl_block::*;
 use self::major_item::*;
 use self::ty_variant::*;
 use crate::*;
+use husky_entity_path::path::ItemPath;
+use husky_syn_decl::decl::HasSynDecl;
 
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]

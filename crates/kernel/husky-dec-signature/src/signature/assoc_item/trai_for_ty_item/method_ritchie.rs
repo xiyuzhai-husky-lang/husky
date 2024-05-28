@@ -1,4 +1,5 @@
 use super::*;
+use husky_syn_decl::decl::assoc_item::trai_for_ty_item::method_ritchie::TraitForTypeMethodRitchieSynDecl;
 
 #[salsa::interned]
 pub struct TraitForTypeMethodRitchieDecTemplate {

@@ -1,5 +1,5 @@
 use super::*;
-use husky_dec_signature::signature::major_item::ty::r#extern::ExternTypeDecTemplate;
+use husky_dec_signature::signature::major_item::ty::r#extern::ExternDecTemplate;
 
 #[salsa::interned]
 pub struct ExternTypeEthTemplate {
@@ -12,7 +12,7 @@ impl ExternTypeEthTemplate {
     pub(super) fn from_dec(
         db: &::salsa::Db,
         path: TypePath,
-        dec_template: ExternTypeDecTemplate,
+        dec_template: ExternDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let template_parameters =
             EthTemplateParameters::from_dec(db, dec_template.template_parameters(db))?;

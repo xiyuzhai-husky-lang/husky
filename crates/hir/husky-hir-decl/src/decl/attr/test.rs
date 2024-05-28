@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::decl::test::TestAttrSynDecl;
+use husky_syn_decl::decl::attr::test::TestAttrSynDecl;
 
 #[salsa::interned]
 pub struct TestAttrHirDecl {

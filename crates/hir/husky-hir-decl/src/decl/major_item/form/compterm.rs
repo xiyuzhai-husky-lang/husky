@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::decl::compterm::MajorConstSynDecl;
+use husky_syn_decl::decl::major_item::form::compterm::MajorComptermSynDecl;
 
 #[salsa::interned]
 pub struct MajorComptermHirDecl {
@@ -11,7 +11,7 @@ pub struct MajorComptermHirDecl {
 impl MajorComptermHirDecl {
     pub(super) fn from_syn(
         path: MajorFormPath,
-        syn_decl: MajorConstSynDecl,
+        syn_decl: MajorComptermSynDecl,
         db: &::salsa::Db,
     ) -> Self {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);

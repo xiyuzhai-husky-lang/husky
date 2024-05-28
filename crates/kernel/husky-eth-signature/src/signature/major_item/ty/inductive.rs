@@ -1,5 +1,5 @@
 use super::*;
-use husky_dec_signature::signature::major_item::ty::inductive::InductiveTypeDecTemplate;
+use husky_dec_signature::signature::major_item::ty::inductive::InductiveDecTemplate;
 
 #[salsa::interned]
 pub struct InductiveTypeEthTemplate {
@@ -12,7 +12,7 @@ impl InductiveTypeEthTemplate {
     pub(super) fn from_dec(
         db: &::salsa::Db,
         path: TypePath,
-        dec_template: InductiveTypeDecTemplate,
+        dec_template: InductiveDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let template_parameters =
             EthTemplateParameters::from_dec(db, dec_template.template_parameters(db))?;
