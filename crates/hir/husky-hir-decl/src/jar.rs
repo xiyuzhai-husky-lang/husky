@@ -9,6 +9,7 @@ pub struct HirDeclJar(
     // assoc_items
     // - type items
     // ty_item_hir_decl,
+    crate::decl::assoc_item::ty_item::ty_item_hir_decl,
     crate::decl::TypeMethodRitchieHirDecl,
     crate::decl::TypeMemoFieldHirDecl,
     crate::decl::TypeAssocRitchieHirDecl,
