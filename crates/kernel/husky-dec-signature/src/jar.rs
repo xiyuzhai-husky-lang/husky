@@ -24,9 +24,9 @@ pub struct DecSignatureJar(
     crate::signature::major_item::ty::unit_struct::UnitStructDecTemplate,
     crate::signature::major_item::ty::tuple_struct::TupleStructDecTemplate,
     crate::signature::major_item::ty::props_struct::PropsStructDecTemplate,
-    crate::signature::major_item::ty::inductive::InductiveTypeDecTemplate,
+    crate::signature::major_item::ty::inductive::InductiveDecTemplate,
     crate::signature::major_item::ty::structure::StructureTypeDecTemplate,
-    crate::signature::major_item::ty::r#extern::ExternTypeDecTemplate,
+    crate::signature::major_item::ty::r#extern::ExternDecTemplate,
     crate::signature::major_item::ty::union::UnionTypeDecTemplate,
     // trait
     crate::signature::major_item::trai::TraitDecTemplate,

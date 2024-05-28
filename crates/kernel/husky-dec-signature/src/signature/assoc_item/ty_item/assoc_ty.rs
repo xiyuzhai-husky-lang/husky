@@ -1,5 +1,6 @@
 use crate::*;
 use husky_entity_path::path::assoc_item::ty_item::TypeItemPath;
+use husky_syn_decl::decl::assoc_item::ty_item::assoc_ty::TypeAssocTypeSynDecl;
 
 #[salsa::interned]
 pub struct TypeAssocTypeDecTemplate {

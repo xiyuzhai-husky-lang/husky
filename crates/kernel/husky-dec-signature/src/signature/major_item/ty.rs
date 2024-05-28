@@ -7,8 +7,6 @@ pub mod tuple_struct;
 pub mod union;
 pub mod unit_struct;
 
-use husky_entity_path::path::major_item::ty::TypePath;
-
 use self::inductive::*;
 use self::props_struct::*;
 use self::r#enum::*;
@@ -18,6 +16,8 @@ use self::tuple_struct::*;
 use self::union::*;
 use self::unit_struct::*;
 use super::*;
+use husky_entity_path::path::major_item::ty::TypePath;
+use husky_syn_decl::decl::major_item::ty::TypeSynDecl;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -28,7 +28,7 @@ pub enum TypeDecSignature {
     TupleStruct(TupleStructDecSignature),
     Inductive(InductiveTypeDecSignature),
     Structure(StructureTypeDecSignature),
-    Extern(ExternTypeDecSignature),
+    Extern(ExternDecSignature),
     Union(UnionTypeDecSignature),
 }
 
@@ -40,9 +40,9 @@ pub enum TypeDecTemplate {
     PropsStruct(PropsStructDecTemplate),
     UnitStruct(UnitStructDecTemplate),
     TupleStruct(TupleStructDecTemplate),
-    Inductive(InductiveTypeDecTemplate),
+    Inductive(InductiveDecTemplate),
     Structure(StructureTypeDecTemplate),
-    Extern(ExternTypeDecTemplate),
+    Extern(ExternDecTemplate),
     Union(UnionTypeDecTemplate),
 }
 
@@ -81,9 +81,9 @@ pub(crate) fn ty_dec_template(
         TypeSynDecl::PropsStruct(decl) => PropsStructDecTemplate::from_decl(db, path, decl)?.into(),
         TypeSynDecl::UnitStruct(decl) => UnitStructDecTemplate::from_decl(db, path, decl)?.into(),
         TypeSynDecl::TupleStruct(decl) => TupleStructDecTemplate::from_decl(db, path, decl)?.into(),
-        TypeSynDecl::Inductive(decl) => InductiveTypeDecTemplate::from_decl(db, path, decl)?.into(),
+        TypeSynDecl::Inductive(decl) => InductiveDecTemplate::from_decl(db, path, decl)?.into(),
         TypeSynDecl::Structure(decl) => StructureTypeDecTemplate::from_decl(db, path, decl)?.into(),
-        TypeSynDecl::Extern(decl) => ExternTypeDecTemplate::from_decl(db, path, decl)?.into(),
+        TypeSynDecl::Extern(decl) => ExternDecTemplate::from_decl(db, path, decl)?.into(),
         TypeSynDecl::Union(decl) => UnionTypeDecTemplate::from_decl(db, path, decl)?.into(),
     })
 }

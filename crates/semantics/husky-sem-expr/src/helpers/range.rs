@@ -40,7 +40,7 @@ fn decl_sem_expr_range_regions(
     db: &::salsa::Db,
     module_path: ModulePath,
 ) -> Vec<SemExprRangeRegion> {
-    use husky_syn_decl::HasSynDeclSheet;
+    use husky_syn_decl::sheet::HasSynDeclSheet;
 
     module_path
         .syn_decl_sheet(db)

@@ -11,7 +11,7 @@ use self::{
 };
 use super::*;
 use husky_entity_path::path::attr::AttrItemPath;
-use husky_syn_decl::decl::AttrSynDecl;
+use husky_syn_decl::decl::attr::AttrSynDecl;
 
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]

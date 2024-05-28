@@ -1,4 +1,5 @@
 use crate::*;
+use husky_syn_decl::decl::assoc_item::trai_item::assoc_val::TraitAssocValSynDecl;
 
 #[salsa::interned]
 pub struct TraitAssocValDecTemplate {}

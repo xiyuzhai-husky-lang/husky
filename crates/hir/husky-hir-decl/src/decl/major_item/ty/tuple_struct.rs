@@ -1,7 +1,6 @@
-use husky_syn_decl::decl::TupleStructSynDecl;
-use husky_syn_expr::TupleFieldSyndicate;
-
 use super::*;
+use husky_syn_decl::decl::major_item::ty::tuple_struct::TupleStructSynDecl;
+use husky_syn_expr::TupleFieldSyndicate;
 
 #[salsa::interned]
 pub struct TupleStructHirDecl {

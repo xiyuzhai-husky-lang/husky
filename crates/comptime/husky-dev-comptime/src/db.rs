@@ -47,7 +47,7 @@ use std::panic::RefUnwindSafe;
     husky_manifest_ast::jar::ManifestAstJar,
     husky_entity_tree::EntityTreeJar,
     husky_syn_expr::jar::SynExprJar,
-    husky_syn_decl::SynDeclJar,
+    husky_syn_decl::jar::SynDeclJar,
     husky_syn_defn::jar::SynDefnJar,
     // val
     husky_ki::jar::KiJar

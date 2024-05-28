@@ -1,5 +1,6 @@
 use super::*;
 use husky_entity_kind::ritchie::RitchieItemKind;
+use husky_syn_decl::decl::ty_variant::props_ty_variant::TypePropsVariantSynDecl;
 
 #[salsa::interned]
 pub struct EnumPropsVariantDecTemplate {

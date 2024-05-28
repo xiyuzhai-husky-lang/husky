@@ -1,4 +1,5 @@
 use super::*;
+use husky_syn_decl::decl::assoc_item::trai_for_ty_item::assoc_val::TraitForTypeAssocValSynDecl;
 
 #[salsa::interned]
 pub struct TraitForTypeAssocValDecTemplate {}

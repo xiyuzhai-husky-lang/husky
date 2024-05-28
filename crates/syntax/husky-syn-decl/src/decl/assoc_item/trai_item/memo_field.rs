@@ -57,8 +57,7 @@ impl<'a> DeclParser<'a> {
 pub struct TraitMemoizedFieldSynDecl {
     #[id]
     pub path: TypeItemPath,
-    pub return_ty: Option<ReturnTypeBeforeEqSyndicate>,
-    pub expr: Option<SynExprIdx>,
+    pub return_ty: ReturnTypeBeforeEqSyndicate,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -66,11 +65,10 @@ impl TraitMemoizedFieldSynDecl {
     pub(super) fn from_node_decl(
         db: &::salsa::Db,
         path: TypeItemPath,
-        syn_node_decl: TypeMemoizedFieldSynNodeDecl,
+        syn_node_decl: TraitMemoizedFieldSynNodeDecl,
     ) -> SynDeclResult<Self> {
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
-        let expr = syn_node_decl.expr(db);
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
-        Ok(Self::new(db, path, return_ty, expr, syn_expr_region))
+        Ok(Self::new(db, path, return_ty, syn_expr_region))
     }
 }

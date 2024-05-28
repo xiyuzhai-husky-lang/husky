@@ -1,5 +1,5 @@
 use super::*;
-use husky_hir_decl::decl::MajorTypeAliasHirDecl;
+use husky_hir_decl::decl::ty_alias::MajorTypeAliasHirDecl;
 
 #[salsa::interned]
 pub struct TypeAliasHirDefn {

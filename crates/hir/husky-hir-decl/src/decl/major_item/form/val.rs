@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::decl::MajorValSynDecl;
+use husky_syn_decl::decl::major_item::form::val::MajorValSynDecl;
 
 #[salsa::interned]
 pub struct MajorValHirDecl {

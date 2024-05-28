@@ -10,7 +10,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::str::str`, `Extern`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
@@ -92,7 +92,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`core::str::StringLiteral`, `Extern`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {

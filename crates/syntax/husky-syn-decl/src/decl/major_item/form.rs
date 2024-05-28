@@ -4,16 +4,15 @@ pub mod r#static;
 pub mod ty_alias;
 pub mod val;
 
-pub use self::function_ritchie::*;
-pub use self::ty_alias::*;
-pub use self::val::*;
-
+use self::function_ritchie::*;
+use self::ty_alias::*;
+use self::val::*;
 use self::{
-    compterm::{MajorConstSynDecl, MajorConstSynNodeDecl},
+    compterm::{MajorComptermSynDecl, MajorConstSynNodeDecl},
     r#static::MajorStaticSynDecl,
 };
 use super::*;
-use crate::r#static::MajorStaticSynNodeDecl;
+use crate::decl::major_item::form::r#static::MajorStaticSynNodeDecl;
 use husky_entity_kind::MajorFormKind;
 use husky_entity_path::path::major_item::form::MajorFormPath;
 
@@ -87,7 +86,7 @@ impl<'a> DeclParser<'a> {
 pub enum FormSynDecl {
     Ritchie(MajorFunctionRitchieSynDecl),
     Val(MajorValSynDecl),
-    Const(MajorConstSynDecl),
+    Const(MajorComptermSynDecl),
     Static(MajorStaticSynDecl),
     TypeAlias(TypeAliasSynDecl),
 }
@@ -109,7 +108,7 @@ impl FormSynDecl {
                 TypeAliasSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             FormSynNodeDecl::Const(syn_node_decl) => {
-                MajorConstSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                MajorComptermSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             FormSynNodeDecl::Static(syn_node_decl) => {
                 MajorStaticSynDecl::from_node_decl(db, path, syn_node_decl)?.into()

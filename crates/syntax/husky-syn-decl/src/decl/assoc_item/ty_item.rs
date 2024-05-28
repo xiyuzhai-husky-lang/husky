@@ -1,15 +1,14 @@
-mod assoc_ritchie;
-mod assoc_ty;
-mod assoc_val;
-mod memo_field;
-mod method_ritchie;
+pub mod assoc_ritchie;
+pub mod assoc_ty;
+pub mod assoc_val;
+pub mod memo_field;
+pub mod method_ritchie;
 
-pub use self::assoc_ritchie::*;
-pub use self::assoc_ty::*;
-pub use self::assoc_val::*;
-pub use self::memo_field::*;
-pub use self::method_ritchie::*;
-
+use self::assoc_ritchie::*;
+use self::assoc_ty::*;
+use self::assoc_val::*;
+use self::memo_field::*;
+use self::method_ritchie::*;
 use super::*;
 use husky_entity_kind::TypeItemKind;
 use husky_entity_path::path::assoc_item::ty_item::TypeItemPath;

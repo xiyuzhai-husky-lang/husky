@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::decl::PropsStructSynDecl;
+use husky_syn_decl::decl::major_item::ty::props_struct::PropsStructSynDecl;
 use husky_syn_expr::{PropsFieldSynInitialization, PropsFieldSyndicate};
 
 #[salsa::interned]

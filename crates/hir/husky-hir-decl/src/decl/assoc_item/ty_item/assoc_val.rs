@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::decl::TypeAssocValSynDecl;
+use husky_syn_decl::decl::assoc_item::ty_item::assoc_val::TypeAssocValSynDecl;
 
 #[salsa::interned]
 pub struct TypeAssocValHirDecl {

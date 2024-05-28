@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked]
-pub struct InductiveTypeSynNodeDecl {
+pub struct InductiveSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
     #[return_ref]
@@ -9,7 +9,7 @@ pub struct InductiveTypeSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl InductiveTypeSynNodeDecl {
+impl InductiveSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameter_decl_list(db)
@@ -24,10 +24,10 @@ impl<'a> DeclParser<'a> {
     pub(super) fn parse_inductive_ty_node_decl(
         &self,
         syn_node_path: TypeSynNodePath,
-    ) -> InductiveTypeSynNodeDecl {
+    ) -> InductiveSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::False, None);
         let template_parameter_decl_list = parser.try_parse_option();
-        InductiveTypeSynNodeDecl::new(
+        InductiveSynNodeDecl::new(
             self.db(),
             syn_node_path,
             template_parameter_decl_list,
@@ -37,7 +37,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked]
-pub struct InductiveTypeSynDecl {
+pub struct InductiveSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
@@ -45,12 +45,12 @@ pub struct InductiveTypeSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl InductiveTypeSynDecl {
+impl InductiveSynDecl {
     #[inline(always)]
     pub(super) fn from_node_decl(
         db: &::salsa::Db,
         path: TypePath,
-        syn_node_decl: InductiveTypeSynNodeDecl,
+        syn_node_decl: InductiveSynNodeDecl,
     ) -> SynDeclResult<Self> {
         let template_parameters = syn_node_decl
             .template_parameter_decl_list(db)

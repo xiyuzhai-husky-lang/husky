@@ -1,5 +1,6 @@
 use crate::*;
 use husky_entity_path::path::major_item::ty::TypePath;
+use husky_syn_decl::decl::major_item::ty::structure::StructureSynDecl;
 
 #[salsa::tracked]
 pub struct StructureTypeDecTemplate {
@@ -11,7 +12,7 @@ impl StructureTypeDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
         path: TypePath,
-        decl: StructureTypeSynDecl,
+        decl: StructureSynDecl,
     ) -> DecSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
         let dec_term_region = syn_expr_dec_term_region(db, syn_expr_region);

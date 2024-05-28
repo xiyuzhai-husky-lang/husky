@@ -10,7 +10,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
-                        ExternTypeSynDecl {
+                        ExternSynDecl {
                             path: TypePath(`mnist::task::MnistTask`, `Extern`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {

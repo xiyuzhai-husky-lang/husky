@@ -54,7 +54,7 @@ cargo update -p bson:0.11.1 --precise 0.10.0
 ## macro trailing commas
 
 ```
-($Name:ident { $($Variant:ident),* $(,)? }) => { 
+($Name:ident { $($Variant:ident),* $(,)? }) => {
 //                                 ^^^^^
 ```
 
@@ -83,3 +83,7 @@ take a good read https://learn.microsoft.com/en-us/visualstudio/ide/using-regula
 it's very useful
 
 captured groups!!
+
+## The path attribute
+
+https://doc.rust-lang.org/reference/items/modules.html

@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::decl::task::TaskAttrSynDecl;
+use husky_syn_decl::decl::attr::task::TaskAttrSynDecl;
 
 #[salsa::interned]
 pub struct TaskAttrHirDecl {

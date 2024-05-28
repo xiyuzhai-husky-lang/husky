@@ -1,6 +1,6 @@
 use super::*;
 use crate::builder::keyword::RustKeyword;
-use husky_hir_decl::decl::{MajorFunctionRitchieHirDecl, MajorValHirDecl};
+use husky_hir_decl::decl::{function_ritchie::MajorFunctionRitchieHirDecl, val::MajorValHirDecl};
 use husky_hir_defn::defn::major_item::form::{
     function_ritchie::MajorFunctionRitchieHirDefn, val::MajorValHirDefn, MajorFormHirDefn,
 };
