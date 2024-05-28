@@ -137,4 +137,8 @@ impl<T> ArenaIdxRange<T> {
             end: idx + 1,
         }
     }
+
+    pub unsafe fn new(start: ArenaIdx<T>, end: ArenaIdx<T>) -> Self {
+        Self { start, end }
+    }
 }

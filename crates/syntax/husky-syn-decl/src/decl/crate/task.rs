@@ -8,7 +8,7 @@ pub struct TaskCrateSynNodeDecl {
 }
 
 impl<'db> CrateDeclParser<'db> {
-    pub(super) fn parse_task_crate_syn_node_decl(&self) -> CrateSynNodeDecl {
+    pub(super) fn parse_task_crate_syn_node_decl(&self) -> TaskCrateSynNodeDecl {
         todo!()
     }
 }

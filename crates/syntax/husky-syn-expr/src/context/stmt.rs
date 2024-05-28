@@ -41,8 +41,8 @@ impl<'a> SynExprContext<'a> {
     #[track_caller]
     pub fn defn_tokra_region_data(&self) -> ItemDefnTokraRegionDataRef<'a> {
         match self.tokra_region_data {
-            TokraRegionDataRef::Decl(_) => unreachable!(),
-            TokraRegionDataRef::Defn(tokra_region_data) => tokra_region_data,
+            TokraRegionDataRef::CrateDecl(_) | TokraRegionDataRef::ItemDecl(_) => unreachable!(),
+            TokraRegionDataRef::ItemDefn(tokra_region_data) => tokra_region_data,
         }
     }
 }
