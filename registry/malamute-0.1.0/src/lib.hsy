@@ -1,4 +1,4 @@
-:- default const against = (Task as ml_task::IsMlTask)::INPUT
+:- default_const_excludes = (Task as ml_task::IsMlTask)::INPUT
 
 #derive(Debug, Clone, Copy)
 pub enum Class<Label>

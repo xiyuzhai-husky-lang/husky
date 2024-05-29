@@ -43,9 +43,9 @@ impl<'db> CrateDeclParser<'db> {
         let db = self.db();
         match self.crate_path().kind(db) {
             CrateKind::Lib => self.parse_lib_crate_syn_node_decl().into(),
-            CrateKind::Main => self.parse_lib_crate_syn_node_decl().into(),
-            CrateKind::Requirements => self.parse_lib_crate_syn_node_decl().into(),
-            CrateKind::Task => self.parse_lib_crate_syn_node_decl().into(),
+            CrateKind::Main => self.parse_main_crate_syn_node_decl().into(),
+            CrateKind::Requirements => self.parse_requirements_crate_syn_node_decl().into(),
+            CrateKind::Task => self.parse_task_crate_syn_node_decl().into(),
             CrateKind::Bin(_) => todo!(),
             CrateKind::IntegratedTest(_) => todo!(),
             CrateKind::Example => todo!(),

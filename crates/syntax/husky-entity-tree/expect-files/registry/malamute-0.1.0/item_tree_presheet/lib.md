@@ -27,7 +27,7 @@ EntityTreePresheet {
                         ident_token: IdentToken {
                             ident: `Class`,
                             token_idx: TokenIdx(
-                                26,
+                                24,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -87,7 +87,7 @@ EntityTreePresheet {
                         ident_token: IdentToken {
                             ident: `OneVsAll`,
                             token_idx: TokenIdx(
-                                48,
+                                46,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -147,7 +147,7 @@ EntityTreePresheet {
                         ident_token: IdentToken {
                             ident: `OneVsAllResult`,
                             token_idx: TokenIdx(
-                                193,
+                                191,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -196,7 +196,7 @@ EntityTreePresheet {
                         ident_token: IdentToken {
                             ident: `narrow_down`,
                             token_idx: TokenIdx(
-                                318,
+                                316,
                             ),
                         },
                         block: DefnBlock::Form {

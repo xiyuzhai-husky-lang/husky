@@ -1,7 +1,7 @@
 ```rust
 Some(
-    CrateSynNodeDecl::Lib(
-        LibCrateSynNodeDecl {
+    CrateSynNodeDecl::Requirements(
+        RequirementsCrateSynNodeDecl {
             path: CratePath {
                 package_path: PackagePath {
                     toolchain: Toolchain {

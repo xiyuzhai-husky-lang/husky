@@ -18,8 +18,17 @@ impl<'a> SynExprContext<'a> {
         &self,
         regional_token_verse_idx: RegionalTokenVerseIdx,
     ) -> RegionalTokenStream<'a> {
-        self.item_defn_tokra_region_data()
-            .token_stream(regional_token_verse_idx)
+        match self.tokra_region_data {
+            TokraRegionDataRef::CrateDecl(tokra_region_data) => {
+                tokra_region_data.token_stream(regional_token_verse_idx)
+            }
+            TokraRegionDataRef::ItemDecl(_) => {
+                unreachable!("it doesn't make sense to have regional_token_verse_idx in decl")
+            }
+            TokraRegionDataRef::ItemDefn(tokra_region_data) => {
+                tokra_region_data.token_stream(regional_token_verse_idx)
+            }
+        }
     }
 
     pub(crate) fn asts(&self) -> ItemDefnAstArenaRef<'a> {
