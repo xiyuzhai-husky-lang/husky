@@ -15,7 +15,7 @@
                             SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`mnist_classifier::digits::six::six_match`, `Val`, (0)),
@@ -97,7 +97,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
                                     FormSynNodePath(`mnist_classifier::digits::six::six_match`, `Val`, (0)),
@@ -308,7 +308,7 @@
                             SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`, (0)),
@@ -390,7 +390,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
                                     FormSynNodePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`, (0)),
@@ -638,7 +638,7 @@
                             SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`mnist_classifier::digits::six::is_six`, `Val`, (0)),
@@ -809,7 +809,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
                                     FormSynNodePath(`mnist_classifier::digits::six::is_six`, `Val`, (0)),
@@ -4202,7 +4202,7 @@
                             SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
@@ -4388,7 +4388,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
                                     FormSynNodePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
@@ -4684,7 +4684,7 @@
                             SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
@@ -4870,7 +4870,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
                                     FormSynNodePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(

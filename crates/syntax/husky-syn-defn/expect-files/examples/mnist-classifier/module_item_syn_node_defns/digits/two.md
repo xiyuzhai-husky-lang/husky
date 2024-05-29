@@ -15,7 +15,7 @@
                             SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`mnist_classifier::digits::two::two_match`, `Val`, (0)),
@@ -97,7 +97,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
                                     FormSynNodePath(`mnist_classifier::digits::two::two_match`, `Val`, (0)),
@@ -384,7 +384,7 @@
                             SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
@@ -570,7 +570,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
                                     FormSynNodePath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
@@ -866,7 +866,7 @@
                             SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
@@ -1052,7 +1052,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
                                     FormSynNodePath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
@@ -1348,7 +1348,7 @@
                             SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
@@ -1534,7 +1534,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
                                     FormSynNodePath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
@@ -1828,7 +1828,7 @@
                             SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`mnist_classifier::digits::two::is_two`, `Val`, (0)),
@@ -1999,7 +1999,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
                                     FormSynNodePath(`mnist_classifier::digits::two::is_two`, `Val`, (0)),

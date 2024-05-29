@@ -37,7 +37,7 @@ impl<'db> ItemDeclParser<'db> {
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
         env: Option<ExprEnvironment>,
-    ) -> SynDeclExprParser<'db> {
+    ) -> StandaloneSynExprParser<'db> {
         SynExprContext::new2(
             self.db,
             SynNodeRegionPath::ItemDecl(self.syn_node_path.into()),
@@ -65,6 +65,20 @@ pub(crate) struct CrateDeclParser<'db> {
     crate_path: CratePath,
     module_symbol_context: ModuleSymbolContext<'db>,
     tokra_region_data: CrateDeclTokraRegionDataRef<'db>,
+    ctx: SynExprContext<'db>,
+}
+
+impl<'db> std::ops::Deref for CrateDeclParser<'db> {
+    type Target = SynExprContext<'db>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.ctx
+    }
+}
+impl<'db> std::ops::DerefMut for CrateDeclParser<'db> {
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.ctx
+    }
 }
 
 /// # constructor
@@ -76,11 +90,20 @@ impl<'db> CrateDeclParser<'db> {
         let Ok(module_symbol_context) = db.module_symbol_context(module_path) else {
             unreachable!("expected valid module")
         };
+        let ctx = SynExprContext::new(
+            module_path,
+            SynNodeRegionPath::CrateDecl(crate_path),
+            None,
+            AllowSelfType::False,
+            AllowSelfValue::False,
+            db,
+        )?;
         Some(Self {
             db,
             crate_path,
             module_symbol_context,
             tokra_region_data,
+            ctx,
         })
     }
 }
@@ -97,25 +120,9 @@ impl<'db> CrateDeclParser<'db> {
     }
 }
 
-/// # factory
+/// # action
 impl<'db> CrateDeclParser<'db> {
-    #[inline(always)]
-    pub(crate) fn expr_parser(
-        &self,
-        parent_expr_region: Option<SynExprRegion>,
-        allow_self_type: AllowSelfType,
-        allow_self_value: AllowSelfValue,
-        env: Option<ExprEnvironment>,
-    ) -> SynDeclExprParser<'db> {
-        SynExprContext::new2(
-            self.db,
-            SynNodeRegionPath::CrateDecl(self.crate_path),
-            self.module_symbol_context,
-            parent_expr_region,
-            allow_self_type,
-            allow_self_value,
-        )
-        .unwrap()
-        .token_stream_expr_parser(env, self.tokra_region_data.regional_token_stream())
+    pub(crate) fn finish(self) -> SynExprRegion {
+        self.ctx.finish()
     }
 }

@@ -27,11 +27,13 @@ impl SynTemplateParameterSyndicateList {
     }
 }
 
-impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SynTemplateParameterSyndicateList {
+impl<'a, 'b> TryParseOptionFromStream<StandaloneSynExprParser<'a>>
+    for SynTemplateParameterSyndicateList
+{
     type Error = SynNodeDeclError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut SynDeclExprParser<'a>,
+        ctx: &mut StandaloneSynExprParser<'a>,
     ) -> SynNodeDeclResult<Option<Self>> {
         let Some(langle) = ctx.try_parse_option::<LaOrLtRegionalToken>()? else {
             return Ok(None);

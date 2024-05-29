@@ -11,11 +11,11 @@ impl AffectSyndicate {
     }
 }
 
-impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for AffectSyndicate {
+impl<'a> TryParseOptionFromStream<StandaloneSynExprParser<'a>> for AffectSyndicate {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut SynDeclExprParser<'a>,
+        ctx: &mut StandaloneSynExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
         if let Some(expr) = ctx.parse_expr_root(None, SynExprRootKind::Effect) {
             Ok(Some(AffectSyndicate { expr }))

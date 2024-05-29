@@ -14,13 +14,13 @@ pub struct ParenateParameterSyndicateList<const ALLOW_SELF_PARAMETER: bool> {
     rpar: RparRegionalToken,
 }
 
-impl<'a, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<SynDeclExprParser<'a>>
+impl<'a, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<StandaloneSynExprParser<'a>>
     for ParenateParameterSyndicateList<ALLOW_SELF_PARAMETER>
 {
     type Error = SynNodeDeclError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut SynDeclExprParser<'a>,
+        ctx: &mut StandaloneSynExprParser<'a>,
     ) -> Result<Option<Self>, SynNodeDeclError> {
         let Some(lpar) = ctx.try_parse_option::<LparRegionalToken>()? else {
             return Ok(None);

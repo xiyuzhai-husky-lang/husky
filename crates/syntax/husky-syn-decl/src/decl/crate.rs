@@ -39,7 +39,7 @@ fn crate_syn_node_decl(db: &::salsa::Db, crate_path: CratePath) -> Option<CrateS
 }
 
 impl<'db> CrateDeclParser<'db> {
-    fn parse_crate_syn_node_decl(&self) -> CrateSynNodeDecl {
+    fn parse_crate_syn_node_decl(self) -> CrateSynNodeDecl {
         let db = self.db();
         match self.crate_path().kind(db) {
             CrateKind::Lib => self.parse_lib_crate_syn_node_decl().into(),

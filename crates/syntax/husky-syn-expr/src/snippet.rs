@@ -13,7 +13,7 @@ pub(crate) fn try_parse_snippet_in_decl<T>(
 ) -> SynExprResult<Option<T>>
 where
     T: for<'a> parsec::TryParseOptionFromStream<
-        parser::SynDeclExprParser<'a>,
+        parser::StandaloneSynExprParser<'a>,
         Error = SynExprError,
     >,
 {

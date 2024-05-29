@@ -10,11 +10,7 @@ fn toolchain_debug_works() {
     expect_test::expect![[r#"
         Toolchain {
             data: ToolchainData::Local {
-                library_path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../library",
-                    ),
-                },
+                library_path: "../../../library",
             },
         }
     "#]]

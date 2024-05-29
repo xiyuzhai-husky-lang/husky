@@ -39,18 +39,18 @@ impl<'a, 'b> IsSynExprContext<'a> for &'b mut SynExprContext<'a> {}
 
 impl<'a> SynExprContext<'a> {
     pub fn new(
-        syn_node_path: ItemSynNodePath,
-        decl_expr_region: SynExprRegion,
+        module_path: ModulePath,
+        syn_node_region_path: SynNodeRegionPath,
+        decl_expr_region: impl Into<Option<SynExprRegion>>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
         db: &'a ::salsa::Db,
     ) -> Option<Self> {
-        let module_path = syn_node_path.module_path(db);
         Self::new2(
             db,
-            SynNodeRegionPath::ItemDefn(syn_node_path),
+            syn_node_region_path,
             db.module_symbol_context(module_path).unwrap(),
-            Some(decl_expr_region),
+            decl_expr_region.into(),
             allow_self_type,
             allow_self_value,
         )
@@ -120,7 +120,7 @@ impl<'a> SynExprContext<'a> {
         self,
         env: Option<ExprEnvironment>,
         token_stream: RegionalTokenStream<'a>,
-    ) -> SynExprParser<'a, Self> {
+    ) -> StandaloneSynExprParser<'a> {
         SynExprParser::new(self, env, token_stream)
     }
 
