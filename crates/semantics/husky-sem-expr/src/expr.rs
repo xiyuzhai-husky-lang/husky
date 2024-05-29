@@ -395,7 +395,7 @@ impl SemExprArena {
     }
 
     pub(crate) fn arena_ref(&self) -> SemExprArenaRef {
-        SemExprArenaRef(self.0.to_ref())
+        SemExprArenaRef(self.0.as_arena_ref())
     }
 
     pub(crate) fn index_iter(&self) -> impl Iterator<Item = SemExprIdx> {

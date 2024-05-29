@@ -33,7 +33,7 @@ impl ItemDefnTokraRegion {
     pub fn data<'a>(self, db: &'a ::salsa::Db) -> ItemDefnTokraRegionDataRef<'a> {
         ItemDefnTokraRegionDataRef {
             tokens_data: self._tokens_data(db),
-            ast_arena: self.ast_arena(db).to_ref(),
+            ast_arena: self.ast_arena(db).as_arena_ref(),
             root_body: self.root_body(db),
             ast_token_idx_ranges: self.ast_token_idx_ranges(db),
             main_seq_token_verse_starts: self.token_verse_starts(db),

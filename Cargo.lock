@@ -6089,6 +6089,7 @@ dependencies = [
  "husky-corgi-config",
  "husky-corgi-config-ast",
  "husky-coword",
+ "husky-crate-decl-ast",
  "husky-entity-kind",
  "husky-entity-path",
  "husky-entity-tree",

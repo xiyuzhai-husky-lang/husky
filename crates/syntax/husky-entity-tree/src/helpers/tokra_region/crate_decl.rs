@@ -1,7 +1,7 @@
 use super::*;
 use husky_ast::range::AstTokenIdxRangeSheet;
 use husky_crate_decl_ast::{
-    CrateDeclAst, CrateDeclAstArena, CrateDeclAstIdx, CrateDeclAstIdxRange,
+    CrateDeclAst, CrateDeclAstArena, CrateDeclAstArenaRef, CrateDeclAstIdx, CrateDeclAstIdxRange,
 };
 use husky_token::{TokenDb, TokenIdxRange};
 use start::RegionalTokenVerseStart;
@@ -21,6 +21,8 @@ pub struct CrateDeclTokraRegion {
 
 #[derive(Debug, Clone, Copy)]
 pub struct CrateDeclTokraRegionDataRef<'db> {
+    ast_arena: CrateDeclAstArenaRef<'db>,
+    root_body: CrateDeclAstIdxRange,
     tokens_data: &'db [TokenData],
     token_verse_starts: &'db [RegionalTokenVerseStart],
 }
@@ -30,6 +32,14 @@ impl<'a> std::ops::Index<RegionalTokenIdx> for CrateDeclTokraRegionDataRef<'a> {
 
     fn index(&self, idx: RegionalTokenIdx) -> &Self::Output {
         &self.tokens_data[idx.index()]
+    }
+}
+
+impl<'a> std::ops::Index<CrateDeclAstIdx> for CrateDeclTokraRegionDataRef<'a> {
+    type Output = CrateDeclAst;
+
+    fn index(&self, idx: CrateDeclAstIdx) -> &Self::Output {
+        &self.ast_arena[idx]
     }
 }
 
@@ -44,6 +54,8 @@ pub struct CrateDeclTokraRegionSourceMap {
 impl CrateDeclTokraRegion {
     pub fn data<'a>(self, db: &'a ::salsa::Db) -> CrateDeclTokraRegionDataRef<'a> {
         CrateDeclTokraRegionDataRef {
+            ast_arena: self.ast_arena(db).as_arena_ref(),
+            root_body: self.root_body(db),
             tokens_data: self.tokens_data(db),
             token_verse_starts: self.token_verse_starts(db),
         }
@@ -65,6 +77,10 @@ impl HasCrateDeclTokraRegion for CratePath {
 }
 
 impl<'a> CrateDeclTokraRegionDataRef<'a> {
+    pub fn root_body(self) -> CrateDeclAstIdxRange {
+        self.root_body
+    }
+
     pub fn regional_token_stream(
         self,
         regional_token_verse_idx: RegionalTokenVerseIdx,

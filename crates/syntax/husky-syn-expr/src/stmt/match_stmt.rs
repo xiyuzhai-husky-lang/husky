@@ -26,7 +26,7 @@ impl<'a> SynExprContext<'a> {
                 body,
             } => {
                 let access_end = self
-                    .defn_tokra_region_data()
+                    .item_defn_tokra_region_data()
                     .ast_token_idx_range(if_branch)
                     .end();
                 let mut parser = self.token_verse_expr_parser(regional_token_verse_idx);
