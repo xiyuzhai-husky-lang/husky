@@ -116,7 +116,7 @@ impl<'a> SynExprContext<'a> {
         ast_idx: ItemDefnAstIdx,
         block_end: RegionalTokenIdxRangeEnd,
     ) -> SynStmtData {
-        match self.defn_tokra_region_data()[ast_idx] {
+        match self.item_defn_tokra_region_data()[ast_idx] {
             ItemDefnAst::BasicStmtOrBranch {
                 regional_token_verse_idx: token_verse_idx,
                 body,
