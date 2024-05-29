@@ -29,8 +29,8 @@ where
     stack: ExprStack,
 }
 
-pub type SynDeclExprParser<'a> = SynExprParser<'a, SynExprContext<'a>>;
-pub type SynDefnExprParser<'a, 'b> = SynExprParser<'a, &'b mut SynExprContext<'a>>;
+pub type StandaloneSynExprParser<'a> = SynExprParser<'a, SynExprContext<'a>>;
+pub type ProducedSynExprParser<'a, 'b> = SynExprParser<'a, &'b mut SynExprContext<'a>>;
 
 impl<'a, C> ::salsa::db::HasDb<'a> for SynExprParser<'a, C>
 where

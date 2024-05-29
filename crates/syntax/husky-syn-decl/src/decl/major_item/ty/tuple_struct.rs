@@ -31,10 +31,10 @@ impl TupleStructSynNodeDecl {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct TupleStructRparRegionalToken(RparRegionalToken);
 
-impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for TupleStructRparRegionalToken {
+impl<'a> TryParseFromStream<StandaloneSynExprParser<'a>> for TupleStructRparRegionalToken {
     type Error = SynNodeDeclError;
 
-    fn try_parse_from_stream(sp: &mut SynDeclExprParser<'a>) -> Result<Self, Self::Error> {
+    fn try_parse_from_stream(sp: &mut StandaloneSynExprParser<'a>) -> Result<Self, Self::Error> {
         // todo: enrich this
         // consider unexpected
         // maybe sp.skip_exprs_until_next_right_parenthesis

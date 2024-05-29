@@ -10,11 +10,11 @@ pub struct TraitsSyndicate {
     pub trai_syn_expr_idxs: SmallVec<[SynExprIdx; 4]>,
 }
 
-impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TraitsSyndicate {
+impl<'a, 'b> TryParseOptionFromStream<StandaloneSynExprParser<'a>> for TraitsSyndicate {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        parser: &mut SynDeclExprParser<'a>,
+        parser: &mut StandaloneSynExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
         if let Some(colon_regional_token) = parser.try_parse_option::<ColonRegionalToken>()? {
             let traits_syn_expr_idx = parser.parse_expr_expected2(

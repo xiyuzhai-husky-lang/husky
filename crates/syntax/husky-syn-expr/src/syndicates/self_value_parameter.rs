@@ -17,12 +17,12 @@ impl SelfValueParameterSyndicate {
     }
 }
 
-impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SelfValueParameterSyndicate {
+impl<'a, 'b> TryParseOptionFromStream<StandaloneSynExprParser<'a>> for SelfValueParameterSyndicate {
     type Error = SynExprError;
 
     // needs more testing
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut SynDeclExprParser<'a>,
+        ctx: &mut StandaloneSynExprParser<'a>,
     ) -> Result<Option<Self>, Self::Error> {
         let ephem_symbol_modifier_token_verse = ctx.try_parse_option()?;
         let Some(self_value_token) = ctx.try_parse_option::<SelfValueRegionalToken>()? else {

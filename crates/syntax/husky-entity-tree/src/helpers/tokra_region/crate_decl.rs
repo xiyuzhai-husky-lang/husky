@@ -20,8 +20,9 @@ pub struct CrateDeclTokraRegion {
 }
 
 #[derive(Debug, Clone, Copy)]
-pub struct CrateDeclTokraRegionDataRef<'a> {
-    tokens_data: &'a [TokenData],
+pub struct CrateDeclTokraRegionDataRef<'db> {
+    tokens_data: &'db [TokenData],
+    token_verse_starts: &'db [RegionalTokenVerseStart],
 }
 
 impl<'a> std::ops::Index<RegionalTokenIdx> for CrateDeclTokraRegionDataRef<'a> {
@@ -44,6 +45,7 @@ impl CrateDeclTokraRegion {
     pub fn data<'a>(self, db: &'a ::salsa::Db) -> CrateDeclTokraRegionDataRef<'a> {
         CrateDeclTokraRegionDataRef {
             tokens_data: self.tokens_data(db),
+            token_verse_starts: self.token_verse_starts(db),
         }
     }
 
@@ -63,7 +65,11 @@ impl HasCrateDeclTokraRegion for CratePath {
 }
 
 impl<'a> CrateDeclTokraRegionDataRef<'a> {
-    pub fn regional_token_stream(self) -> RegionalTokenStream<'a> {
+    pub fn regional_token_stream(
+        self,
+        regional_token_verse_idx: RegionalTokenVerseIdx,
+    ) -> RegionalTokenStream<'a> {
+        let regional_token_verse_start = self.token_verse_starts[regional_token_verse_idx.index()];
         todo!("verses");
         RegionalTokenStream::new_decl_regional_token_stream(self.tokens_data, Some(todo!()))
     }
