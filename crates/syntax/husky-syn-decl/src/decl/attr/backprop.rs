@@ -89,11 +89,11 @@ impl BackpropAttrArgument {
     }
 }
 
-impl<'a> TryParseOptionFromStream<StandaloneSynExprParser<'a>> for BackpropAttrArgument {
+impl<'db> TryParseOptionFromStream<StandaloneSynExprParser<'db>> for BackpropAttrArgument {
     type Error = SynNodeDeclError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        sp: &mut StandaloneSynExprParser<'a>,
+        sp: &mut StandaloneSynExprParser<'db>,
     ) -> SynNodeDeclResult<Option<Self>> {
         let Some(parameter_ident_token) = sp.try_parse_option::<IdentRegionalToken>()? else {
             return Ok(None);

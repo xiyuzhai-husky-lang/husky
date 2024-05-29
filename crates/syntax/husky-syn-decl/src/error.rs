@@ -71,7 +71,7 @@ pub enum OriginalSynNodeDeclError {
     #[error("expect `static` return type")]
     ExpectedStaticReturnType(RegionalTokenStreamState),
     #[error("expect `=` for memo")]
-    ExpectEqTokenForMemo(RegionalTokenStreamState),
+    ExpectedEqTokenForMemo(RegionalTokenStreamState),
     #[error("expected `{{` `(` or `;` for struct")]
     ExpectedLcurlOrLparOrSemicolonForStruct(RegionalTokenStreamState),
     #[error("expected `=` for associated type")]
@@ -86,6 +86,10 @@ pub enum OriginalSynNodeDeclError {
     ExpectedExprForBackpropArgument(RegionalTokenStreamState),
     #[error("expected `:` for trait memoized field")]
     ExpectedColonForTraitMemoizedField(RegionalTokenStreamState),
+    #[error("expected lib crate declaration narrative")]
+    ExpectedCrateDeclNarrative(RegionalTokenStreamState),
+    #[error("expected `=` for lib crate declaration default const excludes")]
+    ExpectedEqTokenForLibCrateDefaultConstExcludes(RegionalTokenStreamState),
 }
 
 impl OriginalError for OriginalSynNodeDeclError {

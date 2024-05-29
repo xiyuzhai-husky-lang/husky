@@ -1,14 +1,26 @@
-use husky_crate_decl_ast::{CrateDeclAst, CrateDeclAstIdxRange};
+#[path = "lib/narrative.rs"]
+pub mod narrative;
 
+use self::narrative::LibCrateSynDeclNarrative;
 use super::*;
+use husky_crate_decl_ast::{CrateDeclAst, CrateDeclAstIdxRange};
+use parsec::{PunctuatedSmallList, TryParseOptionFromStream};
 
 #[salsa::tracked]
 pub struct LibCrateSynNodeDecl {
     #[id]
     pub path: CratePath,
     #[return_ref]
-    pub items: Vec<SynNodeDeclResult<()>>,
+    pub items: Vec<SynNodeDeclResult<LibCrateSynDeclItem>>,
     pub syn_expr_region: SynExprRegion,
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub enum LibCrateSynDeclItem {
+    Narrative {
+        narrate_token: NarrateRegionalToken,
+        narrative: LibCrateSynDeclNarrative,
+    },
 }
 
 impl<'db> CrateDeclParser<'db> {
@@ -47,7 +59,7 @@ impl<'db> CrateDeclParser<'db> {
         &mut self,
         regional_token_verse_idx: RegionalTokenVerseIdx,
         body: Option<CrateDeclAstIdxRange>,
-    ) -> SynNodeDeclResult<()> {
+    ) -> SynNodeDeclResult<LibCrateSynDeclItem> {
         let mut parser = self.token_verse_expr_parser(regional_token_verse_idx);
         if let Some(basic_stmt_kw) = parser.try_parse_option::<BasicStmtLeadRegionalToken>()? {
             match basic_stmt_kw {
@@ -61,15 +73,11 @@ impl<'db> CrateDeclParser<'db> {
                 BasicStmtLeadRegionalToken::While(_) => todo!(),
                 BasicStmtLeadRegionalToken::Do(_) => todo!(),
                 BasicStmtLeadRegionalToken::Narrate(narrate_token) => {
-                    self.parse_narrative(narrate_token)
+                    self::narrative::parse_narrative(parser, narrate_token)
                 }
             }
         } else {
             todo!()
         }
-    }
-
-    fn parse_narrative(&mut self, narrate_token: NarrateRegionalToken) -> SynNodeDeclResult<()> {
-        Ok(())
     }
 }

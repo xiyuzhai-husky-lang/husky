@@ -36,7 +36,7 @@ impl<'a> ItemDeclParser<'a> {
             parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedColonBeforeValReturnType);
         let return_ty = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedValReturnType);
         let eq_or_eol_semicolon_token =
-            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectEqTokenForMemo);
+            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEqTokenForMemo);
         let expr = parser.parse_expr_root(None, SynExprRootKind::ValExpr);
         MajorComptermSynNodeDecl::new(
             self.db(),
