@@ -29,7 +29,7 @@ impl<'a> ItemDeclParser<'a> {
         let colon_token =
             parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedColonBeforeValReturnType);
         let return_ty = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedValReturnType);
-        let eq_token = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectEqTokenForMemo);
+        let eq_token = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEqTokenForMemo);
         let expr = parser.parse_expr_root(None, SynExprRootKind::ValExpr);
         MajorValSynNodeDecl::new(
             self.db(),

@@ -66,7 +66,7 @@ where
         self.context.borrow_mut()
     }
 
-    pub(crate) fn db(&self) -> &'a ::salsa::Db {
+    pub fn db(&self) -> &'a ::salsa::Db {
         self.context().db()
     }
 

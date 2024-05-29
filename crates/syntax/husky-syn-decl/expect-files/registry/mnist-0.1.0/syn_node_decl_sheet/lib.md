@@ -401,7 +401,7 @@ SynNodeDeclSheet {
                             ),
                             eq_token: Err(
                                 SynNodeDeclError::Original(
-                                    OriginalSynNodeDeclError::ExpectEqTokenForMemo(
+                                    OriginalSynNodeDeclError::ExpectedEqTokenForMemo(
                                         RegionalTokenStreamState {
                                             next_regional_token_idx: RegionalTokenIdx(
                                                 6,

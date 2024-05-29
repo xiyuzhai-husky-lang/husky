@@ -596,6 +596,7 @@ impl<'a> SemExprBuilder<'a> {
                 SynExprRootKind::Snippet => todo!(),
                 SynExprRootKind::ValExpr => todo!(),
                 SynExprRootKind::Effect => todo!(),
+                SynExprRootKind::DefaultConstExclude => todo!(),
             };
             self.sem_expr_roots
                 .insert_new((root.syn_expr_idx(), (sem_expr_idx, root.kind())))
