@@ -81,13 +81,22 @@ impl<'a> CrateDeclTokraRegionDataRef<'a> {
         self.root_body
     }
 
-    pub fn regional_token_stream(
+    pub fn token_stream(
         self,
         regional_token_verse_idx: RegionalTokenVerseIdx,
     ) -> RegionalTokenStream<'a> {
+        debug_assert!(regional_token_verse_idx.lcurl().is_none());
         let regional_token_verse_start = self.token_verse_starts[regional_token_verse_idx.index()];
-        todo!("verses");
-        RegionalTokenStream::new_decl_regional_token_stream(self.tokens_data, Some(todo!()))
+        let start_index = regional_token_verse_start.index();
+        let end_index = self
+            .token_verse_starts
+            .get(regional_token_verse_idx.index() + 1)
+            .map(|&end| end.index())
+            .unwrap_or(self.tokens_data.len());
+        RegionalTokenStream::new_crate_decl_regional_token_stream(
+            &self.tokens_data[start_index..end_index],
+            regional_token_verse_start,
+        )
     }
 }
 

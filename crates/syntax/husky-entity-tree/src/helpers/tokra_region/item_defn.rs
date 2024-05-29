@@ -93,8 +93,7 @@ impl<'a> ItemDefnTokraRegionDataRef<'a> {
             .get(regional_token_verse_idx.index() + 1)
             .map(|&end| end.index())
             .unwrap_or(self.tokens_data.len());
-
-        RegionalTokenStream::new_defn_regional_token_stream(
+        RegionalTokenStream::new_item_defn_regional_token_stream(
             &self.tokens_data[start_index..end_index],
             regional_token_verse_start,
         )

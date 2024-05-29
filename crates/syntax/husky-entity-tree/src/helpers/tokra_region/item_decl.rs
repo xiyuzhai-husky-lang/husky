@@ -33,7 +33,7 @@ impl ItemDeclTokraRegion {
 
 impl<'a> ItemDeclTokraRegionDataRef<'a> {
     pub fn regional_token_stream(self) -> RegionalTokenStream<'a> {
-        RegionalTokenStream::new_decl_regional_token_stream(
+        RegionalTokenStream::new_item_decl_regional_token_stream(
             self.tokens_data,
             self.saved_regional_token_stream_state,
         )

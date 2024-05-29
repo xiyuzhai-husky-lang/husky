@@ -125,7 +125,7 @@ impl NarrateRegionalToken {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
-pub enum BasicStmtKeywordRegionalToken {
+pub enum BasicStmtLeadRegionalToken {
     Let(LetRegionalToken),
     Return(ReturnRegionalToken),
     Require(RequireRegionalToken),
@@ -166,7 +166,7 @@ where
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for BasicStmtKeywordRegionalToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for BasicStmtLeadRegionalToken
 where
     Context: RegionalTokenStreamParser<'a>,
 {

@@ -105,7 +105,7 @@ impl<'a> SynExprContext<'a> {
         )
     }
 
-    pub(crate) fn token_verse_expr_parser<'b>(
+    pub fn token_verse_expr_parser<'b>(
         &'b mut self,
         token_verse_idx: RegionalTokenVerseIdx,
     ) -> SynExprParser<'a, &'b mut SynExprContext<'a>>

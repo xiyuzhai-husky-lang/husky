@@ -16,6 +16,11 @@ Some(
                 },
                 kind: Lib,
             },
+            items: [
+                Ok(
+                    (),
+                ),
+            ],
             syn_expr_region: SynExprRegion {
                 data: SynExprRegionData {
                     parent: None,
