@@ -125,7 +125,7 @@ where
     }
 }
 
-pub fn parse_separated_list<Context, Element, Separator, E>(
+pub fn parse_punctuated_list<Context, Element, Separator, E>(
     ctx: &mut Context,
 ) -> Result<(Vec<Element>, Vec<Separator>), E>
 where
@@ -151,10 +151,18 @@ where
     Ok((elements, separators))
 }
 
-pub fn parse_separated_small_list2<Context, Element, Separator, E1, E2>(
+pub fn parse_punctuated_small_list<
+    Context,
+    Element,
+    const N1: usize,
+    Separator,
+    const N2: usize,
+    E1,
+    E2,
+>(
     ctx: &mut Context,
     f: impl FnOnce(E1) -> E2,
-) -> Result<(SmallVec<[Element; 2]>, SmallVec<[Separator; 2]>), E2>
+) -> Result<(SmallVec<[Element; N1]>, SmallVec<[Separator; N2]>), E2>
 where
     Context: IsStreamParser,
     Element: TryParseOptionFromStream<Context, Error = E1>,
@@ -181,9 +189,9 @@ where
 }
 
 #[test]
-fn parse_separated_list_works() {
+fn parse_punctuated_list_works() {
     fn t(input: &str) -> Result<(Vec<A>, Vec<Comma>), ()> {
-        parse_separated_list(&mut CharStream::new(input))
+        parse_punctuated_list(&mut CharStream::new(input))
     }
 
     assert_eq!(t("a,a"), Ok((vec![A {}, A {}], vec![Comma {}])));
@@ -192,7 +200,7 @@ fn parse_separated_list_works() {
     assert_eq!(t("a,a,"), Ok((vec![A {}, A {}], vec![Comma {}, Comma {}])));
 }
 
-pub fn parse_separated_list_expected<Context, Element, Separator, E: OriginalError>(
+pub fn parse_punctuated_list_expected<Context, Element, Separator, E: OriginalError>(
     ctx: &mut Context,
     nelem_min: usize,
     f: impl FnOnce(<Context as HasStreamState>::State) -> E,
@@ -237,7 +245,7 @@ where
     (elements, separators, result)
 }
 
-pub fn parse_separated_small2_list_expected<Context, Element, Separator, E: OriginalError>(
+pub fn parse_punctuated_small2_list_expected<Context, Element, Separator, E: OriginalError>(
     ctx: &mut Context,
     nelem_min: usize,
     f: impl FnOnce(<Context as HasStreamState>::State) -> E,
@@ -287,9 +295,9 @@ where
 }
 
 #[test]
-fn parse_separated_list_expected_works() {
+fn parse_punctuated_list_expected_works() {
     fn t(input: &str, nelem_min: usize) -> (Vec<A>, Vec<Comma>, Result<(), ()>) {
-        parse_separated_list_expected(&mut CharStream::new(input), nelem_min, |_| ())
+        parse_punctuated_list_expected(&mut CharStream::new(input), nelem_min, |_| ())
     }
     assert_eq!(t("a,a", 0), (vec![A {}, A {}], vec![Comma {}], Ok(())));
     assert_eq!(t("a,a", 1,), (vec![A {}, A {}], vec![Comma {}], Ok(())));

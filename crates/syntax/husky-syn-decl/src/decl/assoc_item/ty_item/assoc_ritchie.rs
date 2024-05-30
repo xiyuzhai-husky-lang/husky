@@ -91,7 +91,7 @@ pub struct TypeAssocRitchieSynDecl {
 }
 
 impl TypeAssocRitchieSynDecl {
-    pub(super) fn from_node_decl(
+    pub(super) fn from_node(
         db: &::salsa::Db,
         path: TypeItemPath,
         syn_node_decl: TypeAssocRitchieSynNodeDecl,

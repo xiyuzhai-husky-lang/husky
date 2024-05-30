@@ -16,10 +16,11 @@ use self::region::{
     variable::{DecSymbolicVariableRegion, DecSymbolicVariableSignature},
     SynExprDecTermRegion,
 };
+#[cfg(test)]
+use self::tests::*;
 use husky_coword::*;
 use husky_dec_term::jar::DecTermDb;
 use husky_dec_term::{term::*, *};
-use husky_entity_path::*;
 use husky_term_prelude::*;
 use smallvec::*;
 

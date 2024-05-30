@@ -60,7 +60,7 @@ pub struct MajorStaticSynDecl {
 }
 
 impl MajorStaticSynDecl {
-    pub(super) fn from_node_decl(
+    pub(super) fn from_node(
         db: &::salsa::Db,
         path: MajorFormPath,
         syn_node_decl: MajorStaticSynNodeDecl,

@@ -191,17 +191,17 @@ pub(crate) fn ty_item_syn_decl(
 ) -> SynDeclResult<TypeItemSynDecl> {
     match path.syn_node_path(db).syn_node_decl(db) {
         TypeItemSynNodeDecl::AssocRitchie(syn_node_decl) => {
-            TypeAssocRitchieSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
+            TypeAssocRitchieSynDecl::from_node(db, path, syn_node_decl).map(Into::into)
         }
         TypeItemSynNodeDecl::MethodFn(syn_node_decl) => {
-            TypeMethodRitchieSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
+            TypeMethodRitchieSynDecl::from_node(db, path, syn_node_decl).map(Into::into)
         }
         TypeItemSynNodeDecl::AssocType(_) => todo!(),
         TypeItemSynNodeDecl::AssocVal(syn_node_decl) => {
-            TypeAssocValSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
+            TypeAssocValSynDecl::from_node(db, path, syn_node_decl).map(Into::into)
         }
         TypeItemSynNodeDecl::MemoizedField(syn_node_decl) => {
-            TypeMemoizedFieldSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
+            TypeMemoizedFieldSynDecl::from_node(db, path, syn_node_decl).map(Into::into)
         }
     }
 }

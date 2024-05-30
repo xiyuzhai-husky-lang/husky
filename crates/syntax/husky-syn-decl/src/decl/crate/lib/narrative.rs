@@ -5,7 +5,7 @@ use self::default_const_excludes::LibCrateSynDeclDefaultConstExcludes;
 use super::*;
 
 #[enum_class::from_variants]
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum LibCrateSynDeclNarrative {
     DefaultConstExcludes(LibCrateSynDeclDefaultConstExcludes),
 }

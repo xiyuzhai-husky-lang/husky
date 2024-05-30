@@ -136,11 +136,11 @@ pub(crate) fn trai_for_ty_impl_block_syn_decl(
     path: TraitForTypeImplBlockPath,
 ) -> SynDeclResult<TraitForTypeImplBlockSynDecl> {
     let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
-    TraitForTypeImplBlockSynDecl::from_node_decl(db, path, syn_node_decl)
+    TraitForTypeImplBlockSynDecl::from_node(db, path, syn_node_decl)
 }
 
 impl TraitForTypeImplBlockSynDecl {
-    fn from_node_decl(
+    fn from_node(
         db: &::salsa::Db,
         path: TraitForTypeImplBlockPath,
         syn_node_decl: TraitForTypeImplBlockSynNodeDecl,

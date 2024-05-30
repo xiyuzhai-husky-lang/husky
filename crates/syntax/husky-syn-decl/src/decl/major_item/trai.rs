@@ -61,7 +61,7 @@ pub struct TraitSynDecl {
 }
 
 impl TraitSynDecl {
-    fn from_node_decl(
+    fn from_node(
         db: &::salsa::Db,
         path: TraitPath,
         syn_node_decl: TraitSynNodeDecl,
@@ -98,5 +98,5 @@ impl HasSynDecl for TraitPath {
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn trai_syn_decl(db: &::salsa::Db, path: TraitPath) -> SynDeclResult<TraitSynDecl> {
     let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
-    TraitSynDecl::from_node_decl(db, path, syn_node_decl)
+    TraitSynDecl::from_node(db, path, syn_node_decl)
 }

@@ -119,21 +119,21 @@ pub enum TraitItemSynDecl {
 
 /// # constructor
 impl TraitItemSynDecl {
-    fn from_node_decl(
+    fn from_node(
         db: &::salsa::Db,
         path: TraitItemPath,
         syn_node_decl: TraitItemSynNodeDecl,
     ) -> SynDeclResult<Self> {
         Ok(match syn_node_decl {
             TraitItemSynNodeDecl::AssocRitchie(syn_node_decl) => {
-                TraitAssocRitchieSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                TraitAssocRitchieSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             TraitItemSynNodeDecl::MethodRitchie(syn_node_decl) => {
-                TraitMethodRitchieSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                TraitMethodRitchieSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             TraitItemSynNodeDecl::MemoizedField(_) => todo!(),
             TraitItemSynNodeDecl::AssocType(syn_node_decl) => {
-                TraitAssocTypeSynDecl::from_node_decl(path, syn_node_decl, db)?.into()
+                TraitAssocTypeSynDecl::from_node(path, syn_node_decl, db)?.into()
             }
             TraitItemSynNodeDecl::AssocVal(_) => todo!(),
             TraitItemSynNodeDecl::AssocStatic(_) => todo!(),
@@ -201,5 +201,5 @@ pub(crate) fn trai_item_syn_decl(
     path: TraitItemPath,
 ) -> SynDeclResult<TraitItemSynDecl> {
     let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
-    TraitItemSynDecl::from_node_decl(db, path, syn_node_decl)
+    TraitItemSynDecl::from_node(db, path, syn_node_decl)
 }

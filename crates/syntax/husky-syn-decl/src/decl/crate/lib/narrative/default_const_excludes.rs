@@ -1,19 +1,16 @@
+use parsec::parse_punctuated_small_list;
+
 use super::*;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct LibCrateSynDeclDefaultConstExcludes {
     pub default_const_excludes_ident_token: IdentRegionalToken,
     pub eq_token: EqRegionalToken,
-    pub excludes: PunctuatedSmallList<
-        LibCrateSynDeclDefaultConstExclude,
-        CommaRegionalToken,
-        SynNodeDeclError,
-        false,
-        4,
-    >,
+    pub excludes: SmallVec<[LibCrateSynDeclDefaultConstExclude; 2]>,
+    pub commas: SmallVec<[CommaRegionalToken; 2]>,
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct LibCrateSynDeclDefaultConstExclude {
     expr: SynExprIdx,
 }
@@ -38,11 +35,16 @@ impl<'db, 'a> TryParseOptionFromStream<ProducedSynExprParser<'db, 'a>>
         let eq_token = sp.try_parse_expected::<EqRegionalToken, _>(
             OriginalSynNodeDeclError::ExpectedEqTokenForLibCrateDefaultConstExcludes,
         )?;
-        let excludes = sp.try_parse()?;
+        let (excludes, commas) =
+            parse_punctuated_small_list::<_, _, 2, _, 2, SynNodeDeclError, SynNodeDeclError>(
+                sp,
+                |e| e,
+            )?;
         Ok(Some(Self {
             default_const_excludes_ident_token,
             eq_token,
             excludes,
+            commas,
         }))
     }
 }

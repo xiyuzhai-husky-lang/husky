@@ -60,7 +60,7 @@ pub struct MajorComptermSynDecl {
 }
 
 impl MajorComptermSynDecl {
-    pub(super) fn from_node_decl(
+    pub(super) fn from_node(
         db: &::salsa::Db,
         path: MajorFormPath,
         syn_node_decl: MajorComptermSynNodeDecl,

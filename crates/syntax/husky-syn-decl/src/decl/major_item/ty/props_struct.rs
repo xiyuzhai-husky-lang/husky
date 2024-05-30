@@ -75,7 +75,7 @@ pub struct PropsStructSynDecl {
 }
 
 impl PropsStructSynDecl {
-    pub(super) fn from_node_decl(
+    pub(super) fn from_node(
         db: &::salsa::Db,
         path: TypePath,
         syn_node_decl: PropsStructSynNodeDecl,

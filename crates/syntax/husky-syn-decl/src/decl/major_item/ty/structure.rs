@@ -48,7 +48,7 @@ pub struct StructureSynDecl {
 
 impl StructureSynDecl {
     #[inline(always)]
-    pub(super) fn from_node_decl(
+    pub(super) fn from_node(
         db: &::salsa::Db,
         path: TypePath,
         syn_node_decl: StructureSynNodeDecl,

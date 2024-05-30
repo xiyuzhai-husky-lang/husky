@@ -1,5 +1,5 @@
 use super::*;
-use parsec::parse_separated_small2_list_expected;
+use parsec::parse_punctuated_small2_list_expected;
 
 pub(crate) type TemplateSynParametersData = SmallVec<[TemplateSynParameterData; 2]>;
 
@@ -38,7 +38,7 @@ impl<'a, 'b> TryParseOptionFromStream<StandaloneSynExprParser<'a>>
         let Some(langle) = ctx.try_parse_option::<LaOrLtRegionalToken>()? else {
             return Ok(None);
         };
-        let (template_parameters, commas, decl_list_result) = parse_separated_small2_list_expected(
+        let (template_parameters, commas, decl_list_result) = parse_punctuated_small2_list_expected(
             ctx,
             1,
             OriginalSynNodeDeclError::ExpectedImplicitParameterDecl,
