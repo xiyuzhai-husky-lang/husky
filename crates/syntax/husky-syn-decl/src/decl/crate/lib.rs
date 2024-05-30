@@ -27,9 +27,6 @@ impl<'db> CrateDeclParser<'db> {
     pub(super) fn parse_lib_crate_syn_node_decl(mut self) -> LibCrateSynNodeDecl {
         let db = self.db();
         let crate_path = self.crate_path();
-        use husky_print_utils::p;
-        use salsa::DebugWithDb;
-        p!(crate_path.debug(db));
         let crate_decl_tokra_region_data = self.crate_decl_tokra_region_data();
         let mut items = vec![];
         for ast_idx in crate_decl_tokra_region_data.root_body() {

@@ -21,6 +21,14 @@ pub enum CrateEthSignature {
     Task(TaskCrateEthSignature),
 }
 
+impl HasEthSignature for CratePath {
+    type EthSignature = CrateEthSignature;
+
+    fn eth_signature(self, db: &salsa::Db) -> EthSignatureResult<Self::EthSignature> {
+        crate_eth_signature(db, self)
+    }
+}
+
 #[salsa::tracked]
 fn crate_eth_signature(
     db: &::salsa::Db,
@@ -28,10 +36,18 @@ fn crate_eth_signature(
 ) -> EthSignatureResult<CrateEthSignature> {
     let dec_signature = crate_path.dec_signature(db)?;
     Ok(match dec_signature {
-        CrateDecSignature::Lib(_) => todo!(),
-        CrateDecSignature::Main(_) => todo!(),
-        CrateDecSignature::Requirements(_) => todo!(),
-        CrateDecSignature::Task(_) => todo!(),
+        CrateDecSignature::Lib(dec_signature) => {
+            LibCrateEthSignature::from_dec(crate_path, dec_signature, db)?.into()
+        }
+        CrateDecSignature::Main(dec_signature) => {
+            MainCrateEthSignature::from_dec(crate_path, dec_signature, db)?.into()
+        }
+        CrateDecSignature::Requirements(dec_signature) => {
+            RequirementsCrateEthSignature::from_dec(crate_path, dec_signature, db)?.into()
+        }
+        CrateDecSignature::Task(dec_signature) => {
+            TaskCrateEthSignature::from_dec(crate_path, dec_signature, db)?.into()
+        }
     })
 }
 
