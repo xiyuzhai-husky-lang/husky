@@ -85,3 +85,9 @@ impl HasEthTemplate for ItemPath {
         })
     }
 }
+
+pub trait HasEthSignature {
+    type EthSignature;
+
+    fn eth_signature(self, db: &::salsa::Db) -> EthSignatureResult<Self::EthSignature>;
+}

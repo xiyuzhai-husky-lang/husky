@@ -1,8 +1,12 @@
+pub mod compterm;
 pub mod function_ritchie;
+pub mod r#static;
 pub mod ty_alias;
 pub mod val;
 
+use self::compterm::*;
 use self::function_ritchie::*;
+use self::r#static::*;
 use self::ty_alias::*;
 use self::val::*;
 use super::*;
@@ -16,6 +20,8 @@ pub enum FormEthTemplate {
     Ritchie(MajorFunctionRitchieEthTemplate),
     TypeAlias(MajorTypeAliasEthTemplate),
     Val(MajorValEthTemplate),
+    Static(MajorStaticEthTemplate),
+    Compterm(MajorComptermEthTemplate),
 }
 
 impl FormEthTemplate {
@@ -24,6 +30,8 @@ impl FormEthTemplate {
             FormEthTemplate::Ritchie(slf) => slf.path(db),
             FormEthTemplate::TypeAlias(slf) => slf.path(db),
             FormEthTemplate::Val(slf) => slf.path(db),
+            FormEthTemplate::Static(slf) => slf.path(db),
+            FormEthTemplate::Compterm(slf) => slf.path(db),
         }
     }
 
@@ -32,6 +40,9 @@ impl FormEthTemplate {
             FormEthTemplate::Ritchie(slf) => slf.template_parameters(db),
             FormEthTemplate::TypeAlias(slf) => slf.template_parameters(db),
             FormEthTemplate::Val(_) => &[],
+            FormEthTemplate::Static(_) => &[],
+            // maybe not empty in the future
+            FormEthTemplate::Compterm(_) => &[],
         }
     }
 }
