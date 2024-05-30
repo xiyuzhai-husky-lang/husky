@@ -3,13 +3,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 1,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`syntax_errors::ast),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -18,13 +12,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 2,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`syntax_errors::uses),
         ),
         Ok(
             ItemDecTemplate::Submodule,

@@ -25,23 +25,23 @@ impl WithFmtContext for EthInstantiation {
         f: impl FnOnce() -> std::fmt::Result,
         db: &salsa::Db,
     ) -> std::fmt::Result {
-        let ctx = instantiation_eth_term_fmt_context(db, *self.path);
+        let ctx = item_fmt_context(db, *self.path);
         with_eth_term_fmt_context(ctx, f, db)
     }
 }
 
+// todo: move to a crate::fmt
 #[salsa::tracked]
-pub fn instantiation_eth_term_fmt_context(
-    db: &::salsa::Db,
-    path_id: ItemPathId,
-) -> EthTermFmtContext {
+pub fn item_fmt_context(db: &::salsa::Db, path_id: ItemPathId) -> EthTermFmtContext {
     use husky_dec_signature::engine::syn_expr_dec_term_region;
 
     let path = path_id.item_path(db);
-    let symbol_name_map =
-        syn_expr_dec_term_region(db, path.syn_decl(db).unwrap().syn_expr_region(db).unwrap())
-            .symbolic_variable_region()
-            .symbol_name_map();
+    let Some(syn_expr_region) = path.syn_decl(db).unwrap().syn_expr_region(db) else {
+        return EthTermFmtContext::new(db, RegionPath::ItemDecl(path), Default::default());
+    };
+    let symbol_name_map = syn_expr_dec_term_region(db, syn_expr_region)
+        .symbolic_variable_region()
+        .symbol_name_map();
     let symbol_names = VecMap::from_iter_assuming_no_repetitions(
         symbol_name_map
             .data()

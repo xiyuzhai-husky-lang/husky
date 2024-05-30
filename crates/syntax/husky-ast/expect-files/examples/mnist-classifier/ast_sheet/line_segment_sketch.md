@@ -1561,13 +1561,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 83,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`mnist_classifier::line_segment_sketch::concave_component),
                 },
             },
             AstData::Identifiable {
@@ -1596,13 +1590,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 84,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`mnist_classifier::line_segment_sketch::convex_component),
                 },
             },
             AstData::Identifiable {
@@ -1631,13 +1619,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 85,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`mnist_classifier::line_segment_sketch::convexity),
                 },
             },
             AstData::Identifiable {
@@ -1666,13 +1648,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 86,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`mnist_classifier::line_segment_sketch::line_segment),
                 },
             },
             AstData::Use {

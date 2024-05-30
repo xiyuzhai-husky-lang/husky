@@ -3,13 +3,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 1,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`mnist_classifier::connected_component),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -18,13 +12,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 2,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`mnist_classifier::raw_contour),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -33,13 +21,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 3,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`mnist_classifier::geom2d),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -48,13 +30,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 4,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`mnist_classifier::line_segment_sketch),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -63,13 +39,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 5,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`mnist_classifier::fermi),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -78,13 +48,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 6,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`mnist_classifier::digits),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -93,13 +57,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 7,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`mnist_classifier::major),
         ),
         Ok(
             ItemDecTemplate::Submodule,

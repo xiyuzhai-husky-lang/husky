@@ -35,6 +35,19 @@ pub enum TypeEthTemplate {
 }
 
 impl TypeEthTemplate {
+    pub fn path(self, db: &::salsa::Db) -> TypePath {
+        match self {
+            TypeEthTemplate::Enum(slf) => slf.path(db),
+            TypeEthTemplate::PropsStruct(slf) => slf.path(db),
+            TypeEthTemplate::UnitStruct(slf) => slf.path(db),
+            TypeEthTemplate::TupleStruct(slf) => slf.path(db),
+            TypeEthTemplate::Inductive(slf) => slf.path(db),
+            TypeEthTemplate::Structure(slf) => slf.path(db),
+            TypeEthTemplate::Extern(slf) => slf.path(db),
+            TypeEthTemplate::Union(slf) => slf.path(db),
+        }
+    }
+
     pub fn template_parameters(self, db: &::salsa::Db) -> &[EthTemplateParameter] {
         match self {
             TypeEthTemplate::Enum(template) => template.template_parameters(db),

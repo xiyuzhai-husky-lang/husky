@@ -1,10 +1,9 @@
 use super::*;
 use husky_dec_signature::signature::crate_::requirements::RequirementsCrateDecSignature;
 
-#[salsa::tracked]
+#[salsa::interned]
 pub struct RequirementsCrateEthSignature {
-    #[id]
-    crate_path: CratePath,
+    pub crate_path: CratePath,
 }
 
 impl RequirementsCrateEthSignature {

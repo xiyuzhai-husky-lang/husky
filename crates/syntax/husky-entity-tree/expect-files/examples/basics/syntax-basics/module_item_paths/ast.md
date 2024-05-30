@@ -2,13 +2,7 @@
 [
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 5,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`syntax_basics::ast::submodule_name),
     ),
 ]
 ```

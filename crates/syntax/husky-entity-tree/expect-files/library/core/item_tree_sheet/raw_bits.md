@@ -78,13 +78,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::array),
                         },
                         path: PrincipalEntityPath::Module(
                             `core::array`,
@@ -105,13 +99,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::backend),
                         },
                         path: PrincipalEntityPath::Module(
                             `core::backend`,
@@ -132,13 +120,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 3,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::basic),
                         },
                         path: PrincipalEntityPath::Module(
                             `core::basic`,
@@ -159,13 +141,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 4,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::clone),
                         },
                         path: PrincipalEntityPath::Module(
                             `core::clone`,
@@ -186,13 +162,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::cmp),
                         },
                         path: PrincipalEntityPath::Module(
                             `core::cmp`,
@@ -213,13 +183,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 6,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::default),
                         },
                         path: PrincipalEntityPath::Module(
                             `core::default`,
@@ -240,13 +204,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 7,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::frontend),
                         },
                         path: PrincipalEntityPath::Module(
                             `core::frontend`,
@@ -267,13 +225,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::fmt),
                         },
                         path: PrincipalEntityPath::Module(
                             `core::fmt`,
@@ -294,13 +246,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 9,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::logic),
                         },
                         path: PrincipalEntityPath::Module(
                             `core::logic`,
@@ -321,13 +267,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 10,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::marker),
                         },
                         path: PrincipalEntityPath::Module(
                             `core::marker`,
@@ -348,13 +288,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 11,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::mem),
                         },
                         path: PrincipalEntityPath::Module(
                             `core::mem`,
@@ -375,13 +309,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 12,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::num),
                         },
                         path: PrincipalEntityPath::Module(
                             `core::num`,
@@ -402,13 +330,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 13,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::ops),
                         },
                         path: PrincipalEntityPath::Module(
                             `core::ops`,
@@ -429,13 +351,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::option),
                         },
                         path: PrincipalEntityPath::Module(
                             `core::option`,
@@ -456,13 +372,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 15,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::prelude),
                         },
                         path: PrincipalEntityPath::Module(
                             `core::prelude`,
@@ -483,13 +393,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 16,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::raw_bits),
                         },
                         path: PrincipalEntityPath::Module(
                             `core::raw_bits`,
@@ -510,13 +414,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::result),
                         },
                         path: PrincipalEntityPath::Module(
                             `core::result`,
@@ -537,13 +435,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::task),
                         },
                         path: PrincipalEntityPath::Module(
                             `core::task`,
@@ -564,13 +456,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::vec),
                         },
                         path: PrincipalEntityPath::Module(
                             `core::vec`,
@@ -591,13 +477,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::slice),
                         },
                         path: PrincipalEntityPath::Module(
                             `core::slice`,
@@ -618,13 +498,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 21,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::str),
                         },
                         path: PrincipalEntityPath::Module(
                             `core::str`,
@@ -645,13 +519,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 22,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::visual),
                         },
                         path: PrincipalEntityPath::Module(
                             `core::visual`,

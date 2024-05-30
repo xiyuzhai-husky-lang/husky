@@ -28,13 +28,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 1,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`syntax_errors::ast),
                 },
             },
             AstData::Identifiable {
@@ -63,13 +57,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 2,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`syntax_errors::uses),
                 },
             },
         ],

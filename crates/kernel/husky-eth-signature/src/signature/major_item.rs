@@ -17,6 +17,16 @@ pub enum MajorItemEthTemplate {
     Trait(TraitEthTemplate),
 }
 
+impl MajorItemEthTemplate {
+    pub fn path(self, db: &::salsa::Db) -> MajorItemPath {
+        match self {
+            MajorItemEthTemplate::Type(slf) => slf.path(db).into(),
+            MajorItemEthTemplate::Form(slf) => slf.path(db).into(),
+            MajorItemEthTemplate::Trait(slf) => slf.path(db).into(),
+        }
+    }
+}
+
 impl HasEthTemplate for MajorItemPath {
     type EthTemplate = MajorItemEthTemplate;
 

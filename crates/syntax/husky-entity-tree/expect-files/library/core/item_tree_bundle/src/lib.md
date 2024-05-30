@@ -13,13 +13,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::array),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -43,13 +37,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`core::array),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -68,13 +56,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 2,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::backend),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -98,13 +80,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 2,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`core::backend),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -123,13 +99,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 3,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::basic),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -153,13 +123,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 3,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`core::basic),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -178,13 +142,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 4,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::clone),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -208,13 +166,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 4,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`core::clone),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -233,13 +185,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 5,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::cmp),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -263,13 +209,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 5,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`core::cmp),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -288,13 +228,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 6,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::default),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -318,13 +252,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 6,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`core::default),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -343,13 +271,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 7,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::frontend),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -373,13 +295,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 7,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`core::frontend),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -398,13 +314,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 8,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::fmt),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -428,13 +338,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 8,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`core::fmt),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -453,13 +357,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 9,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::logic),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -483,13 +381,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 9,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`core::logic),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -508,13 +400,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 10,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::marker),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -538,13 +424,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 10,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`core::marker),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -563,13 +443,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 11,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::mem),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -593,13 +467,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 11,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`core::mem),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -618,13 +486,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 12,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::num),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -648,13 +510,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 12,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`core::num),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -673,13 +529,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 13,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::ops),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -703,13 +553,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 13,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`core::ops),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -728,13 +572,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 14,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::option),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -758,13 +596,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 14,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`core::option),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -783,13 +615,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 15,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::prelude),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -813,13 +639,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 15,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`core::prelude),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -838,13 +658,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 16,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::raw_bits),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -868,13 +682,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 16,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`core::raw_bits),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -893,13 +701,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 17,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::result),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -923,13 +725,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 17,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`core::result),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -948,13 +744,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 18,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::task),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -978,13 +768,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 18,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`core::task),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -1003,13 +787,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 19,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::vec),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -1033,13 +811,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 19,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`core::vec),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -1058,13 +830,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 20,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::slice),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -1088,13 +854,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 20,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`core::slice),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -1113,13 +873,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 21,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::str),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -1143,13 +897,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 21,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`core::str),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -1168,13 +916,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 22,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::visual),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -1198,13 +940,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 22,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`core::visual),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -1223,286 +959,154 @@ EntityTreeCrateBundle {
                         ident: `array`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::array),
                         },
                     },
                     EntitySymbolEntry {
                         ident: `backend`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::backend),
                         },
                     },
                     EntitySymbolEntry {
                         ident: `basic`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 3,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::basic),
                         },
                     },
                     EntitySymbolEntry {
                         ident: `clone`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 4,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::clone),
                         },
                     },
                     EntitySymbolEntry {
                         ident: `cmp`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::cmp),
                         },
                     },
                     EntitySymbolEntry {
                         ident: `default`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 6,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::default),
                         },
                     },
                     EntitySymbolEntry {
                         ident: `frontend`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 7,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::frontend),
                         },
                     },
                     EntitySymbolEntry {
                         ident: `fmt`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::fmt),
                         },
                     },
                     EntitySymbolEntry {
                         ident: `logic`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 9,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::logic),
                         },
                     },
                     EntitySymbolEntry {
                         ident: `marker`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 10,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::marker),
                         },
                     },
                     EntitySymbolEntry {
                         ident: `mem`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 11,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::mem),
                         },
                     },
                     EntitySymbolEntry {
                         ident: `num`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 12,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::num),
                         },
                     },
                     EntitySymbolEntry {
                         ident: `ops`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 13,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::ops),
                         },
                     },
                     EntitySymbolEntry {
                         ident: `option`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::option),
                         },
                     },
                     EntitySymbolEntry {
                         ident: `prelude`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 15,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::prelude),
                         },
                     },
                     EntitySymbolEntry {
                         ident: `raw_bits`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 16,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::raw_bits),
                         },
                     },
                     EntitySymbolEntry {
                         ident: `result`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::result),
                         },
                     },
                     EntitySymbolEntry {
                         ident: `task`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::task),
                         },
                     },
                     EntitySymbolEntry {
                         ident: `vec`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::vec),
                         },
                     },
                     EntitySymbolEntry {
                         ident: `slice`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::slice),
                         },
                     },
                     EntitySymbolEntry {
                         ident: `str`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 21,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::str),
                         },
                     },
                     EntitySymbolEntry {
                         ident: `visual`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 22,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::visual),
                         },
                     },
                     EntitySymbolEntry {
@@ -3216,13 +2820,7 @@ EntityTreeCrateBundle {
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::prelude),
                                 },
                             ),
                         },
@@ -3326,13 +2924,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::array),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::array`,
@@ -3353,13 +2945,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::backend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::backend`,
@@ -3380,13 +2966,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::basic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::basic`,
@@ -3407,13 +2987,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::clone),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::clone`,
@@ -3434,13 +3008,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::cmp),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::cmp`,
@@ -3461,13 +3029,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::default),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::default`,
@@ -3488,13 +3050,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::frontend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::frontend`,
@@ -3515,13 +3071,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::fmt),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::fmt`,
@@ -3542,13 +3092,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::logic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::logic`,
@@ -3569,13 +3113,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::marker),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::marker`,
@@ -3596,13 +3134,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 11,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::mem),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::mem`,
@@ -3623,13 +3155,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::num),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::num`,
@@ -3650,13 +3176,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::ops),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::ops`,
@@ -3677,13 +3197,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::option),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::option`,
@@ -3704,13 +3218,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::prelude),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::prelude`,
@@ -3731,13 +3239,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::raw_bits),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::raw_bits`,
@@ -3758,13 +3260,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 17,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::result),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::result`,
@@ -3785,13 +3281,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::task),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::task`,
@@ -3812,13 +3302,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::vec),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::vec`,
@@ -3839,13 +3323,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::slice),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::slice`,
@@ -3866,13 +3344,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 21,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::str),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::str`,
@@ -3893,13 +3365,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::visual),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::visual`,
@@ -6886,13 +6352,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::array),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::array`,
@@ -6913,13 +6373,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::backend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::backend`,
@@ -6940,13 +6394,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::basic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::basic`,
@@ -6967,13 +6415,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::clone),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::clone`,
@@ -6994,13 +6436,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::cmp),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::cmp`,
@@ -7021,13 +6457,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::default),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::default`,
@@ -7048,13 +6478,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::frontend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::frontend`,
@@ -7075,13 +6499,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::fmt),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::fmt`,
@@ -7102,13 +6520,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::logic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::logic`,
@@ -7129,13 +6541,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::marker),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::marker`,
@@ -7156,13 +6562,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 11,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::mem),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::mem`,
@@ -7183,13 +6583,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::num),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::num`,
@@ -7210,13 +6604,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::ops),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::ops`,
@@ -7237,13 +6625,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::option),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::option`,
@@ -7264,13 +6646,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::prelude),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::prelude`,
@@ -7291,13 +6667,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::raw_bits),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::raw_bits`,
@@ -7318,13 +6688,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 17,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::result),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::result`,
@@ -7345,13 +6709,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::task),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::task`,
@@ -7372,13 +6730,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::vec),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::vec`,
@@ -7399,13 +6751,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::slice),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::slice`,
@@ -7426,13 +6772,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 21,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::str),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::str`,
@@ -7453,13 +6793,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::visual),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::visual`,
@@ -9866,13 +9200,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::array),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::array`,
@@ -9893,13 +9221,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::backend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::backend`,
@@ -9920,13 +9242,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::basic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::basic`,
@@ -9947,13 +9263,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::clone),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::clone`,
@@ -9974,13 +9284,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::cmp),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::cmp`,
@@ -10001,13 +9305,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::default),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::default`,
@@ -10028,13 +9326,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::frontend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::frontend`,
@@ -10055,13 +9347,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::fmt),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::fmt`,
@@ -10082,13 +9368,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::logic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::logic`,
@@ -10109,13 +9389,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::marker),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::marker`,
@@ -10136,13 +9410,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 11,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::mem),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::mem`,
@@ -10163,13 +9431,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::num),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::num`,
@@ -10190,13 +9452,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::ops),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::ops`,
@@ -10217,13 +9473,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::option),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::option`,
@@ -10244,13 +9494,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::prelude),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::prelude`,
@@ -10271,13 +9515,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::raw_bits),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::raw_bits`,
@@ -10298,13 +9536,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 17,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::result),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::result`,
@@ -10325,13 +9557,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::task),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::task`,
@@ -10352,13 +9578,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::vec),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::vec`,
@@ -10379,13 +9599,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::slice),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::slice`,
@@ -10406,13 +9620,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 21,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::str),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::str`,
@@ -10433,13 +9641,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::visual),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::visual`,
@@ -13096,13 +12298,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::array),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::array`,
@@ -13123,13 +12319,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::backend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::backend`,
@@ -13150,13 +12340,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::basic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::basic`,
@@ -13177,13 +12361,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::clone),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::clone`,
@@ -13204,13 +12382,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::cmp),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::cmp`,
@@ -13231,13 +12403,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::default),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::default`,
@@ -13258,13 +12424,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::frontend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::frontend`,
@@ -13285,13 +12445,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::fmt),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::fmt`,
@@ -13312,13 +12466,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::logic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::logic`,
@@ -13339,13 +12487,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::marker),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::marker`,
@@ -13366,13 +12508,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 11,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::mem),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::mem`,
@@ -13393,13 +12529,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::num),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::num`,
@@ -13420,13 +12550,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::ops),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::ops`,
@@ -13447,13 +12571,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::option),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::option`,
@@ -13474,13 +12592,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::prelude),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::prelude`,
@@ -13501,13 +12613,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::raw_bits),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::raw_bits`,
@@ -13528,13 +12634,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 17,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::result),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::result`,
@@ -13555,13 +12655,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::task),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::task`,
@@ -13582,13 +12676,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::vec),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::vec`,
@@ -13609,13 +12697,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::slice),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::slice`,
@@ -13636,13 +12718,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 21,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::str),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::str`,
@@ -13663,13 +12739,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::visual),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::visual`,
@@ -16076,13 +15146,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::array),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::array`,
@@ -16103,13 +15167,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::backend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::backend`,
@@ -16130,13 +15188,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::basic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::basic`,
@@ -16157,13 +15209,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::clone),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::clone`,
@@ -16184,13 +15230,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::cmp),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::cmp`,
@@ -16211,13 +15251,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::default),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::default`,
@@ -16238,13 +15272,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::frontend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::frontend`,
@@ -16265,13 +15293,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::fmt),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::fmt`,
@@ -16292,13 +15314,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::logic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::logic`,
@@ -16319,13 +15335,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::marker),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::marker`,
@@ -16346,13 +15356,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 11,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::mem),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::mem`,
@@ -16373,13 +15377,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::num),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::num`,
@@ -16400,13 +15398,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::ops),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::ops`,
@@ -16427,13 +15419,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::option),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::option`,
@@ -16454,13 +15440,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::prelude),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::prelude`,
@@ -16481,13 +15461,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::raw_bits),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::raw_bits`,
@@ -16508,13 +15482,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 17,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::result),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::result`,
@@ -16535,13 +15503,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::task),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::task`,
@@ -16562,13 +15524,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::vec),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::vec`,
@@ -16589,13 +15545,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::slice),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::slice`,
@@ -16616,13 +15566,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 21,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::str),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::str`,
@@ -16643,13 +15587,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::visual),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::visual`,
@@ -19384,13 +18322,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::array),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::array`,
@@ -19411,13 +18343,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::backend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::backend`,
@@ -19438,13 +18364,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::basic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::basic`,
@@ -19465,13 +18385,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::clone),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::clone`,
@@ -19492,13 +18406,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::cmp),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::cmp`,
@@ -19519,13 +18427,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::default),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::default`,
@@ -19546,13 +18448,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::frontend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::frontend`,
@@ -19573,13 +18469,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::fmt),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::fmt`,
@@ -19600,13 +18490,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::logic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::logic`,
@@ -19627,13 +18511,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::marker),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::marker`,
@@ -19654,13 +18532,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 11,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::mem),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::mem`,
@@ -19681,13 +18553,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::num),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::num`,
@@ -19708,13 +18574,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::ops),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::ops`,
@@ -19735,13 +18595,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::option),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::option`,
@@ -19762,13 +18616,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::prelude),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::prelude`,
@@ -19789,13 +18637,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::raw_bits),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::raw_bits`,
@@ -19816,13 +18658,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 17,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::result),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::result`,
@@ -19843,13 +18679,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::task),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::task`,
@@ -19870,13 +18700,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::vec),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::vec`,
@@ -19897,13 +18721,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::slice),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::slice`,
@@ -19924,13 +18742,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 21,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::str),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::str`,
@@ -19951,13 +18763,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::visual),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::visual`,
@@ -22438,13 +21244,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::array),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::array`,
@@ -22465,13 +21265,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::backend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::backend`,
@@ -22492,13 +21286,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::basic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::basic`,
@@ -22519,13 +21307,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::clone),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::clone`,
@@ -22546,13 +21328,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::cmp),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::cmp`,
@@ -22573,13 +21349,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::default),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::default`,
@@ -22600,13 +21370,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::frontend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::frontend`,
@@ -22627,13 +21391,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::fmt),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::fmt`,
@@ -22654,13 +21412,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::logic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::logic`,
@@ -22681,13 +21433,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::marker),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::marker`,
@@ -22708,13 +21454,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 11,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::mem),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::mem`,
@@ -22735,13 +21475,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::num),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::num`,
@@ -22762,13 +21496,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::ops),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::ops`,
@@ -22789,13 +21517,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::option),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::option`,
@@ -22816,13 +21538,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::prelude),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::prelude`,
@@ -22843,13 +21559,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::raw_bits),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::raw_bits`,
@@ -22870,13 +21580,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 17,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::result),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::result`,
@@ -22897,13 +21601,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::task),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::task`,
@@ -22924,13 +21622,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::vec),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::vec`,
@@ -22951,13 +21643,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::slice),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::slice`,
@@ -22978,13 +21664,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 21,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::str),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::str`,
@@ -23005,13 +21685,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::visual),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::visual`,
@@ -25660,13 +24334,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::array),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::array`,
@@ -25687,13 +24355,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::backend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::backend`,
@@ -25714,13 +24376,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::basic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::basic`,
@@ -25741,13 +24397,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::clone),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::clone`,
@@ -25768,13 +24418,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::cmp),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::cmp`,
@@ -25795,13 +24439,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::default),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::default`,
@@ -25822,13 +24460,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::frontend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::frontend`,
@@ -25849,13 +24481,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::fmt),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::fmt`,
@@ -25876,13 +24502,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::logic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::logic`,
@@ -25903,13 +24523,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::marker),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::marker`,
@@ -25930,13 +24544,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 11,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::mem),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::mem`,
@@ -25957,13 +24565,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::num),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::num`,
@@ -25984,13 +24586,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::ops),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::ops`,
@@ -26011,13 +24607,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::option),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::option`,
@@ -26038,13 +24628,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::prelude),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::prelude`,
@@ -26065,13 +24649,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::raw_bits),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::raw_bits`,
@@ -26092,13 +24670,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 17,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::result),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::result`,
@@ -26119,13 +24691,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::task),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::task`,
@@ -26146,13 +24712,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::vec),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::vec`,
@@ -26173,13 +24733,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::slice),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::slice`,
@@ -26200,13 +24754,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 21,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::str),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::str`,
@@ -26227,13 +24775,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::visual),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::visual`,
@@ -29498,13 +28040,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::array),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::array`,
@@ -29525,13 +28061,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::backend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::backend`,
@@ -29552,13 +28082,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::basic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::basic`,
@@ -29579,13 +28103,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::clone),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::clone`,
@@ -29606,13 +28124,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::cmp),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::cmp`,
@@ -29633,13 +28145,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::default),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::default`,
@@ -29660,13 +28166,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::frontend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::frontend`,
@@ -29687,13 +28187,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::fmt),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::fmt`,
@@ -29714,13 +28208,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::logic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::logic`,
@@ -29741,13 +28229,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::marker),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::marker`,
@@ -29768,13 +28250,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 11,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::mem),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::mem`,
@@ -29795,13 +28271,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::num),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::num`,
@@ -29822,13 +28292,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::ops),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::ops`,
@@ -29849,13 +28313,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::option),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::option`,
@@ -29876,13 +28334,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::prelude),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::prelude`,
@@ -29903,13 +28355,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::raw_bits),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::raw_bits`,
@@ -29930,13 +28376,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 17,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::result),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::result`,
@@ -29957,13 +28397,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::task),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::task`,
@@ -29984,13 +28418,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::vec),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::vec`,
@@ -30011,13 +28439,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::slice),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::slice`,
@@ -30038,13 +28460,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 21,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::str),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::str`,
@@ -30065,13 +28481,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::visual),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::visual`,
@@ -33774,13 +32184,7 @@ EntityTreeCrateBundle {
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::ops),
                                 },
                             ),
                         },
@@ -33805,13 +32209,7 @@ EntityTreeCrateBundle {
                                     `core::ops`,
                                 ),
                                 EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::ops),
                                 },
                             ),
                         ),
@@ -35103,13 +33501,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::array),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::array`,
@@ -35130,13 +33522,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::backend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::backend`,
@@ -35157,13 +33543,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::basic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::basic`,
@@ -35184,13 +33564,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::clone),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::clone`,
@@ -35211,13 +33585,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::cmp),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::cmp`,
@@ -35238,13 +33606,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::default),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::default`,
@@ -35265,13 +33627,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::frontend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::frontend`,
@@ -35292,13 +33648,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::fmt),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::fmt`,
@@ -35319,13 +33669,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::logic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::logic`,
@@ -35346,13 +33690,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::marker),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::marker`,
@@ -35373,13 +33711,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 11,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::mem),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::mem`,
@@ -35400,13 +33732,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::num),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::num`,
@@ -35427,13 +33753,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::ops),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::ops`,
@@ -35454,13 +33774,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::option),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::option`,
@@ -35481,13 +33795,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::prelude),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::prelude`,
@@ -35508,13 +33816,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::raw_bits),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::raw_bits`,
@@ -35535,13 +33837,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 17,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::result),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::result`,
@@ -35562,13 +33858,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::task),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::task`,
@@ -35589,13 +33879,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::vec),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::vec`,
@@ -35616,13 +33900,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::slice),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::slice`,
@@ -35643,13 +33921,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 21,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::str),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::str`,
@@ -35670,13 +33942,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::visual),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::visual`,
@@ -38141,13 +36407,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::array),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::array`,
@@ -38168,13 +36428,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::backend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::backend`,
@@ -38195,13 +36449,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::basic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::basic`,
@@ -38222,13 +36470,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::clone),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::clone`,
@@ -38249,13 +36491,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::cmp),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::cmp`,
@@ -38276,13 +36512,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::default),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::default`,
@@ -38303,13 +36533,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::frontend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::frontend`,
@@ -38330,13 +36554,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::fmt),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::fmt`,
@@ -38357,13 +36575,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::logic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::logic`,
@@ -38384,13 +36596,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::marker),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::marker`,
@@ -38411,13 +36617,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 11,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::mem),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::mem`,
@@ -38438,13 +36638,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::num),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::num`,
@@ -38465,13 +36659,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::ops),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::ops`,
@@ -38492,13 +36680,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::option),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::option`,
@@ -38519,13 +36701,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::prelude),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::prelude`,
@@ -38546,13 +36722,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::raw_bits),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::raw_bits`,
@@ -38573,13 +36743,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 17,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::result),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::result`,
@@ -38600,13 +36764,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::task),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::task`,
@@ -38627,13 +36785,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::vec),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::vec`,
@@ -38654,13 +36806,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::slice),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::slice`,
@@ -38681,13 +36827,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 21,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::str),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::str`,
@@ -38708,13 +36848,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::visual),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::visual`,
@@ -42407,13 +40541,7 @@ EntityTreeCrateBundle {
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::basic),
                                 },
                             ),
                         },
@@ -42448,13 +40576,7 @@ EntityTreeCrateBundle {
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::default),
                                 },
                             ),
                         },
@@ -42489,13 +40611,7 @@ EntityTreeCrateBundle {
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::num),
                                 },
                             ),
                         },
@@ -42530,13 +40646,7 @@ EntityTreeCrateBundle {
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::raw_bits),
                                 },
                             ),
                         },
@@ -42571,13 +40681,7 @@ EntityTreeCrateBundle {
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::fmt),
                                 },
                             ),
                         },
@@ -42612,13 +40716,7 @@ EntityTreeCrateBundle {
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::task),
                                 },
                             ),
                         },
@@ -42653,13 +40751,7 @@ EntityTreeCrateBundle {
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::visual),
                                 },
                             ),
                         },
@@ -42694,13 +40786,7 @@ EntityTreeCrateBundle {
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::marker),
                                 },
                             ),
                         },
@@ -42735,13 +40821,7 @@ EntityTreeCrateBundle {
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::clone),
                                 },
                             ),
                         },
@@ -42776,13 +40856,7 @@ EntityTreeCrateBundle {
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::option),
                                 },
                             ),
                         },
@@ -42817,13 +40891,7 @@ EntityTreeCrateBundle {
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::cmp),
                                 },
                             ),
                         },
@@ -42858,13 +40926,7 @@ EntityTreeCrateBundle {
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::slice),
                                 },
                             ),
                         },
@@ -42899,13 +40961,7 @@ EntityTreeCrateBundle {
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::vec),
                                 },
                             ),
                         },
@@ -43127,13 +41183,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::array),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::array`,
@@ -43154,13 +41204,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::backend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::backend`,
@@ -43181,13 +41225,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::basic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::basic`,
@@ -43208,13 +41246,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::clone),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::clone`,
@@ -43235,13 +41267,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::cmp),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::cmp`,
@@ -43262,13 +41288,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::default),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::default`,
@@ -43289,13 +41309,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::frontend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::frontend`,
@@ -43316,13 +41330,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::fmt),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::fmt`,
@@ -43343,13 +41351,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::logic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::logic`,
@@ -43370,13 +41372,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::marker),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::marker`,
@@ -43397,13 +41393,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 11,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::mem),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::mem`,
@@ -43424,13 +41414,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::num),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::num`,
@@ -43451,13 +41435,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::ops),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::ops`,
@@ -43478,13 +41456,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::option),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::option`,
@@ -43505,13 +41477,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::prelude),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::prelude`,
@@ -43532,13 +41498,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::raw_bits),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::raw_bits`,
@@ -43559,13 +41519,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 17,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::result),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::result`,
@@ -43586,13 +41540,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::task),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::task`,
@@ -43613,13 +41561,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::vec),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::vec`,
@@ -43640,13 +41582,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::slice),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::slice`,
@@ -43667,13 +41603,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 21,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::str),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::str`,
@@ -43694,13 +41624,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::visual),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::visual`,
@@ -46208,13 +44132,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::array),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::array`,
@@ -46235,13 +44153,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::backend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::backend`,
@@ -46262,13 +44174,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::basic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::basic`,
@@ -46289,13 +44195,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::clone),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::clone`,
@@ -46316,13 +44216,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::cmp),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::cmp`,
@@ -46343,13 +44237,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::default),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::default`,
@@ -46370,13 +44258,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::frontend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::frontend`,
@@ -46397,13 +44279,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::fmt),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::fmt`,
@@ -46424,13 +44300,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::logic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::logic`,
@@ -46451,13 +44321,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::marker),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::marker`,
@@ -46478,13 +44342,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 11,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::mem),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::mem`,
@@ -46505,13 +44363,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::num),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::num`,
@@ -46532,13 +44384,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::ops),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::ops`,
@@ -46559,13 +44405,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::option),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::option`,
@@ -46586,13 +44426,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::prelude),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::prelude`,
@@ -46613,13 +44447,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::raw_bits),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::raw_bits`,
@@ -46640,13 +44468,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 17,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::result),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::result`,
@@ -46667,13 +44489,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::task),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::task`,
@@ -46694,13 +44510,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::vec),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::vec`,
@@ -46721,13 +44531,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::slice),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::slice`,
@@ -46748,13 +44552,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 21,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::str),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::str`,
@@ -46775,13 +44573,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::visual),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::visual`,
@@ -49476,13 +47268,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::array),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::array`,
@@ -49503,13 +47289,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::backend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::backend`,
@@ -49530,13 +47310,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::basic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::basic`,
@@ -49557,13 +47331,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::clone),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::clone`,
@@ -49584,13 +47352,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::cmp),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::cmp`,
@@ -49611,13 +47373,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::default),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::default`,
@@ -49638,13 +47394,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::frontend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::frontend`,
@@ -49665,13 +47415,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::fmt),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::fmt`,
@@ -49692,13 +47436,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::logic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::logic`,
@@ -49719,13 +47457,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::marker),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::marker`,
@@ -49746,13 +47478,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 11,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::mem),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::mem`,
@@ -49773,13 +47499,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::num),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::num`,
@@ -49800,13 +47520,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::ops),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::ops`,
@@ -49827,13 +47541,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::option),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::option`,
@@ -49854,13 +47562,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::prelude),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::prelude`,
@@ -49881,13 +47583,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::raw_bits),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::raw_bits`,
@@ -49908,13 +47604,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 17,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::result),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::result`,
@@ -49935,13 +47625,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::task),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::task`,
@@ -49962,13 +47646,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::vec),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::vec`,
@@ -49989,13 +47667,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::slice),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::slice`,
@@ -50016,13 +47688,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 21,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::str),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::str`,
@@ -50043,13 +47709,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::visual),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::visual`,
@@ -52556,13 +50216,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::array),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::array`,
@@ -52583,13 +50237,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::backend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::backend`,
@@ -52610,13 +50258,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::basic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::basic`,
@@ -52637,13 +50279,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::clone),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::clone`,
@@ -52664,13 +50300,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::cmp),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::cmp`,
@@ -52691,13 +50321,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::default),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::default`,
@@ -52718,13 +50342,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::frontend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::frontend`,
@@ -52745,13 +50363,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::fmt),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::fmt`,
@@ -52772,13 +50384,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::logic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::logic`,
@@ -52799,13 +50405,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::marker),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::marker`,
@@ -52826,13 +50426,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 11,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::mem),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::mem`,
@@ -52853,13 +50447,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::num),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::num`,
@@ -52880,13 +50468,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::ops),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::ops`,
@@ -52907,13 +50489,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::option),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::option`,
@@ -52934,13 +50510,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::prelude),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::prelude`,
@@ -52961,13 +50531,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::raw_bits),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::raw_bits`,
@@ -52988,13 +50552,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 17,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::result),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::result`,
@@ -53015,13 +50573,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::task),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::task`,
@@ -53042,13 +50594,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::vec),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::vec`,
@@ -53069,13 +50615,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::slice),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::slice`,
@@ -53096,13 +50636,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 21,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::str),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::str`,
@@ -53123,13 +50657,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::visual),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::visual`,
@@ -55730,13 +53258,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::array),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::array`,
@@ -55757,13 +53279,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::backend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::backend`,
@@ -55784,13 +53300,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::basic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::basic`,
@@ -55811,13 +53321,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::clone),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::clone`,
@@ -55838,13 +53342,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::cmp),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::cmp`,
@@ -55865,13 +53363,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::default),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::default`,
@@ -55892,13 +53384,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::frontend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::frontend`,
@@ -55919,13 +53405,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::fmt),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::fmt`,
@@ -55946,13 +53426,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::logic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::logic`,
@@ -55973,13 +53447,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::marker),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::marker`,
@@ -56000,13 +53468,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 11,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::mem),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::mem`,
@@ -56027,13 +53489,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::num),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::num`,
@@ -56054,13 +53510,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::ops),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::ops`,
@@ -56081,13 +53531,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::option),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::option`,
@@ -56108,13 +53552,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::prelude),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::prelude`,
@@ -56135,13 +53573,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::raw_bits),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::raw_bits`,
@@ -56162,13 +53594,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 17,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::result),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::result`,
@@ -56189,13 +53615,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::task),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::task`,
@@ -56216,13 +53636,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::vec),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::vec`,
@@ -56243,13 +53657,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::slice),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::slice`,
@@ -56270,13 +53678,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 21,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::str),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::str`,
@@ -56297,13 +53699,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::visual),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::visual`,
@@ -58773,13 +56169,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::array),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::array`,
@@ -58800,13 +56190,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::backend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::backend`,
@@ -58827,13 +56211,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::basic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::basic`,
@@ -58854,13 +56232,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::clone),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::clone`,
@@ -58881,13 +56253,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::cmp),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::cmp`,
@@ -58908,13 +56274,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::default),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::default`,
@@ -58935,13 +56295,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::frontend),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::frontend`,
@@ -58962,13 +56316,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::fmt),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::fmt`,
@@ -58989,13 +56337,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::logic),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::logic`,
@@ -59016,13 +56358,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::marker),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::marker`,
@@ -59043,13 +56379,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 11,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::mem),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::mem`,
@@ -59070,13 +56400,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::num),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::num`,
@@ -59097,13 +56421,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::ops),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::ops`,
@@ -59124,13 +56442,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::option),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::option`,
@@ -59151,13 +56463,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::prelude),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::prelude`,
@@ -59178,13 +56484,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::raw_bits),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::raw_bits`,
@@ -59205,13 +56505,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 17,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::result),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::result`,
@@ -59232,13 +56526,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::task),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::task`,
@@ -59259,13 +56547,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::vec),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::vec`,
@@ -59286,13 +56568,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::slice),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::slice`,
@@ -59313,13 +56589,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 21,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::str),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::str`,
@@ -59340,13 +56610,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`core::visual),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `core::visual`,

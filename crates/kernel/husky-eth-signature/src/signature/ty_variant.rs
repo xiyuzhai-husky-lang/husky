@@ -19,6 +19,14 @@ pub enum TypeVariantEthTemplate {
 }
 
 impl TypeVariantEthTemplate {
+    pub fn path(self, db: &::salsa::Db) -> TypeVariantPath {
+        match self {
+            TypeVariantEthTemplate::Props(slf) => slf.path(db),
+            TypeVariantEthTemplate::Unit(slf) => slf.path(db),
+            TypeVariantEthTemplate::Tuple(slf) => slf.path(db),
+        }
+    }
+
     pub fn self_ty(self, _db: &::salsa::Db) -> EthTerm {
         match self {
             TypeVariantEthTemplate::Props(_) => todo!(),

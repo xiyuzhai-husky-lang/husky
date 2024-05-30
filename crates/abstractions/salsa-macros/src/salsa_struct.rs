@@ -340,7 +340,7 @@ impl<A: AllowedOptions> SalsaStruct<A> {
         // `use ::salsa::debug::helper::Fallback` is needed for the fallback to `Debug` impl
         quote_spanned! {ident.span()=>
             impl ::salsa::DebugWithDb for #ident {
-                fn debug_with_db_fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &::salsa::Db,) -> ::std::fmt::Result {
+                fn debug_fmt_with_db(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &::salsa::Db,) -> ::std::fmt::Result {
                     use ::salsa::fmt::{WithFmtContext, WithFmtContextTest};
                     WithFmtContextTest(self).with_fmt_context(|| {
                             #[allow(unused_imports)]

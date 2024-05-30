@@ -9,6 +9,7 @@ use vec_like::{OrderedSmallVecSet, SmallVecPairMap, VecMapGetEntry};
 
 #[salsa::interned]
 pub struct DeriveAttrEthTemplate {
+    pub path: AttrItemPath,
     pub shards: SmallVec<[DeriveAttrShardEthTemplate; 8]>,
 }
 
@@ -20,6 +21,7 @@ pub struct DeriveAttrShardEthTemplate {
 impl DeriveAttrEthTemplate {
     pub(super) fn from_dec(
         db: &::salsa::Db,
+        path: AttrItemPath,
         declarative_template: DeriveAttrDecTemplate,
     ) -> EthSignatureResult<Self> {
         let shards = declarative_template
@@ -27,7 +29,7 @@ impl DeriveAttrEthTemplate {
             .iter()
             .map(|&shard| DeriveAttrShardEthTemplate::from_dec(shard, db))
             .collect::<EthSignatureResult<_>>()?;
-        Ok(Self::new(db, shards))
+        Ok(Self::new(db, path, shards))
     }
 }
 

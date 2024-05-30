@@ -86,12 +86,12 @@ impl TraitForTypeItemPathData {
 }
 
 impl salsa::DebugWithDb for TraitForTypeItemPath {
-    fn debug_with_db_fmt(
+    fn debug_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        item_debug_with_db_fmt!(self, f, "TraitForTypeItemPath", db)
+        item_debug_fmt_with_db!(self, f, "TraitForTypeItemPath", db)
     }
 }
 

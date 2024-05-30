@@ -3,6 +3,7 @@ use crate::signature::major_item::ty::r#enum::EnumEthTemplate;
 
 #[salsa::interned]
 pub struct EnumPropsVariantEthTemplate {
+    pub path: TypeVariantPath,
     pub parent_ty_template: EnumEthTemplate,
     pub instance_constructor_ritchie_ty: EthTerm,
 }

@@ -14,6 +14,12 @@ pub enum TraitItemEthTemplate {
 }
 
 impl TraitItemEthTemplate {
+    pub fn path(self, db: &::salsa::Db) -> TraitItemPath {
+        match self {
+            TraitItemEthTemplate::AssocRitchie(slf) => slf.path(db),
+        }
+    }
+
     pub fn self_ty(self, _db: &::salsa::Db) -> Option<EthTerm> {
         match self {
             TraitItemEthTemplate::AssocRitchie(_) => None,

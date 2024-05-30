@@ -3,13 +3,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 36,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`mnist_classifier::line_segment_sketch::concave_component),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -18,13 +12,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 37,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`mnist_classifier::line_segment_sketch::convex_component),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -33,13 +21,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 38,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`mnist_classifier::line_segment_sketch::convexity),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -48,13 +30,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 39,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`mnist_classifier::line_segment_sketch::line_segment),
         ),
         Ok(
             ItemDecTemplate::Submodule,

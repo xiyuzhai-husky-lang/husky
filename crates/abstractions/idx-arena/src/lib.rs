@@ -47,7 +47,7 @@ impl<T> std::fmt::Debug for ArenaIdxRange<T> {
 }
 
 impl<T> salsa::DebugWithDb for ArenaIdxRange<T> {
-    fn debug_with_db_fmt(
+    fn debug_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &salsa::Db,

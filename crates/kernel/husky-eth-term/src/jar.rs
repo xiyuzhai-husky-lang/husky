@@ -41,7 +41,7 @@ pub struct EthTermJar(
     // // TemplateParameters,
     // ty_path_template_parameters,
     // instantiation
-    crate::instantiation::instantiation_eth_term_fmt_context,
+    crate::instantiation::item_fmt_context,
     // fmt
     crate::fmt::EthTermFmtContext,
     // helpers

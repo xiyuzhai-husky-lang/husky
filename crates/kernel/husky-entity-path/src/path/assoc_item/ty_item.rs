@@ -57,12 +57,12 @@ impl TypeItemPathData {
 }
 
 impl salsa::DebugWithDb for TypeItemPath {
-    fn debug_with_db_fmt(
+    fn debug_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        item_debug_with_db_fmt!(self, f, "TypeItemPath", db)
+        item_debug_fmt_with_db!(self, f, "TypeItemPath", db)
     }
 }
 

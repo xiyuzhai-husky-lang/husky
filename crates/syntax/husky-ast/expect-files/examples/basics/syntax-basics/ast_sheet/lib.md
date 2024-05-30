@@ -28,13 +28,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 1,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`syntax_basics::ast),
                 },
             },
             AstData::Identifiable {
@@ -63,13 +57,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 2,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`syntax_basics::uses),
                 },
             },
             AstData::Identifiable {
@@ -98,13 +86,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 3,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`syntax_basics::defn),
                 },
             },
             AstData::Identifiable {
@@ -133,13 +115,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 4,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`syntax_basics::expr),
                 },
             },
         ],

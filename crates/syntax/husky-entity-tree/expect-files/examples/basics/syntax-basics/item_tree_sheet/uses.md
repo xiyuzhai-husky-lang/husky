@@ -14,13 +14,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`syntax_basics::ast),
                         },
                         path: PrincipalEntityPath::Module(
                             `syntax_basics::ast`,
@@ -41,13 +35,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`syntax_basics::uses),
                         },
                         path: PrincipalEntityPath::Module(
                             `syntax_basics::uses`,
@@ -68,13 +56,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 3,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`syntax_basics::defn),
                         },
                         path: PrincipalEntityPath::Module(
                             `syntax_basics::defn`,
@@ -95,13 +77,7 @@ EntityTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 4,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`syntax_basics::expr),
                         },
                         path: PrincipalEntityPath::Module(
                             `syntax_basics::expr`,

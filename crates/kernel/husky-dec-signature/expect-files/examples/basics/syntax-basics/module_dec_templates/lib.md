@@ -3,13 +3,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 1,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`syntax_basics::ast),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -18,13 +12,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 2,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`syntax_basics::uses),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -33,13 +21,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 3,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`syntax_basics::defn),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -48,13 +30,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 4,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`syntax_basics::expr),
         ),
         Ok(
             ItemDecTemplate::Submodule,

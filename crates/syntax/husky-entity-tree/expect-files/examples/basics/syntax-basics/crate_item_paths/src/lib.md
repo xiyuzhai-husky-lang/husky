@@ -2,83 +2,35 @@
 [
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 1,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`syntax_basics::ast),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 2,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`syntax_basics::uses),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 3,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`syntax_basics::defn),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 4,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`syntax_basics::expr),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 5,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`syntax_basics::ast::submodule_name),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 6,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`syntax_basics::defn::major_item),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 7,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`syntax_basics::defn::major_item::ty),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 8,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`syntax_basics::defn::major_item::ty::enum_ty),
     ),
     ItemPath::MajorItem(
         MajorItemPath::Type(

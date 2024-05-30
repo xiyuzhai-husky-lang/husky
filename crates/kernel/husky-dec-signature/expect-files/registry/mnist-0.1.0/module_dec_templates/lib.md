@@ -3,13 +3,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 1,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`mnist::task),
         ),
         Ok(
             ItemDecTemplate::Submodule,

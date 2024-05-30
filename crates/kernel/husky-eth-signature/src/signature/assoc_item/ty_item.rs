@@ -25,6 +25,15 @@ pub enum TypeItemEthTemplate {
 }
 
 impl TypeItemEthTemplate {
+    pub fn path(self, db: &::salsa::Db) -> TypeItemPath {
+        match self {
+            TypeItemEthTemplate::AssocRitchie(slf) => slf.path(db),
+            TypeItemEthTemplate::MethodRitchie(slf) => slf.path(db),
+            TypeItemEthTemplate::MethodCurry(slf) => slf.path(db),
+            TypeItemEthTemplate::MemoizedField(slf) => slf.path(db),
+        }
+    }
+
     pub fn self_ty(self, db: &::salsa::Db) -> Option<EthTerm> {
         match self {
             TypeItemEthTemplate::AssocRitchie(_) => None,
