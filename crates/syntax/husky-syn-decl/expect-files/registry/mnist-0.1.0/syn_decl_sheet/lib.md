@@ -4,23 +4,11 @@ SynDeclSheet {
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 1,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`mnist::task),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 1,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`mnist::task),
                 },
             ),
         ),

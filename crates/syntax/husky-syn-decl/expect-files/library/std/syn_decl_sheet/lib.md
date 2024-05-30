@@ -4,69 +4,33 @@ SynDeclSheet {
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 1,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`std::prelude),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 1,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`std::prelude),
                 },
             ),
         ),
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 2,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`std::logic),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 2,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`std::logic),
                 },
             ),
         ),
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 3,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`std::ops),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 3,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`std::ops),
                 },
             ),
         ),

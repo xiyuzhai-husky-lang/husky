@@ -9,13 +9,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::array),
                                     disambiguator: 0,
                                 },
                             },
@@ -30,13 +24,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 1,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`core::array),
                                         disambiguator: 0,
                                     },
                                 },
@@ -54,13 +42,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::backend),
                                     disambiguator: 0,
                                 },
                             },
@@ -75,13 +57,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 2,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`core::backend),
                                         disambiguator: 0,
                                     },
                                 },
@@ -99,13 +75,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::basic),
                                     disambiguator: 0,
                                 },
                             },
@@ -120,13 +90,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 3,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`core::basic),
                                         disambiguator: 0,
                                     },
                                 },
@@ -144,13 +108,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::clone),
                                     disambiguator: 0,
                                 },
                             },
@@ -165,13 +123,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 4,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`core::clone),
                                         disambiguator: 0,
                                     },
                                 },
@@ -189,13 +141,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::cmp),
                                     disambiguator: 0,
                                 },
                             },
@@ -210,13 +156,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 5,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`core::cmp),
                                         disambiguator: 0,
                                     },
                                 },
@@ -234,13 +174,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::default),
                                     disambiguator: 0,
                                 },
                             },
@@ -255,13 +189,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 6,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`core::default),
                                         disambiguator: 0,
                                     },
                                 },
@@ -279,13 +207,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::frontend),
                                     disambiguator: 0,
                                 },
                             },
@@ -300,13 +222,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 7,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`core::frontend),
                                         disambiguator: 0,
                                     },
                                 },
@@ -324,13 +240,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 8,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::fmt),
                                     disambiguator: 0,
                                 },
                             },
@@ -345,13 +255,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 8,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`core::fmt),
                                         disambiguator: 0,
                                     },
                                 },
@@ -369,13 +273,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::logic),
                                     disambiguator: 0,
                                 },
                             },
@@ -390,13 +288,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 9,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`core::logic),
                                         disambiguator: 0,
                                     },
                                 },
@@ -414,13 +306,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::marker),
                                     disambiguator: 0,
                                 },
                             },
@@ -435,13 +321,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 10,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`core::marker),
                                         disambiguator: 0,
                                     },
                                 },
@@ -459,13 +339,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 11,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::mem),
                                     disambiguator: 0,
                                 },
                             },
@@ -480,13 +354,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 11,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`core::mem),
                                         disambiguator: 0,
                                     },
                                 },
@@ -504,13 +372,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::num),
                                     disambiguator: 0,
                                 },
                             },
@@ -525,13 +387,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 12,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`core::num),
                                         disambiguator: 0,
                                     },
                                 },
@@ -549,13 +405,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::ops),
                                     disambiguator: 0,
                                 },
                             },
@@ -570,13 +420,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 13,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`core::ops),
                                         disambiguator: 0,
                                     },
                                 },
@@ -594,13 +438,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::option),
                                     disambiguator: 0,
                                 },
                             },
@@ -615,13 +453,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 14,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`core::option),
                                         disambiguator: 0,
                                     },
                                 },
@@ -639,13 +471,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::prelude),
                                     disambiguator: 0,
                                 },
                             },
@@ -660,13 +486,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 15,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`core::prelude),
                                         disambiguator: 0,
                                     },
                                 },
@@ -684,13 +504,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::raw_bits),
                                     disambiguator: 0,
                                 },
                             },
@@ -705,13 +519,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 16,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`core::raw_bits),
                                         disambiguator: 0,
                                     },
                                 },
@@ -729,13 +537,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 17,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::result),
                                     disambiguator: 0,
                                 },
                             },
@@ -750,13 +552,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 17,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`core::result),
                                         disambiguator: 0,
                                     },
                                 },
@@ -774,13 +570,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 18,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::task),
                                     disambiguator: 0,
                                 },
                             },
@@ -795,13 +585,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 18,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`core::task),
                                         disambiguator: 0,
                                     },
                                 },
@@ -819,13 +603,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 19,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::vec),
                                     disambiguator: 0,
                                 },
                             },
@@ -840,13 +618,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`core::vec),
                                         disambiguator: 0,
                                     },
                                 },
@@ -864,13 +636,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 20,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::slice),
                                     disambiguator: 0,
                                 },
                             },
@@ -885,13 +651,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 20,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`core::slice),
                                         disambiguator: 0,
                                     },
                                 },
@@ -909,13 +669,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 21,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::str),
                                     disambiguator: 0,
                                 },
                             },
@@ -930,13 +684,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 21,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`core::str),
                                         disambiguator: 0,
                                     },
                                 },
@@ -954,13 +702,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 22,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`core::visual),
                                     disambiguator: 0,
                                 },
                             },
@@ -975,13 +717,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 22,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`core::visual),
                                         disambiguator: 0,
                                     },
                                 },

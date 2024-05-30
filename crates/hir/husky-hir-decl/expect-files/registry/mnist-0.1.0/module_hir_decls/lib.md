@@ -2,13 +2,7 @@
 [
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 1,
-                    },
-                ),
-            ),
+            path: SubmoduleItemPath(`mnist::task),
         },
     ),
     HirDecl::MajorItem(

@@ -2,24 +2,12 @@
 [
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 1,
-                    },
-                ),
-            ),
+            path: SubmoduleItemPath(`syntax_errors::ast),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 2,
-                    },
-                ),
-            ),
+            path: SubmoduleItemPath(`syntax_errors::uses),
         },
     ),
 ]

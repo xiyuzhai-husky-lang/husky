@@ -8,13 +8,7 @@
                     data: ItemSynNodePathData::Submodule(
                         SubmoduleSynNodePathData {
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 1,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: SubmoduleItemPath(`std::prelude),
                                 disambiguator: 0,
                             },
                         },
@@ -32,13 +26,7 @@
                     data: ItemSynNodePathData::Submodule(
                         SubmoduleSynNodePathData {
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 2,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: SubmoduleItemPath(`std::logic),
                                 disambiguator: 0,
                             },
                         },
@@ -56,13 +44,7 @@
                     data: ItemSynNodePathData::Submodule(
                         SubmoduleSynNodePathData {
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 3,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: SubmoduleItemPath(`std::ops),
                                 disambiguator: 0,
                             },
                         },

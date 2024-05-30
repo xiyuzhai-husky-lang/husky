@@ -4,13 +4,7 @@
         path: TracePath {
             data: TracePathData::Submodule(
                 SubmoduleTracePathData {
-                    submodule_item_path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 6,
-                            },
-                        ),
-                    ),
+                    submodule_item_path: SubmoduleItemPath(`mnist_classifier::digits),
                 },
             ),
         },
@@ -30,13 +24,7 @@
         path: TracePath {
             data: TracePathData::Submodule(
                 SubmoduleTracePathData {
-                    submodule_item_path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 7,
-                            },
-                        ),
-                    ),
+                    submodule_item_path: SubmoduleItemPath(`mnist_classifier::major),
                 },
             ),
         },

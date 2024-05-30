@@ -9,13 +9,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 36,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::line_segment_sketch::concave_component),
                                     disambiguator: 0,
                                 },
                             },
@@ -30,13 +24,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 36,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::line_segment_sketch::concave_component),
                                         disambiguator: 0,
                                     },
                                 },
@@ -54,13 +42,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 37,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::line_segment_sketch::convex_component),
                                     disambiguator: 0,
                                 },
                             },
@@ -75,13 +57,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 37,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::line_segment_sketch::convex_component),
                                         disambiguator: 0,
                                     },
                                 },
@@ -99,13 +75,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 38,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::line_segment_sketch::convexity),
                                     disambiguator: 0,
                                 },
                             },
@@ -120,13 +90,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 38,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::line_segment_sketch::convexity),
                                         disambiguator: 0,
                                     },
                                 },
@@ -144,13 +108,7 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 disambiguated_item_path: DisambiguatedItemPath {
-                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 39,
-                                            },
-                                        ),
-                                    ),
+                                    maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::line_segment_sketch::line_segment),
                                     disambiguator: 0,
                                 },
                             },
@@ -165,13 +123,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 39,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::line_segment_sketch::line_segment),
                                         disambiguator: 0,
                                     },
                                 },
