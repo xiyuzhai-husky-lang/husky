@@ -4,8 +4,9 @@ use husky_entity_path::{
     menu::item_path_menu,
     path::major_item::ty::{PreludeIndirectionTypePath, TypePath},
 };
+use husky_entity_tree::node::HasAssocItemPaths;
 use husky_eth_signature::{
-    error::{EtherealSignatureError, EtherealSignatureMaybeResult, EtherealSignatureResult},
+    error::{EthSignatureError, EthSignatureMaybeResult, EthSignatureResult},
     helpers::trai_for_ty::*,
     signature::impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilder,
 };
@@ -156,7 +157,7 @@ pub(crate) enum Unveiler {
     },
     Nothing,
     ErrUnableToInferReturnTypeForUnveiling,
-    ErrEtherealSignature(EtherealSignatureError),
+    ErrEtherealSignature(EthSignatureError),
 }
 
 impl Unveiler {
@@ -176,7 +177,7 @@ impl Unveiler {
         }
     }
 
-    fn new_aux(db: &::salsa::Db, return_ty: EthTerm) -> EtherealSignatureMaybeResult<Self> {
+    fn new_aux(db: &::salsa::Db, return_ty: EthTerm) -> EthSignatureMaybeResult<Self> {
         let templates = unveil_impl_block_signature_templates(db, return_ty)?;
         match templates.len() {
             0 => todo!(),
@@ -224,7 +225,7 @@ fn unveil_assoc_fn_path(
 fn unveil_impl_block_signature_templates(
     db: &::salsa::Db,
     term: EthTerm,
-) -> EtherealSignatureMaybeResult<&[EthTraitForTypeImplBlockSignatureBuilder]> {
+) -> EthSignatureMaybeResult<&[EthTraitForTypeImplBlockSignatureBuilder]> {
     match term {
         EthTerm::SymbolicVariable(_) => Nothing, // ad hoc
         EthTerm::LambdaVariable(_) => Nothing,   // ad hoc
@@ -244,7 +245,7 @@ fn unveil_impl_block_signature_templates(
 fn ty_ontology_path_unveil_impl_block_signature_templates(
     db: &::salsa::Db,
     ty_path: TypePath,
-) -> EtherealSignatureMaybeResult<SmallVec<[EthTraitForTypeImplBlockSignatureBuilder; 2]>> {
+) -> EthSignatureMaybeResult<SmallVec<[EthTraitForTypeImplBlockSignatureBuilder; 2]>> {
     unveil_impl_block_signature_templates_aux(
         db,
         ty_path,
@@ -257,7 +258,7 @@ fn ty_ontology_path_unveil_impl_block_signature_templates(
 fn ty_ontology_application_unveil_impl_block_signature_templates(
     db: &::salsa::Db,
     ty_target: EthApplication,
-) -> EtherealSignatureMaybeResult<SmallVec<[EthTraitForTypeImplBlockSignatureBuilder; 2]>> {
+) -> EthSignatureMaybeResult<SmallVec<[EthTraitForTypeImplBlockSignatureBuilder; 2]>> {
     let application_expansion = ty_target.application_expansion(db);
     let TermFunctionReduced::TypeOntology(ty_path) = application_expansion.function() else {
         todo!()
@@ -275,7 +276,7 @@ fn unveil_impl_block_signature_templates_aux(
     ty_path: TypePath,
     arguments: &[EthTerm],
     ty_target: EthTerm,
-) -> EtherealSignatureMaybeResult<SmallVec<[EthTraitForTypeImplBlockSignatureBuilder; 2]>> {
+) -> EthSignatureMaybeResult<SmallVec<[EthTraitForTypeImplBlockSignatureBuilder; 2]>> {
     let item_path_menu = item_path_menu(db, ty_path.toolchain(db));
     let templates = ty_side_trai_for_ty_impl_block_signature_templates(
         db,
@@ -290,6 +291,6 @@ fn unveil_impl_block_signature_templates_aux(
                     .instantiate_ty(db, arguments, ty_target)
                     .into_option_result()
             })
-            .collect::<EtherealSignatureResult<_>>()?,
+            .collect::<EthSignatureResult<_>>()?,
     )
 }

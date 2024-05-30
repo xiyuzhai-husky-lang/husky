@@ -1,7 +1,7 @@
 use crate::*;
 
 #[salsa::jar]
-pub struct DeclarativeTypeJar(
+pub struct DecTypeJar(
     ty_ontology_path_declarative_ty,
     ty_instance_constructor_path_declarative_ty,
     trai_path_declarative_ty,

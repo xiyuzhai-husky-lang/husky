@@ -10,8 +10,8 @@ pub enum SemExprTypeError {
     Derived(#[from] DerivedSemExprTypeError),
 }
 
-impl From<EtherealSignatureError> for SemExprTypeError {
-    fn from(e: EtherealSignatureError) -> Self {
+impl From<EthSignatureError> for SemExprTypeError {
+    fn from(e: EthSignatureError) -> Self {
         SemExprTypeError::Derived(e.into())
     }
 }
@@ -169,7 +169,7 @@ pub enum DerivedSemExprTypeError {
     #[error("UnableToInferReturnTypeForUnveiling")]
     UnableToInferReturnTypeForUnveiling,
     #[error("EtherealSignature")]
-    EtherealSignature(#[from] EtherealSignatureError),
+    EtherealSignature(#[from] EthSignatureError),
     #[error("UnveilerError")]
     UnveilerError,
     #[error("UnableToInferUnwrapOperand")]

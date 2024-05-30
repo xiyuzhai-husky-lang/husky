@@ -322,7 +322,7 @@ fn module_path_debug_with_db_works() {
 }
 
 impl salsa::DebugWithDb for ModulePath {
-    fn debug_with_db_fmt(
+    fn debug_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,

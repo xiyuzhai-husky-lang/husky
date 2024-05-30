@@ -19,7 +19,7 @@ use husky_toml_ast::TomlAstJar;
     husky_token_data::jar::TokenDataJar,
     TokenJar,
     husky_ast::jar::AstJar,
-    EntityTreeJar,
+    husky_entity_tree::jar::EntityTreeJar,
     husky_toml_token::jar::TomlTokenJar,
     TomlAstJar,
     ManifestAstJar,

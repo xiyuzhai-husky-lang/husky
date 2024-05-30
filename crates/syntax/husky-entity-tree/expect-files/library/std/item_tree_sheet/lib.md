@@ -11,13 +11,7 @@ EntityTreeSheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(`std::prelude),
                                             disambiguator: 0,
                                         },
                                     },
@@ -43,13 +37,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 1,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`std::prelude),
                                         disambiguator: 0,
                                     },
                                 },
@@ -70,13 +58,7 @@ EntityTreeSheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 2,
-                                                    },
-                                                ),
-                                            ),
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(`std::logic),
                                             disambiguator: 0,
                                         },
                                     },
@@ -102,13 +84,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 2,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`std::logic),
                                         disambiguator: 0,
                                     },
                                 },
@@ -129,13 +105,7 @@ EntityTreeSheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 3,
-                                                    },
-                                                ),
-                                            ),
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(`std::ops),
                                             disambiguator: 0,
                                         },
                                     },
@@ -161,13 +131,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 3,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`std::ops),
                                         disambiguator: 0,
                                     },
                                 },
@@ -190,13 +154,7 @@ EntityTreeSheet {
                     `std`,
                 ),
                 symbol: EntitySymbol::Submodule {
-                    submodule_item_path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 1,
-                            },
-                        ),
-                    ),
+                    submodule_item_path: SubmoduleItemPath(`std::prelude),
                 },
             },
             EntitySymbolEntry {
@@ -205,13 +163,7 @@ EntityTreeSheet {
                     `std`,
                 ),
                 symbol: EntitySymbol::Submodule {
-                    submodule_item_path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 2,
-                            },
-                        ),
-                    ),
+                    submodule_item_path: SubmoduleItemPath(`std::logic),
                 },
             },
             EntitySymbolEntry {
@@ -220,13 +172,7 @@ EntityTreeSheet {
                     `std`,
                 ),
                 symbol: EntitySymbol::Submodule {
-                    submodule_item_path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 3,
-                            },
-                        ),
-                    ),
+                    submodule_item_path: SubmoduleItemPath(`std::ops),
                 },
             },
         ],

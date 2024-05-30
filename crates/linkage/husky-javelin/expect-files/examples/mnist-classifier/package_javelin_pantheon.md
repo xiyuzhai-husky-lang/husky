@@ -3,20 +3,12 @@ ValkyrieJavelinPantheon {
     package_path: PackagePath {
         toolchain: Toolchain {
             data: ToolchainData::Local {
-                library_path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../library",
-                    ),
-                },
+                library_path: "../../../library",
             },
         },
         name: `mnist-classifier`,
         data: PackagePathSource::Local {
-            path: VirtualPath {
-                _data: VirtualPathBuf(
-                    "../../../examples/mnist-classifier",
-                ),
-            },
+            path: "../../../examples/mnist-classifier",
         },
     },
     instantiation_map: {
@@ -70,20 +62,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -136,20 +120,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -196,20 +172,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -250,20 +218,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -316,20 +276,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -346,20 +298,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -406,20 +350,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -454,20 +390,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -508,20 +436,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -568,20 +488,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -651,20 +563,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -711,20 +615,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -771,20 +667,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -855,20 +743,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -903,20 +783,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -963,20 +835,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -1029,20 +893,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -1089,20 +945,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -1149,20 +997,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -1215,20 +1055,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -1275,20 +1107,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -1341,20 +1165,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -1407,20 +1223,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -1467,20 +1275,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -1542,20 +1342,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -1608,20 +1400,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -1668,20 +1452,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -1721,20 +1497,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -1776,20 +1544,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -1845,20 +1605,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -1930,20 +1682,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -1990,20 +1734,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -2050,20 +1786,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -2080,20 +1808,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -2146,20 +1866,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -2206,20 +1918,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -2236,20 +1940,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -2296,20 +1992,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -2362,20 +2050,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -2392,20 +2072,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -2476,20 +2148,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -2536,20 +2200,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -2566,20 +2222,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -2619,20 +2267,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -2649,20 +2289,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -2704,20 +2336,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -2779,20 +2403,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -2839,20 +2455,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
         ValkyrieJavelin(
@@ -2913,21 +2521,13 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `malamute`,
             data: PackagePathSource::Registry {
                 registry_path: RegistryPath(
-                    VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../.corgi/../registry",
-                        ),
-                    },
+                    "../../../.corgi/../registry",
                 ),
                 version: Version {
                     major: 0,
@@ -2980,20 +2580,12 @@ ValkyrieJavelinPantheon {
         ): PackagePath {
             toolchain: Toolchain {
                 data: ToolchainData::Local {
-                    library_path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../library",
-                        ),
-                    },
+                    library_path: "../../../library",
                 },
             },
             name: `mnist-classifier`,
             data: PackagePathSource::Local {
-                path: VirtualPath {
-                    _data: VirtualPathBuf(
-                        "../../../examples/mnist-classifier",
-                    ),
-                },
+                path: "../../../examples/mnist-classifier",
             },
         },
     },

@@ -24,7 +24,7 @@ pub struct TypeUnitVariantSynDecl {
 
 /// # constructor
 impl TypeUnitVariantSynDecl {
-    pub(super) fn from_node_decl(
+    pub(super) fn from_node(
         db: &::salsa::Db,
         path: TypeVariantPath,
         syn_node_decl: TypeUnitVariantSynNodeDecl,

@@ -275,7 +275,7 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
             let child = self.use_expr_arena.alloc_one(child);
             return Ok(UseExprChildren::Single { child });
         };
-        let (children, comma_tokens) = parsec::parse_separated_list(self)?;
+        let (children, comma_tokens) = parsec::parse_punctuated_list(self)?;
         let children = self.use_expr_arena.alloc_batch(children);
         Ok(UseExprChildren::Multiple {
             lcurl_token,

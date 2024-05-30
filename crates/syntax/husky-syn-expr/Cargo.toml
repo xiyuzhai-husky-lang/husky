@@ -32,8 +32,8 @@ husky-opr.workspace = true
 husky-expr = { path = "../../kernel/husky-expr" }
 # syntax
 husky-entity-tree.workspace = true
-husky-decl-ast.workspace = true
-husky-defn-ast.workspace = true
+husky-item-decl-ast.workspace = true
+husky-item-defn-ast.workspace = true
 husky-syn-opr.workspace = true
 # utils
 husky-print-utils.workspace = true

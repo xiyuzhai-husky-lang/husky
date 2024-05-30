@@ -64,7 +64,7 @@ impl IsVfsTestUnit for CratePath {
         package_expect_files_dir.join(format!(
             "{}/{}.{}",
             config.test_name(),
-            match self.crate_kind(db) {
+            match self.kind(db) {
                 CrateKind::Lib => format!("src/lib"),
                 CrateKind::Main => format!("src/main"),
                 CrateKind::Bin(_) => todo!(),
@@ -108,7 +108,7 @@ impl IsVfsTestUnit for ModulePath {
         match self.data(db) {
             ModulePathData::Root(crate_path) => path_parent_dir.join(format!(
                 "{}.{}",
-                match crate_path.crate_kind(db) {
+                match crate_path.kind(db) {
                     CrateKind::Lib => "lib",
                     CrateKind::Main => "main",
                     CrateKind::Bin(_) => todo!(),
@@ -160,7 +160,7 @@ pub fn determine_expect_file_path_without_extension(
     match module_path.data(db) {
         ModulePathData::Root(crate_path) => path_parent_dir.join(format!(
             "{}.{}",
-            match crate_path.crate_kind(db) {
+            match crate_path.kind(db) {
                 CrateKind::Lib => "lib",
                 CrateKind::Main => "main",
                 CrateKind::Bin(_) => todo!(),

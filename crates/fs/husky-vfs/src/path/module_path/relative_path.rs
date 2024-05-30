@@ -10,7 +10,7 @@ impl ModulePath {
 #[salsa::tracked(jar = VfsJar, return_ref)]
 fn module_relative_path(db: &::salsa::Db, module_path: ModulePath) -> RelativePathBuf {
     match module_path.data(db) {
-        ModulePathData::Root(crate_path) => match crate_path.crate_kind(db) {
+        ModulePathData::Root(crate_path) => match crate_path.kind(db) {
             CrateKind::Lib => RelativePathBuf::from_path("lib.rs").unwrap(),
             CrateKind::Main => RelativePathBuf::from_path("lib.rs").unwrap(),
             CrateKind::Bin(_) => todo!(),

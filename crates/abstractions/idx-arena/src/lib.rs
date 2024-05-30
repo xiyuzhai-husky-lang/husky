@@ -47,7 +47,7 @@ impl<T> std::fmt::Debug for ArenaIdxRange<T> {
 }
 
 impl<T> salsa::DebugWithDb for ArenaIdxRange<T> {
-    fn debug_with_db_fmt(
+    fn debug_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &salsa::Db,
@@ -136,5 +136,9 @@ impl<T> ArenaIdxRange<T> {
             start: idx,
             end: idx + 1,
         }
+    }
+
+    pub unsafe fn new(start: ArenaIdx<T>, end: ArenaIdx<T>) -> Self {
+        Self { start, end }
     }
 }

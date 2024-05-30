@@ -1317,13 +1317,7 @@ EntityTreeSheet {
                 state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 3,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::basic),
                         },
                     ),
                 },
@@ -1358,13 +1352,7 @@ EntityTreeSheet {
                 state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 6,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::default),
                         },
                     ),
                 },
@@ -1399,13 +1387,7 @@ EntityTreeSheet {
                 state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 12,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::num),
                         },
                     ),
                 },
@@ -1440,13 +1422,7 @@ EntityTreeSheet {
                 state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 16,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::raw_bits),
                         },
                     ),
                 },
@@ -1481,13 +1457,7 @@ EntityTreeSheet {
                 state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::fmt),
                         },
                     ),
                 },
@@ -1522,13 +1492,7 @@ EntityTreeSheet {
                 state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::task),
                         },
                     ),
                 },
@@ -1563,13 +1527,7 @@ EntityTreeSheet {
                 state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 22,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::visual),
                         },
                     ),
                 },
@@ -1604,13 +1562,7 @@ EntityTreeSheet {
                 state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 10,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::marker),
                         },
                     ),
                 },
@@ -1645,13 +1597,7 @@ EntityTreeSheet {
                 state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 4,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::clone),
                         },
                     ),
                 },
@@ -1686,13 +1632,7 @@ EntityTreeSheet {
                 state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::option),
                         },
                     ),
                 },
@@ -1727,13 +1667,7 @@ EntityTreeSheet {
                 state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::cmp),
                         },
                     ),
                 },
@@ -1768,13 +1702,7 @@ EntityTreeSheet {
                 state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::slice),
                         },
                     ),
                 },
@@ -1809,13 +1737,7 @@ EntityTreeSheet {
                 state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`core::vec),
                         },
                     ),
                 },

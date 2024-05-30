@@ -66,9 +66,9 @@ impl SynElseBranch {
 }
 
 impl<'a> SynExprContext<'a> {
-    pub(super) fn parse_if_branch(&mut self, if_branch: DefnAstIdx) -> SynIfBranch {
+    pub(super) fn parse_if_branch(&mut self, if_branch: ItemDefnAstIdx) -> SynIfBranch {
         match self.asts()[if_branch] {
-            DefnAst::BasicStmtOrBranch {
+            ItemDefnAst::BasicStmtOrBranch {
                 regional_token_verse_idx: token_verse_idx,
                 body,
             } => {
@@ -90,7 +90,7 @@ impl<'a> SynExprContext<'a> {
 
     pub(super) fn parse_elif_branches(
         &mut self,
-        elif_branches: DefnAstIdxRange,
+        elif_branches: ItemDefnAstIdxRange,
     ) -> Vec<SynElifBranch> {
         elif_branches
             .into_iter()
@@ -98,9 +98,9 @@ impl<'a> SynExprContext<'a> {
             .collect()
     }
 
-    fn parse_elif_branch(&mut self, elif_branch: DefnAstIdx) -> SynElifBranch {
+    fn parse_elif_branch(&mut self, elif_branch: ItemDefnAstIdx) -> SynElifBranch {
         match self.asts()[elif_branch] {
-            DefnAst::BasicStmtOrBranch {
+            ItemDefnAst::BasicStmtOrBranch {
                 regional_token_verse_idx: token_verse_idx,
                 body,
             } => {
@@ -123,10 +123,10 @@ impl<'a> SynExprContext<'a> {
 
     pub(super) fn parse_else_branch(
         &mut self,
-        else_branch: Option<DefnAstIdx>,
+        else_branch: Option<ItemDefnAstIdx>,
     ) -> Option<SynElseBranch> {
         match self.asts()[else_branch?] {
-            DefnAst::BasicStmtOrBranch {
+            ItemDefnAst::BasicStmtOrBranch {
                 regional_token_verse_idx: token_verse_idx,
                 body,
             } => {

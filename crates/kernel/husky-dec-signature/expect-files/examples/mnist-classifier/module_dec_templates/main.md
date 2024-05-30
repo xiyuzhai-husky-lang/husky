@@ -1,0 +1,91 @@
+```rust
+[
+    (
+        ItemPath::Submodule(
+            Room32,
+            SubmoduleItemPath(`mnist_classifier::connected_component),
+        ),
+        Ok(
+            ItemDecTemplate::Submodule,
+        ),
+    ),
+    (
+        ItemPath::Submodule(
+            Room32,
+            SubmoduleItemPath(`mnist_classifier::raw_contour),
+        ),
+        Ok(
+            ItemDecTemplate::Submodule,
+        ),
+    ),
+    (
+        ItemPath::Submodule(
+            Room32,
+            SubmoduleItemPath(`mnist_classifier::geom2d),
+        ),
+        Ok(
+            ItemDecTemplate::Submodule,
+        ),
+    ),
+    (
+        ItemPath::Submodule(
+            Room32,
+            SubmoduleItemPath(`mnist_classifier::line_segment_sketch),
+        ),
+        Ok(
+            ItemDecTemplate::Submodule,
+        ),
+    ),
+    (
+        ItemPath::Submodule(
+            Room32,
+            SubmoduleItemPath(`mnist_classifier::fermi),
+        ),
+        Ok(
+            ItemDecTemplate::Submodule,
+        ),
+    ),
+    (
+        ItemPath::Submodule(
+            Room32,
+            SubmoduleItemPath(`mnist_classifier::digits),
+        ),
+        Ok(
+            ItemDecTemplate::Submodule,
+        ),
+    ),
+    (
+        ItemPath::Submodule(
+            Room32,
+            SubmoduleItemPath(`mnist_classifier::major),
+        ),
+        Ok(
+            ItemDecTemplate::Submodule,
+        ),
+    ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::main`, `Val`),
+            ),
+        ),
+        Ok(
+            ItemDecTemplate::MajorItem(
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Val(
+                        MajorValDecTemplate {
+                            return_ty: Application(
+                                DecApplication(
+                                    Id {
+                                        value: 3,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+]
+```

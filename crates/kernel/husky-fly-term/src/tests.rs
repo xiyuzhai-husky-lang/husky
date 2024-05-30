@@ -5,7 +5,7 @@ use husky_corgi_config::jar::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_coword::jar::CowordJar;
 use husky_dec_signature::jar::DecSignatureJar;
-use husky_entity_tree::EntityTreeJar;
+use husky_entity_tree::jar::EntityTreeJar;
 use husky_eth_signature::jar::EthSignatureJar;
 use husky_manifest::jar::ManifestJar;
 use husky_manifest_ast::jar::ManifestAstJar;
@@ -35,7 +35,7 @@ use husky_vfs::VfsJar;
     TermPreludeJar,
     husky_dec_term::jar::DecTermJar,
     DecSignatureJar,
-    husky_dec_ty::jar::DeclarativeTypeJar,
+    husky_dec_ty::jar::DecTypeJar,
     husky_eth_term::jar::EthTermJar,
     EthSignatureJar,
     Jar

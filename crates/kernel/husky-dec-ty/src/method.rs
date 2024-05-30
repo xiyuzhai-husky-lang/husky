@@ -2,7 +2,7 @@ use crate::*;
 use husky_dec_signature::signature::HasDecTemplate;
 use husky_entity_path::path::major_item::ty::TypePath;
 
-#[salsa::tracked(jar = DeclarativeTypeJar)]
+#[salsa::tracked(jar = DecTypeJar)]
 pub fn ty_path_ty_method_declarative_ty(
     db: &::salsa::Db,
     path: TypePath,

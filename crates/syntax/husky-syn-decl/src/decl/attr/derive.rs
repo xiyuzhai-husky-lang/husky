@@ -1,6 +1,6 @@
-use parsec::PunctuatedSmallList;
-
 use super::*;
+use husky_entity_tree::node::attr::AttrSynNodePath;
+use parsec::PunctuatedSmallList;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new_inner)]
 pub struct DeriveAttrSynNodeDecl {
@@ -23,7 +23,7 @@ pub struct DeriveAttrSynNodeDecl {
 
 impl DeriveAttrSynNodeDecl {
     pub(super) fn new(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> Self {
-        let parser_factory = DeclParser::new(db, syn_node_path.into());
+        let parser_factory = ItemDeclParser::new(db, syn_node_path.into());
         let mut parser = parser_factory.expr_parser(
             syn_node_path
                 .parent_syn_node_path(db)
@@ -78,7 +78,7 @@ pub struct DeriveAttrSynDecl {
 
 impl DeriveAttrSynDecl {
     #[inline(always)]
-    pub(super) fn from_node_decl(
+    pub(super) fn from_node(
         db: &::salsa::Db,
         path: AttrItemPath,
         syn_node_decl: DeriveAttrSynNodeDecl,

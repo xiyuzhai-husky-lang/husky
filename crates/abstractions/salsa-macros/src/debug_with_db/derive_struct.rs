@@ -16,7 +16,7 @@ pub(super) fn struct_debug_with_db_impl(item: &mut ItemStruct) -> proc_macro2::T
     let where_clause = &item.generics.where_clause;
     quote! {
         impl #generics_without_trais ::salsa::DebugWithDb for #self_ty #where_clause {
-            fn debug_with_db_fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &::salsa::Db,) -> ::std::fmt::Result {
+            fn debug_fmt_with_db(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &::salsa::Db,) -> ::std::fmt::Result {
                 use ::salsa::fmt::{WithFmtContext, WithFmtContextTest};
                 #[allow(unused_imports)]
                 use ::salsa::debug::helper::Fallback;

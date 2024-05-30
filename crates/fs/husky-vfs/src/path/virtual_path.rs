@@ -1,14 +1,27 @@
 use husky_print_utils::p;
 
 use super::*;
-use std::path::{Path, PathBuf};
+use std::{
+    fmt::Debug,
+    path::{Path, PathBuf},
+};
 
 /// `VirtualPath` is the path relative to the current dir of the current program,
 /// it's guaranteed that equivalent paths are interned to the same id
-#[salsa::interned(db = VfsDb, jar = VfsJar)]
+#[salsa::interned(db = VfsDb, jar = VfsJar, override_debug)]
 pub struct VirtualPath {
     #[return_ref]
     _data: VirtualPathBuf,
+}
+
+impl ::salsa::DebugWithDb for VirtualPath {
+    fn debug_fmt_with_db(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &salsa::Db,
+    ) -> std::fmt::Result {
+        self.data(db).fmt(f)
+    }
 }
 
 impl VirtualPath {

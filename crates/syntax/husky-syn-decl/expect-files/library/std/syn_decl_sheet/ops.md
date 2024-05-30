@@ -29,7 +29,7 @@ SynDeclSheet {
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: None,
-                                path: SynNodeRegionPath::Decl(
+                                path: SynNodeRegionPath::ItemDecl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(

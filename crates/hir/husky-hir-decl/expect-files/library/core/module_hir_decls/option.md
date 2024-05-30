@@ -25,7 +25,7 @@
                         ],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`core::option::Option`, `Enum`),
@@ -100,7 +100,7 @@
                     },
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
+                    region_path: RegionPath::ItemDecl(
                         ItemPath::Attr(
                             Room32,
                             AttrItemPath(`core::option::Option::@derive(0)`),
@@ -170,7 +170,7 @@
                     },
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
+                    region_path: RegionPath::ItemDecl(
                         ItemPath::TypeVariant(
                             Room32,
                             TypeVariantPath(
@@ -233,7 +233,7 @@
                     ),
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
+                    region_path: RegionPath::ItemDecl(
                         ItemPath::TypeVariant(
                             Room32,
                             TypeVariantPath(

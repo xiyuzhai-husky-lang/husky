@@ -1,3 +1,4 @@
+use husky_entity_tree::region_path::SynNodeRegionPath;
 use husky_vfs::ModulePath;
 
 use super::*;

@@ -1,6 +1,6 @@
 use super::*;
 use crate::registry::assoc_trace::VoidAssocTraceRegistry;
-use husky_entity_tree::HasSynNodePath;
+use husky_entity_tree::node::HasSynNodePath;
 use husky_syn_defn::item_syn_defn;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]

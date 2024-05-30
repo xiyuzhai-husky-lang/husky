@@ -12,7 +12,7 @@ impl MajorValEthTemplate {
         db: &::salsa::Db,
         path: MajorFormPath,
         dec_template: MajorValDecTemplate,
-    ) -> EtherealSignatureResult<Self> {
+    ) -> EthSignatureResult<Self> {
         let return_ty = EthTerm::ty_from_dec(db, dec_template.return_ty(db))?;
         Ok(Self::new(db, path, return_ty))
     }

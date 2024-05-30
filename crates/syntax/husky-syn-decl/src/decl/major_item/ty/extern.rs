@@ -30,7 +30,7 @@ impl ExternSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     // get declaration from tokens
     pub(super) fn parse_extern_ty_node_decl(
         &self,
@@ -58,7 +58,7 @@ pub struct ExternSynDecl {
 
 impl ExternSynDecl {
     #[inline(always)]
-    pub(super) fn from_node_decl(
+    pub(super) fn from_node(
         db: &::salsa::Db,
         path: TypePath,
         syn_node_decl: ExternSynNodeDecl,

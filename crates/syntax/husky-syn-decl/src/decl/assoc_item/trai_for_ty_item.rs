@@ -13,6 +13,7 @@ use self::method_ritchie::*;
 use super::*;
 use husky_entity_kind::TraitItemKind;
 use husky_entity_path::path::assoc_item::trai_for_ty_item::TraitForTypeItemPath;
+use husky_entity_tree::node::assoc_item::trai_for_ty_item::TraitForTypeItemSynNodePath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
@@ -63,11 +64,11 @@ pub(crate) fn trai_for_ty_item_syn_node_decl(
     db: &::salsa::Db,
     syn_node_path: TraitForTypeItemSynNodePath,
 ) -> TraitForTypeItemSynNodeDecl {
-    let parser = DeclParser::new(db, syn_node_path.into());
+    let parser = ItemDeclParser::new(db, syn_node_path.into());
     parser.parse_trai_for_ty_item_syn_node_decl()
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     fn parse_trai_for_ty_item_syn_node_decl(&self) -> TraitForTypeItemSynNodeDecl {
         let db = self.db();
         let ItemSynNodePath::AssocItem(AssocItemSynNodePath::TraitForTypeItem(syn_node_path)) =
@@ -112,20 +113,20 @@ impl From<TraitForTypeItemSynDecl> for SynDecl {
 
 /// # constructor
 impl TraitForTypeItemSynDecl {
-    fn from_node_decl(
+    fn from_node(
         db: &::salsa::Db,
         path: TraitForTypeItemPath,
         syn_node_decl: TraitForTypeItemSynNodeDecl,
     ) -> SynDeclResult<Self> {
         Ok(match syn_node_decl {
             TraitForTypeItemSynNodeDecl::AssocRitchie(syn_node_decl) => {
-                TraitForTypeAssocRitchieSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                TraitForTypeAssocRitchieSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             TraitForTypeItemSynNodeDecl::MethodFn(syn_node_decl) => {
-                TraitForTypeMethodRitchieSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                TraitForTypeMethodRitchieSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             TraitForTypeItemSynNodeDecl::AssocType(syn_node_decl) => {
-                TraitForTypeAssocTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                TraitForTypeAssocTypeSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             TraitForTypeItemSynNodeDecl::AssocVal(_) => todo!(),
         })
@@ -190,5 +191,5 @@ pub(crate) fn trai_for_ty_item_syn_decl(
     path: TraitForTypeItemPath,
 ) -> SynDeclResult<TraitForTypeItemSynDecl> {
     let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
-    TraitForTypeItemSynDecl::from_node_decl(db, path, syn_node_decl)
+    TraitForTypeItemSynDecl::from_node(db, path, syn_node_decl)
 }

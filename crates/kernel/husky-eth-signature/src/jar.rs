@@ -1,5 +1,11 @@
 #[salsa::jar]
 pub struct EthSignatureJar(
+    // crate
+    crate::signature::crate_::crate_eth_signature,
+    crate::signature::crate_::lib::LibCrateEthSignature,
+    crate::signature::crate_::main::MainCrateEthSignature,
+    crate::signature::crate_::requirements::RequirementsCrateEthSignature,
+    crate::signature::crate_::task::TaskCrateEthSignature,
     // assoc_items
     // - type items
     crate::signature::assoc_item::ty_item::ty_item_eth_template,
@@ -27,11 +33,13 @@ pub struct EthSignatureJar(
     // trai
     crate::signature::major_item::trai::TraitEthTemplate,
     crate::signature::major_item::trai::trai_eth_template,
-    // Form
+    // form
     crate::signature::major_item::form::form_eth_template,
     crate::signature::major_item::form::function_ritchie::MajorFunctionRitchieEthTemplate,
     crate::signature::major_item::form::ty_alias::MajorTypeAliasEthTemplate,
-    crate:: signature::major_item::form::val::MajorValEthTemplate,
+    crate::signature::major_item::form::val::MajorValEthTemplate,
+    crate::signature::major_item::form::compterm::MajorComptermEthTemplate,
+    crate::signature::major_item::form::r#static::MajorStaticEthTemplate,
     // ty
     crate::signature::major_item::ty::r#enum::EnumEthTemplate,
     crate::signature::major_item::ty::r#extern::ExternTypeEthTemplate,

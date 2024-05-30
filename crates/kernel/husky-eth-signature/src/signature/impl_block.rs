@@ -15,6 +15,13 @@ pub enum ImplBlockEthTemplate {
 }
 
 impl ImplBlockEthTemplate {
+    pub fn path(self, db: &::salsa::Db) -> ImplBlockPath {
+        match self {
+            ImplBlockEthTemplate::TypeImpl(slf) => slf.path(db).into(),
+            ImplBlockEthTemplate::TraitForTypeImpl(slf) => slf.path(db).into(),
+        }
+    }
+
     pub fn self_ty(self, db: &::salsa::Db) -> EthTerm {
         match self {
             ImplBlockEthTemplate::TypeImpl(template) => template.self_ty(db),
@@ -26,7 +33,7 @@ impl ImplBlockEthTemplate {
 impl HasEthTemplate for ImplBlockPath {
     type EthTemplate = ImplBlockEthTemplate;
 
-    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
+    fn eth_template(self, db: &::salsa::Db) -> EthSignatureResult<Self::EthTemplate> {
         Ok(match self {
             ImplBlockPath::TypeImplBlock(path) => path.eth_template(db)?.into(),
             ImplBlockPath::TraitForTypeImplBlock(path) => path.eth_template(db)?.into(),

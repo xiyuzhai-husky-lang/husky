@@ -11,8 +11,9 @@ use super::*;
 pub fn sem_expr_region_requires_lazy(db: &::salsa::Db, sem_expr_region: SemExprRegion) -> bool {
     let sem_expr_region_data = sem_expr_region.data(db);
     match sem_expr_region_data.path() {
-        RegionPath::Snippet(_) => return false, // ad hoc
-        RegionPath::Decl(path) => match path {
+        RegionPath::CrateDecl(_) => todo!(),
+        RegionPath::Script(_) => return false, // ad hoc
+        RegionPath::ItemDecl(path) => match path {
             ItemPath::MajorItem(MajorItemPath::Form(path)) => match path.major_form_kind(db) {
                 MajorFormKind::Ritchie(ritchie_item_kind) => match ritchie_item_kind {
                     RitchieItemKind::Fn => todo!(),
@@ -29,7 +30,7 @@ pub fn sem_expr_region_requires_lazy(db: &::salsa::Db, sem_expr_region: SemExprR
             ItemPath::AssocItem(path) => todo!(),
             _ => return false,
         },
-        RegionPath::Defn(path) => match path {
+        RegionPath::ItemDefn(path) => match path {
             ItemPath::MajorItem(MajorItemPath::Form(path)) => match path.major_form_kind(db) {
                 MajorFormKind::Ritchie(_) => todo!(),
                 MajorFormKind::TypeAlias => todo!(),

@@ -7,13 +7,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `default`,
-        ),
-        TokenData::Keyword(
-            Keyword::Const,
-        ),
-        TokenData::Ident(
-            `against`,
+            `default_const_excludes`,
         ),
         TokenData::Punctuation(
             Punctuation(
@@ -1607,7 +1601,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            15,
+                            13,
                         ),
                     ),
                     indent: 0,
@@ -1615,7 +1609,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            24,
+                            22,
                         ),
                     ),
                     indent: 0,
@@ -1623,7 +1617,15 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            30,
+                            28,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            33,
                         ),
                     ),
                     indent: 0,
@@ -1639,7 +1641,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            37,
+                            44,
                         ),
                     ),
                     indent: 0,
@@ -1647,7 +1649,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            46,
+                            59,
                         ),
                     ),
                     indent: 0,
@@ -1671,15 +1673,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            65,
-                        ),
-                    ),
-                    indent: 0,
-                },
-                TokenVerseData {
-                    start: TokenVerseStart(
-                        TokenIdx(
-                            84,
+                            82,
                         ),
                     ),
                     indent: 4,
@@ -1687,7 +1681,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            92,
+                            90,
                         ),
                     ),
                     indent: 8,
@@ -1695,7 +1689,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            95,
+                            93,
                         ),
                     ),
                     indent: 0,
@@ -1703,7 +1697,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            118,
+                            116,
                         ),
                     ),
                     indent: 4,
@@ -1711,7 +1705,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            123,
+                            121,
                         ),
                     ),
                     indent: 4,
@@ -1719,7 +1713,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            143,
+                            141,
                         ),
                     ),
                     indent: 8,
@@ -1727,7 +1721,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            146,
+                            144,
                         ),
                     ),
                     indent: 8,
@@ -1735,7 +1729,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            166,
+                            164,
                         ),
                     ),
                     indent: 8,
@@ -1743,7 +1737,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            182,
+                            180,
                         ),
                     ),
                     indent: 0,
@@ -1751,7 +1745,15 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            191,
+                            189,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            204,
                         ),
                     ),
                     indent: 0,
@@ -1783,15 +1785,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            212,
-                        ),
-                    ),
-                    indent: 0,
-                },
-                TokenVerseData {
-                    start: TokenVerseStart(
-                        TokenIdx(
-                            238,
+                            236,
                         ),
                     ),
                     indent: 4,
@@ -1799,7 +1793,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            243,
+                            241,
                         ),
                     ),
                     indent: 4,
@@ -1807,7 +1801,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            263,
+                            261,
                         ),
                     ),
                     indent: 8,
@@ -1815,7 +1809,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            266,
+                            264,
                         ),
                     ),
                     indent: 8,
@@ -1823,7 +1817,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            283,
+                            281,
                         ),
                     ),
                     indent: 8,
@@ -1831,7 +1825,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            300,
+                            298,
                         ),
                     ),
                     indent: 8,
@@ -1839,7 +1833,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            316,
+                            314,
                         ),
                     ),
                     indent: 0,

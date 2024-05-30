@@ -57,7 +57,7 @@ where
     T: salsa::DebugWithDb,
     V: salsa::DebugWithDb,
 {
-    fn debug_with_db_fmt(
+    fn debug_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,

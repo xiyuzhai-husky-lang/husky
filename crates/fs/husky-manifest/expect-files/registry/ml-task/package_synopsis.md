@@ -5,23 +5,15 @@ Ok(
             package_path: PackagePath {
                 toolchain: Toolchain {
                     data: ToolchainData::Local {
-                        library_path: VirtualPath {
-                            _data: VirtualPathBuf(
-                                "../../../library",
-                            ),
-                        },
+                        library_path: "../../../library",
                     },
                 },
                 name: `ml-task`,
                 data: PackagePathSource::Local {
-                    path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../registry/ml-task",
-                        ),
-                    },
+                    path: "../../../registry/ml-task",
                 },
             },
-            crate_kind: Lib,
+            kind: Lib,
         },
         task_crate_path: None,
     },

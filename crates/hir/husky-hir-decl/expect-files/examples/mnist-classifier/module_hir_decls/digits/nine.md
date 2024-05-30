@@ -13,7 +13,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Form(
                                     FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
@@ -58,7 +58,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Form(
                                     FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
@@ -103,7 +103,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Form(
                                     FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),

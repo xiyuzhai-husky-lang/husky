@@ -1,0 +1,13 @@
+[package]
+name = "husky-item-defn-ast"
+version.workspace = true
+edition = "2021"
+
+[dependencies]
+# abstractions
+salsa.workspace = true
+idx-arena.workspace = true
+# lex
+husky-regional-token.workspace = true
+# syntax
+husky-ast.workspace = true

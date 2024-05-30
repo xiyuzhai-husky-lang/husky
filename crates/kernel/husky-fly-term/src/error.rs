@@ -1,20 +1,20 @@
 use crate::*;
 use husky_dec_term::term::DecSymbolicVariableTypeErrorKind;
-use husky_entity_tree::EntityTreeError;
-use husky_eth_signature::error::EtherealSignatureError;
+use husky_entity_tree::error::EntityTreeError;
+use husky_eth_signature::error::EthSignatureError;
 use thiserror::Error;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 pub enum FlyTermError {
     #[error("ethereal signature")]
-    EtherealSignature(EtherealSignatureError),
+    EtherealSignature(EthSignatureError),
     #[error("ethereal term")]
     EthTerm(EthTermError),
 }
 
-impl From<EtherealSignatureError> for FlyTermError {
-    fn from(e: EtherealSignatureError) -> Self {
+impl From<EthSignatureError> for FlyTermError {
+    fn from(e: EthSignatureError) -> Self {
         FlyTermError::EtherealSignature(e)
     }
 }

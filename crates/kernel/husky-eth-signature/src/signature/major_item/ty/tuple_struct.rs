@@ -19,7 +19,7 @@ impl TupleStructEthTemplate {
         db: &::salsa::Db,
         path: TypePath,
         tmpl: TupleStructDecTemplate,
-    ) -> EtherealSignatureResult<Self> {
+    ) -> EthSignatureResult<Self> {
         let template_parameters =
             EthTemplateParameters::from_dec(db, tmpl.template_parameters(db))?;
         let fields = tmpl
@@ -27,7 +27,7 @@ impl TupleStructEthTemplate {
             .iter()
             .copied()
             .map(|dec_template| TupleFieldEthTemplate::from_dec(db, dec_template))
-            .collect::<EtherealSignatureResult<_>>()?;
+            .collect::<EthSignatureResult<_>>()?;
         let instance_constructor_ritchie_ty =
             EthRitchie::from_dec(db, tmpl.instance_constructor_ritchie_ty(db))?;
         Ok(Self::new(
@@ -54,7 +54,7 @@ impl TupleFieldEthTemplate {
     fn from_dec(
         db: &::salsa::Db,
         dec_template: TupleStructFieldDecTemplate,
-    ) -> EtherealSignatureResult<Self> {
+    ) -> EthSignatureResult<Self> {
         Ok(Self {
             ty: EthTerm::ty_from_dec(db, dec_template.ty())?,
         })

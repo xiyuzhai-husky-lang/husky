@@ -2,6 +2,7 @@ use super::*;
 use husky_entity_path::path::impl_block::{
     trai_for_ty_impl_block::TraitForTypeImplBlockPath, TypeSketch,
 };
+use husky_entity_tree::node::impl_block::trai_for_ty_impl_block::TraitForTypeImplBlockSynNodePath;
 
 #[salsa::tracked]
 pub struct TraitForTypeImplBlockSynNodeDecl {
@@ -53,11 +54,11 @@ pub(crate) fn trai_for_ty_impl_block_syn_node_decl(
     db: &::salsa::Db,
     syn_node_path: TraitForTypeImplBlockSynNodePath,
 ) -> TraitForTypeImplBlockSynNodeDecl {
-    let parser = DeclParser::new(db, syn_node_path.into());
+    let parser = ItemDeclParser::new(db, syn_node_path.into());
     parser.parse_trai_for_ty_impl_block_syn_node_decl(syn_node_path)
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     fn parse_trai_for_ty_impl_block_syn_node_decl(
         &self,
         syn_node_path: TraitForTypeImplBlockSynNodePath,
@@ -135,11 +136,11 @@ pub(crate) fn trai_for_ty_impl_block_syn_decl(
     path: TraitForTypeImplBlockPath,
 ) -> SynDeclResult<TraitForTypeImplBlockSynDecl> {
     let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
-    TraitForTypeImplBlockSynDecl::from_node_decl(db, path, syn_node_decl)
+    TraitForTypeImplBlockSynDecl::from_node(db, path, syn_node_decl)
 }
 
 impl TraitForTypeImplBlockSynDecl {
-    fn from_node_decl(
+    fn from_node(
         db: &::salsa::Db,
         path: TraitForTypeImplBlockPath,
         syn_node_decl: TraitForTypeImplBlockSynNodeDecl,

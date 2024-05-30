@@ -8,9 +8,12 @@ pub fn sem_expr_region_from_region_path(
     db: &::salsa::Db,
 ) -> SemExprRegion {
     let syn_expr_region = match region_path {
-        RegionPath::Snippet(_) => todo!(),
-        RegionPath::Decl(item_path) => item_path.syn_decl(db).unwrap().syn_expr_region(db).unwrap(),
-        RegionPath::Defn(item_path) => item_syn_defn(db, item_path).unwrap().syn_expr_region,
+        RegionPath::CrateDecl(_) => todo!(),
+        RegionPath::Script(_) => todo!(),
+        RegionPath::ItemDecl(item_path) => {
+            item_path.syn_decl(db).unwrap().syn_expr_region(db).unwrap()
+        }
+        RegionPath::ItemDefn(item_path) => item_syn_defn(db, item_path).unwrap().syn_expr_region,
     };
     sem_expr_region(db, syn_expr_region)
 }

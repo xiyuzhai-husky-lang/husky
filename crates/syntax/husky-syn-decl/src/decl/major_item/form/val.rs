@@ -20,7 +20,7 @@ impl MajorValSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     pub(super) fn parse_val_syn_node_decl(
         &self,
         syn_node_path: FormSynNodePath,
@@ -29,7 +29,7 @@ impl<'a> DeclParser<'a> {
         let colon_token =
             parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedColonBeforeValReturnType);
         let return_ty = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedValReturnType);
-        let eq_token = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectEqTokenForMemo);
+        let eq_token = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEqTokenForMemo);
         let expr = parser.parse_expr_root(None, SynExprRootKind::ValExpr);
         MajorValSynNodeDecl::new(
             self.db(),
@@ -53,7 +53,7 @@ pub struct MajorValSynDecl {
 }
 
 impl MajorValSynDecl {
-    pub(super) fn from_node_decl(
+    pub(super) fn from_node(
         db: &::salsa::Db,
         path: MajorFormPath,
         syn_node_decl: MajorValSynNodeDecl,

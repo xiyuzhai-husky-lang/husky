@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_tree::node::assoc_item::ill_formed_item::IllFormedItemSynNodePath;
 
 #[salsa::tracked]
 pub struct IllFormedItemSynNodeDecl {

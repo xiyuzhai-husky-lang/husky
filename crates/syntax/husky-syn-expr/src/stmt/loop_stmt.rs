@@ -173,7 +173,7 @@ impl<'a> SynExprContext<'a> {
         for_token: StmtForRegionalToken,
         expr: SynExprIdx,
         eol_colon: SynExprResult<EolRegionalToken>,
-        body: DefnAstIdxRange,
+        body: ItemDefnAstIdxRange,
     ) -> SynStmtData {
         match self.syn_expr_arena()[expr] {
             SynExprData::Binary {
@@ -315,7 +315,7 @@ impl<'a> SynExprContext<'a> {
         forext_token: ForextRegionalToken,
         expr: SynExprIdx,
         eol_colon: SynExprResult<EolRegionalToken>,
-        body: DefnAstIdxRange,
+        body: ItemDefnAstIdxRange,
     ) -> SynStmtData {
         let SynExprData::Binary {
             lopd: forext_loop_var_expr_idx,

@@ -28,7 +28,8 @@ husky-regional-token.workspace = true
 # syntax
 husky-syn-expr.workspace = true
 husky-entity-tree.workspace = true
-husky-decl-ast.workspace = true
+husky-crate-decl-ast.workspace = true
+husky-item-decl-ast.workspace = true
 # utils
 husky-print-utils.workspace = true
 husky-iter-utils.workspace = true

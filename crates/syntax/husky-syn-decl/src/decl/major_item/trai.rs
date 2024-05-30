@@ -1,5 +1,6 @@
 use super::*;
 use husky_entity_path::path::major_item::trai::TraitPath;
+use husky_entity_tree::node::major_item::trai::TraitSynNodePath;
 
 #[salsa::tracked]
 pub struct TraitSynNodeDecl {
@@ -34,10 +35,10 @@ pub(crate) fn trai_syn_node_decl(
     db: &::salsa::Db,
     syn_node_path: TraitSynNodePath,
 ) -> TraitSynNodeDecl {
-    DeclParser::new(db, syn_node_path.into()).parse_trai_syn_node_decl(syn_node_path)
+    ItemDeclParser::new(db, syn_node_path.into()).parse_trai_syn_node_decl(syn_node_path)
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     fn parse_trai_syn_node_decl(&self, syn_node_path: TraitSynNodePath) -> TraitSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::True, AllowSelfValue::False, None);
         let template_parameters = parser.try_parse_option();
@@ -60,7 +61,7 @@ pub struct TraitSynDecl {
 }
 
 impl TraitSynDecl {
-    fn from_node_decl(
+    fn from_node(
         db: &::salsa::Db,
         path: TraitPath,
         syn_node_decl: TraitSynNodeDecl,
@@ -97,5 +98,5 @@ impl HasSynDecl for TraitPath {
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn trai_syn_decl(db: &::salsa::Db, path: TraitPath) -> SynDeclResult<TraitSynDecl> {
     let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
-    TraitSynDecl::from_node_decl(db, path, syn_node_decl)
+    TraitSynDecl::from_node(db, path, syn_node_decl)
 }

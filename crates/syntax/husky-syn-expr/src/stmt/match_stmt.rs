@@ -11,7 +11,7 @@ pub struct SynCaseBranch {
 impl<'a> SynExprContext<'a> {
     pub(super) fn parse_case_branches(
         &mut self,
-        case_branches: DefnAstIdxRange,
+        case_branches: ItemDefnAstIdxRange,
     ) -> Vec<SynCaseBranch> {
         case_branches
             .into_iter()
@@ -19,14 +19,14 @@ impl<'a> SynExprContext<'a> {
             .collect()
     }
 
-    fn parse_case_branch(&mut self, if_branch: DefnAstIdx) -> SynCaseBranch {
+    fn parse_case_branch(&mut self, if_branch: ItemDefnAstIdx) -> SynCaseBranch {
         match self.asts()[if_branch] {
-            DefnAst::BasicStmtOrBranch {
+            ItemDefnAst::BasicStmtOrBranch {
                 regional_token_verse_idx,
                 body,
             } => {
                 let access_end = self
-                    .defn_tokra_region_data()
+                    .item_defn_tokra_region_data()
                     .ast_token_idx_range(if_branch)
                     .end();
                 let mut parser = self.token_verse_expr_parser(regional_token_verse_idx);

@@ -5,43 +5,27 @@ Ok(
             package_path: PackagePath {
                 toolchain: Toolchain {
                     data: ToolchainData::Local {
-                        library_path: VirtualPath {
-                            _data: VirtualPathBuf(
-                                "../../../library",
-                            ),
-                        },
+                        library_path: "../../../library",
                     },
                 },
                 name: `mnist-classifier`,
                 data: PackagePathSource::Local {
-                    path: VirtualPath {
-                        _data: VirtualPathBuf(
-                            "../../../examples/mnist-classifier",
-                        ),
-                    },
+                    path: "../../../examples/mnist-classifier",
                 },
             },
-            crate_kind: Main,
+            kind: Main,
         },
         task_crate_path: CratePath {
             package_path: PackagePath {
                 toolchain: Toolchain {
                     data: ToolchainData::Local {
-                        library_path: VirtualPath {
-                            _data: VirtualPathBuf(
-                                "../../../library",
-                            ),
-                        },
+                        library_path: "../../../library",
                     },
                 },
                 name: `mnist`,
                 data: PackagePathSource::Registry {
                     registry_path: RegistryPath(
-                        VirtualPath {
-                            _data: VirtualPathBuf(
-                                "../../../.corgi/../registry",
-                            ),
-                        },
+                        "../../../.corgi/../registry",
                     ),
                     version: Version {
                         major: 0,
@@ -50,7 +34,7 @@ Ok(
                     },
                 },
             },
-            crate_kind: Task,
+            kind: Task,
         },
     },
 )

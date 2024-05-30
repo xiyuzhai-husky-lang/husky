@@ -13,7 +13,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Form(
                                     FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
@@ -124,7 +124,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Form(
                                     FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
@@ -169,7 +169,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Form(
                                     FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
@@ -214,7 +214,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Form(
                                     FormPath(`mnist_classifier::digits::four::is_four`, `Val`),

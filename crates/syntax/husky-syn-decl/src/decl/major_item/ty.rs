@@ -18,6 +18,7 @@ use self::unit_struct::*;
 use super::*;
 use husky_entity_kind::TypeKind;
 use husky_entity_path::path::major_item::ty::TypePath;
+use husky_entity_tree::node::major_item::ty::TypeSynNodePath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
@@ -84,10 +85,10 @@ impl HasSynNodeDecl for TypeSynNodePath {
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_node_decl(db: &::salsa::Db, syn_node_path: TypeSynNodePath) -> TypeSynNodeDecl {
-    DeclParser::new(db, syn_node_path.into()).parse_ty_node_decl(syn_node_path)
+    ItemDeclParser::new(db, syn_node_path.into()).parse_ty_node_decl(syn_node_path)
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     fn parse_ty_node_decl(&self, _syn_node_path: TypeSynNodePath) -> TypeSynNodeDecl {
         let ItemSynNodePath::MajorItem(MajorItemSynNodePath::Type(syn_node_path)) =
             self.syn_node_path()
@@ -105,7 +106,7 @@ impl<'a> DeclParser<'a> {
     }
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     pub(super) fn parse_struct_ty_node_decl(
         &self,
         syn_node_path: TypeSynNodePath,
@@ -202,35 +203,35 @@ impl TypeSynDecl {
     }
 
     #[inline(always)]
-    fn from_node_decl(
+    fn from_node(
         db: &::salsa::Db,
         path: TypePath,
         syn_node_decl: TypeSynNodeDecl,
     ) -> SynDeclResult<Self> {
         Ok(match syn_node_decl {
             TypeSynNodeDecl::Enum(syn_node_decl) => {
-                EnumSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                EnumSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             TypeSynNodeDecl::PropsStruct(syn_node_decl) => {
-                PropsStructSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                PropsStructSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             TypeSynNodeDecl::UnitStruct(syn_node_decl) => {
-                UnitStructSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                UnitStructSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             TypeSynNodeDecl::TupleStruct(syn_node_decl) => {
-                TupleStructSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                TupleStructSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             TypeSynNodeDecl::Inductive(syn_node_decl) => {
-                InductiveSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                InductiveSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             TypeSynNodeDecl::Structure(syn_node_decl) => {
-                StructureSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                StructureSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             TypeSynNodeDecl::Extern(syn_node_decl) => {
-                ExternSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                ExternSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             TypeSynNodeDecl::Union(syn_node_decl) => {
-                UnionSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                UnionSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
         })
     }
@@ -247,7 +248,7 @@ impl HasSynDecl for TypePath {
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_decl(db: &::salsa::Db, path: TypePath) -> SynDeclResult<TypeSynDecl> {
-    TypeSynDecl::from_node_decl(db, path, path.syn_node_path(db).syn_node_decl(db))
+    TypeSynDecl::from_node(db, path, path.syn_node_path(db).syn_node_decl(db))
 }
 
 #[test]

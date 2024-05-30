@@ -11,11 +11,13 @@ impl ReturnTypeBeforeColonSyndicate {
     }
 }
 
-impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ReturnTypeBeforeColonSyndicate {
+impl<'a, 'b> TryParseOptionFromStream<StandaloneSynExprParser<'a>>
+    for ReturnTypeBeforeColonSyndicate
+{
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut SynDeclExprParser<'a>,
+        ctx: &mut StandaloneSynExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
         if let Some(expr) = ctx.parse_expr_root(None, SynExprRootKind::ReturnType) {
             Ok(Some(ReturnTypeBeforeColonSyndicate { syn_expr_idx: expr }))
@@ -36,11 +38,11 @@ impl ReturnTypeBeforeEqSyndicate {
     }
 }
 
-impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for ReturnTypeBeforeEqSyndicate {
+impl<'a, 'b> TryParseOptionFromStream<StandaloneSynExprParser<'a>> for ReturnTypeBeforeEqSyndicate {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut SynDeclExprParser<'a>,
+        ctx: &mut StandaloneSynExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
         if let Some(expr) =
             ctx.parse_expr_root(ExprEnvironment::TypeBeforeEq, SynExprRootKind::ReturnType)

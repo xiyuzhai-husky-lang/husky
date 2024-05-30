@@ -57,7 +57,7 @@ pub(crate) fn item_variance_reprs(
     .map(|t| t.as_ref())
 }
 
-#[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
+#[salsa::tracked(jar = DecTypeJar, return_ref)]
 pub(crate) fn ty_template_parameter_variance_reprs(
     db: &::salsa::Db,
     path: TypePath,
@@ -101,7 +101,7 @@ pub(crate) fn ty_template_parameter_variance_reprs(
     Ok(reprs)
 }
 
-#[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
+#[salsa::tracked(jar = DecTypeJar, return_ref)]
 pub(crate) fn trai_item_variance_reprs(
     db: &::salsa::Db,
     path: TraitPath,
@@ -138,7 +138,7 @@ pub(crate) fn trai_item_variance_reprs(
     Ok(reprs)
 }
 
-#[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
+#[salsa::tracked(jar = DecTypeJar, return_ref)]
 pub(crate) fn form_item_variance_reprs(
     db: &::salsa::Db,
     path: MajorFormPath,
@@ -164,7 +164,7 @@ pub(crate) fn form_item_variance_reprs(
     Ok(reprs)
 }
 
-#[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
+#[salsa::tracked(jar = DecTypeJar, return_ref)]
 pub(crate) fn ty_item_item_variance_reprs(
     db: &::salsa::Db,
     path: TypeItemPath,

@@ -15,7 +15,7 @@ impl TraitForTypeAssocTypeEthTemplate {
         db: &::salsa::Db,
         path: TraitForTypeItemPath,
         dec_template: TraitForTypeAssocTypeDecTemplate,
-    ) -> EtherealSignatureResult<Self> {
+    ) -> EthSignatureResult<Self> {
         let template_parameters =
             EthTemplateParameters::from_dec(db, dec_template.template_parameters(db))?;
         let ty_term = EthTerm::ty_from_dec(db, dec_template.ty_term(db))?;

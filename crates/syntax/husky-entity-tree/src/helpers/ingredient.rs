@@ -23,7 +23,7 @@ impl HasIngredientPaths for CratePath {
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn crate_ingredient_paths(
     db: &::salsa::Db,
     crate_path: CratePath,
@@ -105,7 +105,7 @@ where
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar)]
+#[salsa::tracked]
 fn item_path_ingredient_index(
     db: &::salsa::Db,
     item_path_id: ItemPathId,

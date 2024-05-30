@@ -1,8 +1,11 @@
 use super::*;
 use husky_ast::AstData;
 use husky_entity_tree::{
-    EntityTreeDb, EntityTreeError, ImplBlockIllForm, MajorPathExprError, OriginalEntityTreeError,
-    OriginalMajorItemPathExprError,
+    error::EntityTreeError,
+    error::OriginalEntityTreeError,
+    expr::module_item_path::{MajorPathExprError, OriginalMajorItemPathExprError},
+    jar::EntityTreeDb,
+    node::impl_block::ill_formed_impl_block::ImplBlockIllForm,
 };
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]

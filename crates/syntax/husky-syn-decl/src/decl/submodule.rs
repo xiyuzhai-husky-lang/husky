@@ -1,5 +1,6 @@
 use super::*;
 use husky_entity_path::path::submodule::SubmoduleItemPath;
+use husky_entity_tree::node::submodule::SubmoduleSynNodePath;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new)]
 pub struct SubmoduleSynNodeDecl {
@@ -21,7 +22,7 @@ impl HasSynNodeDecl for SubmoduleSynNodePath {
     }
 }
 
-#[salsa::tracked( jar = SynDeclJar)]
+#[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn submodule_syn_node_decl(
     db: &::salsa::Db,
     syn_node_path: SubmoduleSynNodePath,
@@ -37,7 +38,7 @@ pub struct SubmoduleSynDecl {
 
 impl SubmoduleSynDecl {
     #[inline(always)]
-    fn from_node_decl(
+    fn from_node(
         db: &::salsa::Db,
         path: SubmoduleItemPath,
         _syn_node_decl: SubmoduleSynNodeDecl,
@@ -63,5 +64,5 @@ pub(crate) fn submodule_decl(
 ) -> SynDeclResult<SubmoduleSynDecl> {
     let syn_node_path = path.syn_node_path(db);
     let syn_node_decl = syn_node_path.syn_node_decl(db);
-    Ok(SubmoduleSynDecl::from_node_decl(db, path, syn_node_decl))
+    Ok(SubmoduleSynDecl::from_node(db, path, syn_node_decl))
 }

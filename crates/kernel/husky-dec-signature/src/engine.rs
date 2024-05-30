@@ -4,7 +4,7 @@ pub(crate) use self::pattern_ty::*;
 
 use crate::*;
 use husky_entity_path::path::{major_item::MajorItemPath, PrincipalEntityPath};
-use husky_entity_tree::SynNodeRegionPath;
+use husky_entity_tree::region_path::SynNodeRegionPath;
 use husky_print_utils::p;
 use husky_syn_expr::*;
 use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr};
@@ -73,7 +73,8 @@ impl<'a> DecTermEngine<'a> {
     fn infer_all(mut self) -> SynExprDecTermRegion {
         // ad hoc, todo: make it clear what it means for defn and snippet region
         match self.path() {
-            SynNodeRegionPath::Decl(_) => {
+            SynNodeRegionPath::CrateDecl(_) => todo!(),
+            SynNodeRegionPath::ItemDecl(_) => {
                 self.infer_current_svar_terms();
                 self.symbolic_variable_region
                     .infer_self_ty_parameter_and_self_value_parameter(
@@ -84,7 +85,7 @@ impl<'a> DecTermEngine<'a> {
                     );
                 self.infer_expr_roots();
             }
-            SynNodeRegionPath::Defn(_) => (),
+            SynNodeRegionPath::ItemDefn(_) => (),
         };
         self.finish()
     }
@@ -208,7 +209,7 @@ impl<'a> DecTermEngine<'a> {
                     *vars,
                 ),
                 SyndicateTypeConstraint::SimpleClosureParameter { .. } => {
-                    p!(self.path());
+                    // p!(self.path());
                     todo!()
                 }
                 SyndicateTypeConstraint::FieldVariable {
@@ -328,6 +329,7 @@ impl<'a> DecTermEngine<'a> {
                 | SynExprRootKind::EvalExpr
                 | SynExprRootKind::TraitInConstraint => continue,
                 SynExprRootKind::Effect => todo!(),
+                SynExprRootKind::DefaultConstExclude => todo!(),
             }
             self.cache_new_expr_term(expr_root.syn_expr_idx())
         }
@@ -379,7 +381,10 @@ impl<'a> DecTermEngine<'a> {
             SynExprData::PrincipalEntityPath { opt_path, .. } => match opt_path {
                 Some(path) => Ok(DecTerm::EntityPath(match path {
                     PrincipalEntityPath::Module(path) => {
-                        p!(self.syn_expr_region_data.path().debug(db), path.debug(db));
+                        husky_print_utils::p!(
+                            self.syn_expr_region_data.path().debug(db),
+                            path.debug(db)
+                        );
                         todo!()
                     }
                     PrincipalEntityPath::MajorItem(path) => match path {

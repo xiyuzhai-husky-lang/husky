@@ -1,6 +1,8 @@
-use husky_entity_path::path::impl_block::ty_impl_block::TypeImplBlockPath;
-
 use super::*;
+use husky_entity_path::path::impl_block::ty_impl_block::TypeImplBlockPath;
+use husky_entity_tree::node::{
+    impl_block::ty_impl_block::TypeImplBlockSynNodePath, HasSynNodePath,
+};
 
 #[salsa::tracked]
 pub struct TypeImplBlockSynNodeDecl {
@@ -32,11 +34,11 @@ pub(crate) fn ty_impl_block_syn_node_decl(
     db: &::salsa::Db,
     syn_node_path: TypeImplBlockSynNodePath,
 ) -> TypeImplBlockSynNodeDecl {
-    let parser = DeclParser::new(db, syn_node_path.into());
+    let parser = ItemDeclParser::new(db, syn_node_path.into());
     parser.parse_ty_impl_block_syn_node_decl(syn_node_path)
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     fn parse_ty_impl_block_syn_node_decl(
         &self,
         syn_node_path: TypeImplBlockSynNodePath,
@@ -84,7 +86,7 @@ impl From<TypeImplBlockSynDecl> for SynDecl {
 }
 
 impl TypeImplBlockSynDecl {
-    fn from_node_decl(
+    fn from_node(
         db: &::salsa::Db,
         path: TypeImplBlockPath,
         syn_node_decl: TypeImplBlockSynNodeDecl,
@@ -130,5 +132,5 @@ pub(crate) fn ty_impl_block_syn_decl(
 ) -> SynDeclResult<TypeImplBlockSynDecl> {
     let syn_node_path = path.syn_node_path(db);
     let syn_node_decl = syn_node_path.syn_node_decl(db);
-    TypeImplBlockSynDecl::from_node_decl(db, path, syn_node_decl)
+    TypeImplBlockSynDecl::from_node(db, path, syn_node_decl)
 }

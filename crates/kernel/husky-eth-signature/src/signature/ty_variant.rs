@@ -19,6 +19,14 @@ pub enum TypeVariantEthTemplate {
 }
 
 impl TypeVariantEthTemplate {
+    pub fn path(self, db: &::salsa::Db) -> TypeVariantPath {
+        match self {
+            TypeVariantEthTemplate::Props(slf) => slf.path(db),
+            TypeVariantEthTemplate::Unit(slf) => slf.path(db),
+            TypeVariantEthTemplate::Tuple(slf) => slf.path(db),
+        }
+    }
+
     pub fn self_ty(self, _db: &::salsa::Db) -> EthTerm {
         match self {
             TypeVariantEthTemplate::Props(_) => todo!(),
@@ -39,7 +47,7 @@ impl TypeVariantEthTemplate {
 impl HasEthTemplate for TypeVariantPath {
     type EthTemplate = TypeVariantEthTemplate;
 
-    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
+    fn eth_template(self, db: &::salsa::Db) -> EthSignatureResult<Self::EthTemplate> {
         ty_variant_eth_template(db, self)
     }
 }
@@ -48,7 +56,7 @@ impl HasEthTemplate for TypeVariantPath {
 fn ty_variant_eth_template(
     db: &::salsa::Db,
     path: TypeVariantPath,
-) -> EtherealSignatureResult<TypeVariantEthTemplate> {
+) -> EthSignatureResult<TypeVariantEthTemplate> {
     Ok(match path.dec_template(db)? {
         TypeVariantDecTemplate::EnumProps(_) => todo!(),
         TypeVariantDecTemplate::EnumUnit(dec_template) => {

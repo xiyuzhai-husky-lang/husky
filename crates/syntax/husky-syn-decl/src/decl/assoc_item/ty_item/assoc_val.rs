@@ -20,7 +20,7 @@ impl TypeAssocValSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a> {}
+impl<'a> ItemDeclParser<'a> {}
 
 #[salsa::tracked]
 pub struct TypeAssocValSynDecl {
@@ -32,7 +32,7 @@ pub struct TypeAssocValSynDecl {
 }
 
 impl TypeAssocValSynDecl {
-    pub(super) fn from_node_decl(
+    pub(super) fn from_node(
         db: &::salsa::Db,
         path: TypeItemPath,
         syn_node_decl: TypeAssocValSynNodeDecl,

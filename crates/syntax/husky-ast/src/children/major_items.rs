@@ -4,9 +4,7 @@ use super::*;
 pub struct MajorItems;
 
 impl IsAstChildren for MajorItems {
-    const ALLOW_STMT: AstResult<()> = Err(AstError::Original(
-        OriginalAstError::UnexpectedStmtUnderModule,
-    ));
+    const ALLOW_STMT: AstResult<()> = Ok(());
 
     #[inline(always)]
     fn determine_item_kind(item_keyword_group: EntityKindKeywordGroup) -> AstResult<EntityKind> {

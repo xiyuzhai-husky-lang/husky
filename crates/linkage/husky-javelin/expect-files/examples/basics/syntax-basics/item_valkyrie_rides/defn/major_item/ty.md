@@ -3,13 +3,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 8,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`syntax_basics::defn::major_item::ty::enum_ty),
         ),
         None,
     ),

@@ -1,7 +1,7 @@
 use super::*;
 use either::*;
 use husky_entity_path::path::major_item::trai::PreludeTraitPath;
-use husky_entity_tree::HasAssocItemPaths;
+use husky_entity_tree::node::HasAssocItemPaths;
 use husky_hir_decl::decl::TraitForTypeImplBlockHirDecl;
 use husky_hir_defn::defn::impl_block::trai_for_ty_impl_block::TraitForTypeImplBlockHirDefn;
 use husky_hir_ty::{HirComptermTemplateVariable, HirTemplateVariable, HirTemplateVariableClass};

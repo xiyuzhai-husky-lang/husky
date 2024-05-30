@@ -1,4 +1,4 @@
-macro_rules! item_debug_with_db_fmt {
+macro_rules! item_debug_fmt_with_db {
     ($slf: ident, $f: ident, $ty_str: literal, $db: ident) => {{
         let data = $slf.data($db);
         $f.debug_tuple($ty_str)
@@ -14,4 +14,4 @@ macro_rules! item_debug_with_db_fmt {
     }};
 }
 
-pub(crate) use item_debug_with_db_fmt;
+pub(crate) use item_debug_fmt_with_db;

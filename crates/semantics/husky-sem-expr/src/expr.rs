@@ -395,7 +395,7 @@ impl SemExprArena {
     }
 
     pub(crate) fn arena_ref(&self) -> SemExprArenaRef {
-        SemExprArenaRef(self.0.to_ref())
+        SemExprArenaRef(self.0.as_arena_ref())
     }
 
     pub(crate) fn index_iter(&self) -> impl Iterator<Item = SemExprIdx> {
@@ -596,6 +596,7 @@ impl<'a> SemExprBuilder<'a> {
                 SynExprRootKind::Snippet => todo!(),
                 SynExprRootKind::ValExpr => todo!(),
                 SynExprRootKind::Effect => todo!(),
+                SynExprRootKind::DefaultConstExclude => todo!(),
             };
             self.sem_expr_roots
                 .insert_new((root.syn_expr_idx(), (sem_expr_idx, root.kind())))

@@ -1,5 +1,5 @@
 use super::*;
-use parsec::parse_separated_small_list2;
+use parsec::parse_punctuated_small_list;
 
 pub(crate) type ParenateSynParametersData = SmallVec<[ParenateParameterSyndicate; 2]>;
 
@@ -14,13 +14,13 @@ pub struct ParenateParameterSyndicateList<const ALLOW_SELF_PARAMETER: bool> {
     rpar: RparRegionalToken,
 }
 
-impl<'a, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<SynDeclExprParser<'a>>
+impl<'a, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<StandaloneSynExprParser<'a>>
     for ParenateParameterSyndicateList<ALLOW_SELF_PARAMETER>
 {
     type Error = SynNodeDeclError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut SynDeclExprParser<'a>,
+        ctx: &mut StandaloneSynExprParser<'a>,
     ) -> Result<Option<Self>, SynNodeDeclError> {
         let Some(lpar) = ctx.try_parse_option::<LparRegionalToken>()? else {
             return Ok(None);
@@ -33,7 +33,7 @@ impl<'a, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<SynDeclExprP
         };
         let (parenate_parameters, commas) =
             if self_value_parameter.is_none() || comma_after_self_parameter.is_some() {
-                parse_separated_small_list2(ctx, |e| e)?
+                parse_punctuated_small_list(ctx, |e| e)?
             } else {
                 Default::default()
             };
