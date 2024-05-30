@@ -18,6 +18,12 @@ impl DecSignatureDb for ::salsa::Db {
 #[salsa::jar]
 pub struct DecSignatureJar(
     crate::region::syn_expr_dec_term_region,
+    // crate
+    crate::signature::crate_::lib::LibCrateDecSignature,
+    crate::signature::crate_::task::TaskCrateDecSignature,
+    crate::signature::crate_::requirements::RequirementsCrateDecSignature,
+    crate::signature::crate_::main::MainCrateDecSignature,
+    crate::signature::crate_::crate_dec_signature,
     // type
     crate::signature::major_item::ty::ty_dec_template,
     crate::signature::major_item::ty::r#enum::EnumDecTemplate,

@@ -3,52 +3,28 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 36,
-                        },
-                    ),
-                ),
+                path: SubmoduleItemPath(`mnist_classifier::line_segment_sketch::concave_component),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 37,
-                        },
-                    ),
-                ),
+                path: SubmoduleItemPath(`mnist_classifier::line_segment_sketch::convex_component),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 38,
-                        },
-                    ),
-                ),
+                path: SubmoduleItemPath(`mnist_classifier::line_segment_sketch::convexity),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 39,
-                        },
-                    ),
-                ),
+                path: SubmoduleItemPath(`mnist_classifier::line_segment_sketch::line_segment),
             },
         },
     ),
@@ -126,7 +102,7 @@
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -512,7 +488,7 @@
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -1031,7 +1007,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)`),
@@ -1104,7 +1080,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
@@ -1149,7 +1125,7 @@
                         (
                             5,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TraitForTypeItem(
                                             TraitForTypeItemPath(
@@ -1408,7 +1384,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)`),
@@ -1515,7 +1491,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -1600,7 +1576,7 @@
                         (
                             11,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -2093,7 +2069,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -2138,7 +2114,7 @@
                         (
                             5,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -2419,7 +2395,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)`),
@@ -2492,7 +2468,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
@@ -2537,7 +2513,7 @@
                         (
                             3,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TraitForTypeItem(
                                             TraitForTypeItemPath(
@@ -2761,7 +2737,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)`),
@@ -2824,7 +2800,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -2867,7 +2843,7 @@
                         (
                             2,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -3012,7 +2988,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -3055,7 +3031,7 @@
                         (
                             52,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -4942,7 +4918,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -5014,7 +4990,7 @@
                         (
                             5,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(

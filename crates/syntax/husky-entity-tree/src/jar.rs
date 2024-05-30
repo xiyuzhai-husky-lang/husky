@@ -58,29 +58,29 @@ impl EntityTreeDb for ::salsa::Db {
 
 #[salsa::jar]
 pub struct EntityTreeJar(
-    ItemSynNodePathId,
+    crate::node::ItemSynNodePathId,
     UseSymbol,
     ParentSuperSymbol,
     // module items
-    trai_item_paths,
-    trai_item_syn_nodes,
+    crate::node::major_item::trai::trai_item_paths,
+    crate::node::assoc_item::trai_item::trai_item_syn_nodes,
     // ty_impl_blocks,
-    ty_item_syn_node_paths,
-    ty_item_paths_map,
-    ty_impl_block_item_paths,
-    ty_impl_block_items,
+    crate::node::assoc_item::ty_item::ty_item_syn_node_paths,
+    crate::node::assoc_item::ty_item::ty_item_paths_map,
+    crate::node::impl_block::ty_impl_block::ty_impl_block_item_paths,
+    crate::node::assoc_item::ty_item::ty_impl_block_items,
     // ty for ty item
-    trai_for_ty_impl_block_item_paths,
+    crate::node::impl_block::trai_for_ty_impl_block::trai_for_ty_impl_block_item_paths,
     // variants
-    ty_variant_syn_nodes,
-    ty_variant_paths,
+    crate::node::ty_variant::ty_variant_syn_nodes,
+    crate::node::ty_variant::ty_variant_paths,
     // impl blocks
     // - type impl block
     // - trai for ty impl block
-    trai_for_ty_impl_block_items,
+    crate::node::impl_block::trai_for_ty_impl_block::trai_for_ty_impl_block_items,
     // attr
-    item_attr_paths,
-    item_attr_syn_nodes,
+    crate::node::attr::item_attr_paths,
+    crate::node::attr::item_attr_syn_nodes,
     // other
     item_tree_presheet,
     item_tree_crate_bundle,
@@ -104,11 +104,14 @@ pub struct EntityTreeJar(
     crate::helpers::paths::to_test_path,
     crate::helpers::trai_side_derive_any_trai_for_ty_impl_block_paths_map,
     crate::helpers::trai_side_path_leading_trai_for_ty_impl_block_paths_map,
-    crate::helpers::tokra_region::DeclTokraRegion,
-    crate::helpers::tokra_region::decl::item_syn_node_decl_tokra_region_with_source_map,
-    crate::helpers::tokra_region::defn::DefnTokraRegion,
-    crate::helpers::tokra_region::defn::DefnTokraRegionSourceMap,
-    crate::helpers::tokra_region::defn::item_syn_defn_tokra_region_with_source_map,
+    crate::helpers::tokra_region::crate_decl::CrateDeclTokraRegion,
+    crate::helpers::tokra_region::crate_decl::CrateDeclTokraRegionSourceMap,
+    crate::helpers::tokra_region::crate_decl::crate_decl_tokra_region,
+    crate::helpers::tokra_region::item_decl::ItemDeclTokraRegion,
+    crate::helpers::tokra_region::item_decl::item_syn_node_decl_tokra_region_with_source_map,
+    crate::helpers::tokra_region::item_defn::ItemDefnTokraRegion,
+    crate::helpers::tokra_region::item_defn::ItemDefnTokraRegionSourceMap,
+    crate::helpers::tokra_region::item_defn::item_defn_tokra_region_with_source_map,
     crate::helpers::ingredient::crate_ingredient_paths,
     crate::helpers::ingredient::item_path_ingredient_index,
 );

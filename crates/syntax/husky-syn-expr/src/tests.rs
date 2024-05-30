@@ -43,383 +43,383 @@ fn parse_expr_works() {
         db,
         "1",
         &expect![[r#"
-    (
-        SynExprRegionData {
-            parent: None,
-            path: SynNodeRegionPath::Defn(
-                ItemSynNodePath::Script(
-                    Room32,
-                    ScriptSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::Script(
-                                ScriptSynNodePathData {
-                                    script: Script {
-                                        source: Snippet {
-                                            toolchain: Toolchain(
-                                                Id {
-                                                    value: 1,
+            (
+                SynExprRegionData {
+                    parent: None,
+                    path: SynNodeRegionPath::ItemDefn(
+                        ItemSynNodePath::Script(
+                            Room32,
+                            ScriptSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Script(
+                                        ScriptSynNodePathData {
+                                            script: Script {
+                                                source: Snippet {
+                                                    toolchain: Toolchain(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
                                                 },
-                                            ),
+                                                data: "1",
+                                            },
                                         },
-                                        data: "1",
-                                    },
+                                    ),
                                 },
                             ),
-                        },
-                    ),
-                ),
-            ),
-            expr_arena: Arena {
-                data: [
-                    SynExprData::Literal(
-                        RegionalTokenIdx(
-                            1,
                         ),
-                        LiteralTokenData::Integer(
-                            UnspecifiedRegular(
-                                1,
+                    ),
+                    expr_arena: Arena {
+                        data: [
+                            SynExprData::Literal(
+                                RegionalTokenIdx(
+                                    1,
+                                ),
+                                LiteralTokenData::Integer(
+                                    UnspecifiedRegular(
+                                        1,
+                                    ),
+                                ),
                             ),
-                        ),
-                    ),
-                ],
-            },
-            principal_item_path_expr_arena: Arena {
-                data: [],
-            },
-            stmt_arena: Arena {
-                data: [],
-            },
-            pattern_expr_region: SynPatternRegion {
-                pattern_expr_arena: Arena {
-                    data: [],
+                        ],
+                    },
+                    principal_item_path_expr_arena: Arena {
+                        data: [],
+                    },
+                    stmt_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_region: SynPatternRegion {
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_contracts: ArenaMap {
+                            data: [],
+                        },
+                        pattern_symbol_arena: Arena {
+                            data: [],
+                        },
+                        pattern_symbol_maps: [],
+                        pattern_symbol_modifiers: ArenaMap {
+                            data: [],
+                        },
+                    },
+                    variable_region: VariableRegionData {
+                        inherited_syn_symbol_arena: Arena {
+                            data: [],
+                        },
+                        current_variable_arena: Arena {
+                            data: [],
+                        },
+                        allow_self_type: False,
+                        allow_self_value: False,
+                        pattern_ty_constraints: [],
+                    },
+                    pattern_roots: [],
+                    expr_roots: [
+                        SynExprRoot {
+                            kind: SynExprRootKind::Snippet,
+                            syn_expr_idx: 0,
+                        },
+                    ],
+                    has_self_lifetime: false,
+                    has_self_place: false,
+                    pattern_to_current_variable_map: [],
                 },
-                pattern_expr_contracts: ArenaMap {
-                    data: [],
-                },
-                pattern_symbol_arena: Arena {
-                    data: [],
-                },
-                pattern_symbol_maps: [],
-                pattern_symbol_modifiers: ArenaMap {
-                    data: [],
-                },
-            },
-            variable_region: VariableRegionData {
-                inherited_syn_symbol_arena: Arena {
-                    data: [],
-                },
-                current_variable_arena: Arena {
-                    data: [],
-                },
-                allow_self_type: False,
-                allow_self_value: False,
-                pattern_ty_constraints: [],
-            },
-            pattern_roots: [],
-            expr_roots: [
-                SynExprRoot {
-                    kind: SynExprRootKind::Snippet,
-                    syn_expr_idx: 0,
-                },
-            ],
-            has_self_lifetime: false,
-            has_self_place: false,
-            pattern_to_current_variable_map: [],
-        },
-        Some(
-            0,
-        ),
-    )
-"#]],
+                Some(
+                    0,
+                ),
+            )
+        "#]],
     );
 
     t(
         db,
         "-1",
         &expect![[r#"
-        (
-            SynExprRegionData {
-                parent: None,
-                path: SynNodeRegionPath::Defn(
-                    ItemSynNodePath::Script(
-                        Room32,
-                        ScriptSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Script(
-                                    ScriptSynNodePathData {
-                                        script: Script {
-                                            source: Snippet {
-                                                toolchain: Toolchain(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
+            (
+                SynExprRegionData {
+                    parent: None,
+                    path: SynNodeRegionPath::ItemDefn(
+                        ItemSynNodePath::Script(
+                            Room32,
+                            ScriptSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Script(
+                                        ScriptSynNodePathData {
+                                            script: Script {
+                                                source: Snippet {
+                                                    toolchain: Toolchain(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
+                                                },
+                                                data: "-1",
                                             },
-                                            data: "-1",
                                         },
-                                    },
-                                ),
-                            },
+                                    ),
+                                },
+                            ),
                         ),
                     ),
-                ),
-                expr_arena: Arena {
-                    data: [
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                2,
-                            ),
-                            LiteralTokenData::Integer(
-                                UnspecifiedRegular(
-                                    1,
+                    expr_arena: Arena {
+                        data: [
+                            SynExprData::Literal(
+                                RegionalTokenIdx(
+                                    2,
+                                ),
+                                LiteralTokenData::Integer(
+                                    UnspecifiedRegular(
+                                        1,
+                                    ),
                                 ),
                             ),
-                        ),
-                        SynExprData::Prefix {
-                            opr: Minus,
-                            opr_regional_token_idx: RegionalTokenIdx(
-                                1,
-                            ),
-                            opd: 0,
+                            SynExprData::Prefix {
+                                opr: Minus,
+                                opr_regional_token_idx: RegionalTokenIdx(
+                                    1,
+                                ),
+                                opd: 0,
+                            },
+                        ],
+                    },
+                    principal_item_path_expr_arena: Arena {
+                        data: [],
+                    },
+                    stmt_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_region: SynPatternRegion {
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_contracts: ArenaMap {
+                            data: [],
+                        },
+                        pattern_symbol_arena: Arena {
+                            data: [],
+                        },
+                        pattern_symbol_maps: [],
+                        pattern_symbol_modifiers: ArenaMap {
+                            data: [],
+                        },
+                    },
+                    variable_region: VariableRegionData {
+                        inherited_syn_symbol_arena: Arena {
+                            data: [],
+                        },
+                        current_variable_arena: Arena {
+                            data: [],
+                        },
+                        allow_self_type: False,
+                        allow_self_value: False,
+                        pattern_ty_constraints: [],
+                    },
+                    pattern_roots: [],
+                    expr_roots: [
+                        SynExprRoot {
+                            kind: SynExprRootKind::Snippet,
+                            syn_expr_idx: 1,
                         },
                     ],
+                    has_self_lifetime: false,
+                    has_self_place: false,
+                    pattern_to_current_variable_map: [],
                 },
-                principal_item_path_expr_arena: Arena {
-                    data: [],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                variable_region: VariableRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_variable_arena: Arena {
-                        data: [],
-                    },
-                    allow_self_type: False,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [],
-                },
-                pattern_roots: [],
-                expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::Snippet,
-                        syn_expr_idx: 1,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                pattern_to_current_variable_map: [],
-            },
-            Some(
-                1,
-            ),
-        )
-    "#]],
+                Some(
+                    1,
+                ),
+            )
+        "#]],
     );
 
     t(
         db,
         "1i32",
         &expect![[r#"
-        (
-            SynExprRegionData {
-                parent: None,
-                path: SynNodeRegionPath::Defn(
-                    ItemSynNodePath::Script(
-                        Room32,
-                        ScriptSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Script(
-                                    ScriptSynNodePathData {
-                                        script: Script {
-                                            source: Snippet {
-                                                toolchain: Toolchain(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
+            (
+                SynExprRegionData {
+                    parent: None,
+                    path: SynNodeRegionPath::ItemDefn(
+                        ItemSynNodePath::Script(
+                            Room32,
+                            ScriptSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Script(
+                                        ScriptSynNodePathData {
+                                            script: Script {
+                                                source: Snippet {
+                                                    toolchain: Toolchain(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
+                                                },
+                                                data: "1i32",
                                             },
-                                            data: "1i32",
                                         },
-                                    },
-                                ),
-                            },
+                                    ),
+                                },
+                            ),
                         ),
                     ),
-                ),
-                expr_arena: Arena {
-                    data: [
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                1,
-                            ),
-                            LiteralTokenData::Integer(
-                                I32(
+                    expr_arena: Arena {
+                        data: [
+                            SynExprData::Literal(
+                                RegionalTokenIdx(
                                     1,
                                 ),
+                                LiteralTokenData::Integer(
+                                    I32(
+                                        1,
+                                    ),
+                                ),
                             ),
-                        ),
+                        ],
+                    },
+                    principal_item_path_expr_arena: Arena {
+                        data: [],
+                    },
+                    stmt_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_region: SynPatternRegion {
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_contracts: ArenaMap {
+                            data: [],
+                        },
+                        pattern_symbol_arena: Arena {
+                            data: [],
+                        },
+                        pattern_symbol_maps: [],
+                        pattern_symbol_modifiers: ArenaMap {
+                            data: [],
+                        },
+                    },
+                    variable_region: VariableRegionData {
+                        inherited_syn_symbol_arena: Arena {
+                            data: [],
+                        },
+                        current_variable_arena: Arena {
+                            data: [],
+                        },
+                        allow_self_type: False,
+                        allow_self_value: False,
+                        pattern_ty_constraints: [],
+                    },
+                    pattern_roots: [],
+                    expr_roots: [
+                        SynExprRoot {
+                            kind: SynExprRootKind::Snippet,
+                            syn_expr_idx: 0,
+                        },
                     ],
+                    has_self_lifetime: false,
+                    has_self_place: false,
+                    pattern_to_current_variable_map: [],
                 },
-                principal_item_path_expr_arena: Arena {
-                    data: [],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                variable_region: VariableRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_variable_arena: Arena {
-                        data: [],
-                    },
-                    allow_self_type: False,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [],
-                },
-                pattern_roots: [],
-                expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::Snippet,
-                        syn_expr_idx: 0,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                pattern_to_current_variable_map: [],
-            },
-            Some(
-                0,
-            ),
-        )
-    "#]],
+                Some(
+                    0,
+                ),
+            )
+        "#]],
     );
 
     t(
         db,
         "2i64",
         &expect![[r#"
-        (
-            SynExprRegionData {
-                parent: None,
-                path: SynNodeRegionPath::Defn(
-                    ItemSynNodePath::Script(
-                        Room32,
-                        ScriptSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Script(
-                                    ScriptSynNodePathData {
-                                        script: Script {
-                                            source: Snippet {
-                                                toolchain: Toolchain(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
+            (
+                SynExprRegionData {
+                    parent: None,
+                    path: SynNodeRegionPath::ItemDefn(
+                        ItemSynNodePath::Script(
+                            Room32,
+                            ScriptSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Script(
+                                        ScriptSynNodePathData {
+                                            script: Script {
+                                                source: Snippet {
+                                                    toolchain: Toolchain(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
+                                                },
+                                                data: "2i64",
                                             },
-                                            data: "2i64",
                                         },
-                                    },
-                                ),
-                            },
+                                    ),
+                                },
+                            ),
                         ),
                     ),
-                ),
-                expr_arena: Arena {
-                    data: [
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                1,
-                            ),
-                            LiteralTokenData::Integer(
-                                I64(
-                                    2,
+                    expr_arena: Arena {
+                        data: [
+                            SynExprData::Literal(
+                                RegionalTokenIdx(
+                                    1,
+                                ),
+                                LiteralTokenData::Integer(
+                                    I64(
+                                        2,
+                                    ),
                                 ),
                             ),
-                        ),
+                        ],
+                    },
+                    principal_item_path_expr_arena: Arena {
+                        data: [],
+                    },
+                    stmt_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_region: SynPatternRegion {
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_contracts: ArenaMap {
+                            data: [],
+                        },
+                        pattern_symbol_arena: Arena {
+                            data: [],
+                        },
+                        pattern_symbol_maps: [],
+                        pattern_symbol_modifiers: ArenaMap {
+                            data: [],
+                        },
+                    },
+                    variable_region: VariableRegionData {
+                        inherited_syn_symbol_arena: Arena {
+                            data: [],
+                        },
+                        current_variable_arena: Arena {
+                            data: [],
+                        },
+                        allow_self_type: False,
+                        allow_self_value: False,
+                        pattern_ty_constraints: [],
+                    },
+                    pattern_roots: [],
+                    expr_roots: [
+                        SynExprRoot {
+                            kind: SynExprRootKind::Snippet,
+                            syn_expr_idx: 0,
+                        },
                     ],
+                    has_self_lifetime: false,
+                    has_self_place: false,
+                    pattern_to_current_variable_map: [],
                 },
-                principal_item_path_expr_arena: Arena {
-                    data: [],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                variable_region: VariableRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_variable_arena: Arena {
-                        data: [],
-                    },
-                    allow_self_type: False,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [],
-                },
-                pattern_roots: [],
-                expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::Snippet,
-                        syn_expr_idx: 0,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                pattern_to_current_variable_map: [],
-            },
-            Some(
-                0,
-            ),
-        )
-    "#]],
+                Some(
+                    0,
+                ),
+            )
+        "#]],
     );
 
     t(
@@ -429,7 +429,7 @@ fn parse_expr_works() {
             (
                 SynExprRegionData {
                     parent: None,
-                    path: SynNodeRegionPath::Defn(
+                    path: SynNodeRegionPath::ItemDefn(
                         ItemSynNodePath::Script(
                             Room32,
                             ScriptSynNodePath(
@@ -517,689 +517,689 @@ fn parse_expr_works() {
         db,
         "1 + 1",
         &expect![[r#"
-        (
-            SynExprRegionData {
-                parent: None,
-                path: SynNodeRegionPath::Defn(
-                    ItemSynNodePath::Script(
-                        Room32,
-                        ScriptSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Script(
-                                    ScriptSynNodePathData {
-                                        script: Script {
-                                            source: Snippet {
-                                                toolchain: Toolchain(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
+            (
+                SynExprRegionData {
+                    parent: None,
+                    path: SynNodeRegionPath::ItemDefn(
+                        ItemSynNodePath::Script(
+                            Room32,
+                            ScriptSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Script(
+                                        ScriptSynNodePathData {
+                                            script: Script {
+                                                source: Snippet {
+                                                    toolchain: Toolchain(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
+                                                },
+                                                data: "1 + 1",
                                             },
-                                            data: "1 + 1",
                                         },
-                                    },
-                                ),
-                            },
+                                    ),
+                                },
+                            ),
                         ),
                     ),
-                ),
-                expr_arena: Arena {
-                    data: [
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                1,
-                            ),
-                            LiteralTokenData::Integer(
-                                UnspecifiedRegular(
+                    expr_arena: Arena {
+                        data: [
+                            SynExprData::Literal(
+                                RegionalTokenIdx(
                                     1,
                                 ),
-                            ),
-                        ),
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                3,
-                            ),
-                            LiteralTokenData::Integer(
-                                UnspecifiedRegular(
-                                    1,
+                                LiteralTokenData::Integer(
+                                    UnspecifiedRegular(
+                                        1,
+                                    ),
                                 ),
                             ),
-                        ),
-                        SynExprData::Binary {
-                            lopd: 0,
-                            opr: SynBinaryOpr::Closed(
-                                BinaryClosedOpr::Add,
+                            SynExprData::Literal(
+                                RegionalTokenIdx(
+                                    3,
+                                ),
+                                LiteralTokenData::Integer(
+                                    UnspecifiedRegular(
+                                        1,
+                                    ),
+                                ),
                             ),
-                            opr_regional_token_idx: RegionalTokenIdx(
-                                2,
-                            ),
-                            ropd: 1,
+                            SynExprData::Binary {
+                                lopd: 0,
+                                opr: SynBinaryOpr::Closed(
+                                    BinaryClosedOpr::Add,
+                                ),
+                                opr_regional_token_idx: RegionalTokenIdx(
+                                    2,
+                                ),
+                                ropd: 1,
+                            },
+                        ],
+                    },
+                    principal_item_path_expr_arena: Arena {
+                        data: [],
+                    },
+                    stmt_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_region: SynPatternRegion {
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_contracts: ArenaMap {
+                            data: [],
+                        },
+                        pattern_symbol_arena: Arena {
+                            data: [],
+                        },
+                        pattern_symbol_maps: [],
+                        pattern_symbol_modifiers: ArenaMap {
+                            data: [],
+                        },
+                    },
+                    variable_region: VariableRegionData {
+                        inherited_syn_symbol_arena: Arena {
+                            data: [],
+                        },
+                        current_variable_arena: Arena {
+                            data: [],
+                        },
+                        allow_self_type: False,
+                        allow_self_value: False,
+                        pattern_ty_constraints: [],
+                    },
+                    pattern_roots: [],
+                    expr_roots: [
+                        SynExprRoot {
+                            kind: SynExprRootKind::Snippet,
+                            syn_expr_idx: 2,
                         },
                     ],
+                    has_self_lifetime: false,
+                    has_self_place: false,
+                    pattern_to_current_variable_map: [],
                 },
-                principal_item_path_expr_arena: Arena {
-                    data: [],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                variable_region: VariableRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_variable_arena: Arena {
-                        data: [],
-                    },
-                    allow_self_type: False,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [],
-                },
-                pattern_roots: [],
-                expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::Snippet,
-                        syn_expr_idx: 2,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                pattern_to_current_variable_map: [],
-            },
-            Some(
-                2,
-            ),
-        )
-    "#]],
+                Some(
+                    2,
+                ),
+            )
+        "#]],
     );
 
     t(
         db,
         "[]i32",
         &expect![[r#"
-        (
-            SynExprRegionData {
-                parent: None,
-                path: SynNodeRegionPath::Defn(
-                    ItemSynNodePath::Script(
-                        Room32,
-                        ScriptSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Script(
-                                    ScriptSynNodePathData {
-                                        script: Script {
-                                            source: Snippet {
-                                                toolchain: Toolchain(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
+            (
+                SynExprRegionData {
+                    parent: None,
+                    path: SynNodeRegionPath::ItemDefn(
+                        ItemSynNodePath::Script(
+                            Room32,
+                            ScriptSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Script(
+                                        ScriptSynNodePathData {
+                                            script: Script {
+                                                source: Snippet {
+                                                    toolchain: Toolchain(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
+                                                },
+                                                data: "[]i32",
                                             },
-                                            data: "[]i32",
                                         },
-                                    },
-                                ),
-                            },
-                        ),
-                    ),
-                ),
-                expr_arena: Arena {
-                    data: [
-                        SynExprData::List {
-                            lbox_regional_token_idx: RegionalTokenIdx(
-                                1,
-                            ),
-                            items: [],
-                            rbox_regional_token_idx: RegionalTokenIdx(
-                                2,
-                            ),
-                        },
-                        SynExprData::Err(
-                            SynExprError::Original(
-                                OriginalSynExprError::UnrecognizedIdent {
-                                    regional_token_idx: RegionalTokenIdx(
-                                        3,
                                     ),
-                                    ident: `i32`,
                                 },
                             ),
                         ),
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 0,
-                            argument_expr_idx: 1,
+                    ),
+                    expr_arena: Arena {
+                        data: [
+                            SynExprData::List {
+                                lbox_regional_token_idx: RegionalTokenIdx(
+                                    1,
+                                ),
+                                items: [],
+                                rbox_regional_token_idx: RegionalTokenIdx(
+                                    2,
+                                ),
+                            },
+                            SynExprData::Err(
+                                SynExprError::Original(
+                                    OriginalSynExprError::UnrecognizedIdent {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            3,
+                                        ),
+                                        ident: `i32`,
+                                    },
+                                ),
+                            ),
+                            SynExprData::ExplicitApplication {
+                                function_expr_idx: 0,
+                                argument_expr_idx: 1,
+                            },
+                        ],
+                    },
+                    principal_item_path_expr_arena: Arena {
+                        data: [],
+                    },
+                    stmt_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_region: SynPatternRegion {
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_contracts: ArenaMap {
+                            data: [],
+                        },
+                        pattern_symbol_arena: Arena {
+                            data: [],
+                        },
+                        pattern_symbol_maps: [],
+                        pattern_symbol_modifiers: ArenaMap {
+                            data: [],
+                        },
+                    },
+                    variable_region: VariableRegionData {
+                        inherited_syn_symbol_arena: Arena {
+                            data: [],
+                        },
+                        current_variable_arena: Arena {
+                            data: [],
+                        },
+                        allow_self_type: False,
+                        allow_self_value: False,
+                        pattern_ty_constraints: [],
+                    },
+                    pattern_roots: [],
+                    expr_roots: [
+                        SynExprRoot {
+                            kind: SynExprRootKind::Snippet,
+                            syn_expr_idx: 2,
                         },
                     ],
+                    has_self_lifetime: false,
+                    has_self_place: false,
+                    pattern_to_current_variable_map: [],
                 },
-                principal_item_path_expr_arena: Arena {
-                    data: [],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                variable_region: VariableRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_variable_arena: Arena {
-                        data: [],
-                    },
-                    allow_self_type: False,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [],
-                },
-                pattern_roots: [],
-                expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::Snippet,
-                        syn_expr_idx: 2,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                pattern_to_current_variable_map: [],
-            },
-            Some(
-                2,
-            ),
-        )
-    "#]],
+                Some(
+                    2,
+                ),
+            )
+        "#]],
     );
 
     t(
         db,
         "[3]i32",
         &expect![[r#"
-        (
-            SynExprRegionData {
-                parent: None,
-                path: SynNodeRegionPath::Defn(
-                    ItemSynNodePath::Script(
-                        Room32,
-                        ScriptSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Script(
-                                    ScriptSynNodePathData {
-                                        script: Script {
-                                            source: Snippet {
-                                                toolchain: Toolchain(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
+            (
+                SynExprRegionData {
+                    parent: None,
+                    path: SynNodeRegionPath::ItemDefn(
+                        ItemSynNodePath::Script(
+                            Room32,
+                            ScriptSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Script(
+                                        ScriptSynNodePathData {
+                                            script: Script {
+                                                source: Snippet {
+                                                    toolchain: Toolchain(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
+                                                },
+                                                data: "[3]i32",
                                             },
-                                            data: "[3]i32",
                                         },
-                                    },
-                                ),
-                            },
+                                    ),
+                                },
+                            ),
                         ),
                     ),
-                ),
-                expr_arena: Arena {
-                    data: [
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                2,
-                            ),
-                            LiteralTokenData::Integer(
-                                UnspecifiedRegular(
-                                    3,
+                    expr_arena: Arena {
+                        data: [
+                            SynExprData::Literal(
+                                RegionalTokenIdx(
+                                    2,
+                                ),
+                                LiteralTokenData::Integer(
+                                    UnspecifiedRegular(
+                                        3,
+                                    ),
                                 ),
                             ),
-                        ),
-                        SynExprData::List {
-                            lbox_regional_token_idx: RegionalTokenIdx(
-                                1,
+                            SynExprData::List {
+                                lbox_regional_token_idx: RegionalTokenIdx(
+                                    1,
+                                ),
+                                items: [
+                                    SynCommaListItem {
+                                        syn_expr_idx: 0,
+                                        comma_regional_token_idx: None,
+                                    },
+                                ],
+                                rbox_regional_token_idx: RegionalTokenIdx(
+                                    3,
+                                ),
+                            },
+                            SynExprData::Err(
+                                SynExprError::Original(
+                                    OriginalSynExprError::UnrecognizedIdent {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            4,
+                                        ),
+                                        ident: `i32`,
+                                    },
+                                ),
                             ),
-                            items: [
-                                SynCommaListItem {
-                                    syn_expr_idx: 0,
-                                    comma_regional_token_idx: None,
-                                },
-                            ],
-                            rbox_regional_token_idx: RegionalTokenIdx(
-                                3,
-                            ),
+                            SynExprData::ExplicitApplication {
+                                function_expr_idx: 1,
+                                argument_expr_idx: 2,
+                            },
+                        ],
+                    },
+                    principal_item_path_expr_arena: Arena {
+                        data: [],
+                    },
+                    stmt_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_region: SynPatternRegion {
+                        pattern_expr_arena: Arena {
+                            data: [],
                         },
-                        SynExprData::Err(
-                            SynExprError::Original(
-                                OriginalSynExprError::UnrecognizedIdent {
-                                    regional_token_idx: RegionalTokenIdx(
-                                        4,
-                                    ),
-                                    ident: `i32`,
-                                },
-                            ),
-                        ),
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 1,
-                            argument_expr_idx: 2,
+                        pattern_expr_contracts: ArenaMap {
+                            data: [],
+                        },
+                        pattern_symbol_arena: Arena {
+                            data: [],
+                        },
+                        pattern_symbol_maps: [],
+                        pattern_symbol_modifiers: ArenaMap {
+                            data: [],
+                        },
+                    },
+                    variable_region: VariableRegionData {
+                        inherited_syn_symbol_arena: Arena {
+                            data: [],
+                        },
+                        current_variable_arena: Arena {
+                            data: [],
+                        },
+                        allow_self_type: False,
+                        allow_self_value: False,
+                        pattern_ty_constraints: [],
+                    },
+                    pattern_roots: [],
+                    expr_roots: [
+                        SynExprRoot {
+                            kind: SynExprRootKind::Snippet,
+                            syn_expr_idx: 3,
                         },
                     ],
+                    has_self_lifetime: false,
+                    has_self_place: false,
+                    pattern_to_current_variable_map: [],
                 },
-                principal_item_path_expr_arena: Arena {
-                    data: [],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                variable_region: VariableRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_variable_arena: Arena {
-                        data: [],
-                    },
-                    allow_self_type: False,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [],
-                },
-                pattern_roots: [],
-                expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::Snippet,
-                        syn_expr_idx: 3,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                pattern_to_current_variable_map: [],
-            },
-            Some(
-                3,
-            ),
-        )
-    "#]],
+                Some(
+                    3,
+                ),
+            )
+        "#]],
     );
 
     t(
         db,
         "(i32, i32)",
         &expect![[r#"
-        (
-            SynExprRegionData {
-                parent: None,
-                path: SynNodeRegionPath::Defn(
-                    ItemSynNodePath::Script(
-                        Room32,
-                        ScriptSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Script(
-                                    ScriptSynNodePathData {
-                                        script: Script {
-                                            source: Snippet {
-                                                toolchain: Toolchain(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
+            (
+                SynExprRegionData {
+                    parent: None,
+                    path: SynNodeRegionPath::ItemDefn(
+                        ItemSynNodePath::Script(
+                            Room32,
+                            ScriptSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Script(
+                                        ScriptSynNodePathData {
+                                            script: Script {
+                                                source: Snippet {
+                                                    toolchain: Toolchain(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
+                                                },
+                                                data: "(i32, i32)",
                                             },
-                                            data: "(i32, i32)",
                                         },
-                                    },
-                                ),
-                            },
+                                    ),
+                                },
+                            ),
                         ),
                     ),
-                ),
-                expr_arena: Arena {
-                    data: [
-                        SynExprData::Err(
-                            SynExprError::Original(
-                                OriginalSynExprError::UnrecognizedIdent {
-                                    regional_token_idx: RegionalTokenIdx(
-                                        2,
-                                    ),
-                                    ident: `i32`,
-                                },
-                            ),
-                        ),
-                        SynExprData::Err(
-                            SynExprError::Original(
-                                OriginalSynExprError::UnrecognizedIdent {
-                                    regional_token_idx: RegionalTokenIdx(
-                                        4,
-                                    ),
-                                    ident: `i32`,
-                                },
-                            ),
-                        ),
-                        SynExprData::NewTuple {
-                            lpar_regional_token_idx: RegionalTokenIdx(
-                                1,
-                            ),
-                            items: [
-                                SynCommaListItem {
-                                    syn_expr_idx: 0,
-                                    comma_regional_token_idx: Some(
-                                        RegionalTokenIdx(
-                                            3,
+                    expr_arena: Arena {
+                        data: [
+                            SynExprData::Err(
+                                SynExprError::Original(
+                                    OriginalSynExprError::UnrecognizedIdent {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            2,
                                         ),
-                                    ),
-                                },
-                                SynCommaListItem {
-                                    syn_expr_idx: 1,
-                                    comma_regional_token_idx: None,
-                                },
-                            ],
-                            rpar_regional_token_idx: RegionalTokenIdx(
-                                5,
+                                        ident: `i32`,
+                                    },
+                                ),
                             ),
+                            SynExprData::Err(
+                                SynExprError::Original(
+                                    OriginalSynExprError::UnrecognizedIdent {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            4,
+                                        ),
+                                        ident: `i32`,
+                                    },
+                                ),
+                            ),
+                            SynExprData::NewTuple {
+                                lpar_regional_token_idx: RegionalTokenIdx(
+                                    1,
+                                ),
+                                items: [
+                                    SynCommaListItem {
+                                        syn_expr_idx: 0,
+                                        comma_regional_token_idx: Some(
+                                            RegionalTokenIdx(
+                                                3,
+                                            ),
+                                        ),
+                                    },
+                                    SynCommaListItem {
+                                        syn_expr_idx: 1,
+                                        comma_regional_token_idx: None,
+                                    },
+                                ],
+                                rpar_regional_token_idx: RegionalTokenIdx(
+                                    5,
+                                ),
+                            },
+                        ],
+                    },
+                    principal_item_path_expr_arena: Arena {
+                        data: [],
+                    },
+                    stmt_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_region: SynPatternRegion {
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_contracts: ArenaMap {
+                            data: [],
+                        },
+                        pattern_symbol_arena: Arena {
+                            data: [],
+                        },
+                        pattern_symbol_maps: [],
+                        pattern_symbol_modifiers: ArenaMap {
+                            data: [],
+                        },
+                    },
+                    variable_region: VariableRegionData {
+                        inherited_syn_symbol_arena: Arena {
+                            data: [],
+                        },
+                        current_variable_arena: Arena {
+                            data: [],
+                        },
+                        allow_self_type: False,
+                        allow_self_value: False,
+                        pattern_ty_constraints: [],
+                    },
+                    pattern_roots: [],
+                    expr_roots: [
+                        SynExprRoot {
+                            kind: SynExprRootKind::Snippet,
+                            syn_expr_idx: 2,
                         },
                     ],
+                    has_self_lifetime: false,
+                    has_self_place: false,
+                    pattern_to_current_variable_map: [],
                 },
-                principal_item_path_expr_arena: Arena {
-                    data: [],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                variable_region: VariableRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_variable_arena: Arena {
-                        data: [],
-                    },
-                    allow_self_type: False,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [],
-                },
-                pattern_roots: [],
-                expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::Snippet,
-                        syn_expr_idx: 2,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                pattern_to_current_variable_map: [],
-            },
-            Some(
-                2,
-            ),
-        )
-    "#]],
+                Some(
+                    2,
+                ),
+            )
+        "#]],
     );
 
     t(
         db,
         "x.a",
         &expect![[r#"
-        (
-            SynExprRegionData {
-                parent: None,
-                path: SynNodeRegionPath::Defn(
-                    ItemSynNodePath::Script(
-                        Room32,
-                        ScriptSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Script(
-                                    ScriptSynNodePathData {
-                                        script: Script {
-                                            source: Snippet {
-                                                toolchain: Toolchain(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
+            (
+                SynExprRegionData {
+                    parent: None,
+                    path: SynNodeRegionPath::ItemDefn(
+                        ItemSynNodePath::Script(
+                            Room32,
+                            ScriptSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Script(
+                                        ScriptSynNodePathData {
+                                            script: Script {
+                                                source: Snippet {
+                                                    toolchain: Toolchain(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
+                                                },
+                                                data: "x.a",
                                             },
-                                            data: "x.a",
                                         },
-                                    },
-                                ),
-                            },
-                        ),
-                    ),
-                ),
-                expr_arena: Arena {
-                    data: [
-                        SynExprData::Err(
-                            SynExprError::Original(
-                                OriginalSynExprError::UnrecognizedIdent {
-                                    regional_token_idx: RegionalTokenIdx(
-                                        1,
                                     ),
-                                    ident: `x`,
                                 },
                             ),
                         ),
-                        SynExprData::Field {
-                            owner: 0,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                2,
-                            ),
-                            ident_token: IdentRegionalToken {
-                                ident: `a`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    3,
+                    ),
+                    expr_arena: Arena {
+                        data: [
+                            SynExprData::Err(
+                                SynExprError::Original(
+                                    OriginalSynExprError::UnrecognizedIdent {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            1,
+                                        ),
+                                        ident: `x`,
+                                    },
                                 ),
+                            ),
+                            SynExprData::Field {
+                                owner: 0,
+                                dot_regional_token_idx: RegionalTokenIdx(
+                                    2,
+                                ),
+                                ident_token: IdentRegionalToken {
+                                    ident: `a`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        3,
+                                    ),
+                                },
                             },
+                        ],
+                    },
+                    principal_item_path_expr_arena: Arena {
+                        data: [],
+                    },
+                    stmt_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_region: SynPatternRegion {
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_contracts: ArenaMap {
+                            data: [],
+                        },
+                        pattern_symbol_arena: Arena {
+                            data: [],
+                        },
+                        pattern_symbol_maps: [],
+                        pattern_symbol_modifiers: ArenaMap {
+                            data: [],
+                        },
+                    },
+                    variable_region: VariableRegionData {
+                        inherited_syn_symbol_arena: Arena {
+                            data: [],
+                        },
+                        current_variable_arena: Arena {
+                            data: [],
+                        },
+                        allow_self_type: False,
+                        allow_self_value: False,
+                        pattern_ty_constraints: [],
+                    },
+                    pattern_roots: [],
+                    expr_roots: [
+                        SynExprRoot {
+                            kind: SynExprRootKind::Snippet,
+                            syn_expr_idx: 1,
                         },
                     ],
+                    has_self_lifetime: false,
+                    has_self_place: false,
+                    pattern_to_current_variable_map: [],
                 },
-                principal_item_path_expr_arena: Arena {
-                    data: [],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                variable_region: VariableRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_variable_arena: Arena {
-                        data: [],
-                    },
-                    allow_self_type: False,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [],
-                },
-                pattern_roots: [],
-                expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::Snippet,
-                        syn_expr_idx: 1,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                pattern_to_current_variable_map: [],
-            },
-            Some(
-                1,
-            ),
-        )
-    "#]],
+                Some(
+                    1,
+                ),
+            )
+        "#]],
     );
 
     t(
         db,
         "x.len()",
         &expect![[r#"
-        (
-            SynExprRegionData {
-                parent: None,
-                path: SynNodeRegionPath::Defn(
-                    ItemSynNodePath::Script(
-                        Room32,
-                        ScriptSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Script(
-                                    ScriptSynNodePathData {
-                                        script: Script {
-                                            source: Snippet {
-                                                toolchain: Toolchain(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
+            (
+                SynExprRegionData {
+                    parent: None,
+                    path: SynNodeRegionPath::ItemDefn(
+                        ItemSynNodePath::Script(
+                            Room32,
+                            ScriptSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Script(
+                                        ScriptSynNodePathData {
+                                            script: Script {
+                                                source: Snippet {
+                                                    toolchain: Toolchain(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
+                                                },
+                                                data: "x.len()",
                                             },
-                                            data: "x.len()",
                                         },
-                                    },
-                                ),
-                            },
-                        ),
-                    ),
-                ),
-                expr_arena: Arena {
-                    data: [
-                        SynExprData::Err(
-                            SynExprError::Original(
-                                OriginalSynExprError::UnrecognizedIdent {
-                                    regional_token_idx: RegionalTokenIdx(
-                                        1,
                                     ),
-                                    ident: `x`,
                                 },
                             ),
                         ),
-                        SynExprData::MethodApplicationOrCall {
-                            self_argument: 0,
-                            dot_regional_token_idx: RegionalTokenIdx(
-                                2,
+                    ),
+                    expr_arena: Arena {
+                        data: [
+                            SynExprData::Err(
+                                SynExprError::Original(
+                                    OriginalSynExprError::UnrecognizedIdent {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            1,
+                                        ),
+                                        ident: `x`,
+                                    },
+                                ),
                             ),
-                            ident_token: IdentRegionalToken {
-                                ident: `len`,
-                                regional_token_idx: RegionalTokenIdx(
-                                    3,
+                            SynExprData::MethodApplicationOrCall {
+                                self_argument: 0,
+                                dot_regional_token_idx: RegionalTokenIdx(
+                                    2,
+                                ),
+                                ident_token: IdentRegionalToken {
+                                    ident: `len`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        3,
+                                    ),
+                                },
+                                template_arguments: None,
+                                lpar_regional_token_idx: RegionalTokenIdx(
+                                    4,
+                                ),
+                                items: [],
+                                rpar_regional_token_idx: RegionalTokenIdx(
+                                    5,
                                 ),
                             },
-                            template_arguments: None,
-                            lpar_regional_token_idx: RegionalTokenIdx(
-                                4,
-                            ),
-                            items: [],
-                            rpar_regional_token_idx: RegionalTokenIdx(
-                                5,
-                            ),
+                        ],
+                    },
+                    principal_item_path_expr_arena: Arena {
+                        data: [],
+                    },
+                    stmt_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_region: SynPatternRegion {
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_contracts: ArenaMap {
+                            data: [],
+                        },
+                        pattern_symbol_arena: Arena {
+                            data: [],
+                        },
+                        pattern_symbol_maps: [],
+                        pattern_symbol_modifiers: ArenaMap {
+                            data: [],
+                        },
+                    },
+                    variable_region: VariableRegionData {
+                        inherited_syn_symbol_arena: Arena {
+                            data: [],
+                        },
+                        current_variable_arena: Arena {
+                            data: [],
+                        },
+                        allow_self_type: False,
+                        allow_self_value: False,
+                        pattern_ty_constraints: [],
+                    },
+                    pattern_roots: [],
+                    expr_roots: [
+                        SynExprRoot {
+                            kind: SynExprRootKind::Snippet,
+                            syn_expr_idx: 1,
                         },
                     ],
+                    has_self_lifetime: false,
+                    has_self_place: false,
+                    pattern_to_current_variable_map: [],
                 },
-                principal_item_path_expr_arena: Arena {
-                    data: [],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                variable_region: VariableRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_variable_arena: Arena {
-                        data: [],
-                    },
-                    allow_self_type: False,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [],
-                },
-                pattern_roots: [],
-                expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::Snippet,
-                        syn_expr_idx: 1,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                pattern_to_current_variable_map: [],
-            },
-            Some(
-                1,
-            ),
-        )
-    "#]],
+                Some(
+                    1,
+                ),
+            )
+        "#]],
     );
 }
 
@@ -1211,121 +1211,121 @@ fn parse_application_expr_works() {
         db,
         "0 1 2",
         &expect![[r#"
-        (
-            SynExprRegionData {
-                parent: None,
-                path: SynNodeRegionPath::Defn(
-                    ItemSynNodePath::Script(
-                        Room32,
-                        ScriptSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::Script(
-                                    ScriptSynNodePathData {
-                                        script: Script {
-                                            source: Snippet {
-                                                toolchain: Toolchain(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
+            (
+                SynExprRegionData {
+                    parent: None,
+                    path: SynNodeRegionPath::ItemDefn(
+                        ItemSynNodePath::Script(
+                            Room32,
+                            ScriptSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Script(
+                                        ScriptSynNodePathData {
+                                            script: Script {
+                                                source: Snippet {
+                                                    toolchain: Toolchain(
+                                                        Id {
+                                                            value: 1,
+                                                        },
+                                                    ),
+                                                },
+                                                data: "0 1 2",
                                             },
-                                            data: "0 1 2",
                                         },
-                                    },
-                                ),
-                            },
+                                    ),
+                                },
+                            ),
                         ),
                     ),
-                ),
-                expr_arena: Arena {
-                    data: [
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                1,
-                            ),
-                            LiteralTokenData::Integer(
-                                UnspecifiedRegular(
-                                    0,
-                                ),
-                            ),
-                        ),
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                2,
-                            ),
-                            LiteralTokenData::Integer(
-                                UnspecifiedRegular(
+                    expr_arena: Arena {
+                        data: [
+                            SynExprData::Literal(
+                                RegionalTokenIdx(
                                     1,
                                 ),
-                            ),
-                        ),
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 0,
-                            argument_expr_idx: 1,
-                        },
-                        SynExprData::Literal(
-                            RegionalTokenIdx(
-                                3,
-                            ),
-                            LiteralTokenData::Integer(
-                                UnspecifiedRegular(
-                                    2,
+                                LiteralTokenData::Integer(
+                                    UnspecifiedRegular(
+                                        0,
+                                    ),
                                 ),
                             ),
-                        ),
-                        SynExprData::ExplicitApplication {
-                            function_expr_idx: 2,
-                            argument_expr_idx: 3,
+                            SynExprData::Literal(
+                                RegionalTokenIdx(
+                                    2,
+                                ),
+                                LiteralTokenData::Integer(
+                                    UnspecifiedRegular(
+                                        1,
+                                    ),
+                                ),
+                            ),
+                            SynExprData::ExplicitApplication {
+                                function_expr_idx: 0,
+                                argument_expr_idx: 1,
+                            },
+                            SynExprData::Literal(
+                                RegionalTokenIdx(
+                                    3,
+                                ),
+                                LiteralTokenData::Integer(
+                                    UnspecifiedRegular(
+                                        2,
+                                    ),
+                                ),
+                            ),
+                            SynExprData::ExplicitApplication {
+                                function_expr_idx: 2,
+                                argument_expr_idx: 3,
+                            },
+                        ],
+                    },
+                    principal_item_path_expr_arena: Arena {
+                        data: [],
+                    },
+                    stmt_arena: Arena {
+                        data: [],
+                    },
+                    pattern_expr_region: SynPatternRegion {
+                        pattern_expr_arena: Arena {
+                            data: [],
+                        },
+                        pattern_expr_contracts: ArenaMap {
+                            data: [],
+                        },
+                        pattern_symbol_arena: Arena {
+                            data: [],
+                        },
+                        pattern_symbol_maps: [],
+                        pattern_symbol_modifiers: ArenaMap {
+                            data: [],
+                        },
+                    },
+                    variable_region: VariableRegionData {
+                        inherited_syn_symbol_arena: Arena {
+                            data: [],
+                        },
+                        current_variable_arena: Arena {
+                            data: [],
+                        },
+                        allow_self_type: False,
+                        allow_self_value: False,
+                        pattern_ty_constraints: [],
+                    },
+                    pattern_roots: [],
+                    expr_roots: [
+                        SynExprRoot {
+                            kind: SynExprRootKind::Snippet,
+                            syn_expr_idx: 4,
                         },
                     ],
+                    has_self_lifetime: false,
+                    has_self_place: false,
+                    pattern_to_current_variable_map: [],
                 },
-                principal_item_path_expr_arena: Arena {
-                    data: [],
-                },
-                stmt_arena: Arena {
-                    data: [],
-                },
-                pattern_expr_region: SynPatternRegion {
-                    pattern_expr_arena: Arena {
-                        data: [],
-                    },
-                    pattern_expr_contracts: ArenaMap {
-                        data: [],
-                    },
-                    pattern_symbol_arena: Arena {
-                        data: [],
-                    },
-                    pattern_symbol_maps: [],
-                    pattern_symbol_modifiers: ArenaMap {
-                        data: [],
-                    },
-                },
-                variable_region: VariableRegionData {
-                    inherited_syn_symbol_arena: Arena {
-                        data: [],
-                    },
-                    current_variable_arena: Arena {
-                        data: [],
-                    },
-                    allow_self_type: False,
-                    allow_self_value: False,
-                    pattern_ty_constraints: [],
-                },
-                pattern_roots: [],
-                expr_roots: [
-                    SynExprRoot {
-                        kind: SynExprRootKind::Snippet,
-                        syn_expr_idx: 4,
-                    },
-                ],
-                has_self_lifetime: false,
-                has_self_place: false,
-                pattern_to_current_variable_map: [],
-            },
-            Some(
-                4,
-            ),
-        )
-    "#]],
+                Some(
+                    4,
+                ),
+            )
+        "#]],
     );
 }

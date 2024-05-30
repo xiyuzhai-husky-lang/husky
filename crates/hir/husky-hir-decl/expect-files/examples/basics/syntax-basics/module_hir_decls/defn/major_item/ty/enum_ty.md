@@ -9,7 +9,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
@@ -52,7 +52,7 @@
                     ),
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
+                    region_path: RegionPath::ItemDecl(
                         ItemPath::TypeVariant(
                             Room32,
                             TypeVariantPath(
@@ -111,7 +111,7 @@
                     },
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
+                    region_path: RegionPath::ItemDecl(
                         ItemPath::TypeVariant(
                             Room32,
                             TypeVariantPath(
@@ -187,7 +187,7 @@
                     },
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
+                    region_path: RegionPath::ItemDecl(
                         ItemPath::TypeVariant(
                             Room32,
                             TypeVariantPath(
@@ -258,7 +258,7 @@
                     },
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
+                    region_path: RegionPath::ItemDecl(
                         ItemPath::TypeVariant(
                             Room32,
                             TypeVariantPath(
@@ -325,7 +325,7 @@
                     },
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
+                    region_path: RegionPath::ItemDecl(
                         ItemPath::TypeVariant(
                             Room32,
                             TypeVariantPath(

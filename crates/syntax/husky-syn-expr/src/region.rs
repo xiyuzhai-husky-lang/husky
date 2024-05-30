@@ -1,4 +1,5 @@
 use crate::*;
+use husky_entity_tree::region_path::SynNodeRegionPath;
 use husky_vfs::Toolchain;
 use vec_like::VecPairMap;
 
@@ -215,10 +216,10 @@ impl std::ops::Index<SynPatternIdx> for SynExprRegionData {
 
 impl SynExprRegion {
     pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
-        // ad hoc
         match self.data(db).path {
-            SynNodeRegionPath::Decl(syn_node_path) | SynNodeRegionPath::Defn(syn_node_path) => {
-                syn_node_path.toolchain(db)
+            SynNodeRegionPath::CrateDecl(slf) => slf.toolchain(db),
+            SynNodeRegionPath::ItemDecl(slf) | SynNodeRegionPath::ItemDefn(slf) => {
+                slf.toolchain(db)
             }
         }
     }

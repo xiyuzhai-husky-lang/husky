@@ -52,7 +52,7 @@ pub enum DerivedSemExprDataError {
     #[error("UnveilOutputTemplate")]
     UnveilOutputTemplate {
         opd_sem_expr_idx: SemExprIdx,
-        e: EtherealSignatureError,
+        e: EthSignatureError,
     },
     #[error("SynPatternError")]
     SynPatternError,

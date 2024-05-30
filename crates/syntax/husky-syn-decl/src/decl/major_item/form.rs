@@ -15,6 +15,7 @@ use super::*;
 use crate::decl::major_item::form::r#static::MajorStaticSynNodeDecl;
 use husky_entity_kind::MajorFormKind;
 use husky_entity_path::path::major_item::form::MajorFormPath;
+use husky_entity_tree::node::major_item::form::FormSynNodePath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
@@ -62,10 +63,10 @@ pub(crate) fn form_syn_node_decl(
     db: &::salsa::Db,
     syn_node_path: FormSynNodePath,
 ) -> FormSynNodeDecl {
-    DeclParser::new(db, syn_node_path.into()).parse_form_syn_node_decl(syn_node_path)
+    ItemDeclParser::new(db, syn_node_path.into()).parse_form_syn_node_decl(syn_node_path)
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     fn parse_form_syn_node_decl(&self, syn_node_path: FormSynNodePath) -> FormSynNodeDecl {
         match syn_node_path.form_kind(self.db()) {
             MajorFormKind::Val => self.parse_val_syn_node_decl(syn_node_path).into(),
@@ -92,26 +93,26 @@ pub enum FormSynDecl {
 }
 
 impl FormSynDecl {
-    fn from_node_decl(
+    fn from_node(
         db: &::salsa::Db,
         path: MajorFormPath,
         syn_node_decl: FormSynNodeDecl,
     ) -> SynDeclResult<Self> {
         Ok(match syn_node_decl {
             FormSynNodeDecl::FunctionRitchie(syn_node_decl) => {
-                MajorFunctionRitchieSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                MajorFunctionRitchieSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             FormSynNodeDecl::Val(syn_node_decl) => {
-                MajorValSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                MajorValSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             FormSynNodeDecl::TypeAlias(syn_node_decl) => {
-                TypeAliasSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                TypeAliasSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             FormSynNodeDecl::Compterm(syn_node_decl) => {
-                MajorComptermSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                MajorComptermSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             FormSynNodeDecl::Static(syn_node_decl) => {
-                MajorStaticSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                MajorStaticSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
         })
     }
@@ -158,5 +159,5 @@ impl HasSynDecl for MajorFormPath {
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn form_syn_decl(db: &::salsa::Db, path: MajorFormPath) -> SynDeclResult<FormSynDecl> {
     let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
-    FormSynDecl::from_node_decl(db, path, syn_node_decl)
+    FormSynDecl::from_node(db, path, syn_node_decl)
 }

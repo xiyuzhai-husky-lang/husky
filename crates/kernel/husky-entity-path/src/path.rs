@@ -13,7 +13,7 @@ use self::major_item::{form::MajorFormPath, ty::TypePath, *};
 use self::script::{ScriptItemPath, ScriptItemPathData};
 use self::submodule::*;
 use self::ty_variant::*;
-use self::utils::item_debug_with_db_fmt;
+use self::utils::item_debug_fmt_with_db;
 use self::{attr::*, trai::TraitPath};
 use crate::*;
 use enum_class::Room32;

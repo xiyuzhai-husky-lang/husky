@@ -17,10 +17,20 @@ pub enum MajorItemEthTemplate {
     Trait(TraitEthTemplate),
 }
 
+impl MajorItemEthTemplate {
+    pub fn path(self, db: &::salsa::Db) -> MajorItemPath {
+        match self {
+            MajorItemEthTemplate::Type(slf) => slf.path(db).into(),
+            MajorItemEthTemplate::Form(slf) => slf.path(db).into(),
+            MajorItemEthTemplate::Trait(slf) => slf.path(db).into(),
+        }
+    }
+}
+
 impl HasEthTemplate for MajorItemPath {
     type EthTemplate = MajorItemEthTemplate;
 
-    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
+    fn eth_template(self, db: &::salsa::Db) -> EthSignatureResult<Self::EthTemplate> {
         Ok(match self {
             MajorItemPath::Type(path) => path.eth_template(db)?.into(),
             MajorItemPath::Trait(path) => path.eth_template(db)?.into(),

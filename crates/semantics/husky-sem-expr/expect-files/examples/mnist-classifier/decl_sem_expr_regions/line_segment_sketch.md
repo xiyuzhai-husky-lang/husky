@@ -1,7 +1,7 @@
 ```rust
 [
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Type(
                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -9,7 +9,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Type(
                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -1537,7 +1537,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Type(
                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -1545,7 +1545,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Type(
                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -2066,7 +2066,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
@@ -2076,7 +2076,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
@@ -2437,7 +2437,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
@@ -2447,7 +2447,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
@@ -2808,7 +2808,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
@@ -2818,7 +2818,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
@@ -3355,7 +3355,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
@@ -3365,7 +3365,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
@@ -4007,7 +4007,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
@@ -4017,7 +4017,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
@@ -4613,7 +4613,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
                     TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)`),
@@ -4621,7 +4621,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)`),
@@ -4849,7 +4849,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
@@ -4862,7 +4862,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::AssocItem(
                     AssocItemPath::TraitForTypeItem(
                         TraitForTypeItemPath(
@@ -5017,7 +5017,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
                     TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)`),
@@ -5025,7 +5025,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TypeImplBlock(
                         TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)`),
@@ -5173,7 +5173,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
                     TypeItemPath(
@@ -5186,7 +5186,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
                         TypeItemPath(
@@ -5728,7 +5728,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
                     TypeItemPath(
@@ -5741,7 +5741,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
                         TypeItemPath(
@@ -5896,7 +5896,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
                     TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)`),
@@ -5904,7 +5904,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)`),
@@ -6132,7 +6132,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
@@ -6145,7 +6145,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::AssocItem(
                     AssocItemPath::TraitForTypeItem(
                         TraitForTypeItemPath(
@@ -6300,7 +6300,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
                     TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)`),
@@ -6308,7 +6308,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TypeImplBlock(
                         TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)`),
@@ -6456,7 +6456,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
                     TypeItemPath(
@@ -6467,7 +6467,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
                         TypeItemPath(
@@ -6784,7 +6784,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
                     TypeItemPath(
@@ -6795,7 +6795,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
                         TypeItemPath(
@@ -6948,7 +6948,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
                     TypeItemPath(
@@ -6961,7 +6961,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
                         TypeItemPath(

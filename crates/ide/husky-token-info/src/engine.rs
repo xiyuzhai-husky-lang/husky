@@ -1,13 +1,21 @@
 use crate::*;
+use husky_ast::HasAstSheet;
 use husky_ast::{AstData, AstSheet};
+use husky_entity_tree::{
+    expr::r#use::{ParentUseExprData, UseExpr},
+    helpers::paths::module_item_syn_node_paths,
+    jar::EntityTreeDb,
+    node::ItemSynNodePath,
+    presheet::{EntityTreePresheet, OnceUseRule, OnceUseRuleIdx},
+    region_path::SynNodeRegionPath,
+    sheet::EntityTreeSheet,
+    symbol::ModuleSymbolContext,
+};
 use husky_regional_token::{RegionalTokenIdx, RegionalTokenIdxBase};
+use husky_sem_expr::{SemExprData, SemExprDb, SemExprIdx, SemExprRegionData, SemaHtmlArgumentExpr};
 use husky_sem_opr::prefix::SemaPrefixOpr;
 use husky_syn_decl::decl::HasSynNodeDecl;
 use husky_syn_defn::*;
-
-use husky_ast::HasAstSheet;
-use husky_entity_tree::{helpers::paths::module_item_syn_node_paths, ParentUseExprData};
-use husky_sem_expr::{SemExprData, SemExprDb, SemExprIdx, SemExprRegionData, SemaHtmlArgumentExpr};
 use husky_syn_expr::{
     entity_path::{SynPrincipalEntityPathExpr, SynPrincipalEntityPathSynExprIdx},
     *,
@@ -156,8 +164,9 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             sem_expr_region_data: db.sem_expr_region(syn_expr_region).data(db),
             syn_expr_region: syn_expr_region.into(),
             regional_token_idx_base: match syn_expr_region_data.path() {
-                SynNodeRegionPath::Decl(path) => path.decl_regional_token_idx_base(db),
-                SynNodeRegionPath::Defn(path) => {
+                SynNodeRegionPath::CrateDecl(_) => todo!(),
+                SynNodeRegionPath::ItemDecl(path) => path.decl_regional_token_idx_base(db),
+                SynNodeRegionPath::ItemDefn(path) => {
                     path.defn_regional_token_idx_base(db).expect("todo")
                 }
             },

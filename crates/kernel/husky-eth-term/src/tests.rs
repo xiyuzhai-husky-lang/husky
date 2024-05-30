@@ -2,7 +2,7 @@ use crate::*;
 use husky_corgi_config::jar::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_coword::jar::CowordJar;
-use husky_entity_tree::EntityTreeJar;
+use husky_entity_tree::jar::EntityTreeJar;
 use husky_manifest::jar::ManifestJar;
 use husky_manifest_ast::jar::ManifestAstJar;
 use husky_syn_decl::jar::SynDeclJar;
@@ -29,7 +29,7 @@ use husky_toml_ast::TomlAstJar;
     husky_term_prelude::jar::TermPreludeJar,
     husky_dec_term::jar::DecTermJar,
     husky_dec_signature::jar::DecSignatureJar,
-    husky_dec_ty::jar::DeclarativeTypeJar,
+    husky_dec_ty::jar::DecTypeJar,
     Jar
 )]
 #[derive(Default)]

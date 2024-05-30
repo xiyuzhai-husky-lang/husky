@@ -1,6 +1,5 @@
 use super::*;
 
-#[salsa::derive_debug_with_db]
 #[salsa::as_id]
 #[salsa::deref_id]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -66,5 +65,19 @@ impl salsa::DisplayWithDb for SubmoduleItemPath {
         db: &::salsa::Db,
     ) -> std::fmt::Result {
         self.data(db).submodule_path.display_fmt_with_db(f, db)
+    }
+}
+
+impl salsa::DebugWithDb for SubmoduleItemPath {
+    fn debug_fmt_with_db(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
+        use salsa::DisplayWithDb;
+
+        f.write_str("SubmoduleItemPath(`")?;
+        self.data(db).submodule_path.display_fmt_with_db(f, db)?;
+        f.write_str(")")
     }
 }

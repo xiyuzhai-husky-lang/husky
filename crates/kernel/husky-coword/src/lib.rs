@@ -69,7 +69,7 @@ impl salsa::salsa_struct::SalsaStructInDb for Coword {
 }
 
 impl ::salsa::DebugWithDb for Coword {
-    fn debug_with_db_fmt(
+    fn debug_fmt_with_db(
         &self,
         f: &mut ::std::fmt::Formatter<'_>,
         db: &::salsa::Db,

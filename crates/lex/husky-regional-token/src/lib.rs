@@ -165,7 +165,18 @@ impl<'a> RegionalTokenStream<'a> {
         }
     }
 
-    pub fn new_decl_regional_token_stream(
+    pub fn new_crate_decl_regional_token_stream(
+        tokens: &'a [TokenData],
+        start: RegionalTokenVerseStart,
+    ) -> Self {
+        Self {
+            start,
+            tokens,
+            next_relative: Default::default(),
+        }
+    }
+
+    pub fn new_item_decl_regional_token_stream(
         tokens: &'a [TokenData],
         saved_regional_token_stream_state: Option<RegionalTokenStreamState>,
     ) -> Self {
@@ -184,12 +195,12 @@ impl<'a> RegionalTokenStream<'a> {
         }
     }
 
-    pub fn new_defn_regional_token_stream(
+    pub fn new_item_defn_regional_token_stream(
         tokens: &'a [TokenData],
-        regional_token_verse_start: RegionalTokenVerseStart,
+        start: RegionalTokenVerseStart,
     ) -> Self {
         Self {
-            start: regional_token_verse_start,
+            start,
             tokens,
             next_relative: Default::default(),
         }

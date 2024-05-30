@@ -3,12 +3,13 @@ use husky_dec_signature::signature::attr::derive::{
     DeriveAttrDecTemplate, DeriveAttrShardDecTemplate,
 };
 use husky_entity_path::path::major_item::{trai::TraitPath, ty::TypePath};
-use husky_entity_tree::HasAttrPaths;
+use husky_entity_tree::node::attr::HasAttrPaths;
 use husky_term_prelude::TypeFinalDestinationExpectation;
 use vec_like::{OrderedSmallVecSet, SmallVecPairMap, VecMapGetEntry};
 
 #[salsa::interned]
 pub struct DeriveAttrEthTemplate {
+    pub path: AttrItemPath,
     pub shards: SmallVec<[DeriveAttrShardEthTemplate; 8]>,
 }
 
@@ -20,14 +21,15 @@ pub struct DeriveAttrShardEthTemplate {
 impl DeriveAttrEthTemplate {
     pub(super) fn from_dec(
         db: &::salsa::Db,
+        path: AttrItemPath,
         declarative_template: DeriveAttrDecTemplate,
-    ) -> EtherealSignatureResult<Self> {
+    ) -> EthSignatureResult<Self> {
         let shards = declarative_template
             .shards(db)
             .iter()
             .map(|&shard| DeriveAttrShardEthTemplate::from_dec(shard, db))
-            .collect::<EtherealSignatureResult<_>>()?;
-        Ok(Self::new(db, shards))
+            .collect::<EthSignatureResult<_>>()?;
+        Ok(Self::new(db, path, shards))
     }
 }
 
@@ -35,7 +37,7 @@ impl DeriveAttrShardEthTemplate {
     fn from_dec(
         declarative_template: DeriveAttrShardDecTemplate,
         db: &::salsa::Db,
-    ) -> EtherealSignatureResult<Self> {
+    ) -> EthSignatureResult<Self> {
         Ok(Self::new(
             db,
             EthTerm::from_dec(
@@ -51,13 +53,13 @@ pub trait HasDeriveAttrShardEthTemplates: Copy {
     fn derive_attr_shard_eth_templates_map(
         self,
         db: &::salsa::Db,
-    ) -> EtherealSignatureResult<&[(TraitPath, OrderedSmallVecSet<DeriveAttrShardEthTemplate, 1>)]>;
+    ) -> EthSignatureResult<&[(TraitPath, OrderedSmallVecSet<DeriveAttrShardEthTemplate, 1>)]>;
 
     fn derive_attr_eth_templates(
         self,
         db: &::salsa::Db,
         trai_path: TraitPath,
-    ) -> EtherealSignatureResult<Option<&[DeriveAttrShardEthTemplate]>> {
+    ) -> EthSignatureResult<Option<&[DeriveAttrShardEthTemplate]>> {
         match self
             .derive_attr_shard_eth_templates_map(db)?
             .get_entry(trai_path)
@@ -72,8 +74,7 @@ impl HasDeriveAttrShardEthTemplates for TypePath {
     fn derive_attr_shard_eth_templates_map(
         self,
         db: &::salsa::Db,
-    ) -> EtherealSignatureResult<&[(TraitPath, OrderedSmallVecSet<DeriveAttrShardEthTemplate, 1>)]>
-    {
+    ) -> EthSignatureResult<&[(TraitPath, OrderedSmallVecSet<DeriveAttrShardEthTemplate, 1>)]> {
         Ok(ty_path_derive_attr_eth_templates_map(db, self).as_ref()?)
     }
 }
@@ -84,7 +85,7 @@ impl HasDeriveAttrShardEthTemplates for TypePath {
 fn ty_path_derive_attr_eth_templates_map(
     db: &::salsa::Db,
     ty_path: TypePath,
-) -> EtherealSignatureResult<
+) -> EthSignatureResult<
     SmallVecPairMap<TraitPath, OrderedSmallVecSet<DeriveAttrShardEthTemplate, 1>, 8>,
 > {
     let mut map: SmallVecPairMap<TraitPath, OrderedSmallVecSet<DeriveAttrShardEthTemplate, 1>, 8> =

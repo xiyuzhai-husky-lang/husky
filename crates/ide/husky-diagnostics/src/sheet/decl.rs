@@ -76,7 +76,7 @@ impl Diagnose for OriginalSynNodeDeclError {
             OriginalSynNodeDeclError::ExpectedValReturnType(_) => {
                 format!("Syntax Error: ExpectVariableType",)
             }
-            OriginalSynNodeDeclError::ExpectEqTokenForMemo(_) => {
+            OriginalSynNodeDeclError::ExpectedEqTokenForMemo(_) => {
                 format!("Syntax Error: ExpectEqTokenForVariable",)
             }
             OriginalSynNodeDeclError::ExpectedLcurlOrLparOrSemicolonForStruct(_) => {
@@ -91,6 +91,8 @@ impl Diagnose for OriginalSynNodeDeclError {
             OriginalSynNodeDeclError::ExpectedColonForTraitMemoizedField(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedColonBeforeStaticReturnType(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedStaticReturnType(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedCrateDeclNarrative(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedEqTokenForLibCrateDefaultConstExcludes(_) => todo!(),
         }
     }
 
@@ -123,7 +125,7 @@ impl Diagnose for OriginalSynNodeDeclError {
                 regional_token_stream_state,
             )
             | OriginalSynNodeDeclError::ExpectedValReturnType(regional_token_stream_state)
-            | OriginalSynNodeDeclError::ExpectEqTokenForMemo(regional_token_stream_state)
+            | OriginalSynNodeDeclError::ExpectedEqTokenForMemo(regional_token_stream_state)
             | OriginalSynNodeDeclError::ExpectedLcurlOrLparOrSemicolonForStruct(
                 regional_token_stream_state,
             ) => ctx.token_stream_state_text_range(*regional_token_stream_state),
@@ -136,6 +138,8 @@ impl Diagnose for OriginalSynNodeDeclError {
             OriginalSynNodeDeclError::ExpectedColonForTraitMemoizedField(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedColonBeforeStaticReturnType(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedStaticReturnType(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedCrateDeclNarrative(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedEqTokenForLibCrateDefaultConstExcludes(_) => todo!(),
         }
     }
 }

@@ -26,7 +26,7 @@ impl MajorComptermSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     pub(super) fn parse_termic_syn_node_decl(
         &self,
         syn_node_path: FormSynNodePath,
@@ -36,7 +36,7 @@ impl<'a> DeclParser<'a> {
             parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedColonBeforeValReturnType);
         let return_ty = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedValReturnType);
         let eq_or_eol_semicolon_token =
-            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectEqTokenForMemo);
+            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEqTokenForMemo);
         let expr = parser.parse_expr_root(None, SynExprRootKind::ValExpr);
         MajorComptermSynNodeDecl::new(
             self.db(),
@@ -60,7 +60,7 @@ pub struct MajorComptermSynDecl {
 }
 
 impl MajorComptermSynDecl {
-    pub(super) fn from_node_decl(
+    pub(super) fn from_node(
         db: &::salsa::Db,
         path: MajorFormPath,
         syn_node_decl: MajorComptermSynNodeDecl,

@@ -17,25 +17,32 @@ pub enum AttrEthTemplate {
     Task(TaskAttrEthTemplate),
 }
 
+impl AttrEthTemplate {
+    pub fn path(self, db: &::salsa::Db) -> AttrItemPath {
+        match self {
+            AttrEthTemplate::Derive(slf) => slf.path(db).into(),
+            AttrEthTemplate::Affect => todo!(),
+            AttrEthTemplate::Task(slf) => slf.path(db).into(),
+        }
+    }
+}
+
 impl HasEthTemplate for AttrItemPath {
     type EthTemplate = AttrEthTemplate;
 
-    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
+    fn eth_template(self, db: &::salsa::Db) -> EthSignatureResult<Self::EthTemplate> {
         attr_eth_template(db, self)
     }
 }
 
 #[salsa::tracked]
-fn attr_eth_template(
-    db: &::salsa::Db,
-    path: AttrItemPath,
-) -> EtherealSignatureResult<AttrEthTemplate> {
+fn attr_eth_template(db: &::salsa::Db, path: AttrItemPath) -> EthSignatureResult<AttrEthTemplate> {
     match path.dec_template(db)? {
         AttrDecTemplate::Derive(dec_template) => {
-            DeriveAttrEthTemplate::from_dec(db, dec_template).map(Into::into)
+            DeriveAttrEthTemplate::from_dec(db, path, dec_template).map(Into::into)
         }
         AttrDecTemplate::Task(dec_template) => {
-            TaskAttrEthTemplate::from_dec(db, dec_template).map(Into::into)
+            TaskAttrEthTemplate::from_dec(db, path, dec_template).map(Into::into)
         }
     }
 }

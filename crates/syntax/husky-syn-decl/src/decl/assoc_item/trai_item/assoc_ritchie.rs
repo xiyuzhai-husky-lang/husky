@@ -34,7 +34,7 @@ impl TraitAssocRitchieSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     pub(super) fn parse_trai_assoc_ritchie_node_decl(
         &self,
         syn_node_path: TraitItemSynNodePath,
@@ -88,7 +88,7 @@ pub struct TraitAssocRitchieSynDecl {
 }
 
 impl TraitAssocRitchieSynDecl {
-    pub(super) fn from_node_decl(
+    pub(super) fn from_node(
         db: &::salsa::Db,
         path: TraitItemPath,
         syn_node_decl: TraitAssocRitchieSynNodeDecl,

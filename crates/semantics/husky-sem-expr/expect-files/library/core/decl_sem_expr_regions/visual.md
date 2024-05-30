@@ -1,7 +1,7 @@
 ```rust
 [
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Trait(
                     TraitPath(`core::visual::Visualize`),
@@ -9,7 +9,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Trait(
                         TraitPath(`core::visual::Visualize`),
@@ -67,7 +67,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Type(
                     TypePath(`core::visual::Visual`, `Extern`),
@@ -75,7 +75,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Type(
                         TypePath(`core::visual::Visual`, `Extern`),
@@ -133,7 +133,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
                     TraitForTypeImplBlockPath(`#derive _ as core::visual::Visualize(0)`),
@@ -141,7 +141,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
                         TraitForTypeImplBlockPath(`#derive _ as core::visual::Visualize(0)`),
@@ -283,7 +283,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
@@ -296,7 +296,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::AssocItem(
                     AssocItemPath::TraitForTypeItem(
                         TraitForTypeItemPath(

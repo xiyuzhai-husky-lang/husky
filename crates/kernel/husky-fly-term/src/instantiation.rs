@@ -32,9 +32,9 @@ impl WithFmtContext for FlyInstantiation {
         db: &salsa::Db,
     ) -> std::fmt::Result {
         use husky_eth_term::fmt::with_eth_term_fmt_context;
-        use husky_eth_term::instantiation::instantiation_eth_term_fmt_context;
+        use husky_eth_term::instantiation::item_fmt_context;
 
-        let ctx = instantiation_eth_term_fmt_context(db, *self.path);
+        let ctx = item_fmt_context(db, *self.path);
         with_eth_term_fmt_context(ctx, f, db)
     }
 }

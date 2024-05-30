@@ -65,12 +65,13 @@ pub fn hir_expr_region_with_source_map(
 
 fn is_lazy(sem_expr_region: husky_sem_expr::SemExprRegion, db: &salsa::Db) -> bool {
     match sem_expr_region.path(db) {
-        RegionPath::Snippet(_) =>
+        RegionPath::CrateDecl(_) => todo!(),
+        RegionPath::Script(_) =>
         /* ad hoc */
         {
             false
         }
-        RegionPath::Decl(path) | RegionPath::Defn(path) => match path {
+        RegionPath::ItemDecl(path) | RegionPath::ItemDefn(path) => match path {
             ItemPath::MajorItem(path) => match path {
                 MajorItemPath::Form(path) => match path.major_form_kind(db) {
                     MajorFormKind::GN | MajorFormKind::QN => true,

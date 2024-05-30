@@ -3,6 +3,7 @@ use husky_coword::Ident;
 use husky_entity_kind::TypeKind;
 use husky_entity_path::path::{major_item::MajorItemPath, MajorEntityPath};
 use husky_token::IdentToken;
+use node::ty_variant::HasTypeVariantPaths;
 use vec_like::VecMap;
 
 // can see other modules in the crate

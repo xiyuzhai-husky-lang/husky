@@ -27,7 +27,7 @@ impl TypeMemoizedFieldSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     pub(super) fn parse_ty_memo_syn_node_decl(
         &self,
         syn_node_path: TypeItemSynNodePath,
@@ -48,7 +48,7 @@ impl<'a> DeclParser<'a> {
         } else {
             Ok(None)
         };
-        let eq_token = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectEqTokenForMemo);
+        let eq_token = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEqTokenForMemo);
         let expr = parser.parse_expr_root(None, SynExprRootKind::ValExpr);
         TypeMemoizedFieldSynNodeDecl::new(
             db,
@@ -72,7 +72,7 @@ pub struct TypeMemoizedFieldSynDecl {
 }
 
 impl TypeMemoizedFieldSynDecl {
-    pub(super) fn from_node_decl(
+    pub(super) fn from_node(
         db: &::salsa::Db,
         path: TypeItemPath,
         syn_node_decl: TypeMemoizedFieldSynNodeDecl,

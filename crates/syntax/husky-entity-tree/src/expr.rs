@@ -1,7 +1,7 @@
-mod module_item_path;
-mod r#use;
+pub mod module_item_path;
+pub mod r#use;
 
-pub use self::module_item_path::*;
-pub use self::r#use::*;
+pub(crate) use self::module_item_path::*;
+pub(crate) use self::r#use::*;
 
 use crate::*;

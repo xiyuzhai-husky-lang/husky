@@ -15,6 +15,7 @@ use self::{
 use super::*;
 use husky_coword::coword_menu;
 use husky_entity_path::path::attr::AttrItemPath;
+use husky_entity_tree::node::attr::AttrSynNodePath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
@@ -97,17 +98,17 @@ pub enum AttrSynDecl {
 /// # constructor
 impl AttrSynDecl {
     #[inline(always)]
-    fn from_node_decl(
+    fn from_node(
         db: &::salsa::Db,
         path: AttrItemPath,
         syn_node_decl: AttrSynNodeDecl,
     ) -> SynDeclResult<Self> {
         Ok(match syn_node_decl {
             AttrSynNodeDecl::Derive(syn_node_decl) => {
-                DeriveAttrSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                DeriveAttrSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             AttrSynNodeDecl::Backprop(syn_node_decl) => {
-                BackpropAttrSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                BackpropAttrSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             AttrSynNodeDecl::Effect(syn_node_decl) => {
                 AffectAttrSynDecl::from_node(path, syn_node_decl, db)?.into()
@@ -156,7 +157,7 @@ impl HasSynDecl for AttrItemPath {
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn attr_syn_decl(db: &::salsa::Db, path: AttrItemPath) -> SynDeclResult<AttrSynDecl> {
-    AttrSynDecl::from_node_decl(db, path, path.syn_node_path(db).syn_node_decl(db))
+    AttrSynDecl::from_node(db, path, path.syn_node_path(db).syn_node_decl(db))
 }
 
 #[test]

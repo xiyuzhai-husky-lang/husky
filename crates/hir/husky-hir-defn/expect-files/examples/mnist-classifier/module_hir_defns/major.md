@@ -25,7 +25,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Form(
                                         FormPath(`mnist_classifier::major::connected_components`, `Val`),
@@ -97,7 +97,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Form(
                                         FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
@@ -159,7 +159,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Form(
                                         FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
@@ -241,7 +241,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Form(
                                         FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
@@ -313,7 +313,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Form(
                                         FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
@@ -385,7 +385,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Form(
                                         FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
@@ -467,7 +467,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Form(
                                         FormPath(`mnist_classifier::major::major_concave_components`, `Val`),

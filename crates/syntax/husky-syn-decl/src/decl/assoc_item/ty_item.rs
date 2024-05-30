@@ -12,6 +12,7 @@ use self::method_ritchie::*;
 use super::*;
 use husky_entity_kind::TypeItemKind;
 use husky_entity_path::path::assoc_item::ty_item::TypeItemPath;
+use husky_entity_tree::node::assoc_item::ty_item::TypeItemSynNodePath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
@@ -75,11 +76,11 @@ pub(crate) fn ty_item_syn_node_decl(
     db: &::salsa::Db,
     syn_node_path: TypeItemSynNodePath,
 ) -> TypeItemSynNodeDecl {
-    let ctx = DeclParser::new(db, syn_node_path.into());
+    let ctx = ItemDeclParser::new(db, syn_node_path.into());
     ctx.parse_ty_item_syn_node_decl(syn_node_path)
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     fn parse_ty_item_syn_node_decl(
         &self,
         syn_node_path: TypeItemSynNodePath,
@@ -190,17 +191,17 @@ pub(crate) fn ty_item_syn_decl(
 ) -> SynDeclResult<TypeItemSynDecl> {
     match path.syn_node_path(db).syn_node_decl(db) {
         TypeItemSynNodeDecl::AssocRitchie(syn_node_decl) => {
-            TypeAssocRitchieSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
+            TypeAssocRitchieSynDecl::from_node(db, path, syn_node_decl).map(Into::into)
         }
         TypeItemSynNodeDecl::MethodFn(syn_node_decl) => {
-            TypeMethodRitchieSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
+            TypeMethodRitchieSynDecl::from_node(db, path, syn_node_decl).map(Into::into)
         }
         TypeItemSynNodeDecl::AssocType(_) => todo!(),
         TypeItemSynNodeDecl::AssocVal(syn_node_decl) => {
-            TypeAssocValSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
+            TypeAssocValSynDecl::from_node(db, path, syn_node_decl).map(Into::into)
         }
         TypeItemSynNodeDecl::MemoizedField(syn_node_decl) => {
-            TypeMemoizedFieldSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
+            TypeMemoizedFieldSynDecl::from_node(db, path, syn_node_decl).map(Into::into)
         }
     }
 }

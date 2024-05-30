@@ -1,7 +1,7 @@
 ```rust
 [
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Type(
                     TypePath(`core::vec::Vec`, `Extern`),
@@ -9,7 +9,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Type(
                         TypePath(`core::vec::Vec`, `Extern`),
@@ -85,7 +85,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
                     TypeImplBlockPath(`core::vec::Vec(0)`),
@@ -93,7 +93,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TypeImplBlock(
                         TypeImplBlockPath(`core::vec::Vec(0)`),
@@ -438,7 +438,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
                     TypeItemPath(
@@ -451,7 +451,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
                         TypeItemPath(
@@ -624,7 +624,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
                     TypeItemPath(
@@ -637,7 +637,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
                         TypeItemPath(
@@ -839,7 +839,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
                     TypeItemPath(
@@ -852,7 +852,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
                         TypeItemPath(
@@ -1359,7 +1359,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
                     TypeItemPath(
@@ -1372,7 +1372,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
                         TypeItemPath(
@@ -1879,7 +1879,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
                     TypeItemPath(
@@ -1892,7 +1892,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
                         TypeItemPath(
@@ -2239,7 +2239,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
                     TypeItemPath(
@@ -2252,7 +2252,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
                         TypeItemPath(
@@ -2668,7 +2668,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
                     TypeItemPath(
@@ -2681,7 +2681,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
                         TypeItemPath(
@@ -3311,7 +3311,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Decl(
+        path: RegionPath::ItemDecl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
                     TypeItemPath(
@@ -3324,7 +3324,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Decl(
+            path: RegionPath::ItemDecl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
                         TypeItemPath(

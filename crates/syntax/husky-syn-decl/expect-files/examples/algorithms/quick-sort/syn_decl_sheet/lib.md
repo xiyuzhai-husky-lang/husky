@@ -70,7 +70,7 @@ SynDeclSheet {
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`quick_sort::quick_sort`, `Ritchie(
@@ -406,7 +406,7 @@ SynDeclSheet {
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
@@ -904,7 +904,7 @@ SynDeclSheet {
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`quick_sort::partition`, `Ritchie(
@@ -1340,7 +1340,7 @@ SynDeclSheet {
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
@@ -1418,7 +1418,7 @@ SynDeclSheet {
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(

@@ -13,13 +13,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`syntax_basics::ast),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -45,13 +39,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`syntax_basics::ast),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -72,13 +60,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 2,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`syntax_basics::uses),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -104,13 +86,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 2,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`syntax_basics::uses),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -131,13 +107,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 3,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`syntax_basics::defn),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -163,13 +133,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 3,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`syntax_basics::defn),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -190,13 +154,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 4,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`syntax_basics::expr),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -222,13 +180,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 4,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`syntax_basics::expr),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -251,13 +203,7 @@ EntityTreeCrateBundle {
                             `syntax_basics`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`syntax_basics::ast),
                         },
                     },
                     EntitySymbolEntry {
@@ -266,13 +212,7 @@ EntityTreeCrateBundle {
                             `syntax_basics`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`syntax_basics::uses),
                         },
                     },
                     EntitySymbolEntry {
@@ -281,13 +221,7 @@ EntityTreeCrateBundle {
                             `syntax_basics`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 3,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`syntax_basics::defn),
                         },
                     },
                     EntitySymbolEntry {
@@ -296,13 +230,7 @@ EntityTreeCrateBundle {
                             `syntax_basics`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 4,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`syntax_basics::expr),
                         },
                     },
                 ],
@@ -328,13 +256,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 5,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`syntax_basics::ast::submodule_name),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -360,13 +282,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 5,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`syntax_basics::ast::submodule_name),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -389,13 +305,7 @@ EntityTreeCrateBundle {
                             `syntax_basics::ast`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`syntax_basics::ast::submodule_name),
                         },
                     },
                 ],
@@ -441,13 +351,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`syntax_basics::ast),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `syntax_basics::ast`,
@@ -468,13 +372,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`syntax_basics::uses),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `syntax_basics::uses`,
@@ -495,13 +393,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`syntax_basics::defn),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `syntax_basics::defn`,
@@ -522,13 +414,7 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`syntax_basics::expr),
                                 },
                                 path: PrincipalEntityPath::Module(
                                     `syntax_basics::expr`,
@@ -605,13 +491,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 6,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`syntax_basics::defn::major_item),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -637,13 +517,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 6,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`syntax_basics::defn::major_item),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -666,13 +540,7 @@ EntityTreeCrateBundle {
                             `syntax_basics::defn`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 6,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`syntax_basics::defn::major_item),
                         },
                     },
                 ],
@@ -698,13 +566,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 7,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`syntax_basics::defn::major_item::ty),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -730,13 +592,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 7,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`syntax_basics::defn::major_item::ty),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -759,13 +615,7 @@ EntityTreeCrateBundle {
                             `syntax_basics::defn::major_item`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 7,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`syntax_basics::defn::major_item::ty),
                         },
                     },
                 ],
@@ -791,13 +641,7 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 8,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(`syntax_basics::defn::major_item::ty::enum_ty),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -823,13 +667,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 8,
-                                                        },
-                                                    ),
-                                                ),
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(`syntax_basics::defn::major_item::ty::enum_ty),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -852,13 +690,7 @@ EntityTreeCrateBundle {
                             `syntax_basics::defn::major_item::ty`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
-                            ),
+                            submodule_item_path: SubmoduleItemPath(`syntax_basics::defn::major_item::ty::enum_ty),
                         },
                     },
                 ],

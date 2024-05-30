@@ -490,7 +490,7 @@ where
     }
 
     fn accept_block_lcurl(&mut self, lcurl_regional_token_idx: RegionalTokenIdx) {
-        let TokraRegionDataRef::Defn(tokra_region) = self.context().tokra_region_data() else {
+        let TokraRegionDataRef::ItemDefn(tokra_region) = self.context().tokra_region_data() else {
             unreachable!()
         };
         let (asts, nested_block_end) =

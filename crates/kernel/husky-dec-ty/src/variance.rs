@@ -69,12 +69,12 @@ pub fn item_variances(db: &::salsa::Db, path: ItemPath) -> VarianceResultRef<&[V
     }
 }
 
-#[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
+#[salsa::tracked(jar = DecTypeJar, return_ref)]
 pub(crate) fn ty_path_variances(db: &::salsa::Db, path: TypePath) -> VarianceResult<Vec<Variance>> {
     calc_item_path_variances(db, path)
 }
 
-#[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
+#[salsa::tracked(jar = DecTypeJar, return_ref)]
 pub(crate) fn trai_item_variances(
     db: &::salsa::Db,
     path: TraitPath,
@@ -82,7 +82,7 @@ pub(crate) fn trai_item_variances(
     calc_item_path_variances(db, path)
 }
 
-#[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
+#[salsa::tracked(jar = DecTypeJar, return_ref)]
 pub(crate) fn form_path_variances(
     db: &::salsa::Db,
     path: MajorFormPath,
@@ -90,7 +90,7 @@ pub(crate) fn form_path_variances(
     calc_item_path_variances(db, path)
 }
 
-#[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
+#[salsa::tracked(jar = DecTypeJar, return_ref)]
 pub fn ty_item_path_variances(
     db: &::salsa::Db,
     path: TypeItemPath,

@@ -75,7 +75,7 @@ SynNodeDeclSheet {
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: None,
-                                path: SynNodeRegionPath::Decl(
+                                path: SynNodeRegionPath::ItemDecl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
@@ -245,7 +245,7 @@ SynNodeDeclSheet {
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: None,
-                                path: SynNodeRegionPath::Decl(
+                                path: SynNodeRegionPath::ItemDecl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
@@ -415,7 +415,7 @@ SynNodeDeclSheet {
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: None,
-                                path: SynNodeRegionPath::Decl(
+                                path: SynNodeRegionPath::ItemDecl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
@@ -585,7 +585,7 @@ SynNodeDeclSheet {
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: None,
-                                path: SynNodeRegionPath::Decl(
+                                path: SynNodeRegionPath::ItemDecl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
@@ -755,7 +755,7 @@ SynNodeDeclSheet {
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: None,
-                                path: SynNodeRegionPath::Decl(
+                                path: SynNodeRegionPath::ItemDecl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
@@ -925,7 +925,7 @@ SynNodeDeclSheet {
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: None,
-                                path: SynNodeRegionPath::Decl(
+                                path: SynNodeRegionPath::ItemDecl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
@@ -1095,7 +1095,7 @@ SynNodeDeclSheet {
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: None,
-                                path: SynNodeRegionPath::Decl(
+                                path: SynNodeRegionPath::ItemDecl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
@@ -1265,7 +1265,7 @@ SynNodeDeclSheet {
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: None,
-                                path: SynNodeRegionPath::Decl(
+                                path: SynNodeRegionPath::ItemDecl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
@@ -1435,7 +1435,7 @@ SynNodeDeclSheet {
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: None,
-                                path: SynNodeRegionPath::Decl(
+                                path: SynNodeRegionPath::ItemDecl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
@@ -1605,7 +1605,7 @@ SynNodeDeclSheet {
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: None,
-                                path: SynNodeRegionPath::Decl(
+                                path: SynNodeRegionPath::ItemDecl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
@@ -1743,7 +1743,7 @@ SynNodeDeclSheet {
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: None,
-                                path: SynNodeRegionPath::Decl(
+                                path: SynNodeRegionPath::ItemDecl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
@@ -1883,7 +1883,7 @@ SynNodeDeclSheet {
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: None,
-                                path: SynNodeRegionPath::Decl(
+                                path: SynNodeRegionPath::ItemDecl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
@@ -2053,7 +2053,7 @@ SynNodeDeclSheet {
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: None,
-                                path: SynNodeRegionPath::Decl(
+                                path: SynNodeRegionPath::ItemDecl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
@@ -2191,7 +2191,7 @@ SynNodeDeclSheet {
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: None,
-                                path: SynNodeRegionPath::Decl(
+                                path: SynNodeRegionPath::ItemDecl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
@@ -2299,7 +2299,7 @@ SynNodeDeclSheet {
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: None,
-                                path: SynNodeRegionPath::Decl(
+                                path: SynNodeRegionPath::ItemDecl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
@@ -2439,7 +2439,7 @@ SynNodeDeclSheet {
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: None,
-                                path: SynNodeRegionPath::Decl(
+                                path: SynNodeRegionPath::ItemDecl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
@@ -2609,7 +2609,7 @@ SynNodeDeclSheet {
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: None,
-                                path: SynNodeRegionPath::Decl(
+                                path: SynNodeRegionPath::ItemDecl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
@@ -2799,7 +2799,7 @@ SynNodeDeclSheet {
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
                                                 TypeSynNodePath(

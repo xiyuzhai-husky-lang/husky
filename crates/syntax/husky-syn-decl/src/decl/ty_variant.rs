@@ -7,6 +7,7 @@ use self::tuple_ty_variant::*;
 use self::unit_ty_variant::*;
 use super::*;
 use husky_entity_path::path::ty_variant::TypeVariantPath;
+use husky_entity_tree::node::ty_variant::TypeVariantSynNodePath;
 use husky_token_data::Punctuation;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -56,10 +57,10 @@ pub(crate) fn ty_variant_syn_node_decl(
     db: &::salsa::Db,
     syn_node_path: TypeVariantSynNodePath,
 ) -> TypeVariantSynNodeDecl {
-    DeclParser::new(db, syn_node_path.into()).parse_ty_variant_syn_node_decl()
+    ItemDeclParser::new(db, syn_node_path.into()).parse_ty_variant_syn_node_decl()
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     fn parse_ty_variant_syn_node_decl(&self) -> TypeVariantSynNodeDecl {
         use parsec::HasStreamState;
         let db = self.db();
@@ -127,20 +128,20 @@ pub enum TypeVariantSynDecl {
 
 /// # constructor
 impl TypeVariantSynDecl {
-    fn from_node_decl(
+    fn from_node(
         db: &::salsa::Db,
         path: TypeVariantPath,
         syn_node_decl: TypeVariantSynNodeDecl,
     ) -> SynDeclResult<Self> {
         Ok(match syn_node_decl {
             TypeVariantSynNodeDecl::Props(syn_node_decl) => {
-                TypePropsVariantSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                TypePropsVariantSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             TypeVariantSynNodeDecl::Unit(syn_node_decl) => {
-                TypeUnitVariantSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                TypeUnitVariantSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             TypeVariantSynNodeDecl::Tuple(syn_node_decl) => {
-                TypeTupleVariantSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                TypeTupleVariantSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
         })
     }
@@ -179,5 +180,5 @@ pub(crate) fn ty_variant_syn_decl(
     path: TypeVariantPath,
 ) -> SynDeclResult<TypeVariantSynDecl> {
     let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
-    TypeVariantSynDecl::from_node_decl(db, path, syn_node_decl)
+    TypeVariantSynDecl::from_node(db, path, syn_node_decl)
 }

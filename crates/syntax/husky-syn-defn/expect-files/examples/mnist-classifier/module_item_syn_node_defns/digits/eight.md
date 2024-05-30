@@ -15,7 +15,7 @@
                             SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`, (0)),
@@ -97,7 +97,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
                                     FormSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`, (0)),
@@ -308,7 +308,7 @@
                             SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`, (0)),
@@ -479,7 +479,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
                                     FormSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`, (0)),
@@ -1135,7 +1135,7 @@
                             SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
@@ -1321,7 +1321,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
                                     FormSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(

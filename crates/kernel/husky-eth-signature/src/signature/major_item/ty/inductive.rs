@@ -13,7 +13,7 @@ impl InductiveTypeEthTemplate {
         db: &::salsa::Db,
         path: TypePath,
         dec_template: InductiveDecTemplate,
-    ) -> EtherealSignatureResult<Self> {
+    ) -> EthSignatureResult<Self> {
         let template_parameters =
             EthTemplateParameters::from_dec(db, dec_template.template_parameters(db))?;
         Ok(Self::new(db, path, template_parameters))

@@ -5,23 +5,23 @@ use maybe_result::*;
 #[salsa::interned(db = VfsDb, jar = VfsJar, constructor = new_inner)]
 pub struct CratePath {
     pub package_path: PackagePath,
-    pub crate_kind: CrateKind,
+    pub kind: CrateKind,
 }
 
 impl CratePath {
     /// it's guaranteed via construction that root module path will be valid
     pub fn new(
         package_path: PackagePath,
-        crate_kind: CrateKind,
+        kind: CrateKind,
         db: &::salsa::Db,
     ) -> VfsMaybeResult<Self> {
-        let slf = Self::new_inner(db, package_path, crate_kind);
+        let slf = Self::new_inner(db, package_path, kind);
         ModulePath::new_root(db, slf)?;
         JustOk(slf)
     }
 
     pub fn relative_path(&self, db: &::salsa::Db) -> std::borrow::Cow<'static, str> {
-        match self.crate_kind(db) {
+        match self.kind(db) {
             CrateKind::Lib => "src/lib.hsy".into(),
             CrateKind::Main => "src/main.hsy".into(),
             CrateKind::Bin(_ident) => todo!(),
@@ -49,8 +49,8 @@ impl CratePath {
 pub enum CrateKind {
     Lib,
     Main,
-    Task,
     Requirements,
+    Task,
     Bin(Ident),
     IntegratedTest(Ident),
     Example,

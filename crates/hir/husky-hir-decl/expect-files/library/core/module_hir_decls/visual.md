@@ -8,7 +8,7 @@
                     [],
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
+                    region_path: RegionPath::ItemDecl(
                         ItemPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::visual::Visualize`),
@@ -48,7 +48,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
                                     TypePath(`core::visual::Visual`, `Extern`),
@@ -95,7 +95,7 @@
                     HirTypeTemplateVariable::SelfType,
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
+                    region_path: RegionPath::ItemDecl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockPath(`#derive _ as core::visual::Visualize(0)`),
@@ -156,7 +156,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TraitForTypeItem(
                                     TraitForTypeItemPath(

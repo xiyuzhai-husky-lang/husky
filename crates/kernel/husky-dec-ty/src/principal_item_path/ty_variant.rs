@@ -1,10 +1,11 @@
 use super::*;
 use husky_dec_signature::{jar::DecSignatureDb, signature::ty_variant::TypeVariantDecTemplate};
 use husky_entity_path::path::ty_variant::TypeVariantPath;
+use husky_entity_tree::node::ty_variant::HasTypeVariantPaths;
 use husky_syn_decl::decl::HasSynDecl;
 
 // todo: this should return a template
-#[salsa::tracked(jar = DeclarativeTypeJar)]
+#[salsa::tracked(jar = DecTypeJar)]
 pub fn ty_variant_path_declarative_ty(
     db: &::salsa::Db,
     path: TypeVariantPath,
@@ -75,7 +76,7 @@ fn ty_variant_path_declarative_ty_works() {
 
     DB::ast_expect_test_debug_with_db(
         |db, module_path: husky_vfs::ModulePath| {
-            use husky_entity_tree::HasTypeVariantPaths;
+            use husky_entity_tree::node::ty_variant::HasTypeVariantPaths;
             module_item_paths(db, module_path)
                 .iter()
                 .filter_map(|&module_item_path| match module_item_path {

@@ -16,9 +16,9 @@ pub struct HirLazyExprRegion {
 impl HirLazyExprRegion {
     pub fn data<'a>(self, db: &'a ::salsa::Db) -> HirLazyExprRegionData<'a> {
         HirLazyExprRegionData {
-            hir_lazy_expr_arena: self.hir_lazy_expr_arena(db).to_ref(),
-            hir_lazy_stmt_arena: self.hir_lazy_stmt_arena(db).to_ref(),
-            hir_lazy_pattern_expr_arena: self.hir_lazy_pattern_expr_arena(db).to_ref(),
+            hir_lazy_expr_arena: self.hir_lazy_expr_arena(db).as_arena_ref(),
+            hir_lazy_stmt_arena: self.hir_lazy_stmt_arena(db).as_arena_ref(),
+            hir_lazy_pattern_expr_arena: self.hir_lazy_pattern_expr_arena(db).as_arena_ref(),
             hir_lazy_variable_region: self.hir_lazy_variable_region(db),
         }
     }

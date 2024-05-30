@@ -16,18 +16,18 @@ AstSheet {
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        30,
+                        28,
                     ),
                 ),
                 ident_token: IdentToken {
                     ident: `Known`,
                     token_idx: TokenIdx(
-                        31,
+                        29,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        32,
+                        30,
                     ),
                     drained: false,
                 },
@@ -46,18 +46,18 @@ AstSheet {
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        35,
+                        33,
                     ),
                 ),
                 ident_token: IdentToken {
                     ident: `Unknown`,
                     token_idx: TokenIdx(
-                        36,
+                        34,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        37,
+                        35,
                     ),
                     drained: true,
                 },
@@ -76,18 +76,18 @@ AstSheet {
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        61,
+                        59,
                     ),
                 ),
                 ident_token: IdentToken {
                     ident: `Yes`,
                     token_idx: TokenIdx(
-                        62,
+                        60,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        63,
+                        61,
                     ),
                     drained: true,
                 },
@@ -106,18 +106,18 @@ AstSheet {
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        63,
+                        61,
                     ),
                 ),
                 ident_token: IdentToken {
                     ident: `No`,
                     token_idx: TokenIdx(
-                        64,
+                        62,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        65,
+                        63,
                     ),
                     drained: true,
                 },
@@ -150,13 +150,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `default`,
                     token_idx: TokenIdx(
-                        86,
+                        84,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        87,
+                        85,
                     ),
                     drained: false,
                 },
@@ -220,13 +220,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `Output`,
                     token_idx: TokenIdx(
-                        119,
+                        117,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        120,
+                        118,
                     ),
                     drained: false,
                 },
@@ -255,13 +255,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `unveil`,
                     token_idx: TokenIdx(
-                        125,
+                        123,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        126,
+                        124,
                     ),
                     drained: false,
                 },
@@ -289,18 +289,18 @@ AstSheet {
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        206,
+                        204,
                     ),
                 ),
                 ident_token: IdentToken {
                     ident: `ConfidentYes`,
                     token_idx: TokenIdx(
-                        207,
+                        205,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        208,
+                        206,
                     ),
                     drained: true,
                 },
@@ -319,18 +319,18 @@ AstSheet {
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        208,
+                        206,
                     ),
                 ),
                 ident_token: IdentToken {
                     ident: `ConfidentNo`,
                     token_idx: TokenIdx(
-                        209,
+                        207,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        210,
+                        208,
                     ),
                     drained: true,
                 },
@@ -349,18 +349,18 @@ AstSheet {
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        210,
+                        208,
                     ),
                 ),
                 ident_token: IdentToken {
                     ident: `Unconfident`,
                     token_idx: TokenIdx(
-                        211,
+                        209,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        212,
+                        210,
                     ),
                     drained: true,
                 },
@@ -422,13 +422,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `Output`,
                     token_idx: TokenIdx(
-                        239,
+                        237,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        240,
+                        238,
                     ),
                     drained: false,
                 },
@@ -457,13 +457,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `unveil`,
                     token_idx: TokenIdx(
-                        245,
+                        243,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        246,
+                        244,
                     ),
                     drained: false,
                 },
@@ -477,14 +477,12 @@ AstSheet {
                     ),
                 },
             },
-            AstData::Err {
+            AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
                     raw: 0,
                 },
-                error: AstError::Original(
-                    OriginalAstError::UnexpectedStmtUnderModule,
-                ),
+                body: None,
             },
             AstData::Attr {
                 token_verse_idx: TokenVerseIdx {
@@ -502,7 +500,7 @@ AstSheet {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                24,
+                                22,
                             ),
                         },
                     },
@@ -517,13 +515,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `Class`,
                     token_idx: TokenIdx(
-                        26,
+                        24,
                     ),
                 },
                 is_generic: true,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        27,
+                        25,
                     ),
                     drained: false,
                 },
@@ -554,7 +552,7 @@ AstSheet {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                46,
+                                44,
                             ),
                         },
                     },
@@ -569,13 +567,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `OneVsAll`,
                     token_idx: TokenIdx(
-                        48,
+                        46,
                     ),
                 },
                 is_generic: true,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        49,
+                        47,
                     ),
                     drained: false,
                 },
@@ -636,7 +634,7 @@ AstSheet {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                191,
+                                189,
                             ),
                         },
                     },
@@ -651,13 +649,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `OneVsAllResult`,
                     token_idx: TokenIdx(
-                        193,
+                        191,
                     ),
                 },
                 is_generic: true,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        194,
+                        192,
                     ),
                     drained: false,
                 },
@@ -696,7 +694,7 @@ AstSheet {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                316,
+                                314,
                             ),
                         },
                     },
@@ -713,13 +711,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `narrow_down`,
                     token_idx: TokenIdx(
-                        318,
+                        316,
                     ),
                 },
                 is_generic: true,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        319,
+                        317,
                     ),
                     drained: false,
                 },
@@ -737,6 +735,9 @@ AstSheet {
     ),
     nested_top_level_asts: [],
     siblings: [
+        ArenaIdxRange(
+            0..0,
+        ),
         ArenaIdxRange(
             4..4,
         ),

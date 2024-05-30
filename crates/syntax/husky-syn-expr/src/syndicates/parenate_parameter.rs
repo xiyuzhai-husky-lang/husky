@@ -66,11 +66,11 @@ impl ParenateParameterSyndicate {
     }
 }
 
-impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParameterSyndicate {
+impl<'a> TryParseOptionFromStream<StandaloneSynExprParser<'a>> for ParenateParameterSyndicate {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut SynDeclExprParser<'a>,
+        ctx: &mut StandaloneSynExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
         let const_constraint = ctx.try_parse_option()?;
         let nucleus = if let Some(syn_pattern_root) =
@@ -197,11 +197,11 @@ impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParameterSy
     }
 }
 
-impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for ConstConstraint {
+impl<'a> TryParseOptionFromStream<StandaloneSynExprParser<'a>> for ConstConstraint {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        sp: &mut SynDeclExprParser<'a>,
+        sp: &mut StandaloneSynExprParser<'a>,
     ) -> Result<Option<Self>, Self::Error> {
         let Some(const_token) = sp.try_parse_option()? else {
             return Ok(None);
@@ -210,10 +210,10 @@ impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for ConstConstraint {
     }
 }
 
-impl<'a, 'b> TryParseFromStream<SynDeclExprParser<'a>> for SynVariadicParameterVariant {
+impl<'a, 'b> TryParseFromStream<StandaloneSynExprParser<'a>> for SynVariadicParameterVariant {
     type Error = SynExprError;
 
-    fn try_parse_from_stream(sp: &mut SynDeclExprParser<'a>) -> Result<Self, Self::Error> {
+    fn try_parse_from_stream(sp: &mut StandaloneSynExprParser<'a>) -> Result<Self, Self::Error> {
         if let Some(lbox_token) = sp.try_parse_option::<LboxRegionalToken>()? {
             if let Some(rbox_token) = sp.try_parse_option::<RboxRegionalToken>()? {
                 Ok(SynVariadicParameterVariant::Vec {

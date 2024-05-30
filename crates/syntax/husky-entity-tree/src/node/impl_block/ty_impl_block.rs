@@ -1,5 +1,6 @@
 use super::*;
-
+use crate::node::ty_item::{ty_impl_block_items, TypeItemSynNode, TypeItemSynNodePath};
+use husky_ast::TypeItems;
 use husky_entity_path::path::{
     assoc_item::ty_item::TypeItemPath,
     impl_block::{ty_impl_block::TypeImplBlockPath, ImplBlockRegistry},
@@ -158,7 +159,7 @@ impl HasAssocItemPaths for TypeImplBlockPath {
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn ty_impl_block_item_paths(
     db: &::salsa::Db,
     path: TypeImplBlockPath,

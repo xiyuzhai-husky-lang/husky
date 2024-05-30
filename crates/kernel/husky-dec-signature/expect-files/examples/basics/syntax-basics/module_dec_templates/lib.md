@@ -1,0 +1,40 @@
+```rust
+[
+    (
+        ItemPath::Submodule(
+            Room32,
+            SubmoduleItemPath(`syntax_basics::ast),
+        ),
+        Ok(
+            ItemDecTemplate::Submodule,
+        ),
+    ),
+    (
+        ItemPath::Submodule(
+            Room32,
+            SubmoduleItemPath(`syntax_basics::uses),
+        ),
+        Ok(
+            ItemDecTemplate::Submodule,
+        ),
+    ),
+    (
+        ItemPath::Submodule(
+            Room32,
+            SubmoduleItemPath(`syntax_basics::defn),
+        ),
+        Ok(
+            ItemDecTemplate::Submodule,
+        ),
+    ),
+    (
+        ItemPath::Submodule(
+            Room32,
+            SubmoduleItemPath(`syntax_basics::expr),
+        ),
+        Ok(
+            ItemDecTemplate::Submodule,
+        ),
+    ),
+]
+```

@@ -24,7 +24,7 @@ impl TraitMemoizedFieldSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     pub(super) fn parse_trai_memo_syn_node_decl(
         &self,
         syn_node_path: TraitItemSynNodePath,
@@ -62,7 +62,7 @@ pub struct TraitMemoizedFieldSynDecl {
 }
 
 impl TraitMemoizedFieldSynDecl {
-    pub(super) fn from_node_decl(
+    pub(super) fn from_node(
         db: &::salsa::Db,
         path: TypeItemPath,
         syn_node_decl: TraitMemoizedFieldSynNodeDecl,

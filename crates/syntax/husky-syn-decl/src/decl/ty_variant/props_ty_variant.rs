@@ -19,10 +19,10 @@ pub struct TypePropsVariantSynNodeDecl {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct TypePropsVariantRcurlRegionalToken(InlineRcurlRegionalToken);
 
-impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for TypePropsVariantRcurlRegionalToken {
+impl<'a> TryParseFromStream<StandaloneSynExprParser<'a>> for TypePropsVariantRcurlRegionalToken {
     type Error = SynNodeDeclError;
 
-    fn try_parse_from_stream(sp: &mut SynDeclExprParser<'a>) -> Result<Self, Self::Error> {
+    fn try_parse_from_stream(sp: &mut StandaloneSynExprParser<'a>) -> Result<Self, Self::Error> {
         // todo: enrich this
         // consider unexpected
         // maybe sp.skip_exprs_until_next_right_curly_brace
@@ -54,7 +54,7 @@ pub struct TypePropsVariantSynDecl {
 }
 
 impl TypePropsVariantSynDecl {
-    pub(super) fn from_node_decl(
+    pub(super) fn from_node(
         db: &::salsa::Db,
         path: TypeVariantPath,
         syn_node_decl: TypePropsVariantSynNodeDecl,

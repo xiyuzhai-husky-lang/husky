@@ -7,7 +7,7 @@ use husky_entity_path::path::major_item::form::MajorFormPath;
 use husky_vfs::Toolchain;
 use smallvec::ToSmallVec;
 
-#[salsa::tracked(jar = DeclarativeTypeJar)]
+#[salsa::tracked(jar = DecTypeJar)]
 pub fn form_path_declarative_ty(
     db: &::salsa::Db,
     path: MajorFormPath,

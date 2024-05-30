@@ -1,5 +1,8 @@
 use crate::*;
-use husky_entity_tree::node::script::ScriptSynNodePath;
+use husky_entity_tree::{
+    node::script::ScriptSynNodePath, prelude::PreludeResult, region_path::SynNodeRegionPath,
+    symbol::ModuleSymbolContext,
+};
 use husky_token::TokenDb;
 use husky_vfs::{script::Script, CratePath};
 
@@ -10,10 +13,11 @@ pub(crate) fn try_parse_snippet_in_decl<T>(
 ) -> SynExprResult<Option<T>>
 where
     T: for<'a> parsec::TryParseOptionFromStream<
-        parser::SynDeclExprParser<'a>,
+        parser::StandaloneSynExprParser<'a>,
         Error = SynExprError,
     >,
 {
+    use husky_entity_tree::{region_path::SynNodeRegionPath, symbol::ModuleSymbolContext};
     use husky_vfs::{VfsDb, VfsTestUtilsDb};
     use parsec::IsStreamParser;
 
@@ -26,7 +30,7 @@ where
     let token_sheet_data = db.snippet_token_sheet_data(script);
     let expr_context = SynExprContext::new2(
         db,
-        SynNodeRegionPath::Defn(ScriptSynNodePath::new(script, db).into()),
+        SynNodeRegionPath::ItemDefn(ScriptSynNodePath::new(script, db).into()),
         ModuleSymbolContext::new_default(db, crate_path).unwrap(),
         None,
         AllowSelfType::False,
@@ -48,7 +52,7 @@ pub fn parse_expr_from_script(
     let token_sheet_data = db.snippet_token_sheet_data(script);
     let expr_context = SynExprContext::new2(
         db,
-        SynNodeRegionPath::Defn(ScriptSynNodePath::new(script, db).into()),
+        SynNodeRegionPath::ItemDefn(ScriptSynNodePath::new(script, db).into()),
         ModuleSymbolContext::new_default(db, crate_path)?,
         None,
         AllowSelfType::False,

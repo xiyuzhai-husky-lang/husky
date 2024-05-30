@@ -2,23 +2,11 @@
 [
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 1,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`syntax_errors::ast),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 2,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`syntax_errors::uses),
     ),
     ItemPath::MajorItem(
         MajorItemPath::Type(

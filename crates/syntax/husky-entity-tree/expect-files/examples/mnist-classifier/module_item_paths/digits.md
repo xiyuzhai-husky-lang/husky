@@ -2,103 +2,43 @@
 [
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 54,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`mnist_classifier::digits::zero),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 55,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`mnist_classifier::digits::one),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 56,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`mnist_classifier::digits::six),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 57,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`mnist_classifier::digits::three),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 58,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`mnist_classifier::digits::four),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 59,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`mnist_classifier::digits::five),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 60,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`mnist_classifier::digits::seven),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 61,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`mnist_classifier::digits::eight),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 62,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`mnist_classifier::digits::nine),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 63,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`mnist_classifier::digits::two),
     ),
 ]
 ```

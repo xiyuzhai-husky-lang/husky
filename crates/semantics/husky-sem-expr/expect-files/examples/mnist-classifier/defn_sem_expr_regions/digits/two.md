@@ -1,7 +1,7 @@
 ```rust
 [
     SemExprRegion {
-        path: RegionPath::Defn(
+        path: RegionPath::ItemDefn(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
@@ -9,7 +9,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Defn(
+            path: RegionPath::ItemDefn(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
@@ -888,7 +888,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Defn(
+        path: RegionPath::ItemDefn(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
@@ -898,7 +898,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Defn(
+            path: RegionPath::ItemDefn(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
@@ -2007,7 +2007,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Defn(
+        path: RegionPath::ItemDefn(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
@@ -2017,7 +2017,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Defn(
+            path: RegionPath::ItemDefn(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
@@ -3126,7 +3126,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Defn(
+        path: RegionPath::ItemDefn(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
@@ -3136,7 +3136,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Defn(
+            path: RegionPath::ItemDefn(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
@@ -4245,7 +4245,7 @@
         },
     },
     SemExprRegion {
-        path: RegionPath::Defn(
+        path: RegionPath::ItemDefn(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
@@ -4253,7 +4253,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Defn(
+            path: RegionPath::ItemDefn(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::digits::two::is_two`, `Val`),

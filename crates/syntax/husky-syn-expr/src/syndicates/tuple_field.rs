@@ -14,11 +14,11 @@ impl TupleFieldSyndicate {
     }
 }
 
-impl<'a> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for TupleFieldSyndicate {
+impl<'a> parsec::TryParseOptionFromStream<StandaloneSynExprParser<'a>> for TupleFieldSyndicate {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut SynDeclExprParser<'a>,
+        ctx: &mut StandaloneSynExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
         let decorators = parse_consecutive_list(ctx)?;
         let visibility = ctx.try_parse_option()?;
@@ -40,11 +40,11 @@ impl<'a> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for TupleFieldS
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TupleFieldAttr {}
 
-impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for TupleFieldAttr {
+impl<'a, 'b> parsec::TryParseOptionFromStream<StandaloneSynExprParser<'a>> for TupleFieldAttr {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut SynDeclExprParser<'a>,
+        ctx: &mut StandaloneSynExprParser<'a>,
     ) -> Result<Option<Self>, Self::Error> {
         let Some(_pound_token) = ctx.try_parse_option::<PoundRegionalToken>()? else {
             return Ok(None);
@@ -61,11 +61,11 @@ pub enum FieldVisibilityExpr {
     Pub,
 }
 
-impl<'a, 'b> parsec::TryParseOptionFromStream<SynDeclExprParser<'a>> for FieldVisibilityExpr {
+impl<'a, 'b> parsec::TryParseOptionFromStream<StandaloneSynExprParser<'a>> for FieldVisibilityExpr {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut SynDeclExprParser<'a>,
+        ctx: &mut StandaloneSynExprParser<'a>,
     ) -> Result<Option<Self>, Self::Error> {
         let Some(_pub_token) = ctx.try_parse_option::<PubRegionalToken>()? else {
             return Ok(None);

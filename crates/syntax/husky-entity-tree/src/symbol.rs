@@ -5,7 +5,7 @@ use husky_entity_path::path::{
 };
 use husky_regional_token::RegionalTokenIdx;
 
-#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
+#[salsa::tracked]
 pub struct UseSymbol {
     #[id]
     pub original_symbol: EntitySymbol,
@@ -60,7 +60,7 @@ impl EntitySymbol {
     }
 }
 
-#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
+#[salsa::tracked]
 pub struct ParentSuperSymbol {
     pub parent_symbol: EntitySymbol,
     pub parent_super_module_path: ModulePath,

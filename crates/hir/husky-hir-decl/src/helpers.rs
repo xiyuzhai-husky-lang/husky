@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_path::path::major_item::ty::TypePath;
-use husky_entity_tree::HasTypeVariantPaths;
+use husky_entity_tree::node::ty_variant::HasTypeVariantPaths;
 
 #[salsa::tracked]
 pub fn enum_ty_has_only_unit_variants(db: &::salsa::Db, ty_path: TypePath) -> bool {

@@ -20,7 +20,7 @@ impl HasPropsFieldEtherealSignature for PropsStructEthTemplate {
         db: &::salsa::Db,
         arguments: &[EthTerm],
         ident: Ident,
-    ) -> EtherealSignatureMaybeResult<PropsFieldEtherealSignature> {
+    ) -> EthSignatureMaybeResult<PropsFieldEtherealSignature> {
         let field = self
             .fields(db)
             .iter()
@@ -39,7 +39,7 @@ impl PropsStructEthTemplate {
         db: &::salsa::Db,
         path: TypePath,
         tmpl: PropsStructDecTemplate,
-    ) -> EtherealSignatureResult<Self> {
+    ) -> EthSignatureResult<Self> {
         let template_parameters =
             EthTemplateParameters::from_dec(db, tmpl.template_parameters(db))?;
         let fields = tmpl
@@ -47,7 +47,7 @@ impl PropsStructEthTemplate {
             .iter()
             .copied()
             .map(|dec_template| PropsFieldEthTemplate::from_dec(db, dec_template))
-            .collect::<EtherealSignatureResult<_>>()?;
+            .collect::<EthSignatureResult<_>>()?;
         let instance_constructor_ritchie_ty =
             EthRitchie::from_dec(db, tmpl.instance_constructor_ritchie_ty(db))?;
         Ok(Self::new(
@@ -75,7 +75,7 @@ impl PropsFieldEthTemplate {
     fn from_dec(
         db: &::salsa::Db,
         dec_template: PropsStructFieldDecTemplate,
-    ) -> EtherealSignatureResult<Self> {
+    ) -> EthSignatureResult<Self> {
         Ok(Self {
             ident: dec_template.ident(),
             ty: EthTerm::ty_from_dec(db, dec_template.ty())?,

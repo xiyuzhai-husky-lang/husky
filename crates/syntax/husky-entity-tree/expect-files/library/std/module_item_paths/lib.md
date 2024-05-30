@@ -2,33 +2,15 @@
 [
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 1,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`std::prelude),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 2,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`std::logic),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 3,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`std::ops),
     ),
 ]
 ```

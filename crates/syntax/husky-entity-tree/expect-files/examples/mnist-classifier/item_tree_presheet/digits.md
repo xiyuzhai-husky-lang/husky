@@ -11,13 +11,7 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 60,
-                                                    },
-                                                ),
-                                            ),
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::digits::zero),
                                             disambiguator: 0,
                                         },
                                     },
@@ -43,13 +37,7 @@ EntityTreePresheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 60,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::digits::zero),
                                         disambiguator: 0,
                                     },
                                 },
@@ -70,13 +58,7 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 61,
-                                                    },
-                                                ),
-                                            ),
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::digits::one),
                                             disambiguator: 0,
                                         },
                                     },
@@ -102,13 +84,7 @@ EntityTreePresheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 61,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::digits::one),
                                         disambiguator: 0,
                                     },
                                 },
@@ -129,13 +105,7 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 62,
-                                                    },
-                                                ),
-                                            ),
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::digits::six),
                                             disambiguator: 0,
                                         },
                                     },
@@ -161,13 +131,7 @@ EntityTreePresheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 62,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::digits::six),
                                         disambiguator: 0,
                                     },
                                 },
@@ -188,13 +152,7 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 63,
-                                                    },
-                                                ),
-                                            ),
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::digits::three),
                                             disambiguator: 0,
                                         },
                                     },
@@ -220,13 +178,7 @@ EntityTreePresheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 63,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::digits::three),
                                         disambiguator: 0,
                                     },
                                 },
@@ -247,13 +199,7 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 64,
-                                                    },
-                                                ),
-                                            ),
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::digits::four),
                                             disambiguator: 0,
                                         },
                                     },
@@ -279,13 +225,7 @@ EntityTreePresheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 64,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::digits::four),
                                         disambiguator: 0,
                                     },
                                 },
@@ -306,13 +246,7 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 65,
-                                                    },
-                                                ),
-                                            ),
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::digits::five),
                                             disambiguator: 0,
                                         },
                                     },
@@ -338,13 +272,7 @@ EntityTreePresheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::digits::five),
                                         disambiguator: 0,
                                     },
                                 },
@@ -365,13 +293,7 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 66,
-                                                    },
-                                                ),
-                                            ),
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::digits::seven),
                                             disambiguator: 0,
                                         },
                                     },
@@ -397,13 +319,7 @@ EntityTreePresheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 66,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::digits::seven),
                                         disambiguator: 0,
                                     },
                                 },
@@ -424,13 +340,7 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 67,
-                                                    },
-                                                ),
-                                            ),
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::digits::eight),
                                             disambiguator: 0,
                                         },
                                     },
@@ -456,13 +366,7 @@ EntityTreePresheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 67,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::digits::eight),
                                         disambiguator: 0,
                                     },
                                 },
@@ -483,13 +387,7 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 68,
-                                                    },
-                                                ),
-                                            ),
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::digits::nine),
                                             disambiguator: 0,
                                         },
                                     },
@@ -515,13 +413,7 @@ EntityTreePresheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 68,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::digits::nine),
                                         disambiguator: 0,
                                     },
                                 },
@@ -542,13 +434,7 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 69,
-                                                    },
-                                                ),
-                                            ),
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::digits::two),
                                             disambiguator: 0,
                                         },
                                     },
@@ -574,13 +460,7 @@ EntityTreePresheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 69,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`mnist_classifier::digits::two),
                                         disambiguator: 0,
                                     },
                                 },

@@ -12,7 +12,7 @@ impl EtherealParenateParameters {
     pub(crate) fn from_dec(
         db: &::salsa::Db,
         params: &DeclarativeParenateParameters,
-    ) -> EtherealSignatureResult<Self> {
+    ) -> EthSignatureResult<Self> {
         Ok(EtherealParenateParameters {
             data: params
                 .iter()

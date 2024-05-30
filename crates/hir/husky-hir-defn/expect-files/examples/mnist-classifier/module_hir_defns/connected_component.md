@@ -57,7 +57,7 @@
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
@@ -169,7 +169,7 @@
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
@@ -318,7 +318,7 @@
                             },
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -529,7 +529,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)`),
@@ -602,7 +602,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
@@ -647,7 +647,7 @@
                         (
                             3,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TraitForTypeItem(
                                             TraitForTypeItemPath(
@@ -834,7 +834,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
@@ -897,7 +897,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -940,7 +940,7 @@
                         (
                             2,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -1085,7 +1085,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -1128,7 +1128,7 @@
                         (
                             19,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -2169,7 +2169,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -2212,7 +2212,7 @@
                         (
                             19,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -2926,7 +2926,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -2969,7 +2969,7 @@
                         (
                             14,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -3478,7 +3478,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -3521,7 +3521,7 @@
                         (
                             12,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -3943,7 +3943,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -3986,7 +3986,7 @@
                         (
                             50,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -5641,7 +5641,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -5684,7 +5684,7 @@
                         (
                             4,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -5883,7 +5883,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -5926,7 +5926,7 @@
                         (
                             4,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -6157,7 +6157,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -6216,7 +6216,7 @@
                         (
                             23,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(
@@ -7042,7 +7042,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
                                         TypeItemPath(
@@ -7101,7 +7101,7 @@
                         (
                             23,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
                                             TypeItemPath(

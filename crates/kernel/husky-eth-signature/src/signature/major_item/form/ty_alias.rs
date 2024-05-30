@@ -13,7 +13,7 @@ impl MajorTypeAliasEthTemplate {
         db: &::salsa::Db,
         path: MajorFormPath,
         dec_template: TypeAliasDecTemplate,
-    ) -> EtherealSignatureResult<Self> {
+    ) -> EthSignatureResult<Self> {
         let template_parameters =
             EthTemplateParameters::from_dec(db, dec_template.template_parameters(db))?;
         Ok(Self::new(db, path, template_parameters))

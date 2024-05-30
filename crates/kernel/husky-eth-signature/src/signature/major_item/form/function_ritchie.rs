@@ -16,7 +16,7 @@ impl MajorFunctionRitchieEthTemplate {
         db: &::salsa::Db,
         path: MajorFormPath,
         tmpl: MajorFunctionRitchieDecTemplate,
-    ) -> EtherealSignatureResult<Self> {
+    ) -> EthSignatureResult<Self> {
         let template_params = EthTemplateParameters::from_dec(db, tmpl.template_parameters(db))?;
         let ritchie_params: SmallVec<[_; 4]> = tmpl
             .parenate_parameters(db)

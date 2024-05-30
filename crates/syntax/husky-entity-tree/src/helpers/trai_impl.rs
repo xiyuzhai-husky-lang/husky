@@ -6,7 +6,7 @@ use husky_entity_path::path::{
 
 // trait side
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub fn trai_side_derive_any_trai_for_ty_impl_block_paths_map(
     db: &::salsa::Db,
     trai_path: TraitPath,
@@ -23,7 +23,7 @@ pub fn trai_side_derive_any_trai_for_ty_impl_block_paths_map(
     paths
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub fn trai_side_path_leading_trai_for_ty_impl_block_paths_map(
     db: &::salsa::Db,
     trai_path: TraitPath,
@@ -47,7 +47,7 @@ pub fn trai_side_path_leading_trai_for_ty_impl_block_paths_map(
 
 // type side
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub fn ty_side_trai_for_ty_impl_block_paths_map(
     db: &::salsa::Db,
     ty_path: TypePath,

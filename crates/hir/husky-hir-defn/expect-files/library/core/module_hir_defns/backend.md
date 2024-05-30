@@ -10,7 +10,7 @@
                         [],
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Trait(
                                     TraitPath(`core::backend::IsBackend`),
@@ -53,7 +53,7 @@
                             [],
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`core::backend::MlBackend`, `Extern`),

@@ -43,7 +43,7 @@ impl MajorFunctionRitchieSynNodeDecl {
     }
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> ItemDeclParser<'a> {
     pub(super) fn parse_ritchie_syn_node_decl(
         &self,
         syn_node_path: FormSynNodePath,
@@ -91,7 +91,7 @@ pub struct MajorFunctionRitchieSynDecl {
 }
 
 impl MajorFunctionRitchieSynDecl {
-    pub(super) fn from_node_decl(
+    pub(super) fn from_node(
         db: &::salsa::Db,
         path: MajorFormPath,
         syn_node_decl: MajorFunctionRitchieSynNodeDecl,

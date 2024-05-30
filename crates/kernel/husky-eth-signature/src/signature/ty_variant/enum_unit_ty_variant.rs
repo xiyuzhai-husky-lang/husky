@@ -4,6 +4,7 @@ use husky_dec_signature::signature::ty_variant::enum_unit_ty_variant::EnumUnitTy
 
 #[salsa::interned]
 pub struct EnumUnitTypeVariantEthTemplate {
+    pub path: TypeVariantPath,
     pub parent_ty_template: EnumEthTemplate,
     pub self_ty: EthTerm,
 }
@@ -17,12 +18,12 @@ impl EnumUnitTypeVariantEthTemplate {
         db: &::salsa::Db,
         path: TypeVariantPath,
         tmpl: EnumUnitTypeVariantDecTemplate,
-    ) -> EtherealSignatureResult<Self> {
+    ) -> EthSignatureResult<Self> {
         let TypeEthTemplate::Enum(parent_ty_template) = path.parent_ty_path(db).eth_template(db)?
         else {
             unreachable!()
         };
         let self_ty = EthTerm::ty_from_dec(db, tmpl.self_ty(db))?;
-        Ok(Self::new(db, parent_ty_template, self_ty))
+        Ok(Self::new(db, path, parent_ty_template, self_ty))
     }
 }

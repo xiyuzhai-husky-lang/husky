@@ -17,8 +17,6 @@ Ok(
             None,
             None,
             None,
-            None,
-            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(

@@ -10,7 +10,7 @@ fn application_expansion_aux(db: &::salsa::Db, declarative_term: DecTerm) -> App
     }
 }
 
-#[salsa::tracked(jar=DeclarativeTypeJar)]
+#[salsa::tracked(jar=DecTypeJar)]
 pub(crate) fn application_expansion_salsa(
     db: &::salsa::Db,
     declarative_term: DecApplication,
@@ -27,7 +27,7 @@ pub struct ApplicationExpansion {
     arguments: Option<EtherealApplicationArguments>,
 }
 
-#[salsa::tracked(db = DeclarativeTypeDb, jar = DeclarativeTypeJar)]
+#[salsa::tracked(db = DeclarativeTypeDb, jar = DecTypeJar)]
 pub(crate) struct EtherealApplicationArguments {
     #[return_ref]
     data: Vec<DecTerm>,

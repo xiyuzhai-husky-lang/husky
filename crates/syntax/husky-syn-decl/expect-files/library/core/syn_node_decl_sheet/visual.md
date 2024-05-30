@@ -43,7 +43,7 @@ SynNodeDeclSheet {
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: None,
-                                path: SynNodeRegionPath::Decl(
+                                path: SynNodeRegionPath::ItemDecl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
                                             TraitSynNodePath(
@@ -152,7 +152,7 @@ SynNodeDeclSheet {
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
                                                 TypeSynNodePath(
@@ -294,7 +294,7 @@ SynNodeDeclSheet {
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: None,
-                                path: SynNodeRegionPath::Decl(
+                                path: SynNodeRegionPath::ItemDecl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
                                             TraitForTypeImplBlockSynNodePath(
@@ -489,7 +489,7 @@ SynNodeDeclSheet {
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: SynNodeRegionPath::Decl(
+                                                path: SynNodeRegionPath::ItemDecl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePath(
@@ -581,7 +581,7 @@ SynNodeDeclSheet {
                                             },
                                         },
                                     ),
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePath(

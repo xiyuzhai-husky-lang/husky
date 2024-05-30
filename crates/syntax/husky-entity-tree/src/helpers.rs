@@ -13,7 +13,7 @@ use husky_entity_path::path::major_item::trai::TraitPath;
 use smallvec::{smallvec, SmallVec};
 use vec_like::{OrderedSmallVecSet, SmallVecPairMap};
 
-#[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar)]
+#[salsa::interned]
 pub struct TraitOrderedSet {
     data: OrderedSmallVecSet<TraitPath, 8>,
 }

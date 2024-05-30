@@ -27,7 +27,7 @@
                             ],
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`malamute::Class`, `Enum`),
@@ -108,7 +108,7 @@
                         },
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::TypeVariant(
                                 Room32,
                                 TypeVariantPath(
@@ -180,7 +180,7 @@
                         ),
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::TypeVariant(
                                 Room32,
                                 TypeVariantPath(
@@ -244,7 +244,7 @@
                             [],
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`malamute::OneVsAll`, `Enum`),
@@ -296,7 +296,7 @@
                         ),
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::TypeVariant(
                                 Room32,
                                 TypeVariantPath(
@@ -352,7 +352,7 @@
                         ),
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::TypeVariant(
                                 Room32,
                                 TypeVariantPath(
@@ -400,7 +400,7 @@
                             [],
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`malamute::OneVsAllResult`, `Enum`),
@@ -452,7 +452,7 @@
                         ),
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::TypeVariant(
                                 Room32,
                                 TypeVariantPath(
@@ -508,7 +508,7 @@
                         ),
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::TypeVariant(
                                 Room32,
                                 TypeVariantPath(
@@ -564,7 +564,7 @@
                         ),
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::TypeVariant(
                                 Room32,
                                 TypeVariantPath(
@@ -737,7 +737,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockPath(`malamute::OneVsAll as core::default::Default(0)`),
@@ -800,7 +800,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
@@ -845,7 +845,7 @@
                         (
                             1,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TraitForTypeItem(
                                             TraitForTypeItemPath(
@@ -1024,7 +1024,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
@@ -1121,7 +1121,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
@@ -1272,7 +1272,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
@@ -1372,7 +1372,7 @@
                         (
                             6,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TraitForTypeItem(
                                             TraitForTypeItemPath(
@@ -1898,7 +1898,7 @@
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
+                        region_path: RegionPath::ItemDecl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
                                     TraitForTypeImplBlockPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
@@ -1954,7 +1954,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
@@ -2052,7 +2052,7 @@
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
-                            region_path: RegionPath::Decl(
+                            region_path: RegionPath::ItemDecl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TraitForTypeItem(
                                         TraitForTypeItemPath(
@@ -2111,7 +2111,7 @@
                         (
                             7,
                             HirEagerExprRegion {
-                                region_path: RegionPath::Defn(
+                                region_path: RegionPath::ItemDefn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TraitForTypeItem(
                                             TraitForTypeItemPath(

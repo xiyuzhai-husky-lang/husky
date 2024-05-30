@@ -1,7 +1,7 @@
 ```rust
 [
     SemExprRegion {
-        path: RegionPath::Defn(
+        path: RegionPath::ItemDefn(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
                     FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
@@ -11,7 +11,7 @@
             ),
         ),
         data: SemExprRegionData {
-            path: RegionPath::Defn(
+            path: RegionPath::ItemDefn(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
                         FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(

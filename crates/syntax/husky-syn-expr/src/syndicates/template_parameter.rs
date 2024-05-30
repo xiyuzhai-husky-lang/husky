@@ -45,11 +45,11 @@ pub enum TemplateParameterSyndicateVariant {
     },
 }
 
-impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynParameterData {
+impl<'a, 'b> TryParseOptionFromStream<StandaloneSynExprParser<'a>> for TemplateSynParameterData {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut SynDeclExprParser<'a>,
+        ctx: &mut StandaloneSynExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
         let syn_attrs = ctx.try_parse()?;
         let annotated_variance_token = ctx.try_parse_err_as_none();

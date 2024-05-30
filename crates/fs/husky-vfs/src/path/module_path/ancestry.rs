@@ -53,17 +53,13 @@ fn module_ancestry_works() {
                 package_path: PackagePath {
                     toolchain: Toolchain {
                         data: ToolchainData::Local {
-                            library_path: VirtualPath {
-                                _data: VirtualPathBuf(
-                                    "../../../library",
-                                ),
-                            },
+                            library_path: "../../../library",
                         },
                     },
                     name: `core`,
                     data: PackagePathSource::Library,
                 },
-                crate_kind: Lib,
+                kind: Lib,
             },
             module_paths: [
                 `core`,
@@ -77,17 +73,13 @@ fn module_ancestry_works() {
                 package_path: PackagePath {
                     toolchain: Toolchain {
                         data: ToolchainData::Local {
-                            library_path: VirtualPath {
-                                _data: VirtualPathBuf(
-                                    "../../../library",
-                                ),
-                            },
+                            library_path: "../../../library",
                         },
                     },
                     name: `core`,
                     data: PackagePathSource::Library,
                 },
-                crate_kind: Lib,
+                kind: Lib,
             },
             module_paths: [
                 `core`,

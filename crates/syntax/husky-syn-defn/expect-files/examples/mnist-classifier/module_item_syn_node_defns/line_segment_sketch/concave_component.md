@@ -38,7 +38,7 @@
                             SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
                                                 FormSynNodePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
@@ -243,7 +243,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
                                     FormSynNodePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
@@ -1744,7 +1744,7 @@
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: SynNodeRegionPath::Decl(
+                                                path: SynNodeRegionPath::ItemDecl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockSynNodePath(
@@ -1865,7 +1865,7 @@
                                             },
                                         },
                                     ),
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePath(
@@ -1965,7 +1965,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::AssocItem(
                                 AssocItemSynNodePath::TraitForTypeItem(
                                     TraitForTypeItemSynNodePath(
@@ -2146,7 +2146,7 @@
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: SynNodeRegionPath::Decl(
+                                                path: SynNodeRegionPath::ItemDecl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath(
@@ -2238,7 +2238,7 @@
                                             },
                                         },
                                     ),
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
@@ -2336,7 +2336,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::AssocItem(
                                 AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
@@ -2477,7 +2477,7 @@
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: SynNodeRegionPath::Decl(
+                                                path: SynNodeRegionPath::ItemDecl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath(
@@ -2569,7 +2569,7 @@
                                             },
                                         },
                                     ),
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
@@ -2667,7 +2667,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::AssocItem(
                                 AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
@@ -2863,7 +2863,7 @@
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: SynNodeRegionPath::Decl(
+                                                path: SynNodeRegionPath::ItemDecl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath(
@@ -2955,7 +2955,7 @@
                                             },
                                         },
                                     ),
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
@@ -3053,7 +3053,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::AssocItem(
                                 AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
@@ -4183,7 +4183,7 @@
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: SynNodeRegionPath::Decl(
+                                                path: SynNodeRegionPath::ItemDecl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath(
@@ -4275,7 +4275,7 @@
                                             },
                                         },
                                     ),
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
@@ -4373,7 +4373,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::AssocItem(
                                 AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
@@ -5235,7 +5235,7 @@
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: SynNodeRegionPath::Decl(
+                                                path: SynNodeRegionPath::ItemDecl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath(
@@ -5327,7 +5327,7 @@
                                             },
                                         },
                                     ),
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
@@ -5425,7 +5425,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::AssocItem(
                                 AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
@@ -6963,7 +6963,7 @@
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: SynNodeRegionPath::Decl(
+                                                path: SynNodeRegionPath::ItemDecl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath(
@@ -7055,7 +7055,7 @@
                                             },
                                         },
                                     ),
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
@@ -7153,7 +7153,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::AssocItem(
                                 AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
@@ -7350,7 +7350,7 @@
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: SynNodeRegionPath::Decl(
+                                                path: SynNodeRegionPath::ItemDecl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath(
@@ -7442,7 +7442,7 @@
                                             },
                                         },
                                     ),
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
@@ -7542,7 +7542,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::AssocItem(
                                 AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
@@ -7872,7 +7872,7 @@
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: SynNodeRegionPath::Decl(
+                                                path: SynNodeRegionPath::ItemDecl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath(
@@ -7964,7 +7964,7 @@
                                             },
                                         },
                                     ),
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
@@ -8064,7 +8064,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::AssocItem(
                                 AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
@@ -8268,7 +8268,7 @@
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: SynNodeRegionPath::Decl(
+                                                path: SynNodeRegionPath::ItemDecl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath(
@@ -8360,7 +8360,7 @@
                                             },
                                         },
                                     ),
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
@@ -8460,7 +8460,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::AssocItem(
                                 AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
@@ -8664,7 +8664,7 @@
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: SynNodeRegionPath::Decl(
+                                                path: SynNodeRegionPath::ItemDecl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath(
@@ -8756,7 +8756,7 @@
                                             },
                                         },
                                     ),
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
@@ -8856,7 +8856,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::AssocItem(
                                 AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
@@ -9029,7 +9029,7 @@
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: SynNodeRegionPath::Decl(
+                                                path: SynNodeRegionPath::ItemDecl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath(
@@ -9121,7 +9121,7 @@
                                             },
                                         },
                                     ),
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
@@ -9221,7 +9221,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::AssocItem(
                                 AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(
@@ -9413,7 +9413,7 @@
                                         SynExprRegion {
                                             data: SynExprRegionData {
                                                 parent: None,
-                                                path: SynNodeRegionPath::Decl(
+                                                path: SynNodeRegionPath::ItemDecl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
                                                             TypeImplBlockSynNodePath(
@@ -9505,7 +9505,7 @@
                                             },
                                         },
                                     ),
-                                    path: SynNodeRegionPath::Decl(
+                                    path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::AssocItem(
                                             AssocItemSynNodePath::TypeItem(
                                                 TypeItemSynNodePath(
@@ -9605,7 +9605,7 @@
                                 },
                             },
                         ),
-                        path: SynNodeRegionPath::Defn(
+                        path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::AssocItem(
                                 AssocItemSynNodePath::TypeItem(
                                     TypeItemSynNodePath(

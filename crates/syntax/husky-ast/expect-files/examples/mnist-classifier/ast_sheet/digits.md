@@ -28,13 +28,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 60,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`mnist_classifier::digits::zero),
                 },
             },
             AstData::Identifiable {
@@ -63,13 +57,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 61,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`mnist_classifier::digits::one),
                 },
             },
             AstData::Identifiable {
@@ -98,13 +86,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 62,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`mnist_classifier::digits::six),
                 },
             },
             AstData::Identifiable {
@@ -133,13 +115,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 63,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`mnist_classifier::digits::three),
                 },
             },
             AstData::Identifiable {
@@ -168,13 +144,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 64,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`mnist_classifier::digits::four),
                 },
             },
             AstData::Identifiable {
@@ -203,13 +173,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 65,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`mnist_classifier::digits::five),
                 },
             },
             AstData::Identifiable {
@@ -238,13 +202,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 66,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`mnist_classifier::digits::seven),
                 },
             },
             AstData::Identifiable {
@@ -273,13 +231,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 67,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`mnist_classifier::digits::eight),
                 },
             },
             AstData::Identifiable {
@@ -308,13 +260,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 68,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`mnist_classifier::digits::nine),
                 },
             },
             AstData::Identifiable {
@@ -343,13 +289,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 69,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`mnist_classifier::digits::two),
                 },
             },
             AstData::Use {

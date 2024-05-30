@@ -8,7 +8,7 @@
                     [],
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
+                    region_path: RegionPath::ItemDecl(
                         ItemPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::marker::Copy`),
@@ -47,7 +47,7 @@
                     [],
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
+                    region_path: RegionPath::ItemDecl(
                         ItemPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::marker::Sized`),
@@ -93,7 +93,7 @@
                     HirTypeTemplateVariable::SelfType,
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
+                    region_path: RegionPath::ItemDecl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
                                 TraitForTypeImplBlockPath(`#derive _ as core::marker::Copy(0)`),

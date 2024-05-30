@@ -27,7 +27,7 @@ EntityTreeSheet {
                         ident_token: IdentToken {
                             ident: `Class`,
                             token_idx: TokenIdx(
-                                26,
+                                24,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -87,7 +87,7 @@ EntityTreeSheet {
                         ident_token: IdentToken {
                             ident: `OneVsAll`,
                             token_idx: TokenIdx(
-                                48,
+                                46,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -147,7 +147,7 @@ EntityTreeSheet {
                         ident_token: IdentToken {
                             ident: `OneVsAllResult`,
                             token_idx: TokenIdx(
-                                193,
+                                191,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -196,7 +196,7 @@ EntityTreeSheet {
                         ident_token: IdentToken {
                             ident: `narrow_down`,
                             token_idx: TokenIdx(
-                                318,
+                                316,
                             ),
                         },
                         block: DefnBlock::Form {
@@ -292,12 +292,12 @@ EntityTreeSheet {
                     ast_idx: 27,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            65,
+                            63,
                         ),
                     },
                     trai_expr: 0,
                     for_token: TokenIdx(
-                        79,
+                        77,
                     ),
                     ty_sketch_expr: Path(
                         1,
@@ -344,12 +344,12 @@ EntityTreeSheet {
                     ast_idx: 28,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            95,
+                            93,
                         ),
                     },
                     trai_expr: 4,
                     for_token: TokenIdx(
-                        114,
+                        112,
                     ),
                     ty_sketch_expr: Path(
                         5,
@@ -396,12 +396,12 @@ EntityTreeSheet {
                     ast_idx: 31,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            212,
+                            210,
                         ),
                     },
                     trai_expr: 8,
                     for_token: TokenIdx(
-                        233,
+                        231,
                     ),
                     ty_sketch_expr: Path(
                         9,

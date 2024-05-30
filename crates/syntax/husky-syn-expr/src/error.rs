@@ -1,4 +1,5 @@
 use crate::*;
+use husky_entity_tree::error::EntityTreeError;
 use husky_token_data::delimiter::Delimiter;
 use original_error::OriginalError;
 use thiserror::Error;

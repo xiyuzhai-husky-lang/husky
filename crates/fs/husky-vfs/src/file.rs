@@ -140,7 +140,7 @@ impl salsa::AsId for File {
     }
 }
 impl ::salsa::DebugWithDb for File {
-    fn debug_with_db_fmt(
+    fn debug_fmt_with_db(
         &self,
         f: &mut ::std::fmt::Formatter<'_>,
         _db: &::salsa::Db,
