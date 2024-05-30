@@ -3,13 +3,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 6,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`syntax_basics::defn::major_item),
         ),
         Ok(
             ItemDecTemplate::Submodule,

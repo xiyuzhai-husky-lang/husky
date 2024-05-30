@@ -3,9 +3,8 @@ use husky_dec_signature::signature::assoc_item::ty_item::assoc_ritchie::TypeAsso
 use husky_entity_kind::ritchie::RitchieItemKind;
 use husky_eth_term::term::ritchie::EthRitchie;
 
-#[salsa::tracked]
+#[salsa::interned]
 pub struct TypeAssocRitchieEthTemplate {
-    #[id]
     pub path: TypeItemPath,
     // todo: is this necessary?
     pub self_ty: EthTerm,

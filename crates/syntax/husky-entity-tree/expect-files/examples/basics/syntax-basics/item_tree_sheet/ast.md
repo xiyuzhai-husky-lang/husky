@@ -11,13 +11,7 @@ EntityTreeSheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 5,
-                                                    },
-                                                ),
-                                            ),
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(`syntax_basics::ast::submodule_name),
                                             disambiguator: 0,
                                         },
                                     },
@@ -43,13 +37,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 5,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`syntax_basics::ast::submodule_name),
                                         disambiguator: 0,
                                     },
                                 },
@@ -72,13 +60,7 @@ EntityTreeSheet {
                     `syntax_basics::ast`,
                 ),
                 symbol: EntitySymbol::Submodule {
-                    submodule_item_path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 5,
-                            },
-                        ),
-                    ),
+                    submodule_item_path: SubmoduleItemPath(`syntax_basics::ast::submodule_name),
                 },
             },
         ],

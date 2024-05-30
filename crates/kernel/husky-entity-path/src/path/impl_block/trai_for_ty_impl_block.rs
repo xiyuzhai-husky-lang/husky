@@ -108,7 +108,7 @@ impl TraitForTypeImplBlockPath {
 }
 
 impl salsa::DebugWithDb for TraitForTypeImplBlockPath {
-    fn debug_with_db_fmt(
+    fn debug_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,

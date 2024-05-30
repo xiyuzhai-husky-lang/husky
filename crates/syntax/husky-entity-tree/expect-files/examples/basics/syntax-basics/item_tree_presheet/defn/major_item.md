@@ -11,13 +11,7 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: SubmoduleItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
-                                            ),
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(`syntax_basics::defn::major_item::ty),
                                             disambiguator: 0,
                                         },
                                     },
@@ -43,13 +37,7 @@ EntityTreePresheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: SubmoduleItemPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 13,
-                                                },
-                                            ),
-                                        ),
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(`syntax_basics::defn::major_item::ty),
                                         disambiguator: 0,
                                     },
                                 },

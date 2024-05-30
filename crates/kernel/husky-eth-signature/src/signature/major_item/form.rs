@@ -19,6 +19,14 @@ pub enum FormEthTemplate {
 }
 
 impl FormEthTemplate {
+    pub fn path(self, db: &::salsa::Db) -> MajorFormPath {
+        match self {
+            FormEthTemplate::Ritchie(slf) => slf.path(db),
+            FormEthTemplate::TypeAlias(slf) => slf.path(db),
+            FormEthTemplate::Val(slf) => slf.path(db),
+        }
+    }
+
     pub fn template_parameters(self, db: &::salsa::Db) -> &[EthTemplateParameter] {
         match self {
             FormEthTemplate::Ritchie(slf) => slf.template_parameters(db),

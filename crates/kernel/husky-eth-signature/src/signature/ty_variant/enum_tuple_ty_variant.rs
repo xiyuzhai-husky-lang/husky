@@ -5,6 +5,7 @@ use husky_eth_term::term::ritchie::EthRitchie;
 
 #[salsa::interned]
 pub struct EnumTupleVariantEthTemplate {
+    pub path: TypeVariantPath,
     pub parent_ty_template: EnumEthTemplate,
     pub instance_constructor_ritchie_ty: EthRitchie,
 }
@@ -20,7 +21,12 @@ impl EnumTupleVariantEthTemplate {
             unreachable!()
         };
         let instance_constructor_ty = EthRitchie::from_dec(db, tmpl.instance_constructor_ty(db))?;
-        Ok(Self::new(db, parent_ty_template, instance_constructor_ty))
+        Ok(Self::new(
+            db,
+            path,
+            parent_ty_template,
+            instance_constructor_ty,
+        ))
     }
 
     pub fn instance_constructor_ty(self, db: &::salsa::Db) -> EthTerm {

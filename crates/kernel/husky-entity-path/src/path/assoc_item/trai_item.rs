@@ -83,12 +83,12 @@ impl TraitItemPathData {
 }
 
 impl salsa::DebugWithDb for TraitItemPath {
-    fn debug_with_db_fmt(
+    fn debug_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        item_debug_with_db_fmt!(self, f, "TraitItemPath", db)
+        item_debug_fmt_with_db!(self, f, "TraitItemPath", db)
     }
 }
 

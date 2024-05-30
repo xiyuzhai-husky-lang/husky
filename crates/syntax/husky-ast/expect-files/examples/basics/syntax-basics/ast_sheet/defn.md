@@ -28,13 +28,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 14,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`syntax_basics::defn::major_item),
                 },
             },
         ],

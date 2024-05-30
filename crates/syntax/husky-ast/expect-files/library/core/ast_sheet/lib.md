@@ -32,13 +32,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 1,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::array),
                 },
             },
             AstData::Identifiable {
@@ -71,13 +65,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 2,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::backend),
                 },
             },
             AstData::Identifiable {
@@ -110,13 +98,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 3,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::basic),
                 },
             },
             AstData::Identifiable {
@@ -149,13 +131,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 4,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::clone),
                 },
             },
             AstData::Identifiable {
@@ -188,13 +164,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 5,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::cmp),
                 },
             },
             AstData::Identifiable {
@@ -227,13 +197,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 6,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::default),
                 },
             },
             AstData::Identifiable {
@@ -266,13 +230,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 7,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::frontend),
                 },
             },
             AstData::Identifiable {
@@ -305,13 +263,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 8,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::fmt),
                 },
             },
             AstData::Identifiable {
@@ -344,13 +296,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 9,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::logic),
                 },
             },
             AstData::Identifiable {
@@ -383,13 +329,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 10,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::marker),
                 },
             },
             AstData::Identifiable {
@@ -422,13 +362,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 11,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::mem),
                 },
             },
             AstData::Identifiable {
@@ -461,13 +395,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 12,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::num),
                 },
             },
             AstData::Identifiable {
@@ -500,13 +428,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 13,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::ops),
                 },
             },
             AstData::Identifiable {
@@ -539,13 +461,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 14,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::option),
                 },
             },
             AstData::Identifiable {
@@ -578,13 +494,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 15,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::prelude),
                 },
             },
             AstData::Identifiable {
@@ -617,13 +527,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 16,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::raw_bits),
                 },
             },
             AstData::Identifiable {
@@ -656,13 +560,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 17,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::result),
                 },
             },
             AstData::Identifiable {
@@ -695,13 +593,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 18,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::task),
                 },
             },
             AstData::Identifiable {
@@ -734,13 +626,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 19,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::vec),
                 },
             },
             AstData::Identifiable {
@@ -773,13 +659,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 20,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::slice),
                 },
             },
             AstData::Identifiable {
@@ -812,13 +692,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 21,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::str),
                 },
             },
             AstData::Identifiable {
@@ -851,13 +725,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 22,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::visual),
                 },
             },
             AstData::Use {

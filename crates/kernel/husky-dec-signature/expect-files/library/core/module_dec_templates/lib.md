@@ -3,13 +3,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 1,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::array),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -18,13 +12,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 2,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::backend),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -33,13 +21,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 3,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::basic),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -48,13 +30,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 4,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::clone),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -63,13 +39,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 5,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::cmp),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -78,13 +48,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 6,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::default),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -93,13 +57,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 7,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::frontend),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -108,13 +66,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 8,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::fmt),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -123,13 +75,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 9,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::logic),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -138,13 +84,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 10,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::marker),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -153,13 +93,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 11,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::mem),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -168,13 +102,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 12,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::num),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -183,13 +111,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 13,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::ops),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -198,13 +120,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 14,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::option),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -213,13 +129,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 15,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::prelude),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -228,13 +138,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 16,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::raw_bits),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -243,13 +147,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 17,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::result),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -258,13 +156,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 18,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::task),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -273,13 +165,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 19,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::vec),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -288,13 +174,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 20,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::slice),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -303,13 +183,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 21,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::str),
         ),
         Ok(
             ItemDecTemplate::Submodule,
@@ -318,13 +192,7 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 22,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::visual),
         ),
         Ok(
             ItemDecTemplate::Submodule,

@@ -20,11 +20,19 @@ pub enum AssocItemEthTemplate {
 }
 
 impl AssocItemEthTemplate {
+    pub fn path(self, db: &::salsa::Db) -> AssocItemPath {
+        match self {
+            AssocItemEthTemplate::TraitForType(slf) => slf.path(db).into(),
+            AssocItemEthTemplate::Type(slf) => slf.path(db).into(),
+            AssocItemEthTemplate::Trait(slf) => slf.path(db).into(),
+        }
+    }
+
     pub fn self_ty(self, db: &::salsa::Db) -> Option<EthTerm> {
         match self {
-            AssocItemEthTemplate::TraitForType(template) => template.self_ty(db),
-            AssocItemEthTemplate::Type(template) => template.self_ty(db),
-            AssocItemEthTemplate::Trait(template) => template.self_ty(db),
+            AssocItemEthTemplate::TraitForType(slf) => slf.self_ty(db),
+            AssocItemEthTemplate::Type(slf) => slf.self_ty(db),
+            AssocItemEthTemplate::Trait(slf) => slf.self_ty(db),
         }
     }
 }

@@ -28,13 +28,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 1,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`std::prelude),
                 },
             },
             AstData::Identifiable {
@@ -63,13 +57,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 2,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`std::logic),
                 },
             },
             AstData::Identifiable {
@@ -98,13 +86,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 3,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`std::ops),
                 },
             },
         ],

@@ -2,73 +2,31 @@
 [
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 1,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`mnist_classifier::connected_component),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 2,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`mnist_classifier::raw_contour),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 3,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`mnist_classifier::geom2d),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 4,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`mnist_classifier::line_segment_sketch),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 5,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`mnist_classifier::fermi),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 6,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`mnist_classifier::digits),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmoduleItemPath(
-            ItemPathId(
-                Id {
-                    value: 7,
-                },
-            ),
-        ),
+        SubmoduleItemPath(`mnist_classifier::major),
     ),
     ItemPath::MajorItem(
         MajorItemPath::Form(

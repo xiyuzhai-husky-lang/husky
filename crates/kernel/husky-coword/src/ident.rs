@@ -114,7 +114,7 @@ pub fn is_char_valid_ident_nonfirst_char(c: char) -> bool {
 }
 
 impl DebugWithDb for Ident {
-    fn debug_with_db_fmt(
+    fn debug_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
