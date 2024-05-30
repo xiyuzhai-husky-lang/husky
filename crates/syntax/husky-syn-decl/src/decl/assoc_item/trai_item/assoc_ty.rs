@@ -49,7 +49,7 @@ pub struct TraitAssocTypeSynDecl {
 }
 
 impl TraitAssocTypeSynDecl {
-    pub(super) fn from_node_decl(
+    pub(super) fn from_node(
         _path: TraitItemPath,
         _syn_node_decl: TraitAssocTypeSynNodeDecl,
         _db: &::salsa::Db,

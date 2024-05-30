@@ -15,7 +15,7 @@ pub struct LibCrateSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum LibCrateSynDeclItem {
     Narrative {
         narrate_token: NarrateRegionalToken,
@@ -79,5 +79,32 @@ impl<'db> CrateDeclParser<'db> {
         } else {
             todo!()
         }
+    }
+}
+
+#[salsa::tracked]
+pub struct LibCrateSynDecl {
+    #[id]
+    pub path: CratePath,
+    #[return_ref]
+    pub items: Vec<LibCrateSynDeclItem>,
+    pub syn_expr_region: SynExprRegion,
+}
+
+impl LibCrateSynDecl {
+    pub(super) fn from_node(
+        path: CratePath,
+        syn_node_decl: LibCrateSynNodeDecl,
+        db: &::salsa::Db,
+    ) -> SynDeclResult<Self> {
+        let items = syn_node_decl
+            .items(db)
+            .iter()
+            .map(|result| -> SynDeclResult<LibCrateSynDeclItem> {
+                result.as_ref().map(Clone::clone).map_err(Into::into)
+            })
+            .collect::<SynDeclResult<Vec<LibCrateSynDeclItem>>>()?;
+        let syn_expr_region = syn_node_decl.syn_expr_region(db);
+        Ok(Self::new(db, path, items, syn_expr_region))
     }
 }

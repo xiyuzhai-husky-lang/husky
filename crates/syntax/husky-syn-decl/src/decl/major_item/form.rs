@@ -93,26 +93,26 @@ pub enum FormSynDecl {
 }
 
 impl FormSynDecl {
-    fn from_node_decl(
+    fn from_node(
         db: &::salsa::Db,
         path: MajorFormPath,
         syn_node_decl: FormSynNodeDecl,
     ) -> SynDeclResult<Self> {
         Ok(match syn_node_decl {
             FormSynNodeDecl::FunctionRitchie(syn_node_decl) => {
-                MajorFunctionRitchieSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                MajorFunctionRitchieSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             FormSynNodeDecl::Val(syn_node_decl) => {
-                MajorValSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                MajorValSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             FormSynNodeDecl::TypeAlias(syn_node_decl) => {
-                TypeAliasSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                TypeAliasSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             FormSynNodeDecl::Compterm(syn_node_decl) => {
-                MajorComptermSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                MajorComptermSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             FormSynNodeDecl::Static(syn_node_decl) => {
-                MajorStaticSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                MajorStaticSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
         })
     }
@@ -159,5 +159,5 @@ impl HasSynDecl for MajorFormPath {
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn form_syn_decl(db: &::salsa::Db, path: MajorFormPath) -> SynDeclResult<FormSynDecl> {
     let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
-    FormSynDecl::from_node_decl(db, path, syn_node_decl)
+    FormSynDecl::from_node(db, path, syn_node_decl)
 }

@@ -56,7 +56,7 @@ pub struct TypeTupleVariantSynDecl {
 }
 
 impl TypeTupleVariantSynDecl {
-    pub(super) fn from_node_decl(
+    pub(super) fn from_node(
         db: &::salsa::Db,
         path: TypeVariantPath,
         syn_node_decl: TypeTupleVariantSynNodeDecl,

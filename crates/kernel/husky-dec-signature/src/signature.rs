@@ -1,5 +1,6 @@
 pub mod assoc_item;
 pub mod attr;
+pub mod crate_;
 pub mod impl_block;
 pub mod major_item;
 pub mod ty_variant;

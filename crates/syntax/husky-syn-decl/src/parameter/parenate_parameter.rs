@@ -1,5 +1,5 @@
 use super::*;
-use parsec::parse_separated_small_list2;
+use parsec::parse_punctuated_small_list;
 
 pub(crate) type ParenateSynParametersData = SmallVec<[ParenateParameterSyndicate; 2]>;
 
@@ -33,7 +33,7 @@ impl<'a, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<StandaloneSy
         };
         let (parenate_parameters, commas) =
             if self_value_parameter.is_none() || comma_after_self_parameter.is_some() {
-                parse_separated_small_list2(ctx, |e| e)?
+                parse_punctuated_small_list(ctx, |e| e)?
             } else {
                 Default::default()
             };
