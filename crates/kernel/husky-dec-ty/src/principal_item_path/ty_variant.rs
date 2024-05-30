@@ -5,7 +5,7 @@ use husky_entity_tree::node::ty_variant::HasTypeVariantPaths;
 use husky_syn_decl::decl::HasSynDecl;
 
 // todo: this should return a template
-#[salsa::tracked(jar = DeclarativeTypeJar)]
+#[salsa::tracked(jar = DecTypeJar)]
 pub fn ty_variant_path_declarative_ty(
     db: &::salsa::Db,
     path: TypeVariantPath,

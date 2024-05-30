@@ -28,7 +28,7 @@ use husky_toml_ast::TomlAstJar;
     husky_term_prelude::jar::TermPreludeJar,
     husky_dec_term::jar::DecTermJar,
     husky_dec_signature::jar::DecSignatureJar,
-    DeclarativeTypeJar
+    DecTypeJar
 )]
 #[derive(Default)]
 pub(crate) struct DB;

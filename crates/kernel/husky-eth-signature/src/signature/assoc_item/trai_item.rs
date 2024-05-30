@@ -24,7 +24,7 @@ impl TraitItemEthTemplate {
 impl HasEthTemplate for TraitItemPath {
     type EthTemplate = TraitItemEthTemplate;
 
-    fn eth_template(self, _db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
+    fn eth_template(self, _db: &::salsa::Db) -> EthSignatureResult<Self::EthTemplate> {
         todo!()
     }
 }

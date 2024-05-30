@@ -22,7 +22,7 @@ impl TypeAssocRitchieEthTemplate {
         db: &::salsa::Db,
         path: TypeItemPath,
         declarative_signature: TypeAssocRitchieDecTemplate,
-    ) -> EtherealSignatureResult<Self> {
+    ) -> EthSignatureResult<Self> {
         let self_ty = EthTerm::ty_from_dec(db, declarative_signature.self_ty(db))?;
         let template_parameters =
             EthTemplateParameters::from_dec(db, declarative_signature.template_parameters(db))?;

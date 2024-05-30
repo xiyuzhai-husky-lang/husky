@@ -14,7 +14,7 @@ impl UnitStructEthTemplate {
         db: &::salsa::Db,
         path: TypePath,
         tmpl: UnitStructDecTemplate,
-    ) -> EtherealSignatureResult<Self> {
+    ) -> EthSignatureResult<Self> {
         let template_parameters =
             EthTemplateParameters::from_dec(db, tmpl.template_parameters(db))?;
         let self_ty = EthTerm::ty_from_dec(db, tmpl.self_ty(db))?;

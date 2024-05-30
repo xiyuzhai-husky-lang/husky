@@ -65,13 +65,13 @@ impl TypeEthTemplate {
 impl HasEthTemplate for TypePath {
     type EthTemplate = TypeEthTemplate;
 
-    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
+    fn eth_template(self, db: &::salsa::Db) -> EthSignatureResult<Self::EthTemplate> {
         ty_eth_template(db, self)
     }
 }
 
 #[salsa::tracked]
-fn ty_eth_template(db: &::salsa::Db, path: TypePath) -> EtherealSignatureResult<TypeEthTemplate> {
+fn ty_eth_template(db: &::salsa::Db, path: TypePath) -> EthSignatureResult<TypeEthTemplate> {
     Ok(match path.dec_template(db)? {
         TypeDecTemplate::Enum(dec_template) => {
             EnumEthTemplate::from_dec(db, path, dec_template)?.into()
@@ -113,7 +113,7 @@ pub trait HasPropsFieldEtherealSignature: Copy {
         db: &::salsa::Db,
         arguments: &[EthTerm],
         ident: Ident,
-    ) -> EtherealSignatureMaybeResult<PropsFieldEtherealSignature>;
+    ) -> EthSignatureMaybeResult<PropsFieldEtherealSignature>;
 }
 
 impl HasPropsFieldEtherealSignature for TypePath {
@@ -122,7 +122,7 @@ impl HasPropsFieldEtherealSignature for TypePath {
         db: &::salsa::Db,
         arguments: &[EthTerm],
         ident: Ident,
-    ) -> EtherealSignatureMaybeResult<PropsFieldEtherealSignature> {
+    ) -> EthSignatureMaybeResult<PropsFieldEtherealSignature> {
         self.eth_template(db)?
             .props_field_ethereal_signature(db, arguments, ident)
     }
@@ -134,7 +134,7 @@ impl HasPropsFieldEtherealSignature for TypeEthTemplate {
         db: &::salsa::Db,
         arguments: &[EthTerm],
         ident: Ident,
-    ) -> EtherealSignatureMaybeResult<PropsFieldEtherealSignature> {
+    ) -> EthSignatureMaybeResult<PropsFieldEtherealSignature> {
         match self {
             TypeEthTemplate::Enum(_)
             | TypeEthTemplate::Inductive(_)

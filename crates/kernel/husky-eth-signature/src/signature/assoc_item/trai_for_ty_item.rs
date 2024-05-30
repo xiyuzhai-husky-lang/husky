@@ -65,7 +65,7 @@ pub enum TraitForTypeItemEtherealSignatureBuilder {
 impl HasEthTemplate for TraitForTypeItemPath {
     type EthTemplate = TraitForTypeItemEthTemplate;
 
-    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
+    fn eth_template(self, db: &::salsa::Db) -> EthSignatureResult<Self::EthTemplate> {
         trai_for_ty_item_eth_template(db, self)
     }
 }
@@ -74,7 +74,7 @@ impl HasEthTemplate for TraitForTypeItemPath {
 fn trai_for_ty_item_eth_template(
     db: &::salsa::Db,
     path: TraitForTypeItemPath,
-) -> EtherealSignatureResult<TraitForTypeItemEthTemplate> {
+) -> EthSignatureResult<TraitForTypeItemEthTemplate> {
     Ok(match path.dec_template(db)? {
         TraitForTypeItemDecTemplate::AssocRitchie(_) => todo!(),
         TraitForTypeItemDecTemplate::MethodRitchie(dec_template) => {

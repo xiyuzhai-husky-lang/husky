@@ -42,7 +42,7 @@ pub fn trai_path_for_ty_path_impl_block_eth_templates<'a>(
     db: &'a ::salsa::Db,
     trai_path: TraitPath,
     ty_path: TypePath,
-) -> EtherealSignatureResult<TraitForTypeImplBlockEthTemplates<'a>> {
+) -> EthSignatureResult<TraitForTypeImplBlockEthTemplates<'a>> {
     let does_ty_path_derive_trai_path = ty_path.derive_attr_eth_templates(db, trai_path)?.is_some();
     Ok(TraitForTypeImplBlockEthTemplates {
         trai_side_derive_any: if does_ty_path_derive_trai_path {
@@ -63,7 +63,7 @@ pub fn trai_path_for_ty_term_impl_block_eth_signature_builders<'a>(
     db: &'a ::salsa::Db,
     trai_path: TraitPath,
     ty_term: EthTerm,
-) -> EtherealSignatureResult<SmallVec<[EthTraitForTypeImplBlockSignatureBuilder; 2]>> {
+) -> EthSignatureResult<SmallVec<[EthTraitForTypeImplBlockSignatureBuilder; 2]>> {
     let application_expansion = ty_term.application_expansion(db);
     let arguments = application_expansion.arguments(db);
     let TermFunctionReduced::TypeOntology(ty_path) = application_expansion.function() else {
@@ -85,7 +85,7 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'a>(
     db: &'a ::salsa::Db,
     trai_path: TraitPath,
     ty_term: EthTerm,
-) -> EtherealSignatureResult<bool> {
+) -> EthSignatureResult<bool> {
     match ty_term {
         EthTerm::SymbolicVariable(_) => return Ok(false), // ad hoc
         EthTerm::LambdaVariable(_) => todo!(),
@@ -135,7 +135,7 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'a>(
 pub fn is_ty_term_always_copyable(
     ty_term: EthTerm,
     db: &::salsa::Db,
-) -> EtherealSignatureResult<Option<bool>> {
+) -> EthSignatureResult<Option<bool>> {
     let Some(item_path_menu) = ty_term.item_path_menu(db) else {
         return Ok(None);
     };
@@ -150,7 +150,7 @@ pub fn is_ty_term_always_copyable(
 fn trai_side_derive_any_eth_templates(
     db: &::salsa::Db,
     trai_path: TraitPath,
-) -> EtherealSignatureResult<SmallVec<[TraitForTypeImplBlockEthTemplate; 2]>> {
+) -> EthSignatureResult<SmallVec<[TraitForTypeImplBlockEthTemplate; 2]>> {
     trai_side_derive_any_trai_for_ty_impl_block_paths_map(db, trai_path)
         .iter()
         .map(|path| path.eth_template(db))
@@ -161,7 +161,7 @@ fn trai_side_path_leading_eth_templates(
     db: &::salsa::Db,
     trai_path: TraitPath,
     ty_path: TypePath,
-) -> EtherealSignatureResult<Option<&[TraitForTypeImplBlockEthTemplate]>> {
+) -> EthSignatureResult<Option<&[TraitForTypeImplBlockEthTemplate]>> {
     match trai_side_path_leading_trai_for_ty_impl_block_eth_templates_map(db, trai_path)
         .get_value(ty_path)
     {
@@ -175,11 +175,8 @@ fn trai_side_path_leading_eth_templates(
 fn trai_side_path_leading_trai_for_ty_impl_block_eth_templates_map(
     db: &::salsa::Db,
     trai_path: TraitPath,
-) -> SmallVecPairMap<
-    TypePath,
-    EtherealSignatureResult<SmallVec<[TraitForTypeImplBlockEthTemplate; 2]>>,
-    8,
-> {
+) -> SmallVecPairMap<TypePath, EthSignatureResult<SmallVec<[TraitForTypeImplBlockEthTemplate; 2]>>, 8>
+{
     trai_side_path_leading_trai_for_ty_impl_block_paths_map(db, trai_path)
         .map_collect(|paths| paths.iter().map(|path| path.eth_template(db)).collect())
 }
@@ -190,7 +187,7 @@ pub fn ty_side_trai_for_ty_impl_block_signature_templates(
     db: &::salsa::Db,
     trai_path: TraitPath,
     ty_path: TypePath,
-) -> EtherealSignatureMaybeResult<&[TraitForTypeImplBlockEthTemplate]> {
+) -> EthSignatureMaybeResult<&[TraitForTypeImplBlockEthTemplate]> {
     match ty_side_impl_block_signature_templates_map(db, ty_path).get_value(trai_path) {
         Some(result) => match result {
             Ok(templates) => JustOk(templates),
@@ -204,8 +201,7 @@ pub fn ty_side_trai_for_ty_impl_block_signature_templates(
 fn ty_side_impl_block_signature_templates_map(
     db: &::salsa::Db,
     ty_path: TypePath,
-) -> SmallVecPairMap<TraitPath, EtherealSignatureResult<TraitForTypeImplBlockSignatureTemplates>, 2>
-{
+) -> SmallVecPairMap<TraitPath, EthSignatureResult<TraitForTypeImplBlockSignatureTemplates>, 2> {
     ty_side_trai_for_ty_impl_block_paths_map(db, ty_path)
         .map_collect(|paths| paths.iter().map(|path| path.eth_template(db)).collect())
 }

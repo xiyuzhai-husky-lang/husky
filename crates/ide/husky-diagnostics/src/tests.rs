@@ -40,7 +40,7 @@ use husky_toml_ast::TomlAstJar;
     DiagnosticsJar,
     TermPreludeJar,
     husky_dec_term::jar::DecTermJar,
-    husky_dec_ty::jar::DeclarativeTypeJar,
+    husky_dec_ty::jar::DecTypeJar,
     EthTermJar,
     EthSignatureJar,
     DecSignatureJar,

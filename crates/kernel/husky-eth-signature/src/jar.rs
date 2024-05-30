@@ -1,5 +1,11 @@
 #[salsa::jar]
 pub struct EthSignatureJar(
+    // crate
+    crate::signature::crate_::crate_eth_signature,
+    crate::signature::crate_::lib::LibCrateEthSignature,
+    crate::signature::crate_::main::MainCrateEthSignature,
+    crate::signature::crate_::requirements::RequirementsCrateEthSignature,
+    crate::signature::crate_::task::TaskCrateEthSignature,
     // assoc_items
     // - type items
     crate::signature::assoc_item::ty_item::ty_item_eth_template,

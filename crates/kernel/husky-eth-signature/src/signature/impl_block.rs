@@ -26,7 +26,7 @@ impl ImplBlockEthTemplate {
 impl HasEthTemplate for ImplBlockPath {
     type EthTemplate = ImplBlockEthTemplate;
 
-    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
+    fn eth_template(self, db: &::salsa::Db) -> EthSignatureResult<Self::EthTemplate> {
         Ok(match self {
             ImplBlockPath::TypeImplBlock(path) => path.eth_template(db)?.into(),
             ImplBlockPath::TraitForTypeImplBlock(path) => path.eth_template(db)?.into(),
