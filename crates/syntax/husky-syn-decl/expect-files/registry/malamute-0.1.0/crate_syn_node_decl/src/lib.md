@@ -43,15 +43,12 @@ Some(
                                         3,
                                     ),
                                 ),
-                                excludes: PunctuatedSmallList {
-                                    elements: [
-                                        LibCrateSynDeclDefaultConstExclude {
-                                            expr: 5,
-                                        },
-                                    ],
-                                    separators: [],
-                                    phantom: PhantomData<husky_syn_decl::error::SynNodeDeclError>,
-                                },
+                                excludes: [
+                                    LibCrateSynDeclDefaultConstExclude {
+                                        expr: 5,
+                                    },
+                                ],
+                                commas: [],
                             },
                         ),
                     },
