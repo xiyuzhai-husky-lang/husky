@@ -20,7 +20,7 @@ impl TraitForTypeMethodRitchieEthTemplate {
         db: &::salsa::Db,
         path: TraitForTypeItemPath,
         dec_sig_tmpl: TraitForTypeMethodRitchieDecTemplate,
-    ) -> EtherealSignatureResult<Self> {
+    ) -> EthSignatureResult<Self> {
         let self_ty = EthTerm::ty_from_dec(db, dec_sig_tmpl.self_ty(db))?;
         let template_parameters =
             EthTemplateParameters::from_dec(db, dec_sig_tmpl.template_parameters(db))?;

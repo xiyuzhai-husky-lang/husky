@@ -3,10 +3,13 @@ pub mod helpers;
 pub mod jar;
 pub mod parameter;
 pub mod signature;
+#[cfg(test)]
 mod tests;
 
 use self::error::*;
 use self::jar::EthSignatureJar as Jar;
+#[cfg(test)]
+use self::tests::*;
 use husky_coword::*;
 use husky_entity_path::*;
 use husky_eth_term::{instantiation::*, term::EthTerm, *};

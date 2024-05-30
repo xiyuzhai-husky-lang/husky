@@ -146,7 +146,7 @@ pub enum JarIndex {
     CowordJar,
     DecSignatureJar,
     DecTermJar,
-    DeclarativeTypeJar,
+    DecTypeJar,
     EntityPathJar,
     EthSignatureJar,
     EthTermJar,

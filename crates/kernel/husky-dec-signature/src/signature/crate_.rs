@@ -21,6 +21,14 @@ pub enum CrateDecSignature {
     Task(TaskCrateDecSignature),
 }
 
+impl HasDecSignature for CratePath {
+    type DecSignature = CrateDecSignature;
+
+    fn dec_signature(self, db: &salsa::Db) -> DecSignatureResult<Self::DecSignature> {
+        todo!()
+    }
+}
+
 #[salsa::tracked]
 fn crate_dec_signature(
     db: &::salsa::Db,

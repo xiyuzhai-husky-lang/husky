@@ -31,16 +31,13 @@ impl FormEthTemplate {
 impl HasEthTemplate for MajorFormPath {
     type EthTemplate = FormEthTemplate;
 
-    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
+    fn eth_template(self, db: &::salsa::Db) -> EthSignatureResult<Self::EthTemplate> {
         form_eth_template(db, self)
     }
 }
 
 #[salsa::tracked]
-fn form_eth_template(
-    db: &::salsa::Db,
-    path: MajorFormPath,
-) -> EtherealSignatureResult<FormEthTemplate> {
+fn form_eth_template(db: &::salsa::Db, path: MajorFormPath) -> EthSignatureResult<FormEthTemplate> {
     Ok(match path.dec_template(db)? {
         MajorFormDecTemplate::Ritchie(dec_template) => {
             MajorFunctionRitchieEthTemplate::from_dec(db, path, dec_template)?.into()

@@ -56,7 +56,7 @@ pub(crate) fn item_variance_crate_dependencies(
     }
 }
 
-#[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
+#[salsa::tracked(jar = DecTypeJar, return_ref)]
 pub(crate) fn declarative_ty_item_variance_crate_dependencies(
     db: &::salsa::Db,
     path: TypePath,
@@ -80,7 +80,7 @@ pub(crate) fn declarative_ty_item_variance_crate_dependencies(
     todo!()
 }
 
-#[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
+#[salsa::tracked(jar = DecTypeJar, return_ref)]
 pub(crate) fn trai_item_variance_crate_dependencies(
     _db: &::salsa::Db,
     _path: TraitPath,
@@ -89,7 +89,7 @@ pub(crate) fn trai_item_variance_crate_dependencies(
     todo!()
 }
 
-#[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
+#[salsa::tracked(jar = DecTypeJar, return_ref)]
 pub(crate) fn form_item_variance_crate_dependencies(
     db: &::salsa::Db,
     path: MajorFormPath,

@@ -6,7 +6,7 @@ use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db]
-pub enum EtherealSignatureError {
+pub enum EthSignatureError {
     #[error("term error")]
     TermError(EthTermError),
     #[error("DerivedFromDeclarative")]
@@ -22,23 +22,23 @@ pub enum EtherealSignatureError {
     EntityTreeBundleError,
 }
 
-impl From<&EtherealSignatureError> for EtherealSignatureError {
-    fn from(e: &EtherealSignatureError) -> Self {
+impl From<&EthSignatureError> for EthSignatureError {
+    fn from(e: &EthSignatureError) -> Self {
         *e
     }
 }
 
-impl From<DecSignatureError> for EtherealSignatureError {
+impl From<DecSignatureError> for EthSignatureError {
     fn from(e: DecSignatureError) -> Self {
-        EtherealSignatureError::DerivedFromDecSignature(e)
+        EthSignatureError::DerivedFromDecSignature(e)
     }
 }
 
-impl From<EthTermError> for EtherealSignatureError {
+impl From<EthTermError> for EthSignatureError {
     fn from(e: EthTermError) -> Self {
-        EtherealSignatureError::TermError(e)
+        EthSignatureError::TermError(e)
     }
 }
 
-pub type EtherealSignatureResult<T> = Result<T, EtherealSignatureError>;
-pub type EtherealSignatureMaybeResult<T> = MaybeResult<T, EtherealSignatureError>;
+pub type EthSignatureResult<T> = Result<T, EthSignatureError>;
+pub type EthSignatureMaybeResult<T> = MaybeResult<T, EthSignatureError>;

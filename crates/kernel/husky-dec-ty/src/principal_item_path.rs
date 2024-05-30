@@ -28,7 +28,7 @@ pub fn declarative_term_item_path_declarative_ty(
     }
 }
 
-#[salsa::tracked(jar = DeclarativeTypeJar)]
+#[salsa::tracked(jar = DecTypeJar)]
 pub fn ty_ontology_path_declarative_ty(
     db: &::salsa::Db,
     path: TypePath,
@@ -85,7 +85,7 @@ fn ty_ontology_path_declarative_ty_works() {
     );
 }
 
-#[salsa::tracked(jar = DeclarativeTypeJar)]
+#[salsa::tracked(jar = DecTypeJar)]
 pub fn trai_path_declarative_ty(
     db: &::salsa::Db,
     path: TraitPath,

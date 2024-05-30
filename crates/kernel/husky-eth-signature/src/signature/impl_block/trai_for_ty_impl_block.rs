@@ -84,7 +84,7 @@ impl EtherealSelfTypeInTraitImpl {
 impl HasEthTemplate for TraitForTypeImplBlockPath {
     type EthTemplate = TraitForTypeImplBlockEthTemplate;
 
-    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
+    fn eth_template(self, db: &::salsa::Db) -> EthSignatureResult<Self::EthTemplate> {
         trai_for_ty_impl_block_eth_template(db, self)
     }
 }
@@ -93,7 +93,7 @@ impl HasEthTemplate for TraitForTypeImplBlockPath {
 fn trai_for_ty_impl_block_eth_template(
     db: &::salsa::Db,
     path: TraitForTypeImplBlockPath,
-) -> EtherealSignatureResult<TraitForTypeImplBlockEthTemplate> {
+) -> EthSignatureResult<TraitForTypeImplBlockEthTemplate> {
     TraitForTypeImplBlockEthTemplate::from_dec(db, path, path.dec_template(db)?)
 }
 
@@ -102,7 +102,7 @@ impl TraitForTypeImplBlockEthTemplate {
         db: &::salsa::Db,
         path: TraitForTypeImplBlockPath,
         dec_template: TraitForTypeImplBlockDecTemplate,
-    ) -> EtherealSignatureResult<Self> {
+    ) -> EthSignatureResult<Self> {
         let template_parameters =
             EthTemplateParameters::from_dec(db, dec_template.template_parameters(db))?;
         let trai = EthTerm::from_dec(
@@ -132,7 +132,7 @@ impl TraitForTypeImplBlockEthTemplate {
         db: &::salsa::Db,
         target_ty_arguments: &[EthTerm],
         target_ty_term: EthTerm,
-    ) -> EtherealSignatureMaybeResult<EthTraitForTypeImplBlockSignatureBuilder> {
+    ) -> EthSignatureMaybeResult<EthTraitForTypeImplBlockSignatureBuilder> {
         let mut instantiation = self
             .template_parameters(db)
             .empty_instantiation_builder(self.path(db).into(), true);
@@ -184,7 +184,7 @@ impl EthTraitForTypeImplBlockSignatureBuilder {
         self,
         target_trai_arguments: &[EthTerm],
         db: &::salsa::Db,
-    ) -> EtherealSignatureMaybeResult<Self> {
+    ) -> EthSignatureMaybeResult<Self> {
         let mut instantiation_builder = self.instantiation_builder(db);
         let template = self.template(db);
         instantiation_builder.try_add_rules_from_application(
@@ -201,7 +201,7 @@ impl EthTraitForTypeImplBlockSignatureBuilder {
     pub fn assoc_output_template(
         self,
         db: &::salsa::Db,
-    ) -> EtherealSignatureResult<TraitForTypeAssocTypeEtherealSignatureBuilder> {
+    ) -> EthSignatureResult<TraitForTypeAssocTypeEtherealSignatureBuilder> {
         trai_for_ty_impl_block_with_ty_instantiated_assoc_output_ethereal_signature_builder(
             db, self,
         )
@@ -211,7 +211,7 @@ impl EthTraitForTypeImplBlockSignatureBuilder {
         self,
         db: &::salsa::Db,
         ident: Ident,
-    ) -> EtherealSignatureResult<TraitForTypeItemEtherealSignatureBuilder> {
+    ) -> EthSignatureResult<TraitForTypeItemEtherealSignatureBuilder> {
         trai_for_ty_impl_block_with_ty_instantiated_item_eth_template(db, self, ident)
     }
 }
@@ -220,7 +220,7 @@ impl EthTraitForTypeImplBlockSignatureBuilder {
 fn trai_for_ty_impl_block_with_ty_instantiated_assoc_output_ethereal_signature_builder(
     db: &::salsa::Db,
     template: EthTraitForTypeImplBlockSignatureBuilder,
-) -> EtherealSignatureResult<TraitForTypeAssocTypeEtherealSignatureBuilder> {
+) -> EthSignatureResult<TraitForTypeAssocTypeEtherealSignatureBuilder> {
     match trai_for_ty_impl_block_with_ty_instantiated_item_eth_template(
         db,
         template,
@@ -236,14 +236,14 @@ fn trai_for_ty_impl_block_with_ty_instantiated_item_eth_template(
     db: &::salsa::Db,
     signature_builder: EthTraitForTypeImplBlockSignatureBuilder,
     ident: Ident,
-) -> EtherealSignatureResult<TraitForTypeItemEtherealSignatureBuilder> {
+) -> EthSignatureResult<TraitForTypeItemEtherealSignatureBuilder> {
     let item_path = signature_builder
         .template(db)
         .path(db)
         .assoc_item_paths(db)
         .get_entry(ident)
         .ok_or(
-            EtherealSignatureError::NoSuchItemInTraitForTypeImplBlockEtherealSignatureBuilder {
+            EthSignatureError::NoSuchItemInTraitForTypeImplBlockEtherealSignatureBuilder {
                 signature_builder,
                 ident,
             },

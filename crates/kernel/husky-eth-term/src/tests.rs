@@ -29,7 +29,7 @@ use husky_toml_ast::TomlAstJar;
     husky_term_prelude::jar::TermPreludeJar,
     husky_dec_term::jar::DecTermJar,
     husky_dec_signature::jar::DecSignatureJar,
-    husky_dec_ty::jar::DeclarativeTypeJar,
+    husky_dec_ty::jar::DecTypeJar,
     Jar
 )]
 #[derive(Default)]

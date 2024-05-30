@@ -8,7 +8,7 @@ impl TaskAttrEthTemplate {
     pub(super) fn from_dec(
         db: &::salsa::Db,
         dec_template: TaskAttrDecTemplate,
-    ) -> EtherealSignatureResult<Self> {
+    ) -> EthSignatureResult<Self> {
         Ok(Self::new(db))
     }
 }

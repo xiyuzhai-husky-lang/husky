@@ -20,7 +20,7 @@ pub enum MajorItemEthTemplate {
 impl HasEthTemplate for MajorItemPath {
     type EthTemplate = MajorItemEthTemplate;
 
-    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
+    fn eth_template(self, db: &::salsa::Db) -> EthSignatureResult<Self::EthTemplate> {
         Ok(match self {
             MajorItemPath::Type(path) => path.eth_template(db)?.into(),
             MajorItemPath::Trait(path) => path.eth_template(db)?.into(),

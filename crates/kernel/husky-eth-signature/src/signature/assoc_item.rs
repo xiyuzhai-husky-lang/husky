@@ -32,7 +32,7 @@ impl AssocItemEthTemplate {
 impl HasEthTemplate for AssocItemPath {
     type EthTemplate = AssocItemEthTemplate;
 
-    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
+    fn eth_template(self, db: &::salsa::Db) -> EthSignatureResult<Self::EthTemplate> {
         match self {
             AssocItemPath::TypeItem(path) => path.eth_template(db).map(Into::into),
             AssocItemPath::TraitItem(path) => path.eth_template(db).map(Into::into),

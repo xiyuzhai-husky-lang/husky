@@ -1,11 +1,11 @@
 pub(crate) use husky_ast::test_utils::*;
-use husky_entity_path::path::ItemPath;
 
-use crate::signature::{DecTemplate, HasDecTemplate};
+use crate::signature::{HasDecTemplate, ItemDecTemplate};
 use crate::*;
 use husky_corgi_config::jar::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_entity_path::menu::item_path_menu;
+use husky_entity_path::path::ItemPath;
 use husky_entity_tree::jar::EntityTreeJar;
 use husky_manifest::jar::ManifestJar;
 use husky_manifest_ast::jar::ManifestAstJar;
@@ -40,7 +40,7 @@ pub(crate) struct DB;
 fn module_dec_templates(
     db: &::salsa::Db,
     module_path: ModulePath,
-) -> Vec<(ItemPath, DecSignatureResult<DecTemplate>)> {
+) -> Vec<(ItemPath, DecSignatureResult<ItemDecTemplate>)> {
     husky_syn_decl::sheet::syn_decl_sheet(db, module_path)
         .decls(db)
         .iter()
@@ -54,7 +54,7 @@ fn module_dec_templates_works() {
     DB::ast_expect_test_debug_with_db(
         |db, module_path| module_dec_templates(db, module_path),
         &AstTestConfig::new(
-            "module_declarative_templates",
+            "module_dec_templates",
             FileExtensionConfig::Markdown,
             TestDomainsConfig::KERNEL,
         ),

@@ -13,7 +13,7 @@ impl UnionTypeEthTemplate {
         db: &::salsa::Db,
         path: TypePath,
         dec_template: UnionTypeDecTemplate,
-    ) -> EtherealSignatureResult<Self> {
+    ) -> EthSignatureResult<Self> {
         let template_parameters =
             EthTemplateParameters::from_dec(db, dec_template.template_parameters(db))?;
         // let fields = dec_template

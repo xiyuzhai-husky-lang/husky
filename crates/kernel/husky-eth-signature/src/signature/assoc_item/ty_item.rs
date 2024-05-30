@@ -38,7 +38,7 @@ impl TypeItemEthTemplate {
 impl HasEthTemplate for TypeItemPath {
     type EthTemplate = TypeItemEthTemplate;
 
-    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
+    fn eth_template(self, db: &::salsa::Db) -> EthSignatureResult<Self::EthTemplate> {
         ty_item_eth_template(db, self)
     }
 }
@@ -47,7 +47,7 @@ impl HasEthTemplate for TypeItemPath {
 pub(crate) fn ty_item_eth_template(
     db: &::salsa::Db,
     path: TypeItemPath,
-) -> EtherealSignatureResult<TypeItemEthTemplate> {
+) -> EthSignatureResult<TypeItemEthTemplate> {
     Ok(match path.dec_template(db)? {
         TypeItemDecTemplate::AssocRitchie(template) => {
             TypeAssocRitchieEthTemplate::from_dec(db, path, template)?.into()
@@ -67,13 +67,13 @@ pub trait HasTypeItemTemplates: Copy {
     fn ty_item_templates_map<'a>(
         self,
         db: &'a ::salsa::Db,
-    ) -> EtherealSignatureResult<&'a [(Ident, EtherealSignatureResult<TypeItemEthTemplates>)]>;
+    ) -> EthSignatureResult<&'a [(Ident, EthSignatureResult<TypeItemEthTemplates>)]>;
 
     fn ty_item_eth_templates<'a>(
         self,
         db: &'a ::salsa::Db,
         ident: Ident,
-    ) -> EtherealSignatureMaybeResult<&'a TypeItemEthTemplates> {
+    ) -> EthSignatureMaybeResult<&'a TypeItemEthTemplates> {
         use vec_like::VecMapGetEntry;
         match self.ty_item_templates_map(db)?.get_entry(ident) {
             Some((_, Ok(templates))) => JustOk(templates),
@@ -95,7 +95,7 @@ impl HasTypeItemTemplates for TypePath {
     fn ty_item_templates_map<'a>(
         self,
         db: &'a ::salsa::Db,
-    ) -> EtherealSignatureResult<&'a [(Ident, EtherealSignatureResult<TypeItemEthTemplates>)]> {
+    ) -> EthSignatureResult<&'a [(Ident, EthSignatureResult<TypeItemEthTemplates>)]> {
         ty_item_eth_templates_map(db, self)
             .as_ref()
             .map(|v| v as &[_])
@@ -107,38 +107,31 @@ impl HasTypeItemTemplates for TypePath {
 pub(crate) fn ty_item_eth_templates_map(
     db: &::salsa::Db,
     ty_path: TypePath,
-) -> EtherealSignatureResult<IdentPairMap<EtherealSignatureResult<TypeItemEthTemplates>>> {
+) -> EthSignatureResult<IdentPairMap<EthSignatureResult<TypeItemEthTemplates>>> {
     Ok(
         IdentPairMap::from_iter_assuming_no_repetitions(ty_path.item_paths_map(db).iter().map(
-            |(ident, (ty_item_kind, result))| -> (
-                Ident,
-                EtherealSignatureResult<TypeItemEthTemplates>,
-            ) {
+            |(ident, (ty_item_kind, result))| -> (Ident, EthSignatureResult<TypeItemEthTemplates>) {
                 let result = match result {
                     Ok(paths) => match ty_item_kind {
                         TypeItemKind::MethodRitchie(_) => paths
                             .iter()
                             .copied()
                             .map(|path| match path.eth_template(db) {
-                                Ok(TypeItemEthTemplate::MethodRitchie(template)) => {
-                                    Ok(template)
-                                }
+                                Ok(TypeItemEthTemplate::MethodRitchie(template)) => Ok(template),
                                 Err(e) => Err(e),
                                 _ => unreachable!(),
                             })
-                            .collect::<EtherealSignatureResult<SmallVecImpl<_>>>()
+                            .collect::<EthSignatureResult<SmallVecImpl<_>>>()
                             .map(TypeItemEthTemplates::MethodFn),
                         TypeItemKind::AssocRitchie(_) => paths
                             .iter()
                             .copied()
                             .map(|path| match path.eth_template(db) {
-                                Ok(TypeItemEthTemplate::AssocRitchie(template)) => {
-                                    Ok(template)
-                                }
+                                Ok(TypeItemEthTemplate::AssocRitchie(template)) => Ok(template),
                                 Err(e) => Err(e),
                                 _ => unreachable!(),
                             })
-                            .collect::<EtherealSignatureResult<SmallVecImpl<_>>>()
+                            .collect::<EthSignatureResult<SmallVecImpl<_>>>()
                             .map(TypeItemEthTemplates::AssocRitchie),
                         TypeItemKind::AssocVal => todo!(),
                         TypeItemKind::AssocType => todo!(),
@@ -146,19 +139,17 @@ pub(crate) fn ty_item_eth_templates_map(
                             .iter()
                             .copied()
                             .map(|path| match path.eth_template(db) {
-                                Ok(TypeItemEthTemplate::MemoizedField(template)) => {
-                                    Ok(template)
-                                }
+                                Ok(TypeItemEthTemplate::MemoizedField(template)) => Ok(template),
                                 Err(e) => Err(e),
                                 _ => unreachable!(),
                             })
-                            .collect::<EtherealSignatureResult<SmallVecImpl<_>>>()
+                            .collect::<EthSignatureResult<SmallVecImpl<_>>>()
                             .map(TypeItemEthTemplates::MemoizedField),
                         TypeItemKind::AssocConceptual => todo!(),
                         TypeItemKind::AssocStatic => todo!(),
                         TypeItemKind::AssocTermic => todo!(),
                     },
-                    Err(_e) => Err(EtherealSignatureError::EntityTreeError),
+                    Err(_e) => Err(EthSignatureError::EntityTreeError),
                 };
                 (*ident, result)
             },

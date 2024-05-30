@@ -1,5 +1,6 @@
 pub mod assoc_item;
 pub mod attr;
+pub mod crate_;
 pub mod impl_block;
 pub mod major_item;
 pub mod ty_variant;
@@ -11,7 +12,7 @@ use self::major_item::*;
 use self::ty_variant::*;
 use crate::parameter::EtherealParenateParameters;
 use crate::*;
-use husky_dec_signature::signature::HasDecTemplate;
+use husky_dec_signature::signature::{HasDecSignature, HasDecTemplate};
 use husky_entity_path::path::ItemPath;
 
 #[salsa::derive_debug_with_db]
@@ -42,13 +43,13 @@ impl ItemEthTemplate {
 pub trait HasEthTemplate {
     type EthTemplate;
 
-    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate>;
+    fn eth_template(self, db: &::salsa::Db) -> EthSignatureResult<Self::EthTemplate>;
 }
 
 impl HasEthTemplate for ItemPath {
     type EthTemplate = ItemEthTemplate;
 
-    fn eth_template(self, db: &::salsa::Db) -> EtherealSignatureResult<Self::EthTemplate> {
+    fn eth_template(self, db: &::salsa::Db) -> EthSignatureResult<Self::EthTemplate> {
         Ok(match self {
             ItemPath::Submodule(_, _) => ItemEthTemplate::Submodule,
             ItemPath::MajorItem(path) => path.eth_template(db)?.into(),

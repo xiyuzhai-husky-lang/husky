@@ -11,7 +11,7 @@ use salsa::snapshot::SnapshotClone;
     husky_entity_path::jar::EntityPathJar,
     husky_term_prelude::jar::TermPreludeJar,
     husky_dec_term::jar::DecTermJar,
-    husky_dec_ty::DeclarativeTypeJar,
+    husky_dec_ty::DecTypeJar,
     husky_dec_signature::jar::DecSignatureJar,
     husky_eth_term::jar::EthTermJar,
     husky_eth_signature::jar::EthSignatureJar,

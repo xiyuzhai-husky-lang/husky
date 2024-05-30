@@ -14,7 +14,7 @@ impl EnumTupleVariantEthTemplate {
         db: &::salsa::Db,
         path: TypeVariantPath,
         tmpl: EnumTupleVariantDecTemplate,
-    ) -> EtherealSignatureResult<Self> {
+    ) -> EthSignatureResult<Self> {
         let TypeEthTemplate::Enum(parent_ty_template) = path.parent_ty_path(db).eth_template(db)?
         else {
             unreachable!()
