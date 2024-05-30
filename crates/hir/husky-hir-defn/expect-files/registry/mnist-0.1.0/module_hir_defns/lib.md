@@ -3,13 +3,7 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 1,
-                        },
-                    ),
-                ),
+                path: SubmoduleItemPath(`mnist::task),
             },
         },
     ),

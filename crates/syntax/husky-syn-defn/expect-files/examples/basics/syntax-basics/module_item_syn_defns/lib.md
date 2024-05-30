@@ -3,52 +3,28 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 1,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`syntax_basics::ast),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 2,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`syntax_basics::uses),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 3,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`syntax_basics::defn),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 4,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`syntax_basics::expr),
         ),
         None,
     ),

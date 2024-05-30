@@ -3,13 +3,7 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 5,
-                        },
-                    ),
-                ),
+                path: SubmoduleItemPath(`syntax_basics::ast::submodule_name),
             },
         },
     ),

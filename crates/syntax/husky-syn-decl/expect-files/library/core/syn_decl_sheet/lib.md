@@ -4,506 +4,242 @@ SynDeclSheet {
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 1,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`core::array),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 1,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::array),
                 },
             ),
         ),
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 2,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`core::backend),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 2,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::backend),
                 },
             ),
         ),
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 3,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`core::basic),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 3,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::basic),
                 },
             ),
         ),
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 4,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`core::clone),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 4,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::clone),
                 },
             ),
         ),
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 5,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`core::cmp),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 5,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::cmp),
                 },
             ),
         ),
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 6,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`core::default),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 6,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::default),
                 },
             ),
         ),
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 7,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`core::frontend),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 7,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::frontend),
                 },
             ),
         ),
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 8,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`core::fmt),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 8,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::fmt),
                 },
             ),
         ),
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 9,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`core::logic),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 9,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::logic),
                 },
             ),
         ),
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 10,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`core::marker),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 10,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::marker),
                 },
             ),
         ),
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 11,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`core::mem),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 11,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::mem),
                 },
             ),
         ),
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 12,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`core::num),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 12,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::num),
                 },
             ),
         ),
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 13,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`core::ops),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 13,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::ops),
                 },
             ),
         ),
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 14,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`core::option),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 14,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::option),
                 },
             ),
         ),
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 15,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`core::prelude),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 15,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::prelude),
                 },
             ),
         ),
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 16,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`core::raw_bits),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 16,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::raw_bits),
                 },
             ),
         ),
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 17,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`core::result),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 17,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::result),
                 },
             ),
         ),
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 18,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`core::task),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 18,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::task),
                 },
             ),
         ),
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 19,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`core::vec),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 19,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::vec),
                 },
             ),
         ),
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 20,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`core::slice),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 20,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::slice),
                 },
             ),
         ),
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 21,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`core::str),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 21,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::str),
                 },
             ),
         ),
         (
             ItemPath::Submodule(
                 Room32,
-                SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 22,
-                        },
-                    ),
-                ),
+                SubmoduleItemPath(`core::visual),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmoduleItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 22,
-                            },
-                        ),
-                    ),
+                    path: SubmoduleItemPath(`core::visual),
                 },
             ),
         ),

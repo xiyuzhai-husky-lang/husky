@@ -37,13 +37,7 @@ Ok(
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`mnist_classifier::line_segment_sketch),
                                 },
                             ),
                         },
@@ -87,13 +81,7 @@ Ok(
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`mnist_classifier::raw_contour),
                                 },
                             ),
                         },
@@ -137,13 +125,7 @@ Ok(
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_item_path: SubmoduleItemPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                                    submodule_item_path: SubmoduleItemPath(`mnist_classifier::geom2d),
                                 },
                             ),
                         },

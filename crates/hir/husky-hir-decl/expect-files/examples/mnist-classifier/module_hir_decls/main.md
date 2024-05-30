@@ -2,79 +2,37 @@
 [
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 1,
-                    },
-                ),
-            ),
+            path: SubmoduleItemPath(`mnist_classifier::connected_component),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 2,
-                    },
-                ),
-            ),
+            path: SubmoduleItemPath(`mnist_classifier::raw_contour),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 3,
-                    },
-                ),
-            ),
+            path: SubmoduleItemPath(`mnist_classifier::geom2d),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 4,
-                    },
-                ),
-            ),
+            path: SubmoduleItemPath(`mnist_classifier::line_segment_sketch),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 5,
-                    },
-                ),
-            ),
+            path: SubmoduleItemPath(`mnist_classifier::fermi),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 6,
-                    },
-                ),
-            ),
+            path: SubmoduleItemPath(`mnist_classifier::digits),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 7,
-                    },
-                ),
-            ),
+            path: SubmoduleItemPath(`mnist_classifier::major),
         },
     ),
     HirDecl::MajorItem(

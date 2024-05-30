@@ -3,91 +3,49 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 1,
-                        },
-                    ),
-                ),
+                path: SubmoduleItemPath(`mnist_classifier::connected_component),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 2,
-                        },
-                    ),
-                ),
+                path: SubmoduleItemPath(`mnist_classifier::raw_contour),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 3,
-                        },
-                    ),
-                ),
+                path: SubmoduleItemPath(`mnist_classifier::geom2d),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 4,
-                        },
-                    ),
-                ),
+                path: SubmoduleItemPath(`mnist_classifier::line_segment_sketch),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 5,
-                        },
-                    ),
-                ),
+                path: SubmoduleItemPath(`mnist_classifier::fermi),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 6,
-                        },
-                    ),
-                ),
+                path: SubmoduleItemPath(`mnist_classifier::digits),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 7,
-                        },
-                    ),
-                ),
+                path: SubmoduleItemPath(`mnist_classifier::major),
             },
         },
     ),

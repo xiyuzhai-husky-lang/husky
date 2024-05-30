@@ -3,26 +3,14 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 1,
-                        },
-                    ),
-                ),
+                path: SubmoduleItemPath(`syntax_errors::ast),
             },
         },
     ),
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 2,
-                        },
-                    ),
-                ),
+                path: SubmoduleItemPath(`syntax_errors::uses),
             },
         },
     ),

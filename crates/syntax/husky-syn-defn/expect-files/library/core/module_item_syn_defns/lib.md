@@ -3,286 +3,154 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 1,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::array),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 2,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::backend),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 3,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::basic),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 4,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::clone),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 5,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::cmp),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 6,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::default),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 7,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::frontend),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 8,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::fmt),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 9,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::logic),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 10,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::marker),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 11,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::mem),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 12,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::num),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 13,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::ops),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 14,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::option),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 15,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::prelude),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 16,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::raw_bits),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 17,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::result),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 18,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::task),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 19,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::vec),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 20,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::slice),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 21,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::str),
         ),
         None,
     ),
     (
         ItemPath::Submodule(
             Room32,
-            SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 22,
-                    },
-                ),
-            ),
+            SubmoduleItemPath(`core::visual),
         ),
         None,
     ),

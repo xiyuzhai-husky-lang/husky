@@ -67,7 +67,11 @@ fn form_eth_template(db: &::salsa::Db, path: MajorFormPath) -> EthSignatureResul
         MajorFormDecTemplate::Val(dec_template) => {
             MajorValEthTemplate::from_dec(db, path, dec_template)?.into()
         }
-        MajorFormDecTemplate::Compterm(_) => todo!(),
-        MajorFormDecTemplate::Static(_) => todo!(),
+        MajorFormDecTemplate::Compterm(dec_template) => {
+            MajorComptermEthTemplate::from_dec(db, path, dec_template)?.into()
+        }
+        MajorFormDecTemplate::Static(dec_template) => {
+            MajorStaticEthTemplate::from_dec(db, path, dec_template)?.into()
+        }
     })
 }

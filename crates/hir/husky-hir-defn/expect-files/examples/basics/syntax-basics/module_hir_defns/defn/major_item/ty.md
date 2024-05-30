@@ -3,13 +3,7 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmoduleItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 8,
-                        },
-                    ),
-                ),
+                path: SubmoduleItemPath(`syntax_basics::defn::major_item::ty::enum_ty),
             },
         },
     ),

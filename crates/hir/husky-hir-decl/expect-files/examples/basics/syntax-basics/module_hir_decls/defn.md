@@ -2,13 +2,7 @@
 [
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmoduleItemPath(
-                ItemPathId(
-                    Id {
-                        value: 6,
-                    },
-                ),
-            ),
+            path: SubmoduleItemPath(`syntax_basics::defn::major_item),
         },
     ),
 ]
