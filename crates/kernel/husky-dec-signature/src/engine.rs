@@ -73,7 +73,7 @@ impl<'a> DecTermEngine<'a> {
     fn infer_all(mut self) -> SynExprDecTermRegion {
         // ad hoc, todo: make it clear what it means for defn and snippet region
         match self.path() {
-            SynNodeRegionPath::CrateDecl(_) => todo!(),
+            SynNodeRegionPath::CrateDecl(_) => self.infer_expr_roots(),
             SynNodeRegionPath::ItemDecl(_) => {
                 self.infer_current_svar_terms();
                 self.symbolic_variable_region
@@ -309,7 +309,8 @@ impl<'a> DecTermEngine<'a> {
                 | SynExprRootKind::TupleStructFieldType
                 | SynExprRootKind::ParenateParameterDefaultValue { .. }
                 | SynExprRootKind::TypeAliasTypeTerm
-                | SynExprRootKind::AssocTypeTerm => (),
+                | SynExprRootKind::AssocTypeTerm
+                | SynExprRootKind::DefaultConstExclude => (),
                 SynExprRootKind::SelfType => {
                     let self_ty_term = self.infer_new_expr_term(expr_root.syn_expr_idx()).ok();
                     self.symbolic_variable_region.set_self_ty(self_ty_term);
@@ -329,7 +330,6 @@ impl<'a> DecTermEngine<'a> {
                 | SynExprRootKind::EvalExpr
                 | SynExprRootKind::TraitInConstraint => continue,
                 SynExprRootKind::Effect => todo!(),
-                SynExprRootKind::DefaultConstExclude => todo!(),
             }
             self.cache_new_expr_term(expr_root.syn_expr_idx())
         }
