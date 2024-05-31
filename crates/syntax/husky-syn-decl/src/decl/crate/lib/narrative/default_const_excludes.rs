@@ -15,6 +15,20 @@ pub struct LibCrateSynDeclDefaultConstExclude {
     expr: SynExprIdx,
 }
 
+/// # getters
+impl LibCrateSynDeclDefaultConstExcludes {
+    pub fn excludes(&self) -> &[LibCrateSynDeclDefaultConstExclude] {
+        &self.excludes
+    }
+}
+
+impl LibCrateSynDeclDefaultConstExclude {
+    pub fn expr(&self) -> SynExprIdx {
+        self.expr
+    }
+}
+
+/// # parsers
 impl<'db, 'a> TryParseOptionFromStream<ProducedSynExprParser<'db, 'a>>
     for LibCrateSynDeclDefaultConstExcludes
 {
