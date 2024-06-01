@@ -1,0 +1,37 @@
+```rust
+[
+    ItemPath::Submodule(
+        Room32,
+        SubmoduleItemPath(`mnist_classifier::connected_component),
+    ),
+    ItemPath::Submodule(
+        Room32,
+        SubmoduleItemPath(`mnist_classifier::raw_contour),
+    ),
+    ItemPath::Submodule(
+        Room32,
+        SubmoduleItemPath(`mnist_classifier::geom2d),
+    ),
+    ItemPath::Submodule(
+        Room32,
+        SubmoduleItemPath(`mnist_classifier::line_segment_sketch),
+    ),
+    ItemPath::Submodule(
+        Room32,
+        SubmoduleItemPath(`mnist_classifier::fermi),
+    ),
+    ItemPath::Submodule(
+        Room32,
+        SubmoduleItemPath(`mnist_classifier::digits),
+    ),
+    ItemPath::Submodule(
+        Room32,
+        SubmoduleItemPath(`mnist_classifier::major),
+    ),
+    ItemPath::MajorItem(
+        MajorItemPath::Form(
+            FormPath(`mnist_classifier::main`, `Val`),
+        ),
+    ),
+]
+```

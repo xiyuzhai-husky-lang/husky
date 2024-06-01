@@ -11,7 +11,13 @@ pub use self::sections::*;
 use self::builder::*;
 use self::jar::CorgiConfigJar as Jar;
 use husky_corgi_config_ast::*;
-use husky_vfs::{error::VfsResult, *};
+use husky_vfs::{
+    error::VfsResult,
+    path::{
+        package_path::{PackagePath, RegistryPath},
+        virtual_path::VirtualPath,
+    },
+};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct CorgiConfig {

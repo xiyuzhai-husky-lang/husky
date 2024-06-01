@@ -1,7 +1,7 @@
 use crate::{HasManifest, ManifestResult, ManifestResultRef};
-use husky_vfs::{
+use husky_vfs::path::{
     linktime_target_path::{LinktimeTargetPath, LinktimeTargetPathData},
-    PackagePath,
+    package_path::PackagePath,
 };
 use vec_like::VecSet;
 

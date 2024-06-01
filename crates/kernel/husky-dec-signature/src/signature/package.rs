@@ -2,7 +2,7 @@ use super::{form::MajorFormDecTemplate, *};
 use husky_entity_path::path::{major_item::MajorItemPath, PrincipalEntityPath};
 use husky_entity_tree::{jar::EntityTreeDb, subitem::SubitemPath};
 use husky_manifest::synopsis::{package::PackageSynopsis, HasSynopsis};
-use husky_vfs::PackagePath;
+use husky_vfs::path::package_path::PackagePath;
 
 #[salsa::interned]
 pub struct PackageDecSignature {

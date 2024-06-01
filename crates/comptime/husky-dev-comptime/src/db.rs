@@ -9,7 +9,7 @@ use std::panic::RefUnwindSafe;
     // fs
     husky_corgi_config::jar::CorgiConfigJar,
     husky_manifest::jar::ManifestJar,
-    husky_vfs::VfsJar,
+    husky_vfs::jar::VfsJar,
     // hir
     husky_hir_eager_expr::jar::HirEagerExprJar,
     husky_hir_lazy_expr::jar::HirLazyExprJar,

@@ -15,7 +15,7 @@ use husky_entity_path::path::{
     ty_variant::TypeVariantPath,
     PatternPath, PrincipalEntityPath,
 };
-use husky_vfs::{ModulePathData, PackagePathSource};
+use husky_vfs::path::{module_path::ModulePathData, package_path::PackagePathSource};
 
 impl<E> TranspileToRustWith<E> for AssocItemPath {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {

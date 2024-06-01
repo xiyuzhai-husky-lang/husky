@@ -22,7 +22,7 @@ use husky_token_info::TokenInfoJar;
 use husky_toml_ast::TomlAstJar;
 
 #[salsa::db(
-    VfsJar,
+    husky_vfs::jar::VfsJar,
     CowordJar,
     husky_text::jar::TextJar,
     husky_token_data::jar::TokenDataJar,

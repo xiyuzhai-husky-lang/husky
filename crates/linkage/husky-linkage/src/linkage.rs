@@ -26,7 +26,7 @@ use husky_javelin::{
     javelin::{package_javelins, Javelin, JavelinData},
     path::JavPath,
 };
-use husky_vfs::PackagePath;
+use husky_vfs::path::package_path::PackagePath;
 use smallvec::{smallvec, SmallVec};
 
 #[salsa::interned(jar = LinkageJar, constructor = pub(crate) new)]
@@ -39,6 +39,10 @@ pub struct Linkage {
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum LinkageData {
     MajorFunctionRitchie {
+        path: MajorFormPath,
+        instantiation: LinInstantiation,
+    },
+    MajorStatic {
         path: MajorFormPath,
         instantiation: LinInstantiation,
     },
@@ -367,7 +371,15 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         )]
                     }
                     MajorFormKind::Compterm => todo!(),
-                    MajorFormKind::Static => todo!(),
+                    MajorFormKind::Static => {
+                        smallvec![Linkage::new(
+                            db,
+                            LinkageData::MajorStatic {
+                                path,
+                                instantiation: LinInstantiation::new_empty(false),
+                            }
+                        )]
+                    }
                     MajorFormKind::TypeAlias | MajorFormKind::Conceptual => unreachable!(),
                 },
                 JavPath::TypeItem(path) => match path.item_kind(db) {

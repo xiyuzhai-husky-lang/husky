@@ -8,6 +8,7 @@ use husky_entity_path::path::{
     PrincipalEntityPath,
 };
 use husky_regional_token::RegionalTokenIdxRange;
+use husky_vfs::{jar::VfsDb, toolchain::Toolchain};
 use node::HasAssocItemPaths;
 use vec_like::VecMapGetEntry;
 

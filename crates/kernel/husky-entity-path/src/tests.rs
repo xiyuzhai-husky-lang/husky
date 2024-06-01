@@ -2,7 +2,7 @@ use crate::*;
 use husky_coword::jar::CowordJar;
 use salsa::DebugWithDb;
 
-#[salsa::db(CowordJar, VfsJar, Jar)]
+#[salsa::db(CowordJar, husky_vfs::jar::VfsJar, Jar)]
 #[derive(Default)]
 pub(crate) struct DB;
 

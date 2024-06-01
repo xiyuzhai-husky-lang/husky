@@ -32,7 +32,7 @@ pub struct VfsPathMenu {
     core_visual: SubmodulePath,
 }
 
-#[salsa::tracked(jar = VfsJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn vfs_path_menu(db: &::salsa::Db, toolchain: Toolchain) -> VfsPathMenu {
     VfsPathMenu::new(db, toolchain)
 }

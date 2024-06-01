@@ -5,7 +5,7 @@ use salsa::snapshot::SnapshotClone;
 
 #[salsa::db(
     // fs
-    husky_vfs::VfsJar,
+    husky_vfs::jar::VfsJar,
     // kernel
     husky_coword::jar::CowordJar,
     husky_entity_path::jar::EntityPathJar,

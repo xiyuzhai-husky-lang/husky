@@ -1,5 +1,5 @@
 pub(crate) use husky_ast::test_utils::{AstTestConfig, AstTestUtils};
-pub(crate) use husky_vfs::ModulePath;
+pub(crate) use husky_vfs::{path::module_path::ModulePath, test_utils::*};
 
 use husky_corgi_config::jar::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
@@ -18,11 +18,11 @@ use husky_syn_expr::jar::SynExprJar;
 use husky_term_prelude::jar::TermPreludeJar;
 use husky_token::TokenJar;
 use husky_toml_ast::TomlAstJar;
-use husky_vfs::VfsJar;
+use husky_vfs::jar::VfsJar;
 
 #[salsa::db(
     CowordJar,
-    VfsJar,
+    husky_vfs::jar::VfsJar,
     husky_entity_path::jar::EntityPathJar,
     husky_token_data::jar::TokenDataJar,
     TokenJar,

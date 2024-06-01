@@ -1,6 +1,6 @@
 use super::HasSynopsis;
 use crate::ManifestResultRef;
-use husky_vfs::linktime_target_path::LinktimeTargetPath;
+use husky_vfs::path::linktime_target_path::LinktimeTargetPath;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum LinktimeTargetSynopsis {}

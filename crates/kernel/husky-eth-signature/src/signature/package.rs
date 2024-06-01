@@ -1,5 +1,5 @@
 use super::*;
-use husky_vfs::PackagePath;
+use husky_vfs::path::package_path::PackagePath;
 
 #[salsa::interned]
 pub struct PackageEthSignature {

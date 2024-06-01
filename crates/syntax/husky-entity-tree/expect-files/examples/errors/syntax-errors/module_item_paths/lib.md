@@ -1,0 +1,12 @@
+```rust
+[
+    ItemPath::Submodule(
+        Room32,
+        SubmoduleItemPath(`syntax_errors::ast),
+    ),
+    ItemPath::Submodule(
+        Room32,
+        SubmoduleItemPath(`syntax_errors::uses),
+    ),
+]
+```

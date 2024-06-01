@@ -1,4 +1,6 @@
 use super::*;
+use crate::path::menu::VfsPathMenu;
+use jar::VfsDb;
 
 pub trait VfsTestUtilsDb {
     // toolchain

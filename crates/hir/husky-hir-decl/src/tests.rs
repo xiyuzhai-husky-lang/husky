@@ -1,5 +1,5 @@
 pub(crate) use husky_ast::test_utils::*;
-use husky_vfs::ModulePath;
+use husky_vfs::path::module_path::ModulePath;
 
 use crate::{jar::*, *};
 use husky_corgi_config::jar::CorgiConfigJar;

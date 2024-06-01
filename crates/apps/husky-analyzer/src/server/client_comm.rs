@@ -4,7 +4,7 @@ use crossbeam_channel::Sender;
 
 use dashmap::{mapref::entry::Entry, DashMap};
 use husky_diagnostics::DiagnosticsDb;
-use husky_vfs::ModulePath;
+use husky_vfs::path::module_path::ModulePath;
 use lsp_types::notification::Notification;
 
 use crate::{convert::to_lsp_types::url_from_path, db::AnalyzerDB};

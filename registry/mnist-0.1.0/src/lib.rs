@@ -119,3 +119,6 @@ impl BinaryGrid28 {}
 pub fn input() -> &'static BinaryImage28 {
     MNIST_DATASET.input(input_id())
 }
+
+// ad hoc
+pub fn TASK() {}

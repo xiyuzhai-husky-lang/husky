@@ -4,7 +4,7 @@ use crate::{
     trai::HirTrait,
     *,
 };
-use husky_vfs::Toolchain;
+use husky_vfs::toolchain::Toolchain;
 
 pub trait HirTypeDb {
     fn hir_ty_menu(&self, toolchain: Toolchain) -> &HirTypeMenu;

@@ -8,7 +8,7 @@ use husky_entity_tree::{
     helpers::tokra_region::TokraRegionDataRef, jar::EntityTreeDb, node::ItemSynNodePath,
     region_path::SynNodeRegionPath, symbol::ModuleSymbolContext,
 };
-use husky_vfs::ModulePath;
+use husky_vfs::path::module_path::ModulePath;
 
 pub struct SynExprContext<'a> {
     db: &'a ::salsa::Db,

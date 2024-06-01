@@ -1,6 +1,7 @@
 use super::*;
 use husky_entity_path::menu::item_path_menu;
 use husky_manifest::HasManifest;
+use husky_vfs::{jar::VfsDb, path::crate_path::CrateKind, toolchain::Toolchain};
 
 #[derive(Debug, Clone, Copy)]
 #[salsa::derive_debug_with_db]

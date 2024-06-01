@@ -2,7 +2,7 @@ pub use husky_ast::test_utils::*;
 
 #[salsa::db(
     husky_coword::jar::CowordJar,
-    husky_vfs::VfsJar,
+    husky_vfs::jar::VfsJar,
     husky_entity_path::jar::EntityPathJar,
     husky_text::jar::TextJar,
     husky_token_data::jar::TokenDataJar,

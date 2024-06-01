@@ -39,7 +39,6 @@ use husky_token::{
     IdentToken, TokenStreamState, VerticalToken,
 };
 use husky_token_data::*;
-use husky_vfs::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 
 type State = TokenVerseIdx;

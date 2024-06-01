@@ -1,0 +1,16 @@
+```rust
+[
+    SubmodulePath(
+        `syntax_basics::ast`,
+    ),
+    SubmodulePath(
+        `syntax_basics::uses`,
+    ),
+    SubmodulePath(
+        `syntax_basics::defn`,
+    ),
+    SubmodulePath(
+        `syntax_basics::expr`,
+    ),
+]
+```

@@ -54,7 +54,7 @@ pub fn ty_ontology_path_declarative_ty(
 #[test]
 fn ty_ontology_path_declarative_ty_works() {
     DB::ast_expect_test_debug_with_db(
-        |db, module_path: husky_vfs::ModulePath| {
+        |db, module_path: husky_vfs::path::module_path::ModulePath| {
             husky_entity_tree::helpers::paths::module_item_paths(db, module_path)
                 .iter()
                 .filter_map(|&module_item_path| match module_item_path {

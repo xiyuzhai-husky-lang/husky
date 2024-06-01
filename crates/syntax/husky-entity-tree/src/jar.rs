@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_path::path::MajorEntityPath;
-use husky_vfs::*;
+use husky_vfs::path::module_path::SubmodulePath;
 
 #[deprecated(note = "todo: move methods to different traits")]
 pub trait EntityTreeDb {

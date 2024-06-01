@@ -18,7 +18,7 @@ use husky_term_prelude::jar::TermPreludeJar;
 use husky_toml_ast::TomlAstJar;
 
 #[salsa::db(
-    VfsJar,
+    husky_vfs::jar::VfsJar,
     CowordJar,
     husky_token_data::jar::TokenDataJar,
     husky_text::jar::TextJar,

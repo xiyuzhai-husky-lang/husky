@@ -7,7 +7,7 @@ use husky_entity_tree::{
     helpers::tokra_region::ItemDeclTokraRegionDataRef, node::ItemSynNodePath,
     region_path::SynNodeRegionPath, symbol::ModuleSymbolContext,
 };
-use husky_vfs::CratePath;
+use husky_vfs::path::crate_path::CratePath;
 
 pub(crate) struct ItemSynNodeDeclParser<'db> {
     db: &'db ::salsa::Db,

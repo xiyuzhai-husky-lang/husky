@@ -14,11 +14,11 @@ use husky_syn_expr::jar::SynExprJar;
 use husky_term_prelude::jar::TermPreludeJar;
 use husky_token::TokenJar;
 use husky_toml_ast::TomlAstJar;
-use husky_vfs::VfsJar;
+use husky_vfs::jar::VfsJar;
 
 #[salsa::db(
     husky_entity_path::jar::EntityPathJar,
-    VfsJar,
+    husky_vfs::jar::VfsJar,
     CowordJar,
     husky_token_data::jar::TokenDataJar,
     TokenJar,

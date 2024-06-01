@@ -1,5 +1,6 @@
 use crate::*;
 
+use crate::path::menu::{vfs_path_menu, VfsPathMenu};
 use husky_fs_specs::FsSpecsError;
 use maybe_result::MaybeResult::JustOk;
 use salsa::Db;
@@ -284,7 +285,6 @@ pub struct VfsJar(
     crate::path::package_path::is_package_path_virtual,
     crate::path::package_path::package_task_crate_path,
     crate::path::crate_path::package_crate_paths,
-    crate::path::module_path::relative_path::module_relative_path,
     crate::path::module_path::relative_path::module_relative_stem,
     crate::path::linktime_target_path::linktime_target_rust_workspace_rustfmt_toml_path,
     crate::path::linktime_target_path::linktime_target_rust_workspace_manifest_path,

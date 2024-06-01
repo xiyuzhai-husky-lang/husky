@@ -1,6 +1,6 @@
 use super::*;
 use husky_entity_path::path::script::ScriptItemPath;
-use husky_vfs::script::Script;
+use husky_vfs::{path::module_path::ScriptModulePath, script::Script};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db]

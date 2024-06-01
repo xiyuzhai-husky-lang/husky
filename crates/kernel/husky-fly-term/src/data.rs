@@ -17,7 +17,7 @@ use husky_eth_term::term::{
     curry::EthCurry, lambda_variable::EthLambdaVariable, symbolic_variable::EthSymbolicVariable,
 };
 use husky_term_prelude::{literal::Literal, ritchie::RitchieKind};
-use husky_vfs::Toolchain;
+use husky_vfs::toolchain::Toolchain;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]

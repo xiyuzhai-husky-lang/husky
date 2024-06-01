@@ -4,7 +4,7 @@ use crate::{
 };
 use husky_text_protocol::{position::TextPosition, range::TextRange};
 use husky_token_data::TokenData;
-use husky_vfs::ModulePath;
+use husky_vfs::path::module_path::ModulePath;
 
 impl std::ops::Index<TokenIdx> for TokenSheetData {
     type Output = TokenData;

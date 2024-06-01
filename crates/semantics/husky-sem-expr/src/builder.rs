@@ -24,8 +24,8 @@ use husky_syn_decl::decl::{
     HasSynNodeDecl, ItemSynNodeDecl,
 };
 use husky_token_data::{IntegerLikeLiteralTokenData, LiteralTokenData, TokenData};
-use husky_vfs::Toolchain;
-use husky_vfs::VfsPathMenu;
+use husky_vfs::path::menu::VfsPathMenu;
+use husky_vfs::toolchain::Toolchain;
 use vec_like::{SmallVecPairMap, SmallVecSet, VecPairMap};
 
 pub(crate) struct SemExprBuilder<'a> {

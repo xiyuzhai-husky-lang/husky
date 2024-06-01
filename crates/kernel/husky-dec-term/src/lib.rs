@@ -18,4 +18,4 @@ use self::jar::DecTermJar as Jar;
 use self::term::*;
 use husky_coword::*;
 use husky_term_prelude::*;
-use husky_vfs::Toolchain;
+use husky_vfs::toolchain::Toolchain;

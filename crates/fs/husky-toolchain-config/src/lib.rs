@@ -4,7 +4,10 @@
 mod db;
 
 use husky_toml_utils::read_toml;
-use husky_vfs::{Toolchain, ToolchainData, VirtualPath};
+use husky_vfs::{
+    path::virtual_path::VirtualPath,
+    toolchain::{Toolchain, ToolchainData},
+};
 use serde::*;
 use std::path::Path;
 use std::path::PathBuf;
