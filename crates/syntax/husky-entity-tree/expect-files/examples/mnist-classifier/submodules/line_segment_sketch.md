@@ -1,0 +1,16 @@
+```rust
+[
+    SubmodulePath(
+        `mnist_classifier::line_segment_sketch::concave_component`,
+    ),
+    SubmodulePath(
+        `mnist_classifier::line_segment_sketch::convex_component`,
+    ),
+    SubmodulePath(
+        `mnist_classifier::line_segment_sketch::convexity`,
+    ),
+    SubmodulePath(
+        `mnist_classifier::line_segment_sketch::line_segment`,
+    ),
+]
+```

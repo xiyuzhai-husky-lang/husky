@@ -18,7 +18,12 @@ use husky_task_interface::TaskIngredientIndex;
 use husky_task_interface::TaskJarIndex;
 use husky_toolchain_config::toolchain_config;
 use husky_vfs::{
-    error::VfsResult, linktime_target_path::LinktimeTargetPath, CrateKind, CratePath, PackagePath,
+    error::VfsResult,
+    path::{
+        crate_path::{CrateKind, CratePath},
+        linktime_target_path::LinktimeTargetPath,
+        package_path::PackagePath,
+    },
 };
 use std::path::Path;
 

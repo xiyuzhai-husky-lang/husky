@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::input(db = VfsDb, jar = VfsJar)]
+#[salsa::input]
 pub struct Script {
     pub source: ScriptSource,
     #[return_ref]

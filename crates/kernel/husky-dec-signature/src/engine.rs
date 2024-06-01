@@ -8,7 +8,7 @@ use husky_entity_tree::region_path::SynNodeRegionPath;
 use husky_print_utils::p;
 use husky_syn_expr::*;
 use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr};
-use husky_vfs::Toolchain;
+use husky_vfs::toolchain::Toolchain;
 use salsa::DebugWithDb;
 
 pub(super) struct DecTermEngine<'a> {

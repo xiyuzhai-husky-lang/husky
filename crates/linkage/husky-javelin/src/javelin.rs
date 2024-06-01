@@ -3,7 +3,7 @@ use crate::{
     template_argument::ty::JavelinType, valkyrie::package_valkyrie_javelins,
 };
 
-use husky_vfs::PackagePath;
+use husky_vfs::path::package_path::PackagePath;
 
 #[salsa::interned(constructor = new_inner)]
 pub struct Javelin {

@@ -1,6 +1,9 @@
 use husky_corgi_config::CorgiConfigError;
 use husky_manifest_ast::ManifestAstError;
-use husky_vfs::{error::VfsError, CratePath, PackagePath};
+use husky_vfs::{
+    error::VfsError,
+    path::{crate_path::CratePath, package_path::PackagePath},
+};
 use thiserror::Error;
 
 #[salsa::derive_debug_with_db]

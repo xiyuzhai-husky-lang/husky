@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermMenu4 {

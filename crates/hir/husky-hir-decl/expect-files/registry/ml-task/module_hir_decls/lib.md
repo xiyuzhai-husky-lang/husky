@@ -1,0 +1,43 @@
+```rust
+[
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Trait(
+            TraitHirDecl {
+                path: TraitPath(`ml_task::IsMlTask`),
+                template_parameters: HirTemplateParameters(
+                    [],
+                ),
+                hir_eager_expr_region: HirEagerExprRegion {
+                    region_path: RegionPath::ItemDecl(
+                        ItemPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`ml_task::IsMlTask`),
+                            ),
+                        ),
+                    ),
+                    expr_arena: Arena {
+                        data: [],
+                    },
+                    stmt_arena: Arena {
+                        data: [],
+                    },
+                    pattern_arena: Arena {
+                        data: [],
+                    },
+                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                    },
+                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
+            },
+        ),
+    ),
+]
+```

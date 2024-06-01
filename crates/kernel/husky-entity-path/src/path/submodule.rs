@@ -1,4 +1,5 @@
 use super::*;
+use husky_vfs::path::module_path::SubmodulePath;
 
 #[salsa::as_id]
 #[salsa::deref_id]

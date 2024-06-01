@@ -7,6 +7,7 @@ mod utils;
 use crate::*;
 use husky_entity_path::path::major_item::connection::DisconnectedConnectionRegistry;
 use husky_token::{indent::Indent, *};
+use husky_vfs::path::module_path::ModulePath;
 use parsec::{HasStreamState, IsStreamParser};
 use utils::*;
 

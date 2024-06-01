@@ -1,6 +1,9 @@
 use crate::*;
 
-use husky_vfs::error::{VfsError, VfsResult};
+use husky_vfs::{
+    error::{VfsError, VfsResult},
+    path::package_path::PackagePath,
+};
 
 #[salsa::jar]
 pub struct TomlAstJar(toml_ast_sheet_aux);

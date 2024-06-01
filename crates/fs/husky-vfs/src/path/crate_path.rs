@@ -105,7 +105,7 @@ impl PackagePath {
     }
 }
 
-#[salsa::tracked(jar = VfsJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn package_crate_paths(db: &::salsa::Db, package_path: PackagePath) -> VfsResult<Vec<CratePath>> {
     let mut crate_paths = vec![];
     crate_paths.extend(CratePath::new(package_path, CrateKind::Lib, db).into_result_option()?);

@@ -1,4 +1,5 @@
 use super::*;
+use husky_vfs::{jar::VfsDb, path::menu::VfsPathMenu};
 use std::fmt::Debug;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

@@ -9,7 +9,7 @@ use self::jar::*;
 #[cfg(test)]
 use self::tests::*;
 use husky_text_protocol::{line_map::*, position::TextLine, range::*};
-use husky_vfs::ModulePath;
+use husky_vfs::path::module_path::ModulePath;
 use line_map::module_text_line_map;
 
 #[derive(Clone, Copy, PartialEq, Eq)]

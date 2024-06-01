@@ -1,0 +1,36 @@
+```rust
+[
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::cmp::PartialEq`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::cmp::Eq`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::cmp::PartialOrd`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::cmp::Ord`),
+            ),
+        ),
+        None,
+    ),
+]
+```

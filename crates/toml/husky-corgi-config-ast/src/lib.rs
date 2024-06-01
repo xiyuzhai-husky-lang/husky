@@ -15,7 +15,7 @@ use self::menu::*;
 use self::tests::*;
 use self::transformer::*;
 use husky_toml_ast::*;
-use husky_vfs::{error::VfsResult, VirtualPath};
+use husky_vfs::{error::VfsResult, path::virtual_path::VirtualPath};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct CorgiConfigAstSheet {

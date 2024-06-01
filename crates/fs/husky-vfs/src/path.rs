@@ -6,11 +6,10 @@ pub mod package_path;
 pub mod virtual_path;
 pub mod workspace_path;
 
-pub use self::crate_path::*;
-pub use self::menu::*;
-pub use self::module_path::*;
-pub use self::package_path::*;
-pub use self::virtual_path::*;
+pub(crate) use self::crate_path::*;
+pub(crate) use self::module_path::*;
+pub(crate) use self::package_path::*;
+pub(crate) use self::virtual_path::*;
 
 use crate::*;
 

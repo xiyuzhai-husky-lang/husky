@@ -1,7 +1,7 @@
 use super::*;
 use husky_manifest::helpers::upstream::HasAllUpstreamPackages;
 use husky_task_interface::TaskJarIndex;
-use husky_vfs::linktime_target_path::LinktimeTargetPath;
+use husky_vfs::path::{linktime_target_path::LinktimeTargetPath, package_path::PackagePath};
 
 pub fn package_path_from_jar_index(
     target_path: LinktimeTargetPath,

@@ -32,7 +32,7 @@ use husky_hir_ty::{
 };
 use husky_print_utils::p;
 use husky_term_prelude::literal::Literal;
-use husky_vfs::Toolchain;
+use husky_vfs::toolchain::Toolchain;
 
 const INDENT_UNIT: u32 = 4;
 

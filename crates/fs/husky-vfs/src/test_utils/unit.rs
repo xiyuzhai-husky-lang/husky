@@ -1,3 +1,5 @@
+use jar::VfsDb;
+
 use super::*;
 
 pub trait IsVfsTestUnit: Copy {

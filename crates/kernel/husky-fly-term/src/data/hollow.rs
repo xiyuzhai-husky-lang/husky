@@ -1,4 +1,4 @@
-use husky_vfs::Toolchain;
+use husky_vfs::toolchain::Toolchain;
 
 use super::*;
 

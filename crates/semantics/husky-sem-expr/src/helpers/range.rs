@@ -6,7 +6,7 @@ use husky_regional_token::{
     EphemSymbolModifierRegionalTokens, RegionalTokenIdxRange, RegionalTokenIdxRangeEnd,
 };
 use husky_syn_expr::entity_path::{SynPrincipalEntityPathExpr, SynPrincipalEntityPathSynExprIdx};
-use husky_vfs::ModulePath;
+use husky_vfs::path::module_path::ModulePath;
 
 #[salsa::tracked(db = SemExprDb, jar = SemExprJar)]
 pub struct SemExprRangeRegion {

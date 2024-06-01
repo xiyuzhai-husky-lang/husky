@@ -3,7 +3,7 @@ use crate::{instantiation::JavInstantiation, javelin::JavelinData, path::JavPath
 use husky_entity_path::path::ItemPath;
 use husky_entity_tree::helpers::paths::{crate_module_paths, module_item_paths};
 use husky_hir_decl::parameter::template::item_hir_template_parameter_stats;
-use husky_vfs::PackagePath;
+use husky_vfs::path::package_path::PackagePath;
 use vec_like::VecSet;
 
 /// an Amazon javelin is one with univalent instantiation

@@ -1,6 +1,6 @@
-use husky_token::{HasTokenIdxRange, TokenDb, TokenIdxRange, TokenSheetData};
-
 use crate::*;
+use husky_token::{HasTokenIdxRange, TokenDb, TokenIdxRange, TokenSheetData};
+use husky_vfs::path::module_path::ModulePath;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]

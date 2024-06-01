@@ -1,4 +1,5 @@
 use super::*;
+use husky_vfs::path::module_path::ScriptModulePath;
 
 #[salsa::derive_debug_with_db]
 #[salsa::as_id]

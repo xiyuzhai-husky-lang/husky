@@ -3,8 +3,8 @@ use crate::path::major_item::{connection::MajorItemConnection, trai::TraitPath, 
 use crate::*;
 use husky_coword::{coword_menu, Ident};
 use husky_entity_kind::TypeKind;
-use husky_vfs::Toolchain;
-use husky_vfs::VfsDb;
+use husky_vfs::jar::VfsDb;
+use husky_vfs::toolchain::Toolchain;
 
 #[salsa::tracked(return_ref)]
 pub fn item_path_menu(db: &::salsa::Db, toolchain: Toolchain) -> ItemPathMenu {

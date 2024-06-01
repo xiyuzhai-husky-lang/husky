@@ -4,7 +4,7 @@ use husky_dec_signature::signature::major_item::form::{
     val::MajorValDecTemplate, MajorFormDecTemplate,
 };
 use husky_entity_path::path::major_item::form::MajorFormPath;
-use husky_vfs::Toolchain;
+use husky_vfs::toolchain::Toolchain;
 use smallvec::ToSmallVec;
 
 #[salsa::tracked(jar = DecTypeJar)]

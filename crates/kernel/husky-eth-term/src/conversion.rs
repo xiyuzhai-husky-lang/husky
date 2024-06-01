@@ -1,5 +1,5 @@
 use self::term::EthTerm;
-use crate::*;
+use super::*;
 use husky_entity_path::path::major_item::ty::PreludeTypePath;
 
 impl EthTerm {

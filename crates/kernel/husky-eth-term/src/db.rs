@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 pub trait EthTermDb {
     fn ethereal_term_menu(&self, toolchain: Toolchain) -> &EthTermMenu;

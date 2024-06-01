@@ -1,0 +1,6 @@
+```rust
+[
+    `mnist`,
+    `mnist::task`,
+]
+```

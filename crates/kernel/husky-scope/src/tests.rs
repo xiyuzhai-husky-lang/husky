@@ -1,6 +1,6 @@
 use husky_coword::jar::CowordJar;
+use husky_vfs::jar::VfsJar;
 pub(crate) use husky_vfs::test_utils::*;
-use husky_vfs::VfsJar;
 
 use crate::*;
 use with_db::WithDb;

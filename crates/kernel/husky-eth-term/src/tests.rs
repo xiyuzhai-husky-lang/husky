@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 use husky_corgi_config::jar::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_coword::jar::CowordJar;
@@ -12,7 +12,7 @@ use husky_toml_ast::TomlAstJar;
 
 #[salsa::db(
     husky_entity_path::jar::EntityPathJar,
-    VfsJar,
+    husky_vfs::jar::VfsJar,
     CowordJar,
     husky_token_data::jar::TokenDataJar,
     TokenJar,

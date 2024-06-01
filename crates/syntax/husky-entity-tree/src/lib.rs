@@ -42,5 +42,5 @@ use husky_scope::*;
 use husky_scope_expr::*;
 use husky_token::TokenSheetData;
 use husky_token_data::*;
-use husky_vfs::*;
+use husky_vfs::path::{crate_path::CratePath, module_path::ModulePath};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};

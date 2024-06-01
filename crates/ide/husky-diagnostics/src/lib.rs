@@ -15,7 +15,7 @@ use self::collector::{ModuleDiagnosticsCollector, RegionDiagnosticsCollector};
 use self::context::*;
 use self::sheet::*;
 use husky_text_protocol::range::TextRange;
-use husky_vfs::*;
+use husky_vfs::path::module_path::ModulePath;
 #[cfg(test)]
 use tests::*;
 

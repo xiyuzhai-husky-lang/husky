@@ -1,5 +1,5 @@
 use crate::*;
-use husky_vfs::{error::VfsResult, *};
+use husky_vfs::{error::VfsResult, path::virtual_path::VirtualPath};
 
 pub trait TomlTokenDb {
     fn toml_tokenize(&self, input: &str) -> Vec<TomlToken>;

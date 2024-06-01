@@ -97,7 +97,7 @@ pub fn linkage_virtual_vmir_region_aux(
 #[cfg(test)]
 fn package_linkage_linkage_vmir_regions(
     db: &::salsa::Db,
-    package: husky_vfs::PackagePath,
+    package: husky_vfs::path::package_path::PackagePath,
 ) -> Vec<(Linkage, Option<&VirtualVmirRegion>)> {
     use husky_linkage::linkage::package_linkages;
 

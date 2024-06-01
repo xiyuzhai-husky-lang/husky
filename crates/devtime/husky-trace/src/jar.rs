@@ -1,6 +1,6 @@
-use husky_trace_protocol::protocol::TraceBundle;
-
 use crate::*;
+use husky_trace_protocol::protocol::TraceBundle;
+use husky_vfs::path::crate_path::CratePath;
 
 pub trait TraceDb {
     fn trace_bundles(&self, crate_path: CratePath) -> &[TraceBundle<Trace>];
