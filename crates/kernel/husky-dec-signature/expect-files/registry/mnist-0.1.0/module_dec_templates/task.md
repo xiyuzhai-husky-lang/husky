@@ -6,8 +6,29 @@
                 FormPath(`mnist::Task`, `TypeAlias`),
             ),
         ),
-        Err(
-            DecSignatureError::DecTermError,
+        Ok(
+            ItemDecTemplate::MajorItem(
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::TypeAlias(
+                        TypeAliasDecTemplate {
+                            template_parameters: DecTemplateParameters {
+                                data: [],
+                            },
+                            ty_term: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 16,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (
@@ -16,8 +37,26 @@
                 FormPath(`mnist::TASK`, `Static`),
             ),
         ),
-        Err(
-            DecSignatureError::DecTermError,
+        Ok(
+            ItemDecTemplate::MajorItem(
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Static(
+                        MajorStaticDecTemplate {
+                            return_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 16,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
 ]

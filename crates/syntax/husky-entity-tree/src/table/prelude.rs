@@ -42,8 +42,6 @@ impl<'a> CratePrelude<'a> {
     }
 }
 
-pub struct UniversalPrelude {}
-
 #[salsa::tracked(return_ref)]
 pub(crate) fn none_core_crate_universal_prelude(
     db: &::salsa::Db,
@@ -92,6 +90,21 @@ fn crate_specific_symbol_context(
     entries
         .push(EntitySymbolEntry::new_crate_root(db, crate_path))
         .unwrap();
+    match crate_path.kind(db) {
+        CrateKind::Lib | CrateKind::Main => (),
+        _ => {
+            let Some(lib_crate_path) = package_path.lib_crate_path(db) else {
+                todo!()
+            };
+            entries
+                .push(EntitySymbolEntry::new_self_lib(
+                    db,
+                    lib_crate_path,
+                    crate_path,
+                ))
+                .unwrap();
+        }
+    }
     for package_dependency in package_dependencies {
         entries
             .push(EntitySymbolEntry::new_package_dependency(

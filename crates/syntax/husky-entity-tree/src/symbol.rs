@@ -32,7 +32,7 @@ pub enum EntitySymbol {
     UniversalPrelude {
         item_path: PrincipalEntityPath,
     },
-    PackageDependency {
+    PackageDependencyOrSelfLib {
         item_path: PrincipalEntityPath,
     },
     Submodule {
@@ -91,7 +91,7 @@ impl EntitySymbol {
                 super_module_path, ..
             } => super_module_path.into(),
             EntitySymbol::UniversalPrelude { item_path }
-            | EntitySymbol::PackageDependency { item_path } => item_path.into(),
+            | EntitySymbol::PackageDependencyOrSelfLib { item_path } => item_path.into(),
             EntitySymbol::Submodule {
                 submodule_item_path: submodule_path,
                 ..
