@@ -72,6 +72,10 @@ pub enum OriginalSynNodeDeclError {
     ExpectedStaticReturnType(RegionalTokenStreamState),
     #[error("expect `=` for memo")]
     ExpectedEqTokenForMemo(RegionalTokenStreamState),
+    #[error("expect `=` for type alias")]
+    ExpectedEqTokenForTypeAlias(RegionalTokenStreamState),
+    #[error("expect `=` for static")]
+    ExpectedEqTokenForStatic(RegionalTokenStreamState),
     #[error("expected `{{` `(` or `;` for struct")]
     ExpectedLcurlOrLparOrSemicolonForStruct(RegionalTokenStreamState),
     #[error("expected `=` for associated type")]

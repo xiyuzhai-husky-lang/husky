@@ -2,6 +2,7 @@ use crate::*;
 use husky_entity_path::path::MajorEntityPath;
 use husky_vfs::*;
 
+#[deprecated(note = "todo: move methods to different traits")]
 pub trait EntityTreeDb {
     fn submodules(&self, module_path: ModulePath) -> &[SubmodulePath];
     fn all_modules_within_crate(&self, crate_path: CratePath) -> &[ModulePath];
@@ -47,12 +48,8 @@ impl EntityTreeDb for ::salsa::Db {
         module_symbol_context(self, module_path)
     }
 
-    fn subitem_path(
-        &self,
-        parent: MajorEntityPath,
-        identifier: Ident,
-    ) -> EntityTreeResult<SubitemPath> {
-        subitem_path(self, parent, identifier)
+    fn subitem_path(&self, parent: MajorEntityPath, ident: Ident) -> EntityTreeResult<SubitemPath> {
+        subitem_path(self, parent, ident)
     }
 }
 

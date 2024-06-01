@@ -20,7 +20,7 @@ impl StructureSynNodeDecl {
     }
 }
 
-impl<'a> ItemDeclParser<'a> {
+impl<'a> ItemSynNodeDeclParser<'a> {
     pub(super) fn parse_structure_ty_node_decl(
         &self,
         syn_node_path: TypeSynNodePath,

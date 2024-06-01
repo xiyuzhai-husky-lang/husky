@@ -9,14 +9,14 @@ use husky_entity_tree::{
 };
 use husky_vfs::CratePath;
 
-pub(crate) struct ItemDeclParser<'db> {
+pub(crate) struct ItemSynNodeDeclParser<'db> {
     db: &'db ::salsa::Db,
     syn_node_path: ItemSynNodePath,
     module_symbol_context: ModuleSymbolContext<'db>,
     tokra_region_data: ItemDeclTokraRegionDataRef<'db>,
 }
 
-impl<'db> ItemDeclParser<'db> {
+impl<'db> ItemSynNodeDeclParser<'db> {
     pub(crate) fn new(db: &'db ::salsa::Db, syn_node_path: ItemSynNodePath) -> Self {
         let module_path = syn_node_path.module_path(db);
         let Ok(module_symbol_context) = db.module_symbol_context(module_path) else {

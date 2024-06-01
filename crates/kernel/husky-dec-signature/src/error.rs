@@ -1,4 +1,5 @@
 use crate::*;
+use husky_manifest::error::ManifestError;
 use husky_syn_decl::error::{SynDeclError, SynNodeDeclError};
 use husky_syn_expr::SynExprError;
 use thiserror::Error;
@@ -51,6 +52,12 @@ impl From<&SynNodeDeclError> for DecSignatureError {
 impl From<&SynExprError> for DecSignatureError {
     fn from(_: &SynExprError) -> Self {
         DecSignatureError::ExprError
+    }
+}
+
+impl From<&ManifestError> for DecSignatureError {
+    fn from(e: &ManifestError) -> Self {
+        todo!()
     }
 }
 
