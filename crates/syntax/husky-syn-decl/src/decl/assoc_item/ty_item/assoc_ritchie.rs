@@ -35,7 +35,7 @@ impl TypeAssocRitchieSynNodeDecl {
     }
 }
 
-impl<'a> ItemDeclParser<'a> {
+impl<'a> ItemSynNodeDeclParser<'a> {
     pub(super) fn parse_ty_assoc_fn_node_decl(
         &self,
         syn_node_path: TypeItemSynNodePath,

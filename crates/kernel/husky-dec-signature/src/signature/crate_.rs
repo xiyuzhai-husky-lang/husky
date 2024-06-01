@@ -66,7 +66,7 @@ fn crate_dec_signature(
 #[test]
 fn crate_dec_signature_works() {
     DB::ast_expect_test_debug_with_db(
-        |db, crate_path| crate_dec_signature(db, crate_path),
+        crate_dec_signature,
         &AstTestConfig::new(
             "crate_dec_signature",
             FileExtensionConfig::Markdown,

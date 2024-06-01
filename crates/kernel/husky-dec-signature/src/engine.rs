@@ -327,6 +327,7 @@ impl<'a> DecTermEngine<'a> {
                 | SynExprRootKind::FieldBindInitialValue { .. }
                 | SynExprRootKind::Snippet
                 | SynExprRootKind::ValExpr
+                | SynExprRootKind::StaticExpr
                 | SynExprRootKind::EvalExpr
                 | SynExprRootKind::TraitInConstraint => continue,
                 SynExprRootKind::Effect => todo!(),

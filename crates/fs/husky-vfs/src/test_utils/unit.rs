@@ -52,7 +52,10 @@ impl IsVfsTestUnit for PackagePath {
 
 impl IsVfsTestUnit for CratePath {
     fn collect_from_package_path(db: &::salsa::Db, package_path: PackagePath) -> Vec<Self> {
-        db.collect_crates(package_path).unwrap_or_default()
+        package_path
+            .crate_paths(db)
+            .expect("no vfs error in testing")
+            .to_vec()
     }
 
     fn determine_expect_file_path(
@@ -67,11 +70,11 @@ impl IsVfsTestUnit for CratePath {
             match self.kind(db) {
                 CrateKind::Lib => format!("src/lib"),
                 CrateKind::Main => format!("src/main"),
+                CrateKind::Task => format!("task"),
+                CrateKind::Requirements => format!("requirements"),
                 CrateKind::Bin(_) => todo!(),
                 CrateKind::IntegratedTest(_) => todo!(),
                 CrateKind::Example => todo!(),
-                CrateKind::Task => format!("task"),
-                CrateKind::Requirements => format!("requirements"),
             },
             config.expect_file_extension().str()
         ))
@@ -111,11 +114,11 @@ impl IsVfsTestUnit for ModulePath {
                 match crate_path.kind(db) {
                     CrateKind::Lib => "lib",
                     CrateKind::Main => "main",
+                    CrateKind::Requirements => "requirements",
+                    CrateKind::Task => "task",
                     CrateKind::Bin(_) => todo!(),
                     CrateKind::IntegratedTest(_) => todo!(),
                     CrateKind::Example => todo!(),
-                    CrateKind::Task => todo!(),
-                    CrateKind::Requirements => todo!(),
                 },
                 config.expect_file_extension().str()
             )),
@@ -163,11 +166,11 @@ pub fn determine_expect_file_path_without_extension(
             match crate_path.kind(db) {
                 CrateKind::Lib => "lib",
                 CrateKind::Main => "main",
+                CrateKind::Requirements => "requirements",
+                CrateKind::Task => "task",
                 CrateKind::Bin(_) => todo!(),
                 CrateKind::IntegratedTest(_) => todo!(),
                 CrateKind::Example => todo!(),
-                CrateKind::Task => todo!(),
-                CrateKind::Requirements => todo!(),
             },
             config.expect_file_extension().str()
         )),

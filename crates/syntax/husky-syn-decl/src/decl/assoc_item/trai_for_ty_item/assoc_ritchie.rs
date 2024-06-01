@@ -30,7 +30,7 @@ impl TraitForTypeAssocRitchieSynNodeDecl {
     }
 }
 
-impl<'a> ItemDeclParser<'a> {
+impl<'a> ItemSynNodeDeclParser<'a> {
     pub(super) fn parse_trai_for_ty_assoc_ritchie_node_decl(
         &self,
         syn_node_path: TraitForTypeItemSynNodePath,

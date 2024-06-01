@@ -11,7 +11,6 @@ pub trait VfsDb {
     fn live_packages(
         &self,
     ) -> std::sync::LockResult<std::sync::RwLockReadGuard<'_, VecSet<PackagePath>>>;
-    fn collect_crates(&self, package_path: PackagePath) -> VfsResult<Vec<CratePath>>;
     fn collect_probable_modules(&self, package_path: PackagePath) -> Vec<ModulePath>;
     fn resolve_module_path_and_update_live_packages(&self, path: &Path) -> VfsResult<ModulePath>;
     fn published_toolchain_library_path(&self, toolchain: PublishedToolchain) -> &Path;
@@ -158,28 +157,10 @@ impl VfsDb for Db {
         self.vfs_cache().live_packages()
     }
 
-    fn collect_crates(&self, package_path: PackagePath) -> VfsResult<Vec<CratePath>> {
-        let mut crates: Vec<CratePath> = vec![];
-        let package_dir = package_path.dir(self).as_ref()?.data(self);
-        crates.extend(CratePath::new(package_path, CrateKind::Lib, self).into_result_option()?);
-        crates.extend(CratePath::new(package_path, CrateKind::Main, self).into_result_option()?);
-        crates.extend(
-            CratePath::new(package_path, CrateKind::Requirements, self).into_result_option()?,
-        );
-        crates.extend(CratePath::new(package_path, CrateKind::Task, self).into_result_option()?);
-        if package_dir.join("src/bin").exists() {
-            todo!()
-        }
-        if package_dir.join("tests").exists() {
-            todo!()
-        }
-        Ok(crates)
-    }
-
     /// todo: should return not only ModulePath but also files with extension "hsy" but not included in any tree
     /// so the type should be ProbableModulePath maybe
     fn collect_probable_modules(&self, package: PackagePath) -> Vec<ModulePath> {
-        fn collect_probable_modules(
+        fn collect_probable_modules_aux(
             db: &::salsa::Db,
             parent: ModulePath,
             dir: &Path,
@@ -203,7 +184,7 @@ impl VfsDb for Db {
                         .and_then(|filename| Ident::from_ref(db, filename))
                     {
                         if let JustOk(child) = ModulePath::new_child(db, parent, ident) {
-                            collect_probable_modules(db, child.inner(), &path, modules)?
+                            collect_probable_modules_aux(db, child.inner(), &path, modules)?
                         }
                     }
                 } else if path.is_file() && path.extension().and_then(|s| s.to_str()) == Some("hsy")
@@ -231,40 +212,29 @@ impl VfsDb for Db {
             Ok(())
         }
 
-        let mut modules = vec![];
+        let mut module_paths = vec![];
         let Ok(diff_path) = package.dir(self) else {
             return vec![];
         };
-        let package_dir = diff_path.data(self);
-        if package_dir.join("src/lib.hsy").exists() {
-            if let JustOk(root_module) = ModulePath::new_root(
-                self,
-                CratePath::new(package, CrateKind::Lib, self).expect("should be valid"),
-            ) {
-                modules.push(root_module);
-                collect_probable_modules(self, root_module, &package_dir.join("src"), &mut modules)
-                    .unwrap();
-                if package_dir.join("src/main.hsy").exists() {
-                    todo!()
-                }
-                if package_dir.join("src/bin").exists() {
-                    todo!()
-                }
-            }
-        } else if package_dir.join("src/main.hsy").exists() {
-            if let JustOk(root_module) = ModulePath::new_root(
-                self,
-                CratePath::new(package, CrateKind::Main, self).expect("should be valid"),
-            ) {
-                modules.push(root_module);
-                collect_probable_modules(self, root_module, &package_dir.join("src"), &mut modules)
-                    .unwrap();
-                if package_dir.join("src/bin").exists() {
-                    todo!()
-                }
+        let Ok(crate_paths) = package.crate_paths(self) else {
+            return vec![];
+        };
+        for crate_path in crate_paths {
+            let root_module_path = crate_path.root_module_path(self);
+            module_paths.push(root_module_path);
+            if let Ok(crate_dir) = crate_path.dir(self)
+                && crate_dir.exists(self) == Ok(true)
+            {
+                collect_probable_modules_aux(
+                    self,
+                    root_module_path,
+                    crate_dir.data(self),
+                    &mut module_paths,
+                )
+                .expect("what to do here?")
             }
         }
-        modules
+        module_paths
     }
 
     /// toolchain is

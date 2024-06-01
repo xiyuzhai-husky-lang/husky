@@ -36,6 +36,7 @@ pub struct CowordMenu {
     /// `Lifetime`
     lifetime_ty_ident: Ident,
     place_ty_ident: Ident,
+    task_ty_ident: Ident,
     module_ident: Ident,
     crate_ident: Ident,
     camel_case_output_ident: Ident,
@@ -83,6 +84,7 @@ impl CowordMenu {
             crate_ident: Ident::from_ref(db, "crate").unwrap(),
             lifetime_ty_ident: Ident::from_ref(db, "Lifetime").unwrap(),
             place_ty_ident: Ident::from_ref(db, "Place").unwrap(),
+            task_ty_ident: Ident::from_ref(db, "Task").unwrap(),
             camel_case_output_ident: Ident::from_ref(db, "Output").unwrap(),
             snake_case_unveil_ident: Ident::from_ref(db, "unveil").unwrap(),
             backprop_ident: Ident::from_ref(db, "backprop").unwrap(),
@@ -215,6 +217,10 @@ impl CowordMenu {
 
     pub fn place_ty_ident(&self) -> Ident {
         self.place_ty_ident
+    }
+
+    pub fn task_ty_ident(&self) -> Ident {
+        self.task_ty_ident
     }
 
     pub fn never_ident(&self) -> Ident {

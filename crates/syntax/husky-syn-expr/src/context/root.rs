@@ -47,6 +47,7 @@ pub enum SynExprRootKind {
     LetStmtInitialValue,
     Snippet,
     ValExpr,
+    StaticExpr,
     EvalExpr,
     AssocTypeTerm,
     TypeAliasTypeTerm,

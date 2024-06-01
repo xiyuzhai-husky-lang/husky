@@ -1,3 +1,0 @@
-```rust
-"digits/seven.rs"
-```

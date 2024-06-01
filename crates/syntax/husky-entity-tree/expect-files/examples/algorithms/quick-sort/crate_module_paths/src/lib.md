@@ -1,5 +1,0 @@
-```rust
-[
-    `quick_sort`,
-]
-```

@@ -595,6 +595,7 @@ impl<'a> SemExprBuilder<'a> {
                 | SynExprRootKind::EvalExpr => continue,
                 SynExprRootKind::Snippet => todo!(),
                 SynExprRootKind::ValExpr => todo!(),
+                SynExprRootKind::StaticExpr => todo!(),
                 SynExprRootKind::Effect => todo!(),
                 SynExprRootKind::DefaultConstExclude => todo!(),
             };

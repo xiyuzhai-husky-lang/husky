@@ -1,5 +1,0 @@
-```rust
-[
-    `semantics_basics`,
-]
-```

@@ -160,7 +160,10 @@ fn transpile_package_source_to_fs(
         package_source_rust_package_manifest(db, package_path, setup),
         true,
     );
-    for &crate_path in package_path.crate_paths(db) {
+    for &crate_path in package_path
+        .crate_paths(db)
+        .expect("no vfs error at this stage")
+    {
         for &module_path in crate_module_paths(db, crate_path) {
             husky_io_utils::diff_write(
                 &module_path.relative_path(db).to_path(&src_dir),
