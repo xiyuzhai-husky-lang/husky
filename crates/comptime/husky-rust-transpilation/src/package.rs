@@ -171,6 +171,7 @@ fn transpile_package_source_to_fs(
         .crate_paths(db)
         .expect("no vfs error at this stage")
     {
+        todo!("figure it out");
         for &module_path in crate_module_paths(db, crate_path) {
             husky_io_utils::diff_write(
                 &module_relative_path_for_transpilation(db, module_path).to_path(&src_dir),
