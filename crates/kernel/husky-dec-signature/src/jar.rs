@@ -18,6 +18,9 @@ impl DecSignatureDb for ::salsa::Db {
 #[salsa::jar]
 pub struct DecSignatureJar(
     crate::region::syn_expr_dec_term_region,
+    // package
+    crate::signature::package::PackageDecSignature,
+    crate::signature::package::package_dec_signature,
     // crate
     crate::signature::crate_::lib::LibCrateDecSignature,
     crate::signature::crate_::task::TaskCrateDecSignature,

@@ -9,7 +9,7 @@ use self::requirements::RequirementsCrateEthSignature;
 use self::task::TaskCrateEthSignature;
 use super::*;
 use husky_dec_signature::signature::crate_::CrateDecSignature;
-use husky_vfs::{CrateKind, CratePath};
+use husky_vfs::CratePath;
 
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]

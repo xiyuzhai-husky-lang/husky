@@ -1,5 +1,8 @@
 #[salsa::jar]
 pub struct EthSignatureJar(
+    // package
+    crate::signature::package::PackageEthSignature,
+    crate::signature::package::package_eth_signature,
     // crate
     crate::signature::crate_::crate_eth_signature,
     crate::signature::crate_::lib::LibCrateEthSignature,
