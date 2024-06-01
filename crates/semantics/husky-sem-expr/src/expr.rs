@@ -570,7 +570,9 @@ impl<'a> SemExprBuilder<'a> {
                     self.infer_expr_term(sem_expr_idx);
                     sem_expr_idx
                 }
-                SynExprRootKind::BlockExpr => match self.return_ty() {
+                SynExprRootKind::BlockExpr
+                | SynExprRootKind::ValExpr
+                | SynExprRootKind::StaticExpr => match self.return_ty() {
                     Some(return_ty) => self.build_sem_expr(
                         root.syn_expr_idx(),
                         ExpectCoercion::new_move(return_ty.into()),
@@ -594,8 +596,6 @@ impl<'a> SemExprBuilder<'a> {
                 | SynExprRootKind::LetStmtInitialValue
                 | SynExprRootKind::EvalExpr => continue,
                 SynExprRootKind::Snippet => todo!(),
-                SynExprRootKind::ValExpr => todo!(),
-                SynExprRootKind::StaticExpr => todo!(),
                 SynExprRootKind::Effect => todo!(),
                 SynExprRootKind::DefaultConstExclude => todo!(),
             };

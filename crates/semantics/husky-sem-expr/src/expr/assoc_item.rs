@@ -42,6 +42,12 @@ impl<'a> SemExprBuilder<'a> {
         SemExprTypeResult<FlyTerm>,
     ) {
         let Some(parent_term) = self.infer_expr_term(parent_expr) else {
+            use husky_print_utils::p;
+            p!(
+                self.syn_expr_region_data().path().debug(self.db()),
+                colon_colon_regional_token_idx,
+                ident.debug(self.db())
+            );
             todo!()
         };
         self.calc_assoc_item_ty_aux(parent_term, expr_idx, ident, ident_regional_token_idx)

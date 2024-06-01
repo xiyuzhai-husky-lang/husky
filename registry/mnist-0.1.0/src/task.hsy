@@ -2,4 +2,4 @@
 pub extern MnistTask;
 
 impl MnistTask:
-    assoc fn new() -> Self;
+    pub assoc fn new() -> Self;

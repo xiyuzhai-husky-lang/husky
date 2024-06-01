@@ -37,11 +37,11 @@ impl MajorFormHirDecl {
 
     pub fn hir_expr_region(self, db: &::salsa::Db) -> HirExprRegion {
         match self {
-            MajorFormHirDecl::Ritchie(decl) => decl.hir_expr_region(db).into(),
-            MajorFormHirDecl::Val(decl) => decl.hir_eager_expr_region(db).into(),
-            MajorFormHirDecl::TypeAlias(decl) => decl.hir_eager_expr_region(db).into(),
+            MajorFormHirDecl::Ritchie(slf) => slf.hir_expr_region(db).into(),
+            MajorFormHirDecl::Val(slf) => slf.hir_eager_expr_region(db).into(),
+            MajorFormHirDecl::TypeAlias(slf) => slf.hir_eager_expr_region(db).into(),
             MajorFormHirDecl::Compterm(_) => todo!(),
-            MajorFormHirDecl::Static(_) => todo!(),
+            MajorFormHirDecl::Static(slf) => slf.hir_eager_expr_region(db).into(),
         }
     }
 
