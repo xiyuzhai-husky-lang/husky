@@ -136,13 +136,25 @@ pub struct EtherealInstantiationBuilder {
     /// indicates the separation for associated item template instantiation
     separator: Option<u8>,
 }
+pub trait IsPackageEthSignatureData {
+    fn task_type(&self) -> Option<EthTerm>;
+}
+
+pub struct GenericPackageEthSignatureData;
+
+impl IsPackageEthSignatureData for GenericPackageEthSignatureData {
+    fn task_type(&self) -> Option<EthTerm> {
+        None
+    }
+}
 
 impl EtherealInstantiationBuilder {
     /// symbols must be unique
-    pub(crate) fn new(
+    pub(crate) fn new<'db>(
         path: ItemPath,
         symbols: impl Iterator<Item = EthSymbolicVariable>,
         is_associated: bool,
+        package_signature_data_result: &'db impl IsPackageEthSignatureData,
     ) -> Self {
         let symbol_map: SmallVecPairMap<EthSymbolicVariable, Option<EthTerm>, 4> =
             symbols.map(|symbol| (symbol, None)).collect();

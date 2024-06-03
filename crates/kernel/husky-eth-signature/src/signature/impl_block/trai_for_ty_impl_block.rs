@@ -10,6 +10,7 @@ use husky_entity_path::path::impl_block::trai_for_ty_impl_block::TraitForTypeImp
 use husky_entity_tree::node::HasAssocItemPaths;
 use husky_eth_term::term::symbolic_variable::EthSymbolicVariable;
 use husky_term_prelude::TypeFinalDestinationExpectation;
+use package::PackageEthSignatureData;
 use vec_like::VecMapGetEntry;
 
 #[salsa::tracked(constructor = new)]
@@ -127,15 +128,18 @@ impl TraitForTypeImplBlockEthTemplate {
     /// try to give a partial instantiation such that `self_ty` is equal to `target_ty`
     /// returns `Nothing` when template matching failed
     #[inline(always)]
-    pub fn instantiate_ty(
+    pub fn instantiate_ty<'db, P: IsPackageEthSignatureData>(
         self,
-        db: &::salsa::Db,
-        target_ty_arguments: &[EthTerm],
+        target_ty_arguments: &'db [EthTerm],
         target_ty_term: EthTerm,
+        package_signature_data_result: EthSignatureResult<&'db P>,
+        db: &'db ::salsa::Db,
     ) -> EthSignatureMaybeResult<EthTraitForTypeImplBlockSignatureBuilder> {
-        let mut instantiation = self
-            .template_parameters(db)
-            .empty_instantiation_builder(self.path(db).into(), true);
+        let mut instantiation = self.template_parameters(db).empty_instantiation_builder(
+            self.path(db).into(),
+            true,
+            package_signature_data_result?,
+        );
         match self.self_ty_refined(db) {
             EtherealSelfTypeInTraitImpl::PathLeading(self_ty_term) => {
                 instantiation.try_add_rules_from_application(

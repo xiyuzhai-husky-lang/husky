@@ -13,8 +13,6 @@ impl SemExprDb for ::salsa::Db {
 
 #[salsa::jar]
 pub struct SemExprJar(
-    ty_ontology_path_unveil_impl_block_signature_templates,
-    ty_ontology_application_unveil_impl_block_signature_templates,
     SemExprRegion,
     crate::region::sem_expr_region,
     crate::region::sem_expr_region_eth_term_fmt_context,

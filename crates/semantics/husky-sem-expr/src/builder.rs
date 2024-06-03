@@ -11,7 +11,13 @@ use crate::*;
 use husky_dec_signature::{jar::DecSignatureDb, region::SynExprDecTermRegion};
 use husky_entity_path::menu::{item_path_menu, ItemPathMenu};
 use husky_entity_tree::{helpers::AvailableTraitItemsTable, region_path::SynNodeRegionPath};
-use husky_eth_signature::signature::HasEthTemplate;
+use husky_eth_signature::{
+    error::EthSignatureResult,
+    signature::{
+        package::{PackageEthSignature, PackageEthSignatureData},
+        HasEthSignature, HasEthTemplate,
+    },
+};
 use husky_eth_term::term::{symbolic_variable::EthSymbolicVariable, EthTerm};
 use husky_fly_term::quary::FlyQuary;
 use husky_place::{PlaceInfo, PlaceRegistry};
@@ -28,15 +34,16 @@ use husky_vfs::path::menu::VfsPathMenu;
 use husky_vfs::toolchain::Toolchain;
 use vec_like::{SmallVecPairMap, SmallVecSet, VecPairMap};
 
-pub(crate) struct SemExprBuilder<'a> {
-    db: &'a ::salsa::Db,
+pub(crate) struct SemExprBuilder<'db> {
+    db: &'db ::salsa::Db,
     toolchain: Toolchain,
-    item_path_menu: &'a ItemPathMenu,
-    term_menu: &'a EthTermMenu,
+    item_path_menu: &'db ItemPathMenu,
+    term_menu: &'db EthTermMenu,
     syn_expr_region: SynExprRegion,
-    syn_expr_region_data: &'a SynExprRegionData,
-    regional_tokens_data: RegionalTokensData<'a>,
-    dec_term_region: &'a SynExprDecTermRegion,
+    syn_expr_region_data: &'db SynExprRegionData,
+    regional_tokens_data: RegionalTokensData<'db>,
+    dec_term_region: &'db SynExprDecTermRegion,
+    package_signature_data_result: EthSignatureResult<&'db PackageEthSignatureData>,
     place_registry: PlaceRegistry,
     sem_expr_arena: SemExprArena,
     sem_stmt_arena: SemStmtArena,
@@ -55,7 +62,7 @@ pub(crate) struct SemExprBuilder<'a> {
     self_value_ty: Option<FlyTerm>,
     self_lifetime: Option<EthSymbolicVariable>,
     self_place: Option<EthSymbolicVariable>,
-    available_trai_items_table: AvailableTraitItemsTable<'a>,
+    available_trai_items_table: AvailableTraitItemsTable<'db>,
     obvious_trais_map:
         SmallVecPairMap<EthSymbolicVariable, EthTermResult<SmallVecSet<EthTerm, 2>>, 4>,
 }
@@ -106,6 +113,10 @@ impl<'a> SemExprBuilder<'a> {
             db,
             &mut stack_location_registry,
         );
+        let package_signature_data_result = module_path
+            .package_path(db)
+            .eth_signature(db)
+            .map(|signature| signature.data(db));
         let symbol_region = syn_expr_region_data.variable_region();
         let pattern_expr_region = syn_expr_region_data.pattern_expr_region();
         let toolchain = syn_expr_region.toolchain(db);
@@ -179,6 +190,7 @@ impl<'a> SemExprBuilder<'a> {
             pattern_expr_contracts: SynPatternMap::new(pattern_expr_region.pattern_expr_arena()),
             available_trai_items_table: AvailableTraitItemsTable::new_ad_hoc(db, module_path),
             regional_tokens_data,
+            package_signature_data_result,
         }
     }
 }
@@ -282,8 +294,8 @@ fn calc_self_value_ty(
 
 /// # getters
 
-impl<'a> FlyTermEngine<'a> for SemExprBuilder<'a> {
-    fn db(&self) -> &'a ::salsa::Db {
+impl<'db> FlyTermEngine<'db> for SemExprBuilder<'db> {
+    fn db(&self) -> &'db ::salsa::Db {
         self.db
     }
 
@@ -291,19 +303,19 @@ impl<'a> FlyTermEngine<'a> for SemExprBuilder<'a> {
         &self.fly_term_region
     }
 
-    fn syn_expr_region_data(&self) -> &'a SynExprRegionData {
+    fn syn_expr_region_data(&self) -> &'db SynExprRegionData {
         self.syn_expr_region_data
     }
 
-    fn item_path_menu(&self) -> &'a ItemPathMenu {
+    fn item_path_menu(&self) -> &'db ItemPathMenu {
         self.item_path_menu
     }
 
-    fn term_menu(&self) -> &'a EthTermMenu {
+    fn term_menu(&self) -> &'db EthTermMenu {
         self.term_menu
     }
 
-    fn available_trai_items_table(&self) -> AvailableTraitItemsTable<'a> {
+    fn available_trai_items_table(&self) -> AvailableTraitItemsTable<'db> {
         self.available_trai_items_table
     }
 
@@ -315,9 +327,13 @@ impl<'a> FlyTermEngine<'a> for SemExprBuilder<'a> {
     )] {
         &self.obvious_trais_map
     }
+
+    fn package_signature_data_result(&self) -> EthSignatureResult<&'db PackageEthSignatureData> {
+        self.package_signature_data_result
+    }
 }
 
-impl<'a> std::ops::Index<SynExprIdx> for SemExprBuilder<'a> {
+impl<'db> std::ops::Index<SynExprIdx> for SemExprBuilder<'db> {
     type Output = SynExprData;
 
     fn index(&self, index: SynExprIdx) -> &Self::Output {
