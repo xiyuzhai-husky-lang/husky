@@ -13,7 +13,7 @@ pub struct PackageDecSignature {
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct PackageDecSignatureData {
-    task_ty_term: Option<DecTerm>,
+    pub task_ty_term: Option<DecTerm>,
 }
 
 impl PackageDecSignatureData {
@@ -88,7 +88,6 @@ fn package_dec_signature(
 }
 
 #[test]
-#[ignore]
 fn package_dec_signature_works() {
     DB::ast_expect_test_debug_with_db(
         package_dec_signature,

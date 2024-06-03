@@ -22,7 +22,12 @@ pub(super) fn ethereal_owner_ty_int_index_signature(
     .iter()
     .filter_map(|template| {
         template
-            .instantiate_ty(db, owner_ty_arguments, owner_ty)
+            .instantiate_ty(
+                owner_ty_arguments,
+                owner_ty,
+                engine.package_signature_data_result(),
+                db,
+            )
             .into_option_result()
     })
     .next()??

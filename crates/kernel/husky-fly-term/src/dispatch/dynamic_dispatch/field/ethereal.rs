@@ -1,43 +1,66 @@
 use super::*;
 use husky_entity_path::path::major_item::ty::{PreludeIndirectionTypePath, PreludeTypePath};
-use husky_eth_signature::signature::{
-    assoc_item::ty_item::memo_field::HasTypeMemoizedFieldEtherealSignature,
-    major_item::ty::HasPropsFieldEtherealSignature,
+use husky_eth_signature::{
+    error::EthSignatureResult,
+    signature::{
+        assoc_item::ty_item::memo_field::HasTypeMemoizedFieldEtherealSignature,
+        major_item::ty::HasPropsFieldEtherealSignature, package::PackageEthSignatureData,
+    },
 };
 use husky_eth_term::term::application::{EthApplication, TermFunctionReduced};
 
-pub(super) fn ethereal_ty_field_dispatch(
-    db: &::salsa::Db,
+pub(super) fn ethereal_ty_field_dispatch<'db>(
+    db: &'db ::salsa::Db,
     ty_term: EthTerm,
     ident: Ident,
     indirections: FlyIndirections,
+    package_signature_data_result: EthSignatureResult<&'db PackageEthSignatureData>,
 ) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
     // divide into cases for memoization
     match ty_term {
         EthTerm::EntityPath(ItemPathTerm::TypeOntology(ty_path)) => {
-            ethereal_ty_ontology_path_ty_field_dispatch(db, ty_path, ident, indirections)
+            ethereal_ty_ontology_path_ty_field_dispatch(
+                db,
+                ty_path,
+                ident,
+                indirections,
+                package_signature_data_result,
+            )
         }
-        EthTerm::Application(ty_term) => {
-            ethereal_term_application_ty_field_dispatch(db, ty_term, ident, indirections)
-        }
+        EthTerm::Application(ty_term) => ethereal_term_application_ty_field_dispatch(
+            db,
+            ty_term,
+            ident,
+            indirections,
+            package_signature_data_result,
+        ),
         _ => Nothing,
     }
 }
 
-pub(crate) fn ethereal_ty_ontology_path_ty_field_dispatch(
-    db: &::salsa::Db,
+pub(crate) fn ethereal_ty_ontology_path_ty_field_dispatch<'db>(
+    db: &'db ::salsa::Db,
     ty_path: TypePath,
     ident: Ident,
     indirections: FlyIndirections,
+    package_signature_data_result: EthSignatureResult<&'db PackageEthSignatureData>,
 ) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
-    ethereal_ty_field_dispatch_aux(db, ty_path, &[], ident, indirections)
+    ethereal_ty_field_dispatch_aux(
+        db,
+        ty_path,
+        &[],
+        ident,
+        indirections,
+        package_signature_data_result,
+    )
 }
 
-pub(crate) fn ethereal_term_application_ty_field_dispatch(
-    db: &::salsa::Db,
+pub(crate) fn ethereal_term_application_ty_field_dispatch<'db>(
+    db: &'db ::salsa::Db,
     ty_term: EthApplication,
     ident: Ident,
     indirections: FlyIndirections,
+    package_signature_data_result: EthSignatureResult<&'db PackageEthSignatureData>,
 ) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
     let application_expansion = ty_term.application_expansion(db);
     match application_expansion.function() {
@@ -47,17 +70,19 @@ pub(crate) fn ethereal_term_application_ty_field_dispatch(
             application_expansion.arguments(db),
             ident,
             indirections,
+            package_signature_data_result,
         ),
         TermFunctionReduced::Trait(_) | TermFunctionReduced::Other(_) => Nothing,
     }
 }
 
-fn ethereal_ty_field_dispatch_aux<'a>(
-    db: &'a ::salsa::Db,
+fn ethereal_ty_field_dispatch_aux<'db>(
+    db: &'db ::salsa::Db,
     ty_path: TypePath,
-    arguments: &'a [EthTerm],
+    arguments: &'db [EthTerm],
     ident: Ident,
     mut indirections: FlyIndirections,
+    package_signature_data_result: EthSignatureResult<&'db PackageEthSignatureData>,
 ) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
     match ty_path.refine(db) {
         Left(PreludeTypePath::Indirection(prelude_indirection_ty_path)) => {
@@ -69,7 +94,13 @@ fn ethereal_ty_field_dispatch_aux<'a>(
                     if arguments.len() != 1 {
                         todo!()
                     }
-                    return ethereal_ty_field_dispatch(db, arguments[0], ident, indirections);
+                    return ethereal_ty_field_dispatch(
+                        db,
+                        arguments[0],
+                        ident,
+                        indirections,
+                        package_signature_data_result,
+                    );
                 }
                 PreludeIndirectionTypePath::At => todo!(),
             }
@@ -88,7 +119,7 @@ fn ethereal_ty_field_dispatch_aux<'a>(
     };
 
     if let Some(memo_field_ethereal_signature) = ty_path
-        .ty_memo_field_ethereal_signature(db, arguments, ident)
+        .ty_memo_field_ethereal_signature(arguments, ident, package_signature_data_result, db)
         .into_result_option()?
     {
         return JustOk(FlyFieldDyanmicDispatch {

@@ -1,6 +1,7 @@
 use super::*;
 use crate::signature::impl_block::ty_impl_block::TypeImplBlockEthTemplate;
 use husky_dec_signature::signature::assoc_item::ty_item::memo_field::TypeMemoizedFieldDecTemplate;
+use package::PackageEthSignatureData;
 
 #[salsa::interned]
 pub struct TypeMemoizedFieldEthTemplate {
@@ -28,16 +29,21 @@ impl TypeMemoizedFieldEthTemplate {
         ))
     }
 
-    fn try_instantiate(
+    fn try_instantiate<'db>(
         self,
-        db: &::salsa::Db,
         target_self_ty_arguments: &[EthTerm],
+        package_signature_data_result: EthSignatureResult<&'db PackageEthSignatureData>,
+        db: &'db ::salsa::Db,
     ) -> EthSignatureMaybeResult<TypeMemoizedFieldEtherealSignature> {
         let self_ty = self.impl_block(db).self_ty(db);
         let mut instantiation_builder = self
             .impl_block(db)
             .template_parameters(db)
-            .empty_instantiation_builder(self.path(db).into(), true);
+            .empty_instantiation_builder(
+                self.path(db).into(),
+                true,
+                package_signature_data_result?,
+            );
         instantiation_builder.try_add_rules_from_application(
             self_ty,
             target_self_ty_arguments,
@@ -102,27 +108,32 @@ pub trait HasTypeMemoizedFieldEthTemplates: Copy {
 }
 
 pub trait HasTypeMemoizedFieldEtherealSignature: Copy {
-    fn ty_memo_field_ethereal_signature<'a>(
+    fn ty_memo_field_ethereal_signature<'db>(
         self,
-        db: &'a ::salsa::Db,
-        arguments: &[EthTerm],
+        arguments: &'db [EthTerm],
         ident: Ident,
+        package_signature_data_result: EthSignatureResult<&'db PackageEthSignatureData>,
+        db: &'db ::salsa::Db,
     ) -> EthSignatureMaybeResult<TypeMemoizedFieldEtherealSignature>;
 }
 
 impl HasTypeMemoizedFieldEtherealSignature for TypePath {
-    fn ty_memo_field_ethereal_signature<'a>(
+    fn ty_memo_field_ethereal_signature<'db>(
         self,
-        db: &'a ::salsa::Db,
-        arguments: &[EthTerm],
+        arguments: &'db [EthTerm],
         ident: Ident,
+        package_signature_data_result: EthSignatureResult<&'db PackageEthSignatureData>,
+        db: &'db ::salsa::Db,
     ) -> EthSignatureMaybeResult<TypeMemoizedFieldEtherealSignature> {
         let TypeItemEthTemplates::MemoizedField(tmpls) = self.ty_item_eth_templates(db, ident)?
         else {
             return Nothing;
         };
         for tmpl in tmpls {
-            if let Some(signature) = tmpl.try_instantiate(db, arguments).into_result_option()? {
+            if let Some(signature) = tmpl
+                .try_instantiate(arguments, package_signature_data_result, db)
+                .into_result_option()?
+            {
                 return JustOk(signature);
             }
         }

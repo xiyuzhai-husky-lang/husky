@@ -12,7 +12,9 @@ use husky_entity_path::path::{
     major_item::ty::{CustomTypePath, PreludeTypePath, TypePath},
     ty_variant::TypeVariantPath,
 };
-use husky_eth_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
+use husky_eth_signature::{
+    helpers::trai_for_ty::is_ty_term_always_copyable, signature::package::PackageEthSignatureData,
+};
 use husky_eth_term::term::{
     curry::EthCurry, lambda_variable::EthLambdaVariable, symbolic_variable::EthSymbolicVariable,
 };
@@ -207,9 +209,9 @@ impl FlyTerm {
     /// `None` means the notion is not applicable,
     /// because the term is either a non type or a conceptual type
     #[deprecated(note = "ad hoc implementation")]
-    pub fn is_always_copyable(
+    pub fn is_always_copyable<'db>(
         self,
-        db: &::salsa::Db,
+        db: &'db ::salsa::Db,
         terms: &FlyTerms,
     ) -> FlyTermResult<Option<bool>> {
         match self.base_ty_data_inner(db, terms) {

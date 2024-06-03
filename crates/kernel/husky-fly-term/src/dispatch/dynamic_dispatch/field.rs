@@ -7,6 +7,7 @@ pub(crate) use self::ethereal::*;
 use super::*;
 use husky_coword::Ident;
 use husky_entity_path::path::major_item::{trai::TraitPath, ty::TypePath};
+use husky_eth_signature::signature::package::PackageEthSignatureData;
 
 #[deprecated(note = "use FlyMemberDynamicDispatch instantiation instead")]
 #[salsa::derive_debug_with_db]
@@ -53,7 +54,7 @@ impl FlyTerm {
         )
     }
 
-    fn field_dispatch_aux(
+    fn field_dispatch_aux<'db>(
         self,
         engine: &mut impl FlyTermEngineMut,
         ident: Ident,
@@ -61,9 +62,13 @@ impl FlyTerm {
         indirections: FlyIndirections,
     ) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
         match self.base_resolved(engine) {
-            FlyTermBase::Eth(term) => {
-                ethereal_ty_field_dispatch(engine.db(), term, ident, indirections)
-            }
+            FlyTermBase::Eth(term) => ethereal_ty_field_dispatch(
+                engine.db(),
+                term,
+                ident,
+                indirections,
+                engine.package_signature_data_result(),
+            ),
             FlyTermBase::Sol(term) => {
                 term.field_dispatch_aux(engine, ident, available_traits, indirections)
             }
