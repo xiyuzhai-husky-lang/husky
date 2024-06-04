@@ -13,6 +13,7 @@ use husky_eth_term::{
         symbolic_variable::{EthSymbolicVariable, EthTermSymbolIndexImpl},
     },
 };
+use path::major_item::form::PreludeMajorFormPath;
 use salsa::fmt::WithFmtContext;
 use vec_like::SmallVecPairMap;
 
@@ -320,6 +321,17 @@ impl FlyInstantiate for EthTerm {
         expr_idx: SynExprIdx,
         instantiation: &FlyInstantiation,
     ) -> Self::Target {
+        let db = engine.db();
+        if let Some(task_ty) = instantiation.task_ty {
+            match self {
+                EthTerm::ItemPath(ItemPathTerm::Form(form_path))
+                    if form_path.refine(db) == Left(PreludeMajorFormPath::TaskType) =>
+                {
+                    return task_ty.into()
+                }
+                _ => (),
+            }
+        }
         if instantiation.symbol_map.len() == 0 {
             return self.into();
         }
