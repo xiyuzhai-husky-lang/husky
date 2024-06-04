@@ -1,6 +1,6 @@
 use super::*;
 use husky_eth_term::term::curry::EthCurry;
-use husky_vfs::Toolchain;
+use husky_vfs::toolchain::Toolchain;
 
 impl FlyTerm {
     pub(crate) fn new_curry(

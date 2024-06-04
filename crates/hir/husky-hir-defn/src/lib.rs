@@ -15,4 +15,6 @@ use husky_entity_path::*;
 use husky_hir_eager_expr::*;
 use husky_hir_expr::*;
 use husky_hir_lazy_expr::*;
-use husky_vfs::*;
+#[cfg(test)]
+use husky_vfs::path::module_path::ModulePath;
+use husky_vfs::path::{crate_path::CratePath, package_path::PackagePathSource};

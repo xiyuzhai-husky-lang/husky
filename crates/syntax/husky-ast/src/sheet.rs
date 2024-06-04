@@ -3,6 +3,7 @@ use crate::{
     *,
 };
 use husky_token::TokenIdx;
+use husky_vfs::path::module_path::ModulePath;
 
 pub trait HasAstSheet: Copy {
     fn ast_sheet(self, db: &::salsa::Db) -> &AstSheet;

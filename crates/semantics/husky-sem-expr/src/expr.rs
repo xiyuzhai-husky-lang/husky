@@ -570,7 +570,9 @@ impl<'a> SemExprBuilder<'a> {
                     self.infer_expr_term(sem_expr_idx);
                     sem_expr_idx
                 }
-                SynExprRootKind::BlockExpr => match self.return_ty() {
+                SynExprRootKind::BlockExpr
+                | SynExprRootKind::ValExpr
+                | SynExprRootKind::StaticExpr => match self.return_ty() {
                     Some(return_ty) => self.build_sem_expr(
                         root.syn_expr_idx(),
                         ExpectCoercion::new_move(return_ty.into()),
@@ -594,7 +596,6 @@ impl<'a> SemExprBuilder<'a> {
                 | SynExprRootKind::LetStmtInitialValue
                 | SynExprRootKind::EvalExpr => continue,
                 SynExprRootKind::Snippet => todo!(),
-                SynExprRootKind::ValExpr => todo!(),
                 SynExprRootKind::Effect => todo!(),
                 SynExprRootKind::DefaultConstExclude => todo!(),
             };
@@ -1416,11 +1417,11 @@ impl<'a> SemExprBuilder<'a> {
                                     .ok_ty(self.sem_expr_arena())
                                     .ok_or(DerivedSemExprTermError::LiteralTypeNotInferred)?;
                                 match ty.base_resolved(self) {
-                                    FlyTermBase::Eth(EthTerm::EntityPath(
+                                    FlyTermBase::Eth(EthTerm::ItemPath(
                                         ItemPathTerm::TypeOntology(ty_path),
                                     )) if let Some(PreludeTypePath::Num(
                                         PreludeNumTypePath::Float(float_ty_path),
-                                    )) = ty_path.prelude_ty_path(db) =>
+                                    )) = ty_path.prelude(db) =>
                                     {
                                         match float_ty_path {
                                             PreludeFloatTypePath::F32 => Literal::F32(

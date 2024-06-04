@@ -12,7 +12,7 @@ use self::main::*;
 use self::requirements::*;
 use self::task::*;
 use super::*;
-use husky_vfs::{CrateKind, CratePath};
+use husky_vfs::path::crate_path::{CrateKind, CratePath};
 
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]

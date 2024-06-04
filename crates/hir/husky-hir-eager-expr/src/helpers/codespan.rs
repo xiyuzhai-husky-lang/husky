@@ -18,7 +18,7 @@ use husky_sem_expr::{
 };
 use husky_text::{HasText, Text};
 use husky_token::{RangedTokenSheet, TokenDb};
-use husky_vfs::ModulePath;
+use husky_vfs::path::module_path::ModulePath;
 
 #[macro_export]
 macro_rules! emit_note_on_hir_eager_expr_codespan {

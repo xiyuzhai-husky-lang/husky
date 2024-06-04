@@ -69,7 +69,7 @@ EntityTreeSheet {
                 ),
                 state: UseOneRuleState::Resolved {
                     original_symbol: Some(
-                        EntitySymbol::PackageDependency {
+                        EntitySymbol::PackageDependencyOrSelfLib {
                             item_path: PrincipalEntityPath::Module(
                                 `core::logic`,
                             ),

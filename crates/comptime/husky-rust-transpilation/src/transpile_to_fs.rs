@@ -4,7 +4,7 @@ use crate::{
 };
 use husky_corgi_config::transpilation_setup::TranspilationSetup;
 use husky_io_utils::error::IOResult;
-use husky_vfs::linktime_target_path::LinktimeTargetPath;
+use husky_vfs::path::linktime_target_path::LinktimeTargetPath;
 use is::Is;
 
 pub trait TranspileToFsFull: Is<LinktimeTargetPath> {

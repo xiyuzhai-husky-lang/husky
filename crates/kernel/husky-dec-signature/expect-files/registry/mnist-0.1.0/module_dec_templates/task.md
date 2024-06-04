@@ -2,76 +2,19 @@
 [
     (
         ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist::task::MnistTask`, `Extern`),
+            MajorItemPath::Form(
+                FormPath(`mnist::Task`, `TypeAlias`),
             ),
         ),
         Ok(
             ItemDecTemplate::MajorItem(
-                MajorItemDecTemplate::Type(
-                    TypeDecTemplate::Extern(
-                        ExternDecTemplate {
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::TypeAlias(
+                        TypeAliasDecTemplate {
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                        },
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist::task::MnistTask(0)`),
-            ),
-        ),
-        Ok(
-            ItemDecTemplate::ImplBlock(
-                ImplBlockDecTemplate::TypeImpl(
-                    TypeImplBlockDecTemplate {
-                        template_parameters: DecTemplateParameters {
-                            data: [],
-                        },
-                        ty: EntityPath(
-                            Type(
-                                TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 16,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist::task::MnistTask(0)::new`,
-                    TypeItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        Ok(
-            ItemDecTemplate::AssocItem(
-                AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::AssocRitchie(
-                        TypeAssocRitchieDecTemplate {
-                            path: TypeItemPath(
-                                `mnist::task::MnistTask(0)::new`,
-                                TypeItemKind::AssocRitchie(
-                                    RitchieItemKind::Fn,
-                                ),
-                            ),
-                            self_ty: EntityPath(
+                            ty_term: EntityPath(
                                 Type(
                                     TypePath(
                                         ItemPathId(
@@ -82,12 +25,23 @@
                                     ),
                                 ),
                             ),
-                            template_parameters: DecTemplateParameters {
-                                data: [],
-                            },
-                            parenate_parameters: DeclarativeParenateParameters {
-                                data: [],
-                            },
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Form(
+                FormPath(`mnist::TASK`, `Static`),
+            ),
+        ),
+        Ok(
+            ItemDecTemplate::MajorItem(
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Static(
+                        MajorStaticDecTemplate {
                             return_ty: EntityPath(
                                 Type(
                                     TypePath(

@@ -82,6 +82,7 @@ impl EntitySymbolEntry {
         }
     }
 
+    #[track_caller]
     pub(crate) fn new_package_dependency(
         db: &::salsa::Db,
         package_dependency: &PackageDependency,
@@ -93,10 +94,24 @@ impl EntitySymbolEntry {
         Ok(Self {
             ident: package_path.ident(db),
             visible_scope: Scope::Pub,
-            symbol: EntitySymbol::PackageDependency {
+            symbol: EntitySymbol::PackageDependencyOrSelfLib {
                 item_path: lib_root_module_path.into(),
             },
         })
+    }
+
+    pub(crate) fn new_self_lib(
+        db: &::salsa::Db,
+        lib_crate_path: CratePath,
+        crate_path: CratePath,
+    ) -> Self {
+        Self {
+            ident: lib_crate_path.package_path(db).ident(db),
+            visible_scope: Scope::PubUnder(crate_path.root_module_path(db)),
+            symbol: EntitySymbol::PackageDependencyOrSelfLib {
+                item_path: lib_crate_path.root_module_path(db).into(),
+            },
+        }
     }
 
     pub(crate) fn new_use_symbol_entry(

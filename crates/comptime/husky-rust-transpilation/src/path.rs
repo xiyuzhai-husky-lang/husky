@@ -15,7 +15,7 @@ use husky_entity_path::path::{
     ty_variant::TypeVariantPath,
     PatternPath, PrincipalEntityPath,
 };
-use husky_vfs::{ModulePathData, PackagePathSource};
+use husky_vfs::path::{module_path::ModulePathData, package_path::PackagePathSource};
 
 impl<E> TranspileToRustWith<E> for AssocItemPath {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
@@ -43,7 +43,7 @@ impl<E> TranspileToRustWith<E> for PrincipalEntityPath {
             PrincipalEntityPath::Module(path) => path.ident(db).transpile_to_rust(builder),
             PrincipalEntityPath::MajorItem(path) => path.transpile_to_rust(builder),
             PrincipalEntityPath::TypeVariant(path) => {
-                match path.parent_ty_path(db).prelude_ty_path(db) {
+                match path.parent_ty_path(db).prelude(db) {
                     Some(PreludeTypePath::Option | PreludeTypePath::Result) => (),
                     _ => {
                         path.parent_ty_path(db).ident(db).transpile_to_rust(builder);

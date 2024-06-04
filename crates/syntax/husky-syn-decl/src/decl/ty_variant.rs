@@ -57,10 +57,10 @@ pub(crate) fn ty_variant_syn_node_decl(
     db: &::salsa::Db,
     syn_node_path: TypeVariantSynNodePath,
 ) -> TypeVariantSynNodeDecl {
-    ItemDeclParser::new(db, syn_node_path.into()).parse_ty_variant_syn_node_decl()
+    ItemSynNodeDeclParser::new(db, syn_node_path.into()).parse_ty_variant_syn_node_decl()
 }
 
-impl<'a> ItemDeclParser<'a> {
+impl<'a> ItemSynNodeDeclParser<'a> {
     fn parse_ty_variant_syn_node_decl(&self) -> TypeVariantSynNodeDecl {
         use parsec::HasStreamState;
         let db = self.db();

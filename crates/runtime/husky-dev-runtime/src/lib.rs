@@ -21,8 +21,7 @@ use husky_task_interface::{
     ki_repr::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface},
     IsDevRuntime, IsLinkageImpl, LinkageImplKiControlFlow, TaskIngredientIndex, TaskJarIndex,
 };
-use husky_vfs::{error::VfsResult, linktime_target_path::LinktimeTargetPath};
-
+use husky_vfs::{error::VfsResult, path::linktime_target_path::LinktimeTargetPath};
 use std::{convert::Infallible, path::Path};
 
 /// Dropping libraries or linkage_impls before runtime storage will lead to segmentation fault

@@ -1,6 +1,6 @@
 use crate::line_group::produce_line_group_starts;
 use crate::*;
-use husky_vfs::{error::VfsResult, VirtualPath};
+use husky_vfs::{error::VfsResult, path::virtual_path::VirtualPath};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TomlTokenSheet {

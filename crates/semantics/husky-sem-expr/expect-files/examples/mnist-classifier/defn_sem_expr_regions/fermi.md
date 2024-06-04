@@ -155,6 +155,9 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: None,
@@ -518,6 +521,9 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: StackPure {
@@ -1002,6 +1008,9 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
                                                             place: Idx(
@@ -1173,6 +1182,9 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
                                                             place: Idx(
@@ -1277,6 +1289,9 @@
                                                 MajorItemPath::Type(
                                                     TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                 ),
+                                            ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
                                             ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
@@ -3299,6 +3314,9 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: Some(
@@ -3802,6 +3820,9 @@
                                                         ),
                                                     ),
                                                 ),
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
                                                 env: MemoizedField,
                                                 symbol_map: [],
                                                 separator: Some(
@@ -3918,6 +3939,9 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
@@ -4316,12 +4340,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 137,
+                                                    value: 138,
                                                 },
                                             ),
                                         ),
@@ -4340,12 +4364,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 137,
+                                                            value: 138,
                                                         },
                                                     ),
                                                 ),
@@ -5362,6 +5386,9 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: Some(
@@ -5865,6 +5892,9 @@
                                                         ),
                                                     ),
                                                 ),
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
                                                 env: MemoizedField,
                                                 symbol_map: [],
                                                 separator: Some(
@@ -5981,6 +6011,9 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
@@ -6379,12 +6412,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 137,
+                                                    value: 138,
                                                 },
                                             ),
                                         ),
@@ -6403,12 +6436,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 137,
+                                                            value: 138,
                                                         },
                                                     ),
                                                 ),
@@ -7425,6 +7458,9 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: Some(
@@ -7928,6 +7964,9 @@
                                                         ),
                                                     ),
                                                 ),
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
                                                 env: MemoizedField,
                                                 symbol_map: [],
                                                 separator: Some(
@@ -8028,6 +8067,9 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
@@ -8150,6 +8192,9 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
@@ -8546,12 +8591,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 137,
+                                                    value: 138,
                                                 },
                                             ),
                                         ),
@@ -8570,12 +8615,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 137,
+                                                            value: 138,
                                                         },
                                                     ),
                                                 ),

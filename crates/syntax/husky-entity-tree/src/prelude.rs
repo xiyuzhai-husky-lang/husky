@@ -1,6 +1,7 @@
 use husky_manifest::error::ManifestError;
 use husky_vfs::{error::VfsError, *};
 use thiserror::Error;
+use toolchain::ToolchainError;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db]

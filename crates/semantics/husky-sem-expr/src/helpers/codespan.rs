@@ -12,7 +12,7 @@ use husky_entity_tree::helpers::tokra_region::HasRegionalTokenIdxBase;
 use husky_regional_token::RegionalTokenIdxBase;
 use husky_text::{HasText, Text};
 use husky_token::{RangedTokenSheet, TokenDb};
-use husky_vfs::ModulePath;
+use husky_vfs::path::module_path::ModulePath;
 use salsa::DisplayWithDb;
 
 #[macro_export]

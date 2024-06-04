@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 use husky_entity_path::menu::item_path_menu;
 use husky_term_prelude::literal::Literal;
 
@@ -91,28 +91,28 @@ impl TermMenu0 {
             universe1,
             prop: Sort::new(universe0),
             ty0: Sort::new(universe1),
-            core_ops_add: EthTerm::EntityPath(item_path_menu.add_trai_path().into()),
+            core_ops_add: EthTerm::ItemPath(item_path_menu.add_trai_path().into()),
             // start here
             // EthTerm::Entity(item_path_menu.core_ops_())
-            core_ops_add_assign: EthTerm::EntityPath(item_path_menu.add_assign_trai_path().into()),
-            core_ops_bit_and: EthTerm::EntityPath(item_path_menu.bit_and_trai_path().into()),
-            core_ops_bit_and_assign: EthTerm::EntityPath(
+            core_ops_add_assign: EthTerm::ItemPath(item_path_menu.add_assign_trai_path().into()),
+            core_ops_bit_and: EthTerm::ItemPath(item_path_menu.bit_and_trai_path().into()),
+            core_ops_bit_and_assign: EthTerm::ItemPath(
                 item_path_menu.bit_and_assign_trai_path().into(),
             ),
-            core_ops_bit_or: EthTerm::EntityPath(item_path_menu.bit_or_trai_path().into()),
-            core_ops_bit_or_assign: EthTerm::EntityPath(
+            core_ops_bit_or: EthTerm::ItemPath(item_path_menu.bit_or_trai_path().into()),
+            core_ops_bit_or_assign: EthTerm::ItemPath(
                 item_path_menu.bit_or_assign_trai_path().into(),
             ),
-            core_ops_bit_xor: EthTerm::EntityPath(item_path_menu.bit_xor_trai_path().into()),
-            core_ops_bit_xor_assign: EthTerm::EntityPath(
+            core_ops_bit_xor: EthTerm::ItemPath(item_path_menu.bit_xor_trai_path().into()),
+            core_ops_bit_xor_assign: EthTerm::ItemPath(
                 item_path_menu.bit_xor_assign_trai_path().into(),
             ),
-            core_ops_div: EthTerm::EntityPath(item_path_menu.div_trai_path().into()),
-            core_ops_div_assign: EthTerm::EntityPath(item_path_menu.div_assign_trai_path().into()),
-            core_ops_mul: EthTerm::EntityPath(item_path_menu.mul_trai_path().into()),
-            core_ops_mul_assign: EthTerm::EntityPath(item_path_menu.mul_assign_trai_path().into()),
-            core_ops_neg: EthTerm::EntityPath(item_path_menu.neg_trai_path().into()),
-            core_ops_not: EthTerm::EntityPath(item_path_menu.not_trai_path().into()),
+            core_ops_div: EthTerm::ItemPath(item_path_menu.div_trai_path().into()),
+            core_ops_div_assign: EthTerm::ItemPath(item_path_menu.div_assign_trai_path().into()),
+            core_ops_mul: EthTerm::ItemPath(item_path_menu.mul_trai_path().into()),
+            core_ops_mul_assign: EthTerm::ItemPath(item_path_menu.mul_assign_trai_path().into()),
+            core_ops_neg: EthTerm::ItemPath(item_path_menu.neg_trai_path().into()),
+            core_ops_not: EthTerm::ItemPath(item_path_menu.not_trai_path().into()),
             option_ty_ontology: ItemPathTerm::TypeOntology(item_path_menu.option_ty_path()).into(),
             slice_ty_ontology: ItemPathTerm::TypeOntology(item_path_menu.slice_ty_path()).into(),
             str_ty_ontology: ItemPathTerm::TypeOntology(item_path_menu.str_ty_path()).into(),

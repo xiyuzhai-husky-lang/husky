@@ -3,7 +3,7 @@ use crate::{
     *,
 };
 
-#[salsa::db(VfsJar, husky_coword::jar::CowordJar)]
+#[salsa::db(Jar, husky_coword::jar::CowordJar)]
 #[derive(Default)]
 pub(crate) struct DB;
 

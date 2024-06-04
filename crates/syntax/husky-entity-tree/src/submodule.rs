@@ -1,7 +1,7 @@
 use crate::*;
 
 use husky_ast::DefnBlock;
-use husky_vfs::*;
+use husky_vfs::path::module_path::SubmodulePath;
 use vec_like::VecSet;
 
 #[salsa::tracked(return_ref)]

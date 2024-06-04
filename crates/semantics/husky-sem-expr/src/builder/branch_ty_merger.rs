@@ -22,7 +22,7 @@ impl<Expectation: ExpectFlyTerm> BranchTypeMerger<Expectation> {
         match new_block_ty {
             Some(new_block_ty)
                 if new_block_ty.base_resolved(engine)
-                    == FlyTermBase::Eth(EthTerm::EntityPath(ItemPathTerm::TypeOntology(
+                    == FlyTermBase::Eth(EthTerm::ItemPath(ItemPathTerm::TypeOntology(
                         engine.item_path_menu.never_ty_path(),
                     ))) =>
             {

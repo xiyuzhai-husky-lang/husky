@@ -1,4 +1,4 @@
-use husky_vfs::{error::VfsError, ToolchainError};
+use husky_vfs::{error::VfsError, toolchain::ToolchainError};
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]

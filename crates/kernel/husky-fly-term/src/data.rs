@@ -9,15 +9,17 @@ pub(crate) use self::solid::*;
 use crate::*;
 use husky_dec_term::term::LambdaVariableIndex;
 use husky_entity_path::path::{
-    major_item::ty::{CustomTypePath, PreludeTypePath, TypePath},
+    major_item::ty::{OtherTypePath, PreludeTypePath, TypePath},
     ty_variant::TypeVariantPath,
 };
-use husky_eth_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
+use husky_eth_signature::{
+    helpers::trai_for_ty::is_ty_term_always_copyable, signature::package::PackageEthSignatureData,
+};
 use husky_eth_term::term::{
     curry::EthCurry, lambda_variable::EthLambdaVariable, symbolic_variable::EthSymbolicVariable,
 };
 use husky_term_prelude::{literal::Literal, ritchie::RitchieKind};
-use husky_vfs::Toolchain;
+use husky_vfs::toolchain::Toolchain;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
@@ -25,7 +27,7 @@ pub enum FlyTermData<'a> {
     Literal(Literal),
     TypeOntology {
         ty_path: TypePath,
-        refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
+        refined_ty_path: Either<PreludeTypePath, OtherTypePath>,
         ty_arguments: &'a [FlyTerm],
         ty_ethereal_term: Option<EthTerm>,
     },
@@ -140,7 +142,7 @@ impl<'a> FlyTermData<'a> {
 pub enum FlyBaseTypeData<'a> {
     TypeOntology {
         ty_path: TypePath,
-        refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
+        refined_ty_path: Either<PreludeTypePath, OtherTypePath>,
         ty_arguments: &'a [FlyTerm],
         ty_ethereal_term: Option<EthTerm>,
     },
@@ -207,9 +209,9 @@ impl FlyTerm {
     /// `None` means the notion is not applicable,
     /// because the term is either a non type or a conceptual type
     #[deprecated(note = "ad hoc implementation")]
-    pub fn is_always_copyable(
+    pub fn is_always_copyable<'db>(
         self,
-        db: &::salsa::Db,
+        db: &'db ::salsa::Db,
         terms: &FlyTerms,
     ) -> FlyTermResult<Option<bool>> {
         match self.base_ty_data_inner(db, terms) {

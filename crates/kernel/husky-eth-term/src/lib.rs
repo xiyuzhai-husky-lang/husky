@@ -31,6 +31,6 @@ use either::*;
 use husky_dec_term::{jar::DecTermDb, term::*, *};
 use husky_print_utils::p;
 use husky_term_prelude::*;
-use husky_vfs::*;
+use husky_vfs::{jar::VfsDb, toolchain::Toolchain};
 use salsa::DebugWithDb;
 use smallvec::*;

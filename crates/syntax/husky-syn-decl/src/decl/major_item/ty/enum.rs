@@ -20,7 +20,7 @@ impl EnumSynNodeDecl {
     }
 }
 
-impl<'a> ItemDeclParser<'a> {
+impl<'a> ItemSynNodeDeclParser<'a> {
     pub(super) fn parse_enum_ty_node_decl(
         &self,
         syn_node_path: TypeSynNodePath,

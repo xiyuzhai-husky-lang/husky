@@ -76,11 +76,11 @@ fn trai_item_syn_node_decl(
     db: &::salsa::Db,
     syn_node_path: TraitItemSynNodePath,
 ) -> TraitItemSynNodeDecl {
-    let parser = ItemDeclParser::new(db, syn_node_path.into());
+    let parser = ItemSynNodeDeclParser::new(db, syn_node_path.into());
     parser.parse_trai_item_syn_node_decl(syn_node_path)
 }
 
-impl<'a> ItemDeclParser<'a> {
+impl<'a> ItemSynNodeDeclParser<'a> {
     fn parse_trai_item_syn_node_decl(
         &self,
         syn_node_path: TraitItemSynNodePath,

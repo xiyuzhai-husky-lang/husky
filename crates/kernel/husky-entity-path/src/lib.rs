@@ -15,6 +15,5 @@ use self::menu::*;
 use either::*;
 use husky_coword::Ident;
 use husky_entity_kind::*;
-use husky_vfs::*;
 #[cfg(test)]
 use tests::*;

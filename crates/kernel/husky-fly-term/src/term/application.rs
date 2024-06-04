@@ -1,4 +1,4 @@
-use husky_entity_path::path::major_item::ty::{CustomTypePath, PreludeTypePath, TypePath};
+use husky_entity_path::path::major_item::ty::{OtherTypePath, PreludeTypePath, TypePath};
 
 use super::*;
 
@@ -64,7 +64,7 @@ impl FlyTerm {
         db: &::salsa::Db,
         fly_terms: &mut FlyTerms,
         path: TypePath,
-        refined_path: Either<PreludeTypePath, CustomTypePath>,
+        refined_path: Either<PreludeTypePath, OtherTypePath>,
         arguments: SmallVec<[FlyTerm; 2]>,
     ) -> Self {
         if arguments.len() == 0 {

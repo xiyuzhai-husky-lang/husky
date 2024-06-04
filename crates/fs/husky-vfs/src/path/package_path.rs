@@ -32,7 +32,7 @@ pub enum PackagePathSource {
     },
 }
 
-#[salsa::interned(jar = VfsJar, db = VfsDb, constructor = new_inner)]
+#[salsa::interned(constructor = new_inner)]
 pub struct PackagePath {
     pub toolchain: Toolchain,
     pub name: Kebab,

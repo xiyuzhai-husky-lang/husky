@@ -26,18 +26,19 @@ impl MajorStaticSynNodeDecl {
     }
 }
 
-impl<'a> ItemDeclParser<'a> {
+impl<'a> ItemSynNodeDeclParser<'a> {
     pub(super) fn parse_static_syn_node_decl(
         &self,
         syn_node_path: FormSynNodePath,
     ) -> MajorStaticSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::False, AllowSelfValue::False, None);
-        let colon_token =
-            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedColonBeforeValReturnType);
-        let return_ty = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedValReturnType);
+        let colon_token = parser
+            .try_parse_expected(OriginalSynNodeDeclError::ExpectedColonBeforeStaticReturnType);
+        let return_ty =
+            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedStaticReturnType);
         let eq_or_eol_semicolon_token =
-            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEqTokenForMemo);
-        let expr = parser.parse_expr_root(None, SynExprRootKind::ValExpr);
+            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEqTokenForStatic);
+        let expr = parser.parse_expr_root(None, SynExprRootKind::StaticExpr);
         MajorStaticSynNodeDecl::new(
             self.db(),
             syn_node_path,

@@ -111,13 +111,13 @@ impl<'a> HirEagerExprBuilder<'a> {
                     LiteralTokenData::String(_) => todo!(),
                     LiteralTokenData::Integer(literal) => match literal {
                         IntegerLikeLiteralTokenData::UnspecifiedRegular(value) => {
-                            let EthTerm::EntityPath(ItemPathTerm::TypeOntology(path)) =
+                            let EthTerm::ItemPath(ItemPathTerm::TypeOntology(path)) =
                                 self.syn_pattern_ty(syn_pattern)
                             else {
                                 unreachable!()
                             };
                             let Some(PreludeTypePath::Num(PreludeNumTypePath::Int(path))) =
-                                path.prelude_ty_path(db)
+                                path.prelude(db)
                             else {
                                 todo!()
                             };

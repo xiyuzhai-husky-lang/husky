@@ -36,8 +36,12 @@ impl HasFlyTraitMethodDispatch for EthTerm {
         };
         for (trai_path, trai_item_path, range) in trai_item_records {
             // todo: check scope
-            let builders =
-                trai_path_for_ty_term_impl_block_eth_signature_builders(db, trai_path, self)?;
+            let builders = trai_path_for_ty_term_impl_block_eth_signature_builders(
+                db,
+                trai_path,
+                self,
+                engine.package_signature_data_result(),
+            )?;
             if !builders.is_empty() {
                 unsafe { esbuilders_per_trai.insert_new_unchecked((trai_path, builders)) }
             }

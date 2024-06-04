@@ -43,6 +43,9 @@
                                                     )`),
                                                 ),
                                             ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -86,6 +89,9 @@
                                                 MajorItemPath::Form(
                                                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                 ),
+                                            ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
                                             ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
@@ -143,6 +149,9 @@
                                                     )`),
                                                 ),
                                             ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -191,6 +200,9 @@
                                                     )`),
                                                 ),
                                             ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -238,6 +250,9 @@
                                                         Fn,
                                                     )`),
                                                 ),
+                                            ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
                                             ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
@@ -955,6 +970,9 @@
                                                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                 ),
                                             ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -1054,6 +1072,9 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
@@ -1209,6 +1230,9 @@
                                                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                 ),
                                             ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -1308,6 +1332,9 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
@@ -1462,6 +1489,9 @@
                                                 MajorItemPath::Form(
                                                     FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                                 ),
+                                            ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
                                             ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
@@ -1700,6 +1730,9 @@
                                                     FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                                 ),
                                             ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -1936,6 +1969,9 @@
                                                 MajorItemPath::Form(
                                                     FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                                 ),
+                                            ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
                                             ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
@@ -2371,6 +2407,9 @@
                                                         ),
                                                     ),
                                                 ),
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
                                                 env: MemoizedField,
                                                 symbol_map: [],
                                                 separator: Some(
@@ -2718,6 +2757,9 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: None,
@@ -2866,6 +2908,9 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: Transient,
@@ -3425,6 +3470,9 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: None,
@@ -3606,6 +3654,9 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
@@ -3818,6 +3869,9 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: ImmutableOnStack {
@@ -4043,6 +4097,9 @@
                                                     FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                                 ),
                                             ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -4135,6 +4192,9 @@
                                                             TypeItemKind::MemoizedField,
                                                         ),
                                                     ),
+                                                ),
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
                                                 ),
                                                 env: MemoizedField,
                                                 symbol_map: [],
@@ -4390,6 +4450,9 @@
                                                         ),
                                                     ),
                                                 ),
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
                                                 env: MemoizedField,
                                                 symbol_map: [],
                                                 separator: Some(
@@ -4566,7 +4629,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 265,
+                                                    value: 266,
                                                 },
                                             ),
                                         ),
@@ -4579,10 +4642,13 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 265,
+                                                            value: 266,
                                                         },
                                                     ),
                                                 ),
+                                            ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
                                             ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
@@ -5355,12 +5421,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 137,
+                                                    value: 138,
                                                 },
                                             ),
                                         ),
@@ -5375,7 +5441,7 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
@@ -5395,7 +5461,7 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
@@ -5415,12 +5481,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 137,
+                                                    value: 138,
                                                 },
                                             ),
                                         ),
@@ -5507,12 +5573,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 137,
+                                                            value: 138,
                                                         },
                                                     ),
                                                 ),
@@ -5529,7 +5595,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
@@ -5551,7 +5617,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
@@ -5573,12 +5639,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 137,
+                                                            value: 138,
                                                         },
                                                     ),
                                                 ),
@@ -6090,7 +6156,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAll`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`malamute::OneVsAll`, `Enum`),
                                         ),
                                     ),
@@ -8555,6 +8621,9 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: None,
@@ -8822,7 +8891,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 216,
+                                                    value: 217,
                                                 },
                                             ),
                                         ),
@@ -8835,10 +8904,13 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 216,
+                                                            value: 217,
                                                         },
                                                     ),
                                                 ),
+                                            ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
                                             ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
@@ -8994,6 +9066,9 @@
                                                         ),
                                                     ),
                                                 ),
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
                                                 env: MemoizedField,
                                                 symbol_map: [],
                                                 separator: Some(
@@ -9094,6 +9169,9 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
@@ -9397,7 +9475,7 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
@@ -9421,7 +9499,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
@@ -10203,6 +10281,9 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: None,
@@ -10470,7 +10551,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 216,
+                                                    value: 217,
                                                 },
                                             ),
                                         ),
@@ -10483,10 +10564,13 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 216,
+                                                            value: 217,
                                                         },
                                                     ),
                                                 ),
+                                            ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
                                             ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
@@ -10642,6 +10726,9 @@
                                                         ),
                                                     ),
                                                 ),
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
                                                 env: MemoizedField,
                                                 symbol_map: [],
                                                 separator: Some(
@@ -10742,6 +10829,9 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
@@ -11045,7 +11135,7 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
@@ -11069,7 +11159,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
@@ -11851,6 +11941,9 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: None,
@@ -12118,7 +12211,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 216,
+                                                    value: 217,
                                                 },
                                             ),
                                         ),
@@ -12131,10 +12224,13 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 216,
+                                                            value: 217,
                                                         },
                                                     ),
                                                 ),
+                                            ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
                                             ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
@@ -12290,6 +12386,9 @@
                                                         ),
                                                     ),
                                                 ),
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
                                                 env: MemoizedField,
                                                 symbol_map: [],
                                                 separator: Some(
@@ -12390,6 +12489,9 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
@@ -12693,7 +12795,7 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
@@ -12717,7 +12819,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(

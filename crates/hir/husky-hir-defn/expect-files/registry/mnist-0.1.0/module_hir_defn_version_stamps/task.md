@@ -2,46 +2,25 @@
 [
     (
         MajorItem(
-            Type(
-                TypePath(
+            Form(
+                MajorFormPath(
                     ItemPathId(
                         Id {
-                            value: 16,
+                            value: 177,
                         },
                     ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 27,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        Attr(
-            Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 182,
-                    },
                 ),
             ),
         ),
         None,
     ),
     (
-        ImplBlock(
-            TypeImplBlock(
-                TypeImplBlockPath(
+        MajorItem(
+            Form(
+                MajorFormPath(
                     ItemPathId(
                         Id {
-                            value: 168,
+                            value: 178,
                         },
                     ),
                 ),
@@ -51,29 +30,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 28,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        AssocItem(
-            TypeItem(
-                TypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 183,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 29,
+                        value: 30,
                     },
                 ),
             ),

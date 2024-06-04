@@ -1,4 +1,8 @@
 use crate::{path::ItemPath, *};
+use husky_vfs::path::{
+    crate_path::CratePath,
+    module_path::{ModulePath, ScriptModulePath},
+};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db]

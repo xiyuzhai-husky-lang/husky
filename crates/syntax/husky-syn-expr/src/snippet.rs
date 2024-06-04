@@ -4,7 +4,7 @@ use husky_entity_tree::{
     symbol::ModuleSymbolContext,
 };
 use husky_token::TokenDb;
-use husky_vfs::{script::Script, CratePath};
+use husky_vfs::{path::crate_path::CratePath, script::Script};
 
 #[cfg(test)]
 pub(crate) fn try_parse_snippet_in_decl<T>(
@@ -18,7 +18,7 @@ where
     >,
 {
     use husky_entity_tree::{region_path::SynNodeRegionPath, symbol::ModuleSymbolContext};
-    use husky_vfs::{VfsDb, VfsTestUtilsDb};
+    use husky_vfs::{jar::VfsDb, test_utils::VfsTestUtilsDb};
     use parsec::IsStreamParser;
 
     // "" wouldn't work

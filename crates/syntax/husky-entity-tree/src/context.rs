@@ -103,7 +103,7 @@ where
             match self.db.subitem_path(parent, ident).ok()? {
                 SubitemPath::Principal(item_path) => {
                     // ad hoc
-                    Some(EntitySymbol::PackageDependency { item_path })
+                    Some(EntitySymbol::PackageDependencyOrSelfLib { item_path })
                 }
                 SubitemPath::Assoc => None,
             }

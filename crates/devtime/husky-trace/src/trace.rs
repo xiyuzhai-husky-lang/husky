@@ -45,7 +45,9 @@ use husky_trace_protocol::{
     protocol::{IsTrace, TraceBundle},
     view::TraceViewData,
 };
+use husky_vfs::path::crate_path::CratePath;
 
+use husky_vfs::path::crate_path::CrateKind;
 use vec_like::VecPairMap;
 
 #[salsa::interned(db = TraceDb, jar = TraceJar, constructor = new_inner)]

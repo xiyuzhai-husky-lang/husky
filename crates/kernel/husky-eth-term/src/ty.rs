@@ -1,5 +1,5 @@
 use self::term::curry::EthCurry;
-use crate::*;
+use super::*;
 use husky_dec_ty::principal_item_path::{
     form_path_declarative_ty, trai_path_declarative_ty,
     ty_instance_constructor_path_declarative_ty, ty_ontology_path_declarative_ty,
@@ -16,7 +16,7 @@ use husky_entity_path::path::{
     ty_variant::TypeVariantPath,
     PrincipalEntityPath,
 };
-use husky_vfs::Toolchain;
+use husky_vfs::toolchain::Toolchain;
 
 pub trait HasType: Copy {
     fn ty(self, db: &::salsa::Db) -> EthTermResult<EthTerm>;
@@ -128,7 +128,7 @@ impl EthTerm {
             EthTerm::Literal(slf) => RawType::Prelude(slf.ty()),
             EthTerm::SymbolicVariable(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
             EthTerm::LambdaVariable(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
-            EthTerm::EntityPath(slf) => match slf {
+            EthTerm::ItemPath(slf) => match slf {
                 ItemPathTerm::Form(_path) => todo!(),
                 ItemPathTerm::Trait(path) => {
                     RawType::Declarative(trai_path_declarative_ty(db, path)?)

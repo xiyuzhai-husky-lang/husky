@@ -17,7 +17,7 @@ use husky_entity_tree::error::EntityTreeResult;
 use husky_text_protocol::range::TextRange;
 use husky_token::*;
 use husky_token_info::*;
-use husky_vfs::*;
+use husky_vfs::path::module_path::ModulePath;
 
 #[salsa::jar]
 pub struct SemanticTokenJar(semantic_tokens, semantic_tokens_ext_without_range);

@@ -1,9 +1,9 @@
-mod adversarial_test;
+pub mod adversarial_test;
 pub mod config;
 pub mod db;
 pub mod domain;
 mod expect_test;
-mod unit;
+pub mod unit;
 
 pub use self::adversarial_test::*;
 pub use self::config::*;

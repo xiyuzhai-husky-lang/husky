@@ -9,7 +9,7 @@ use husky_entity_tree::node::{
 };
 use husky_syn_expr::*;
 use husky_term_prelude::symbol::SymbolName;
-use husky_vfs::Toolchain;
+use husky_vfs::toolchain::Toolchain;
 use vec_like::{SmallVecPairMap, SmallVecSet};
 
 #[salsa::derive_debug_with_db]

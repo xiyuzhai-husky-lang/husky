@@ -2,7 +2,8 @@ use super::*;
 use husky_entity_path::path::major_item::{connection::MajorItemConnection, form::MajorFormPath};
 use husky_entity_tree::helpers::paths::module_test_paths;
 use husky_hir_decl::decl::HasHirDecl;
-use husky_vfs::*;
+use husky_vfs::test_utils::unit::determine_expect_file_path_without_extension;
+use husky_vfs::{jar::VfsDb, test_utils::*};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -32,7 +33,7 @@ impl TestLinkage {
 impl IsVfsTestUnit for TestLinkage {
     fn collect_from_package_path(
         db: &salsa::Db,
-        package_path: husky_vfs::PackagePath,
+        package_path: husky_vfs::path::package_path::PackagePath,
     ) -> Vec<Self> {
         db.collect_probable_modules(package_path)
             .into_iter()
@@ -91,7 +92,9 @@ impl IsVfsTestUnit for TestLinkage {
         None
     }
 
-    fn vfs_test_unit_downcast_as_module_path(self) -> Option<husky_vfs::ModulePath> {
+    fn vfs_test_unit_downcast_as_module_path(
+        self,
+    ) -> Option<husky_vfs::path::module_path::ModulePath> {
         todo!()
     }
 }

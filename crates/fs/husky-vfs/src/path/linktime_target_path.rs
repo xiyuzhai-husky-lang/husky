@@ -41,7 +41,7 @@ impl LinktimeTargetPath {
 }
 
 /// returns absolute path
-#[salsa::tracked(jar = VfsJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn linktime_target_rust_abs_dir(
     db: &::salsa::Db,
     target_path: LinktimeTargetPath,
@@ -57,7 +57,7 @@ fn linktime_target_rust_abs_dir(
     }
 }
 
-#[salsa::tracked(jar = VfsJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn linktime_target_rust_workspace_rustfmt_toml_path(
     db: &::salsa::Db,
     target_path: LinktimeTargetPath,
@@ -73,7 +73,7 @@ fn linktime_target_rust_workspace_rustfmt_toml_path(
     }
 }
 
-#[salsa::tracked(jar = VfsJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn linktime_target_rust_workspace_manifest_path(
     db: &::salsa::Db,
     target_path: LinktimeTargetPath,

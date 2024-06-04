@@ -4,6 +4,7 @@ use husky_text::{HasText, Text};
 use husky_token::{RangedTokenSheet, TokenDb, TokenIdx, TokenIdxRange};
 use husky_token_info::{TokenInfoDb, TokenInfoSheetRef};
 use husky_trace_protocol::view::{TraceViewLineData, TraceViewTokenData};
+use husky_vfs::path::module_path::ModulePath;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct TraceViewLines {

@@ -1,9 +1,8 @@
 use super::*;
 use expect_test::expect_file;
 use husky_coword::jar::CowordJar;
-use husky_vfs::*;
 
-#[salsa::db(CowordJar, VfsJar, Jar)]
+#[salsa::db(CowordJar, husky_vfs::jar::VfsJar, Jar)]
 struct DB;
 
 fn err(input: &str, err: TomlTokenError) {
@@ -192,6 +191,8 @@ fn bad_comment() {
 
 #[test]
 fn builtin_library_toml_token_sheets() {
+    use husky_vfs::test_utils::VfsTestUtilsDb;
+
     let db = DB::default();
     let db = &*db;
     let _toolchain = db.dev_toolchain().unwrap();

@@ -1749,7 +1749,7 @@ EntityTreeSheet {
                 parent: None,
                 state: UseOneRuleState::Resolved {
                     original_symbol: Some(
-                        EntitySymbol::PackageDependency {
+                        EntitySymbol::PackageDependencyOrSelfLib {
                             item_path: PrincipalEntityPath::Module(
                                 `malamute`,
                             ),
@@ -1779,7 +1779,7 @@ EntityTreeSheet {
                 parent: None,
                 state: UseOneRuleState::Resolved {
                     original_symbol: Some(
-                        EntitySymbol::PackageDependency {
+                        EntitySymbol::PackageDependencyOrSelfLib {
                             item_path: PrincipalEntityPath::Module(
                                 `mnist`,
                             ),

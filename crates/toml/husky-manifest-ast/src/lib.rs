@@ -14,7 +14,7 @@ use self::jar::ManifestAstJar as Jar;
 use self::sections::*;
 use self::transformer::*;
 use husky_toml_ast::*;
-use husky_vfs::{error::VfsResult, *};
+use husky_vfs::{error::VfsResult, path::package_path::PackagePath};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]

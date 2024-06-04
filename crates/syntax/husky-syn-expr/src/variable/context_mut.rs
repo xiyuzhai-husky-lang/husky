@@ -1,5 +1,5 @@
 use husky_entity_tree::region_path::SynNodeRegionPath;
-use husky_vfs::ModulePath;
+use husky_vfs::path::module_path::ModulePath;
 
 use super::*;
 

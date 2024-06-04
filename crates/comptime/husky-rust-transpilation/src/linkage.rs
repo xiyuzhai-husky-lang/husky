@@ -32,7 +32,7 @@ use husky_linkage::{
 
 use self::helpers::TupleFieldVariable;
 
-#[salsa::tracked(jar = RustTranspilationJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn package_linkages_transpilation(
     db: &::salsa::Db,
     package_path: PackagePath,
@@ -86,6 +86,11 @@ impl TranspileToRustWith<()> for Linkage {
                 RitchieItemKind::Sn => todo!(),
                 RitchieItemKind::Tn => todo!(),
             },
+            // ad hoc
+            LinkageData::MajorStatic { path, .. } => builder
+                .macro_call(RustMacroName::FnLinkageImpl, |builder| {
+                    path.transpile_to_rust(builder)
+                }),
             LinkageData::MajorVal {
                 path,
                 instantiation: _,

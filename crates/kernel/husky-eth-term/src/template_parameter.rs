@@ -38,15 +38,17 @@ impl EthTemplateParameters {
     }
 
     /// returns an empty partial instantiation
-    pub fn empty_instantiation_builder(
+    pub fn empty_instantiation_builder<'db>(
         &self,
         path: ItemPath,
         is_associated: bool,
+        package_signature_data_result: &'db impl IsPackageEthSignatureData,
     ) -> EtherealInstantiationBuilder {
         EtherealInstantiationBuilder::new(
             path,
             self.iter().map(|param| param.symbol()),
             is_associated,
+            package_signature_data_result,
         )
     }
 }

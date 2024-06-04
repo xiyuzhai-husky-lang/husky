@@ -1,6 +1,6 @@
-use salsa::DisplayWithDb;
-
 use super::*;
+use husky_vfs::{jar::VfsDb, path::menu::VfsPathMenu};
+use salsa::DisplayWithDb;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 #[salsa::as_id(jar = EntityPathJar)]

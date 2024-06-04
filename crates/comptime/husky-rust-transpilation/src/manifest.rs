@@ -8,7 +8,7 @@ use cargo_manifest::{
 };
 use husky_corgi_config::transpilation_setup::{HasTranspilationSetup, TranspilationSetup};
 use husky_manifest::HasManifest;
-use husky_vfs::linktime_target_path::LinktimeTargetPath;
+use husky_vfs::path::linktime_target_path::LinktimeTargetPath;
 use pathdiff::diff_paths;
 
 #[derive(Debug, PartialEq)]
@@ -16,7 +16,7 @@ pub(crate) struct RustManifest(Manifest);
 
 impl Eq for RustManifest {}
 
-#[salsa::tracked(jar = RustTranspilationJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn linktime_target_rust_workspace_manifest(
     db: &::salsa::Db,
     linktime_target_path: LinktimeTargetPath,
@@ -111,7 +111,7 @@ pub(crate) fn linktime_target_rust_workspace_manifest(
     .unwrap()
 }
 
-#[salsa::tracked(jar = RustTranspilationJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn package_source_rust_package_manifest(
     db: &::salsa::Db,
     package_path: PackagePath,
@@ -171,7 +171,7 @@ pub(crate) fn package_source_rust_package_manifest(
     .unwrap()
 }
 
-#[salsa::tracked(jar = RustTranspilationJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn package_linkages_rust_package_manifest(
     db: &::salsa::Db,
     package_path: PackagePath,

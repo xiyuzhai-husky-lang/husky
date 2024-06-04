@@ -29,10 +29,11 @@ pub struct VfsPathMenu {
     core_prelude: SubmodulePath,
     core_raw_bits: SubmodulePath,
     core_result: SubmodulePath,
+    core_task: SubmodulePath,
     core_visual: SubmodulePath,
 }
 
-#[salsa::tracked(jar = VfsJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn vfs_path_menu(db: &::salsa::Db, toolchain: Toolchain) -> VfsPathMenu {
     VfsPathMenu::new(db, toolchain)
 }
@@ -95,6 +96,12 @@ impl VfsPathMenu {
             db,
             core_root,
             Ident::from_ref(db, "frontend").expect("should be valid identifier"),
+        )
+        .expect("should be valid");
+        let core_task = ModulePath::new_child(
+            db,
+            core_root,
+            Ident::from_ref(db, "task").expect("should be valid identifier"),
         )
         .expect("should be valid");
         let core_vec = ModulePath::new_child(
@@ -194,6 +201,7 @@ impl VfsPathMenu {
             core_result,
             core_slice,
             core_str,
+            core_task,
             core_vec,
             core_visual,
         }
@@ -261,6 +269,10 @@ impl VfsPathMenu {
 
     pub fn core_result(&self) -> SubmodulePath {
         self.core_result
+    }
+
+    pub fn core_task(&self) -> SubmodulePath {
+        self.core_task
     }
 
     /// core::vec

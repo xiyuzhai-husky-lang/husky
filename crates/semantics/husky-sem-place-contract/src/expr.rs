@@ -249,6 +249,7 @@ fn root_contract(root_kind: SynExprRootKind) -> Option<Contract> {
         SynExprRootKind::TupleStructFieldType => None,
         SynExprRootKind::BlockExpr => Some(Contract::Move),
         SynExprRootKind::ReturnExpr => Some(Contract::Move),
+        SynExprRootKind::StaticExpr => Some(Contract::Move),
         SynExprRootKind::Condition => todo!(),
         SynExprRootKind::ParenateParameterDefaultValue { .. } => Some(Contract::Move),
         SynExprRootKind::FieldBindInitialValue { .. } => Some(Contract::Move),

@@ -28,6 +28,8 @@ husky-entity-tree.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-decl.workspace = true
 husky-syn-opr.workspace = true
+# toml
+husky-manifest.workspace = true
 # utils
 husky-print-utils.workspace = true
 

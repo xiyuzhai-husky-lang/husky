@@ -4,7 +4,7 @@ pub use self::error::*;
 
 use husky_scope::Scope;
 use husky_token::*;
-use husky_vfs::ModulePath;
+use husky_vfs::path::module_path::ModulePath;
 use parsec::IsStreamParser;
 
 #[salsa::derive_debug_with_db]

@@ -122,5 +122,18 @@
             },
         },
     ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Form(
+                    FormPath(`mnist::TASK`, `Static`),
+                ),
+                instantiation: JavInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
 ]
 ```

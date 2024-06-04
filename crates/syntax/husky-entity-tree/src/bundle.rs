@@ -11,7 +11,7 @@ use husky_entity_path::path::{
     impl_block::{trai_for_ty_impl_block::TraitForTypeImplBlockPath, TypeSketch},
     major_item::{trai::TraitPath, ty::TypePath},
 };
-use husky_vfs::CratePath;
+use husky_vfs::path::crate_path::CratePath;
 use vec_like::VecMap;
 
 #[salsa::tracked(return_ref)]

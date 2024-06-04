@@ -4,7 +4,7 @@ use husky_entity_path::{
     path::{major_item::ty::TypePath, PrincipalEntityPath},
 };
 use husky_token::{IdentToken, PathNameToken, SuperToken};
-use husky_vfs::{error::VfsError, ModulePath, ToolchainError};
+use husky_vfs::{error::VfsError, path::module_path::ModulePath, toolchain::ToolchainError};
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]

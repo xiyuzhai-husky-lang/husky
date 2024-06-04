@@ -12,7 +12,7 @@ use husky_manifest_ast::jar::ManifestAstJar;
 use husky_syn_expr::jar::SynExprJar;
 use husky_token::TokenJar;
 use husky_toml_ast::TomlAstJar;
-use husky_vfs::ModulePath;
+use husky_vfs::path::module_path::ModulePath;
 
 #[salsa::db(
     husky_coword::jar::CowordJar,

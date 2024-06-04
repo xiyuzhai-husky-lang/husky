@@ -63,18 +63,19 @@ pub(crate) fn form_syn_node_decl(
     db: &::salsa::Db,
     syn_node_path: FormSynNodePath,
 ) -> FormSynNodeDecl {
-    ItemDeclParser::new(db, syn_node_path.into()).parse_form_syn_node_decl(syn_node_path)
+    ItemSynNodeDeclParser::new(db, syn_node_path.into()).parse_form_syn_node_decl(syn_node_path)
 }
 
-impl<'a> ItemDeclParser<'a> {
+impl<'a> ItemSynNodeDeclParser<'a> {
     fn parse_form_syn_node_decl(&self, syn_node_path: FormSynNodePath) -> FormSynNodeDecl {
         match syn_node_path.form_kind(self.db()) {
             MajorFormKind::Val => self.parse_val_syn_node_decl(syn_node_path).into(),
             MajorFormKind::Ritchie(ritchie_item_kind) => self
                 .parse_ritchie_syn_node_decl(syn_node_path, ritchie_item_kind)
                 .into(),
-            MajorFormKind::TypeAlias => todo!(),
+            MajorFormKind::TypeAlias => self.parse_ty_alias_syn_node_decl(syn_node_path).into(),
             MajorFormKind::Conceptual => todo!(),
+            // self.parse_conceptual_syn_node_decl(syn_node_path).into(),
             MajorFormKind::Static => self.parse_static_syn_node_decl(syn_node_path).into(),
             MajorFormKind::Compterm => self.parse_termic_syn_node_decl(syn_node_path).into(),
         }

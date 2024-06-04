@@ -3,7 +3,7 @@ use husky_entity_path::path::{
     major_item::{form::MajorFormPath, trai::TraitPath, ty::TypePath, MajorItemPath},
     ItemPath,
 };
-use husky_vfs::CratePath;
+use husky_vfs::path::crate_path::CratePath;
 use vec_like::VecSet;
 
 use super::*;

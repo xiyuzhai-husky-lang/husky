@@ -24,7 +24,7 @@ impl TraitMemoizedFieldSynNodeDecl {
     }
 }
 
-impl<'a> ItemDeclParser<'a> {
+impl<'a> ItemSynNodeDeclParser<'a> {
     pub(super) fn parse_trai_memo_syn_node_decl(
         &self,
         syn_node_path: TraitItemSynNodePath,
