@@ -6,39 +6,46 @@ use crate::summand::VarDepsSummands;
 use vec_like::OrderedSmallVecSet;
 
 #[salsa::derive_debug_with_db]
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct VarDepsSum<A, S> {
     summands: VarDepsSummands<A, S>,
+    includes: VarDepsIncludes<S>,
 }
+
+pub type VarDepsIncludes<S> = OrderedSmallVecSet<S, INCLUDES_N>;
+const INCLUDES_N: usize = 4;
 
 impl<A, S> Default for VarDepsSum<A, S> {
     fn default() -> Self {
         Self {
             summands: Default::default(),
+            includes: Default::default(),
         }
     }
 }
 
-impl<A, S> From<Vec<(A, Vec<S>)>> for VarDepsSum<A, S>
+impl<A, S> From<(Vec<(A, Vec<S>)>, Vec<S>)> for VarDepsSum<A, S>
 where
     A: Ord + Copy + std::fmt::Debug,
     S: Ord + Copy + std::fmt::Debug,
 {
-    fn from(summands: Vec<(A, Vec<S>)>) -> Self {
+    fn from((summands, includes): (Vec<(A, Vec<S>)>, Vec<S>)) -> Self {
         Self {
             summands: summands.into_iter().map(Into::into).collect(),
+            includes: includes.into(),
         }
     }
 }
 
-impl<A, S> From<&[(A, &[S])]> for VarDepsSum<A, S>
+impl<A, S> From<(&[(A, &[S])], &[S])> for VarDepsSum<A, S>
 where
     A: Ord + Copy + std::fmt::Debug,
     S: Ord + Copy + std::fmt::Debug,
 {
-    fn from(summands: &[(A, &[S])]) -> Self {
+    fn from((summands, includes): (&[(A, &[S])], &[S])) -> Self {
         Self {
             summands: summands.into_iter().map(Into::into).collect(),
+            includes: includes.iter().copied().collect(),
         }
     }
 }
@@ -56,19 +63,28 @@ where
             }
             summand.fmt(f)?
         }
+        for (i, include) in self.includes.iter().enumerate() {
+            if self.summands.len() + i > 0 {
+                f.write_str(", ")?;
+            }
+            include.fmt(f)?
+        }
         f.write_str(")")
     }
 }
 
 #[test]
 fn var_deps_sum_display_works() {
-    fn t(sum: &[(&'static str, &[&'static str])], expected: &str) {
+    fn t(sum: (&[(&'static str, &[&'static str])], &[&'static str]), expected: &str) {
         let sum: VarDepsSum0 = sum.into();
         assert_eq!(sum.to_string(), expected);
     }
-    t(&[], "()");
-    t(&[("a", &[])], "(a)");
-    t(&[("a", &["s"])], "(a[s])");
+    t((&[], &[]), "()");
+    t((&[("a", &[])], &[]), "(a)");
+    t((&[("a", &["s"])], &[]), "(a[s])");
+    t((&[], &["s"]), "(s)");
+    t((&[("a", &[])], &["s"]), "(a, s)");
+    t((&[("a", &["s"])], &["s"]), "(a[s], s)");
 }
 
 impl<A, S> VarDepsSum<A, S>
@@ -88,16 +104,21 @@ where
                 },
             )
         }
-        Self { summands }
+        let includes = self.includes.union(&other.includes);
+        Self { summands, includes }
     }
 
-    pub fn exclude(&self, excludes: &[S]) -> Self {
-        let summands = self.summands.map_collect_on_entries(|summand| {
-            let mut summand = summand.clone();
+    pub fn exclude(self, excludes: &[S]) -> Self {
+        let Self {
+            summands,
+            mut includes,
+        } = self;
+        let summands = summands.map_into_collect_on_entries(|mut summand| {
             summand.excludes.extend(excludes);
             summand
         });
-        Self { summands }
+        includes.remove_from_list(excludes);
+        Self { summands, includes }
     }
 
     pub fn rewrite<'a>(&self, f: impl Fn(A) -> &'a Self) -> Self
@@ -107,7 +128,7 @@ where
     {
         let mut result = Self::default();
         for summand in &self.summands {
-            result = result.union(&f(summand.base).exclude(&summand.excludes));
+            result = result.union(&f(summand.base).clone().exclude(&summand.excludes));
         }
         result
     }
@@ -132,8 +153,8 @@ where
 #[test]
 fn var_deps_sum_union_works() {
     fn t(
-        a: &[(&'static str, &[&'static str])],
-        b: &[(&'static str, &[&'static str])],
+        a: (&[(&'static str, &[&'static str])], &[&'static str]),
+        b: (&[(&'static str, &[&'static str])], &[&'static str]),
         a_str: &str,
         b_str: &str,
         expected: &str,
@@ -145,21 +166,55 @@ fn var_deps_sum_union_works() {
         assert_eq!(a.union(&b).to_string(), expected);
     }
 
-    t(&[], &[], "()", "()", "()");
-    t(&[("a", &[])], &[], "(a)", "()", "(a)");
-    t(&[("a", &[])], &[("b", &[])], "(a)", "(b)", "(a, b)");
-    t(&[("a", &[])], &[("a", &[])], "(a)", "(a)", "(a)");
-    t(&[("a", &["s"])], &[("a", &[])], "(a[s])", "(a)", "(a)");
+    t((&[], &[]), (&[], &[]), "()", "()", "()");
+    t((&[], &["s"]), (&[], &["s"]), "(s)", "(s)", "(s)");
+    t((&[], &["s"]), (&[], &["t"]), "(s)", "(t)", "(s, t)");
+    t((&[("a", &[])], &[]), (&[], &[]), "(a)", "()", "(a)");
     t(
-        &[("a", &["r", "s"])],
-        &[("a", &["s", "t"])],
+        (&[("a", &[])], &["s"]),
+        (&[], &["s"]),
+        "(a, s)",
+        "(s)",
+        "(a, s)",
+    );
+    t(
+        (&[("a", &[])], &["s"]),
+        (&[], &["t"]),
+        "(a, s)",
+        "(t)",
+        "(a, s, t)",
+    );
+    t(
+        (&[("a", &[])], &[]),
+        (&[("b", &[])], &[]),
+        "(a)",
+        "(b)",
+        "(a, b)",
+    );
+    t(
+        (&[("a", &[])], &[]),
+        (&[("a", &[])], &[]),
+        "(a)",
+        "(a)",
+        "(a)",
+    );
+    t(
+        (&[("a", &["s"])], &[]),
+        (&[("a", &[])], &[]),
+        "(a[s])",
+        "(a)",
+        "(a)",
+    );
+    t(
+        (&[("a", &["r", "s"])], &[]),
+        (&[("a", &["s", "t"])], &[]),
         "(a[r,s])",
         "(a[s,t])",
         "(a[s])",
     );
     t(
-        &[("a", &["r", "s"]), ("b", &["r"])],
-        &[("a", &["s", "t"])],
+        (&[("a", &["r", "s"]), ("b", &["r"])], &[]),
+        (&[("a", &["s", "t"])], &[]),
         "(a[r,s], b[r])",
         "(a[s,t])",
         "(a[s], b[r])",
@@ -168,18 +223,21 @@ fn var_deps_sum_union_works() {
 
 #[test]
 fn var_deps_sum_excludes_works() {
-    fn t(sum: &[(A, &[S])], sum_str: &str, excludes: &[S], expected: &str) {
+    fn t(sum: (&[(A, &[S])], &[S]), sum_str: &str, excludes: &[S], expected: &str) {
         let sum: VarDepsSum0 = sum.into();
         assert_eq!(sum.to_string(), sum_str);
         assert_eq!(sum.exclude(excludes).to_string(), expected);
     }
 
-    t(&[], "()", &[], "()");
-    t(&[], "()", &["r", "s", "t"], "()");
-    t(&[("a", &[])], "(a)", &["r", "s", "t"], "(a[r,s,t])");
-    t(&[("a", &["r"])], "(a[r])", &["s", "t"], "(a[r,s,t])");
+    t((&[], &[]), "()", &[], "()");
+    t((&[], &["s"]), "(s)", &[], "(s)");
+    t((&[], &["s"]), "(s)", &["s"], "()");
+    t((&[], &["s"]), "(s)", &["t"], "(s)");
+    t((&[], &[]), "()", &["r", "s", "t"], "()");
+    t((&[("a", &[])], &[]), "(a)", &["r", "s", "t"], "(a[r,s,t])");
+    t((&[("a", &["r"])], &[]), "(a[r])", &["s", "t"], "(a[r,s,t])");
     t(
-        &[("a", &["r", "t"])],
+        (&[("a", &["r", "t"])], &[]),
         "(a[r,t])",
         &["r", "s", "t"],
         "(a[r,s,t])",
@@ -188,7 +246,12 @@ fn var_deps_sum_excludes_works() {
 
 #[test]
 fn var_deps_sum_rewrite_works() {
-    fn t(sum: &[(A, &[S])], sum_str: &str, substitutes: &[(A, &[(A, &[S])])], expected: &str) {
+    fn t(
+        sum: (&[(A, &[S])], &[S]),
+        sum_str: &str,
+        substitutes: &[(A, (&[(A, &[S])], &[S]))],
+        expected: &str,
+    ) {
         let sum: VarDepsSum0 = sum.into();
         let substitutes: Vec<(A, VarDepsSum0)> = substitutes
             .iter()
@@ -205,31 +268,36 @@ fn var_deps_sum_rewrite_works() {
         );
     }
 
-    t(&[], "()", &[], "()");
-    t(&[], "()", &[("a", &[("a", &["r", "s", "t"])])], "()");
+    t((&[], &[]), "()", &[], "()");
     t(
-        &[("a", &[])],
+        (&[], &[]),
+        "()",
+        &[("a", (&[("a", &["r", "s", "t"])], &[]))],
+        "()",
+    );
+    t(
+        (&[("a", &[])], &[]),
         "(a)",
-        &[("a", &[("a", &["r", "s", "t"])])],
+        &[("a", (&[("a", &["r", "s", "t"])], &[]))],
         "(a[r,s,t])",
     );
     t(
-        &[("a", &[])],
+        (&[("a", &[])], &[]),
         "(a)",
-        &[("a", &[("b", &["r", "s", "t"])])],
+        &[("a", (&[("b", &["r", "s", "t"])], &[]))],
         "(b[r,s,t])",
     );
     t(
-        &[("a", &["s", "t"])],
+        (&[("a", &["s", "t"])], &[]),
         "(a[s,t])",
-        &[("a", &[("b", &["r", "s"])])],
+        &[("a", (&[("b", &["r", "s"])], &[]))],
         "(b[r,s,t])",
     );
 }
 
 #[test]
 fn var_deps_sum_eval_works() {
-    fn t(sum: &[(A, &[S])], sum_str: &str, deps_values: &[(A, &[S])], expected: &[S]) {
+    fn t(sum: (&[(A, &[S])], &[S]), sum_str: &str, deps_values: &[(A, &[S])], expected: &[S]) {
         let sum: VarDepsSum0 = sum.into();
         let substitutes: Vec<(A, OrderedSmallVecSet<S, 4>)> = deps_values
             .iter()
@@ -245,22 +313,22 @@ fn var_deps_sum_eval_works() {
         );
     }
 
-    t(&[], "()", &[], &[]);
-    t(&[], "()", &[("a", &["r", "s", "t"])], &[]);
+    t((&[], &[]), "()", &[], &[]);
+    t((&[], &[]), "()", &[("a", &["r", "s", "t"])], &[]);
     t(
-        &[("a", &[])],
+        (&[("a", &[])], &[]),
         "(a)",
         &[("a", &["r", "s", "t"])],
         &["r", "s", "t"],
     );
     t(
-        &[("a", &["r"])],
+        (&[("a", &["r"])], &[]),
         "(a[r])",
         &[("a", &["r", "s", "t"])],
         &["s", "t"],
     );
     t(
-        &[("a", &["r", "s"])],
+        (&[("a", &["r", "s"])], &[]),
         "(a[r,s])",
         &[("a", &["r", "s", "t"])],
         &["t"],
