@@ -221,6 +221,9 @@
                                                             TraitForTypeImplBlockPath(`#derive _ as core::visual::Visualize(0)`),
                                                         ),
                                                     ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: None,

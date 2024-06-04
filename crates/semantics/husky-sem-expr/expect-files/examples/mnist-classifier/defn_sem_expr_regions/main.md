@@ -39,6 +39,9 @@
                                                     FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                                 ),
                                             ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -158,6 +161,9 @@
                                                 MajorItemPath::Form(
                                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                                 ),
+                                            ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
                                             ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
@@ -279,6 +285,9 @@
                                                     FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                                 ),
                                             ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -398,6 +407,9 @@
                                                 MajorItemPath::Form(
                                                     FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                                 ),
+                                            ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
                                             ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
@@ -519,6 +531,9 @@
                                                     FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                                 ),
                                             ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -638,6 +653,9 @@
                                                 MajorItemPath::Form(
                                                     FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                                                 ),
+                                            ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
                                             ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
@@ -759,6 +777,9 @@
                                                     FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                                 ),
                                             ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -879,6 +900,9 @@
                                                     FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                                                 ),
                                             ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
+                                            ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -998,6 +1022,9 @@
                                                 MajorItemPath::Form(
                                                     FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                                                 ),
+                                            ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
                                             ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
@@ -1127,6 +1154,9 @@
                                                         },
                                                     ),
                                                 ),
+                                            ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
                                             ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [

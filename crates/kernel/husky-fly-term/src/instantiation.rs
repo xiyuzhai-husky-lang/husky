@@ -6,7 +6,7 @@ use husky_entity_path::path::{
     ItemPath, PrincipalItemPath,
 };
 use husky_eth_term::{
-    instantiation::EthInstantiation,
+    instantiation::{EthInstantiation, IsPackageEthSignatureData},
     term::{
         application::{EthApplication, TermFunctionReduced},
         ritchie::EthRitchie,
@@ -20,6 +20,7 @@ use vec_like::SmallVecPairMap;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FlyInstantiation {
     path: ItemPath,
+    task_ty: Option<EthTerm>,
     env: FlyInstantiationEnvironment,
     symbol_map: SmallVecPairMap<EthSymbolicVariable, FlyTermSymbolResolution, 4>,
     separator: Option<u8>,
@@ -65,20 +66,22 @@ pub enum FlyInstantiationEnvironment {
 }
 
 impl FlyInstantiation {
-    pub fn from_template_parameters(
+    pub fn from_template_parameters<'db>(
         path: impl Into<PrincipalItemPath>,
         env: FlyInstantiationEnvironment,
         syn_expr_idx: SynExprIdx,
         template_parameters1: &[EthTemplateParameter],
         template_parameters2: Option<&[EthTemplateParameter]>,
         terms: &mut FlyTerms,
-        db: &::salsa::Db,
+        package_signature_data: &'db impl IsPackageEthSignatureData,
+        db: &'db ::salsa::Db,
     ) -> Self {
         let separator = template_parameters2
             .is_some()
             .then_some(template_parameters1.len().try_into().unwrap());
         Self {
             path: path.into().into(),
+            task_ty: package_signature_data.task_ty(),
             env,
             symbol_map: template_parameters1
                 .iter()
@@ -109,6 +112,7 @@ impl FlyInstantiation {
     ) -> Self {
         FlyInstantiation {
             path: instantiation.path(),
+            task_ty: instantiation.task_ty(),
             env,
             symbol_map: instantiation
                 .symbol_map()
@@ -192,6 +196,7 @@ pub(crate) trait FlyInstantiateRef {
 
 pub struct FlyTermInstantiationBuilder {
     path: ItemPath,
+    task_ty: Option<EthTerm>,
     env: FlyInstantiationEnvironment,
     symbol_map: SmallVecPairMap<EthSymbolicVariable, Option<FlyTermSymbolResolution>, 4>,
     separator: Option<u8>,
@@ -206,15 +211,17 @@ impl std::ops::Index<EthSymbolicVariable> for FlyTermInstantiationBuilder {
 }
 
 impl FlyTermInstantiationBuilder {
-    pub fn new_associated(
+    pub fn new_associated<'db>(
         path: impl Into<AssocItemPath>,
         env: FlyInstantiationEnvironment,
         impl_block_template_parameters: &[EthTemplateParameter],
         assoc_item_template_parameters: &[EthTemplateParameter],
-        db: &::salsa::Db,
+        package_signature_data: &'db impl IsPackageEthSignatureData,
+        db: &'db ::salsa::Db,
     ) -> Self {
         Self {
             path: path.into().into(),
+            task_ty: package_signature_data.task_ty(),
             env,
             symbol_map: impl_block_template_parameters
                 .iter()
@@ -292,6 +299,7 @@ impl FlyTermInstantiationBuilder {
     pub(crate) fn finish(self, db: &::salsa::Db) -> FlyInstantiation {
         FlyInstantiation {
             path: self.path,
+            task_ty: self.task_ty,
             env: self.env,
             symbol_map: self
                 .symbol_map

@@ -1,14 +1,19 @@
 use super::*;
 use husky_entity_path::path::{assoc_item::AssocItemPath, major_item::ty::TypePath};
-use husky_eth_signature::signature::{
-    assoc_item::{
-        trai_for_ty_item::method_ritchie::TraitForTypeMethodRitchieEtherealSignature,
-        ty_item::{
-            method_curry::TypeMethodCurryEthTemplate, method_ritchie::TypeMethodRitchieEthTemplate,
-            HasTypeItemTemplates, TypeItemEthTemplates,
+use husky_eth_signature::{
+    error::EthSignatureResult,
+    signature::{
+        assoc_item::{
+            trai_for_ty_item::method_ritchie::TraitForTypeMethodRitchieEtherealSignature,
+            ty_item::{
+                method_curry::TypeMethodCurryEthTemplate,
+                method_ritchie::TypeMethodRitchieEthTemplate, HasTypeItemTemplates,
+                TypeItemEthTemplates,
+            },
         },
+        package::PackageEthSignatureData,
+        HasEthTemplate,
     },
-    HasEthTemplate,
 };
 use husky_eth_term::term::symbolic_variable::EthTermSymbolIndexImpl;
 use husky_regional_token::IdentRegionalToken;
@@ -72,7 +77,7 @@ impl MethodFnFlySignature {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct MethodFunctionFlySignature {}
 
-pub(crate) fn ty_method_fly_signature<Term: Copy + Into<FlyTerm>>(
+pub(crate) fn ty_method_fly_signature<'db, Term: Copy + Into<FlyTerm>>(
     engine: &mut impl FlyTermEngineMut,
     expr_idx: SynExprIdx,
     ty_path: TypePath,
@@ -80,6 +85,7 @@ pub(crate) fn ty_method_fly_signature<Term: Copy + Into<FlyTerm>>(
     method_template_arguments: &[FlyTerm],
     ident_token: IdentRegionalToken,
     self_place: FlyQuary,
+    package_signature_data_result: EthSignatureResult<&'db PackageEthSignatureData>,
 ) -> FlyTermMaybeResult<MethodFnFlySignature> {
     let ident = ident_token.ident();
     match ty_path.ty_item_eth_templates(engine.db(), ident)? {
@@ -92,6 +98,7 @@ pub(crate) fn ty_method_fly_signature<Term: Copy + Into<FlyTerm>>(
                     ty_template_arguments,
                     method_template_arguments,
                     self_place,
+                    package_signature_data_result,
                 ) {
                     return JustOk(signature.into());
                 }
@@ -116,13 +123,14 @@ pub(crate) fn ty_method_fly_signature<Term: Copy + Into<FlyTerm>>(
     }
 }
 
-fn ty_method_ritchie_fly_signature<Term: Copy + Into<FlyTerm>>(
+fn ty_method_ritchie_fly_signature<'db, Term: Copy + Into<FlyTerm>>(
     engine: &mut impl FlyTermEngineMut,
     expr_idx: SynExprIdx,
     template: TypeMethodRitchieEthTemplate,
     ty_template_arguments: &[Term],
     method_template_arguments: &[FlyTerm],
     self_place: FlyQuary,
+    package_signature_data_result: EthSignatureResult<&'db PackageEthSignatureData>,
 ) -> FlyTermMaybeResult<MethodFnFlySignature> {
     let db = engine.db();
     let self_ty_application_expansion = template.self_ty(db).application_expansion(db);
@@ -137,6 +145,7 @@ fn ty_method_ritchie_fly_signature<Term: Copy + Into<FlyTerm>>(
             .eth_template(db)?
             .template_parameters(db),
         template.template_parameters(db),
+        package_signature_data_result?,
         db,
     );
     // FlyInstantiation::new(FlyInstantiationEnvironment::MethodFn { self_place });
