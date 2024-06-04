@@ -7,6 +7,6 @@ pub use self::template_parameter::*;
 pub(crate) type CommaRegionalTokens = SmallVec<[CommaRegionalToken; 2]>;
 
 use crate::*;
-
 use husky_regional_token::*;
+use husky_syn_expr::{parser::*, syndicates::*};
 use parsec::{IsStreamParser, TryParseOptionFromStream};

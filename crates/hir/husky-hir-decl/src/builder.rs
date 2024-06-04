@@ -8,8 +8,11 @@ use husky_hir_lazy_expr::HirLazyPatternIdx;
 use husky_hir_ty::{db::HirTypeDb, menu::HirTypeMenu, trai::HirTrait, HirType};
 use husky_sem_expr::{SemExprDb, SemExprRegionData};
 use husky_syn_expr::{
-    CurrentVariableIdx, ReturnTypeBeforeColonSyndicate, ReturnTypeBeforeEqSyndicate, SynExprIdx,
-    SynExprRegion, SynExprRegionData, SynPatternRoot,
+    context::SynPatternRoot,
+    expr::SynExprIdx,
+    region::{SynExprRegion, SynExprRegionData},
+    syndicates::{ReturnTypeBeforeColonSyndicate, ReturnTypeBeforeEqSyndicate},
+    variable::CurrentVariableIdx,
 };
 
 pub(crate) struct HirDeclBuilder<'a> {

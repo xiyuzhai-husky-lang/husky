@@ -1,6 +1,6 @@
 use super::*;
 use husky_syn_decl::decl::major_item::ty::props_struct::PropsStructSynDecl;
-use husky_syn_expr::{PropsFieldSynInitialization, PropsFieldSyndicate};
+use husky_syn_expr::syndicates::{PropsFieldSynInitialization, PropsFieldSyndicate};
 
 #[salsa::interned]
 pub struct PropsStructHirDecl {

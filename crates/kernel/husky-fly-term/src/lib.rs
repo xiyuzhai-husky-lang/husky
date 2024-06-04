@@ -39,7 +39,9 @@ use either::*;
 use husky_entity_path::*;
 use husky_eth_term::{term::EthTerm, *};
 use husky_print_utils::p;
-use husky_syn_expr::*;
+use husky_syn_expr::{
+    context::*, error::*, expr::*, parser::*, pattern::*, range::*, region::*, variable::*,
+};
 use husky_term_prelude::*;
 use maybe_result::*;
 use salsa::DebugWithDb as _;

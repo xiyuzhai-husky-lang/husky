@@ -6,7 +6,16 @@ use crate::*;
 use husky_entity_path::path::{major_item::MajorItemPath, PrincipalEntityPath};
 use husky_entity_tree::region_path::SynNodeRegionPath;
 use husky_print_utils::p;
-use husky_syn_expr::*;
+use husky_syn_expr::{
+    context::SynExprRootKind,
+    expr::{SynExprData, SynExprIdx, SynExprMap},
+    pattern::{ParenateParameterSynPatternRoot, SynPatternMap, SynPatternSymbolMap},
+    region::{SynExprRegion, SynExprRegionData},
+    variable::{
+        CurrentSynSymbolIdxRange, CurrentTemplateVariableData, CurrentVariableData,
+        CurrentVariableIdx, SyndicateTypeConstraint, TemplateSymbolSynAttr,
+    },
+};
 use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr};
 use husky_vfs::toolchain::Toolchain;
 use salsa::DebugWithDb;

@@ -14,8 +14,10 @@ use husky_sem_expr::{
 };
 use husky_sem_place_contract::region::{sem_place_contract_region, SemPlaceContractRegion};
 use husky_syn_expr::{
-    CurrentVariableIdx, InheritedSymbolicVariableIdx, SynExprRegionData, SynExprRootKind,
-    SynPatternIdx, SynPatternMap, SynPatternRootKind, VariableMap,
+    context::{SynExprRootKind, SynPatternRootKind},
+    pattern::{SynPatternIdx, SynPatternMap},
+    region::SynExprRegionData,
+    variable::{CurrentVariableIdx, InheritedSymbolicVariableIdx, VariableMap},
 };
 
 pub(crate) struct HirEagerExprBuilder<'a> {
@@ -256,10 +258,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         &self.hir_eager_expr_arena
     }
 
-    pub(crate) fn syn_pattern_ty(
-        &self,
-        syn_pattern: ArenaIdx<husky_syn_expr::SynPatternData>,
-    ) -> EthTerm {
+    pub(crate) fn syn_pattern_ty(&self, syn_pattern: SynPatternIdx) -> EthTerm {
         self.sem_expr_region_data
             .syn_pattern_ty(syn_pattern, self.db)
     }

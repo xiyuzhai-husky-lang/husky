@@ -7,6 +7,11 @@ use husky_entity_tree::{
     helpers::tokra_region::ItemDeclTokraRegionDataRef, node::ItemSynNodePath,
     region_path::SynNodeRegionPath, symbol::ModuleSymbolContext,
 };
+use husky_syn_expr::{
+    context::SynExprContext,
+    parser::{ExprEnvironment, StandaloneSynExprParser},
+    region::SynExprRegion,
+};
 use husky_vfs::path::crate_path::CratePath;
 
 pub(crate) struct ItemSynNodeDeclParser<'db> {

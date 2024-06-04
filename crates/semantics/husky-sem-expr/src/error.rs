@@ -13,6 +13,5 @@ use husky_entity_path::error::EntityPathError;
 use husky_eth_signature::error::EthSignatureError;
 use husky_eth_term::EthTermError;
 use husky_regional_token::IdentRegionalToken;
-use husky_syn_expr::SynExprIdx;
 use original_error::OriginalError;
 use thiserror::Error;

@@ -39,15 +39,15 @@ use husky_entity_tree::helpers::tokra_region::HasRegionalTokenIdxBase;
 use husky_ki_repr::expansion::KiReprExpansion;
 use husky_ki_repr::repr::KiRepr;
 use husky_sem_expr::SemExprIdx;
+use husky_syn_expr::{expr::*, pattern::*, region::*, stmt::*, variable::*};
 use husky_trace_protocol::id::TraceId;
 use husky_trace_protocol::{
     id::TraceKind,
     protocol::{IsTrace, TraceBundle},
     view::TraceViewData,
 };
-use husky_vfs::path::crate_path::CratePath;
-
 use husky_vfs::path::crate_path::CrateKind;
+use husky_vfs::path::crate_path::CratePath;
 use vec_like::VecPairMap;
 
 #[salsa::interned(db = TraceDb, jar = TraceJar, constructor = new_inner)]
