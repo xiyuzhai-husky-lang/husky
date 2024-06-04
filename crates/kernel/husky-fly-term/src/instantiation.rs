@@ -277,7 +277,7 @@ impl FlyTermInstantiationBuilder {
                 JustOk(())
             }
             EthTerm::LambdaVariable(_) => todo!(),
-            EthTerm::EntityPath(_) => todo!(),
+            EthTerm::ItemPath(_) => todo!(),
             EthTerm::Category(_) => todo!(),
             EthTerm::Universe(_) => todo!(),
             EthTerm::Curry(_) => todo!(),
@@ -325,7 +325,7 @@ impl FlyInstantiate for EthTerm {
                 },
             },
             EthTerm::LambdaVariable(_) => todo!(),
-            EthTerm::EntityPath(_) => self.into(),
+            EthTerm::ItemPath(_) => self.into(),
             EthTerm::Category(_) => todo!(),
             EthTerm::Universe(_) => todo!(),
             EthTerm::Curry(_) => todo!(),

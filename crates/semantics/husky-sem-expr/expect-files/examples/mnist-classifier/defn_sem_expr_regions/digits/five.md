@@ -30,7 +30,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 265,
+                                                    value: 266,
                                                 },
                                             ),
                                         ),
@@ -43,7 +43,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 265,
+                                                            value: 266,
                                                         },
                                                     ),
                                                 ),
@@ -273,7 +273,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAll`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`malamute::OneVsAll`, `Enum`),
                                         ),
                                     ),

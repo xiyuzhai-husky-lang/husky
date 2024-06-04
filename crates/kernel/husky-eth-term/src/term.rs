@@ -18,7 +18,10 @@ use crate::{instantiation::*, term::application::TermFunctionReduced};
 use crate::{term::application::term_uncheck_from_dec_term_application_aux, *};
 use husky_coword::Ident;
 use husky_dec_term::term::DecTerm;
-use husky_entity_path::{menu::item_path_menu, path::major_item::ty::PreludeTypePath};
+use husky_entity_path::{
+    menu::item_path_menu,
+    path::major_item::{form::PreludeMajorFormPath, ty::PreludeTypePath},
+};
 use husky_term_prelude::literal::Literal;
 use salsa::DisplayWithDb;
 use std::fmt::Debug;
@@ -33,7 +36,7 @@ pub enum EthTerm {
     SymbolicVariable(EthSymbolicVariable),
     /// the name `hvar` is to be distinguishable from runtime variable
     LambdaVariable(EthLambdaVariable),
-    EntityPath(ItemPathTerm),
+    ItemPath(ItemPathTerm),
     Category(Sort),
     Universe(Universe),
     /// X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
@@ -147,7 +150,7 @@ impl EthTerm {
                     db.ethereal_term_menu(toolchain).leash_ty_ontology()
                 }
                 TypeFinalDestinationExpectation::EqsNonSortTypePath(path) => {
-                    match path.prelude_ty_path(db) {
+                    match path.prelude(db) {
                         Some(PreludeTypePath::Num(_)) => {
                             todo!()
                         }
@@ -176,7 +179,7 @@ impl EthTerm {
             )
             .into(),
             EthTerm::LambdaVariable(slf) => slf.into_declarative(db).into(),
-            EthTerm::EntityPath(slf) => slf.into(),
+            EthTerm::ItemPath(slf) => slf.into(),
             EthTerm::Category(slf) => DecTerm::Category(slf),
             EthTerm::Universe(slf) => slf.into(),
             EthTerm::Curry(slf) => DecCurry::new(
@@ -203,7 +206,7 @@ impl EthTerm {
             EthTerm::Literal(_)
             | EthTerm::SymbolicVariable(_)
             | EthTerm::LambdaVariable(_)
-            | EthTerm::EntityPath(
+            | EthTerm::ItemPath(
                 ItemPathTerm::Trait(_)
                 | ItemPathTerm::TypeOntology(_)
                 | ItemPathTerm::TypeInstance(_)
@@ -211,7 +214,7 @@ impl EthTerm {
             )
             | EthTerm::Category(_)
             | EthTerm::Universe(_) => self,
-            EthTerm::EntityPath(ItemPathTerm::Form(_)) => todo!(),
+            EthTerm::ItemPath(ItemPathTerm::Form(_)) => todo!(),
             EthTerm::Curry(_) => self,
             EthTerm::Ritchie(slf) => slf.reduce(db).into(),
             EthTerm::Abstraction(_) => todo!(),
@@ -274,17 +277,15 @@ pub(crate) fn ethereal_term_from_list_declarative_term(
                 _ => todo!(),
             }
         }
-        TypeFinalDestinationExpectation::EqsNonSortTypePath(path) => {
-            match path.prelude_ty_path(db) {
-                Some(PreludeTypePath::List) => {
-                    todo!()
-                }
-                Some(PreludeTypePath::Container(_)) => {
-                    todo!()
-                }
-                Some(_) | None => todo!(),
+        TypeFinalDestinationExpectation::EqsNonSortTypePath(path) => match path.prelude(db) {
+            Some(PreludeTypePath::List) => {
+                todo!()
             }
-        }
+            Some(PreludeTypePath::Container(_)) => {
+                todo!()
+            }
+            Some(_) | None => todo!(),
+        },
         TypeFinalDestinationExpectation::Any => todo!(),
     }
 }
@@ -347,7 +348,7 @@ impl salsa::DisplayWithDb for EthTerm {
             EthTerm::Literal(term) => term.display_fmt_with_db(f, db),
             EthTerm::SymbolicVariable(term) => term.display_fmt_with_db(f, db),
             EthTerm::LambdaVariable(term) => term.display_fmt_with_db(f, db),
-            EthTerm::EntityPath(term) => term.display_fmt_with_db(f, db),
+            EthTerm::ItemPath(term) => term.display_fmt_with_db(f, db),
             EthTerm::Category(term) => f.write_str(&term.to_string()),
             EthTerm::Universe(term) => f.write_str(&term.to_string()),
             EthTerm::Curry(term) => term.display_fmt_with_db(f, db),
@@ -366,7 +367,7 @@ impl EthTerm {
     pub fn substitute(self, substitution: EthTermSubstitution, db: &::salsa::Db) -> Self {
         match self {
             EthTerm::Literal(_)
-            | EthTerm::EntityPath(_)
+            | EthTerm::ItemPath(_)
             | EthTerm::Category(_)
             | EthTerm::Universe(_) => self,
             EthTerm::SymbolicVariable(_symbol) => todo!(),
@@ -385,9 +386,19 @@ impl EthInstantiate for EthTerm {
     type Output = EthTerm;
 
     fn instantiate(self, db: &::salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
+        if let Some(task_ty) = instantiation.task_ty() {
+            match self {
+                EthTerm::ItemPath(ItemPathTerm::Form(form_path))
+                    if form_path.refine(db) == Left(PreludeMajorFormPath::TaskType) =>
+                {
+                    return task_ty
+                }
+                _ => (),
+            }
+        }
         match self {
             EthTerm::Literal(_)
-            | EthTerm::EntityPath(_)
+            | EthTerm::ItemPath(_)
             | EthTerm::Category(_)
             | EthTerm::Universe(_) => self,
             EthTerm::SymbolicVariable(slf) => slf.instantiate(db, instantiation),

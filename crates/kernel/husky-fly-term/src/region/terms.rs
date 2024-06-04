@@ -40,7 +40,7 @@ impl FlyTerms {
             EthTerm::Literal(_) => todo!(),
             EthTerm::SymbolicVariable(_) => HoleKind::AnyOriginal,
             EthTerm::LambdaVariable(_) => todo!(),
-            EthTerm::EntityPath(_) => todo!(),
+            EthTerm::ItemPath(_) => todo!(),
             EthTerm::Category(cat) => {
                 if cat.universe().raw() != 1 {
                     // maybe we need to consider universe

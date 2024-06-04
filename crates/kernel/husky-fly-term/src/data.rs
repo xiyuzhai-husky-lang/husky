@@ -9,7 +9,7 @@ pub(crate) use self::solid::*;
 use crate::*;
 use husky_dec_term::term::LambdaVariableIndex;
 use husky_entity_path::path::{
-    major_item::ty::{CustomTypePath, PreludeTypePath, TypePath},
+    major_item::ty::{OtherTypePath, PreludeTypePath, TypePath},
     ty_variant::TypeVariantPath,
 };
 use husky_eth_signature::{
@@ -27,7 +27,7 @@ pub enum FlyTermData<'a> {
     Literal(Literal),
     TypeOntology {
         ty_path: TypePath,
-        refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
+        refined_ty_path: Either<PreludeTypePath, OtherTypePath>,
         ty_arguments: &'a [FlyTerm],
         ty_ethereal_term: Option<EthTerm>,
     },
@@ -142,7 +142,7 @@ impl<'a> FlyTermData<'a> {
 pub enum FlyBaseTypeData<'a> {
     TypeOntology {
         ty_path: TypePath,
-        refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
+        refined_ty_path: Either<PreludeTypePath, OtherTypePath>,
         ty_arguments: &'a [FlyTerm],
         ty_ethereal_term: Option<EthTerm>,
     },

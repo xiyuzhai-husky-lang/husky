@@ -7,7 +7,7 @@ use super::*;
 pub enum HolTermData {
     TypeOntology {
         path: TypePath,
-        refined_path: Either<PreludeTypePath, CustomTypePath>,
+        refined_path: Either<PreludeTypePath, OtherTypePath>,
         arguments: SmallVec<[FlyTerm; 2]>,
     },
     Curry {

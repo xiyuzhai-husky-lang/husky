@@ -14,12 +14,12 @@ Ok(
         },
         data: PackageEthSignatureData {
             task_type: Some(
-                EntityPath(
+                ItemPath(
                     TypeOntology(
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 163,
+                                    value: 164,
                                 },
                             ),
                         ),

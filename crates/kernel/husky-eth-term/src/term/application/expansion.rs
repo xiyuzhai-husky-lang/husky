@@ -5,7 +5,7 @@ impl EthTerm {
     pub fn application_expansion(self, db: &::salsa::Db) -> ApplicationExpansion {
         match self {
             EthTerm::Application(term) => term.application_expansion(db),
-            EthTerm::EntityPath(path) => match path {
+            EthTerm::ItemPath(path) => match path {
                 ItemPathTerm::Form(_) => todo!(),
                 ItemPathTerm::Trait(path) => ApplicationExpansion {
                     function: TermFunctionReduced::Trait(path),

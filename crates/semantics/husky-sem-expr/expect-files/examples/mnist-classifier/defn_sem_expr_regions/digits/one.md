@@ -1445,6 +1445,9 @@
                                                     TraitForTypeImplBlockPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
                                                 ),
                                             ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
+                                            ),
                                             symbol_map: [
                                                 (
                                                     EthSymbolicVariable(`Label`),
@@ -2365,6 +2368,9 @@
                                                     TraitForTypeImplBlockPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
                                                 ),
                                             ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
+                                            ),
                                             symbol_map: [
                                                 (
                                                     EthSymbolicVariable(`Label`),
@@ -2890,7 +2896,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 265,
+                                                    value: 266,
                                                 },
                                             ),
                                         ),
@@ -2903,7 +2909,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 265,
+                                                            value: 266,
                                                         },
                                                     ),
                                                 ),
@@ -4885,6 +4891,9 @@
                                                     TraitForTypeImplBlockPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
                                                 ),
                                             ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
+                                            ),
                                             symbol_map: [
                                                 (
                                                     EthSymbolicVariable(`Label`),
@@ -5459,7 +5468,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 265,
+                                                    value: 266,
                                                 },
                                             ),
                                         ),
@@ -5472,7 +5481,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 265,
+                                                            value: 266,
                                                         },
                                                     ),
                                                 ),
@@ -7341,6 +7350,9 @@
                                                     TraitForTypeImplBlockPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
                                                 ),
                                             ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
+                                            ),
                                             symbol_map: [
                                                 (
                                                     EthSymbolicVariable(`Label`),
@@ -8482,6 +8494,9 @@
                                                 ImplBlockPath::TraitForTypeImplBlock(
                                                     TraitForTypeImplBlockPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
                                                 ),
+                                            ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
                                             ),
                                             symbol_map: [
                                                 (
@@ -11115,6 +11130,9 @@
                                                     TraitForTypeImplBlockPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
                                                 ),
                                             ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
+                                            ),
                                             symbol_map: [
                                                 (
                                                     EthSymbolicVariable(`Label`),
@@ -11890,6 +11908,9 @@
                                                 ImplBlockPath::TraitForTypeImplBlock(
                                                     TraitForTypeImplBlockPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
                                                 ),
+                                            ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
                                             ),
                                             symbol_map: [
                                                 (
@@ -13497,6 +13518,9 @@
                                                 ImplBlockPath::TraitForTypeImplBlock(
                                                     TraitForTypeImplBlockPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
                                                 ),
+                                            ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
                                             ),
                                             symbol_map: [
                                                 (
@@ -15569,6 +15593,9 @@
                                                     TraitForTypeImplBlockPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
                                                 ),
                                             ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
+                                            ),
                                             symbol_map: [
                                                 (
                                                     EthSymbolicVariable(`Label`),
@@ -16625,7 +16652,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 265,
+                                                    value: 266,
                                                 },
                                             ),
                                         ),
@@ -16638,7 +16665,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 265,
+                                                            value: 266,
                                                         },
                                                     ),
                                                 ),
@@ -18245,7 +18272,7 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
@@ -18347,12 +18374,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 121,
+                                                    value: 122,
                                                 },
                                             ),
                                         ),
@@ -18393,7 +18420,7 @@
                                 },
                             ),
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
@@ -18413,7 +18440,7 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
@@ -18459,7 +18486,7 @@
                                 },
                             ),
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
@@ -18479,7 +18506,7 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
@@ -18503,7 +18530,7 @@
                                 },
                             ),
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
@@ -18523,7 +18550,7 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
@@ -18547,12 +18574,12 @@
                                 },
                             ),
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 137,
+                                                    value: 138,
                                                 },
                                             ),
                                         ),
@@ -18571,12 +18598,12 @@
                                 },
                             ),
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 137,
+                                                    value: 138,
                                                 },
                                             ),
                                         ),
@@ -18591,12 +18618,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 137,
+                                                    value: 138,
                                                 },
                                             ),
                                         ),
@@ -18611,12 +18638,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 137,
+                                                    value: 138,
                                                 },
                                             ),
                                         ),
@@ -18635,7 +18662,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
@@ -18723,12 +18750,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 121,
+                                                            value: 122,
                                                         },
                                                     ),
                                                 ),
@@ -18750,7 +18777,7 @@
                                         },
                                     ),
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
@@ -18772,7 +18799,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
@@ -18799,7 +18826,7 @@
                                         },
                                     ),
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
@@ -18821,7 +18848,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
@@ -18847,7 +18874,7 @@
                                         },
                                     ),
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
@@ -18869,7 +18896,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
@@ -18895,12 +18922,12 @@
                                         },
                                     ),
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 137,
+                                                            value: 138,
                                                         },
                                                     ),
                                                 ),
@@ -18921,12 +18948,12 @@
                                         },
                                     ),
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 137,
+                                                            value: 138,
                                                         },
                                                     ),
                                                 ),
@@ -18943,12 +18970,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 137,
+                                                            value: 138,
                                                         },
                                                     ),
                                                 ),
@@ -18965,12 +18992,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 137,
+                                                            value: 138,
                                                         },
                                                     ),
                                                 ),
@@ -19728,7 +19755,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`malamute::OneVsAllResult`, `Enum`),
                                         ),
                                     ),
@@ -19863,7 +19890,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`malamute::OneVsAllResult`, `Enum`),
                                         ),
                                     ),
@@ -19998,7 +20025,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAll`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`malamute::OneVsAll`, `Enum`),
                                         ),
                                     ),
@@ -20174,7 +20201,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`malamute::OneVsAllResult`, `Enum`),
                                         ),
                                     ),
@@ -20346,7 +20373,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAll`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`malamute::OneVsAll`, `Enum`),
                                         ),
                                     ),
@@ -20435,7 +20462,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`malamute::OneVsAllResult`, `Enum`),
                                         ),
                                     ),
@@ -20570,7 +20597,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`malamute::OneVsAllResult`, `Enum`),
                                         ),
                                     ),
@@ -20763,7 +20790,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`malamute::OneVsAllResult`, `Enum`),
                                         ),
                                     ),
@@ -20898,7 +20925,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`malamute::OneVsAllResult`, `Enum`),
                                         ),
                                     ),
@@ -21033,7 +21060,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`malamute::OneVsAllResult`, `Enum`),
                                         ),
                                     ),
@@ -21255,7 +21282,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`malamute::OneVsAllResult`, `Enum`),
                                         ),
                                     ),
@@ -21431,7 +21458,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAll`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`malamute::OneVsAll`, `Enum`),
                                         ),
                                     ),
@@ -21499,12 +21526,12 @@
                                                                 ty: FlyTerm {
                                                                     place: None,
                                                                     base: Eth(
-                                                                        EntityPath(
+                                                                        ItemPath(
                                                                             TypeOntology(
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 137,
+                                                                                            value: 138,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -21527,12 +21554,12 @@
                                                                 ty: FlyTerm {
                                                                     place: None,
                                                                     base: Eth(
-                                                                        EntityPath(
+                                                                        ItemPath(
                                                                             TypeOntology(
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 121,
+                                                                                            value: 122,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -22212,12 +22239,12 @@
                                                                 ty: FlyTerm {
                                                                     place: None,
                                                                     base: Eth(
-                                                                        EntityPath(
+                                                                        ItemPath(
                                                                             TypeOntology(
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 137,
+                                                                                            value: 138,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -22240,12 +22267,12 @@
                                                                 ty: FlyTerm {
                                                                     place: None,
                                                                     base: Eth(
-                                                                        EntityPath(
+                                                                        ItemPath(
                                                                             TypeOntology(
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 121,
+                                                                                            value: 122,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -23847,12 +23874,12 @@
                                                                 ty: FlyTerm {
                                                                     place: None,
                                                                     base: Eth(
-                                                                        EntityPath(
+                                                                        ItemPath(
                                                                             TypeOntology(
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 137,
+                                                                                            value: 138,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -23875,12 +23902,12 @@
                                                                 ty: FlyTerm {
                                                                     place: None,
                                                                     base: Eth(
-                                                                        EntityPath(
+                                                                        ItemPath(
                                                                             TypeOntology(
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 121,
+                                                                                            value: 122,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -25035,12 +25062,12 @@
                                                                 ty: FlyTerm {
                                                                     place: None,
                                                                     base: Eth(
-                                                                        EntityPath(
+                                                                        ItemPath(
                                                                             TypeOntology(
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 137,
+                                                                                            value: 138,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -25063,12 +25090,12 @@
                                                                 ty: FlyTerm {
                                                                     place: None,
                                                                     base: Eth(
-                                                                        EntityPath(
+                                                                        ItemPath(
                                                                             TypeOntology(
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 121,
+                                                                                            value: 122,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -25652,12 +25679,12 @@
                                                                 ty: FlyTerm {
                                                                     place: None,
                                                                     base: Eth(
-                                                                        EntityPath(
+                                                                        ItemPath(
                                                                             TypeOntology(
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 137,
+                                                                                            value: 138,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -25680,12 +25707,12 @@
                                                                 ty: FlyTerm {
                                                                     place: None,
                                                                     base: Eth(
-                                                                        EntityPath(
+                                                                        ItemPath(
                                                                             TypeOntology(
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 121,
+                                                                                            value: 122,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -27286,12 +27313,12 @@
                                                                 ty: FlyTerm {
                                                                     place: None,
                                                                     base: Eth(
-                                                                        EntityPath(
+                                                                        ItemPath(
                                                                             TypeOntology(
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 137,
+                                                                                            value: 138,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -27314,12 +27341,12 @@
                                                                 ty: FlyTerm {
                                                                     place: None,
                                                                     base: Eth(
-                                                                        EntityPath(
+                                                                        ItemPath(
                                                                             TypeOntology(
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 121,
+                                                                                            value: 122,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -27898,12 +27925,12 @@
                                                                 ty: FlyTerm {
                                                                     place: None,
                                                                     base: Eth(
-                                                                        EntityPath(
+                                                                        ItemPath(
                                                                             TypeOntology(
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 137,
+                                                                                            value: 138,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -27926,12 +27953,12 @@
                                                                 ty: FlyTerm {
                                                                     place: None,
                                                                     base: Eth(
-                                                                        EntityPath(
+                                                                        ItemPath(
                                                                             TypeOntology(
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 121,
+                                                                                            value: 122,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -28499,12 +28526,12 @@
                                                                 ty: FlyTerm {
                                                                     place: None,
                                                                     base: Eth(
-                                                                        EntityPath(
+                                                                        ItemPath(
                                                                             TypeOntology(
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 137,
+                                                                                            value: 138,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -28527,12 +28554,12 @@
                                                                 ty: FlyTerm {
                                                                     place: None,
                                                                     base: Eth(
-                                                                        EntityPath(
+                                                                        ItemPath(
                                                                             TypeOntology(
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 121,
+                                                                                            value: 122,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -30226,12 +30253,12 @@
                                                                 ty: FlyTerm {
                                                                     place: None,
                                                                     base: Eth(
-                                                                        EntityPath(
+                                                                        ItemPath(
                                                                             TypeOntology(
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 137,
+                                                                                            value: 138,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -30254,12 +30281,12 @@
                                                                 ty: FlyTerm {
                                                                     place: None,
                                                                     base: Eth(
-                                                                        EntityPath(
+                                                                        ItemPath(
                                                                             TypeOntology(
                                                                                 TypePath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 121,
+                                                                                            value: 122,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -32182,7 +32209,7 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
@@ -32206,7 +32233,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
@@ -33413,7 +33440,7 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
@@ -33437,7 +33464,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
@@ -35018,7 +35045,7 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
@@ -35042,7 +35069,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(

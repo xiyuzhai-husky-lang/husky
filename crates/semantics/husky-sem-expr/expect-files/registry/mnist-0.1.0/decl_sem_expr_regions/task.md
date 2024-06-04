@@ -233,7 +233,7 @@
                                                 TypeItemPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 182,
+                                                            value: 183,
                                                         },
                                                     ),
                                                 ),
@@ -242,7 +242,7 @@
                                             return_ty: FlyTerm {
                                                 place: None,
                                                 base: Eth(
-                                                    EntityPath(
+                                                    ItemPath(
                                                         TypeOntology(
                                                             TypePath(
                                                                 ItemPathId(
@@ -273,7 +273,7 @@
                                                         TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 182,
+                                                                    value: 183,
                                                                 },
                                                             ),
                                                         ),
@@ -288,7 +288,7 @@
                                             self_ty: FlyTerm {
                                                 place: None,
                                                 base: Eth(
-                                                    EntityPath(
+                                                    ItemPath(
                                                         TypeOntology(
                                                             TypePath(
                                                                 ItemPathId(

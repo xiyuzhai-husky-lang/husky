@@ -18,7 +18,7 @@ pub(super) fn ethereal_ty_field_dispatch<'db>(
 ) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
     // divide into cases for memoization
     match ty_term {
-        EthTerm::EntityPath(ItemPathTerm::TypeOntology(ty_path)) => {
+        EthTerm::ItemPath(ItemPathTerm::TypeOntology(ty_path)) => {
             ethereal_ty_ontology_path_ty_field_dispatch(
                 db,
                 ty_path,

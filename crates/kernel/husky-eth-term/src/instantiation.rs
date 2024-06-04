@@ -14,6 +14,7 @@ use vec_like::{SmallVecPairMap, VecMap};
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct EthInstantiation {
     path: ItemPath,
+    task_ty: Option<EthTerm>,
     symbol_map: SmallVecPairMap<EthSymbolicVariable, EthTerm, 4>,
     /// indicates the separation for associated item template instantiation
     separator: Option<u8>,
@@ -53,6 +54,10 @@ pub fn item_fmt_context(db: &::salsa::Db, path_id: ItemPathId) -> EthTermFmtCont
 }
 
 impl EthInstantiation {
+    pub fn task_ty(&self) -> Option<EthTerm> {
+        self.task_ty
+    }
+
     pub fn symbol_map(&self) -> &[(EthSymbolicVariable, EthTerm)] {
         self.symbol_map.as_ref()
     }
@@ -132,18 +137,19 @@ pub trait EthTermInstantiateRef {
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct EtherealInstantiationBuilder {
     path: ItemPath,
+    task_ty: Option<EthTerm>,
     symbol_map: SmallVecPairMap<EthSymbolicVariable, Option<EthTerm>, 4>,
     /// indicates the separation for associated item template instantiation
     separator: Option<u8>,
 }
 pub trait IsPackageEthSignatureData {
-    fn task_type(&self) -> Option<EthTerm>;
+    fn task_ty(&self) -> Option<EthTerm>;
 }
 
 pub struct GenericPackageEthSignatureData;
 
 impl IsPackageEthSignatureData for GenericPackageEthSignatureData {
-    fn task_type(&self) -> Option<EthTerm> {
+    fn task_ty(&self) -> Option<EthTerm> {
         None
     }
 }
@@ -160,6 +166,7 @@ impl EtherealInstantiationBuilder {
             symbols.map(|symbol| (symbol, None)).collect();
         Self {
             path,
+            task_ty: package_signature_data_result.task_ty(),
             separator: is_associated.then_some(symbol_map.len().try_into().unwrap()),
             symbol_map,
         }
@@ -232,7 +239,7 @@ impl EtherealInstantiationBuilder {
                 JustOk(())
             }
             EthTerm::Literal(_)
-            | EthTerm::EntityPath(_)
+            | EthTerm::ItemPath(_)
             | EthTerm::Category(_)
             | EthTerm::Universe(_)
             | EthTerm::LambdaVariable(_) => Nothing,
@@ -290,6 +297,7 @@ impl EtherealInstantiationBuilder {
         }
         Some(EthInstantiation {
             path: self.path,
+            task_ty: self.task_ty,
             symbol_map,
             separator: self.separator,
         })
@@ -306,6 +314,7 @@ impl EtherealInstantiationBuilder {
         }
         Self {
             path: self.path,
+            task_ty: self.task_ty,
             symbol_map,
             separator: Some(len),
         }

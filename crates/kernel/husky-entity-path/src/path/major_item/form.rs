@@ -1,3 +1,5 @@
+use husky_vfs::{jar::VfsDb, path::menu::VfsPathMenu};
+
 use super::*;
 use std::fmt::Debug;
 
@@ -116,4 +118,39 @@ impl salsa::DisplayWithDb for MajorFormPath {
     ) -> std::fmt::Result {
         self.show_aux(f, db)
     }
+}
+
+#[salsa::derive_debug_with_db]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum PreludeMajorFormPath {
+    TaskType = 1,
+}
+
+#[salsa::derive_debug_with_db]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct OtherMajorFormPath(MajorFormPath);
+
+impl MajorFormPath {
+    pub fn refine(self, db: &::salsa::Db) -> Either<PreludeMajorFormPath, OtherMajorFormPath> {
+        match self.prelude(db) {
+            Some(path) => Left(path),
+            None => Right(OtherMajorFormPath(self)),
+        }
+    }
+
+    pub fn prelude(self, db: &::salsa::Db) -> Option<PreludeMajorFormPath> {
+        prelude_major_form_path(db, self)
+    }
+}
+
+fn prelude_major_form_path(db: &::salsa::Db, path: MajorFormPath) -> Option<PreludeMajorFormPath> {
+    let menu: &ItemPathMenu = item_path_menu(db, path.toolchain(db));
+    let vfs_path_menu: &VfsPathMenu = db.vfs_path_menu(path.toolchain(db));
+    if path.crate_path(db) != vfs_path_menu.core_library() {
+        return None;
+    }
+    Some(match path {
+        path if path == menu.task_major_form_path() => PreludeMajorFormPath::TaskType,
+        _ => return None,
+    })
 }

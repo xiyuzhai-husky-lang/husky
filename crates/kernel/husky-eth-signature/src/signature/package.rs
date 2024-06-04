@@ -15,7 +15,7 @@ pub struct PackageEthSignatureData {
 }
 
 impl IsPackageEthSignatureData for PackageEthSignatureData {
-    fn task_type(&self) -> Option<EthTerm> {
+    fn task_ty(&self) -> Option<EthTerm> {
         self.task_type
     }
 }

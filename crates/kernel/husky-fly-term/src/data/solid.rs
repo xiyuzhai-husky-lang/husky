@@ -6,7 +6,7 @@ use super::*;
 pub enum SolidTermData {
     TypeOntology {
         path: TypePath,
-        refined_path: Either<PreludeTypePath, CustomTypePath>,
+        refined_path: Either<PreludeTypePath, OtherTypePath>,
         // use fly term here because we don't want to recreate vectors when converting
         arguments: SmallVec<[FlyTerm; 2]>,
     },

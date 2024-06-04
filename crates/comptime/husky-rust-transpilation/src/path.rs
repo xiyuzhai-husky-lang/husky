@@ -43,7 +43,7 @@ impl<E> TranspileToRustWith<E> for PrincipalEntityPath {
             PrincipalEntityPath::Module(path) => path.ident(db).transpile_to_rust(builder),
             PrincipalEntityPath::MajorItem(path) => path.transpile_to_rust(builder),
             PrincipalEntityPath::TypeVariant(path) => {
-                match path.parent_ty_path(db).prelude_ty_path(db) {
+                match path.parent_ty_path(db).prelude(db) {
                     Some(PreludeTypePath::Option | PreludeTypePath::Result) => (),
                     _ => {
                         path.parent_ty_path(db).ident(db).transpile_to_rust(builder);

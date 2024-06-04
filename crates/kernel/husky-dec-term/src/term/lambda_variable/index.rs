@@ -29,7 +29,7 @@ impl salsa::DisplayWithDb for LambdaVariableIndex {
                 idx => f.write_fmt(format_args!("α{}", idx)),
             },
             DecTermFamily::TypePath(path)
-                if path.prelude_ty_path(db) == Some(PreludeTypePath::LIFETIME) =>
+                if path.prelude(db) == Some(PreludeTypePath::LIFETIME) =>
             {
                 match self.disambiguator {
                     0 => f.write_str("'a"),
@@ -41,9 +41,7 @@ impl salsa::DisplayWithDb for LambdaVariableIndex {
                     idx => f.write_fmt(format_args!("'a{}", idx)),
                 }
             }
-            DecTermFamily::TypePath(path)
-                if path.prelude_ty_path(db) == Some(PreludeTypePath::PLACE) =>
-            {
+            DecTermFamily::TypePath(path) if path.prelude(db) == Some(PreludeTypePath::PLACE) => {
                 match self.disambiguator {
                     0 => f.write_str("'α"),
                     1 => f.write_str("'β"),
