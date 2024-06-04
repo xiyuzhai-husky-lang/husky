@@ -135,12 +135,14 @@ pub struct SynDeclJar(
     // -- ill formed item
     crate::decl::assoc_item::ill_formed_item::IllFormedItemSynNodeDecl,
     // attr
-    crate::decl::attr::derive::DeriveAttrSynNodeDecl,
-    crate::decl::attr::derive::DeriveAttrSynDecl,
-    crate::decl::attr::backprop::BackpropAttrSynNodeDecl,
-    crate::decl::attr::backprop::BackpropAttrSynDecl,
     crate::decl::attr::affect::AffectAttrSynNodeDecl,
     crate::decl::attr::affect::AffectAttrSynDecl,
+    crate::decl::attr::backprop::BackpropAttrSynNodeDecl,
+    crate::decl::attr::backprop::BackpropAttrSynDecl,
+    crate::decl::attr::deps::DepsAttrSynNodeDecl,
+    crate::decl::attr::deps::DepsAttrSynDecl,
+    crate::decl::attr::derive::DeriveAttrSynNodeDecl,
+    crate::decl::attr::derive::DeriveAttrSynDecl,
     crate::decl::attr::marker::MarkerAttrSynNodeDecl,
     crate::decl::attr::marker::MarkerAttrSynDecl,
     crate::decl::attr::task::TaskAttrSynNodeDecl,
