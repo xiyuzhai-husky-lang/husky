@@ -4,7 +4,7 @@ use husky_fly_term::{signature::FlyFieldSignature, ExpectationOutcome, FlyCoerci
 use husky_sem_expr::emit_note_on_sem_expr_codespan;
 use husky_sem_expr::{SemExprData, SemExprIdx, SemaRitchieArgument};
 use husky_sem_opr::{binary::SemaBinaryOpr, prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
-use husky_syn_expr::SynExprRootKind;
+use husky_syn_expr::context::SynExprRootKind;
 use husky_term_prelude::Contract;
 
 impl<'a> PlaceContractEngine<'a> {

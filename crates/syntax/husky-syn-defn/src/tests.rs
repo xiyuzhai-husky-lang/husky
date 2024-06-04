@@ -27,7 +27,7 @@ use husky_toml_ast::TomlAstJar;
     CorgiConfigAstJar,
     ManifestJar,
     husky_syn_decl::jar::SynDeclJar,
-    SynExprJar,
+    husky_syn_expr::jar::SynExprJar,
     Jar
 )]
 pub(crate) struct DB;

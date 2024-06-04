@@ -3,7 +3,11 @@ use crate::{
     HirEagerStmtIdx,
 };
 use husky_sem_expr::{SemExprIdx, SemExprMap, SemStmtIdx, SemStmtMap};
-use husky_syn_expr::{CurrentVariableIdx, SynPatternMap, SynPatternRoot, VariableMap};
+use husky_syn_expr::{
+    context::SynPatternRoot,
+    pattern::SynPatternMap,
+    variable::{CurrentVariableIdx, VariableMap},
+};
 
 #[salsa::tracked(db = HirEagerExprDb, jar = HirEagerExprJar, constructor = new_inner)]
 pub struct HirEagerExprSourceMap {

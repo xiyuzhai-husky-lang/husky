@@ -1,7 +1,7 @@
 use crate::*;
 use husky_manifest::error::ManifestError;
 use husky_syn_decl::error::{SynDeclError, SynNodeDeclError};
-use husky_syn_expr::SynExprError;
+use husky_syn_expr::error::SynExprError;
 use thiserror::Error;
 
 #[salsa::derive_debug_with_db]

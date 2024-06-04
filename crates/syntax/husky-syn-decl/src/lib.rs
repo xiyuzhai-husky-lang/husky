@@ -20,7 +20,7 @@ use self::sheet::*;
 use self::tests::*;
 use derive_getters::Getters;
 use husky_entity_tree::node::HasSynNodePath;
-use husky_syn_expr::*;
+use husky_syn_expr::variable::*;
 use husky_vfs::path::module_path::ModulePath;
 use parsec::IsStreamParser;
 use smallvec::SmallVec;

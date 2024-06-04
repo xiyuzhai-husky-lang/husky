@@ -12,7 +12,7 @@ use husky_hir_lazy_expr::{
     helpers::{hir_lazy_body_with_expr_region, hir_lazy_expr_region_from_syn},
 };
 use husky_sem_expr::{helpers::analysis::sem_expr_region_requires_lazy, SemExprDb};
-use husky_syn_expr::SynExprRegion;
+use husky_syn_expr::region::SynExprRegion;
 
 use crate::{source_map::HirExprSourceMap, *};
 use husky_syn_defn::{item_syn_defn, ItemSynDefn};

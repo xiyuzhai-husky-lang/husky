@@ -1,6 +1,6 @@
 use super::*;
 use husky_hir_lazy_expr::HirLazyPatternIdx;
-use husky_syn_expr::{ParenateParameterSyndicateNucleus, SynVariadicParameterVariant};
+use husky_syn_expr::syndicates::{ParenateParameterSyndicateNucleus, SynVariadicParameterVariant};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum HirLazyParenateParameter {

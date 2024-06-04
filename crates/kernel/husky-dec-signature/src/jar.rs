@@ -1,6 +1,6 @@
 use self::region::SynExprDecTermRegion;
 use crate::*;
-use husky_syn_expr::SynExprRegion;
+use husky_syn_expr::region::SynExprRegion;
 
 pub trait DecSignatureDb {
     fn syn_expr_dec_term_region(&self, syn_expr_region: SynExprRegion) -> &SynExprDecTermRegion;

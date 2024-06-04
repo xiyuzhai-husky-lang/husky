@@ -33,7 +33,10 @@ use husky_entity_path::*;
 use husky_eth_term::*;
 use husky_fly_term::*;
 use husky_syn_defn::*;
-use husky_syn_expr::*;
+use husky_syn_expr::{
+    context::*, error::*, expr::*, parser::*, pattern::*, range::*, region::*, stmt::*,
+    syndicates::*, variable::*,
+};
 use husky_term_prelude::*;
 use salsa::DebugWithDb;
 use smallvec::*;

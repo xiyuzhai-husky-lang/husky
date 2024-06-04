@@ -7,7 +7,7 @@ pub(crate) use self::lazy::*;
 use super::*;
 use crate::builder::HirDeclBuilder;
 use husky_hir_eager_expr::HirEagerPatternIdx;
-use husky_syn_expr::{ParenateParameterSyndicate, SelfValueParameterSyndicate};
+use husky_syn_expr::syndicates::{ParenateParameterSyndicate, SelfValueParameterSyndicate};
 use smallvec::SmallVec;
 
 #[enum_class::from_variants]

@@ -11,4 +11,3 @@ use self::jar::*;
 use self::tests::*;
 use self::token::*;
 use self::trace::*;
-use husky_syn_expr::*;

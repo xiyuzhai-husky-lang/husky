@@ -7,7 +7,10 @@ use husky_entity_path::path::{
 use husky_entity_tree::node::{
     impl_block::ImplBlockSynNodePath, major_item::MajorItemSynNodePath, ItemSynNodePath,
 };
-use husky_syn_expr::*;
+use husky_syn_expr::{
+    region::SynExprRegionData,
+    variable::{InheritedSymbolicVariableIdx, SymbolOrderedMap, VariableRegionData},
+};
 use husky_term_prelude::symbol::SymbolName;
 use husky_vfs::toolchain::Toolchain;
 use vec_like::{SmallVecPairMap, SmallVecSet};

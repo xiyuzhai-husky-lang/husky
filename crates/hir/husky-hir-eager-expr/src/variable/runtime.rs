@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_expr::{
+use husky_syn_expr::variable::{
     AllowSelfValue, CurrentVariableData, CurrentVariableEntry, InheritedVariable,
     InheritedVariableKind, VariableMap, VariableRegionData,
 };
