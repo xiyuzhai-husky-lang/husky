@@ -21,7 +21,7 @@ impl ModuleAncestry {
     }
 }
 
-#[salsa::tracked(jar = VfsJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn module_ancestry(db: &::salsa::Db, module_path: ModulePath) -> ModuleAncestry {
     match module_path.data(db) {
         ModulePathData::Root(crate_path) => ModuleAncestry {
@@ -47,7 +47,7 @@ fn module_ancestry_works() {
 
     let db = DB::default();
     let menu = db.dev_path_menu().unwrap();
-    expect_test::expect![[r#"
+    ::expect_test::expect![[r#"
         ModuleAncestry {
             crate_path: CratePath {
                 package_path: PackagePath {

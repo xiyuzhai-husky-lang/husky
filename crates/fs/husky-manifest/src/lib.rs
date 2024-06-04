@@ -19,7 +19,10 @@ use self::sections::*;
 use self::tests::*;
 use husky_corgi_config::HasCorgiConfig;
 use husky_manifest_ast::{HasPackageManifestAstSheet, PackageManifestAstSheet};
-use husky_vfs::*;
+use husky_vfs::{
+    path::package_path::{PackagePath, RegistryPath},
+    toolchain::Toolchain,
+};
 
 #[salsa::tracked]
 pub struct PackageManifest {

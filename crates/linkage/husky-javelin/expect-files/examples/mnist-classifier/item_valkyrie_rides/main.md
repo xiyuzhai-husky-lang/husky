@@ -118,153 +118,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 278,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ],
-                            separator: Some(
-                                2,
-                            ),
-                        },
-                    },
-                    ValkyrieRide::PathLeading {
-                        path: JavPath::TraitForTypeItem(
-                            TraitForTypeItemPath(
-                                `<malamute::Class as core::ops::Unveil(0)>::unveil`,
-                                TraitItemKind::AssocRitchie(
-                                    RitchieItemKind::Fn,
-                                ),
-                            ),
-                        ),
-                        hir_instantiation: HirInstantiation {
-                            symbol_map: [
-                                (
-                                    HirTemplateVariable::Type(
-                                        HirTypeTemplateVariable::Type {
-                                            attrs: HirTemplateVariableAttrs {
-                                                class: Mono,
-                                            },
-                                            variance: None,
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                    HirTermSymbolicVariableResolution::Explicit(
-                                        HirTemplateArgument::Type(
-                                            HirType::PathLeading(
-                                                HirTypePathLeading {
-                                                    ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                    template_arguments: [],
-                                                    always_copyable: false,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                                (
-                                    HirTemplateVariable::Compterm(
-                                        HirComptermTemplateVariable {
-                                            ty: HirType::Variable(
-                                                HirTypeTemplateVariable::Type {
-                                                    attrs: HirTemplateVariableAttrs {
-                                                        class: Mono,
-                                                    },
-                                                    variance: None,
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                            index: HirComptermTemplateVariableIndex::Other {
-                                                attrs: HirTemplateVariableAttrs {
-                                                    class: Poly,
-                                                },
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    HirTermSymbolicVariableResolution::Explicit(
-                                        HirTemplateArgument::Constant(
-                                            TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 283,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ],
-                            separator: Some(
-                                2,
-                            ),
-                        },
-                    },
-                    ValkyrieRide::PathLeading {
-                        path: JavPath::TraitForTypeItem(
-                            TraitForTypeItemPath(
-                                `<malamute::Class as core::ops::Unveil(0)>::unveil`,
-                                TraitItemKind::AssocRitchie(
-                                    RitchieItemKind::Fn,
-                                ),
-                            ),
-                        ),
-                        hir_instantiation: HirInstantiation {
-                            symbol_map: [
-                                (
-                                    HirTemplateVariable::Type(
-                                        HirTypeTemplateVariable::Type {
-                                            attrs: HirTemplateVariableAttrs {
-                                                class: Mono,
-                                            },
-                                            variance: None,
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                    HirTermSymbolicVariableResolution::Explicit(
-                                        HirTemplateArgument::Type(
-                                            HirType::PathLeading(
-                                                HirTypePathLeading {
-                                                    ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                    template_arguments: [],
-                                                    always_copyable: false,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                                (
-                                    HirTemplateVariable::Compterm(
-                                        HirComptermTemplateVariable {
-                                            ty: HirType::Variable(
-                                                HirTypeTemplateVariable::Type {
-                                                    attrs: HirTemplateVariableAttrs {
-                                                        class: Mono,
-                                                    },
-                                                    variance: None,
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                            index: HirComptermTemplateVariableIndex::Other {
-                                                attrs: HirTemplateVariableAttrs {
-                                                    class: Poly,
-                                                },
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                    HirTermSymbolicVariableResolution::Explicit(
-                                        HirTemplateArgument::Constant(
-                                            TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 277,
+                                                            value: 279,
                                                         },
                                                     ),
                                                 ),
@@ -410,7 +264,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 285,
+                                                            value: 278,
                                                         },
                                                     ),
                                                 ),
@@ -483,7 +337,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 280,
+                                                            value: 285,
                                                         },
                                                     ),
                                                 ),
@@ -629,7 +483,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 282,
+                                                            value: 281,
                                                         },
                                                     ),
                                                 ),
@@ -702,7 +556,153 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 279,
+                                                            value: 287,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ],
+                            separator: Some(
+                                2,
+                            ),
+                        },
+                    },
+                    ValkyrieRide::PathLeading {
+                        path: JavPath::TraitForTypeItem(
+                            TraitForTypeItemPath(
+                                `<malamute::Class as core::ops::Unveil(0)>::unveil`,
+                                TraitItemKind::AssocRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                        ),
+                        hir_instantiation: HirInstantiation {
+                            symbol_map: [
+                                (
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
+                                                class: Mono,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                    HirTermSymbolicVariableResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                (
+                                    HirTemplateVariable::Compterm(
+                                        HirComptermTemplateVariable {
+                                            ty: HirType::Variable(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
+                                                        class: Mono,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            index: HirComptermTemplateVariableIndex::Other {
+                                                attrs: HirTemplateVariableAttrs {
+                                                    class: Poly,
+                                                },
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    HirTermSymbolicVariableResolution::Explicit(
+                                        HirTemplateArgument::Constant(
+                                            TypeVariant(
+                                                TypeVariantPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 283,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ],
+                            separator: Some(
+                                2,
+                            ),
+                        },
+                    },
+                    ValkyrieRide::PathLeading {
+                        path: JavPath::TraitForTypeItem(
+                            TraitForTypeItemPath(
+                                `<malamute::Class as core::ops::Unveil(0)>::unveil`,
+                                TraitItemKind::AssocRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                        ),
+                        hir_instantiation: HirInstantiation {
+                            symbol_map: [
+                                (
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
+                                                class: Mono,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                    HirTermSymbolicVariableResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                (
+                                    HirTemplateVariable::Compterm(
+                                        HirComptermTemplateVariable {
+                                            ty: HirType::Variable(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
+                                                        class: Mono,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            index: HirComptermTemplateVariableIndex::Other {
+                                                attrs: HirTemplateVariableAttrs {
+                                                    class: Poly,
+                                                },
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    HirTermSymbolicVariableResolution::Explicit(
+                                        HirTemplateArgument::Constant(
+                                            TypeVariant(
+                                                TypeVariantPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 280,
                                                         },
                                                     ),
                                                 ),

@@ -3,8 +3,7 @@ use husky_entity_path::path::{
     major_item::{form::MajorFormPath, trai::TraitPath, ty::TypePath},
     ty_variant::TypeVariantPath,
 };
-
-use husky_vfs::Toolchain;
+use husky_vfs::toolchain::Toolchain;
 use salsa::DisplayWithDb;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

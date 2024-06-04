@@ -4,6 +4,7 @@ mod action;
 use crate::*;
 use husky_entity_path::path::impl_block::ImplBlockRegistry;
 use husky_token::TokenDb;
+use husky_vfs::jar::VfsDb;
 use node::{
     impl_block::{ImplBlockSynNode, ImplBlockSynNodePath},
     ty_variant::HasTypeVariantPaths,

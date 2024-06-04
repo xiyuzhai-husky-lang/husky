@@ -1,7 +1,8 @@
 pub(crate) use expect_test::*;
-pub(crate) use husky_vfs::*;
+pub(crate) use husky_vfs::test_utils::*;
 
 use expect_test::{expect, Expect};
+use husky_vfs::jar::VfsDb;
 use husky_vfs::script::Script;
 use salsa::DebugWithDb;
 

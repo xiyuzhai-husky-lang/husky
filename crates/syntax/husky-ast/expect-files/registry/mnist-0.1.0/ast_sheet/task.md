@@ -2,47 +2,18 @@
 AstSheet {
     ast_arena: Arena {
         data: [
-            AstData::Identifiable {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: 3,
-                },
-                visibility_expr: VisibilityExpr {
-                    data: VisibilityExprData::Protected,
-                    visibility: Scope::PubUnder(
-                        `mnist::task`,
-                    ),
-                },
-                item_kind: EntityKind::AssocItem {
-                    assoc_item_kind: AssocItemKind::TypeItem(
-                        TypeItemKind::AssocRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                },
-                ident_token: IdentToken {
-                    ident: `new`,
-                    token_idx: TokenIdx(
-                        12,
-                    ),
-                },
-                is_generic: false,
-                saved_stream_state: TokenStreamState {
-                    next_token_idx: TokenIdx(
-                        13,
-                    ),
-                    drained: false,
-                },
-                block: DefnBlock::AssocItem {
-                    body: None,
-                },
-            },
-            AstData::Attr {
+            AstData::Use {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
                     raw: 0,
                 },
-                ident: `task`,
+                visibility_expr: VisibilityExpr {
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        `mnist`,
+                    ),
+                },
+                state_after_visibility_expr: None,
             },
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
@@ -53,55 +24,79 @@ AstSheet {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                3,
+                                7,
                             ),
                         },
                     },
                     visibility: Scope::Pub,
                 },
                 item_kind: EntityKind::MajorItem {
-                    module_item_kind: MajorItemKind::Type(
-                        TypeKind::Extern,
+                    module_item_kind: MajorItemKind::Form(
+                        MajorFormKind::TypeAlias,
                     ),
                     connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
-                    ident: `MnistTask`,
+                    ident: `Task`,
                     token_idx: TokenIdx(
-                        5,
+                        9,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        6,
+                        10,
                     ),
                     drained: false,
                 },
-                block: DefnBlock::Type {
-                    path: TypePath(`mnist::task::MnistTask`, `Extern`),
-                    variants: None,
+                block: DefnBlock::Form {
+                    path: FormPath(`mnist::Task`, `TypeAlias`),
+                    body: None,
                 },
             },
-            AstData::ImplBlock {
+            AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
                     raw: 2,
                 },
-                items: Some(
-                    Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                0..1,
+                visibility_expr: VisibilityExpr {
+                    data: VisibilityExprData::Pub {
+                        pub_token: PubToken {
+                            token_idx: TokenIdx(
+                                12,
                             ),
                         },
+                    },
+                    visibility: Scope::Pub,
+                },
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Form(
+                        MajorFormKind::Static,
                     ),
-                ),
+                    connection: MajorItemConnectionKind::Connected,
+                },
+                ident_token: IdentToken {
+                    ident: `TASK`,
+                    token_idx: TokenIdx(
+                        14,
+                    ),
+                },
+                is_generic: false,
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        15,
+                    ),
+                    drained: false,
+                },
+                block: DefnBlock::Form {
+                    path: FormPath(`mnist::TASK`, `Static`),
+                    body: None,
+                },
             },
         ],
     },
     top_level_asts: ArenaIdxRange(
-        1..4,
+        0..3,
     ),
     nested_top_level_asts: [],
     siblings: [
@@ -109,10 +104,10 @@ AstSheet {
             0..0,
         ),
         ArenaIdxRange(
-            0..1,
+            0..0,
         ),
         ArenaIdxRange(
-            1..4,
+            0..3,
         ),
     ],
 }

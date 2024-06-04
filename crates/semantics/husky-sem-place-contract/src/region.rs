@@ -7,7 +7,7 @@ use husky_sem_expr::{SemExprIdx, SemExprMap, SemExprRegion};
 #[cfg(test)]
 use husky_syn_defn::module_item_syn_defns;
 #[cfg(test)]
-use husky_vfs::ModulePath;
+use husky_vfs::path::module_path::ModulePath;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]

@@ -448,5 +448,14 @@
             },
         },
     },
+    Linkage {
+        data: LinkageData::MajorStatic {
+            path: FormPath(`mnist::TASK`, `Static`),
+            instantiation: LinInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
 ]
 ```

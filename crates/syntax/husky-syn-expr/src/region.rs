@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_tree::region_path::SynNodeRegionPath;
-use husky_vfs::Toolchain;
+use husky_vfs::toolchain::Toolchain;
 use vec_like::VecPairMap;
 
 #[salsa::tracked]

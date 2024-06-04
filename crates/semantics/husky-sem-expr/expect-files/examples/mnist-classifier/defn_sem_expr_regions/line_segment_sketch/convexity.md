@@ -272,6 +272,9 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: StackPure {
                                                             place: Idx(
@@ -737,6 +740,9 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: StackPure {
@@ -1308,6 +1314,9 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: StackPure {
                                                             place: Idx(
@@ -1521,6 +1530,9 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: ImmutableOnStack {
@@ -2465,6 +2477,9 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: None,
@@ -2631,6 +2646,9 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
@@ -2974,6 +2992,9 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: None,
@@ -3163,6 +3184,9 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
@@ -3535,6 +3559,9 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: ImmutableOnStack {
                                                             place: Idx(
@@ -3689,6 +3716,9 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
@@ -4429,6 +4459,9 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: None,
@@ -4595,6 +4628,9 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
@@ -4938,6 +4974,9 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: None,
@@ -5127,6 +5166,9 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
@@ -5499,6 +5541,9 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: ImmutableOnStack {
                                                             place: Idx(
@@ -5653,6 +5698,9 @@
                                                                 ),
                                                             ),
                                                         ),
+                                                    ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
@@ -6786,12 +6834,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 121,
+                                                    value: 122,
                                                 },
                                             ),
                                         ),
@@ -6806,7 +6854,7 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
@@ -6826,7 +6874,7 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
@@ -6846,12 +6894,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 121,
+                                                    value: 122,
                                                 },
                                             ),
                                         ),
@@ -6902,7 +6950,7 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
@@ -6958,7 +7006,7 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
@@ -6982,12 +7030,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 121,
+                                                            value: 122,
                                                         },
                                                     ),
                                                 ),
@@ -7004,7 +7052,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
@@ -7026,7 +7074,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
@@ -7048,12 +7096,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 121,
+                                                            value: 122,
                                                         },
                                                     ),
                                                 ),
@@ -7110,7 +7158,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
@@ -7172,7 +7220,7 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
@@ -8818,12 +8866,12 @@
                                                     placeless_int_ty: FlyTerm {
                                                         place: None,
                                                         base: Eth(
-                                                            EntityPath(
+                                                            ItemPath(
                                                                 TypeOntology(
                                                                     TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 121,
+                                                                                value: 122,
                                                                             },
                                                                         ),
                                                                     ),
@@ -9782,12 +9830,12 @@
                                                     placeless_int_ty: FlyTerm {
                                                         place: None,
                                                         base: Eth(
-                                                            EntityPath(
+                                                            ItemPath(
                                                                 TypeOntology(
                                                                     TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 121,
+                                                                                value: 122,
                                                                             },
                                                                         ),
                                                                     ),

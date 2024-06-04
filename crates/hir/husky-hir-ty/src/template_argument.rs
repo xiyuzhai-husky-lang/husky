@@ -47,7 +47,7 @@ impl HirTemplateArgument {
             EthTerm::Literal(lit) => HirConstant::from_term(lit, db).into(),
             EthTerm::SymbolicVariable(symbol) => HirTemplateVariable::from_eth(symbol, db)?.into(),
             EthTerm::LambdaVariable(_) => todo!(),
-            EthTerm::EntityPath(path) => match path {
+            EthTerm::ItemPath(path) => match path {
                 ItemPathTerm::Form(_path) => todo!(),
                 ItemPathTerm::Trait(_) => todo!(),
                 ItemPathTerm::TypeOntology(ty_path) => {

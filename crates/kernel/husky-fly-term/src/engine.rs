@@ -1,17 +1,19 @@
 use super::*;
 use husky_entity_path::menu::ItemPathMenu;
 use husky_entity_tree::helpers::AvailableTraitItemsTable;
+use husky_eth_signature::{error::EthSignatureResult, signature::package::PackageEthSignatureData};
 use husky_eth_term::term::symbolic_variable::EthSymbolicVariable;
 use husky_place::{place::idx::PlaceIdx, PlaceInfo, PlaceRegistry};
 use vec_like::SmallVecSet;
 
-pub trait FlyTermEngine<'a>: Sized {
-    fn db(&self) -> &'a ::salsa::Db;
-    fn available_trai_items_table(&self) -> AvailableTraitItemsTable<'a>;
+pub trait FlyTermEngine<'db>: Sized {
+    fn db(&self) -> &'db ::salsa::Db;
+    fn available_trai_items_table(&self) -> AvailableTraitItemsTable<'db>;
     fn fly_term_region(&self) -> &FlyTermRegion;
-    fn item_path_menu(&self) -> &'a ItemPathMenu;
-    fn term_menu(&self) -> &'a EthTermMenu;
-    fn syn_expr_region_data(&self) -> &'a SynExprRegionData;
+    fn item_path_menu(&self) -> &'db ItemPathMenu;
+    fn term_menu(&self) -> &'db EthTermMenu;
+    fn syn_expr_region_data(&self) -> &'db SynExprRegionData;
+    fn package_signature_data_result(&self) -> EthSignatureResult<&'db PackageEthSignatureData>;
 
     fn fly_terms(&self) -> &FlyTerms {
         self.fly_term_region().terms()

@@ -4,11 +4,11 @@ use crate::*;
 use husky_coword::jar::CowordJar;
 use husky_term_prelude::jar::TermPreludeJar;
 use husky_token::TokenJar;
-use husky_vfs::*;
+use husky_vfs::path::module_path::ModulePath;
 
 #[salsa::db(
     CowordJar,
-    VfsJar,
+    husky_vfs::jar::VfsJar,
     husky_entity_path::jar::EntityPathJar,
     husky_token_data::jar::TokenDataJar,
     TokenJar,

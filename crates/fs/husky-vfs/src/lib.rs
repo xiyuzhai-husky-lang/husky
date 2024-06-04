@@ -14,22 +14,21 @@ pub mod script;
 pub mod test_utils;
 #[cfg(test)]
 mod tests;
-mod toolchain;
+pub mod toolchain;
 pub mod toolchain_config;
 mod watch;
 
 pub use self::cache::VfsCache;
 #[cfg(feature = "lsp_support")]
 pub use self::lsp_support::*;
-pub use self::path::*;
-#[cfg(feature = "test_utils")]
-pub use self::test_utils::*;
-pub use self::toolchain::*;
-// pub use self::watch::{VfsWatcher, WatchableVfsDb, WatchedVfs};
 
 use self::error::*;
 use self::file::*;
-use self::jar::VfsJar as Jar;
+use self::jar::{VfsJar as Jar, *};
+use self::path::*;
+#[cfg(feature = "test_utils")]
+use self::test_utils::*;
+use self::toolchain::*;
 use dashmap::{mapref::entry::Entry, DashMap};
 use husky_coword::*;
 use std::path::{Path, PathBuf};

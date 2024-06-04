@@ -7,4 +7,4 @@ pub use self::defn::*;
 
 use self::jar::SynDefnJar as Jar;
 use husky_syn_expr::*;
-use husky_vfs::ModulePath;
+use husky_vfs::path::module_path::ModulePath;

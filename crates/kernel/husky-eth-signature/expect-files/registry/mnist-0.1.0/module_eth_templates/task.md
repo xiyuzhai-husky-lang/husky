@@ -2,16 +2,16 @@
 [
     (
         ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist::task::MnistTask`, `Extern`),
+            MajorItemPath::Form(
+                FormPath(`mnist::Task`, `TypeAlias`),
             ),
         ),
         Ok(
             ItemEthTemplate::MajorItem(
-                MajorItemEthTemplate::Type(
-                    TypeEthTemplate::Extern(
-                        ExternTypeEthTemplate {
-                            path: TypePath(`mnist::task::MnistTask`, `Extern`),
+                MajorItemEthTemplate::Form(
+                    FormEthTemplate::TypeAlias(
+                        MajorTypeAliasEthTemplate {
+                            path: FormPath(`mnist::Task`, `TypeAlias`),
                             template_parameters: EthTemplateParameters {
                                 data: [],
                             },
@@ -22,45 +22,18 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist::task::MnistTask(0)`),
+        ItemPath::MajorItem(
+            MajorItemPath::Form(
+                FormPath(`mnist::TASK`, `Static`),
             ),
         ),
         Ok(
-            ItemEthTemplate::ImplBlock(
-                ImplBlockEthTemplate::TypeImpl(
-                    TypeImplBlockEthTemplate {
-                        path: TypeImplBlockPath(`mnist::task::MnistTask(0)`),
-                        template_parameters: EthTemplateParameters {
-                            data: [],
+            ItemEthTemplate::MajorItem(
+                MajorItemEthTemplate::Form(
+                    FormEthTemplate::Static(
+                        MajorStaticEthTemplate {
+                            path: FormPath(`mnist::TASK`, `Static`),
                         },
-                        self_ty: EthTerm(`MnistTask`),
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist::task::MnistTask(0)::new`,
-                    TypeItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        Ok(
-            ItemEthTemplate::AssocItem(
-                AssocItemEthTemplate::Type(
-                    AssocRitchie(
-                        TypeAssocRitchieEthTemplate(
-                            Id {
-                                value: 3,
-                            },
-                        ),
                     ),
                 ),
             ),

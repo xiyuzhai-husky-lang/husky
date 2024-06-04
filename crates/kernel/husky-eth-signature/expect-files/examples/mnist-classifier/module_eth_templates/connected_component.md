@@ -304,7 +304,7 @@
                         },
                         trai: EthTerm(`Visualize`),
                         self_ty_refined: PathLeading(
-                            EntityPath(
+                            ItemPath(
                                 TypeOntology(
                                     TypePath(
                                         ItemPathId(

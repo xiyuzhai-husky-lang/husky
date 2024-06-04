@@ -12,7 +12,7 @@ pub use menu3::*;
 pub use menu4::*;
 pub use menu5::*;
 
-use crate::*;
+use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct EthTermMenu {

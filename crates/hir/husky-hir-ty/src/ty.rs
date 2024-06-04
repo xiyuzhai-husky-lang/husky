@@ -41,7 +41,7 @@ impl HirType {
             EthTerm::SymbolicVariable(symbol) => {
                 HirTypeTemplateVariable::from_eth(symbol, db).map(Into::into)
             }
-            EthTerm::EntityPath(path) => match path {
+            EthTerm::ItemPath(path) => match path {
                 ItemPathTerm::Form(_) => todo!(),
                 ItemPathTerm::Trait(_) => todo!(),
                 ItemPathTerm::TypeOntology(ty_path) => {
@@ -74,7 +74,7 @@ impl HirType {
 
     pub fn prelude_ty_path(self, db: &::salsa::Db) -> Option<PreludeTypePath> {
         match self {
-            HirType::PathLeading(hir_ty) => hir_ty.ty_path(db).prelude_ty_path(db),
+            HirType::PathLeading(hir_ty) => hir_ty.ty_path(db).prelude(db),
             _ => None,
         }
     }

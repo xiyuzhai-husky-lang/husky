@@ -1,6 +1,6 @@
 use super::*;
 use husky_dec_signature::parameter::DeclarativeTemplateParameter;
-use husky_vfs::Toolchain;
+use husky_vfs::toolchain::Toolchain;
 
 pub(super) fn curry_from_template_parameters(
     db: &::salsa::Db,

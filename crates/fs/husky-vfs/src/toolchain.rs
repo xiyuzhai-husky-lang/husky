@@ -3,14 +3,13 @@ mod error;
 #[cfg(test)]
 mod tests;
 
-pub use error::*;
-pub use jar::*;
+pub use self::error::*;
 
 use super::*;
 use date::*;
 use husky_platform::Platform;
 
-#[salsa::interned(jar = VfsJar, db = VfsDb)]
+#[salsa::interned(db = VfsDb)]
 pub struct Toolchain {
     #[return_ref]
     pub data: ToolchainData,
@@ -39,7 +38,7 @@ pub enum ToolchainData {
     Local { library_path: VirtualPath },
 }
 
-#[salsa::interned(db = VfsDb, jar = VfsJar)]
+#[salsa::interned]
 pub struct PublishedToolchain {
     channel: ToolchainChannel,
     date: ToolchainDate,
@@ -58,7 +57,7 @@ impl ToolchainChannel {
     }
 }
 
-#[salsa::tracked(jar = VfsJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn published_toolchain_library_path(
     _db: &::salsa::Db,
     _toolchain: PublishedToolchain,

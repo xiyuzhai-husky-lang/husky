@@ -1,7 +1,7 @@
 pub(crate) use husky_ast::test_utils::*;
 
 use crate::*;
-use husky_vfs::ModulePath;
+use husky_vfs::path::module_path::ModulePath;
 
 #[salsa::db(
     husky_coword::jar::CowordJar,

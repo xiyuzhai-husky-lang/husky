@@ -1,3 +1,0 @@
-```rust
-"digits/zero.rs"
-```

@@ -1,17 +1,24 @@
-use husky_corgi_config::transpilation_setup::TranspilationSetup;
-use husky_entity_tree::helpers::paths::crate_module_paths;
-use husky_io_utils::error::IOResult;
-use husky_manifest::HasManifest;
-use husky_vfs::path::linktime_target_path::{LinktimeTargetPath, LinktimeTargetPathData};
-use pathdiff::diff_paths;
-use std::path::Path;
-
 use crate::{
     defn::module_defn_rust_transpilation,
     linkage::package_linkages_transpilation,
     manifest::{package_linkages_rust_package_manifest, package_source_rust_package_manifest},
     *,
 };
+use ::relative_path::RelativePathBuf;
+use husky_corgi_config::transpilation_setup::TranspilationSetup;
+use husky_entity_tree::helpers::paths::crate_module_paths;
+use husky_io_utils::error::IOResult;
+use husky_manifest::HasManifest;
+use husky_vfs::{
+    path::{
+        crate_path::CrateKind,
+        linktime_target_path::{LinktimeTargetPath, LinktimeTargetPathData},
+        module_path::{relative_path::module_relative_stem, ModulePathData},
+    },
+    *,
+};
+use pathdiff::diff_paths;
+use std::path::Path;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -65,7 +72,7 @@ impl RustTranspilationPackage {
     }
 }
 
-#[salsa::tracked(jar = RustTranspilationJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn rust_transpilation_packages(
     db: &::salsa::Db,
     target_path: LinktimeTargetPath,
@@ -160,16 +167,46 @@ fn transpile_package_source_to_fs(
         package_source_rust_package_manifest(db, package_path, setup),
         true,
     );
-    for &crate_path in package_path.crate_paths(db) {
-        for &module_path in crate_module_paths(db, crate_path) {
-            husky_io_utils::diff_write(
-                &module_path.relative_path(db).to_path(&src_dir),
-                module_defn_rust_transpilation(db, module_path, setup),
-                true,
-            );
+    for &crate_path in package_path
+        .crate_paths(db)
+        .expect("no vfs error at this stage")
+    {
+        match crate_path.kind(db) {
+            CrateKind::Lib | CrateKind::Main => {
+                for &module_path in crate_module_paths(db, crate_path) {
+                    husky_io_utils::diff_write(
+                        &module_relative_path_for_transpilation(db, module_path).to_path(&src_dir),
+                        module_defn_rust_transpilation(db, module_path, setup),
+                        true,
+                    );
+                }
+            }
+            CrateKind::Requirements | CrateKind::Task => (),
+            CrateKind::Bin(_) => todo!(),
+            CrateKind::IntegratedTest(_) => todo!(),
+            CrateKind::Example => todo!(),
         }
     }
     Ok(())
+}
+
+#[salsa::tracked(return_ref)]
+fn module_relative_path_for_transpilation(
+    db: &::salsa::Db,
+    module_path: ModulePath,
+) -> RelativePathBuf {
+    match module_path.data(db) {
+        ModulePathData::Root(crate_path) => match crate_path.kind(db) {
+            CrateKind::Lib | CrateKind::Main | CrateKind::Requirements | CrateKind::Task => {
+                RelativePathBuf::from_path("lib.rs").unwrap()
+            }
+            CrateKind::Bin(_) => todo!(),
+            CrateKind::IntegratedTest(_) => todo!(),
+            CrateKind::Example => todo!(),
+        },
+        ModulePathData::Child { .. } => module_relative_stem(db, module_path).with_extension("rs"),
+        ModulePathData::Script { .. } => unreachable!(),
+    }
 }
 
 fn transpile_package_linkages_to_fs(

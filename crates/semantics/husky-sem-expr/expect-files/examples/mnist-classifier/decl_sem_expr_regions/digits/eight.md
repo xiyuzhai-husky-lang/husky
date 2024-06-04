@@ -281,7 +281,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 285,
+                                                    value: 286,
                                                 },
                                             ),
                                         ),
@@ -294,10 +294,13 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 285,
+                                                            value: 286,
                                                         },
                                                     ),
                                                 ),
+                                            ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
                                             ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],

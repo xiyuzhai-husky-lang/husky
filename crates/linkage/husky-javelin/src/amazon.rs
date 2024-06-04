@@ -3,7 +3,7 @@ use crate::{instantiation::JavInstantiation, javelin::JavelinData, path::JavPath
 use husky_entity_path::path::ItemPath;
 use husky_entity_tree::helpers::paths::{crate_module_paths, module_item_paths};
 use husky_hir_decl::parameter::template::item_hir_template_parameter_stats;
-use husky_vfs::PackagePath;
+use husky_vfs::path::package_path::PackagePath;
 use vec_like::VecSet;
 
 /// an Amazon javelin is one with univalent instantiation
@@ -36,7 +36,10 @@ pub(crate) fn package_amazon_javelins(
     package_path: PackagePath,
 ) -> VecSet<AmazonJavelin> {
     let mut amazon_javelins: VecSet<AmazonJavelin> = Default::default();
-    for &crate_path in package_path.crate_paths(db) {
+    for &crate_path in package_path
+        .crate_paths(db)
+        .expect("no vfs error at this stage")
+    {
         for &module_path in crate_module_paths(db, crate_path) {
             for &item_path in module_item_paths(db, module_path) {
                 if let Some(amazon_javelin) = AmazonJavelin::from_item_path(item_path, db) {

@@ -7,7 +7,7 @@ pub use error::*;
 
 use self::calc::*;
 use husky_token::TokenDb;
-use husky_vfs::*;
+use husky_vfs::path::module_path::ModulePath;
 use lsp_types::FoldingRange;
 
 pub trait FoldingRangeDb {

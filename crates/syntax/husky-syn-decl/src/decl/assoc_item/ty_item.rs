@@ -76,11 +76,11 @@ pub(crate) fn ty_item_syn_node_decl(
     db: &::salsa::Db,
     syn_node_path: TypeItemSynNodePath,
 ) -> TypeItemSynNodeDecl {
-    let ctx = ItemDeclParser::new(db, syn_node_path.into());
+    let ctx = ItemSynNodeDeclParser::new(db, syn_node_path.into());
     ctx.parse_ty_item_syn_node_decl(syn_node_path)
 }
 
-impl<'a> ItemDeclParser<'a> {
+impl<'a> ItemSynNodeDeclParser<'a> {
     fn parse_ty_item_syn_node_decl(
         &self,
         syn_node_path: TypeItemSynNodePath,

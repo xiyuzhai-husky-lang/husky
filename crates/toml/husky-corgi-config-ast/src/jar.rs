@@ -1,5 +1,5 @@
 use crate::*;
-use husky_vfs::{error::VfsResult, VirtualPath};
+use husky_vfs::error::VfsResult;
 use salsa::Db;
 
 #[salsa::jar]

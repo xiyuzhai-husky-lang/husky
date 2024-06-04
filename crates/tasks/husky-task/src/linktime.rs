@@ -1,6 +1,6 @@
 use husky_linkage::linkage::{virtual_linkage_impl::VirtualLinkageImpl, Linkage};
 use husky_task_interface::IsLinkageImpl;
-use husky_vfs::linktime_target_path::LinktimeTargetPath;
+use husky_vfs::path::linktime_target_path::LinktimeTargetPath;
 
 pub trait IsLinktime: Sized + Send {
     type LinkageImpl: IsLinkageImpl;

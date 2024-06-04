@@ -20,7 +20,27 @@ impl CratePath {
         JustOk(slf)
     }
 
-    pub fn relative_path(&self, db: &::salsa::Db) -> std::borrow::Cow<'static, str> {
+    pub fn dir(self, db: &::salsa::Db) -> VfsResult<VirtualPath> {
+        // todo: cache this?
+        Ok(self
+            .package_path(db)
+            .dir(db)?
+            .join(self.relative_dir(db).to_string(), db))
+    }
+
+    pub fn relative_dir(self, db: &::salsa::Db) -> std::borrow::Cow<'static, str> {
+        match self.kind(db) {
+            CrateKind::Lib => "src".into(),
+            CrateKind::Main => "src".into(),
+            CrateKind::Bin(_ident) => todo!(),
+            CrateKind::IntegratedTest(_) => todo!(),
+            CrateKind::Example => todo!(),
+            CrateKind::Task => "task".into(),
+            CrateKind::Requirements => "requirements".into(),
+        }
+    }
+
+    pub fn relative_path(self, db: &::salsa::Db) -> std::borrow::Cow<'static, str> {
         match self.kind(db) {
             CrateKind::Lib => "src/lib.hsy".into(),
             CrateKind::Main => "src/main.hsy".into(),
@@ -57,8 +77,11 @@ pub enum CrateKind {
 }
 
 impl PackagePath {
-    pub fn crate_paths<'a>(self, db: &'a ::salsa::Db) -> &'a [CratePath] {
-        package_crate_paths(db, self)
+    pub fn crate_paths<'a>(self, db: &'a ::salsa::Db) -> VfsResult<&'a [CratePath]> {
+        match package_crate_paths(db, self) {
+            Ok(crate_paths) => Ok(crate_paths),
+            Err(e) => Err(e.clone()),
+        }
     }
 
     // todo: change to MaybeResult and cached
@@ -82,15 +105,20 @@ impl PackagePath {
     }
 }
 
-#[salsa::tracked(jar = VfsJar, return_ref)]
-fn package_crate_paths(db: &::salsa::Db, package_path: PackagePath) -> Vec<CratePath> {
+#[salsa::tracked(return_ref)]
+fn package_crate_paths(db: &::salsa::Db, package_path: PackagePath) -> VfsResult<Vec<CratePath>> {
     let mut crate_paths = vec![];
-    if let Some(crate_path) = package_path.lib_crate_path(db) {
-        crate_paths.push(crate_path)
-    }
-    if let Some(crate_path) = package_path.main_crate_path(db) {
-        crate_paths.push(crate_path)
-    }
-    // todo!()
+    crate_paths.extend(CratePath::new(package_path, CrateKind::Lib, db).into_result_option()?);
+    crate_paths.extend(CratePath::new(package_path, CrateKind::Main, db).into_result_option()?);
     crate_paths
+        .extend(CratePath::new(package_path, CrateKind::Requirements, db).into_result_option()?);
+    crate_paths.extend(CratePath::new(package_path, CrateKind::Task, db).into_result_option()?);
+    let package_dir = package_path.dir(db).as_ref().unwrap().data(db);
+    if package_dir.join("src/bin").exists() {
+        todo!()
+    }
+    if package_dir.join("tests").exists() {
+        todo!()
+    }
+    Ok(crate_paths)
 }

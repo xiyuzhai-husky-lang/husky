@@ -147,6 +147,7 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: None,
                                                     env: MethodFn {
                                                         self_place: RefMut {
                                                             place: Idx(
@@ -226,6 +227,7 @@
                                                     )`),
                                                 ),
                                             ),
+                                            task_ty: None,
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -843,12 +845,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 20,
+                                                    value: 21,
                                                 },
                                             ),
                                         ),
@@ -867,12 +869,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 20,
+                                                            value: 21,
                                                         },
                                                     ),
                                                 ),
@@ -1826,6 +1828,7 @@
                                                     )`),
                                                 ),
                                             ),
+                                            task_ty: None,
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -2170,6 +2173,7 @@
                                                     )`),
                                                 ),
                                             ),
+                                            task_ty: None,
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -2592,6 +2596,7 @@
                                                     )`),
                                                 ),
                                             ),
+                                            task_ty: None,
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -3179,12 +3184,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 14,
+                                                    value: 15,
                                                 },
                                             ),
                                         ),
@@ -3203,12 +3208,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 14,
+                                                            value: 15,
                                                         },
                                                     ),
                                                 ),
@@ -7332,6 +7337,7 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: None,
                                                     env: MethodFn {
                                                         self_place: RefMut {
                                                             place: Idx(
@@ -7832,6 +7838,7 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: None,
                                                     env: MethodFn {
                                                         self_place: RefMut {
                                                             place: Idx(
@@ -8581,12 +8588,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 20,
+                                                    value: 21,
                                                 },
                                             ),
                                         ),
@@ -8601,12 +8608,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 14,
+                                                    value: 15,
                                                 },
                                             ),
                                         ),
@@ -8627,12 +8634,12 @@
                                 },
                             ),
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 14,
+                                                    value: 15,
                                                 },
                                             ),
                                         ),
@@ -8651,12 +8658,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 20,
+                                                            value: 21,
                                                         },
                                                     ),
                                                 ),
@@ -8673,12 +8680,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 14,
+                                                            value: 15,
                                                         },
                                                     ),
                                                 ),
@@ -8701,12 +8708,12 @@
                                         },
                                     ),
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 14,
+                                                            value: 15,
                                                         },
                                                     ),
                                                 ),

@@ -19,6 +19,27 @@ impl TypeAliasSynNodeDecl {
     }
 }
 
+impl<'a> ItemSynNodeDeclParser<'a> {
+    pub(super) fn parse_ty_alias_syn_node_decl(
+        &self,
+        syn_node_path: FormSynNodePath,
+    ) -> TypeAliasSynNodeDecl {
+        let mut parser = self.expr_parser(None, AllowSelfType::False, AllowSelfValue::False, None);
+        let template_parameter_decl_list = parser.try_parse_option();
+        let eq_token =
+            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEqTokenForTypeAlias);
+        let expr = parser.parse_expr_root(None, SynExprRootKind::TypeAliasTypeTerm);
+        TypeAliasSynNodeDecl::new(
+            self.db(),
+            syn_node_path,
+            template_parameter_decl_list,
+            eq_token,
+            expr,
+            parser.finish(),
+        )
+    }
+}
+
 #[salsa::tracked]
 pub struct TypeAliasSynDecl {
     #[id]

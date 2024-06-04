@@ -1,7 +1,7 @@
+use crate::*;
 use husky_entity_path::region::RegionPath;
 use husky_token::{TokenDb, TokenSheetData};
-
-use crate::*;
+use husky_vfs::toolchain::Toolchain;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db]

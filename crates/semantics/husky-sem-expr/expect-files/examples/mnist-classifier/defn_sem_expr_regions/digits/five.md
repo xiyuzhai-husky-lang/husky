@@ -30,7 +30,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 265,
+                                                    value: 266,
                                                 },
                                             ),
                                         ),
@@ -43,10 +43,13 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 265,
+                                                            value: 266,
                                                         },
                                                     ),
                                                 ),
+                                            ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
                                             ),
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
@@ -273,7 +276,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAll`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`malamute::OneVsAll`, `Enum`),
                                         ),
                                     ),

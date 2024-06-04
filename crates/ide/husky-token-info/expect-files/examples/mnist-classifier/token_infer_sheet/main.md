@@ -448,7 +448,7 @@ Ok(
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
-                                EntitySymbol::PackageDependency {
+                                EntitySymbol::PackageDependencyOrSelfLib {
                                     item_path: PrincipalEntityPath::Module(
                                         `malamute`,
                                     ),
@@ -473,7 +473,7 @@ Ok(
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
-                                EntitySymbol::PackageDependency {
+                                EntitySymbol::PackageDependencyOrSelfLib {
                                     item_path: PrincipalEntityPath::Module(
                                         `mnist`,
                                     ),
@@ -752,7 +752,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 263,
+                                        value: 264,
                                     },
                                 ),
                             ),
@@ -764,7 +764,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 263,
+                                        value: 264,
                                     },
                                 ),
                             ),

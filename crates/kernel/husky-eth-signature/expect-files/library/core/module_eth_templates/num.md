@@ -380,7 +380,7 @@
                         },
                         trai: EthTerm(`Add i8`),
                         self_ty_refined: PathLeading(
-                            EntityPath(
+                            ItemPath(
                                 TypeOntology(
                                     TypePath(
                                         ItemPathId(
@@ -508,7 +508,7 @@
                         },
                         trai: EthTerm(`Add i32`),
                         self_ty_refined: PathLeading(
-                            EntityPath(
+                            ItemPath(
                                 TypeOntology(
                                     TypePath(
                                         ItemPathId(
@@ -661,7 +661,7 @@
                         },
                         trai: EthTerm(`Add i32`),
                         self_ty_refined: PathLeading(
-                            EntityPath(
+                            ItemPath(
                                 TypeOntology(
                                     TypePath(
                                         ItemPathId(
@@ -764,7 +764,7 @@
                         },
                         trai: EthTerm(`Add i64`),
                         self_ty_refined: PathLeading(
-                            EntityPath(
+                            ItemPath(
                                 TypeOntology(
                                     TypePath(
                                         ItemPathId(
@@ -867,7 +867,7 @@
                         },
                         trai: EthTerm(`Add i128`),
                         self_ty_refined: PathLeading(
-                            EntityPath(
+                            ItemPath(
                                 TypeOntology(
                                     TypePath(
                                         ItemPathId(
@@ -970,7 +970,7 @@
                         },
                         trai: EthTerm(`Add isize`),
                         self_ty_refined: PathLeading(
-                            EntityPath(
+                            ItemPath(
                                 TypeOntology(
                                     TypePath(
                                         ItemPathId(
@@ -1073,7 +1073,7 @@
                         },
                         trai: EthTerm(`Add u8`),
                         self_ty_refined: PathLeading(
-                            EntityPath(
+                            ItemPath(
                                 TypeOntology(
                                     TypePath(
                                         ItemPathId(
@@ -1176,7 +1176,7 @@
                         },
                         trai: EthTerm(`Add u16`),
                         self_ty_refined: PathLeading(
-                            EntityPath(
+                            ItemPath(
                                 TypeOntology(
                                     TypePath(
                                         ItemPathId(
@@ -1279,7 +1279,7 @@
                         },
                         trai: EthTerm(`Add u32`),
                         self_ty_refined: PathLeading(
-                            EntityPath(
+                            ItemPath(
                                 TypeOntology(
                                     TypePath(
                                         ItemPathId(
@@ -1382,7 +1382,7 @@
                         },
                         trai: EthTerm(`Add u64`),
                         self_ty_refined: PathLeading(
-                            EntityPath(
+                            ItemPath(
                                 TypeOntology(
                                     TypePath(
                                         ItemPathId(
@@ -1485,7 +1485,7 @@
                         },
                         trai: EthTerm(`Add u128`),
                         self_ty_refined: PathLeading(
-                            EntityPath(
+                            ItemPath(
                                 TypeOntology(
                                     TypePath(
                                         ItemPathId(
@@ -1588,7 +1588,7 @@
                         },
                         trai: EthTerm(`Add usize`),
                         self_ty_refined: PathLeading(
-                            EntityPath(
+                            ItemPath(
                                 TypeOntology(
                                     TypePath(
                                         ItemPathId(
@@ -1866,7 +1866,7 @@
                         },
                         trai: EthTerm(`Add f32`),
                         self_ty_refined: PathLeading(
-                            EntityPath(
+                            ItemPath(
                                 TypeOntology(
                                     TypePath(
                                         ItemPathId(
@@ -1994,7 +1994,7 @@
                         },
                         trai: EthTerm(`Add f64`),
                         self_ty_refined: PathLeading(
-                            EntityPath(
+                            ItemPath(
                                 TypeOntology(
                                     TypePath(
                                         ItemPathId(

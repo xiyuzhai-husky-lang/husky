@@ -1,5 +1,8 @@
 use husky_coword::{Ident, Kebab};
-use husky_vfs::linktime_target_path::{LinktimeTargetPath, LinktimeTargetPathData};
+use husky_vfs::path::{
+    linktime_target_path::{LinktimeTargetPath, LinktimeTargetPathData},
+    virtual_path::VirtualPath,
+};
 
 use crate::*;
 

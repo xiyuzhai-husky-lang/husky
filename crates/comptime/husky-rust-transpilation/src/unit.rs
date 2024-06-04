@@ -1,4 +1,4 @@
-use husky_vfs::CratePath;
+use husky_vfs::path::crate_path::CratePath;
 
 pub enum TranspilationUnit {
     Essential(EssentialTranspilationUnit),

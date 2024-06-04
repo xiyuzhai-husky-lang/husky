@@ -1,6 +1,6 @@
 use crate::*;
 
-use husky_vfs::{script::Script, *};
+use husky_vfs::{path::module_path::ModulePath, script::Script};
 
 pub trait TokenDb {
     fn ranged_token_sheet(&self, module_path: ModulePath) -> &RangedTokenSheet;

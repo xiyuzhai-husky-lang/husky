@@ -2,9 +2,35 @@
 [
     SemExprRangeRegion {
         data: SemExprRangeRegionData {
-            principal_entity_path_expr_ranges: [],
+            principal_entity_path_expr_ranges: [
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
+                },
+            ],
             pattern_expr_ranges: [],
-            expr_ranges: [],
+            expr_ranges: [
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
+                },
+            ],
             stmt_ranges: SemStmtMap(
                 [],
             ),
@@ -16,50 +42,87 @@
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
                         RegionalTokenIdx(
-                            2,
+                            5,
                         ),
                     ),
                     end: RegionalTokenIdxRangeEnd(
                         RegionalTokenIdx(
-                            3,
+                            6,
                         ),
                     ),
                 },
-            ],
-            pattern_expr_ranges: [],
-            expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
                         RegionalTokenIdx(
-                            2,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            3,
-                        ),
-                    ),
-                },
-            ],
-            stmt_ranges: SemStmtMap(
-                [],
-            ),
-        },
-    },
-    SemExprRangeRegion {
-        data: SemExprRangeRegionData {
-            principal_entity_path_expr_ranges: [],
-            pattern_expr_ranges: [],
-            expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            7,
+                            5,
                         ),
                     ),
                     end: RegionalTokenIdxRangeEnd(
                         RegionalTokenIdx(
                             8,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            12,
+                        ),
+                    ),
+                },
+            ],
+            pattern_expr_ranges: [],
+            expr_ranges: [
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            14,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            16,
                         ),
                     ),
                 },

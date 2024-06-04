@@ -1,3 +1,0 @@
-```rust
-"basic.rs"
-```

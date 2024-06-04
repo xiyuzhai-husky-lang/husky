@@ -32797,7 +32797,7 @@
                     ),
                     callee_syn_expr_region: SynExprRegion(
                         Id {
-                            value: 134,
+                            value: 136,
                         },
                     ),
                 },
@@ -32876,7 +32876,7 @@
                     val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
-                                value: 289,
+                                value: 290,
                             },
                         ),
                     ),
@@ -33006,7 +33006,7 @@
                     ),
                     callee_syn_expr_region: SynExprRegion(
                         Id {
-                            value: 134,
+                            value: 136,
                         },
                     ),
                 },
@@ -34171,7 +34171,7 @@
                                 TypeItemPath(
                                     ItemPathId(
                                         Id {
-                                            value: 394,
+                                            value: 397,
                                         },
                                     ),
                                 ),
@@ -34197,7 +34197,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 394,
+                                        value: 397,
                                     },
                                 ),
                             ),
@@ -35143,7 +35143,7 @@
                                 TypeItemPath(
                                     ItemPathId(
                                         Id {
-                                            value: 394,
+                                            value: 397,
                                         },
                                     ),
                                 ),
@@ -35169,7 +35169,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 394,
+                                        value: 397,
                                     },
                                 ),
                             ),

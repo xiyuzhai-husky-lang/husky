@@ -1,5 +1,7 @@
 use super::*;
 use crate::path::ItemPath;
+use husky_vfs::path::crate_path::CratePath;
+use husky_vfs::path::module_path::ModulePath;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]

@@ -14,6 +14,7 @@ Ok(
                 },
                 kind: Lib,
             },
+            default_const_excludes: None,
         },
     ),
 )

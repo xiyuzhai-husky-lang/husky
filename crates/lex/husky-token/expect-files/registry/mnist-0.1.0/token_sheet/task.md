@@ -1,47 +1,103 @@
 ```rust
 TokenSheetData {
     tokens: [
+        TokenData::Keyword(
+            Keyword::Use,
+        ),
+        TokenData::Ident(
+            `mnist`,
+        ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Pound,
+                PunctuationMapped::Binary(
+                    SynBinaryOpr::ScopeResolution,
+                ),
             ),
         ),
         TokenData::Ident(
             `task`,
         ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    SynBinaryOpr::ScopeResolution,
+                ),
+            ),
+        ),
+        TokenData::Ident(
+            `MnistTask`,
+        ),
         TokenData::Keyword(
             Keyword::Pub,
         ),
         TokenData::Keyword(
-            Keyword::TypeEntity(
-                Extern,
+            Keyword::Form(
+                Type,
             ),
         ),
         TokenData::Ident(
-            `MnistTask`,
+            `Task`,
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::Semicolon,
+                PunctuationMapped::Eq,
             ),
-        ),
-        TokenData::Keyword(
-            Keyword::Impl,
         ),
         TokenData::Ident(
             `MnistTask`,
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Form(
+                Static,
+            ),
+        ),
+        TokenData::Ident(
+            `TASK`,
         ),
         TokenData::Punctuation(
             Punctuation(
                 PunctuationMapped::Colon,
             ),
         ),
-        TokenData::Keyword(
-            Keyword::Assoc,
+        TokenData::Ident(
+            `mnist`,
         ),
-        TokenData::Keyword(
-            Keyword::Form(
-                Fn,
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    SynBinaryOpr::ScopeResolution,
+                ),
+            ),
+        ),
+        TokenData::Ident(
+            `task`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    SynBinaryOpr::ScopeResolution,
+                ),
+            ),
+        ),
+        TokenData::Ident(
+            `MnistTask`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Eq,
+            ),
+        ),
+        TokenData::Ident(
+            `MnistTask`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    SynBinaryOpr::ScopeResolution,
+                ),
             ),
         ),
         TokenData::Ident(
@@ -61,23 +117,6 @@ TokenSheetData {
                 ),
             ),
         ),
-        TokenData::Punctuation(
-            Punctuation(
-                PunctuationMapped::Binary(
-                    SynBinaryOpr::CurryType,
-                ),
-            ),
-        ),
-        TokenData::Keyword(
-            Keyword::Pronoun(
-                SelfType,
-            ),
-        ),
-        TokenData::Punctuation(
-            Punctuation(
-                PunctuationMapped::Semicolon,
-            ),
-        ),
     ],
     token_verses: TokenVerses {
         main_sequence: MainTokenVerseSequence {
@@ -93,14 +132,6 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            3,
-                        ),
-                    ),
-                    indent: 0,
-                },
-                TokenVerseData {
-                    start: TokenVerseStart(
-                        TokenIdx(
                             7,
                         ),
                     ),
@@ -109,10 +140,10 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            10,
+                            12,
                         ),
                     ),
-                    indent: 4,
+                    indent: 0,
                 },
             ],
         },

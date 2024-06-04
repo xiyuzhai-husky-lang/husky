@@ -12,7 +12,7 @@ use husky_hir_lazy_expr::HirLazyStmtData;
 use husky_hir_lazy_expr::{HirLazyExprData, HirLazyExprRegion};
 use husky_hir_ty::{instantiation::HirInstantiation, HirType};
 use husky_manifest::HasManifest;
-use husky_vfs::PackagePath;
+use husky_vfs::path::package_path::PackagePath;
 use vec_like::VecSet;
 
 /// a Valkyrie javelin is one with non empty instantiation

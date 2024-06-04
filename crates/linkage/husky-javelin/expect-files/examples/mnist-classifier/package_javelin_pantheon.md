@@ -17,6 +17,809 @@ ValkyrieJavelinPantheon {
                 data: JavelinData::PathLeading {
                     path: JavPath::TypeItem(
                         TypeItemPath(
+                            `core::vec::Vec(0)::push`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
+                    ),
+                    instantiation: JavInstantiation {
+                        symbol_resolutions: [
+                            (
+                                HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::Type {
+                                        attrs: HirTemplateVariableAttrs {
+                                            class: Mono,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
+                                        JavelinType::PathLeading(
+                                            JavelinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            (
+                                HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::SelfLifetime,
+                                ),
+                                JavTermSymbolResolution::SelfLifetime,
+                            ),
+                        ],
+                        separator: Some(
+                            1,
+                        ),
+                    },
+                },
+            },
+        ): PackagePath {
+            toolchain: Toolchain {
+                data: ToolchainData::Local {
+                    library_path: "../../../library",
+                },
+            },
+            name: `mnist-classifier`,
+            data: PackagePathSource::Local {
+                path: "../../../examples/mnist-classifier",
+            },
+        },
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::PathLeading {
+                    path: JavPath::TypeItem(
+                        TypeItemPath(
+                            `core::slice::CyclicSlice(0)::start`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
+                    ),
+                    instantiation: JavInstantiation {
+                        symbol_resolutions: [
+                            (
+                                HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::Type {
+                                        attrs: HirTemplateVariableAttrs {
+                                            class: Mono,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
+                                        JavelinType::PathLeading(
+                                            JavelinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ],
+                        separator: Some(
+                            1,
+                        ),
+                    },
+                },
+            },
+        ): PackagePath {
+            toolchain: Toolchain {
+                data: ToolchainData::Local {
+                    library_path: "../../../library",
+                },
+            },
+            name: `mnist-classifier`,
+            data: PackagePathSource::Local {
+                path: "../../../examples/mnist-classifier",
+            },
+        },
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::VecConstructor {
+                    element_ty: JavelinType::PathLeading(
+                        JavelinTypePathLeading {
+                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                            template_arguments: [],
+                        },
+                    ),
+                },
+            },
+        ): PackagePath {
+            toolchain: Toolchain {
+                data: ToolchainData::Local {
+                    library_path: "../../../library",
+                },
+            },
+            name: `mnist-classifier`,
+            data: PackagePathSource::Local {
+                path: "../../../examples/mnist-classifier",
+            },
+        },
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::PathLeading {
+                    path: JavPath::TypeItem(
+                        TypeItemPath(
+                            `core::slice::CyclicSlice(0)::first`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
+                    ),
+                    instantiation: JavInstantiation {
+                        symbol_resolutions: [
+                            (
+                                HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::Type {
+                                        attrs: HirTemplateVariableAttrs {
+                                            class: Mono,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
+                                        JavelinType::PathLeading(
+                                            JavelinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ],
+                        separator: Some(
+                            1,
+                        ),
+                    },
+                },
+            },
+        ): PackagePath {
+            toolchain: Toolchain {
+                data: ToolchainData::Local {
+                    library_path: "../../../library",
+                },
+            },
+            name: `mnist-classifier`,
+            data: PackagePathSource::Local {
+                path: "../../../examples/mnist-classifier",
+            },
+        },
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::PathLeading {
+                    path: JavPath::TypeItem(
+                        TypeItemPath(
+                            `core::vec::Vec(0)::push`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
+                    ),
+                    instantiation: JavInstantiation {
+                        symbol_resolutions: [
+                            (
+                                HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::Type {
+                                        attrs: HirTemplateVariableAttrs {
+                                            class: Mono,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
+                                        JavelinType::PathLeading(
+                                            JavelinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            (
+                                HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::SelfLifetime,
+                                ),
+                                JavTermSymbolResolution::SelfLifetime,
+                            ),
+                        ],
+                        separator: Some(
+                            1,
+                        ),
+                    },
+                },
+            },
+        ): PackagePath {
+            toolchain: Toolchain {
+                data: ToolchainData::Local {
+                    library_path: "../../../library",
+                },
+            },
+            name: `mnist-classifier`,
+            data: PackagePathSource::Local {
+                path: "../../../examples/mnist-classifier",
+            },
+        },
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::VecConstructor {
+                    element_ty: JavelinType::PathLeading(
+                        JavelinTypePathLeading {
+                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                            template_arguments: [],
+                        },
+                    ),
+                },
+            },
+        ): PackagePath {
+            toolchain: Toolchain {
+                data: ToolchainData::Local {
+                    library_path: "../../../library",
+                },
+            },
+            name: `mnist-classifier`,
+            data: PackagePathSource::Local {
+                path: "../../../examples/mnist-classifier",
+            },
+        },
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::PathLeading {
+                    path: JavPath::TypeItem(
+                        TypeItemPath(
+                            `core::vec::Vec(0)::push`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
+                    ),
+                    instantiation: JavInstantiation {
+                        symbol_resolutions: [
+                            (
+                                HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::Type {
+                                        attrs: HirTemplateVariableAttrs {
+                                            class: Mono,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
+                                        JavelinType::PathLeading(
+                                            JavelinTypePathLeading {
+                                                ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                template_arguments: [
+                                                    JavTemplateArgument::Type(
+                                                        JavelinType::PathLeading(
+                                                            JavelinTypePathLeading {
+                                                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                                template_arguments: [
+                                                                    JavTemplateArgument::Type(
+                                                                        JavelinType::PathLeading(
+                                                                            JavelinTypePathLeading {
+                                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                                template_arguments: [],
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ],
+                                                            },
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            (
+                                HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::SelfLifetime,
+                                ),
+                                JavTermSymbolResolution::SelfLifetime,
+                            ),
+                        ],
+                        separator: Some(
+                            1,
+                        ),
+                    },
+                },
+            },
+        ): PackagePath {
+            toolchain: Toolchain {
+                data: ToolchainData::Local {
+                    library_path: "../../../library",
+                },
+            },
+            name: `mnist-classifier`,
+            data: PackagePathSource::Local {
+                path: "../../../examples/mnist-classifier",
+            },
+        },
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::PathLeading {
+                    path: JavPath::TypeItem(
+                        TypeItemPath(
+                            `core::vec::Vec(0)::collect_leashes`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
+                    ),
+                    instantiation: JavInstantiation {
+                        symbol_resolutions: [
+                            (
+                                HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::Type {
+                                        attrs: HirTemplateVariableAttrs {
+                                            class: Mono,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
+                                        JavelinType::PathLeading(
+                                            JavelinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ],
+                        separator: Some(
+                            1,
+                        ),
+                    },
+                },
+            },
+        ): PackagePath {
+            toolchain: Toolchain {
+                data: ToolchainData::Local {
+                    library_path: "../../../library",
+                },
+            },
+            name: `mnist-classifier`,
+            data: PackagePathSource::Local {
+                path: "../../../examples/mnist-classifier",
+            },
+        },
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::VecConstructor {
+                    element_ty: JavelinType::PathLeading(
+                        JavelinTypePathLeading {
+                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                            template_arguments: [],
+                        },
+                    ),
+                },
+            },
+        ): PackagePath {
+            toolchain: Toolchain {
+                data: ToolchainData::Local {
+                    library_path: "../../../library",
+                },
+            },
+            name: `mnist-classifier`,
+            data: PackagePathSource::Local {
+                path: "../../../examples/mnist-classifier",
+            },
+        },
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::PathLeading {
+                    path: JavPath::TypeItem(
+                        TypeItemPath(
+                            `core::slice::CyclicSlice(0)::first`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
+                    ),
+                    instantiation: JavInstantiation {
+                        symbol_resolutions: [
+                            (
+                                HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::Type {
+                                        attrs: HirTemplateVariableAttrs {
+                                            class: Mono,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
+                                        JavelinType::PathLeading(
+                                            JavelinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ],
+                        separator: Some(
+                            1,
+                        ),
+                    },
+                },
+            },
+        ): PackagePath {
+            toolchain: Toolchain {
+                data: ToolchainData::Local {
+                    library_path: "../../../library",
+                },
+            },
+            name: `mnist-classifier`,
+            data: PackagePathSource::Local {
+                path: "../../../examples/mnist-classifier",
+            },
+        },
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::PathLeading {
+                    path: JavPath::Type(
+                        TypePath(`malamute::Class`, `Enum`),
+                    ),
+                    instantiation: JavInstantiation {
+                        symbol_resolutions: [
+                            (
+                                HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::Type {
+                                        attrs: HirTemplateVariableAttrs {
+                                            class: Mono,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
+                                        JavelinType::PathLeading(
+                                            JavelinTypePathLeading {
+                                                ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ],
+                        separator: None,
+                    },
+                },
+            },
+        ): PackagePath {
+            toolchain: Toolchain {
+                data: ToolchainData::Local {
+                    library_path: "../../../library",
+                },
+            },
+            name: `mnist-classifier`,
+            data: PackagePathSource::Local {
+                path: "../../../examples/mnist-classifier",
+            },
+        },
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::TypeDefault {
+                    ty: JavelinType::PathLeading(
+                        JavelinTypePathLeading {
+                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                            template_arguments: [],
+                        },
+                    ),
+                },
+            },
+        ): PackagePath {
+            toolchain: Toolchain {
+                data: ToolchainData::Local {
+                    library_path: "../../../library",
+                },
+            },
+            name: `mnist-classifier`,
+            data: PackagePathSource::Local {
+                path: "../../../examples/mnist-classifier",
+            },
+        },
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::VecConstructor {
+                    element_ty: JavelinType::Ritchie(
+                        JavelinRitchieType {
+                            parameters: [
+                                JavelinRitchieParameter {
+                                    contract: Pure,
+                                    parameter_ty: PathLeading(
+                                        JavelinTypePathLeading(
+                                            Id {
+                                                value: 12,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ],
+                            return_ty: JavelinType::PathLeading(
+                                JavelinTypePathLeading {
+                                    ty_path: TypePath(`core::option::Option`, `Enum`),
+                                    template_arguments: [
+                                        JavTemplateArgument::Type(
+                                            JavelinType::PathLeading(
+                                                JavelinTypePathLeading {
+                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                    template_arguments: [],
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                },
+                            ),
+                        },
+                    ),
+                },
+            },
+        ): PackagePath {
+            toolchain: Toolchain {
+                data: ToolchainData::Local {
+                    library_path: "../../../library",
+                },
+            },
+            name: `mnist-classifier`,
+            data: PackagePathSource::Local {
+                path: "../../../examples/mnist-classifier",
+            },
+        },
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::PathLeading {
+                    path: JavPath::TypeItem(
+                        TypeItemPath(
+                            `core::vec::Vec(0)::pop_with_largest_opt_f32`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
+                    ),
+                    instantiation: JavInstantiation {
+                        symbol_resolutions: [
+                            (
+                                HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::Type {
+                                        attrs: HirTemplateVariableAttrs {
+                                            class: Mono,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
+                                        JavelinType::PathLeading(
+                                            JavelinTypePathLeading {
+                                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                template_arguments: [
+                                                    JavTemplateArgument::Type(
+                                                        JavelinType::PathLeading(
+                                                            JavelinTypePathLeading {
+                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                template_arguments: [],
+                                                            },
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            (
+                                HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::SelfLifetime,
+                                ),
+                                JavTermSymbolResolution::SelfLifetime,
+                            ),
+                        ],
+                        separator: Some(
+                            1,
+                        ),
+                    },
+                },
+            },
+        ): PackagePath {
+            toolchain: Toolchain {
+                data: ToolchainData::Local {
+                    library_path: "../../../library",
+                },
+            },
+            name: `mnist-classifier`,
+            data: PackagePathSource::Local {
+                path: "../../../examples/mnist-classifier",
+            },
+        },
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::PathLeading {
+                    path: JavPath::TypeItem(
+                        TypeItemPath(
+                            `core::vec::Vec(0)::collect_leashes`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
+                    ),
+                    instantiation: JavInstantiation {
+                        symbol_resolutions: [
+                            (
+                                HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::Type {
+                                        attrs: HirTemplateVariableAttrs {
+                                            class: Mono,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
+                                        JavelinType::PathLeading(
+                                            JavelinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ],
+                        separator: Some(
+                            1,
+                        ),
+                    },
+                },
+            },
+        ): PackagePath {
+            toolchain: Toolchain {
+                data: ToolchainData::Local {
+                    library_path: "../../../library",
+                },
+            },
+            name: `mnist-classifier`,
+            data: PackagePathSource::Local {
+                path: "../../../examples/mnist-classifier",
+            },
+        },
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::PathLeading {
+                    path: JavPath::TypeItem(
+                        TypeItemPath(
+                            `core::slice::CyclicSlice(0)::start`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
+                    ),
+                    instantiation: JavInstantiation {
+                        symbol_resolutions: [
+                            (
+                                HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::Type {
+                                        attrs: HirTemplateVariableAttrs {
+                                            class: Mono,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
+                                        JavelinType::PathLeading(
+                                            JavelinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ],
+                        separator: Some(
+                            1,
+                        ),
+                    },
+                },
+            },
+        ): PackagePath {
+            toolchain: Toolchain {
+                data: ToolchainData::Local {
+                    library_path: "../../../library",
+                },
+            },
+            name: `mnist-classifier`,
+            data: PackagePathSource::Local {
+                path: "../../../examples/mnist-classifier",
+            },
+        },
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::PathLeading {
+                    path: JavPath::TypeItem(
+                        TypeItemPath(
+                            `core::vec::Vec(0)::cyclic_slice_leashed`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
+                    ),
+                    instantiation: JavInstantiation {
+                        symbol_resolutions: [
+                            (
+                                HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::Type {
+                                        attrs: HirTemplateVariableAttrs {
+                                            class: Mono,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
+                                        JavelinType::PathLeading(
+                                            JavelinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ],
+                        separator: Some(
+                            1,
+                        ),
+                    },
+                },
+            },
+        ): PackagePath {
+            toolchain: Toolchain {
+                data: ToolchainData::Local {
+                    library_path: "../../../library",
+                },
+            },
+            name: `mnist-classifier`,
+            data: PackagePathSource::Local {
+                path: "../../../examples/mnist-classifier",
+            },
+        },
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::PathLeading {
+                    path: JavPath::TypeItem(
+                        TypeItemPath(
                             `core::vec::Vec(0)::first`,
                             TypeItemKind::MethodRitchie(
                                 RitchieItemKind::Fn,
@@ -420,58 +1223,6 @@ ValkyrieJavelinPantheon {
                                         JavelinType::PathLeading(
                                             JavelinTypePathLeading {
                                                 ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
-                                                template_arguments: [],
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ],
-                        separator: Some(
-                            1,
-                        ),
-                    },
-                },
-            },
-        ): PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `mnist-classifier`,
-            data: PackagePathSource::Local {
-                path: "../../../examples/mnist-classifier",
-            },
-        },
-        ValkyrieJavelin(
-            Javelin {
-                data: JavelinData::PathLeading {
-                    path: JavPath::TypeItem(
-                        TypeItemPath(
-                            `core::slice::CyclicSlice(0)::start`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                    instantiation: JavInstantiation {
-                        symbol_resolutions: [
-                            (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::Type {
-                                        attrs: HirTemplateVariableAttrs {
-                                            class: Mono,
-                                        },
-                                        variance: None,
-                                        disambiguator: 0,
-                                    },
-                                ),
-                                JavTermSymbolResolution::Explicit(
-                                    JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 template_arguments: [],
                                             },
                                         ),
@@ -1745,727 +2496,6 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::PathLeading {
-                    path: JavPath::TypeItem(
-                        TypeItemPath(
-                            `core::slice::CyclicSlice(0)::first`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                    instantiation: JavInstantiation {
-                        symbol_resolutions: [
-                            (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::Type {
-                                        attrs: HirTemplateVariableAttrs {
-                                            class: Mono,
-                                        },
-                                        variance: None,
-                                        disambiguator: 0,
-                                    },
-                                ),
-                                JavTermSymbolResolution::Explicit(
-                                    JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                template_arguments: [],
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ],
-                        separator: Some(
-                            1,
-                        ),
-                    },
-                },
-            },
-        ): PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `mnist-classifier`,
-            data: PackagePathSource::Local {
-                path: "../../../examples/mnist-classifier",
-            },
-        },
-        ValkyrieJavelin(
-            Javelin {
-                data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                            template_arguments: [],
-                        },
-                    ),
-                },
-            },
-        ): PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `mnist-classifier`,
-            data: PackagePathSource::Local {
-                path: "../../../examples/mnist-classifier",
-            },
-        },
-        ValkyrieJavelin(
-            Javelin {
-                data: JavelinData::PathLeading {
-                    path: JavPath::TypeItem(
-                        TypeItemPath(
-                            `core::vec::Vec(0)::push`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                    instantiation: JavInstantiation {
-                        symbol_resolutions: [
-                            (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::Type {
-                                        attrs: HirTemplateVariableAttrs {
-                                            class: Mono,
-                                        },
-                                        variance: None,
-                                        disambiguator: 0,
-                                    },
-                                ),
-                                JavTermSymbolResolution::Explicit(
-                                    JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                template_arguments: [],
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
-                                ),
-                                JavTermSymbolResolution::SelfLifetime,
-                            ),
-                        ],
-                        separator: Some(
-                            1,
-                        ),
-                    },
-                },
-            },
-        ): PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `mnist-classifier`,
-            data: PackagePathSource::Local {
-                path: "../../../examples/mnist-classifier",
-            },
-        },
-        ValkyrieJavelin(
-            Javelin {
-                data: JavelinData::PathLeading {
-                    path: JavPath::TypeItem(
-                        TypeItemPath(
-                            `core::slice::CyclicSlice(0)::start`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                    instantiation: JavInstantiation {
-                        symbol_resolutions: [
-                            (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::Type {
-                                        attrs: HirTemplateVariableAttrs {
-                                            class: Mono,
-                                        },
-                                        variance: None,
-                                        disambiguator: 0,
-                                    },
-                                ),
-                                JavTermSymbolResolution::Explicit(
-                                    JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
-                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                template_arguments: [],
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ],
-                        separator: Some(
-                            1,
-                        ),
-                    },
-                },
-            },
-        ): PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `mnist-classifier`,
-            data: PackagePathSource::Local {
-                path: "../../../examples/mnist-classifier",
-            },
-        },
-        ValkyrieJavelin(
-            Javelin {
-                data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                            template_arguments: [],
-                        },
-                    ),
-                },
-            },
-        ): PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `mnist-classifier`,
-            data: PackagePathSource::Local {
-                path: "../../../examples/mnist-classifier",
-            },
-        },
-        ValkyrieJavelin(
-            Javelin {
-                data: JavelinData::PathLeading {
-                    path: JavPath::TypeItem(
-                        TypeItemPath(
-                            `core::slice::CyclicSlice(0)::first`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                    instantiation: JavInstantiation {
-                        symbol_resolutions: [
-                            (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::Type {
-                                        attrs: HirTemplateVariableAttrs {
-                                            class: Mono,
-                                        },
-                                        variance: None,
-                                        disambiguator: 0,
-                                    },
-                                ),
-                                JavTermSymbolResolution::Explicit(
-                                    JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
-                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                template_arguments: [],
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ],
-                        separator: Some(
-                            1,
-                        ),
-                    },
-                },
-            },
-        ): PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `mnist-classifier`,
-            data: PackagePathSource::Local {
-                path: "../../../examples/mnist-classifier",
-            },
-        },
-        ValkyrieJavelin(
-            Javelin {
-                data: JavelinData::PathLeading {
-                    path: JavPath::TypeItem(
-                        TypeItemPath(
-                            `core::vec::Vec(0)::push`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                    instantiation: JavInstantiation {
-                        symbol_resolutions: [
-                            (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::Type {
-                                        attrs: HirTemplateVariableAttrs {
-                                            class: Mono,
-                                        },
-                                        variance: None,
-                                        disambiguator: 0,
-                                    },
-                                ),
-                                JavTermSymbolResolution::Explicit(
-                                    JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
-                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                template_arguments: [],
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
-                                ),
-                                JavTermSymbolResolution::SelfLifetime,
-                            ),
-                        ],
-                        separator: Some(
-                            1,
-                        ),
-                    },
-                },
-            },
-        ): PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `mnist-classifier`,
-            data: PackagePathSource::Local {
-                path: "../../../examples/mnist-classifier",
-            },
-        },
-        ValkyrieJavelin(
-            Javelin {
-                data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
-                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            template_arguments: [],
-                        },
-                    ),
-                },
-            },
-        ): PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `mnist-classifier`,
-            data: PackagePathSource::Local {
-                path: "../../../examples/mnist-classifier",
-            },
-        },
-        ValkyrieJavelin(
-            Javelin {
-                data: JavelinData::PathLeading {
-                    path: JavPath::TypeItem(
-                        TypeItemPath(
-                            `core::vec::Vec(0)::push`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                    instantiation: JavInstantiation {
-                        symbol_resolutions: [
-                            (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::Type {
-                                        attrs: HirTemplateVariableAttrs {
-                                            class: Mono,
-                                        },
-                                        variance: None,
-                                        disambiguator: 0,
-                                    },
-                                ),
-                                JavTermSymbolResolution::Explicit(
-                                    JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
-                                                ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                template_arguments: [
-                                                    JavTemplateArgument::Type(
-                                                        JavelinType::PathLeading(
-                                                            JavelinTypePathLeading {
-                                                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                                                template_arguments: [
-                                                                    JavTemplateArgument::Type(
-                                                                        JavelinType::PathLeading(
-                                                                            JavelinTypePathLeading {
-                                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                template_arguments: [],
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                ],
-                                                            },
-                                                        ),
-                                                    ),
-                                                ],
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
-                                ),
-                                JavTermSymbolResolution::SelfLifetime,
-                            ),
-                        ],
-                        separator: Some(
-                            1,
-                        ),
-                    },
-                },
-            },
-        ): PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `mnist-classifier`,
-            data: PackagePathSource::Local {
-                path: "../../../examples/mnist-classifier",
-            },
-        },
-        ValkyrieJavelin(
-            Javelin {
-                data: JavelinData::PathLeading {
-                    path: JavPath::TypeItem(
-                        TypeItemPath(
-                            `core::vec::Vec(0)::collect_leashes`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                    instantiation: JavInstantiation {
-                        symbol_resolutions: [
-                            (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::Type {
-                                        attrs: HirTemplateVariableAttrs {
-                                            class: Mono,
-                                        },
-                                        variance: None,
-                                        disambiguator: 0,
-                                    },
-                                ),
-                                JavTermSymbolResolution::Explicit(
-                                    JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
-                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                template_arguments: [],
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ],
-                        separator: Some(
-                            1,
-                        ),
-                    },
-                },
-            },
-        ): PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `mnist-classifier`,
-            data: PackagePathSource::Local {
-                path: "../../../examples/mnist-classifier",
-            },
-        },
-        ValkyrieJavelin(
-            Javelin {
-                data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
-                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                            template_arguments: [],
-                        },
-                    ),
-                },
-            },
-        ): PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `mnist-classifier`,
-            data: PackagePathSource::Local {
-                path: "../../../examples/mnist-classifier",
-            },
-        },
-        ValkyrieJavelin(
-            Javelin {
-                data: JavelinData::PathLeading {
-                    path: JavPath::Type(
-                        TypePath(`malamute::Class`, `Enum`),
-                    ),
-                    instantiation: JavInstantiation {
-                        symbol_resolutions: [
-                            (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::Type {
-                                        attrs: HirTemplateVariableAttrs {
-                                            class: Mono,
-                                        },
-                                        variance: None,
-                                        disambiguator: 0,
-                                    },
-                                ),
-                                JavTermSymbolResolution::Explicit(
-                                    JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
-                                                ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                template_arguments: [],
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ],
-                        separator: None,
-                    },
-                },
-            },
-        ): PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `mnist-classifier`,
-            data: PackagePathSource::Local {
-                path: "../../../examples/mnist-classifier",
-            },
-        },
-        ValkyrieJavelin(
-            Javelin {
-                data: JavelinData::TypeDefault {
-                    ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
-                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                            template_arguments: [],
-                        },
-                    ),
-                },
-            },
-        ): PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `mnist-classifier`,
-            data: PackagePathSource::Local {
-                path: "../../../examples/mnist-classifier",
-            },
-        },
-        ValkyrieJavelin(
-            Javelin {
-                data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::Ritchie(
-                        JavelinRitchieType {
-                            parameters: [
-                                JavelinRitchieParameter {
-                                    contract: Pure,
-                                    parameter_ty: PathLeading(
-                                        JavelinTypePathLeading(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ],
-                            return_ty: JavelinType::PathLeading(
-                                JavelinTypePathLeading {
-                                    ty_path: TypePath(`core::option::Option`, `Enum`),
-                                    template_arguments: [
-                                        JavTemplateArgument::Type(
-                                            JavelinType::PathLeading(
-                                                JavelinTypePathLeading {
-                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                    template_arguments: [],
-                                                },
-                                            ),
-                                        ),
-                                    ],
-                                },
-                            ),
-                        },
-                    ),
-                },
-            },
-        ): PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `mnist-classifier`,
-            data: PackagePathSource::Local {
-                path: "../../../examples/mnist-classifier",
-            },
-        },
-        ValkyrieJavelin(
-            Javelin {
-                data: JavelinData::PathLeading {
-                    path: JavPath::TypeItem(
-                        TypeItemPath(
-                            `core::vec::Vec(0)::pop_with_largest_opt_f32`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                    instantiation: JavInstantiation {
-                        symbol_resolutions: [
-                            (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::Type {
-                                        attrs: HirTemplateVariableAttrs {
-                                            class: Mono,
-                                        },
-                                        variance: None,
-                                        disambiguator: 0,
-                                    },
-                                ),
-                                JavTermSymbolResolution::Explicit(
-                                    JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
-                                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                                template_arguments: [
-                                                    JavTemplateArgument::Type(
-                                                        JavelinType::PathLeading(
-                                                            JavelinTypePathLeading {
-                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                template_arguments: [],
-                                                            },
-                                                        ),
-                                                    ),
-                                                ],
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::SelfLifetime,
-                                ),
-                                JavTermSymbolResolution::SelfLifetime,
-                            ),
-                        ],
-                        separator: Some(
-                            1,
-                        ),
-                    },
-                },
-            },
-        ): PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `mnist-classifier`,
-            data: PackagePathSource::Local {
-                path: "../../../examples/mnist-classifier",
-            },
-        },
-        ValkyrieJavelin(
-            Javelin {
-                data: JavelinData::PathLeading {
-                    path: JavPath::TypeItem(
-                        TypeItemPath(
-                            `core::vec::Vec(0)::collect_leashes`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                    instantiation: JavInstantiation {
-                        symbol_resolutions: [
-                            (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::Type {
-                                        attrs: HirTemplateVariableAttrs {
-                                            class: Mono,
-                                        },
-                                        variance: None,
-                                        disambiguator: 0,
-                                    },
-                                ),
-                                JavTermSymbolResolution::Explicit(
-                                    JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                template_arguments: [],
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ],
-                        separator: Some(
-                            1,
-                        ),
-                    },
-                },
-            },
-        ): PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `mnist-classifier`,
-            data: PackagePathSource::Local {
-                path: "../../../examples/mnist-classifier",
-            },
-        },
-        ValkyrieJavelin(
-            Javelin {
-                data: JavelinData::PathLeading {
                     path: JavPath::Type(
                         TypePath(`core::ops::ControlFlow`, `Enum`),
                     ),
@@ -2538,43 +2568,13 @@ ValkyrieJavelinPantheon {
         },
         ValkyrieJavelin(
             Javelin {
-                data: JavelinData::PathLeading {
-                    path: JavPath::TypeItem(
-                        TypeItemPath(
-                            `core::vec::Vec(0)::cyclic_slice_leashed`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
+                data: JavelinData::VecConstructor {
+                    element_ty: JavelinType::PathLeading(
+                        JavelinTypePathLeading {
+                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            template_arguments: [],
+                        },
                     ),
-                    instantiation: JavInstantiation {
-                        symbol_resolutions: [
-                            (
-                                HirTemplateVariable::Type(
-                                    HirTypeTemplateVariable::Type {
-                                        attrs: HirTemplateVariableAttrs {
-                                            class: Mono,
-                                        },
-                                        variance: None,
-                                        disambiguator: 0,
-                                    },
-                                ),
-                                JavTermSymbolResolution::Explicit(
-                                    JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                template_arguments: [],
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ],
-                        separator: Some(
-                            1,
-                        ),
-                    },
                 },
             },
         ): PackagePath {

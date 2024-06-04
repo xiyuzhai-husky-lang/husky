@@ -1,5 +1,5 @@
 use self::term::EthTerm;
-use crate::*;
+use super::*;
 use husky_entity_path::path::major_item::ty::PreludeTypePath;
 
 impl EthTerm {
@@ -16,8 +16,8 @@ impl EthTerm {
                 Ok(false)
             }
             Right(other_ty) => match self {
-                EthTerm::EntityPath(ItemPathTerm::TypeOntology(ty_path)) => {
-                    Ok(ty_path.prelude_ty_path(db) == Some(other_ty))
+                EthTerm::ItemPath(ItemPathTerm::TypeOntology(ty_path)) => {
+                    Ok(ty_path.prelude(db) == Some(other_ty))
                 }
                 _ => {
                     use husky_print_utils::p;

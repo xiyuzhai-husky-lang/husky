@@ -7,8 +7,9 @@ use self::term::{
     lambda_variable::EthLambdaVariable,
     ritchie::EthRitchie,
 };
-use crate::*;
+use super::*;
 use husky_entity_path::path::major_item::{trai::TraitPath, ty::TypePath};
+use husky_vfs::toolchain::Toolchain;
 
 impl EthTerm {
     pub fn leading_ty_path(self, db: &::salsa::Db) -> Option<TypePath> {

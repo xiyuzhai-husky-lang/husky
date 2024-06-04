@@ -17,7 +17,11 @@ use self::utils::item_debug_fmt_with_db;
 use self::{attr::*, trai::TraitPath};
 use crate::*;
 use enum_class::Room32;
-use husky_vfs::script::Script;
+use husky_vfs::{
+    path::{crate_path::CratePath, module_path::ModulePath},
+    script::Script,
+    toolchain::Toolchain,
+};
 
 #[salsa::interned(override_debug)]
 pub struct ItemPathId {

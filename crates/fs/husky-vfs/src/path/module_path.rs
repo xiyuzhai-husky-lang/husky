@@ -305,17 +305,17 @@ fn module_path_debug_with_db_works() {
     t(db, path_menu.core_num().inner(), "`core::num`");
     t(db, path_menu.core_root(), "`core`");
     t(db, path_menu.std_root(), "`std`");
-    expect_test::expect![[r#"
+    ::expect_test::expect![[r#"
         `core`
     "#]]
     .assert_debug_eq(&path_menu.core_root().debug(db));
-    expect_test::expect![[r#"
+    ::expect_test::expect![[r#"
         SubmodulePath(
             `core::num`,
         )
     "#]]
     .assert_debug_eq(&path_menu.core_num().debug(db));
-    expect_test::expect![[r#"
+    ::expect_test::expect![[r#"
         `std`
     "#]]
     .assert_debug_eq(&path_menu.std_root().debug(db));

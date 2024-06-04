@@ -9,7 +9,7 @@ use self::requirements::RequirementsCrateDecSignature;
 use self::task::TaskCrateDecSignature;
 use super::*;
 use husky_syn_decl::decl::crate_::CrateSynDecl;
-use husky_vfs::{CrateKind, CratePath};
+use husky_vfs::path::crate_path::{CrateKind, CratePath};
 
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
@@ -66,7 +66,7 @@ fn crate_dec_signature(
 #[test]
 fn crate_dec_signature_works() {
     DB::ast_expect_test_debug_with_db(
-        |db, crate_path| crate_dec_signature(db, crate_path),
+        crate_dec_signature,
         &AstTestConfig::new(
             "crate_dec_signature",
             FileExtensionConfig::Markdown,

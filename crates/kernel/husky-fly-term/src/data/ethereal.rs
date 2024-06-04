@@ -16,7 +16,7 @@ pub(super) fn ethereal_term_data<'a>(db: &'a ::salsa::Db, term: EthTerm) -> FlyT
             ty: term.ty(db).into(),
             index: term.index(db),
         },
-        EthTerm::EntityPath(path) => match path {
+        EthTerm::ItemPath(path) => match path {
             ItemPathTerm::Form(_) => todo!(),
             ItemPathTerm::Trait(_) => todo!(),
             ItemPathTerm::TypeOntology(ty_path) => FlyTermData::TypeOntology {
@@ -94,7 +94,7 @@ pub(crate) fn term_ritchie_fly_data(db: &::salsa::Db, term: EthRitchie) -> TermR
 pub(crate) enum TermApplicationFlyData {
     TypeOntology {
         path: TypePath,
-        refined_path: Either<PreludeTypePath, CustomTypePath>,
+        refined_path: Either<PreludeTypePath, OtherTypePath>,
         arguments: SmallVec<[FlyTerm; 2]>,
         ty_ethereal_term: EthTerm,
     },
@@ -170,7 +170,7 @@ pub(super) fn ethereal_term_fly_base_ty_data<'a>(
         EthTerm::LambdaVariable(hvar) => FlyBaseTypeData::LambdaVariable {
             lambda_variable: hvar,
         },
-        EthTerm::EntityPath(path) => match path {
+        EthTerm::ItemPath(path) => match path {
             ItemPathTerm::Form(_) => todo!(),
             ItemPathTerm::Trait(_) => todo!(),
             ItemPathTerm::TypeOntology(ty_path) => FlyBaseTypeData::TypeOntology {

@@ -1,5 +1,5 @@
 use self::term::{application::EthApplication, curry::EthCurry};
-use crate::*;
+use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermMenu2 {

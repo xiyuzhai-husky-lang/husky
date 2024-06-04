@@ -52,6 +52,14 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
             builder.add(hir_defn);
             builder.add_instantiation(instantiation)
         }
+        LinkageData::MajorStatic {
+            path,
+            ref instantiation,
+        } => {
+            let hir_defn: HirDefn = path.hir_defn(db).unwrap().into();
+            builder.add(hir_defn);
+            builder.add_instantiation(instantiation)
+        }
         LinkageData::MajorVal {
             path,
             ref instantiation,

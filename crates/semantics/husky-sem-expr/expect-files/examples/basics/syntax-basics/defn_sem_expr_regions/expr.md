@@ -844,12 +844,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 23,
+                                                    value: 24,
                                                 },
                                             ),
                                         ),
@@ -886,12 +886,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 23,
+                                                            value: 24,
                                                         },
                                                     ),
                                                 ),
@@ -1688,12 +1688,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 23,
+                                                    value: 24,
                                                 },
                                             ),
                                         ),
@@ -1730,12 +1730,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 23,
+                                                            value: 24,
                                                         },
                                                     ),
                                                 ),
