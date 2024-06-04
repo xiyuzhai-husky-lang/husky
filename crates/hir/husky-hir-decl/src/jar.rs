@@ -6,6 +6,13 @@ pub struct HirDeclJar(
     crate::decl::crate_::task::TaskCrateHirDecl,
     // attr
     crate::decl::attr::attr_hir_decl,
+    crate::decl::attr::affect::AffectAttrHirDecl,
+    crate::decl::attr::backprop::BackpropAttrHirDecl,
+    crate::decl::attr::deps::DepsAttrHirDecl,
+    crate::decl::attr::derive::DeriveAttrHirDecl,
+    crate::decl::attr::marker::MarkerAttrHirDecl,
+    crate::decl::attr::task::TaskAttrHirDecl,
+    crate::decl::attr::test::TestAttrHirDecl,
     // template
     crate::parameter::item_hir_template_parameter_stats,
     crate::decl::submodule_hir_decl,
@@ -60,13 +67,6 @@ pub struct HirDeclJar(
     // - trait for type
     crate::decl::trai_for_ty_impl_block_hir_decl,
     crate::decl::TraitForTypeImplBlockHirDecl,
-    // attr
-    crate::decl::attr::backprop::BackpropAttrHirDecl,
-    crate::decl::attr::derive::DeriveAttrHirDecl,
-    crate::decl::attr::affect::AffectAttrHirDecl,
-    crate::decl::attr::marker::MarkerAttrHirDecl,
-    crate::decl::attr::task::TaskAttrHirDecl,
-    crate::decl::attr::test::TestAttrHirDecl,
     // helpers
     crate::helpers::enum_ty_has_only_unit_variants,
 );
