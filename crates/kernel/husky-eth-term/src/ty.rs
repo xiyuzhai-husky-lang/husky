@@ -128,7 +128,7 @@ impl EthTerm {
             EthTerm::Literal(slf) => RawType::Prelude(slf.ty()),
             EthTerm::SymbolicVariable(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
             EthTerm::LambdaVariable(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
-            EthTerm::EntityPath(slf) => match slf {
+            EthTerm::ItemPath(slf) => match slf {
                 ItemPathTerm::Form(_path) => todo!(),
                 ItemPathTerm::Trait(path) => {
                     RawType::Declarative(trai_path_declarative_ty(db, path)?)

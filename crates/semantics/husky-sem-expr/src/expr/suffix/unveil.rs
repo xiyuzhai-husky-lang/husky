@@ -244,7 +244,7 @@ fn unveil_impl_block_signature_templates<'db>(
     match term {
         EthTerm::SymbolicVariable(_) => Nothing, // ad hoc
         EthTerm::LambdaVariable(_) => Nothing,   // ad hoc
-        EthTerm::EntityPath(ItemPathTerm::TypeOntology(path)) => {
+        EthTerm::ItemPath(ItemPathTerm::TypeOntology(path)) => {
             ty_ontology_path_unveil_impl_block_signature_templates(
                 path,
                 package_signature_data_result,
@@ -272,7 +272,7 @@ fn ty_ontology_path_unveil_impl_block_signature_templates<'db>(
         db,
         ty_path,
         &[],
-        EthTerm::EntityPath(ItemPathTerm::TypeOntology(ty_path)),
+        EthTerm::ItemPath(ItemPathTerm::TypeOntology(ty_path)),
         package_signature_data_result,
     )
 }

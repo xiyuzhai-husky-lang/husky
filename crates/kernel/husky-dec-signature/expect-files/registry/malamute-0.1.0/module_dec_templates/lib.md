@@ -175,7 +175,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 33,
+                                                                value: 34,
                                                             },
                                                         ),
                                                     ),
@@ -192,7 +192,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 17,
+                                                                value: 18,
                                                             },
                                                         ),
                                                     ),
@@ -253,7 +253,7 @@
                                 TraitPath(
                                     ItemPathId(
                                         Id {
-                                            value: 75,
+                                            value: 76,
                                         },
                                     ),
                                 ),
@@ -394,7 +394,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 12,
+                                                value: 13,
                                             },
                                         ),
                                     ),
@@ -540,7 +540,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 12,
+                                                value: 13,
                                             },
                                         ),
                                     ),

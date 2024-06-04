@@ -35,11 +35,11 @@ impl TypePath {
     }
 
     pub fn eqs_lifetime_ty_path(self, db: &::salsa::Db) -> bool {
-        self.prelude_ty_path(db) == Some(PreludeTypePath::LIFETIME)
+        self.prelude(db) == Some(PreludeTypePath::LIFETIME)
     }
 
     pub fn eqs_place_ty_path(self, db: &::salsa::Db) -> bool {
-        self.prelude_ty_path(db) == Some(PreludeTypePath::PLACE)
+        self.prelude(db) == Some(PreludeTypePath::PLACE)
     }
 
     pub fn crate_path(self, db: &::salsa::Db) -> CratePath {
@@ -253,7 +253,7 @@ fn prelude_ty_path_size_works() {
 }
 
 impl TypePath {
-    pub fn prelude_ty_path(self, db: &::salsa::Db) -> Option<PreludeTypePath> {
+    pub fn prelude(self, db: &::salsa::Db) -> Option<PreludeTypePath> {
         prelude_ty_path(db, self)
     }
 }
@@ -312,19 +312,19 @@ fn prelude_ty_path(db: &::salsa::Db, path: TypePath) -> Option<PreludeTypePath> 
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db]
-pub struct CustomTypePath(TypePath);
+pub struct OtherTypePath(TypePath);
 
-impl From<CustomTypePath> for TypePath {
-    fn from(path: CustomTypePath) -> Self {
+impl From<OtherTypePath> for TypePath {
+    fn from(path: OtherTypePath) -> Self {
         path.0
     }
 }
 
 impl TypePath {
-    pub fn refine(self, db: &::salsa::Db) -> Either<PreludeTypePath, CustomTypePath> {
-        match self.prelude_ty_path(db) {
+    pub fn refine(self, db: &::salsa::Db) -> Either<PreludeTypePath, OtherTypePath> {
+        match self.prelude(db) {
             Some(path) => Left(path),
-            None => Right(CustomTypePath(self)),
+            None => Right(OtherTypePath(self)),
         }
     }
 }

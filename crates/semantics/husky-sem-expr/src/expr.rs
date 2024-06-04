@@ -1417,11 +1417,11 @@ impl<'a> SemExprBuilder<'a> {
                                     .ok_ty(self.sem_expr_arena())
                                     .ok_or(DerivedSemExprTermError::LiteralTypeNotInferred)?;
                                 match ty.base_resolved(self) {
-                                    FlyTermBase::Eth(EthTerm::EntityPath(
+                                    FlyTermBase::Eth(EthTerm::ItemPath(
                                         ItemPathTerm::TypeOntology(ty_path),
                                     )) if let Some(PreludeTypePath::Num(
                                         PreludeNumTypePath::Float(float_ty_path),
-                                    )) = ty_path.prelude_ty_path(db) =>
+                                    )) = ty_path.prelude(db) =>
                                     {
                                         match float_ty_path {
                                             PreludeFloatTypePath::F32 => Literal::F32(

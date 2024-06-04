@@ -8,7 +8,7 @@ impl EthTerm {
             EthTerm::Literal(_) => None,
             EthTerm::SymbolicVariable(term) => Some(term.toolchain(db)),
             EthTerm::LambdaVariable(term) => term.toolchain(db),
-            EthTerm::EntityPath(path) => Some(path.toolchain(db)),
+            EthTerm::ItemPath(path) => Some(path.toolchain(db)),
             EthTerm::Category(_) => None,
             EthTerm::Universe(_) => None,
             EthTerm::Curry(term) => ethereal_term_curry_toolchain(db, term),

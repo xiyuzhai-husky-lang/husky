@@ -16,7 +16,7 @@ impl HasFlyTypeMethodDispatch for EthTerm {
     ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
         // todo: check scope
         match self {
-            EthTerm::EntityPath(ItemPathTerm::TypeOntology(ty_path)) => {
+            EthTerm::ItemPath(ItemPathTerm::TypeOntology(ty_path)) => {
                 ethereal_ty_ontology_path_ty_method_dispatch(
                     engine,
                     expr_idx,

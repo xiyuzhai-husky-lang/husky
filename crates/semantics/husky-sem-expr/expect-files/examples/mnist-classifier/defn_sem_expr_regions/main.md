@@ -94,6 +94,9 @@
                                                     TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                                                 ),
                                             ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
+                                            ),
                                             symbol_map: [
                                                 (
                                                     EthSymbolicVariable(`Label`),
@@ -210,6 +213,9 @@
                                                 ImplBlockPath::TraitForTypeImplBlock(
                                                     TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                                                 ),
+                                            ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
                                             ),
                                             symbol_map: [
                                                 (
@@ -328,6 +334,9 @@
                                                     TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                                                 ),
                                             ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
+                                            ),
                                             symbol_map: [
                                                 (
                                                     EthSymbolicVariable(`Label`),
@@ -444,6 +453,9 @@
                                                 ImplBlockPath::TraitForTypeImplBlock(
                                                     TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                                                 ),
+                                            ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
                                             ),
                                             symbol_map: [
                                                 (
@@ -562,6 +574,9 @@
                                                     TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                                                 ),
                                             ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
+                                            ),
                                             symbol_map: [
                                                 (
                                                     EthSymbolicVariable(`Label`),
@@ -678,6 +693,9 @@
                                                 ImplBlockPath::TraitForTypeImplBlock(
                                                     TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                                                 ),
+                                            ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
                                             ),
                                             symbol_map: [
                                                 (
@@ -796,6 +814,9 @@
                                                     TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                                                 ),
                                             ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
+                                            ),
                                             symbol_map: [
                                                 (
                                                     EthSymbolicVariable(`Label`),
@@ -912,6 +933,9 @@
                                                 ImplBlockPath::TraitForTypeImplBlock(
                                                     TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                                                 ),
+                                            ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
                                             ),
                                             symbol_map: [
                                                 (
@@ -1030,6 +1054,9 @@
                                                     TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
                                                 ),
                                             ),
+                                            task_ty: Some(
+                                                EthTerm(`MnistTask`),
+                                            ),
                                             symbol_map: [
                                                 (
                                                     EthSymbolicVariable(`Label`),
@@ -1083,7 +1110,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 263,
+                                                    value: 264,
                                                 },
                                             ),
                                         ),
@@ -1096,7 +1123,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 263,
+                                                            value: 264,
                                                         },
                                                     ),
                                                 ),
@@ -1545,7 +1572,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::Class`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`malamute::Class`, `Enum`),
                                         ),
                                     ),

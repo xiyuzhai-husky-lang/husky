@@ -27,7 +27,7 @@ impl EthTerm {
                     todo!()
                 };
                 let Some(PreludeTypePath::Num(PreludeNumTypePath::Int(int_ty_path))) =
-                    ty_path.prelude_ty_path(db)
+                    ty_path.prelude(db)
                 else {
                     todo!()
                 };

@@ -5,7 +5,7 @@ pub(super) fn ethereal_owner_ty_int_index_signature(
     engine: &mut impl FlyTermEngineMut,
     syn_expr_idx: SynExprIdx,
     owner_ty: EthTerm,
-    custom_ty_path: CustomTypePath,
+    custom_ty_path: OtherTypePath,
     owner_ty_arguments: &[EthTerm],
     index_ty: FlyTerm,
     final_place: FlyQuary,

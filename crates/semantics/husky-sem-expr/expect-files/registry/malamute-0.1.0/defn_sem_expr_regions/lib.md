@@ -317,7 +317,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAll`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`malamute::OneVsAll`, `Enum`),
                                         ),
                                     ),
@@ -603,7 +603,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 111,
+                                                    value: 112,
                                                 },
                                             ),
                                         ),
@@ -616,7 +616,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 111,
+                                                            value: 112,
                                                         },
                                                     ),
                                                 ),
@@ -941,7 +941,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 110,
+                                                    value: 111,
                                                 },
                                             ),
                                         ),
@@ -954,7 +954,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 110,
+                                                            value: 111,
                                                         },
                                                     ),
                                                 ),
@@ -1497,7 +1497,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`core::ops::ControlFlow`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`core::ops::ControlFlow`, `Enum`),
                                         ),
                                     ),
@@ -1596,7 +1596,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::Class`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`malamute::Class`, `Enum`),
                                         ),
                                     ),
@@ -1712,7 +1712,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`core::ops::ControlFlow`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`core::ops::ControlFlow`, `Enum`),
                                         ),
                                     ),
@@ -2478,7 +2478,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 111,
+                                                    value: 112,
                                                 },
                                             ),
                                         ),
@@ -2491,7 +2491,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 111,
+                                                            value: 112,
                                                         },
                                                     ),
                                                 ),
@@ -2718,7 +2718,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 111,
+                                                    value: 112,
                                                 },
                                             ),
                                         ),
@@ -2731,7 +2731,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 111,
+                                                            value: 112,
                                                         },
                                                     ),
                                                 ),
@@ -2958,7 +2958,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 110,
+                                                    value: 111,
                                                 },
                                             ),
                                         ),
@@ -2971,7 +2971,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 110,
+                                                            value: 111,
                                                         },
                                                     ),
                                                 ),
@@ -3592,7 +3592,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`core::ops::ControlFlow`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`core::ops::ControlFlow`, `Enum`),
                                         ),
                                     ),
@@ -3716,7 +3716,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAll`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`malamute::OneVsAll`, `Enum`),
                                         ),
                                     ),
@@ -3809,7 +3809,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`core::ops::ControlFlow`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`core::ops::ControlFlow`, `Enum`),
                                         ),
                                     ),
@@ -3933,7 +3933,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`malamute::OneVsAll`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`malamute::OneVsAll`, `Enum`),
                                         ),
                                     ),
@@ -4022,7 +4022,7 @@
                                 data: HolTermData::TypeOntology {
                                     path: TypePath(`core::ops::ControlFlow`, `Enum`),
                                     refined_path: Right(
-                                        CustomTypePath(
+                                        OtherTypePath(
                                             TypePath(`core::ops::ControlFlow`, `Enum`),
                                         ),
                                     ),

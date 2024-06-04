@@ -589,12 +589,12 @@
                                 },
                             ),
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 137,
+                                                    value: 138,
                                                 },
                                             ),
                                         ),
@@ -617,12 +617,12 @@
                                         },
                                     ),
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 137,
+                                                            value: 138,
                                                         },
                                                     ),
                                                 ),
@@ -3649,12 +3649,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 133,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -3669,12 +3669,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 133,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -3693,12 +3693,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 133,
+                                                            value: 134,
                                                         },
                                                     ),
                                                 ),
@@ -3715,12 +3715,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 133,
+                                                            value: 134,
                                                         },
                                                     ),
                                                 ),
@@ -7073,7 +7073,7 @@
                                                 TypeItemPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 342,
+                                                            value: 343,
                                                         },
                                                     ),
                                                 ),
@@ -7082,12 +7082,12 @@
                                             return_ty: FlyTerm {
                                                 place: None,
                                                 base: Eth(
-                                                    EntityPath(
+                                                    ItemPath(
                                                         TypeOntology(
                                                             TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 287,
+                                                                        value: 288,
                                                                     },
                                                                 ),
                                                             ),
@@ -7113,7 +7113,7 @@
                                                         TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 342,
+                                                                    value: 343,
                                                                 },
                                                             ),
                                                         ),
@@ -7128,12 +7128,12 @@
                                             self_ty: FlyTerm {
                                                 place: None,
                                                 base: Eth(
-                                                    EntityPath(
+                                                    ItemPath(
                                                         TypeOntology(
                                                             TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 287,
+                                                                        value: 288,
                                                                     },
                                                                 ),
                                                             ),
@@ -13653,12 +13653,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 287,
+                                                    value: 288,
                                                 },
                                             ),
                                         ),
@@ -13679,12 +13679,12 @@
                                 },
                             ),
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 133,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -13699,12 +13699,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 121,
+                                                    value: 122,
                                                 },
                                             ),
                                         ),
@@ -13719,12 +13719,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 287,
+                                                    value: 288,
                                                 },
                                             ),
                                         ),
@@ -13741,12 +13741,12 @@
                                 Compterm,
                             ),
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 118,
+                                                    value: 119,
                                                 },
                                             ),
                                         ),
@@ -13785,12 +13785,12 @@
                                 },
                             ),
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 133,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -13805,12 +13805,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 133,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -13831,12 +13831,12 @@
                                 },
                             ),
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 133,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -13851,12 +13851,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 133,
+                                                    value: 134,
                                                 },
                                             ),
                                         ),
@@ -13893,12 +13893,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 287,
+                                                            value: 288,
                                                         },
                                                     ),
                                                 ),
@@ -13921,12 +13921,12 @@
                                         },
                                     ),
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 133,
+                                                            value: 134,
                                                         },
                                                     ),
                                                 ),
@@ -13943,12 +13943,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 121,
+                                                            value: 122,
                                                         },
                                                     ),
                                                 ),
@@ -13965,12 +13965,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 287,
+                                                            value: 288,
                                                         },
                                                     ),
                                                 ),
@@ -13989,12 +13989,12 @@
                                         Compterm,
                                     ),
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 118,
+                                                            value: 119,
                                                         },
                                                     ),
                                                 ),
@@ -14037,12 +14037,12 @@
                                         },
                                     ),
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 133,
+                                                            value: 134,
                                                         },
                                                     ),
                                                 ),
@@ -14059,12 +14059,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 133,
+                                                            value: 134,
                                                         },
                                                     ),
                                                 ),
@@ -14087,12 +14087,12 @@
                                         },
                                     ),
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 133,
+                                                            value: 134,
                                                         },
                                                     ),
                                                 ),
@@ -14109,12 +14109,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 133,
+                                                            value: 134,
                                                         },
                                                     ),
                                                 ),
@@ -15502,12 +15502,12 @@
                                                             },
                                                         ),
                                                         base: Eth(
-                                                            EntityPath(
+                                                            ItemPath(
                                                                 TypeOntology(
                                                                     TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 121,
+                                                                                value: 122,
                                                                             },
                                                                         ),
                                                                     ),
@@ -18657,12 +18657,12 @@
                                                             },
                                                         ),
                                                         base: Eth(
-                                                            EntityPath(
+                                                            ItemPath(
                                                                 TypeOntology(
                                                                     TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 133,
+                                                                                value: 134,
                                                                             },
                                                                         ),
                                                                     ),
@@ -25009,12 +25009,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 121,
+                                                    value: 122,
                                                 },
                                             ),
                                         ),
@@ -25073,12 +25073,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 121,
+                                                            value: 122,
                                                         },
                                                     ),
                                                 ),
@@ -27344,12 +27344,12 @@
                         FlyTerm {
                             place: None,
                             base: Eth(
-                                EntityPath(
+                                ItemPath(
                                     TypeOntology(
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 121,
+                                                    value: 122,
                                                 },
                                             ),
                                         ),
@@ -27368,12 +27368,12 @@
                                 FlyTerm {
                                     place: None,
                                     base: Eth(
-                                        EntityPath(
+                                        ItemPath(
                                             TypeOntology(
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 121,
+                                                            value: 122,
                                                         },
                                                     ),
                                                 ),

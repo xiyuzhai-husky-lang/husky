@@ -9,7 +9,7 @@ impl EthTerm {
             EthTerm::SymbolicVariable(_) | EthTerm::LambdaVariable(_) => {
                 FinalDestination::AnyOriginal
             }
-            EthTerm::EntityPath(path) => match path {
+            EthTerm::ItemPath(path) => match path {
                 ItemPathTerm::Form(path) => match path.major_form_kind(db) {
                     MajorFormKind::TypeAlias => todo!(),
                     MajorFormKind::Ritchie(_)

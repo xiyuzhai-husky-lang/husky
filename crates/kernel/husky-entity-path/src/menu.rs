@@ -1,8 +1,10 @@
-use crate::path::major_item::{connection::MajorItemConnection, trai::TraitPath, ty::TypePath};
+use crate::path::major_item::{
+    connection::MajorItemConnection, form::MajorFormPath, trai::TraitPath, ty::TypePath,
+};
 #[cfg(test)]
 use crate::*;
 use husky_coword::{coword_menu, Ident};
-use husky_entity_kind::TypeKind;
+use husky_entity_kind::{MajorFormKind, TypeKind};
 use husky_vfs::jar::VfsDb;
 use husky_vfs::toolchain::Toolchain;
 
@@ -13,6 +15,7 @@ pub fn item_path_menu(db: &::salsa::Db, toolchain: Toolchain) -> ItemPathMenu {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct ItemPathMenu {
+    task_major_form_path: MajorFormPath,
     // core::ops::Add	The addition operator +.
     add_trai_path: TraitPath,
     // core::ops::AddAssign	The addition assignment operator +=.
@@ -121,6 +124,7 @@ impl ItemPathMenu {
         let core_num = path_menu.core_num().inner();
         let core_raw_bits = path_menu.core_raw_bits().inner();
         let core_mem = path_menu.core_mem().inner();
+        let core_task = path_menu.core_task().inner();
         let core_vec = path_menu.core_vec().inner();
         let core_array = path_menu.core_array().inner();
         let core_visual = path_menu.core_visual().inner();
@@ -162,8 +166,18 @@ impl ItemPathMenu {
                     db,
                 )
             }};
+            ($m: ident, type $ident: ident) => {{
+                MajorFormPath::new(
+                    $m,
+                    Ident::from_ref(db, stringify!($ident)).unwrap(),
+                    MajorItemConnection::Connected,
+                    MajorFormKind::TypeAlias,
+                    db,
+                )
+            }};
         }
         Self {
+            task_major_form_path: mk!(core_task, type Task),
             unit_ty_path: mk!(core_basic, extern unit),
             never_ty_path: mk!(core_basic, extern never),
             bool_ty_path: mk!(core_basic, extern bool),
@@ -484,6 +498,10 @@ impl ItemPathMenu {
 
     pub fn visual_ty_path(&self) -> TypePath {
         self.visual_ty_path
+    }
+
+    pub fn task_major_form_path(&self) -> MajorFormPath {
+        self.task_major_form_path
     }
 }
 

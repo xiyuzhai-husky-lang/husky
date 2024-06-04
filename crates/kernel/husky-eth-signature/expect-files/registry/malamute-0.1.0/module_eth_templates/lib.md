@@ -144,12 +144,12 @@
                                                 ),
                                             ),
                                             contract: Pure,
-                                            ty: EntityPath(
+                                            ty: ItemPath(
                                                 TypeOntology(
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 17,
+                                                                value: 18,
                                                             },
                                                         ),
                                                     ),

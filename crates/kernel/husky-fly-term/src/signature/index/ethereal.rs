@@ -2,13 +2,13 @@ mod int_index;
 
 use self::int_index::*;
 use super::*;
-use husky_entity_path::path::major_item::ty::{CustomTypePath, PreludeTypePath};
+use husky_entity_path::path::major_item::ty::{OtherTypePath, PreludeTypePath};
 
 pub(crate) fn ethereal_owner_ty_index_signature(
     engine: &mut impl FlyTermEngineMut,
     syn_expr_idx: SynExprIdx,
     owner_ty: EthTerm,
-    refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
+    refined_ty_path: Either<PreludeTypePath, OtherTypePath>,
     owner_ty_arguments: &[EthTerm],
     index_ty: FlyTerm,
     final_place: FlyQuary,
