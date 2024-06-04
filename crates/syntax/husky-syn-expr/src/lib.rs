@@ -12,7 +12,7 @@ mod range;
 mod region;
 pub mod snippet;
 mod stmt;
-mod syndicates;
+pub mod syndicates;
 #[cfg(test)]
 mod tests;
 pub mod variable;

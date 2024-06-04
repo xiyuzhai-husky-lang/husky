@@ -589,7 +589,8 @@ impl<'a> SemExprBuilder<'a> {
                         _ => todo!(),
                     }
                 }
-                SynExprRootKind::ReturnExpr
+                SynExprRootKind::Dep
+                | SynExprRootKind::ReturnExpr
                 | SynExprRootKind::Condition
                 | SynExprRootKind::HtmlArgumentExpr
                 | SynExprRootKind::LetStmtType
