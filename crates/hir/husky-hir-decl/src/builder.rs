@@ -58,6 +58,24 @@ impl<'a> HirDeclBuilder<'a> {
             .unwrap_or(self.hir_ty_menu.unit_ty().into())
     }
 
+    pub(crate) fn eth_term(&self, syn_expr_idx: SynExprIdx) -> Option<EthTerm> {
+        let sem_expr_idx = self
+            .sem_expr_region_data
+            .syn_root_to_sem_expr_idx(syn_expr_idx);
+        match self
+            .sem_expr_region_data
+            .sem_expr_term(sem_expr_idx)
+            .unwrap()
+            .unwrap()
+            .base_resolved_inner(self.sem_expr_region_data.fly_term_region().hollow_terms())
+        {
+            FlyTermBase::Eth(term) => Some(term),
+            FlyTermBase::Sol(_) => todo!(),
+            FlyTermBase::Hol(_) => todo!(),
+            FlyTermBase::Place => todo!(),
+        }
+    }
+
     pub(crate) fn hir_ty(&self, syn_expr_idx: SynExprIdx) -> Option<HirType> {
         let sem_expr_idx = self
             .sem_expr_region_data

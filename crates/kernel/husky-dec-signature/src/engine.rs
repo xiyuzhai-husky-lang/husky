@@ -316,7 +316,8 @@ impl<'a> DecTermEngine<'a> {
                     self.symbolic_variable_region.set_self_ty(self_ty_term);
                     continue;
                 }
-                SynExprRootKind::BlockExpr
+                SynExprRootKind::Dep
+                | SynExprRootKind::BlockExpr
                 | SynExprRootKind::LetStmtType
                 | SynExprRootKind::LetStmtInitialValue
                 | SynExprRootKind::HtmlArgumentExpr

@@ -30,10 +30,10 @@ impl Attrs {
         let mut is_test = false;
         for attr_path in attr_paths {
             match attr_path.hir_decl(db).unwrap() {
+                AttrHirDecl::Affect(_) => (),
                 AttrHirDecl::Backprop(_) => (),
                 AttrHirDecl::Deps(_) => (),
                 AttrHirDecl::Derive(decl) => derive_attrs.merge(decl.trais(db), db),
-                AttrHirDecl::Affect(_) => (),
                 AttrHirDecl::Task(_) => (),
                 AttrHirDecl::Test(_) => is_test = true,
             }
