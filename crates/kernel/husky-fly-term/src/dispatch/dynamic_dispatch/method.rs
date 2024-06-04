@@ -5,6 +5,7 @@ mod solid;
 use super::*;
 use husky_coword::Ident;
 use husky_entity_tree::helpers::AvailableTraitItemsWithGivenIdent;
+use husky_eth_signature::{error::EthSignatureResult, signature::package::PackageEthSignatureData};
 use husky_regional_token::IdentRegionalToken;
 
 pub type FlyMethodDynamicDispatch = FlyDynamicDispatch<MethodFlySignature>;
@@ -39,7 +40,7 @@ pub trait HasFlyTraitMethodDispatch: Copy {
 }
 
 pub trait HasFlyTypeMethodDispatch: Copy {
-    fn ty_method_dispatch(
+    fn ty_method_dispatch<'db>(
         self,
         engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,

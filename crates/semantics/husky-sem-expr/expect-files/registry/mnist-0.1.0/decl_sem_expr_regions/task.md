@@ -279,6 +279,19 @@
                                                         ),
                                                     ),
                                                 ),
+                                                task_ty: Some(
+                                                    ItemPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 16,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
                                                 env: AssocRitchie,
                                                 symbol_map: [],
                                                 separator: Some(

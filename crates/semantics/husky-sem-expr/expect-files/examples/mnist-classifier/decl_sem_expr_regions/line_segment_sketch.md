@@ -314,6 +314,9 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: None,
@@ -457,6 +460,9 @@
                                                         ImplBlockPath::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockPath(`#derive _ as core::clone::Clone(0)`),
                                                         ),
+                                                    ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
@@ -663,6 +669,9 @@
                                                             ),
                                                         ),
                                                     ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: None,
@@ -806,6 +815,9 @@
                                                         ImplBlockPath::TraitForTypeImplBlock(
                                                             TraitForTypeImplBlockPath(`#derive _ as core::clone::Clone(0)`),
                                                         ),
+                                                    ),
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: Leashed {

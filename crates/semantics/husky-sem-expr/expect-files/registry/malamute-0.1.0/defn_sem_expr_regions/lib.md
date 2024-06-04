@@ -58,6 +58,7 @@
                                                     ),
                                                 ),
                                             ),
+                                            task_ty: None,
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -621,6 +622,7 @@
                                                     ),
                                                 ),
                                             ),
+                                            task_ty: None,
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -705,6 +707,7 @@
                                                     ),
                                                 ),
                                             ),
+                                            task_ty: None,
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -959,6 +962,7 @@
                                                     ),
                                                 ),
                                             ),
+                                            task_ty: None,
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -2496,6 +2500,7 @@
                                                     ),
                                                 ),
                                             ),
+                                            task_ty: None,
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -2580,6 +2585,7 @@
                                                     ),
                                                 ),
                                             ),
+                                            task_ty: None,
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -2736,6 +2742,7 @@
                                                     ),
                                                 ),
                                             ),
+                                            task_ty: None,
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -2820,6 +2827,7 @@
                                                     ),
                                                 ),
                                             ),
+                                            task_ty: None,
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -2976,6 +2984,7 @@
                                                     ),
                                                 ),
                                             ),
+                                            task_ty: None,
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
