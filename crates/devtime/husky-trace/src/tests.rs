@@ -46,7 +46,7 @@ use husky_vfs::jar::VfsJar;
     FlyTermJar,
     SemExprJar,
     husky_sem_place_contract::jar::SemPlaceContractJar,
-    husky_hir_ty::db::HirTypeJar,
+    husky_hir_ty::jar::HirTypeJar,
     husky_hir_eager_expr::jar::HirEagerExprJar,
     husky_hir_lazy_expr::jar::HirLazyExprJar,
     husky_hir_expr::jar::HirExprJar,
@@ -59,7 +59,7 @@ use husky_vfs::jar::VfsJar;
     husky_ki::jar::KiJar,
     husky_ki_repr::jar::KiReprJar,
     // ide
-    husky_token_info::db::TokenInfoJar,
+    husky_token_info::jar::TokenInfoJar,
     // lex
     husky_text::jar::TextJar,
     // devtimejar

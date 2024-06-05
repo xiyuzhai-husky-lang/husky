@@ -17,7 +17,7 @@ use std::panic::RefUnwindSafe;
     husky_hir_decl::jar::HirDeclJar,
     husky_hir_defn::jar::HirDefnJar,
     // ide
-    husky_token_info::db::TokenInfoJar,
+    husky_token_info::jar::TokenInfoJar,
     // kernel
     husky_coword::jar::CowordJar,
     husky_entity_path::jar::EntityPathJar,
@@ -28,7 +28,7 @@ use std::panic::RefUnwindSafe;
     husky_eth_term::jar::EthTermJar,
     husky_eth_signature::jar::EthSignatureJar,
     husky_fly_term::jar::FlyTermJar,
-    husky_hir_ty::db::HirTypeJar,
+    husky_hir_ty::jar::HirTypeJar,
     // lex
     husky_token_data::jar::TokenDataJar,
     husky_token::jar::TokenJar,

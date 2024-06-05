@@ -1,12 +1,12 @@
 mod calc;
 mod config;
-mod db;
+mod jar;
 mod protocol;
 #[cfg(test)]
 mod tests;
 
 pub use config::*;
-pub use db::*;
+pub use jar::*;
 pub use protocol::*;
 
 use calc::*;
