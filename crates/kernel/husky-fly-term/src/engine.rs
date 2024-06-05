@@ -1,7 +1,7 @@
 use super::*;
 use husky_entity_path::menu::ItemPathMenu;
 use husky_entity_tree::helpers::AvailableTraitItemsTable;
-use husky_eth_signature::{error::EthSignatureResult, signature::package::PackageEthSignatureData};
+use husky_eth_signature::context::{EthSignatureBuilderContext, EthSignatureBuilderContextItd};
 use husky_eth_term::term::symbolic_variable::EthSymbolicVariable;
 use husky_place::{place::idx::PlaceIdx, PlaceInfo, PlaceRegistry};
 use vec_like::SmallVecSet;
@@ -13,7 +13,10 @@ pub trait FlyTermEngine<'db>: Sized {
     fn item_path_menu(&self) -> &'db ItemPathMenu;
     fn term_menu(&self) -> &'db EthTermMenu;
     fn syn_expr_region_data(&self) -> &'db SynExprRegionData;
-    fn package_signature_data_result(&self) -> EthSignatureResult<&'db PackageEthSignatureData>;
+    fn context_itd(&self) -> EthSignatureBuilderContextItd;
+    fn context(&self) -> &'db EthSignatureBuilderContext {
+        self.context_itd().context(self.db())
+    }
 
     fn fly_terms(&self) -> &FlyTerms {
         self.fly_term_region().terms()

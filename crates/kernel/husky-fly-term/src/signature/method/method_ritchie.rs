@@ -1,7 +1,7 @@
 use super::*;
 use husky_entity_path::path::{assoc_item::AssocItemPath, major_item::ty::TypePath};
 use husky_eth_signature::{
-    error::EthSignatureResult,
+    context::EthSignatureBuilderContextItd,
     signature::{
         assoc_item::{
             trai_for_ty_item::method_ritchie::TraitForTypeMethodRitchieEtherealSignature,
@@ -11,7 +11,6 @@ use husky_eth_signature::{
                 TypeItemEthTemplates,
             },
         },
-        package::PackageEthSignatureData,
         HasEthTemplate,
     },
 };
@@ -85,7 +84,7 @@ pub(crate) fn ty_method_fly_signature<'db, Term: Copy + Into<FlyTerm>>(
     method_template_arguments: &[FlyTerm],
     ident_token: IdentRegionalToken,
     self_place: FlyQuary,
-    package_signature_data_result: EthSignatureResult<&'db PackageEthSignatureData>,
+    context_itd: EthSignatureBuilderContextItd,
 ) -> FlyTermMaybeResult<MethodFnFlySignature> {
     let ident = ident_token.ident();
     match ty_path.ty_item_eth_templates(engine.db(), ident)? {
@@ -98,7 +97,7 @@ pub(crate) fn ty_method_fly_signature<'db, Term: Copy + Into<FlyTerm>>(
                     ty_template_arguments,
                     method_template_arguments,
                     self_place,
-                    package_signature_data_result,
+                    context_itd,
                 ) {
                     return JustOk(signature.into());
                 }
@@ -130,7 +129,7 @@ fn ty_method_ritchie_fly_signature<'db, Term: Copy + Into<FlyTerm>>(
     ty_template_arguments: &[Term],
     method_template_arguments: &[FlyTerm],
     self_place: FlyQuary,
-    package_signature_data_result: EthSignatureResult<&'db PackageEthSignatureData>,
+    context_itd: EthSignatureBuilderContextItd,
 ) -> FlyTermMaybeResult<MethodFnFlySignature> {
     let db = engine.db();
     let self_ty_application_expansion = template.self_ty(db).application_expansion(db);
@@ -145,7 +144,7 @@ fn ty_method_ritchie_fly_signature<'db, Term: Copy + Into<FlyTerm>>(
             .eth_template(db)?
             .template_parameters(db),
         template.template_parameters(db),
-        package_signature_data_result?,
+        context_itd,
         db,
     );
     // FlyInstantiation::new(FlyInstantiationEnvironment::MethodFn { self_place });

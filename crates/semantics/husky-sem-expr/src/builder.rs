@@ -12,6 +12,7 @@ use husky_dec_signature::{jar::DecSignatureDb, region::SynExprDecTermRegion};
 use husky_entity_path::menu::{item_path_menu, ItemPathMenu};
 use husky_entity_tree::{helpers::AvailableTraitItemsTable, region_path::SynNodeRegionPath};
 use husky_eth_signature::{
+    context::EthSignatureBuilderContextItd,
     error::EthSignatureResult,
     signature::{
         package::{PackageEthSignature, PackageEthSignatureData},
@@ -43,7 +44,7 @@ pub(crate) struct SemExprBuilder<'db> {
     syn_expr_region_data: &'db SynExprRegionData,
     regional_tokens_data: RegionalTokensData<'db>,
     dec_term_region: &'db SynExprDecTermRegion,
-    package_signature_data_result: EthSignatureResult<&'db PackageEthSignatureData>,
+    context_itd: EthSignatureBuilderContextItd,
     place_registry: PlaceRegistry,
     sem_expr_arena: SemExprArena,
     sem_stmt_arena: SemStmtArena,
@@ -113,10 +114,11 @@ impl<'a> SemExprBuilder<'a> {
             db,
             &mut stack_location_registry,
         );
-        let package_signature_data_result = module_path
-            .package_path(db)
-            .eth_signature(db)
-            .map(|signature| signature.data(db));
+        let context_itd = todo!();
+        // module_path
+        //     .package_path(db)
+        //     .eth_signature(db)
+        //     .map(|signature| signature.data(db));
         let symbol_region = syn_expr_region_data.variable_region();
         let pattern_expr_region = syn_expr_region_data.pattern_expr_region();
         let toolchain = syn_expr_region.toolchain(db);
@@ -190,7 +192,7 @@ impl<'a> SemExprBuilder<'a> {
             pattern_expr_contracts: SynPatternMap::new(pattern_expr_region.pattern_expr_arena()),
             available_trai_items_table: AvailableTraitItemsTable::new_ad_hoc(db, module_path),
             regional_tokens_data,
-            package_signature_data_result,
+            context_itd,
         }
     }
 }
@@ -328,8 +330,8 @@ impl<'db> FlyTermEngine<'db> for SemExprBuilder<'db> {
         &self.obvious_trais_map
     }
 
-    fn package_signature_data_result(&self) -> EthSignatureResult<&'db PackageEthSignatureData> {
-        self.package_signature_data_result
+    fn context_itd(&self) -> EthSignatureBuilderContextItd {
+        self.context_itd
     }
 }
 

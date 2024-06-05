@@ -16,4 +16,12 @@ impl<'db> IsEthInstantiationContext<'db> for EthSignatureBuilderContext {
     ) -> husky_eth_term::term::EthTerm {
         todo!()
     }
+
+    /// returns Ok(None) if there is no dependency on task type
+    fn task_ty(
+        &self,
+        item_path: husky_entity_path::path::ItemPath,
+    ) -> husky_eth_term::EthTermResult<Option<husky_eth_term::term::EthTerm>> {
+        todo!()
+    }
 }

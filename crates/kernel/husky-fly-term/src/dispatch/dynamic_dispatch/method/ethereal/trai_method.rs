@@ -40,7 +40,7 @@ impl HasFlyTraitMethodDispatch for EthTerm {
                 db,
                 trai_path,
                 self,
-                engine.package_signature_data_result(),
+                engine.context_itd(),
             )?;
             if !builders.is_empty() {
                 unsafe { esbuilders_per_trai.insert_new_unchecked((trai_path, builders)) }

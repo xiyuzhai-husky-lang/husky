@@ -110,6 +110,8 @@ pub trait EthInstantiate: Copy {
 
 pub trait IsEthInstantiationContext<'db> {
     fn reduce_ty_as_trai_item(&self, term: EthTypeAsTraitItem) -> EthTerm;
+    /// should returns Ok(None) if there is no dependency on task type
+    fn task_ty(&self, item_path: ItemPath) -> EthTermResult<Option<EthTerm>>;
 }
 
 impl<T> EthInstantiate for Option<T>
@@ -162,17 +164,8 @@ pub struct EthInstantiationBuilder {
     /// indicates the separation for associated item template instantiation
     separator: Option<u8>,
 }
-pub trait IsPackageEthSignatureData {
-    fn task_ty(&self) -> Option<EthTerm>;
-}
 
 pub struct GenericPackageEthSignatureData;
-
-impl IsPackageEthSignatureData for GenericPackageEthSignatureData {
-    fn task_ty(&self) -> Option<EthTerm> {
-        None
-    }
-}
 
 impl EthInstantiationBuilder {
     /// symbols must be unique
@@ -180,16 +173,16 @@ impl EthInstantiationBuilder {
         path: ItemPath,
         symbols: impl Iterator<Item = EthSymbolicVariable>,
         is_associated: bool,
-        package_signature_data_result: &'db impl IsPackageEthSignatureData,
-    ) -> Self {
+        ctx: &'db impl IsEthInstantiationContext,
+    ) -> EthTermResult<Self> {
         let symbol_map: SmallVecPairMap<EthSymbolicVariable, Option<EthTerm>, 4> =
             symbols.map(|symbol| (symbol, None)).collect();
-        Self {
+        Ok(Self {
             path,
-            task_ty: package_signature_data_result.task_ty(),
+            task_ty: ctx.task_ty(path)?,
             separator: is_associated.then_some(symbol_map.len().try_into().unwrap()),
             symbol_map,
-        }
+        })
     }
 
     /// `JustOk(())` means rule is added and everything is compatible.
