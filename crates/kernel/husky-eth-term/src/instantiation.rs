@@ -8,6 +8,7 @@ use husky_entity_path::{
 use husky_syn_decl::decl::HasSynDecl;
 use maybe_result::*;
 use salsa::fmt::WithFmtContext;
+use term::trai_for_ty_item::EthTypeAsTraitItem;
 use vec_like::{SmallVecPairMap, VecMap};
 
 #[salsa::derive_debug_with_db]
@@ -107,7 +108,9 @@ pub trait EthInstantiate: Copy {
     ) -> Self::Output;
 }
 
-pub trait IsEthInstantiationContext<'db> {}
+pub trait IsEthInstantiationContext<'db> {
+    fn reduce_ty_as_trai_item(&self, term: EthTypeAsTraitItem) -> EthTerm;
+}
 
 impl<T> EthInstantiate for Option<T>
 where

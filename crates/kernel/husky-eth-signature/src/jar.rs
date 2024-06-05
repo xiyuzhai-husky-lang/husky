@@ -1,5 +1,7 @@
 #[salsa::jar]
 pub struct EthSignatureJar(
+    // context
+    crate::context::EthSignatureBuilderContextItd,
     // package
     crate::signature::package::PackageEthSignature,
     crate::signature::package::package_eth_signature,
@@ -64,7 +66,7 @@ pub struct EthSignatureJar(
     crate::signature::impl_block::ty_impl_block::ty_impl_block_eth_template,
     // - trait for type
     crate::signature::impl_block::trai_for_ty_impl_block::TraitForTypeImplBlockEthTemplate,
-    crate::signature::impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilder,
+    crate::signature::impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilderItd,
     crate::signature::impl_block::trai_for_ty_impl_block::trai_for_ty_impl_block_eth_template,
     crate::signature::impl_block::trai_for_ty_impl_block::trai_for_ty_impl_block_with_ty_instantiated_assoc_output_ethereal_signature_builder,
     crate::signature::impl_block::trai_for_ty_impl_block::trai_for_ty_impl_block_with_ty_instantiated_item_eth_template,

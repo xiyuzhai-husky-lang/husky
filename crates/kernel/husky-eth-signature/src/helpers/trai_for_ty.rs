@@ -2,7 +2,7 @@ use super::*;
 use crate::signature::{
     attr::derive::HasDeriveAttrShardEthTemplates,
     impl_block::trai_for_ty_impl_block::{
-        EthTraitForTypeImplBlockSignatureBuilder, TraitForTypeImplBlockEthTemplate,
+        EthTraitForTypeImplBlockSignatureBuilderItd, TraitForTypeImplBlockEthTemplate,
         TraitForTypeImplBlockSignatureTemplates,
     },
     HasEthTemplate,
@@ -65,13 +65,13 @@ pub fn trai_path_for_ty_term_impl_block_eth_signature_builders<'db>(
     trai_path: TraitPath,
     ty_term: EthTerm,
     package_signature_data_result: EthSignatureResult<&'db PackageEthSignatureData>,
-) -> EthSignatureResult<SmallVec<[EthTraitForTypeImplBlockSignatureBuilder; 2]>> {
+) -> EthSignatureResult<SmallVec<[EthTraitForTypeImplBlockSignatureBuilderItd; 2]>> {
     let application_expansion = ty_term.application_expansion(db);
     let arguments = application_expansion.arguments(db);
     let TermFunctionReduced::TypeOntology(ty_path) = application_expansion.function() else {
         unreachable!()
     };
-    let mut builders: SmallVec<[EthTraitForTypeImplBlockSignatureBuilder; 2]> = smallvec![];
+    let mut builders: SmallVec<[EthTraitForTypeImplBlockSignatureBuilderItd; 2]> = smallvec![];
     for template in trai_path_for_ty_path_impl_block_eth_templates(db, trai_path, ty_path)?.iter() {
         match template.instantiate_ty(arguments, ty_term, package_signature_data_result, db) {
             JustOk(builder) => builders.push(builder),

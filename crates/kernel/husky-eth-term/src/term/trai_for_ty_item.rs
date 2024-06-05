@@ -84,7 +84,7 @@ impl EthTypeAsTraitItem {
 }
 
 impl EthInstantiate for EthTypeAsTraitItem {
-    type Output = Self;
+    type Output = EthTerm;
 
     fn instantiate(
         self,
@@ -92,12 +92,11 @@ impl EthInstantiate for EthTypeAsTraitItem {
         ctx: &impl IsEthInstantiationContext,
         db: &::salsa::Db,
     ) -> Self::Output {
-        Self::new(
-            db,
-            self.parent(db).instantiate(instantiation, ctx, db),
-            self.trai(db).instantiate(instantiation, ctx, db),
-            self.ident(db),
-            self.trai_item_path(db),
-        )
+        let parent = self.parent(db).instantiate(instantiation, ctx, db);
+        let trai = self.trai(db).instantiate(instantiation, ctx, db);
+        let ident = self.ident(db);
+        let trai_item_path = self.trai_item_path(db);
+        let slf = Self::new(db, parent, trai, ident, trai_item_path);
+        ctx.reduce_ty_as_trai_item(slf)
     }
 }
