@@ -212,7 +212,6 @@ impl FlyTerm {
     #[deprecated(note = "ad hoc implementation")]
     pub fn is_always_copyable<'db>(
         self,
-        context_itd: EthSignatureBuilderContextItd,
         db: &'db ::salsa::Db,
         terms: &FlyTerms,
     ) -> FlyTermResult<Option<bool>> {

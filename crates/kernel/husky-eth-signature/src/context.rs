@@ -1,8 +1,10 @@
 use husky_entity_path::path::ItemPath;
 use husky_entity_tree::region_path::SynNodeRegionPath;
-use husky_eth_term::{instantiation::IsEthInstantiationContext, term::EthTerm, EthTermResult};
+use husky_eth_term::{
+    instantiation::IsEthInstantiationContext, term::EthTerm, EthTermError, EthTermResult,
+};
 
-use crate::signature::HasEthSignature;
+use crate::{signature::HasEthSignature, EthSignatureResult};
 
 #[salsa::interned(constructor = new_inner)]
 pub struct EthSignatureBuilderContextItd {
@@ -17,29 +19,26 @@ impl EthSignatureBuilderContextItd {
         Self::new_inner(db, context)
     }
 
-    pub fn new(region_path: SynNodeRegionPath, db: &::salsa::Db) -> Self {
-        let context = EthSignatureBuilderContext::new(region_path, db);
-        Self::new_inner(db, context)
+    pub fn new(region_path: SynNodeRegionPath, db: &::salsa::Db) -> EthSignatureResult<Self> {
+        let context = EthSignatureBuilderContext::new(region_path, db)?;
+        Ok(Self::new_inner(db, context))
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct EthSignatureBuilderContext {
-    task_ty: Result<Option<EthTerm>, ()>,
+    task_ty: Option<EthTerm>,
 }
 
 impl EthSignatureBuilderContext {
     fn new_generic() -> Self {
-        Self { task_ty: Ok(None) }
+        Self { task_ty: None }
     }
 
-    fn new(region_path: SynNodeRegionPath, db: &::salsa::Db) -> Self {
+    fn new(region_path: SynNodeRegionPath, db: &::salsa::Db) -> EthSignatureResult<Self> {
         let package_path = region_path.package_path(db);
-        let task_ty = match package_path.eth_signature(db) {
-            Ok(signature) => Ok(signature.data(db).task_ty()),
-            Err(_) => Err(()),
-        };
-        Self { task_ty }
+        let task_ty = package_path.eth_signature(db)?.data(db).task_ty();
+        Ok(Self { task_ty })
     }
 }
 
@@ -51,11 +50,7 @@ impl<'db> IsEthInstantiationContext<'db> for EthSignatureBuilderContext {
         todo!()
     }
 
-    /// returns Ok(None) if there is no dependency on task type
-    fn task_ty(
-        &self,
-        item_path: husky_entity_path::path::ItemPath,
-    ) -> EthTermResult<Option<EthTerm>> {
-        todo!("check item_path dependency")
+    fn task_ty(&self) -> Option<EthTerm> {
+        self.task_ty
     }
 }

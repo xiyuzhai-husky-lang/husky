@@ -94,11 +94,7 @@ impl SymbolType {
                 Some(FlyQuary::Transient) | None => FlyQuary::ImmutableOnStack {
                     place: engine.issue_new_place_idx(place_data).into(),
                 },
-                Some(quary) => match ty.is_always_copyable(
-                    engine.context_itd(),
-                    engine.db(),
-                    engine.fly_terms(),
-                )? {
+                Some(quary) => match ty.is_always_copyable(engine.db(), engine.fly_terms())? {
                     Some(true) => FlyQuary::ImmutableOnStack {
                         place: engine.issue_new_place_idx(place_data).into(),
                     },
@@ -126,11 +122,7 @@ impl SymbolType {
                 Some(FlyQuary::Transient) | None => FlyQuary::MutableOnStack {
                     place: engine.issue_new_place_idx(place_data).into(),
                 },
-                Some(place) => match ty.is_always_copyable(
-                    engine.context_itd(),
-                    engine.db(),
-                    engine.fly_terms(),
-                )? {
+                Some(place) => match ty.is_always_copyable(engine.db(), engine.fly_terms())? {
                     Some(true) => FlyQuary::MutableOnStack {
                         place: engine.issue_new_place_idx(place_data).into(),
                     },

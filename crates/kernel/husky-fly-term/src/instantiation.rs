@@ -6,6 +6,7 @@ use husky_entity_path::path::{
     ItemPath, PrincipalItemPath,
 };
 use husky_eth_signature::context::EthSignatureBuilderContextItd;
+use husky_eth_term::instantiation::IsEthInstantiationContext;
 use husky_eth_term::{
     instantiation::EthInstantiation,
     term::{
@@ -83,7 +84,7 @@ impl FlyInstantiation {
             .then_some(template_parameters1.len().try_into().unwrap());
         Self {
             path: path.into().into(),
-            task_ty: todo!(),
+            task_ty: context_itd.context(db).task_ty(),
             env,
             symbol_map: template_parameters1
                 .iter()
@@ -223,7 +224,7 @@ impl FlyTermInstantiationBuilder {
     ) -> Self {
         Self {
             path: path.into().into(),
-            task_ty: todo!(),
+            task_ty: context_itd.context(db).task_ty(),
             env,
             symbol_map: impl_block_template_parameters
                 .iter()

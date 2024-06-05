@@ -115,7 +115,8 @@ impl<'a> SemExprBuilder<'a> {
             db,
             &mut stack_location_registry,
         );
-        let context_itd = EthSignatureBuilderContextItd::new(region_path, db);
+        let context_itd =
+            EthSignatureBuilderContextItd::new(region_path, db).expect("todo: handle error");
         // module_path
         //     .package_path(db)
         //     .eth_signature(db)

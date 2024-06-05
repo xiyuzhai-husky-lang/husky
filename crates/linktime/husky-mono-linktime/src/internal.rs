@@ -41,7 +41,7 @@ where
         linkage: Linkage,
         db: &::salsa::Db,
     ) -> Option<LinkageImpl> {
-        let Some(&(deps, linkage_impl)) = self.linkage_impls.get(&linkage) else {
+        let Some(&(version_stamp, linkage_impl)) = self.linkage_impls.get(&linkage) else {
             use husky_print_utils::p;
             use salsa::DebugWithDb;
             let _linkages: Vec<Linkage> = self.linkage_impls.clone().into_keys().collect();
@@ -63,7 +63,7 @@ where
             p!(linkage.debug(db), linkage);
             unreachable!()
         };
-        (deps == linkage.version_stamp(db)).then_some(linkage_impl)
+        (version_stamp == linkage.version_stamp(db)).then_some(linkage_impl)
     }
 
     /// still need the key to avoid redundant reload when two attempts simultaneously want to lock
