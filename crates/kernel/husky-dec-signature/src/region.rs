@@ -7,7 +7,9 @@ pub(crate) use engine::*;
 use crate::*;
 use husky_entity_tree::region_path::SynNodeRegionPath;
 use husky_syn_expr::{
-    CurrentVariableIdx, SynExprIdx, SynExprMap, SynPatternMap, SynPatternSymbolMap,
+    expr::{SynExprIdx, SynExprMap},
+    pattern::{SynPatternMap, SynPatternSymbolMap},
+    variable::CurrentVariableIdx,
 };
 
 /// preparation for generating signature

@@ -385,7 +385,12 @@ impl EthTerm {
 impl EthInstantiate for EthTerm {
     type Output = EthTerm;
 
-    fn instantiate(self, db: &::salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
+    fn instantiate(
+        self,
+        instantiation: &EthInstantiation,
+        ctx: &impl IsEthInstantiationContext,
+        db: &::salsa::Db,
+    ) -> Self::Output {
         if let Some(task_ty) = instantiation.task_ty() {
             match self {
                 EthTerm::ItemPath(ItemPathTerm::Form(form_path))
@@ -401,14 +406,14 @@ impl EthInstantiate for EthTerm {
             | EthTerm::ItemPath(_)
             | EthTerm::Category(_)
             | EthTerm::Universe(_) => self,
-            EthTerm::SymbolicVariable(slf) => slf.instantiate(db, instantiation),
-            EthTerm::LambdaVariable(slf) => slf.instantiate(db, instantiation).into(),
-            EthTerm::Curry(slf) => slf.instantiate(db, instantiation).into(),
-            EthTerm::Ritchie(slf) => slf.instantiate(db, instantiation).into(),
-            EthTerm::Abstraction(slf) => slf.instantiate(db, instantiation).into(),
-            EthTerm::Application(slf) => slf.instantiate(db, instantiation),
-            EthTerm::TypeAsTraitItem(slf) => slf.instantiate(db, instantiation).into(),
-            EthTerm::TraitConstraint(slf) => slf.instantiate(db, instantiation).into(),
+            EthTerm::SymbolicVariable(slf) => slf.instantiate(instantiation, ctx, db),
+            EthTerm::LambdaVariable(slf) => slf.instantiate(instantiation, ctx, db).into(),
+            EthTerm::Curry(slf) => slf.instantiate(instantiation, ctx, db).into(),
+            EthTerm::Ritchie(slf) => slf.instantiate(instantiation, ctx, db).into(),
+            EthTerm::Abstraction(slf) => slf.instantiate(instantiation, ctx, db).into(),
+            EthTerm::Application(slf) => slf.instantiate(instantiation, ctx, db),
+            EthTerm::TypeAsTraitItem(slf) => slf.instantiate(instantiation, ctx, db).into(),
+            EthTerm::TraitConstraint(slf) => slf.instantiate(instantiation, ctx, db).into(),
         }
     }
 }

@@ -2,7 +2,7 @@ pub mod jar;
 pub mod place;
 
 use husky_coword::Ident;
-use husky_syn_expr::CurrentVariableIdx;
+use husky_syn_expr::variable::CurrentVariableIdx;
 use shifted_unsigned_int::ShiftedU32;
 
 #[salsa::derive_debug_with_db]

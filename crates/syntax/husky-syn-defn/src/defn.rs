@@ -10,7 +10,12 @@ use husky_entity_tree::{
     },
 };
 use husky_syn_decl::decl::HasSynNodeDecl;
-use husky_syn_expr::helpers::block_expr::parse_defn_block_expr;
+use husky_syn_expr::{
+    expr::SynExprIdx,
+    helpers::block_expr::parse_defn_block_expr,
+    region::SynExprRegion,
+    variable::{AllowSelfType, AllowSelfValue},
+};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

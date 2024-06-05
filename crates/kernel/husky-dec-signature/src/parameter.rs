@@ -6,7 +6,3 @@ pub use self::template_parameter::*;
 
 use crate::*;
 use husky_regional_token::VarianceRegionalToken;
-use husky_syn_expr::{
-    ParenateParameterSyndicate, SynExprRegionData, TemplateParameterSyndicateVariant,
-    TemplateSynParameterData,
-};

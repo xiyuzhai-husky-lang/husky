@@ -1,6 +1,7 @@
 use super::*;
 use husky_entity_path::path::major_item::ty::{PreludeIndirectionTypePath, PreludeTypePath};
 use husky_eth_signature::{
+    context::{EthSignatureBuilderContext, EthSignatureBuilderContextItd},
     error::EthSignatureResult,
     signature::{
         assoc_item::ty_item::memo_field::HasTypeMemoizedFieldEtherealSignature,
@@ -14,26 +15,16 @@ pub(super) fn ethereal_ty_field_dispatch<'db>(
     ty_term: EthTerm,
     ident: Ident,
     indirections: FlyIndirections,
-    package_signature_data_result: EthSignatureResult<&'db PackageEthSignatureData>,
+    ctx: &EthSignatureBuilderContext,
 ) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
     // divide into cases for memoization
     match ty_term {
         EthTerm::ItemPath(ItemPathTerm::TypeOntology(ty_path)) => {
-            ethereal_ty_ontology_path_ty_field_dispatch(
-                db,
-                ty_path,
-                ident,
-                indirections,
-                package_signature_data_result,
-            )
+            ethereal_ty_ontology_path_ty_field_dispatch(db, ty_path, ident, indirections, ctx)
         }
-        EthTerm::Application(ty_term) => ethereal_term_application_ty_field_dispatch(
-            db,
-            ty_term,
-            ident,
-            indirections,
-            package_signature_data_result,
-        ),
+        EthTerm::Application(ty_term) => {
+            ethereal_term_application_ty_field_dispatch(db, ty_term, ident, indirections, ctx)
+        }
         _ => Nothing,
     }
 }
@@ -43,16 +34,9 @@ pub(crate) fn ethereal_ty_ontology_path_ty_field_dispatch<'db>(
     ty_path: TypePath,
     ident: Ident,
     indirections: FlyIndirections,
-    package_signature_data_result: EthSignatureResult<&'db PackageEthSignatureData>,
+    ctx: &EthSignatureBuilderContext,
 ) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
-    ethereal_ty_field_dispatch_aux(
-        db,
-        ty_path,
-        &[],
-        ident,
-        indirections,
-        package_signature_data_result,
-    )
+    ethereal_ty_field_dispatch_aux(db, ty_path, &[], ident, indirections, ctx)
 }
 
 pub(crate) fn ethereal_term_application_ty_field_dispatch<'db>(
@@ -60,7 +44,7 @@ pub(crate) fn ethereal_term_application_ty_field_dispatch<'db>(
     ty_term: EthApplication,
     ident: Ident,
     indirections: FlyIndirections,
-    package_signature_data_result: EthSignatureResult<&'db PackageEthSignatureData>,
+    ctx: &EthSignatureBuilderContext,
 ) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
     let application_expansion = ty_term.application_expansion(db);
     match application_expansion.function() {
@@ -70,7 +54,7 @@ pub(crate) fn ethereal_term_application_ty_field_dispatch<'db>(
             application_expansion.arguments(db),
             ident,
             indirections,
-            package_signature_data_result,
+            ctx,
         ),
         TermFunctionReduced::Trait(_) | TermFunctionReduced::Other(_) => Nothing,
     }
@@ -82,7 +66,7 @@ fn ethereal_ty_field_dispatch_aux<'db>(
     arguments: &'db [EthTerm],
     ident: Ident,
     mut indirections: FlyIndirections,
-    package_signature_data_result: EthSignatureResult<&'db PackageEthSignatureData>,
+    ctx: &EthSignatureBuilderContext,
 ) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
     match ty_path.refine(db) {
         Left(PreludeTypePath::Indirection(prelude_indirection_ty_path)) => {
@@ -94,13 +78,7 @@ fn ethereal_ty_field_dispatch_aux<'db>(
                     if arguments.len() != 1 {
                         todo!()
                     }
-                    return ethereal_ty_field_dispatch(
-                        db,
-                        arguments[0],
-                        ident,
-                        indirections,
-                        package_signature_data_result,
-                    );
+                    return ethereal_ty_field_dispatch(db, arguments[0], ident, indirections, ctx);
                 }
                 PreludeIndirectionTypePath::At => todo!(),
             }
@@ -119,7 +97,7 @@ fn ethereal_ty_field_dispatch_aux<'db>(
     };
 
     if let Some(memo_field_ethereal_signature) = ty_path
-        .ty_memo_field_ethereal_signature(arguments, ident, package_signature_data_result, db)
+        .ty_memo_field_ethereal_signature(arguments, ident, ctx, db)
         .into_result_option()?
     {
         return JustOk(FlyFieldDyanmicDispatch {

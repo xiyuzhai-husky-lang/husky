@@ -1,6 +1,11 @@
 use super::*;
 use either::*;
-use husky_syn_expr::ParenateParameterSyndicateNucleus;
+use husky_syn_expr::{
+    region::SynExprRegionData,
+    syndicates::{
+        parenate_parameter::ParenateParameterSyndicateNucleus, ParenateParameterSyndicate,
+    },
+};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::derive_debug_with_db]

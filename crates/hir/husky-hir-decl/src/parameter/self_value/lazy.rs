@@ -1,4 +1,4 @@
-use husky_syn_expr::SelfValueParameterSyndicate;
+use husky_syn_expr::syndicates::self_value_parameter::SelfValueParameterSyndicate;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct HirLazySelfValueParameter {}

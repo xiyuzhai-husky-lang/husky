@@ -1,5 +1,5 @@
 use husky_hir_ty::ritchie::HirContract;
-use husky_syn_expr::ParenateParameterSyndicateNucleus;
+use husky_syn_expr::syndicates::parenate_parameter::ParenateParameterSyndicateNucleus;
 
 use super::*;
 

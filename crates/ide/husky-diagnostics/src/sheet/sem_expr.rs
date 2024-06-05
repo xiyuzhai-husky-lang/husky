@@ -5,7 +5,7 @@ use husky_sem_expr::{
 };
 use husky_syn_decl::decl::HasSynNodeDecl;
 use husky_syn_defn::module_item_syn_node_defns;
-use husky_syn_expr::SynExprRegion;
+use husky_syn_expr::region::SynExprRegion;
 use salsa::DisplayWithDb;
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]

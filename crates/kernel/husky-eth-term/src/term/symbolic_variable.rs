@@ -74,7 +74,12 @@ impl salsa::DisplayWithDb for EthSymbolicVariable {
 impl EthInstantiate for EthSymbolicVariable {
     type Output = EthTerm;
 
-    fn instantiate(self, _db: &::salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
+    fn instantiate(
+        self,
+        instantiation: &EthInstantiation,
+        ctx: &impl IsEthInstantiationContext,
+        db: &::salsa::Db,
+    ) -> Self::Output {
         // it's assumed that all symbols will be replaced by its map
         // otherwise it's illegal
         instantiation.symbol_instantiation(self)

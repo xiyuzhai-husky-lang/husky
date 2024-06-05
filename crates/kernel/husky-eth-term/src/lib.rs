@@ -3,6 +3,7 @@
 #![doc = include_str ! ("../README.md")]
 #![feature(let_chains)]
 #![feature(if_let_guard)]
+#![feature(anonymous_lifetime_in_impl_trait)]
 mod conversion;
 mod db;
 mod error;

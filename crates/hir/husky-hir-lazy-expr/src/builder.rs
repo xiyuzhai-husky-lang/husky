@@ -7,8 +7,10 @@ use husky_sem_expr::{
 };
 use husky_sem_place_contract::region::{sem_place_contract_region, SemPlaceContractRegion};
 use husky_syn_expr::{
-    CurrentVariableIdx, InheritedSymbolicVariableIdx, SynExprRegionData, SynExprRootKind,
-    SynPatternIdx, SynPatternMap, SynPatternRootKind, VariableMap,
+    context::{SynExprRootKind, SynPatternRootKind},
+    pattern::{SynPatternIdx, SynPatternMap},
+    region::SynExprRegionData,
+    variable::{CurrentVariableIdx, InheritedSymbolicVariableIdx, VariableMap},
 };
 use salsa::DebugWithDb;
 

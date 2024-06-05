@@ -1,6 +1,6 @@
 use self::region::SynExprDecTermRegion;
 use crate::*;
-use husky_syn_expr::SynExprRegion;
+use husky_syn_expr::region::SynExprRegion;
 
 pub trait DecSignatureDb {
     fn syn_expr_dec_term_region(&self, syn_expr_region: SynExprRegion) -> &SynExprDecTermRegion;
@@ -82,6 +82,7 @@ pub struct DecSignatureJar(
     // attr
     crate::signature::attr::attr_dec_template,
     crate::signature::attr::task::TaskAttrDecTemplate,
+    crate::signature::attr::deps::DepsAttrDecTemplate,
     crate::signature::attr::derive::DeriveAttrDecTemplate,
     crate::signature::attr::derive::DeriveAttrShardDecTemplate,
 );

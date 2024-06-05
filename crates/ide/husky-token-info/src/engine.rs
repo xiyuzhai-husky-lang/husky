@@ -18,7 +18,12 @@ use husky_syn_decl::decl::HasSynNodeDecl;
 use husky_syn_defn::*;
 use husky_syn_expr::{
     entity_path::{SynPrincipalEntityPathExpr, SynPrincipalEntityPathSynExprIdx},
-    *,
+    pattern::{PatternVariable, SynPatternData},
+    region::{SynExprRegion, SynExprRegionData},
+    variable::{
+        CurrentTemplateParameterSynSymbolKind, CurrentVariableEntry, CurrentVariableIdx,
+        CurrentVariableKind,
+    },
 };
 
 pub(crate) struct TokenInfoEngine<'a> {

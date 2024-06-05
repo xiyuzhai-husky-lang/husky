@@ -42,13 +42,13 @@ impl EthTemplateParameters {
         &self,
         path: ItemPath,
         is_associated: bool,
-        package_signature_data_result: &'db impl IsPackageEthSignatureData,
-    ) -> EtherealInstantiationBuilder {
-        EtherealInstantiationBuilder::new(
+        ctx: &'db impl IsEthInstantiationContext,
+    ) -> EthInstantiationBuilder {
+        EthInstantiationBuilder::new(
             path,
             self.iter().map(|param| param.symbol()),
             is_associated,
-            package_signature_data_result,
+            ctx,
         )
     }
 }

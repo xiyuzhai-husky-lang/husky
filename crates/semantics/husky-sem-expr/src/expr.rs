@@ -19,8 +19,6 @@ pub mod template_argument;
 pub mod utils;
 pub mod variable;
 
-use std::ops::Index;
-
 pub use self::html::*;
 pub use self::list_item::*;
 pub use self::ritchie_call_arguments_ty::*;
@@ -57,10 +55,8 @@ use husky_regional_token::{
     RegionalTokenIdx, RvertRegionalToken,
 };
 use husky_sem_opr::{binary::SemaBinaryOpr, prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
-use husky_syn_expr::{
-    entity_path::SynPrincipalEntityPathSynExprIdx, InheritedSymbolicVariableIdx,
-    InheritedVariableKind,
-};
+use husky_syn_expr::entity_path;
+use husky_syn_expr::entity_path::SynPrincipalEntityPathSynExprIdx;
 use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr, SynSuffixOpr};
 use husky_term_prelude::{
     literal::{
@@ -79,6 +75,7 @@ use husky_token_data::{
 };
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use smallvec::SmallVec;
+use std::ops::Index;
 use vec_like::{AsVecMapEntry, VecMap};
 
 #[salsa::derive_debug_with_db]
@@ -589,7 +586,8 @@ impl<'a> SemExprBuilder<'a> {
                         _ => todo!(),
                     }
                 }
-                SynExprRootKind::ReturnExpr
+                SynExprRootKind::Dep
+                | SynExprRootKind::ReturnExpr
                 | SynExprRootKind::Condition
                 | SynExprRootKind::HtmlArgumentExpr
                 | SynExprRootKind::LetStmtType

@@ -29,10 +29,15 @@ impl EthRitchieSimpleParameter {
 impl EthInstantiate for EthRitchieSimpleParameter {
     type Output = Self;
 
-    fn instantiate(self, db: &::salsa::Db, instantiation: &EthInstantiation) -> Self {
+    fn instantiate(
+        self,
+        instantiation: &EthInstantiation,
+        ctx: &impl IsEthInstantiationContext,
+        db: &::salsa::Db,
+    ) -> Self {
         Self {
             contract: self.contract,
-            ty: self.ty.instantiate(db, instantiation),
+            ty: self.ty.instantiate(instantiation, ctx, db),
         }
     }
 }

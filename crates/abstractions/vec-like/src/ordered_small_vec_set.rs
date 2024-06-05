@@ -154,15 +154,25 @@ where
         }
     }
 
-    pub fn remove(&mut self, value: K)
+    pub fn remove(&mut self, value: impl std::borrow::Borrow<K>)
     where
         K: Ord,
     {
-        match self.data.binary_search(&value) {
+        let value = value.borrow();
+        match self.data.binary_search(value) {
             Ok(old) => {
                 self.data.remove(old);
             }
             Err(_pos) => (),
+        }
+    }
+
+    pub fn remove_from_list(&mut self, values: &[K])
+    where
+        K: Ord,
+    {
+        for value in values {
+            self.remove(value)
         }
     }
 
@@ -190,6 +200,14 @@ where
         for &element in other {
             self.insert(element)
         }
+    }
+
+    pub fn union(mut self, other: &[K]) -> Self
+    where
+        K: Copy + Ord,
+    {
+        self.extend(other);
+        self
     }
 
     pub fn data(&self) -> &[K] {

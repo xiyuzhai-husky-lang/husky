@@ -1,38 +1,35 @@
 #![feature(result_flattening)]
 #![feature(let_chains)]
-mod context;
+pub mod context;
 pub mod entity_path;
-mod error;
-mod expr;
+pub mod error;
+pub mod expr;
 pub mod helpers;
 pub mod jar;
-mod parser;
-mod pattern;
-mod range;
-mod region;
+pub mod parser;
+pub mod pattern;
+pub mod range;
+pub mod region;
 pub mod snippet;
-mod stmt;
-mod syndicates;
+pub mod stmt;
+pub mod syndicates;
 #[cfg(test)]
 mod tests;
 pub mod variable;
 
-pub use self::context::*;
-pub use self::error::*;
-pub use self::expr::*;
-pub use self::jar::*;
-pub use self::parser::*;
-pub use self::pattern::*;
-pub use self::range::*;
-pub use self::region::*;
-pub use self::stmt::*;
-pub use self::syndicates::*;
-pub use self::variable::*;
-
+use self::context::*;
 use self::entity_path::*;
+use self::error::*;
+use self::expr::*;
 use self::jar::SynExprJar as Jar;
+use self::parser::*;
+use self::pattern::*;
+use self::region::*;
+use self::stmt::*;
+use self::syndicates::*;
 #[cfg(test)]
 use self::tests::*;
+use self::variable::*;
 use husky_coword::*;
 use husky_entity_path::path::{major_item::MajorItemPath, EntityPath, PrincipalEntityPath};
 use husky_regional_token::*;

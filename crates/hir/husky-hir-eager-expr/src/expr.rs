@@ -29,7 +29,7 @@ use husky_hir_ty::{
 };
 use husky_sem_expr::{SemExprData, SemExprIdx, SemaRitchieArgument};
 use husky_sem_opr::{binary::SemaBinaryOpr, suffix::SemaSuffixOpr};
-use husky_syn_expr::{InheritedTemplateVariable, InheritedVariableKind};
+use husky_syn_expr::variable::{InheritedTemplateVariable, InheritedVariableKind};
 use husky_term_prelude::literal::Literal;
 use vec_like::VecMap;
 
