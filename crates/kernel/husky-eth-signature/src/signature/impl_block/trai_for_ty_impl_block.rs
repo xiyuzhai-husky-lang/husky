@@ -135,40 +135,36 @@ impl TraitForTypeImplBlockEthTemplate {
     /// try to give a partial instantiation such that `self_ty` is equal to `target_ty`
     /// returns `Nothing` when template matching failed
     #[inline(always)]
-    pub fn instantiate_ty<'db, P: IsPackageEthSignatureData>(
+    pub fn instantiate_ty<'db>(
         self,
         target_ty_arguments: &'db [EthTerm],
         target_ty_term: EthTerm,
-        package_signature_data_result: EthSignatureResult<&'db P>,
+        context_itd: EthSignatureBuilderContextItd,
         db: &'db ::salsa::Db,
     ) -> EthSignatureMaybeResult<EthTraitForTypeImplBlockSignatureBuilderItd> {
-        let mut instantiation = self.template_parameters(db).empty_instantiation_builder(
+        let mut builder = self.template_parameters(db).empty_instantiation_builder(
             self.path(db).into(),
             true,
-            package_signature_data_result?,
-        );
+            context_itd.context(db),
+        )?;
         match self.self_ty_refined(db) {
             EtherealSelfTypeInTraitImpl::PathLeading(self_ty_term) => {
-                instantiation.try_add_rules_from_application(
-                    self_ty_term,
-                    target_ty_arguments,
-                    db,
-                )?;
+                builder.try_add_rules_from_application(self_ty_term, target_ty_arguments, db)?;
                 JustOk(EthTraitForTypeImplBlockSignatureBuilderItd::new(
                     db,
                     self,
-                    instantiation,
-                    todo!(),
+                    builder,
+                    context_itd,
                 ))
             }
             EtherealSelfTypeInTraitImpl::DeriveAny(symbol) => {
-                let JustOk(()) = instantiation.try_add_symbol_rule(symbol, target_ty_term) else {
+                let JustOk(()) = builder.try_add_symbol_rule(symbol, target_ty_term) else {
                     unreachable!("this can't go wrong because instantiation was empty")
                 };
                 JustOk(EthTraitForTypeImplBlockSignatureBuilderItd::new(
                     db,
                     self,
-                    instantiation,
+                    builder,
                     todo!(),
                 ))
             }

@@ -5,8 +5,9 @@ use husky_entity_path::path::{
     major_item::ty::{PreludeIndirectionTypePath, PreludeTypePath},
     ItemPath, PrincipalItemPath,
 };
+use husky_eth_signature::context::EthSignatureBuilderContextItd;
 use husky_eth_term::{
-    instantiation::{EthInstantiation, IsPackageEthSignatureData},
+    instantiation::EthInstantiation,
     term::{
         application::{EthApplication, TermFunctionReduced},
         ritchie::EthRitchie,
@@ -74,7 +75,7 @@ impl FlyInstantiation {
         template_parameters1: &[EthTemplateParameter],
         template_parameters2: Option<&[EthTemplateParameter]>,
         terms: &mut FlyTerms,
-        package_signature_data: &'db impl IsPackageEthSignatureData,
+        context_itd: EthSignatureBuilderContextItd,
         db: &'db ::salsa::Db,
     ) -> Self {
         let separator = template_parameters2
@@ -82,7 +83,7 @@ impl FlyInstantiation {
             .then_some(template_parameters1.len().try_into().unwrap());
         Self {
             path: path.into().into(),
-            task_ty: package_signature_data.task_ty(),
+            task_ty: todo!(),
             env,
             symbol_map: template_parameters1
                 .iter()
@@ -217,12 +218,12 @@ impl FlyTermInstantiationBuilder {
         env: FlyInstantiationEnvironment,
         impl_block_template_parameters: &[EthTemplateParameter],
         assoc_item_template_parameters: &[EthTemplateParameter],
-        package_signature_data: &'db impl IsPackageEthSignatureData,
+        context_itd: EthSignatureBuilderContextItd,
         db: &'db ::salsa::Db,
     ) -> Self {
         Self {
             path: path.into().into(),
-            task_ty: package_signature_data.task_ty(),
+            task_ty: todo!(),
             env,
             symbol_map: impl_block_template_parameters
                 .iter()

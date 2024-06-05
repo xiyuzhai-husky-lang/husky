@@ -41,11 +41,7 @@ impl<'a> SemExprBuilder<'a> {
                     // for instance constructor, we need to fill in template parameters
                     TypePathDisambiguation::InstanceConstructor => match path.eth_template(db) {
                         Ok(tmpl) => {
-                            let package_signature_data = match self.package_signature_data_result()
-                            {
-                                Ok(package_signature_data) => package_signature_data,
-                                Err(_) => todo!(),
-                            };
+                            let context_itd = self.context_itd();
                             let instantiation = FlyInstantiation::from_template_parameters(
                                 path,
                                 FlyInstantiationEnvironment::TypeOntologyConstructor,
@@ -53,7 +49,7 @@ impl<'a> SemExprBuilder<'a> {
                                 tmpl.template_parameters(db),
                                 None,
                                 self.fly_terms_mut(),
-                                package_signature_data,
+                                context_itd,
                                 db,
                             );
                             let instance_constructor_ty = tmpl.instance_constructor_ty(db);
@@ -72,10 +68,7 @@ impl<'a> SemExprBuilder<'a> {
                 }
                 MajorItemPath::Form(path) => match path.eth_template(db) {
                     Ok(tmpl) => {
-                        let package_signature_data = match self.package_signature_data_result() {
-                            Ok(package_signature_data) => package_signature_data,
-                            Err(_) => todo!(),
-                        };
+                        let context_itd = self.context_itd();
                         let instantiation = FlyInstantiation::from_template_parameters(
                             path,
                             FlyInstantiationEnvironment::TypeOntologyConstructor,
@@ -83,7 +76,7 @@ impl<'a> SemExprBuilder<'a> {
                             tmpl.template_parameters(db),
                             None,
                             self.fly_terms_mut(),
-                            package_signature_data,
+                            context_itd,
                             db,
                         );
                         let ty = match tmpl {
@@ -119,11 +112,7 @@ impl<'a> SemExprBuilder<'a> {
                     Ok(tmpl) => tmpl,
                     Err(_) => todo!(),
                 };
-                let package_signature_data = match self.package_signature_data_result() {
-                    Ok(package_signature_data) => package_signature_data,
-                    Err(_) => todo!(),
-                };
-
+                let context_itd = self.context_itd();
                 let instantiation = FlyInstantiation::from_template_parameters(
                     path,
                     FlyInstantiationEnvironment::TypeOntologyConstructor,
@@ -131,7 +120,7 @@ impl<'a> SemExprBuilder<'a> {
                     parent_ty_tmpl.template_parameters(db),
                     None, // tmpl.template_parameters(db),
                     self.fly_terms_mut(),
-                    package_signature_data,
+                    context_itd,
                     db,
                 );
                 let ty = FlyInstantiate::instantiate(

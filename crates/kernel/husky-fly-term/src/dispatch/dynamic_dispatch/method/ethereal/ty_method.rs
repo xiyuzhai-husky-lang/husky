@@ -1,7 +1,7 @@
 use husky_entity_path::path::major_item::ty::{
     PreludeIndirectionTypePath, PreludeTypePath, TypePath,
 };
-use husky_eth_signature::{error::EthSignatureResult, signature::package::PackageEthSignatureData};
+use husky_eth_signature::context::EthSignatureBuilderContextItd;
 use husky_eth_term::term::application::{EthApplication, TermFunctionReduced};
 
 use super::*;
@@ -24,7 +24,7 @@ impl HasFlyTypeMethodDispatch for EthTerm {
                     ty_path,
                     ident_token,
                     indirections,
-                    engine.package_signature_data_result(),
+                    engine.context_itd(),
                 )
             }
             EthTerm::Application(ty_term) => ethereal_term_application_ty_method_dispatch(
@@ -33,7 +33,7 @@ impl HasFlyTypeMethodDispatch for EthTerm {
                 ty_term,
                 ident_token,
                 indirections,
-                engine.package_signature_data_result(),
+                engine.context_itd(),
             ),
             _ => Nothing,
         }
@@ -46,7 +46,7 @@ fn ethereal_ty_ontology_path_ty_method_dispatch<'db>(
     ty_path: TypePath,
     ident_token: IdentRegionalToken,
     indirections: FlyIndirections,
-    package_signature_data_result: EthSignatureResult<&'db PackageEthSignatureData>,
+    context_itd: EthSignatureBuilderContextItd,
 ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
     ethereal_ty_method_dispatch_aux(
         engine,
@@ -55,7 +55,7 @@ fn ethereal_ty_ontology_path_ty_method_dispatch<'db>(
         &[],
         ident_token,
         indirections,
-        package_signature_data_result,
+        context_itd,
     )
 }
 
@@ -65,7 +65,7 @@ fn ethereal_term_application_ty_method_dispatch<'db>(
     ty_term: EthApplication,
     ident_token: IdentRegionalToken,
     indirections: FlyIndirections,
-    package_signature_data_result: EthSignatureResult<&'db PackageEthSignatureData>,
+    context_itd: EthSignatureBuilderContextItd,
 ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
     let application_expansion = ty_term.application_expansion(engine.db());
     match application_expansion.function() {
@@ -76,7 +76,7 @@ fn ethereal_term_application_ty_method_dispatch<'db>(
             application_expansion.arguments(engine.db()),
             ident_token,
             indirections,
-            package_signature_data_result,
+            context_itd,
         ),
         TermFunctionReduced::Trait(_) | TermFunctionReduced::Other(_) => Nothing,
     }
@@ -89,7 +89,7 @@ fn ethereal_ty_method_dispatch_aux<'db>(
     arguments: &[EthTerm],
     ident_token: IdentRegionalToken,
     mut indirections: FlyIndirections,
-    package_signature_data_result: EthSignatureResult<&'db PackageEthSignatureData>,
+    context_itd: EthSignatureBuilderContextItd,
 ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
     match ty_path.refine(engine.db()) {
         Left(PreludeTypePath::Indirection(prelude_indirection_ty_path)) => {
@@ -122,7 +122,7 @@ fn ethereal_ty_method_dispatch_aux<'db>(
         /* ad hoc */ &[],
         ident_token,
         indirections.final_place(),
-        package_signature_data_result,
+        context_itd,
     )
     .into_result_option()?
     {
