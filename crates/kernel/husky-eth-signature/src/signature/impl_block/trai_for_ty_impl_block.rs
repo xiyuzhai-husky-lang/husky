@@ -10,7 +10,6 @@ use husky_entity_path::path::impl_block::trai_for_ty_impl_block::TraitForTypeImp
 use husky_entity_tree::node::HasAssocItemPaths;
 use husky_eth_term::term::symbolic_variable::EthSymbolicVariable;
 use husky_term_prelude::TypeFinalDestinationExpectation;
-use package::PackageEthSignatureData;
 use vec_like::VecMapGetEntry;
 
 #[salsa::tracked(constructor = new)]
@@ -46,11 +45,18 @@ impl EtherealSelfTypeInTraitImpl {
 impl EthInstantiate for EtherealSelfTypeInTraitImpl {
     type Output = EthTerm;
 
-    fn instantiate(self, db: &::salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
+    fn instantiate(
+        self,
+        instantiation: &EthInstantiation,
+        ctx: &impl IsEthInstantiationContext,
+        db: &::salsa::Db,
+    ) -> Self::Output {
         match self {
-            EtherealSelfTypeInTraitImpl::PathLeading(term) => term.instantiate(db, instantiation),
+            EtherealSelfTypeInTraitImpl::PathLeading(term) => {
+                term.instantiate(instantiation, ctx, db)
+            }
             EtherealSelfTypeInTraitImpl::DeriveAny(term_symbol) => {
-                term_symbol.instantiate(db, instantiation)
+                term_symbol.instantiate(instantiation, ctx, db)
             }
         }
     }
@@ -121,7 +127,9 @@ pub type TraitForTypeImplBlockSignatureTemplates = SmallVec<[TraitForTypeImplBlo
 #[salsa::interned(constructor = new)]
 pub struct EthTraitForTypeImplBlockSignatureBuilder {
     pub template: TraitForTypeImplBlockEthTemplate,
-    pub instantiation_builder: EtherealInstantiationBuilder,
+    pub instantiation_builder: EthInstantiationBuilder,
+    #[return_ref]
+    pub context: EthSignatureBuilderContext,
 }
 
 impl TraitForTypeImplBlockEthTemplate {
@@ -151,6 +159,7 @@ impl TraitForTypeImplBlockEthTemplate {
                     db,
                     self,
                     instantiation,
+                    todo!(),
                 ))
             }
             EtherealSelfTypeInTraitImpl::DeriveAny(symbol) => {
@@ -161,6 +170,7 @@ impl TraitForTypeImplBlockEthTemplate {
                     db,
                     self,
                     instantiation,
+                    todo!(),
                 ))
             }
         }
@@ -172,12 +182,13 @@ impl EthTraitForTypeImplBlockSignatureBuilder {
         self,
         db: &::salsa::Db,
     ) -> Option<TraitForTypeImplBlockEtherealSignature> {
-        let instantiation = self.instantiation_builder(db).try_into_instantiation()?;
+        let instantiation = &self.instantiation_builder(db).try_into_instantiation()?;
+        let ctx = self.context(db);
         let template = self.template(db);
         Some(TraitForTypeImplBlockEtherealSignature {
             path: template.path(db),
-            trai: template.trai(db).instantiate(db, &instantiation),
-            self_ty: template.self_ty(db).instantiate(db, &instantiation),
+            trai: template.trai(db).instantiate(instantiation, ctx, db),
+            self_ty: template.self_ty(db).instantiate(instantiation, ctx, db),
         })
     }
 
@@ -196,7 +207,7 @@ impl EthTraitForTypeImplBlockSignatureBuilder {
             target_trai_arguments,
             db,
         )?;
-        JustOk(Self::new(db, template, instantiation_builder))
+        JustOk(Self::new(db, template, instantiation_builder, todo!()))
     }
 
     /// for better caching, many common traits use "Output" as an associated

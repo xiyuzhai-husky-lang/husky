@@ -309,11 +309,16 @@ impl EthApplication {
 impl EthInstantiate for EthApplication {
     type Output = EthTerm;
 
-    fn instantiate(self, db: &::salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
+    fn instantiate(
+        self,
+        instantiation: &EthInstantiation,
+        ctx: &impl IsEthInstantiationContext,
+        db: &::salsa::Db,
+    ) -> Self::Output {
         Self::new_reduced(
             db,
-            self.function(db).instantiate(db, instantiation),
-            self.argument(db).instantiate(db, instantiation),
+            self.function(db).instantiate(instantiation, ctx, db),
+            self.argument(db).instantiate(instantiation, ctx, db),
             self.shift(db),
         )
     }

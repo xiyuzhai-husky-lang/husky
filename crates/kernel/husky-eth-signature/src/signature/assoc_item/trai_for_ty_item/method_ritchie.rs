@@ -48,7 +48,12 @@ impl TraitForTypeMethodRitchieEthTemplate {
         let instantiation_builder = impl_block_signature_builder
             .instantiation_builder(db)
             .merge_with_item_template_parameters(self.template_parameters(db));
-        TraitForTypeMethodRitchieEtherealSignatureBuilder::new(db, self, instantiation_builder)
+        TraitForTypeMethodRitchieEtherealSignatureBuilder::new(
+            db,
+            self,
+            instantiation_builder,
+            impl_block_signature_builder.context(db).clone(),
+        )
     }
 }
 
@@ -56,7 +61,9 @@ impl TraitForTypeMethodRitchieEthTemplate {
 pub struct TraitForTypeMethodRitchieEtherealSignatureBuilder {
     pub template: TraitForTypeMethodRitchieEthTemplate,
     #[return_ref]
-    pub instantiation_builder: EtherealInstantiationBuilder,
+    pub instantiation_builder: EthInstantiationBuilder,
+    #[return_ref]
+    pub context: EthSignatureBuilderContext,
 }
 
 impl TraitForTypeMethodRitchieEtherealSignatureBuilder {
@@ -79,20 +86,21 @@ fn trai_for_ty_method_ritchie_ethereal_signature_signature_builder_try_into_sign
         .instantiation_builder(db)
         .try_into_instantiation()?;
     let template = signature_builder.template(db);
+    let ctx = signature_builder.context(db);
     Some(TraitForTypeMethodRitchieEtherealSignature {
         path: template.path(db),
         self_value_parameter: template
             .self_value_parameter(db)
-            .instantiate(db, &instantiation)
+            .instantiate(&instantiation, ctx, db)
             .into(),
         parenate_parameters: template
             .parenate_parameters(db)
             .iter()
             .map(|param| -> EtherealRitchieParameter {
-                param.instantiate(db, &instantiation).into()
+                param.instantiate(&instantiation, ctx, db).into()
             })
             .collect(),
-        return_ty: template.return_ty(db).instantiate(db, &instantiation),
+        return_ty: template.return_ty(db).instantiate(&instantiation, ctx, db),
         instantiation,
     })
 }

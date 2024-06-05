@@ -99,8 +99,15 @@ impl EthInstantiation {
 pub trait EthInstantiate: Copy {
     type Output;
 
-    fn instantiate(self, db: &::salsa::Db, instantiation: &EthInstantiation) -> Self::Output;
+    fn instantiate(
+        self,
+        instantiation: &EthInstantiation,
+        ctx: &impl IsEthInstantiationContext,
+        db: &::salsa::Db,
+    ) -> Self::Output;
 }
+
+pub trait IsEthInstantiationContext<'db> {}
 
 impl<T> EthInstantiate for Option<T>
 where
@@ -108,8 +115,13 @@ where
 {
     type Output = Option<T::Output>;
 
-    fn instantiate(self, db: &salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
-        self.map(|slf| slf.instantiate(db, instantiation))
+    fn instantiate(
+        self,
+        instantiation: &EthInstantiation,
+        ctx: &impl IsEthInstantiationContext,
+        db: &::salsa::Db,
+    ) -> Self::Output {
+        self.map(|slf| slf.instantiate(instantiation, ctx, db))
     }
 }
 
@@ -119,10 +131,15 @@ where
 {
     type Output = Vec<T::Output>;
 
-    fn instantiate(self, db: &salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
+    fn instantiate(
+        self,
+        instantiation: &EthInstantiation,
+        ctx: &impl IsEthInstantiationContext,
+        db: &::salsa::Db,
+    ) -> Self::Output {
         self.iter()
             .copied()
-            .map(|elem| elem.instantiate(db, instantiation))
+            .map(|elem| elem.instantiate(instantiation, ctx, db))
             .collect()
     }
 }
@@ -135,7 +152,7 @@ pub trait EthTermInstantiateRef {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct EtherealInstantiationBuilder {
+pub struct EthInstantiationBuilder {
     path: ItemPath,
     task_ty: Option<EthTerm>,
     symbol_map: SmallVecPairMap<EthSymbolicVariable, Option<EthTerm>, 4>,
@@ -154,7 +171,7 @@ impl IsPackageEthSignatureData for GenericPackageEthSignatureData {
     }
 }
 
-impl EtherealInstantiationBuilder {
+impl EthInstantiationBuilder {
     /// symbols must be unique
     pub(crate) fn new<'db>(
         path: ItemPath,
