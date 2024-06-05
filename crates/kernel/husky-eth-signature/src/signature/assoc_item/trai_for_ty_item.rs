@@ -9,7 +9,7 @@ use self::assoc_val::*;
 use self::method_ritchie::*;
 use self::{
     assoc_ritchie::*,
-    signature::impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilder,
+    signature::impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilderItd,
 };
 use super::*;
 use husky_dec_signature::signature::assoc_item::trai_for_ty_item::TraitForTypeItemDecTemplate;
@@ -49,7 +49,7 @@ impl TraitForTypeItemEthTemplate {
     pub(crate) fn inherit_instantiation_builder(
         self,
         db: &::salsa::Db,
-        impl_block_signature_builder: EthTraitForTypeImplBlockSignatureBuilder,
+        impl_block_signature_builder: EthTraitForTypeImplBlockSignatureBuilderItd,
     ) -> TraitForTypeItemEtherealSignatureBuilder {
         match self {
             TraitForTypeItemEthTemplate::AssocType(item_template) => item_template

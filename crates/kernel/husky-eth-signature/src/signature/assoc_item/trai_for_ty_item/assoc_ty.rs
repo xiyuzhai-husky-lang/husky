@@ -1,5 +1,5 @@
 use super::*;
-use crate::signature::impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilder;
+use crate::signature::impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilderItd;
 use husky_dec_signature::signature::assoc_item::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeDecTemplate;
 
 #[salsa::interned]
@@ -24,7 +24,7 @@ impl TraitForTypeAssocTypeEthTemplate {
 
     pub(super) fn inherit_instantiation_builder(
         self,
-        impl_block_signature_builder: EthTraitForTypeImplBlockSignatureBuilder,
+        impl_block_signature_builder: EthTraitForTypeImplBlockSignatureBuilderItd,
         db: &::salsa::Db,
     ) -> TraitForTypeAssocTypeEtherealSignatureBuilder {
         let instantiation_builder = impl_block_signature_builder
@@ -34,7 +34,7 @@ impl TraitForTypeAssocTypeEthTemplate {
             db,
             self,
             instantiation_builder,
-            impl_block_signature_builder.context(db).clone(),
+            impl_block_signature_builder.context_itd(db),
         )
     }
 }
@@ -44,8 +44,7 @@ pub struct TraitForTypeAssocTypeEtherealSignatureBuilder {
     pub template: TraitForTypeAssocTypeEthTemplate,
     #[return_ref]
     pub instantiation_builder: EthInstantiationBuilder,
-    #[return_ref]
-    pub context: EthSignatureBuilderContext,
+    pub context_itd: EthSignatureBuilderContextItd,
 }
 
 impl TraitForTypeAssocTypeEtherealSignatureBuilder {
@@ -54,6 +53,10 @@ impl TraitForTypeAssocTypeEtherealSignatureBuilder {
         db: &::salsa::Db,
     ) -> Option<TraitForTypeAssocTypeEtherealSignature> {
         trai_for_ty_assoc_ty_ethereal_signature_signature_builder_try_into_signature(db, self)
+    }
+
+    pub fn context(self, db: &::salsa::Db) -> &EthSignatureBuilderContext {
+        &self.context_itd(db).context(db)
     }
 }
 

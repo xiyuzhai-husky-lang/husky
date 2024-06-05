@@ -8,7 +8,7 @@ use husky_eth_signature::{
     helpers::trai_for_ty::trai_path_for_ty_term_impl_block_eth_signature_builders,
     signature::{
         assoc_item::trai_for_ty_item::TraitForTypeItemEtherealSignatureBuilder,
-        impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilder,
+        impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilderItd,
     },
 };
 use husky_eth_term::term::application::TermFunctionReduced;
@@ -28,7 +28,7 @@ impl HasFlyTraitMethodDispatch for EthTerm {
         let arguments = application_expansion.arguments(db);
         let mut esbuilders_per_trai: SmallVecPairMap<
             TraitPath,
-            SmallVec<[EthTraitForTypeImplBlockSignatureBuilder; 2]>,
+            SmallVec<[EthTraitForTypeImplBlockSignatureBuilderItd; 2]>,
             2,
         > = Default::default();
         let TermFunctionReduced::TypeOntology(ty_path) = application_expansion.function() else {
