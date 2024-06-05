@@ -75,7 +75,8 @@ impl<'a> SemExprBuilder<'a> {
         let syn_expr_region_data = syn_expr_region.data(db);
         // todo: improve this
         let parent_expr_region = syn_expr_region_data.parent();
-        let module_path = syn_expr_region_data.path().module_path(db);
+        let region_path = syn_expr_region_data.path();
+        let module_path = region_path.module_path(db);
         let return_ty = parent_expr_region
             .map(|parent_expr_region| {
                 db.syn_expr_dec_term_region(parent_expr_region)
@@ -114,7 +115,7 @@ impl<'a> SemExprBuilder<'a> {
             db,
             &mut stack_location_registry,
         );
-        let context_itd = todo!();
+        let context_itd = EthSignatureBuilderContextItd::new(region_path, db);
         // module_path
         //     .package_path(db)
         //     .eth_signature(db)

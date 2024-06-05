@@ -11,7 +11,13 @@ pub struct PackageEthSignature {
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct PackageEthSignatureData {
-    task_type: Option<EthTerm>,
+    task_ty: Option<EthTerm>,
+}
+
+impl PackageEthSignatureData {
+    pub fn task_ty(&self) -> Option<EthTerm> {
+        self.task_ty
+    }
 }
 
 impl HasEthSignature for PackagePath {
@@ -42,7 +48,7 @@ impl PackageEthSignature {
             db,
             package_path,
             PackageEthSignatureData {
-                task_type: match task_ty_term {
+                task_ty: match task_ty_term {
                     Some(task_ty_term) => Some(EthTerm::ty_from_dec(db, task_ty_term)?),
                     None => None,
                 },

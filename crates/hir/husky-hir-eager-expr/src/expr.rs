@@ -557,7 +557,7 @@ impl ToHirEager for SemExprIdx {
             data,
             contracted_quary,
             is_always_copyable: ty
-                .is_always_copyable(builder.db(), builder.fly_terms())
+                .is_always_copyable(todo!(), builder.db(), builder.fly_terms())
                 .unwrap()
                 .unwrap(),
             place_contract_site,

@@ -134,11 +134,13 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'db>(
     Ok(false)
 }
 
-// todo: cache this
+// todo: cache this, context could be simplified to increase caching rate
+#[deprecated(note = "we should probably use a better notion")]
 pub fn is_ty_term_always_copyable<'db>(
     ty_term: EthTerm,
     db: &'db ::salsa::Db,
 ) -> EthSignatureResult<Option<bool>> {
+    let context_itd = EthSignatureBuilderContextItd::new_generic(db);
     let Some(item_path_menu) = ty_term.item_path_menu(db) else {
         return Ok(None);
     };
@@ -147,7 +149,7 @@ pub fn is_ty_term_always_copyable<'db>(
         db,
         copy_trai,
         ty_term,
-        todo!(),
+        context_itd,
     )
     .map(Some)
 }

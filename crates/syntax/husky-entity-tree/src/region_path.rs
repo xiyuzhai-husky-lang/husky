@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_path::region::RegionPath;
 use husky_token::{TokenDb, TokenSheetData};
-use husky_vfs::toolchain::Toolchain;
+use husky_vfs::{path::package_path::PackagePath, toolchain::Toolchain};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db]
@@ -18,6 +18,10 @@ impl SynNodeRegionPath {
             SynNodeRegionPath::ItemDecl(item_path) => item_path.module_path(db),
             SynNodeRegionPath::ItemDefn(item_path) => item_path.module_path(db),
         }
+    }
+
+    pub fn package_path(self, db: &::salsa::Db) -> PackagePath {
+        self.module_path(db).package_path(db)
     }
 
     pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
