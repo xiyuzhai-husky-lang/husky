@@ -13,7 +13,7 @@ Ok(
             },
         },
         data: PackageEthSignatureData {
-            task_type: Some(
+            task_ty: Some(
                 ItemPath(
                     TypeOntology(
                         TypePath(

@@ -58,7 +58,7 @@ pub(crate) fn ty_assoc_fn_fly_signature<Term: Copy + Into<FlyTerm>>(
             .eth_template(db)?
             .template_parameters(db),
         template.template_parameters(db),
-        engine.package_signature_data_result()?,
+        engine.context_itd(),
         db,
     );
     std::iter::zip(

@@ -8,8 +8,13 @@ use husky_entity_tree::{
 };
 use husky_sem_expr::SemExprIdx;
 use husky_syn_expr::{
-    entity_path::SynPrincipalEntityPathSynExprIdx, CurrentVariableIdx, CurrentVariableKind,
-    InheritedSymbolicVariableIdx, InheritedVariableKind, SynExprRegion, SynPatternIdx,
+    entity_path::SynPrincipalEntityPathSynExprIdx,
+    pattern::SynPatternIdx,
+    region::SynExprRegion,
+    variable::{
+        CurrentVariableIdx, CurrentVariableKind, InheritedSymbolicVariableIdx,
+        InheritedVariableKind,
+    },
 };
 #[cfg(feature = "protocol_support")]
 use husky_token_protocol::*;

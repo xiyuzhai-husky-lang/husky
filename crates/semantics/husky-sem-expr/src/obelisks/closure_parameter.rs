@@ -1,6 +1,6 @@
 use super::*;
 use husky_regional_token::ColonRegionalToken;
-use husky_syn_expr::closure_parameter::ClosureParameterSyndicate;
+use husky_syn_expr::syndicates::closure_parameter::ClosureParameterSyndicate;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ClosureParameterObelisk {

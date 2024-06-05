@@ -4,7 +4,9 @@ use crate::{
 };
 use husky_sem_expr::{SemExprIdx, SemExprMap, SemStmtIdx, SemStmtMap};
 use husky_syn_expr::{
-    CurrentVariableIdx, SynPatternIdx, SynPatternMap, SynPatternRoot, VariableMap,
+    context::SynPatternRoot,
+    pattern::{SynPatternIdx, SynPatternMap},
+    variable::{CurrentVariableIdx, VariableMap},
 };
 
 #[salsa::tracked(db = HirLazyExprDb, jar = HirLazyExprJar, constructor = new_inner)]

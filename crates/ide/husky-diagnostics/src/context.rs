@@ -4,7 +4,7 @@ use husky_entity_tree::region_path::SynNodeRegionPath;
 use husky_fly_term::FlyTermRegion;
 use husky_regional_token::{RegionalTokenIdxBase, RegionalTokenIdxRange, RegionalTokenStreamState};
 use husky_sem_expr::*;
-use husky_syn_expr::{SynExprIdx, SynExprRangeRegion, SynExprRegion};
+use husky_syn_expr::{expr::SynExprIdx, range::SynExprRangeRegion, region::SynExprRegion};
 use husky_token::{verse::idx::TokenVerseIdx, TokenDb, TokenIdx, TokenIdxRange, TokenStreamState};
 
 pub(crate) struct SheetDiagnosticsContext<'a> {

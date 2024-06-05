@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_expr::closure_parameter::ClosureParameterSyndicate;
+use husky_syn_expr::syndicates::closure_parameter::ClosureParameterSyndicate;
 use husky_term_prelude::ritchie::RitchieClosureKind;
 
 // todo: closure types are unique

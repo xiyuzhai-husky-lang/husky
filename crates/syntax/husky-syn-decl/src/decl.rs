@@ -18,6 +18,7 @@ use husky_entity_path::path::ItemPath;
 use husky_entity_tree::node::ItemSynNodePath;
 use husky_iter_utils::chain_as_ref_err_collect;
 use husky_regional_token::*;
+use husky_syn_expr::{context::*, error::*, expr::*, parser::*, region::*, syndicates::*};
 use husky_token_data::{TokenData, TokenDataResult};
 
 type SmallVecImpl<T> = smallvec::SmallVec<[T; 2]>;

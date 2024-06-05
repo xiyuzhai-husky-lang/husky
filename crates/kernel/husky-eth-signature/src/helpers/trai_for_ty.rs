@@ -2,7 +2,7 @@ use super::*;
 use crate::signature::{
     attr::derive::HasDeriveAttrShardEthTemplates,
     impl_block::trai_for_ty_impl_block::{
-        EthTraitForTypeImplBlockSignatureBuilder, TraitForTypeImplBlockEthTemplate,
+        EthTraitForTypeImplBlockSignatureBuilderItd, TraitForTypeImplBlockEthTemplate,
         TraitForTypeImplBlockSignatureTemplates,
     },
     HasEthTemplate,
@@ -64,16 +64,16 @@ pub fn trai_path_for_ty_term_impl_block_eth_signature_builders<'db>(
     db: &'db ::salsa::Db,
     trai_path: TraitPath,
     ty_term: EthTerm,
-    package_signature_data_result: EthSignatureResult<&'db PackageEthSignatureData>,
-) -> EthSignatureResult<SmallVec<[EthTraitForTypeImplBlockSignatureBuilder; 2]>> {
+    context_itd: EthSignatureBuilderContextItd,
+) -> EthSignatureResult<SmallVec<[EthTraitForTypeImplBlockSignatureBuilderItd; 2]>> {
     let application_expansion = ty_term.application_expansion(db);
     let arguments = application_expansion.arguments(db);
     let TermFunctionReduced::TypeOntology(ty_path) = application_expansion.function() else {
         unreachable!()
     };
-    let mut builders: SmallVec<[EthTraitForTypeImplBlockSignatureBuilder; 2]> = smallvec![];
+    let mut builders: SmallVec<[EthTraitForTypeImplBlockSignatureBuilderItd; 2]> = smallvec![];
     for template in trai_path_for_ty_path_impl_block_eth_templates(db, trai_path, ty_path)?.iter() {
-        match template.instantiate_ty(arguments, ty_term, package_signature_data_result, db) {
+        match template.instantiate_ty(arguments, ty_term, context_itd, db) {
             JustOk(builder) => builders.push(builder),
             JustErr(_) => todo!(),
             Nothing => todo!(),
@@ -83,14 +83,11 @@ pub fn trai_path_for_ty_term_impl_block_eth_signature_builders<'db>(
 }
 
 // todo: check argument ty trai satisfaction
-pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<
-    'db,
-    P: IsPackageEthSignatureData,
->(
+pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'db>(
     db: &'db ::salsa::Db,
     trai_path: TraitPath,
     ty_term: EthTerm,
-    package_signature_data_result: EthSignatureResult<&'db P>,
+    context_itd: EthSignatureBuilderContextItd,
 ) -> EthSignatureResult<bool> {
     match ty_term {
         EthTerm::SymbolicVariable(_) => return Ok(false), // ad hoc
@@ -128,7 +125,7 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<
         unreachable!()
     };
     for template in trai_path_for_ty_path_impl_block_eth_templates(db, trai_path, ty_path)?.iter() {
-        match template.instantiate_ty(arguments, ty_term, package_signature_data_result, db) {
+        match template.instantiate_ty(arguments, ty_term, context_itd, db) {
             JustOk(_builder) => return Ok(true),
             JustErr(e) => return Err(e),
             Nothing => continue,
@@ -137,11 +134,13 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<
     Ok(false)
 }
 
-// todo: cache this
+// todo: cache this, context could be simplified to increase caching rate
+#[deprecated(note = "we should probably use a better notion")]
 pub fn is_ty_term_always_copyable<'db>(
     ty_term: EthTerm,
     db: &'db ::salsa::Db,
 ) -> EthSignatureResult<Option<bool>> {
+    let context_itd = EthSignatureBuilderContextItd::new_generic(db);
     let Some(item_path_menu) = ty_term.item_path_menu(db) else {
         return Ok(None);
     };
@@ -150,7 +149,7 @@ pub fn is_ty_term_always_copyable<'db>(
         db,
         copy_trai,
         ty_term,
-        Ok(&GenericPackageEthSignatureData),
+        context_itd,
     )
     .map(Some)
 }

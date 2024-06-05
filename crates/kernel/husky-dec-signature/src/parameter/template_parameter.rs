@@ -1,4 +1,5 @@
 use super::*;
+use husky_syn_expr::syndicates::{TemplateParameterSyndicateVariant, TemplateSynParameterData};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct DeclarativeTemplateParameter {

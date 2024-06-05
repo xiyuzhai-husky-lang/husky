@@ -61,6 +61,8 @@ pub enum EthTermError {
     ExpectedCurryForApplicationFunctionType,
     #[error("ExpectedType")]
     ExpectedType { expectee: DecTerm },
+    #[error("TaskTypeNotInferred")]
+    TaskTypeNotInferred,
 }
 
 impl From<EntityPathError> for EthTermError {

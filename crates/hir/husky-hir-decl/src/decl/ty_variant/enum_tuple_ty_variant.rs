@@ -1,6 +1,6 @@
 use super::*;
 use husky_syn_decl::decl::ty_variant::tuple_ty_variant::TypeTupleVariantSynDecl;
-use husky_syn_expr::TupleFieldSyndicate;
+use husky_syn_expr::syndicates::tuple_field::TupleFieldSyndicate;
 
 #[salsa::interned]
 pub struct EnumTupleVariantHirDecl {

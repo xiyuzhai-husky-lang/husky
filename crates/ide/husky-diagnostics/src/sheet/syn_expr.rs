@@ -2,8 +2,11 @@ use super::*;
 use husky_syn_decl::decl::HasSynNodeDecl;
 use husky_syn_defn::{module_item_syn_node_defns, ItemSynNodeDefn};
 use husky_syn_expr::{
-    entity_path::SynPrincipalEntityPathExpr, OriginalSynExprError, SynExprData, SynExprError,
-    SynExprRegion, SynExprResult, SynStmtData,
+    entity_path::SynPrincipalEntityPathExpr,
+    error::{OriginalSynExprError, SynExprError, SynExprResult},
+    expr::SynExprData,
+    region::SynExprRegion,
+    stmt::SynStmtData,
 };
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]

@@ -1,8 +1,9 @@
-use super::*;
-use husky_syn_expr::{
+use husky_syn_expr::variable::{
     CurrentVariableData, CurrentVariableEntry, InheritedVariable, InheritedVariableKind,
     VariableMap, VariableRegionData,
 };
+
+use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirLazyVariable {

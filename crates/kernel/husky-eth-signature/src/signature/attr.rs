@@ -38,6 +38,7 @@ impl HasEthTemplate for AttrItemPath {
 #[salsa::tracked]
 fn attr_eth_template(db: &::salsa::Db, path: AttrItemPath) -> EthSignatureResult<AttrEthTemplate> {
     match path.dec_template(db)? {
+        AttrDecTemplate::Deps(_) => todo!(),
         AttrDecTemplate::Derive(dec_template) => {
             DeriveAttrEthTemplate::from_dec(db, path, dec_template).map(Into::into)
         }

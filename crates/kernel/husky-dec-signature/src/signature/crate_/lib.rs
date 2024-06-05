@@ -3,7 +3,7 @@ mod narrative;
 use super::*;
 use crate::region::SynExprDecTermRegion;
 use husky_syn_decl::decl::crate_::lib::{LibCrateSynDecl, LibCrateSynDeclItem};
-use husky_syn_expr::SynExprIdx;
+use husky_syn_expr::expr::SynExprIdx;
 
 #[salsa::tracked]
 pub struct LibCrateDecSignature {

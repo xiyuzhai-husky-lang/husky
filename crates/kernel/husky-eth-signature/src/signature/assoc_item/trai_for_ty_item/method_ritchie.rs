@@ -1,4 +1,4 @@
-use self::signature::impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilder;
+use self::signature::impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilderItd;
 use super::*;
 use husky_dec_signature::signature::assoc_item::trai_for_ty_item::method_ritchie::TraitForTypeMethodRitchieDecTemplate;
 use husky_eth_term::term::ritchie::{EthRitchieSimpleParameter, EtherealRitchieParameter};
@@ -42,13 +42,18 @@ impl TraitForTypeMethodRitchieEthTemplate {
 
     pub(super) fn inherit_instantiation_builder(
         self,
+        impl_block_signature_builder: EthTraitForTypeImplBlockSignatureBuilderItd,
         db: &::salsa::Db,
-        impl_block_signature_builder: EthTraitForTypeImplBlockSignatureBuilder,
     ) -> TraitForTypeMethodRitchieEtherealSignatureBuilder {
         let instantiation_builder = impl_block_signature_builder
             .instantiation_builder(db)
             .merge_with_item_template_parameters(self.template_parameters(db));
-        TraitForTypeMethodRitchieEtherealSignatureBuilder::new(db, self, instantiation_builder)
+        TraitForTypeMethodRitchieEtherealSignatureBuilder::new(
+            db,
+            self,
+            instantiation_builder,
+            impl_block_signature_builder.context_itd(db),
+        )
     }
 }
 
@@ -56,7 +61,14 @@ impl TraitForTypeMethodRitchieEthTemplate {
 pub struct TraitForTypeMethodRitchieEtherealSignatureBuilder {
     pub template: TraitForTypeMethodRitchieEthTemplate,
     #[return_ref]
-    pub instantiation_builder: EtherealInstantiationBuilder,
+    pub instantiation_builder: EthInstantiationBuilder,
+    pub context_itd: EthSignatureBuilderContextItd,
+}
+
+impl TraitForTypeMethodRitchieEtherealSignatureBuilder {
+    pub fn context(self, db: &::salsa::Db) -> &EthSignatureBuilderContext {
+        self.context_itd(db).context(db)
+    }
 }
 
 impl TraitForTypeMethodRitchieEtherealSignatureBuilder {
@@ -79,20 +91,21 @@ fn trai_for_ty_method_ritchie_ethereal_signature_signature_builder_try_into_sign
         .instantiation_builder(db)
         .try_into_instantiation()?;
     let template = signature_builder.template(db);
+    let ctx = signature_builder.context(db);
     Some(TraitForTypeMethodRitchieEtherealSignature {
         path: template.path(db),
         self_value_parameter: template
             .self_value_parameter(db)
-            .instantiate(db, &instantiation)
+            .instantiate(&instantiation, ctx, db)
             .into(),
         parenate_parameters: template
             .parenate_parameters(db)
             .iter()
             .map(|param| -> EtherealRitchieParameter {
-                param.instantiate(db, &instantiation).into()
+                param.instantiate(&instantiation, ctx, db).into()
             })
             .collect(),
-        return_ty: template.return_ty(db).instantiate(db, &instantiation),
+        return_ty: template.return_ty(db).instantiate(&instantiation, ctx, db),
         instantiation,
     })
 }

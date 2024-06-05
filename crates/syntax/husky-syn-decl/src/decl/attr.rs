@@ -1,5 +1,6 @@
 pub mod affect;
 pub mod backprop;
+pub mod deps;
 pub mod derive;
 pub mod marker;
 pub mod task;
@@ -9,6 +10,7 @@ use self::derive::*;
 use self::{
     affect::{AffectAttrSynDecl, AffectAttrSynNodeDecl},
     backprop::{BackpropAttrSynDecl, BackpropAttrSynNodeDecl},
+    deps::{DepsAttrSynDecl, DepsAttrSynNodeDecl},
     task::{TaskAttrSynDecl, TaskAttrSynNodeDecl},
     test::{TestAttrSynDecl, TestAttrSynNodeDecl},
 };
@@ -20,9 +22,10 @@ use husky_entity_tree::node::attr::AttrSynNodePath;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
 pub enum AttrSynNodeDecl {
+    Affect(AffectAttrSynNodeDecl),
     Backprop(BackpropAttrSynNodeDecl),
+    Deps(DepsAttrSynNodeDecl),
     Derive(DeriveAttrSynNodeDecl),
-    Effect(AffectAttrSynNodeDecl),
     Task(TaskAttrSynNodeDecl),
     Test(TestAttrSynNodeDecl),
     Err,
@@ -32,9 +35,10 @@ pub enum AttrSynNodeDecl {
 impl AttrSynNodeDecl {
     pub fn syn_expr_region(self, db: &::salsa::Db) -> Option<SynExprRegion> {
         Some(match self {
-            AttrSynNodeDecl::Derive(slf) => slf.syn_expr_region(db),
+            AttrSynNodeDecl::Affect(slf) => slf.syn_expr_region(db),
             AttrSynNodeDecl::Backprop(slf) => slf.syn_expr_region(db),
-            AttrSynNodeDecl::Effect(slf) => slf.syn_expr_region(db),
+            AttrSynNodeDecl::Deps(slf) => slf.syn_expr_region(db),
+            AttrSynNodeDecl::Derive(slf) => slf.syn_expr_region(db),
             AttrSynNodeDecl::Task(slf) => slf.syn_expr_region(db),
             AttrSynNodeDecl::Test(slf) => slf.syn_expr_region(db),
             AttrSynNodeDecl::Err => return None,
@@ -43,9 +47,10 @@ impl AttrSynNodeDecl {
 
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         match self {
-            AttrSynNodeDecl::Derive(slf) => slf.errors(db),
+            AttrSynNodeDecl::Affect(slf) => slf.errors(db),
             AttrSynNodeDecl::Backprop(slf) => slf.errors(db),
-            AttrSynNodeDecl::Effect(slf) => slf.errors(db),
+            AttrSynNodeDecl::Deps(slf) => slf.errors(db),
+            AttrSynNodeDecl::Derive(slf) => slf.errors(db),
             AttrSynNodeDecl::Task(slf) => slf.errors(db),
             AttrSynNodeDecl::Test(slf) => slf.errors(db),
             AttrSynNodeDecl::Err => todo!(),
@@ -66,14 +71,17 @@ fn attr_syn_node_decl(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> AttrS
     let coword_menu = coword_menu(db);
     let attr_ident = syn_node_path.ident(db);
     match attr_ident {
+        attr_ident if attr_ident == coword_menu.affect_ident() => {
+            AttrSynNodeDecl::Affect(AffectAttrSynNodeDecl::new(db, syn_node_path))
+        }
         attr_ident if attr_ident == coword_menu.backprop_ident() => {
             AttrSynNodeDecl::Backprop(BackpropAttrSynNodeDecl::new(db, syn_node_path))
         }
+        attr_ident if attr_ident == coword_menu.deps_ident() => {
+            AttrSynNodeDecl::Deps(DepsAttrSynNodeDecl::new(db, syn_node_path))
+        }
         attr_ident if attr_ident == coword_menu.derive_ident() => {
             AttrSynNodeDecl::Derive(DeriveAttrSynNodeDecl::new(db, syn_node_path))
-        }
-        attr_ident if attr_ident == coword_menu.affect_ident() => {
-            AttrSynNodeDecl::Effect(AffectAttrSynNodeDecl::new(db, syn_node_path))
         }
         attr_ident if attr_ident == coword_menu.task_ident() => {
             AttrSynNodeDecl::Task(TaskAttrSynNodeDecl::new(db, syn_node_path))
@@ -88,9 +96,10 @@ fn attr_syn_node_decl(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> AttrS
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
 pub enum AttrSynDecl {
+    Affect(AffectAttrSynDecl),
     Backprop(BackpropAttrSynDecl),
+    Deps(DepsAttrSynDecl),
     Derive(DeriveAttrSynDecl),
-    Effect(AffectAttrSynDecl),
     Task(TaskAttrSynDecl),
     Test(TestAttrSynDecl),
 }
@@ -104,14 +113,17 @@ impl AttrSynDecl {
         syn_node_decl: AttrSynNodeDecl,
     ) -> SynDeclResult<Self> {
         Ok(match syn_node_decl {
-            AttrSynNodeDecl::Derive(syn_node_decl) => {
-                DeriveAttrSynDecl::from_node(db, path, syn_node_decl)?.into()
+            AttrSynNodeDecl::Affect(syn_node_decl) => {
+                AffectAttrSynDecl::from_node(path, syn_node_decl, db)?.into()
             }
             AttrSynNodeDecl::Backprop(syn_node_decl) => {
                 BackpropAttrSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
-            AttrSynNodeDecl::Effect(syn_node_decl) => {
-                AffectAttrSynDecl::from_node(path, syn_node_decl, db)?.into()
+            AttrSynNodeDecl::Deps(syn_node_decl) => {
+                DepsAttrSynDecl::from_node(path, syn_node_decl, db)?.into()
+            }
+            AttrSynNodeDecl::Derive(syn_node_decl) => {
+                DeriveAttrSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
             AttrSynNodeDecl::Task(syn_node_decl) => {
                 TaskAttrSynDecl::from_node(path, syn_node_decl, db)?.into()
@@ -128,21 +140,23 @@ impl AttrSynDecl {
 impl AttrSynDecl {
     pub fn path(self, db: &::salsa::Db) -> AttrItemPath {
         match self {
+            AttrSynDecl::Affect(slf) => slf.path(db),
             AttrSynDecl::Backprop(slf) => slf.path(db),
+            AttrSynDecl::Deps(slf) => slf.path(db),
             AttrSynDecl::Derive(slf) => slf.path(db),
             AttrSynDecl::Task(slf) => slf.path(db),
             AttrSynDecl::Test(slf) => slf.path(db),
-            AttrSynDecl::Effect(slf) => slf.path(db),
         }
     }
 
     pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
+            AttrSynDecl::Affect(slf) => slf.syn_expr_region(db),
             AttrSynDecl::Backprop(slf) => slf.syn_expr_region(db),
+            AttrSynDecl::Deps(slf) => slf.syn_expr_region(db),
             AttrSynDecl::Derive(slf) => slf.syn_expr_region(db),
             AttrSynDecl::Task(slf) => slf.syn_expr_region(db),
             AttrSynDecl::Test(slf) => slf.syn_expr_region(db),
-            AttrSynDecl::Effect(slf) => slf.syn_expr_region(db),
         }
     }
 }

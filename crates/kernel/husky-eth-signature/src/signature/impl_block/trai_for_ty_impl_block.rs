@@ -10,7 +10,6 @@ use husky_entity_path::path::impl_block::trai_for_ty_impl_block::TraitForTypeImp
 use husky_entity_tree::node::HasAssocItemPaths;
 use husky_eth_term::term::symbolic_variable::EthSymbolicVariable;
 use husky_term_prelude::TypeFinalDestinationExpectation;
-use package::PackageEthSignatureData;
 use vec_like::VecMapGetEntry;
 
 #[salsa::tracked(constructor = new)]
@@ -46,11 +45,18 @@ impl EtherealSelfTypeInTraitImpl {
 impl EthInstantiate for EtherealSelfTypeInTraitImpl {
     type Output = EthTerm;
 
-    fn instantiate(self, db: &::salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
+    fn instantiate(
+        self,
+        instantiation: &EthInstantiation,
+        ctx: &impl IsEthInstantiationContext,
+        db: &::salsa::Db,
+    ) -> Self::Output {
         match self {
-            EtherealSelfTypeInTraitImpl::PathLeading(term) => term.instantiate(db, instantiation),
+            EtherealSelfTypeInTraitImpl::PathLeading(term) => {
+                term.instantiate(instantiation, ctx, db)
+            }
             EtherealSelfTypeInTraitImpl::DeriveAny(term_symbol) => {
-                term_symbol.instantiate(db, instantiation)
+                term_symbol.instantiate(instantiation, ctx, db)
             }
         }
     }
@@ -119,65 +125,65 @@ impl TraitForTypeImplBlockEthTemplate {
 pub type TraitForTypeImplBlockSignatureTemplates = SmallVec<[TraitForTypeImplBlockEthTemplate; 2]>;
 
 #[salsa::interned(constructor = new)]
-pub struct EthTraitForTypeImplBlockSignatureBuilder {
+pub struct EthTraitForTypeImplBlockSignatureBuilderItd {
     pub template: TraitForTypeImplBlockEthTemplate,
-    pub instantiation_builder: EtherealInstantiationBuilder,
+    pub instantiation_builder: EthInstantiationBuilder,
+    pub context_itd: EthSignatureBuilderContextItd,
 }
 
 impl TraitForTypeImplBlockEthTemplate {
     /// try to give a partial instantiation such that `self_ty` is equal to `target_ty`
     /// returns `Nothing` when template matching failed
     #[inline(always)]
-    pub fn instantiate_ty<'db, P: IsPackageEthSignatureData>(
+    pub fn instantiate_ty<'db>(
         self,
         target_ty_arguments: &'db [EthTerm],
         target_ty_term: EthTerm,
-        package_signature_data_result: EthSignatureResult<&'db P>,
+        context_itd: EthSignatureBuilderContextItd,
         db: &'db ::salsa::Db,
-    ) -> EthSignatureMaybeResult<EthTraitForTypeImplBlockSignatureBuilder> {
-        let mut instantiation = self.template_parameters(db).empty_instantiation_builder(
+    ) -> EthSignatureMaybeResult<EthTraitForTypeImplBlockSignatureBuilderItd> {
+        let mut builder = self.template_parameters(db).empty_instantiation_builder(
             self.path(db).into(),
             true,
-            package_signature_data_result?,
+            context_itd.context(db),
         );
         match self.self_ty_refined(db) {
             EtherealSelfTypeInTraitImpl::PathLeading(self_ty_term) => {
-                instantiation.try_add_rules_from_application(
-                    self_ty_term,
-                    target_ty_arguments,
-                    db,
-                )?;
-                JustOk(EthTraitForTypeImplBlockSignatureBuilder::new(
+                builder.try_add_rules_from_application(self_ty_term, target_ty_arguments, db)?;
+                JustOk(EthTraitForTypeImplBlockSignatureBuilderItd::new(
                     db,
                     self,
-                    instantiation,
+                    builder,
+                    context_itd,
                 ))
             }
             EtherealSelfTypeInTraitImpl::DeriveAny(symbol) => {
-                let JustOk(()) = instantiation.try_add_symbol_rule(symbol, target_ty_term) else {
+                let JustOk(()) = builder.try_add_symbol_rule(symbol, target_ty_term) else {
                     unreachable!("this can't go wrong because instantiation was empty")
                 };
-                JustOk(EthTraitForTypeImplBlockSignatureBuilder::new(
+                JustOk(EthTraitForTypeImplBlockSignatureBuilderItd::new(
                     db,
                     self,
-                    instantiation,
+                    builder,
+                    context_itd,
                 ))
             }
         }
     }
 }
 
-impl EthTraitForTypeImplBlockSignatureBuilder {
+impl EthTraitForTypeImplBlockSignatureBuilderItd {
     pub fn try_into_signature(
         self,
         db: &::salsa::Db,
     ) -> Option<TraitForTypeImplBlockEtherealSignature> {
-        let instantiation = self.instantiation_builder(db).try_into_instantiation()?;
+        let instantiation = &self.instantiation_builder(db).try_into_instantiation()?;
+        let ctx = self.context_itd(db).context(db);
         let template = self.template(db);
         Some(TraitForTypeImplBlockEtherealSignature {
             path: template.path(db),
-            trai: template.trai(db).instantiate(db, &instantiation),
-            self_ty: template.self_ty(db).instantiate(db, &instantiation),
+            trai: template.trai(db).instantiate(instantiation, ctx, db),
+            self_ty: template.self_ty(db).instantiate(instantiation, ctx, db),
         })
     }
 
@@ -189,14 +195,10 @@ impl EthTraitForTypeImplBlockSignatureBuilder {
         target_trai_arguments: &[EthTerm],
         db: &::salsa::Db,
     ) -> EthSignatureMaybeResult<Self> {
-        let mut instantiation_builder = self.instantiation_builder(db);
+        let mut builder = self.instantiation_builder(db);
         let template = self.template(db);
-        instantiation_builder.try_add_rules_from_application(
-            template.trai(db),
-            target_trai_arguments,
-            db,
-        )?;
-        JustOk(Self::new(db, template, instantiation_builder))
+        builder.try_add_rules_from_application(template.trai(db), target_trai_arguments, db)?;
+        JustOk(Self::new(db, template, builder, self.context_itd(db)))
     }
 
     /// for better caching, many common traits use "Output" as an associated
@@ -223,7 +225,7 @@ impl EthTraitForTypeImplBlockSignatureBuilder {
 #[salsa::tracked]
 fn trai_for_ty_impl_block_with_ty_instantiated_assoc_output_ethereal_signature_builder(
     db: &::salsa::Db,
-    template: EthTraitForTypeImplBlockSignatureBuilder,
+    template: EthTraitForTypeImplBlockSignatureBuilderItd,
 ) -> EthSignatureResult<TraitForTypeAssocTypeEtherealSignatureBuilder> {
     match trai_for_ty_impl_block_with_ty_instantiated_item_eth_template(
         db,
@@ -238,7 +240,7 @@ fn trai_for_ty_impl_block_with_ty_instantiated_assoc_output_ethereal_signature_b
 #[salsa::tracked]
 fn trai_for_ty_impl_block_with_ty_instantiated_item_eth_template(
     db: &::salsa::Db,
-    signature_builder: EthTraitForTypeImplBlockSignatureBuilder,
+    signature_builder: EthTraitForTypeImplBlockSignatureBuilderItd,
     ident: Ident,
 ) -> EthSignatureResult<TraitForTypeItemEtherealSignatureBuilder> {
     let item_path = signature_builder

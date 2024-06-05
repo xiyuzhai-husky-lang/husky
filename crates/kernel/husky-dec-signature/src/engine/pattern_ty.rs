@@ -5,6 +5,7 @@ pub(crate) use self::pattern_expr_ty::*;
 pub(crate) use self::pattern_variable_ty::*;
 
 use super::*;
+use husky_syn_expr::context::SynPatternRoot;
 
 impl<'a> DecTermEngine<'a> {
     /// only use this for explicit parameters

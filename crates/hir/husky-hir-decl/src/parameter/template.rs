@@ -4,7 +4,7 @@ use husky_eth_term::term::EthTerm;
 use husky_fly_term::FlyTermBase;
 use husky_hir_ty::trai::HirTrait;
 
-use husky_syn_expr::{
+use husky_syn_expr::syndicates::{
     trais::TraitsSyndicate, TemplateParameterSyndicateVariant, TemplateSynParameterData,
 };
 use smallvec::SmallVec;

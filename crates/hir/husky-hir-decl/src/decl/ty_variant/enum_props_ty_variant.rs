@@ -1,6 +1,6 @@
 use super::*;
 use husky_syn_decl::decl::ty_variant::props_ty_variant::TypePropsVariantSynDecl;
-use husky_syn_expr::PropsFieldSyndicate;
+use husky_syn_expr::syndicates::props_field::PropsFieldSyndicate;
 
 #[salsa::interned]
 pub struct EnumPropsVariantHirDecl {

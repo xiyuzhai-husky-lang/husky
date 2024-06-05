@@ -1,4 +1,5 @@
 use super::*;
+use husky_syn_expr::pattern::{SynPatternData, SynPatternIdx};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]

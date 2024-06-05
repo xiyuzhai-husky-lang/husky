@@ -6020,6 +6020,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-sem-var-deps"
+version = "0.1.0"
+dependencies = [
+ "salsa",
+]
+
+[[package]]
 name = "husky-semantic-token"
 version = "0.1.0"
 dependencies = [

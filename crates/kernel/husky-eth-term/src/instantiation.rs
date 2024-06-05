@@ -8,6 +8,7 @@ use husky_entity_path::{
 use husky_syn_decl::decl::HasSynDecl;
 use maybe_result::*;
 use salsa::fmt::WithFmtContext;
+use term::trai_for_ty_item::EthTypeAsTraitItem;
 use vec_like::{SmallVecPairMap, VecMap};
 
 #[salsa::derive_debug_with_db]
@@ -99,7 +100,21 @@ impl EthInstantiation {
 pub trait EthInstantiate: Copy {
     type Output;
 
-    fn instantiate(self, db: &::salsa::Db, instantiation: &EthInstantiation) -> Self::Output;
+    fn instantiate(
+        self,
+        instantiation: &EthInstantiation,
+        ctx: &impl IsEthInstantiationContext,
+        db: &::salsa::Db,
+    ) -> Self::Output;
+}
+
+pub trait IsEthInstantiationContext<'db> {
+    fn reduce_ty_as_trai_item(&self, term: EthTypeAsTraitItem) -> EthTerm;
+    /// ideally speaking we should returns Ok(None) if there is no dependency on the task type,
+    /// but at this stage, it's impossible to reliably tell whether there is a dependency on the task type
+    ///
+    /// It will be deferred to the hir stage to remove unnecessary task type dependency
+    fn task_ty(&self) -> Option<EthTerm>;
 }
 
 impl<T> EthInstantiate for Option<T>
@@ -108,8 +123,13 @@ where
 {
     type Output = Option<T::Output>;
 
-    fn instantiate(self, db: &salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
-        self.map(|slf| slf.instantiate(db, instantiation))
+    fn instantiate(
+        self,
+        instantiation: &EthInstantiation,
+        ctx: &impl IsEthInstantiationContext,
+        db: &::salsa::Db,
+    ) -> Self::Output {
+        self.map(|slf| slf.instantiate(instantiation, ctx, db))
     }
 }
 
@@ -119,10 +139,15 @@ where
 {
     type Output = Vec<T::Output>;
 
-    fn instantiate(self, db: &salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
+    fn instantiate(
+        self,
+        instantiation: &EthInstantiation,
+        ctx: &impl IsEthInstantiationContext,
+        db: &::salsa::Db,
+    ) -> Self::Output {
         self.iter()
             .copied()
-            .map(|elem| elem.instantiate(db, instantiation))
+            .map(|elem| elem.instantiate(instantiation, ctx, db))
             .collect()
     }
 }
@@ -135,38 +160,29 @@ pub trait EthTermInstantiateRef {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct EtherealInstantiationBuilder {
+pub struct EthInstantiationBuilder {
     path: ItemPath,
     task_ty: Option<EthTerm>,
     symbol_map: SmallVecPairMap<EthSymbolicVariable, Option<EthTerm>, 4>,
     /// indicates the separation for associated item template instantiation
     separator: Option<u8>,
 }
-pub trait IsPackageEthSignatureData {
-    fn task_ty(&self) -> Option<EthTerm>;
-}
 
 pub struct GenericPackageEthSignatureData;
 
-impl IsPackageEthSignatureData for GenericPackageEthSignatureData {
-    fn task_ty(&self) -> Option<EthTerm> {
-        None
-    }
-}
-
-impl EtherealInstantiationBuilder {
+impl EthInstantiationBuilder {
     /// symbols must be unique
     pub(crate) fn new<'db>(
         path: ItemPath,
         symbols: impl Iterator<Item = EthSymbolicVariable>,
         is_associated: bool,
-        package_signature_data_result: &'db impl IsPackageEthSignatureData,
+        ctx: &'db impl IsEthInstantiationContext,
     ) -> Self {
         let symbol_map: SmallVecPairMap<EthSymbolicVariable, Option<EthTerm>, 4> =
             symbols.map(|symbol| (symbol, None)).collect();
         Self {
             path,
-            task_ty: package_signature_data_result.task_ty(),
+            task_ty: ctx.task_ty(),
             separator: is_associated.then_some(symbol_map.len().try_into().unwrap()),
             symbol_map,
         }

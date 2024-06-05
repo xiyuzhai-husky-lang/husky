@@ -5,7 +5,10 @@ use husky_entity_path::path::{
 };
 use husky_eth_term::term::EthTerm;
 use husky_hir_ty::ritchie::HirContract;
-use husky_syn_expr::{SynPatternData, SynPatternIdx, SynPatternRoot};
+use husky_syn_expr::{
+    context::SynPatternRoot,
+    pattern::{SynPatternData, SynPatternIdx},
+};
 use husky_term_prelude::literal::{
     int::{
         I128Literal, I64Literal, ISizeLiteral, R128Literal, R64Literal, RSizeLiteral, U128Literal,
