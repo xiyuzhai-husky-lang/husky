@@ -42,8 +42,8 @@ impl TraitForTypeMethodRitchieEthTemplate {
 
     pub(super) fn inherit_instantiation_builder(
         self,
-        db: &::salsa::Db,
         impl_block_signature_builder: EthTraitForTypeImplBlockSignatureBuilder,
+        db: &::salsa::Db,
     ) -> TraitForTypeMethodRitchieEtherealSignatureBuilder {
         let instantiation_builder = impl_block_signature_builder
             .instantiation_builder(db)
