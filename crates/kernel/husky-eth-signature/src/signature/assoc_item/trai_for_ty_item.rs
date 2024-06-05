@@ -53,10 +53,10 @@ impl TraitForTypeItemEthTemplate {
     ) -> TraitForTypeItemEtherealSignatureBuilder {
         match self {
             TraitForTypeItemEthTemplate::AssocType(item_template) => item_template
-                .inherit_instantiation_builder(db, impl_block_signature_builder)
+                .inherit_instantiation_builder(impl_block_signature_builder, db)
                 .into(),
             TraitForTypeItemEthTemplate::MethodRitchie(item_template) => item_template
-                .inherit_instantiation_builder(db, impl_block_signature_builder)
+                .inherit_instantiation_builder(impl_block_signature_builder, db)
                 .into(),
             TraitForTypeItemEthTemplate::AssocRitchie(_) => todo!(),
             TraitForTypeItemEthTemplate::AssocVal(_) => todo!(),

@@ -24,13 +24,18 @@ impl TraitForTypeAssocTypeEthTemplate {
 
     pub(super) fn inherit_instantiation_builder(
         self,
-        db: &::salsa::Db,
         impl_block_signature_builder: EthTraitForTypeImplBlockSignatureBuilder,
+        db: &::salsa::Db,
     ) -> TraitForTypeAssocTypeEtherealSignatureBuilder {
         let instantiation_builder = impl_block_signature_builder
             .instantiation_builder(db)
             .merge_with_item_template_parameters(self.template_parameters(db));
-        TraitForTypeAssocTypeEtherealSignatureBuilder::new(db, self, instantiation_builder, todo!())
+        TraitForTypeAssocTypeEtherealSignatureBuilder::new(
+            db,
+            self,
+            instantiation_builder,
+            impl_block_signature_builder.context(db).clone(),
+        )
     }
 }
 
