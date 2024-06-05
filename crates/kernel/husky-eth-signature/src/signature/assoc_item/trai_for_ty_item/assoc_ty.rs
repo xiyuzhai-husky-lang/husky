@@ -30,7 +30,7 @@ impl TraitForTypeAssocTypeEthTemplate {
         let instantiation_builder = impl_block_signature_builder
             .instantiation_builder(db)
             .merge_with_item_template_parameters(self.template_parameters(db));
-        TraitForTypeAssocTypeEtherealSignatureBuilder::new(db, self, instantiation_builder)
+        TraitForTypeAssocTypeEtherealSignatureBuilder::new(db, self, instantiation_builder, todo!())
     }
 }
 
@@ -38,7 +38,9 @@ impl TraitForTypeAssocTypeEthTemplate {
 pub struct TraitForTypeAssocTypeEtherealSignatureBuilder {
     pub template: TraitForTypeAssocTypeEthTemplate,
     #[return_ref]
-    pub instantiation_builder: EtherealInstantiationBuilder,
+    pub instantiation_builder: EthInstantiationBuilder,
+    #[return_ref]
+    pub context: EthSignatureBuilderContext,
 }
 
 impl TraitForTypeAssocTypeEtherealSignatureBuilder {
@@ -61,7 +63,11 @@ fn trai_for_ty_assoc_ty_ethereal_signature_signature_builder_try_into_signature(
     let template = signature_builder.template(db);
     Some(TraitForTypeAssocTypeEtherealSignature {
         path: template.path(db),
-        ty_term: template.assoc_ty(db).instantiate(db, &instantiation),
+        ty_term: template.assoc_ty(db).instantiate(
+            &instantiation,
+            signature_builder.context(db),
+            db,
+        ),
         instantiation,
     })
 }

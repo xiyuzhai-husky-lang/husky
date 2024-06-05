@@ -58,12 +58,17 @@ impl EthLambdaVariable {
 impl EthInstantiate for EthLambdaVariable {
     type Output = Self;
 
-    fn instantiate(self, db: &::salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
+    fn instantiate(
+        self,
+        instantiation: &EthInstantiation,
+        ctx: &impl IsEthInstantiationContext,
+        db: &::salsa::Db,
+    ) -> Self::Output {
         // it's assumed that all symbols will be replaced by its map
         // otherwise it's illegal
         Self::new_inner(
             db,
-            self.ty(db).instantiate(db, instantiation),
+            self.ty(db).instantiate(instantiation, ctx, db),
             self.index(db),
         )
     }

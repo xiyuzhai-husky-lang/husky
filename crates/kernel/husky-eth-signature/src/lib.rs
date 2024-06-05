@@ -1,3 +1,5 @@
+#![feature(anonymous_lifetime_in_impl_trait)]
+pub mod context;
 pub mod error;
 pub mod helpers;
 pub mod jar;
@@ -6,6 +8,7 @@ pub mod signature;
 #[cfg(test)]
 mod tests;
 
+use self::context::*;
 use self::error::*;
 use self::jar::EthSignatureJar as Jar;
 #[cfg(test)]

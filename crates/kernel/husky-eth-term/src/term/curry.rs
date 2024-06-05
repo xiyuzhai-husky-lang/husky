@@ -77,14 +77,19 @@ impl EthCurry {
 impl EthInstantiate for EthCurry {
     type Output = Self;
 
-    fn instantiate(self, db: &salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
+    fn instantiate(
+        self,
+        instantiation: &EthInstantiation,
+        ctx: &impl IsEthInstantiationContext,
+        db: &::salsa::Db,
+    ) -> Self::Output {
         Self::new(
             self.toolchain(db),
             self.curry_kind(db),
             self.variance(db),
-            self.parameter_hvar(db).instantiate(db, instantiation),
-            self.parameter_ty(db).instantiate(db, instantiation),
-            self.return_ty(db).instantiate(db, instantiation),
+            self.parameter_hvar(db).instantiate(instantiation, ctx, db),
+            self.parameter_ty(db).instantiate(instantiation, ctx, db),
+            self.return_ty(db).instantiate(instantiation, ctx, db),
             db,
         )
     }

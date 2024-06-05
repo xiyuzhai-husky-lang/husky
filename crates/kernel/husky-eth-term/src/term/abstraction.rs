@@ -47,11 +47,16 @@ impl EthAbstraction {
 impl EthInstantiate for EthAbstraction {
     type Output = EthAbstraction;
 
-    fn instantiate(self, db: &salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
+    fn instantiate(
+        self,
+        instantiation: &EthInstantiation,
+        ctx: &impl IsEthInstantiationContext,
+        db: &::salsa::Db,
+    ) -> Self::Output {
         Self::new(
             db,
-            self.x(db).instantiate(db, instantiation),
-            self.m(db).instantiate(db, instantiation),
+            self.x(db).instantiate(instantiation, ctx, db),
+            self.m(db).instantiate(instantiation, ctx, db),
         )
     }
 }

@@ -132,7 +132,12 @@ impl EtherealRitchieParameter {
 impl EthInstantiate for EtherealRitchieParameter {
     type Output = Self;
 
-    fn instantiate(self, _db: &::salsa::Db, _instantiation: &EthInstantiation) -> Self::Output {
+    fn instantiate(
+        self,
+        instantiation: &EthInstantiation,
+        ctx: &impl IsEthInstantiationContext,
+        db: &::salsa::Db,
+    ) -> Self::Output {
         todo!()
     }
 }
@@ -229,13 +234,18 @@ impl<'a> EthTermSubstitute<'a> for EtherealRitchieParameter {
 impl EthInstantiate for EthRitchie {
     type Output = Self;
 
-    fn instantiate(self, db: &salsa::Db, instantiation: &EthInstantiation) -> Self::Output {
+    fn instantiate(
+        self,
+        instantiation: &EthInstantiation,
+        ctx: &impl IsEthInstantiationContext,
+        db: &::salsa::Db,
+    ) -> Self::Output {
         Self::new_inner(
             db,
             self.ritchie_kind(db),
             self.parameter_contracted_tys(db)
-                .instantiate(db, instantiation),
-            self.return_ty(db).instantiate(db, instantiation),
+                .instantiate(instantiation, ctx, db),
+            self.return_ty(db).instantiate(instantiation, ctx, db),
         )
     }
 }
