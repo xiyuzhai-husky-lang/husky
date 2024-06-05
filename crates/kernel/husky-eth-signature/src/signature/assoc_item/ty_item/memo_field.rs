@@ -39,7 +39,7 @@ impl TypeMemoizedFieldEthTemplate {
         let mut builder = self
             .impl_block(db)
             .template_parameters(db)
-            .empty_instantiation_builder(self.path(db).into(), true, ctx)?;
+            .empty_instantiation_builder(self.path(db).into(), true, ctx);
         builder.try_add_rules_from_application(self_ty, target_self_ty_arguments, db)?;
         let instantiation = builder.try_into_instantiation().expect("business done");
         debug_assert!(instantiation.separator().is_some());

@@ -110,8 +110,11 @@ pub trait EthInstantiate: Copy {
 
 pub trait IsEthInstantiationContext<'db> {
     fn reduce_ty_as_trai_item(&self, term: EthTypeAsTraitItem) -> EthTerm;
-    /// should returns Ok(None) if there is no dependency on task type
-    fn task_ty(&self, item_path: ItemPath) -> EthTermResult<Option<EthTerm>>;
+    /// ideally speaking we should returns Ok(None) if there is no dependency on the task type,
+    /// but at this stage, it's impossible to reliably tell whether there is a dependency on the task type
+    ///
+    /// It will be deferred to the hir stage to remove unnecessary task type dependency
+    fn task_ty(&self) -> Option<EthTerm>;
 }
 
 impl<T> EthInstantiate for Option<T>
@@ -174,15 +177,15 @@ impl EthInstantiationBuilder {
         symbols: impl Iterator<Item = EthSymbolicVariable>,
         is_associated: bool,
         ctx: &'db impl IsEthInstantiationContext,
-    ) -> EthTermResult<Self> {
+    ) -> Self {
         let symbol_map: SmallVecPairMap<EthSymbolicVariable, Option<EthTerm>, 4> =
             symbols.map(|symbol| (symbol, None)).collect();
-        Ok(Self {
+        Self {
             path,
-            task_ty: ctx.task_ty(path)?,
+            task_ty: ctx.task_ty(),
             separator: is_associated.then_some(symbol_map.len().try_into().unwrap()),
             symbol_map,
-        })
+        }
     }
 
     /// `JustOk(())` means rule is added and everything is compatible.

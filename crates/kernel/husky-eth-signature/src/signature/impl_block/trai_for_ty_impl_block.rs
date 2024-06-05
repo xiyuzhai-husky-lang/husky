@@ -146,7 +146,7 @@ impl TraitForTypeImplBlockEthTemplate {
             self.path(db).into(),
             true,
             context_itd.context(db),
-        )?;
+        );
         match self.self_ty_refined(db) {
             EtherealSelfTypeInTraitImpl::PathLeading(self_ty_term) => {
                 builder.try_add_rules_from_application(self_ty_term, target_ty_arguments, db)?;
@@ -165,7 +165,7 @@ impl TraitForTypeImplBlockEthTemplate {
                     db,
                     self,
                     builder,
-                    todo!(),
+                    context_itd,
                 ))
             }
         }
@@ -195,14 +195,10 @@ impl EthTraitForTypeImplBlockSignatureBuilderItd {
         target_trai_arguments: &[EthTerm],
         db: &::salsa::Db,
     ) -> EthSignatureMaybeResult<Self> {
-        let mut instantiation_builder = self.instantiation_builder(db);
+        let mut builder = self.instantiation_builder(db);
         let template = self.template(db);
-        instantiation_builder.try_add_rules_from_application(
-            template.trai(db),
-            target_trai_arguments,
-            db,
-        )?;
-        JustOk(Self::new(db, template, instantiation_builder, todo!()))
+        builder.try_add_rules_from_application(template.trai(db), target_trai_arguments, db)?;
+        JustOk(Self::new(db, template, builder, self.context_itd(db)))
     }
 
     /// for better caching, many common traits use "Output" as an associated

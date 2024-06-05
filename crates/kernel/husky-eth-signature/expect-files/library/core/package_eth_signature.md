@@ -11,7 +11,7 @@ Ok(
             data: PackagePathSource::Library,
         },
         data: PackageEthSignatureData {
-            task_type: None,
+            task_ty: None,
         },
     },
 )

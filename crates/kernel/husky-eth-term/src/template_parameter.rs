@@ -43,7 +43,7 @@ impl EthTemplateParameters {
         path: ItemPath,
         is_associated: bool,
         ctx: &'db impl IsEthInstantiationContext,
-    ) -> EthTermResult<EthInstantiationBuilder> {
+    ) -> EthInstantiationBuilder {
         EthInstantiationBuilder::new(
             path,
             self.iter().map(|param| param.symbol()),
