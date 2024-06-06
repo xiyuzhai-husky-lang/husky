@@ -89,8 +89,9 @@ impl<'a> ItemSynNodeDeclParser<'a> {
                 .parse_trai_for_ty_assoc_ritchie_node_decl(syn_node_path, ritchie_item_kind)
                 .into(),
             TraitItemKind::AssocConceptual => todo!(),
-            TraitItemKind::AssocStatic => todo!(),
-            TraitItemKind::AssocTermic => todo!(),
+            TraitItemKind::AssocStaticMut => todo!(),
+            TraitItemKind::AssocStaticVar => todo!(),
+            TraitItemKind::AssocCompterm => todo!(),
         }
     }
 }

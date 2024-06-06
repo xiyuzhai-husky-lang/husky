@@ -2363,12 +2363,12 @@ EntityTreeSheet {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             major_item_path: MajorItemPath::Form(
-                                                FormPath(`core::task::TASK`, `Static`),
+                                                FormPath(`core::task::TASK`, `StaticVar`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`core::task::TASK`, `Static`),
+                                                FormPath(`core::task::TASK`, `StaticVar`),
                                             ),
                                         ),
                                         visibility: Scope::Pub,
@@ -2378,7 +2378,7 @@ EntityTreeSheet {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::TASK`, `Static`),
+                                        FormPath(`core::task::TASK`, `StaticVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -2390,7 +2390,7 @@ EntityTreeSheet {
                         ),
                         path: PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`core::task::TASK`, `Static`),
+                                FormPath(`core::task::TASK`, `StaticVar`),
                             ),
                         ),
                         visibility: Scope::PubUnder(

@@ -24,7 +24,8 @@ impl IsAstChildren for MajorItems {
             EntityKindKeywordGroup::TypeAliasOrAssocType(_) => MajorFormKind::TypeAlias.into(),
             EntityKindKeywordGroup::TypeVar(_, _) => MajorFormKind::TypeVar.into(),
             EntityKindKeywordGroup::Trait(_) => MajorItemKind::Trait,
-            EntityKindKeywordGroup::Static(_) => MajorFormKind::Static.into(),
+            EntityKindKeywordGroup::StaticMut(_, _) => MajorFormKind::StaticMut.into(),
+            EntityKindKeywordGroup::StaticVar(_, _) => MajorFormKind::StaticVar.into(),
         };
         Ok(EntityKind::MajorItem {
             module_item_kind,

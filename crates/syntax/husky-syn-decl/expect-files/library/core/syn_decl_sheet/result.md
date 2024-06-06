@@ -1156,7 +1156,7 @@ SynDeclSheet {
                                     pattern_roots: [],
                                     expr_roots: [
                                         SynExprRoot {
-                                            kind: SynExprRootKind::AssocTypeTerm,
+                                            kind: SynExprRootKind::AssocTypeValue,
                                             syn_expr_idx: 0,
                                         },
                                     ],

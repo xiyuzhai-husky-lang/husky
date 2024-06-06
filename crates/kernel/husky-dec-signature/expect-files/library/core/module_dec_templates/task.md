@@ -38,7 +38,9 @@
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
                     MajorFormDecTemplate::TypeVar(
-                        TypeVarDecTemplate,
+                        TypeVarDecTemplate {
+                            default: None,
+                        },
                     ),
                 ),
             ),
@@ -47,14 +49,14 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Form(
-                FormPath(`core::task::TASK`, `Static`),
+                FormPath(`core::task::TASK`, `StaticVar`),
             ),
         ),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
-                    MajorFormDecTemplate::Static(
-                        MajorStaticDecTemplate {
+                    MajorFormDecTemplate::StaticVar(
+                        MajorStaticVarDecTemplate {
                             return_ty: EntityPath(
                                 Form(
                                     MajorFormPath(

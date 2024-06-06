@@ -92,6 +92,7 @@ SynDeclSheet {
                     FormSynDecl::TypeVar(
                         TypeVarSynDecl {
                             path: FormPath(`core::task::Task`, `TypeVar`),
+                            default: None,
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
@@ -152,14 +153,14 @@ SynDeclSheet {
         (
             ItemPath::MajorItem(
                 MajorItemPath::Form(
-                    FormPath(`core::task::TASK`, `Static`),
+                    FormPath(`core::task::TASK`, `StaticVar`),
                 ),
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
-                    FormSynDecl::Static(
-                        MajorStaticSynDecl {
-                            path: FormPath(`core::task::TASK`, `Static`),
+                    FormSynDecl::StaticVar(
+                        MajorStaticVarSynDecl {
+                            path: FormPath(`core::task::TASK`, `StaticVar`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 0,
                             },
@@ -170,7 +171,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`core::task::TASK`, `Static`, (0)),
+                                                FormSynNodePath(`core::task::TASK`, `StaticVar`, (0)),
                                             ),
                                         ),
                                     ),
@@ -195,7 +196,7 @@ SynDeclSheet {
                                                     IdentRegionalToken {
                                                         ident: `Task`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            5,
+                                                            6,
                                                         ),
                                                     },
                                                 ),

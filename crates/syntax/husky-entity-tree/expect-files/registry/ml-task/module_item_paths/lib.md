@@ -17,7 +17,7 @@
         AssocItemPath::TraitItem(
             TraitItemPath(
                 `ml_task::IsMlTask::INPUT`,
-                TraitItemKind::AssocStatic,
+                TraitItemKind::AssocStaticVar,
             ),
         ),
     ),

@@ -160,18 +160,19 @@ Ok(
             None,
             None,
             None,
+            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                FormSynNodePath(`core::task::TASK`, `Static`, (0)),
+                                FormSynNodePath(`core::task::TASK`, `StaticVar`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
                             module_item_kind: MajorItemKind::Form(
-                                MajorFormKind::Static,
+                                MajorFormKind::StaticVar,
                             ),
                             connection: MajorItemConnectionKind::Connected,
                         },

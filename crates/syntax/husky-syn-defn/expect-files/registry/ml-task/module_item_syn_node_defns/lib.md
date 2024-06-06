@@ -84,7 +84,7 @@
                                     disambiguated_item_path: DisambiguatedItemPath {
                                         maybe_ambiguous_item_path: TraitItemPath(
                                             `ml_task::IsMlTask::INPUT`,
-                                            TraitItemKind::AssocStatic,
+                                            TraitItemKind::AssocStaticVar,
                                         ),
                                         disambiguator: 0,
                                     },

@@ -24,7 +24,8 @@ pub enum MajorFormKind {
     TypeAlias,
     TypeVar,
     Val,
-    Static,
+    StaticMut,
+    StaticVar,
     Compterm,
     Conceptual,
 }
@@ -83,7 +84,8 @@ impl EntityKind {
                     MajorFormKind::Val => EntityClass::Val,
                     MajorFormKind::Conceptual => EntityClass::Formal,
                     MajorFormKind::Compterm => EntityClass::Compterm,
-                    MajorFormKind::Static => EntityClass::Static,
+                    MajorFormKind::StaticMut => EntityClass::StaticMut,
+                    MajorFormKind::StaticVar => EntityClass::StaticVar,
                 },
                 MajorItemKind::Trait => EntityClass::Trait,
             },
@@ -124,8 +126,9 @@ pub enum TypeItemKind {
     AssocRitchie(RitchieItemKind),
     AssocType,
     AssocConceptual,
-    AssocStatic,
-    AssocTermic,
+    AssocStaticMut,
+    AssocStaticVar,
+    AssocCompterm,
     MemoizedField,
     MethodRitchie(RitchieItemKind),
 }
@@ -140,8 +143,9 @@ impl Into<EntityClass> for TypeItemKind {
             TypeItemKind::AssocType => EntityClass::AssocType,
             TypeItemKind::AssocRitchie(_) => EntityClass::AssocRitchie,
             TypeItemKind::AssocConceptual => EntityClass::AssocDef,
-            TypeItemKind::AssocStatic => EntityClass::Static,
-            TypeItemKind::AssocTermic => EntityClass::Compterm,
+            TypeItemKind::AssocStaticMut => EntityClass::StaticMut,
+            TypeItemKind::AssocStaticVar => EntityClass::StaticVar,
+            TypeItemKind::AssocCompterm => EntityClass::Compterm,
         }
     }
 }
@@ -153,8 +157,9 @@ pub enum TraitItemKind {
     AssocType,
     AssocVal,
     AssocConceptual,
-    AssocStatic,
-    AssocTermic,
+    AssocStaticMut,
+    AssocStaticVar,
+    AssocCompterm,
     MemoizedField,
     MethodRitchie(RitchieItemKind),
 }
@@ -169,8 +174,9 @@ impl Into<EntityClass> for TraitItemKind {
             TraitItemKind::AssocVal => EntityClass::AssocVal,
             TraitItemKind::AssocRitchie(_) => EntityClass::AssocRitchie,
             TraitItemKind::AssocConceptual => EntityClass::AssocDef,
-            TraitItemKind::AssocStatic => EntityClass::Static,
-            TraitItemKind::AssocTermic => EntityClass::Compterm,
+            TraitItemKind::AssocStaticMut => EntityClass::StaticMut,
+            TraitItemKind::AssocStaticVar => EntityClass::StaticVar,
+            TraitItemKind::AssocCompterm => EntityClass::Compterm,
         }
     }
 }

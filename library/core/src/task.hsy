@@ -4,4 +4,4 @@ pub trait IsTask:
 
 pub type var Task;
 
-pub static TASK: Task;
+pub static var TASK: Task;

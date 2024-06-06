@@ -1,17 +1,17 @@
 use super::*;
-use husky_syn_decl::decl::major_item::form::r#static::MajorStaticSynDecl;
+use husky_syn_decl::decl::major_item::form::static_mut::MajorStaticMutSynDecl;
 
 #[salsa::interned]
-pub struct MajorStaticHirDecl {
+pub struct MajorStaticMutHirDecl {
     pub path: MajorFormPath,
     pub return_ty: HirType,
     pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
-impl MajorStaticHirDecl {
+impl MajorStaticMutHirDecl {
     pub(super) fn from_syn(
         path: MajorFormPath,
-        syn_decl: MajorStaticSynDecl,
+        syn_decl: MajorStaticMutSynDecl,
         db: &::salsa::Db,
     ) -> Self {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);

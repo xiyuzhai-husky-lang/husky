@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked]
-pub struct TraitAssocStaticSynNodeDecl {
+pub struct TraitAssocStaticMutSynNodeDecl {
     #[id]
     pub syn_node_path: TraitItemSynNodePath,
     #[return_ref]
@@ -11,7 +11,7 @@ pub struct TraitAssocStaticSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl TraitAssocStaticSynNodeDecl {
+impl TraitAssocStaticMutSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         chain_as_ref_err_collect!(self.colon_token(db), self.return_ty(db))
     }
@@ -19,10 +19,10 @@ impl TraitAssocStaticSynNodeDecl {
 
 /// # parse
 impl<'a> ItemSynNodeDeclParser<'a> {
-    pub(super) fn parse_trai_assoc_static_node_decl(
+    pub(super) fn parse_trai_assoc_static_mut_node_decl(
         &self,
         syn_node_path: TraitItemSynNodePath,
-    ) -> TraitAssocStaticSynNodeDecl {
+    ) -> TraitAssocStaticMutSynNodeDecl {
         let db = self.db();
         let parent_trai_syn_node_decl = syn_node_path
             .data(db)
@@ -38,12 +38,18 @@ impl<'a> ItemSynNodeDeclParser<'a> {
             .try_parse_expected(OriginalSynNodeDeclError::ExpectedColonBeforeStaticReturnType);
         let return_ty =
             parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedStaticReturnType);
-        TraitAssocStaticSynNodeDecl::new(db, syn_node_path, colon_token, return_ty, parser.finish())
+        TraitAssocStaticMutSynNodeDecl::new(
+            db,
+            syn_node_path,
+            colon_token,
+            return_ty,
+            parser.finish(),
+        )
     }
 }
 
 #[salsa::tracked]
-pub struct TraitAssocStaticSynDecl {
+pub struct TraitAssocStaticMutSynDecl {
     #[id]
     pub path: TraitItemPath,
     pub syn_expr_region: SynExprRegion,

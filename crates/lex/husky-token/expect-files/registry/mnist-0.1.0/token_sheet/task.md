@@ -35,6 +35,9 @@ TokenSheetData {
                 Type,
             ),
         ),
+        TokenData::Keyword(
+            Keyword::Var,
+        ),
         TokenData::Ident(
             `Task`,
         ),
@@ -53,6 +56,9 @@ TokenSheetData {
             Keyword::Form(
                 Static,
             ),
+        ),
+        TokenData::Keyword(
+            Keyword::Var,
         ),
         TokenData::Ident(
             `TASK`,
@@ -140,7 +146,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            12,
+                            13,
                         ),
                     ),
                     indent: 0,

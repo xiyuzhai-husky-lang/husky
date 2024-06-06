@@ -28,7 +28,7 @@
     ),
     ItemPath::MajorItem(
         MajorItemPath::Form(
-            FormPath(`core::task::TASK`, `Static`),
+            FormPath(`core::task::TASK`, `StaticVar`),
         ),
     ),
 ]

@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_kind::{EntityKind, MajorFormKind};
+use husky_entity_kind::MajorFormKind;
 use husky_entity_path::path::major_item::{form::MajorFormPath, trai::TraitPath, ty::TypePath};
 
 impl EthTerm {
@@ -15,7 +15,8 @@ impl EthTerm {
                         arguments: None,
                     },
                     MajorFormKind::Val => todo!(),
-                    MajorFormKind::Static => todo!(),
+                    MajorFormKind::StaticMut => todo!(),
+                    MajorFormKind::StaticVar => todo!(),
                     MajorFormKind::Compterm => todo!(),
                     MajorFormKind::Conceptual => todo!(),
                 },

@@ -2,7 +2,7 @@ use super::*;
 use either::*;
 
 #[salsa::tracked]
-pub struct MajorStaticSynNodeDecl {
+pub struct MajorStaticMutSynNodeDecl {
     #[id]
     pub syn_node_path: FormSynNodePath,
     #[return_ref]
@@ -16,7 +16,7 @@ pub struct MajorStaticSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl MajorStaticSynNodeDecl {
+impl MajorStaticMutSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         chain_as_ref_err_collect!(
             self.colon_token(db),
@@ -27,10 +27,10 @@ impl MajorStaticSynNodeDecl {
 }
 
 impl<'a> ItemSynNodeDeclParser<'a> {
-    pub(super) fn parse_static_syn_node_decl(
+    pub(super) fn parse_static_mut_syn_node_decl(
         &self,
         syn_node_path: FormSynNodePath,
-    ) -> MajorStaticSynNodeDecl {
+    ) -> MajorStaticMutSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::False, AllowSelfValue::False, None);
         let colon_token = parser
             .try_parse_expected(OriginalSynNodeDeclError::ExpectedColonBeforeStaticReturnType);
@@ -39,7 +39,7 @@ impl<'a> ItemSynNodeDeclParser<'a> {
         let eq_or_eol_semicolon_token =
             parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEqTokenForStatic);
         let expr = parser.parse_expr_root(None, SynExprRootKind::StaticExpr);
-        MajorStaticSynNodeDecl::new(
+        MajorStaticMutSynNodeDecl::new(
             self.db(),
             syn_node_path,
             colon_token,
@@ -52,7 +52,7 @@ impl<'a> ItemSynNodeDeclParser<'a> {
 }
 
 #[salsa::tracked]
-pub struct MajorStaticSynDecl {
+pub struct MajorStaticMutSynDecl {
     #[id]
     pub path: MajorFormPath,
     pub return_ty: ReturnTypeBeforeEqSyndicate,
@@ -60,11 +60,11 @@ pub struct MajorStaticSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl MajorStaticSynDecl {
+impl MajorStaticMutSynDecl {
     pub(super) fn from_node(
         db: &::salsa::Db,
         path: MajorFormPath,
-        syn_node_decl: MajorStaticSynNodeDecl,
+        syn_node_decl: MajorStaticMutSynNodeDecl,
     ) -> SynDeclResult<Self> {
         let val_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let expr = syn_node_decl.expr(db);

@@ -97,7 +97,8 @@ impl<'a> SemExprBuilder<'a> {
                                 &instantiation,
                             )
                             .with_quary(FlyQuary::Leashed { place_idx: None }),
-                            FormEthTemplate::Static(_) => todo!(),
+                            FormEthTemplate::StaticMut(_) => todo!(),
+                            FormEthTemplate::StaticVar(_) => todo!(),
                             FormEthTemplate::Compterm(_) => todo!(),
                         };
                         (Ok(Some(instantiation)), Ok(ty))

@@ -292,7 +292,8 @@ impl ToHirLazy for SemExprIdx {
                                     | MajorFormKind::TypeVar
                                     | MajorFormKind::Val
                                     | MajorFormKind::Conceptual => unreachable!(),
-                                    MajorFormKind::Static => todo!(),
+                                    MajorFormKind::StaticMut => todo!(),
+                                    MajorFormKind::StaticVar => todo!(),
                                     MajorFormKind::Compterm => todo!(),
                                 },
                             },

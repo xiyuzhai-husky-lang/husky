@@ -26,12 +26,12 @@
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
                         RegionalTokenIdx(
-                            5,
+                            6,
                         ),
                     ),
                     end: RegionalTokenIdxRangeEnd(
                         RegionalTokenIdx(
-                            6,
+                            7,
                         ),
                     ),
                 },
@@ -41,12 +41,12 @@
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
                         RegionalTokenIdx(
-                            5,
+                            6,
                         ),
                     ),
                     end: RegionalTokenIdxRangeEnd(
                         RegionalTokenIdx(
-                            6,
+                            7,
                         ),
                     ),
                 },

@@ -4,7 +4,7 @@
         path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
-                    FormPath(`mnist::Task`, `TypeAlias`),
+                    FormPath(`mnist::Task`, `TypeVar`),
                 ),
             ),
         ),
@@ -12,7 +12,7 @@
             path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
-                        FormPath(`mnist::Task`, `TypeAlias`),
+                        FormPath(`mnist::Task`, `TypeVar`),
                     ),
                 ),
             ),
@@ -70,7 +70,7 @@
                         SemExprIdx(
                             0,
                         ),
-                        SynExprRootKind::TypeAliasTypeTerm,
+                        SynExprRootKind::TypeVarDefault,
                     ),
                 ),
             ],
@@ -158,7 +158,7 @@
         path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
-                    FormPath(`mnist::TASK`, `Static`),
+                    FormPath(`mnist::TASK`, `StaticVar`),
                 ),
             ),
         ),
@@ -166,7 +166,7 @@
             path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
-                        FormPath(`mnist::TASK`, `Static`),
+                        FormPath(`mnist::TASK`, `StaticVar`),
                     ),
                 ),
             ),
@@ -218,13 +218,13 @@
                                     ),
                                     colon_colon_regional_token: ColonColonRegionalToken(
                                         RegionalTokenIdx(
-                                            12,
+                                            13,
                                         ),
                                     ),
                                     ident_token: IdentRegionalToken {
                                         ident: `new`,
                                         regional_token_idx: RegionalTokenIdx(
-                                            13,
+                                            14,
                                         ),
                                     },
                                     static_dispatch: AssocRitchie(
@@ -349,11 +349,11 @@
                                     ),
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
-                                        14,
+                                        15,
                                     ),
                                     ritchie_parameter_argument_matches: [],
                                     rpar_regional_token_idx: RegionalTokenIdx(
-                                        15,
+                                        16,
                                     ),
                                 },
                             ),

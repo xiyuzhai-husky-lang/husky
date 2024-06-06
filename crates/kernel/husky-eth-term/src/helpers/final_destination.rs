@@ -16,7 +16,8 @@ impl EthTerm {
                     MajorFormKind::Ritchie(_)
                     | MajorFormKind::Val
                     | MajorFormKind::Conceptual
-                    | MajorFormKind::Static
+                    | MajorFormKind::StaticMut
+                    | MajorFormKind::StaticVar
                     | MajorFormKind::Compterm => FinalDestination::AnyDerived,
                 },
                 ItemPathTerm::TypeOntology(_) => FinalDestination::TypeOntology,

@@ -1385,7 +1385,7 @@
                         SemExprIdx(
                             0,
                         ),
-                        SynExprRootKind::AssocTypeTerm,
+                        SynExprRootKind::AssocTypeValue,
                     ),
                 ),
             ],
@@ -2504,7 +2504,7 @@
                         SemExprIdx(
                             0,
                         ),
-                        SynExprRootKind::AssocTypeTerm,
+                        SynExprRootKind::AssocTypeValue,
                     ),
                 ),
             ],

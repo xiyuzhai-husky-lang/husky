@@ -3,24 +3,23 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Form(
-                FormPath(`mnist::Task`, `TypeAlias`),
+                FormPath(`mnist::Task`, `TypeVar`),
             ),
         ),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
-                    MajorFormDecTemplate::TypeAlias(
-                        TypeAliasDecTemplate {
-                            template_parameters: DecTemplateParameters {
-                                data: [],
-                            },
-                            ty_term: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 16,
-                                            },
+                    MajorFormDecTemplate::TypeVar(
+                        TypeVarDecTemplate {
+                            default: Some(
+                                EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 16,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -34,14 +33,14 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Form(
-                FormPath(`mnist::TASK`, `Static`),
+                FormPath(`mnist::TASK`, `StaticVar`),
             ),
         ),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
-                    MajorFormDecTemplate::Static(
-                        MajorStaticDecTemplate {
+                    MajorFormDecTemplate::StaticVar(
+                        MajorStaticVarDecTemplate {
                             return_ty: EntityPath(
                                 Type(
                                     TypePath(

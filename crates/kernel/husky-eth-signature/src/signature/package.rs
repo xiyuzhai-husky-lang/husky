@@ -43,7 +43,9 @@ impl PackageEthSignature {
         dec_signature: PackageDecSignature,
         db: &::salsa::Db,
     ) -> EthSignatureResult<Self> {
-        let PackageDecSignatureData { task_ty_term } = *dec_signature.data(db);
+        let PackageDecSignatureData {
+            task_ty_default: task_ty_term,
+        } = *dec_signature.data(db);
         Ok(Self::new(
             db,
             package_path,

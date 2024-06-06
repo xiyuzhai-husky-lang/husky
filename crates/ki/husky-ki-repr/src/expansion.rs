@@ -375,7 +375,8 @@ impl<'a> KiReprExpansionBuilder<'a> {
                         MajorFormKind::TypeAlias
                         | MajorFormKind::TypeVar
                         | MajorFormKind::Conceptual => unreachable!(),
-                        MajorFormKind::Static => todo!(),
+                        MajorFormKind::StaticMut => todo!(),
+                        MajorFormKind::StaticVar => todo!(),
                         MajorFormKind::Compterm => todo!(),
                     },
                 },

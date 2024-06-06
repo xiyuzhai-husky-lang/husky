@@ -44,11 +44,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
-            MajorFormHirDefn::Static(
-                MajorStaticHirDefn {
-                    path: FormPath(`core::task::TASK`, `Static`),
-                    hir_decl: MajorStaticHirDecl {
-                        path: FormPath(`core::task::TASK`, `Static`),
+            MajorFormHirDefn::StaticVar(
+                MajorStaticVarHirDefn {
+                    path: FormPath(`core::task::TASK`, `StaticVar`),
+                    hir_decl: MajorStaticVarHirDecl {
+                        path: FormPath(`core::task::TASK`, `StaticVar`),
                         return_ty: HirType::TypeVar(
                             FormPath(`core::task::Task`, `TypeVar`),
                         ),
@@ -56,7 +56,7 @@
                             region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::TASK`, `Static`),
+                                        FormPath(`core::task::TASK`, `StaticVar`),
                                     ),
                                 ),
                             ),

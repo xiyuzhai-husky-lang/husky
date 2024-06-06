@@ -48,19 +48,19 @@ AstSheet {
                 },
                 item_kind: EntityKind::AssocItem {
                     assoc_item_kind: AssocItemKind::TraitItem(
-                        TraitItemKind::AssocStatic,
+                        TraitItemKind::AssocStaticVar,
                     ),
                 },
                 ident_token: IdentToken {
                     ident: `INPUT`,
                     token_idx: TokenIdx(
-                        8,
+                        9,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        9,
+                        10,
                     ),
                     drained: false,
                 },

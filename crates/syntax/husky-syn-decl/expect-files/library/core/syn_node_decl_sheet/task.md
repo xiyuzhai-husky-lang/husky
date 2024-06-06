@@ -120,6 +120,10 @@ SynNodeDeclSheet {
                     FormSynNodeDecl::TypeVar(
                         TypeVarSynNodeDecl {
                             syn_node_path: FormSynNodePath(`core::task::Task`, `TypeVar`, (0)),
+                            eq_token: Ok(
+                                None,
+                            ),
+                            default: None,
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
@@ -180,18 +184,18 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Form(
-                    FormSynNodePath(`core::task::TASK`, `Static`, (0)),
+                    FormSynNodePath(`core::task::TASK`, `StaticVar`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Static(
-                        MajorStaticSynNodeDecl {
-                            syn_node_path: FormSynNodePath(`core::task::TASK`, `Static`, (0)),
+                    FormSynNodeDecl::StaticVar(
+                        MajorStaticVarSynNodeDecl {
+                            syn_node_path: FormSynNodePath(`core::task::TASK`, `StaticVar`, (0)),
                             colon_token: Ok(
                                 ColonRegionalToken(
                                     RegionalTokenIdx(
-                                        4,
+                                        5,
                                     ),
                                 ),
                             ),
@@ -204,7 +208,7 @@ SynNodeDeclSheet {
                                 Right(
                                     EolSemicolonRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
-                                            6,
+                                            7,
                                         ),
                                     },
                                 ),
@@ -216,7 +220,7 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`core::task::TASK`, `Static`, (0)),
+                                                FormSynNodePath(`core::task::TASK`, `StaticVar`, (0)),
                                             ),
                                         ),
                                     ),
@@ -241,7 +245,7 @@ SynNodeDeclSheet {
                                                     IdentRegionalToken {
                                                         ident: `Task`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            5,
+                                                            6,
                                                         ),
                                                     },
                                                 ),
