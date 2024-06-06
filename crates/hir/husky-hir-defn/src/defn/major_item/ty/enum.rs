@@ -21,8 +21,8 @@ impl From<EnumHirDefn> for HirDefn {
 }
 
 impl EnumHirDefn {
-    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
-        enum_hir_defn_dependencies(db, self)
+    pub(super) fn deps(self, db: &::salsa::Db) -> HirDefnDeps {
+        enum_hir_defn_deps(db, self)
     }
 
     pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
@@ -31,8 +31,8 @@ impl EnumHirDefn {
 }
 
 #[salsa::tracked]
-fn enum_hir_defn_dependencies(db: &::salsa::Db, hir_defn: EnumHirDefn) -> HirDefnDependencies {
-    let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
+fn enum_hir_defn_deps(db: &::salsa::Db, hir_defn: EnumHirDefn) -> HirDefnDeps {
+    let mut builder = HirDefnDepsBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
     builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));
     for &(_, ty_variant_path) in hir_decl.path(db).ty_variant_paths(db) {

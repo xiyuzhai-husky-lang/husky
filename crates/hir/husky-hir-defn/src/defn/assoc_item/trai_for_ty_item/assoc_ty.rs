@@ -28,8 +28,8 @@ impl TraitForTypeAssocTypeHirDefn {
         TraitForTypeAssocTypeHirDefn::new_inner(db, path, hir_decl)
     }
 
-    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
-        trai_for_ty_assoc_ty_hir_defn_dependencies(db, self)
+    pub(super) fn deps(self, db: &::salsa::Db) -> HirDefnDeps {
+        trai_for_ty_assoc_ty_hir_defn_deps(db, self)
     }
 
     pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
@@ -38,11 +38,11 @@ impl TraitForTypeAssocTypeHirDefn {
 }
 
 #[salsa::tracked]
-fn trai_for_ty_assoc_ty_hir_defn_dependencies(
+fn trai_for_ty_assoc_ty_hir_defn_deps(
     db: &::salsa::Db,
     hir_defn: TraitForTypeAssocTypeHirDefn,
-) -> HirDefnDependencies {
-    let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
+) -> HirDefnDeps {
+    let mut builder = HirDefnDepsBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
     builder.add_item_path(hir_decl.path(db).impl_block(db));
     builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));

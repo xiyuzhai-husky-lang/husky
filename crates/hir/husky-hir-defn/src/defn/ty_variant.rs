@@ -31,11 +31,11 @@ impl TypeVariantHirDefn {
         todo!()
     }
 
-    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
+    pub(super) fn deps(self, db: &::salsa::Db) -> HirDefnDeps {
         match self {
-            TypeVariantHirDefn::Unit(hir_defn) => hir_defn.dependencies(db),
-            TypeVariantHirDefn::Tuple(hir_defn) => hir_defn.dependencies(db),
-            TypeVariantHirDefn::Props(hir_defn) => hir_defn.dependencies(db),
+            TypeVariantHirDefn::Unit(hir_defn) => hir_defn.deps(db),
+            TypeVariantHirDefn::Tuple(hir_defn) => hir_defn.deps(db),
+            TypeVariantHirDefn::Props(hir_defn) => hir_defn.deps(db),
         }
     }
 

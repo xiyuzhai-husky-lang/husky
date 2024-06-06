@@ -51,11 +51,11 @@ impl AssocItemHirDefn {
         }
     }
 
-    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
+    pub(super) fn deps(self, db: &::salsa::Db) -> HirDefnDeps {
         match self {
-            AssocItemHirDefn::TypeItem(hir_defn) => hir_defn.dependencies(db),
-            AssocItemHirDefn::TraitItem(hir_defn) => hir_defn.dependencies(db),
-            AssocItemHirDefn::TraitForTypeItem(hir_defn) => hir_defn.dependencies(db),
+            AssocItemHirDefn::TypeItem(hir_defn) => hir_defn.deps(db),
+            AssocItemHirDefn::TraitItem(hir_defn) => hir_defn.deps(db),
+            AssocItemHirDefn::TraitForTypeItem(hir_defn) => hir_defn.deps(db),
         }
     }
 

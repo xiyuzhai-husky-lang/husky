@@ -30,11 +30,11 @@ impl ImplBlockHirDefn {
         }
     }
 
-    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
+    pub(super) fn deps(self, db: &::salsa::Db) -> HirDefnDeps {
         // ad hoc
         match self {
-            ImplBlockHirDefn::Type(hir_defn) => hir_defn.dependencies(db),
-            ImplBlockHirDefn::TraitForType(hir_defn) => hir_defn.dependencies(db),
+            ImplBlockHirDefn::Type(hir_defn) => hir_defn.deps(db),
+            ImplBlockHirDefn::TraitForType(hir_defn) => hir_defn.deps(db),
         }
     }
 
