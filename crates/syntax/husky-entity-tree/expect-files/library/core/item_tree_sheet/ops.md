@@ -3049,13 +3049,13 @@ EntityTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            major_item_path: MajorItemPath::Type(
-                                                TypePath(`core::task::Task`, `Extern`),
+                                            major_item_path: MajorItemPath::Form(
+                                                FormPath(`core::task::Task`, `TypeVar`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::task::Task`, `Extern`),
+                                            MajorItemPath::Form(
+                                                FormPath(`core::task::Task`, `TypeVar`),
                                             ),
                                         ),
                                         visibility: Scope::Pub,
@@ -3064,8 +3064,8 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::task::Task`, `Extern`),
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::Task`, `TypeVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -3076,8 +3076,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::task::Task`, `Extern`),
+                            MajorItemPath::Form(
+                                FormPath(`core::task::Task`, `TypeVar`),
                             ),
                         ),
                         visibility: Scope::PubUnder(

@@ -2081,13 +2081,13 @@ EntityTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            major_item_path: MajorItemPath::Type(
-                                                TypePath(`core::task::Task`, `Extern`),
+                                            major_item_path: MajorItemPath::Form(
+                                                FormPath(`core::task::Task`, `TypeVar`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::task::Task`, `Extern`),
+                                            MajorItemPath::Form(
+                                                FormPath(`core::task::Task`, `TypeVar`),
                                             ),
                                         ),
                                         visibility: Scope::Pub,
@@ -2096,8 +2096,8 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::task::Task`, `Extern`),
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::Task`, `TypeVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -4716,13 +4716,13 @@ EntityTreeCrateBundle {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -4731,8 +4731,8 @@ EntityTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::task::Task`, `Extern`),
+                                            MajorItemPath::Form(
+                                                FormPath(`core::task::Task`, `TypeVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -4743,8 +4743,8 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::task::Task`, `Extern`),
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::Task`, `TypeVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -8144,13 +8144,13 @@ EntityTreeCrateBundle {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -8159,8 +8159,8 @@ EntityTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::task::Task`, `Extern`),
+                                            MajorItemPath::Form(
+                                                FormPath(`core::task::Task`, `TypeVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -8171,8 +8171,8 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::task::Task`, `Extern`),
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::Task`, `TypeVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -10992,13 +10992,13 @@ EntityTreeCrateBundle {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -11007,8 +11007,8 @@ EntityTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::task::Task`, `Extern`),
+                                            MajorItemPath::Form(
+                                                FormPath(`core::task::Task`, `TypeVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -11019,8 +11019,8 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::task::Task`, `Extern`),
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::Task`, `TypeVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -14090,13 +14090,13 @@ EntityTreeCrateBundle {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -14105,8 +14105,8 @@ EntityTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::task::Task`, `Extern`),
+                                            MajorItemPath::Form(
+                                                FormPath(`core::task::Task`, `TypeVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -14117,8 +14117,8 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::task::Task`, `Extern`),
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::Task`, `TypeVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -16938,13 +16938,13 @@ EntityTreeCrateBundle {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -16953,8 +16953,8 @@ EntityTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::task::Task`, `Extern`),
+                                            MajorItemPath::Form(
+                                                FormPath(`core::task::Task`, `TypeVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -16965,8 +16965,8 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::task::Task`, `Extern`),
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::Task`, `TypeVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -20114,13 +20114,13 @@ EntityTreeCrateBundle {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -20129,8 +20129,8 @@ EntityTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::task::Task`, `Extern`),
+                                            MajorItemPath::Form(
+                                                FormPath(`core::task::Task`, `TypeVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -20141,8 +20141,8 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::task::Task`, `Extern`),
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::Task`, `TypeVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -23036,13 +23036,13 @@ EntityTreeCrateBundle {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -23051,8 +23051,8 @@ EntityTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::task::Task`, `Extern`),
+                                            MajorItemPath::Form(
+                                                FormPath(`core::task::Task`, `TypeVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -23063,8 +23063,8 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::task::Task`, `Extern`),
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::Task`, `TypeVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -26126,13 +26126,13 @@ EntityTreeCrateBundle {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -26141,8 +26141,8 @@ EntityTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::task::Task`, `Extern`),
+                                            MajorItemPath::Form(
+                                                FormPath(`core::task::Task`, `TypeVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -26153,8 +26153,8 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::task::Task`, `Extern`),
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::Task`, `TypeVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -29857,13 +29857,13 @@ EntityTreeCrateBundle {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -29872,8 +29872,8 @@ EntityTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::task::Task`, `Extern`),
+                                            MajorItemPath::Form(
+                                                FormPath(`core::task::Task`, `TypeVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -29884,8 +29884,8 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::task::Task`, `Extern`),
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::Task`, `TypeVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -35293,13 +35293,13 @@ EntityTreeCrateBundle {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -35308,8 +35308,8 @@ EntityTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::task::Task`, `Extern`),
+                                            MajorItemPath::Form(
+                                                FormPath(`core::task::Task`, `TypeVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -35320,8 +35320,8 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::task::Task`, `Extern`),
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::Task`, `TypeVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -38199,13 +38199,13 @@ EntityTreeCrateBundle {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -38214,8 +38214,8 @@ EntityTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::task::Task`, `Extern`),
+                                            MajorItemPath::Form(
+                                                FormPath(`core::task::Task`, `TypeVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -38226,8 +38226,8 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::task::Task`, `Extern`),
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::Task`, `TypeVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -39782,13 +39782,13 @@ EntityTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
-                                    major_item_path: MajorItemPath::Type(
-                                        TypePath(`core::task::Task`, `Extern`),
+                                    major_item_path: MajorItemPath::Form(
+                                        FormPath(`core::task::Task`, `TypeVar`),
                                     ),
                                 },
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::task::Task`, `Extern`),
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::Task`, `TypeVar`),
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -42975,13 +42975,13 @@ EntityTreeCrateBundle {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -42990,8 +42990,8 @@ EntityTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::task::Task`, `Extern`),
+                                            MajorItemPath::Form(
+                                                FormPath(`core::task::Task`, `TypeVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -43002,8 +43002,8 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::task::Task`, `Extern`),
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::Task`, `TypeVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -45924,13 +45924,13 @@ EntityTreeCrateBundle {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -45939,8 +45939,8 @@ EntityTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::task::Task`, `Extern`),
+                                            MajorItemPath::Form(
+                                                FormPath(`core::task::Task`, `TypeVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -45951,8 +45951,8 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::task::Task`, `Extern`),
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::Task`, `TypeVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -47068,52 +47068,26 @@ EntityTreeCrateBundle {
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
-                                syn_node_path: MajorItemSynNodePath::Type(
-                                    TypeSynNodePath(
-                                        ItemSynNodePathId {
-                                            data: ItemSynNodePathData::MajorItem(
-                                                MajorItemSynNodePathData::Type(
-                                                    TypeSynNodePathData {
-                                                        disambiguated_item_path: DisambiguatedItemPath {
-                                                            maybe_ambiguous_item_path: TypePath(`core::task::Task`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
+                                syn_node_path: MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`core::task::Task`, `TypeVar`, (0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 3,
                                 ident_token: IdentToken {
                                     ident: `Task`,
                                     token_idx: TokenIdx(
-                                        17,
+                                        18,
                                     ),
                                 },
-                                block: DefnBlock::Type {
-                                    path: TypePath(`core::task::Task`, `Extern`),
-                                    variants: None,
+                                block: DefnBlock::Form {
+                                    path: FormPath(`core::task::Task`, `TypeVar`),
+                                    body: None,
                                 },
                             },
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Type(
-                                TypeSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Type(
-                                                TypeSynNodePathData {
-                                                    disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypePath(`core::task::Task`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`core::task::Task`, `TypeVar`, (0)),
                             ),
                         ),
                         ident: `Task`,
@@ -47130,7 +47104,7 @@ EntityTreeCrateBundle {
                                 ident_token: IdentToken {
                                     ident: `TASK`,
                                     token_idx: TokenIdx(
-                                        21,
+                                        22,
                                     ),
                                 },
                                 block: DefnBlock::Form {
@@ -47164,8 +47138,8 @@ EntityTreeCrateBundle {
                         ident: `Task`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
-                            major_item_path: MajorItemPath::Type(
-                                TypePath(`core::task::Task`, `Extern`),
+                            major_item_path: MajorItemPath::Form(
+                                FormPath(`core::task::Task`, `TypeVar`),
                             ),
                         },
                     },
@@ -49060,13 +49034,13 @@ EntityTreeCrateBundle {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -49075,8 +49049,8 @@ EntityTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::task::Task`, `Extern`),
+                                            MajorItemPath::Form(
+                                                FormPath(`core::task::Task`, `TypeVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -49087,8 +49061,8 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::task::Task`, `Extern`),
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::Task`, `TypeVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -52008,13 +51982,13 @@ EntityTreeCrateBundle {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -52023,8 +51997,8 @@ EntityTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::task::Task`, `Extern`),
+                                            MajorItemPath::Form(
+                                                FormPath(`core::task::Task`, `TypeVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -52035,8 +52009,8 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::task::Task`, `Extern`),
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::Task`, `TypeVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -55050,13 +55024,13 @@ EntityTreeCrateBundle {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -55065,8 +55039,8 @@ EntityTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::task::Task`, `Extern`),
+                                            MajorItemPath::Form(
+                                                FormPath(`core::task::Task`, `TypeVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -55077,8 +55051,8 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::task::Task`, `Extern`),
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::Task`, `TypeVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -57961,13 +57935,13 @@ EntityTreeCrateBundle {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -57976,8 +57950,8 @@ EntityTreeCrateBundle {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Type(
-                                                TypePath(`core::task::Task`, `Extern`),
+                                            MajorItemPath::Form(
+                                                FormPath(`core::task::Task`, `TypeVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -57988,8 +57962,8 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::task::Task`, `Extern`),
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::Task`, `TypeVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(

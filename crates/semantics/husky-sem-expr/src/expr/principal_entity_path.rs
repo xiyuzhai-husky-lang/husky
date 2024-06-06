@@ -87,7 +87,9 @@ impl<'a> SemExprBuilder<'a> {
                                 &instantiation,
                             ),
                             FormEthTemplate::TypeAlias(_) => todo!(),
-                            FormEthTemplate::TypeVar(_) => todo!(),
+                            FormEthTemplate::TypeVar(_) => {
+                                return (Ok(None), Ok(self.term_menu().ty0().into()))
+                            }
                             FormEthTemplate::Val(tmpl) => FlyInstantiate::instantiate(
                                 tmpl.return_ty(db),
                                 self,

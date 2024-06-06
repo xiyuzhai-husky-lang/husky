@@ -1513,8 +1513,8 @@
         ),
     ),
     ItemPath::MajorItem(
-        MajorItemPath::Type(
-            TypePath(`core::task::Task`, `Extern`),
+        MajorItemPath::Form(
+            FormPath(`core::task::Task`, `TypeVar`),
         ),
     ),
     ItemPath::MajorItem(

@@ -83,36 +83,22 @@ SynDeclSheet {
         ),
         (
             ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::task::Task`, `Extern`),
+                MajorItemPath::Form(
+                    FormPath(`core::task::Task`, `TypeVar`),
                 ),
             ),
             SynDecl::MajorItem(
-                MajorItemSynDecl::Type(
-                    TypeSynDecl::Extern(
-                        ExternSynDecl {
-                            path: TypePath(`core::task::Task`, `Extern`),
-                            template_parameters: [],
+                MajorItemSynDecl::Form(
+                    FormSynDecl::TypeVar(
+                        TypeVarSynDecl {
+                            path: FormPath(`core::task::Task`, `TypeVar`),
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Type(
-                                                TypeSynNodePath(
-                                                    ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::MajorItem(
-                                                            MajorItemSynNodePathData::Type(
-                                                                TypeSynNodePathData {
-                                                                    disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypePath(`core::task::Task`, `Extern`),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`core::task::Task`, `TypeVar`, (0)),
                                             ),
                                         ),
                                     ),
@@ -147,7 +133,7 @@ SynDeclSheet {
                                         current_variable_arena: Arena {
                                             data: [],
                                         },
-                                        allow_self_type: True,
+                                        allow_self_type: False,
                                         allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
@@ -194,8 +180,8 @@ SynDeclSheet {
                                                 path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
-                                                        MajorItemPath::Type(
-                                                            TypePath(`core::task::Task`, `Extern`),
+                                                        MajorItemPath::Form(
+                                                            FormPath(`core::task::Task`, `TypeVar`),
                                                         ),
                                                     ),
                                                 ),
@@ -214,8 +200,8 @@ SynDeclSheet {
                                                     },
                                                 ),
                                                 principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 ),
                                             },

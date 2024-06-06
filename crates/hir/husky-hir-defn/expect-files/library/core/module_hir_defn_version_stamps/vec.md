@@ -16,7 +16,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 170,
+                        value: 169,
                     },
                 ),
             ),
@@ -28,7 +28,7 @@
             AttrItemPath(
                 ItemPathId(
                     Id {
-                        value: 263,
+                        value: 262,
                     },
                 ),
             ),
@@ -42,6 +42,28 @@
                     ItemPathId(
                         Id {
                             value: 136,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 170,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        AssocItem(
+            TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 263,
                         },
                     ),
                 ),
@@ -206,28 +228,6 @@
                 HirDefnVersionStamp(
                     Id {
                         value: 178,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        AssocItem(
-            TypeItem(
-                TypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 271,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 179,
                     },
                 ),
             ),

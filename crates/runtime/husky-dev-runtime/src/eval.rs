@@ -348,7 +348,7 @@ fn ki_repr_eval_works() {
         let ItemPath::MajorItem(MajorItemPath::Form(form_path)) = item_path else {
             continue;
         };
-        if form_path.major_form_kind(db) != MajorFormKind::Val {
+        if form_path.kind(db) != MajorFormKind::Val {
             continue;
         }
         let ki_repr = KiRepr::new_val_item(form_path, db);

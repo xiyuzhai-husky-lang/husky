@@ -30,19 +30,15 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::task::Task`, `Extern`),
+            MajorItemPath::Form(
+                FormPath(`core::task::Task`, `TypeVar`),
             ),
         ),
         Ok(
             ItemDecTemplate::MajorItem(
-                MajorItemDecTemplate::Type(
-                    TypeDecTemplate::Extern(
-                        ExternDecTemplate {
-                            template_parameters: DecTemplateParameters {
-                                data: [],
-                            },
-                        },
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::TypeVar(
+                        TypeVarDecTemplate,
                     ),
                 ),
             ),
@@ -60,8 +56,8 @@
                     MajorFormDecTemplate::Static(
                         MajorStaticDecTemplate {
                             return_ty: EntityPath(
-                                Type(
-                                    TypePath(
+                                Form(
+                                    MajorFormPath(
                                         ItemPathId(
                                             Id {
                                                 value: 94,

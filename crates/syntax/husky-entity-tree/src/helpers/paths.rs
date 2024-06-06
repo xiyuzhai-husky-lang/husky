@@ -165,7 +165,7 @@ fn crate_test_paths_works() {
 #[salsa::tracked]
 fn to_test_path(db: &::salsa::Db, path_id: ItemPathId) -> Option<MajorFormPath> {
     match path_id.item_path(db) {
-        ItemPath::MajorItem(MajorItemPath::Form(path)) => match path.major_form_kind(db) {
+        ItemPath::MajorItem(MajorItemPath::Form(path)) => match path.kind(db) {
             MajorFormKind::Ritchie(_) | MajorFormKind::Val => {
                 let test_ident = coword_menu(db).test_ident();
                 path.attr_paths(db)

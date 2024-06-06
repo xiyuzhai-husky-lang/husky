@@ -415,6 +415,7 @@ impl FlyInstantiate for EthApplication {
                     }
                 }
             },
+            TermFunctionReduced::TypeVar(_) => todo!(),
             TermFunctionReduced::Trait(_) => todo!(),
             TermFunctionReduced::Other(_) => todo!(),
         }

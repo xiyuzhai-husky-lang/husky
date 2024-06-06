@@ -78,6 +78,7 @@ fn ethereal_term_application_ty_method_dispatch<'db>(
             indirections,
             context_itd,
         ),
+        TermFunctionReduced::TypeVar(_) => todo!(),
         TermFunctionReduced::Trait(_) | TermFunctionReduced::Other(_) => Nothing,
     }
 }

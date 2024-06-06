@@ -322,7 +322,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                     .collect()
             }
             match path {
-                JavPath::Form(path) => match path.major_form_kind(db) {
+                JavPath::Form(path) => match path.kind(db) {
                     MajorFormKind::Ritchie(ritchie_item_kind) => {
                         match ritchie_item_kind.is_lazy() {
                             true => {

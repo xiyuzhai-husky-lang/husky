@@ -89,8 +89,8 @@ Some(
                                 path_expr_idx: 0,
                                 opt_path: Some(
                                     PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Type(
-                                            TypePath(`core::task::Task`, `Extern`),
+                                        MajorItemPath::Form(
+                                            FormPath(`core::task::Task`, `TypeVar`),
                                         ),
                                     ),
                                 ),
@@ -146,8 +146,8 @@ Some(
                                     },
                                 ),
                                 principal_entity_path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::task::Task`, `Extern`),
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::Task`, `TypeVar`),
                                     ),
                                 ),
                             },

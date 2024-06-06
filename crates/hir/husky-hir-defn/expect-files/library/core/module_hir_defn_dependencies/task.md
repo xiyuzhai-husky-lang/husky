@@ -10,10 +10,5 @@
             value: 168,
         },
     ),
-    HirDefnDependencies(
-        Id {
-            value: 169,
-        },
-    ),
 ]
 ```

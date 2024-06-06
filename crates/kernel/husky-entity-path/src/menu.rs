@@ -175,9 +175,18 @@ impl ItemPathMenu {
                     db,
                 )
             }};
+            ($m: ident, type var $ident: ident) => {{
+                MajorFormPath::new(
+                    $m,
+                    Ident::from_ref(db, stringify!($ident)).unwrap(),
+                    MajorItemConnection::Connected,
+                    MajorFormKind::TypeVar,
+                    db,
+                )
+            }};
         }
         Self {
-            task_major_form_path: mk!(core_task, type Task),
+            task_major_form_path: mk!(core_task, type var Task),
             unit_ty_path: mk!(core_basic, extern unit),
             never_ty_path: mk!(core_basic, extern never),
             bool_ty_path: mk!(core_basic, extern bool),

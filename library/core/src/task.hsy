@@ -2,6 +2,6 @@ pub trait IsTask:
     type Backend: IsBackend;
     type Frontend: IsFrontend;
 
-pub extern Task;
+pub type var Task;
 
 pub static TASK: Task;

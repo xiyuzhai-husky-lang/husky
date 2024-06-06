@@ -111,64 +111,22 @@ SynNodeDeclSheet {
         ),
         (
             ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Type(
-                    TypeSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::MajorItem(
-                                MajorItemSynNodePathData::Type(
-                                    TypeSynNodePathData {
-                                        disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypePath(`core::task::Task`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                MajorItemSynNodePath::Form(
+                    FormSynNodePath(`core::task::Task`, `TypeVar`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
-                MajorItemSynNodeDecl::Type(
-                    TypeSynNodeDecl::Extern(
-                        ExternSynNodeDecl {
-                            syn_node_path: TypeSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Type(
-                                            TypeSynNodePathData {
-                                                disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypePath(`core::task::Task`, `Extern`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                            template_parameter_decl_list: Ok(
-                                None,
-                            ),
+                MajorItemSynNodeDecl::Form(
+                    FormSynNodeDecl::TypeVar(
+                        TypeVarSynNodeDecl {
+                            syn_node_path: FormSynNodePath(`core::task::Task`, `TypeVar`, (0)),
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Type(
-                                                TypeSynNodePath(
-                                                    ItemSynNodePathId {
-                                                        data: ItemSynNodePathData::MajorItem(
-                                                            MajorItemSynNodePathData::Type(
-                                                                TypeSynNodePathData {
-                                                                    disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypePath(`core::task::Task`, `Extern`),
-                                                                        disambiguator: 0,
-                                                                    },
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`core::task::Task`, `TypeVar`, (0)),
                                             ),
                                         ),
                                     ),
@@ -203,7 +161,7 @@ SynNodeDeclSheet {
                                         current_variable_arena: Arena {
                                             data: [],
                                         },
-                                        allow_self_type: True,
+                                        allow_self_type: False,
                                         allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
@@ -268,8 +226,8 @@ SynNodeDeclSheet {
                                                 path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
-                                                        MajorItemPath::Type(
-                                                            TypePath(`core::task::Task`, `Extern`),
+                                                        MajorItemPath::Form(
+                                                            FormPath(`core::task::Task`, `TypeVar`),
                                                         ),
                                                     ),
                                                 ),
@@ -288,8 +246,8 @@ SynNodeDeclSheet {
                                                     },
                                                 ),
                                                 principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Type(
-                                                        TypePath(`core::task::Task`, `Extern`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 ),
                                             },
