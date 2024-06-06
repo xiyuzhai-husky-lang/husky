@@ -56,6 +56,7 @@ pub(crate) fn ethereal_term_application_ty_field_dispatch<'db>(
             indirections,
             ctx,
         ),
+        TermFunctionReduced::TypeVar(_) => todo!(),
         TermFunctionReduced::Trait(_) | TermFunctionReduced::Other(_) => Nothing,
     }
 }

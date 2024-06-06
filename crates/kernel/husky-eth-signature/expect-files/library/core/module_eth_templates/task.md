@@ -27,19 +27,16 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::task::Task`, `Extern`),
+            MajorItemPath::Form(
+                FormPath(`core::task::Task`, `TypeVar`),
             ),
         ),
         Ok(
             ItemEthTemplate::MajorItem(
-                MajorItemEthTemplate::Type(
-                    TypeEthTemplate::Extern(
-                        ExternTypeEthTemplate {
-                            path: TypePath(`core::task::Task`, `Extern`),
-                            template_parameters: EthTemplateParameters {
-                                data: [],
-                            },
+                MajorItemEthTemplate::Form(
+                    FormEthTemplate::TypeVar(
+                        MajorTypeVarEthTemplate {
+                            path: FormPath(`core::task::Task`, `TypeVar`),
                         },
                     ),
                 ),

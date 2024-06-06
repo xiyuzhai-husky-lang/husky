@@ -752,7 +752,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 264,
+                                        value: 263,
                                     },
                                 ),
                             ),
@@ -764,7 +764,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 264,
+                                        value: 263,
                                     },
                                 ),
                             ),

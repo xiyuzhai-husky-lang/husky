@@ -19,7 +19,7 @@ pub struct ValItemTraceData {
 
 impl Trace {
     pub fn from_val_item_path(val_item_path: MajorFormPath, db: &::salsa::Db) -> Self {
-        debug_assert_eq!(val_item_path.major_form_kind(db), MajorFormKind::Val);
+        debug_assert_eq!(val_item_path.kind(db), MajorFormKind::Val);
         let path = TracePath::new(ValItemTracePathData { val_item_path }, db);
         Trace::new(
             path,

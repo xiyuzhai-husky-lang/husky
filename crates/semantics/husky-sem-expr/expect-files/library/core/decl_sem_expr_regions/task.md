@@ -69,16 +69,16 @@
     SemExprRegion {
         path: RegionPath::ItemDecl(
             ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::task::Task`, `Extern`),
+                MajorItemPath::Form(
+                    FormPath(`core::task::Task`, `TypeVar`),
                 ),
             ),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::task::Task`, `Extern`),
+                    MajorItemPath::Form(
+                        FormPath(`core::task::Task`, `TypeVar`),
                     ),
                 ),
             ),
@@ -127,9 +127,7 @@
                 },
             },
             return_ty: None,
-            self_ty: Some(
-                EthTerm(`Task`),
-            ),
+            self_ty: None,
         },
     },
     SemExprRegion {
@@ -159,8 +157,8 @@
                                 SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Type(
-                                            TypePath(`core::task::Task`, `Extern`),
+                                        MajorItemPath::Form(
+                                            FormPath(`core::task::Task`, `TypeVar`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,

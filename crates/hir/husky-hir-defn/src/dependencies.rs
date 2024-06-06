@@ -200,6 +200,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 }
                 self.add_hir_ty(hir_ty.return_ty(db))
             }
+            HirType::TypeVar(_) => (),
         }
     }
 

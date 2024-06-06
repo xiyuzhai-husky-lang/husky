@@ -49,6 +49,7 @@ impl LinkageInstantiate for HirType {
             HirType::TypeAssocType(_) => todo!(),
             HirType::TraitAssocType(_) => todo!(),
             HirType::Ritchie(_) => todo!(),
+            HirType::TypeVar(_) => todo!(),
         }
     }
 }
@@ -173,6 +174,7 @@ impl LinType {
                 LinType::from_hir(hir_ty.return_ty(db), lin_instantiation, db),
             )
             .into(),
+            HirType::TypeVar(_) => todo!(),
         }
     }
 

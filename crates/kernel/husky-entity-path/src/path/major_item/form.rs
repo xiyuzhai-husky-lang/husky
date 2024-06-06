@@ -14,7 +14,7 @@ pub struct FormPathData {
     module_path: ModulePath,
     ident: Ident,
     connection: MajorItemConnection,
-    form_kind: MajorFormKind,
+    kind: MajorFormKind,
 }
 
 impl MajorFormPath {
@@ -31,7 +31,7 @@ impl MajorFormPath {
                 module_path,
                 ident,
                 connection,
-                form_kind,
+                kind: form_kind,
             })),
         ))
     }
@@ -47,8 +47,8 @@ impl MajorFormPath {
         self.data(db).ident
     }
 
-    pub fn major_form_kind(self, db: &::salsa::Db) -> MajorFormKind {
-        self.data(db).form_kind
+    pub fn kind(self, db: &::salsa::Db) -> MajorFormKind {
+        self.data(db).kind
     }
 
     #[inline(never)]
@@ -84,7 +84,7 @@ impl FormPathData {
     }
 
     pub fn form_kind(&self) -> MajorFormKind {
-        self.form_kind
+        self.kind
     }
 
     #[inline(never)]
@@ -105,7 +105,7 @@ impl salsa::DebugWithDb for MajorFormPath {
         f.write_str("FormPath(`")?;
         data.show_aux(f, db)?;
         f.write_str("`, `")?;
-        data.form_kind.fmt(f)?;
+        data.kind.fmt(f)?;
         f.write_str("`)")
     }
 }

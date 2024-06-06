@@ -143,7 +143,7 @@ where
                                 PrincipalEntityPath::MajorItem(path) => match path {
                                     MajorItemPath::Type(_) => todo!(),
                                     MajorItemPath::Trait(_) => todo!(),
-                                    MajorItemPath::Form(path) => match path.major_form_kind(db) {
+                                    MajorItemPath::Form(path) => match path.kind(db) {
                                         MajorFormKind::Ritchie(_) | MajorFormKind::Val => {
                                             parse_overriding_ident_pattern(
                                                 parser,

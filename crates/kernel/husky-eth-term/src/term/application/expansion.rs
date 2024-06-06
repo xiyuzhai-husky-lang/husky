@@ -1,12 +1,24 @@
 use super::*;
-use husky_entity_path::path::major_item::{trai::TraitPath, ty::TypePath};
+use husky_entity_kind::{EntityKind, MajorFormKind};
+use husky_entity_path::path::major_item::{form::MajorFormPath, trai::TraitPath, ty::TypePath};
 
 impl EthTerm {
     pub fn application_expansion(self, db: &::salsa::Db) -> ApplicationExpansion {
         match self {
             EthTerm::Application(term) => term.application_expansion(db),
             EthTerm::ItemPath(path) => match path {
-                ItemPathTerm::Form(_) => todo!(),
+                ItemPathTerm::Form(path) => match path.kind(db) {
+                    MajorFormKind::Ritchie(_) => todo!(),
+                    MajorFormKind::TypeAlias => todo!(),
+                    MajorFormKind::TypeVar => ApplicationExpansion {
+                        function: TermFunctionReduced::TypeVar(path),
+                        arguments: None,
+                    },
+                    MajorFormKind::Val => todo!(),
+                    MajorFormKind::Static => todo!(),
+                    MajorFormKind::Compterm => todo!(),
+                    MajorFormKind::Conceptual => todo!(),
+                },
                 ItemPathTerm::Trait(path) => ApplicationExpansion {
                     function: TermFunctionReduced::Trait(path),
                     arguments: None,
@@ -53,6 +65,7 @@ pub struct ApplicationExpansion {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum TermFunctionReduced {
     TypeOntology(TypePath),
+    TypeVar(MajorFormPath),
     Trait(TraitPath),
     Other(EthTerm),
 }

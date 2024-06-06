@@ -64,7 +64,7 @@ impl FormSynNodePath {
         self.data(db)
             .disambiguated_item_path
             .maybe_ambiguous_item_path
-            .major_form_kind(db)
+            .kind(db)
     }
 
     pub(crate) fn syn_node<'a>(self, db: &'a ::salsa::Db) -> &'a MajorItemSynNode {
@@ -97,7 +97,7 @@ impl salsa::DebugWithDb for FormSynNodePath {
         self.data(db)
             .disambiguated_item_path
             .maybe_ambiguous_item_path
-            .major_form_kind(db)
+            .kind(db)
             .fmt(f)?;
         f.write_fmt(format_args!(
             "`, ({}))",

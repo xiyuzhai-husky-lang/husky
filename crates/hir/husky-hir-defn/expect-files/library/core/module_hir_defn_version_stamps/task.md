@@ -28,7 +28,7 @@
                 TraitItemPath(
                     ItemPathId(
                         Id {
-                            value: 148,
+                            value: 147,
                         },
                     ),
                 ),
@@ -42,7 +42,7 @@
                 TraitItemPath(
                     ItemPathId(
                         Id {
-                            value: 149,
+                            value: 148,
                         },
                     ),
                 ),
@@ -52,8 +52,8 @@
     ),
     (
         MajorItem(
-            Type(
-                TypePath(
+            Form(
+                MajorFormPath(
                     ItemPathId(
                         Id {
                             value: 94,
@@ -62,15 +62,7 @@
                 ),
             ),
         ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 168,
-                    },
-                ),
-            ),
-        ),
+        None,
     ),
     (
         MajorItem(
@@ -88,7 +80,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 169,
+                        value: 168,
                     },
                 ),
             ),

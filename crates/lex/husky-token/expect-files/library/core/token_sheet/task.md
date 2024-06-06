@@ -61,9 +61,12 @@ TokenSheetData {
             Keyword::Pub,
         ),
         TokenData::Keyword(
-            Keyword::TypeEntity(
-                Extern,
+            Keyword::Form(
+                Type,
             ),
+        ),
+        TokenData::Keyword(
+            Keyword::Var,
         ),
         TokenData::Ident(
             `Task`,
@@ -136,7 +139,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            19,
+                            20,
                         ),
                     ),
                     indent: 0,

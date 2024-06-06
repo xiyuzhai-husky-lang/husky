@@ -91,6 +91,7 @@ impl JavelinType {
                 JavelinType::from_hir(hir_ty.return_ty(db), javelin_instantiation, db),
             )
             .into(),
+            HirType::TypeVar(_) => todo!(),
         }
     }
 }

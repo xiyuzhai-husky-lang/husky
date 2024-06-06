@@ -127,27 +127,27 @@ AstSheet {
                     visibility: Scope::Pub,
                 },
                 item_kind: EntityKind::MajorItem {
-                    module_item_kind: MajorItemKind::Type(
-                        TypeKind::Extern,
+                    module_item_kind: MajorItemKind::Form(
+                        MajorFormKind::TypeVar,
                     ),
                     connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `Task`,
                     token_idx: TokenIdx(
-                        17,
+                        18,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        18,
+                        19,
                     ),
                     drained: false,
                 },
-                block: DefnBlock::Type {
-                    path: TypePath(`core::task::Task`, `Extern`),
-                    variants: None,
+                block: DefnBlock::Form {
+                    path: FormPath(`core::task::Task`, `TypeVar`),
+                    body: None,
                 },
             },
             AstData::Identifiable {
@@ -159,7 +159,7 @@ AstSheet {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                19,
+                                20,
                             ),
                         },
                     },
@@ -174,13 +174,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `TASK`,
                     token_idx: TokenIdx(
-                        21,
+                        22,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        22,
+                        23,
                     ),
                     drained: false,
                 },
@@ -204,6 +204,9 @@ AstSheet {
         ),
         ArenaIdxRange(
             0..2,
+        ),
+        ArenaIdxRange(
+            2..2,
         ),
         ArenaIdxRange(
             2..2,

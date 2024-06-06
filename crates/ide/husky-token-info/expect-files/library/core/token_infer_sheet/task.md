@@ -138,31 +138,19 @@ Ok(
             None,
             None,
             None,
+            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Type(
-                                TypeSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Type(
-                                                TypeSynNodePathData {
-                                                    disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypePath(`core::task::Task`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`core::task::Task`, `TypeVar`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Type(
-                                TypeKind::Extern,
+                            module_item_kind: MajorItemKind::Form(
+                                MajorFormKind::TypeVar,
                             ),
                             connection: MajorItemConnectionKind::Connected,
                         },
@@ -196,15 +184,15 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::task::Task`, `Extern`),
+                            MajorItemPath::Form(
+                                FormPath(`core::task::Task`, `TypeVar`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::task::Task`, `Extern`),
+                            MajorItemPath::Form(
+                                FormPath(`core::task::Task`, `TypeVar`),
                             ),
                         ),
                     ),

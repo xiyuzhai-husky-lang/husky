@@ -73,7 +73,7 @@ fn is_lazy(sem_expr_region: husky_sem_expr::SemExprRegion, db: &salsa::Db) -> bo
         }
         RegionPath::ItemDecl(path) | RegionPath::ItemDefn(path) => match path {
             ItemPath::MajorItem(path) => match path {
-                MajorItemPath::Form(path) => match path.major_form_kind(db) {
+                MajorItemPath::Form(path) => match path.kind(db) {
                     MajorFormKind::GN | MajorFormKind::QN => true,
                     MajorFormKind::Val | MajorFormKind::VN | MajorFormKind::TN => {
                         sem_expr_region_requires_lazy(db, sem_expr_region)
