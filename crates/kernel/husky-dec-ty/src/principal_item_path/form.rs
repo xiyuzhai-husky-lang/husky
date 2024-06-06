@@ -34,7 +34,8 @@ pub fn form_path_declarative_ty(
         MajorFormDecTemplate::Compterm(signature) => {
             compterm_path_declarative_ty(db, signature, dec_term_menu)
         }
-        MajorFormDecTemplate::Static(_) => todo!(),
+        MajorFormDecTemplate::StaticMut(_) => todo!(),
+        MajorFormDecTemplate::StaticVar(_) => todo!(),
     }
 }
 

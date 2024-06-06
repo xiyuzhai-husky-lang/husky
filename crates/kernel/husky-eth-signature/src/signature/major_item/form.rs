@@ -1,16 +1,14 @@
 pub mod compterm;
 pub mod function_ritchie;
-pub mod r#static;
+pub mod static_mut;
+pub mod static_var;
 pub mod ty_alias;
 pub mod ty_var;
 pub mod val;
 
-use self::compterm::*;
-use self::function_ritchie::*;
-use self::r#static::*;
-use self::ty_alias::*;
-use self::ty_var::*;
-use self::val::*;
+use self::{
+    compterm::*, function_ritchie::*, static_mut::*, static_var::*, ty_alias::*, ty_var::*, val::*,
+};
 use super::*;
 use husky_dec_signature::signature::major_item::form::MajorFormDecTemplate;
 use husky_entity_path::path::major_item::form::MajorFormPath;
@@ -23,7 +21,8 @@ pub enum FormEthTemplate {
     TypeAlias(MajorTypeAliasEthTemplate),
     TypeVar(MajorTypeVarEthTemplate),
     Val(MajorValEthTemplate),
-    Static(MajorStaticEthTemplate),
+    StaticMut(MajorStaticMutEthTemplate),
+    StaticVar(MajorStaticVarEthTemplate),
     Compterm(MajorComptermEthTemplate),
 }
 
@@ -34,7 +33,8 @@ impl FormEthTemplate {
             FormEthTemplate::TypeAlias(slf) => slf.path(db),
             FormEthTemplate::TypeVar(slf) => slf.path(db),
             FormEthTemplate::Val(slf) => slf.path(db),
-            FormEthTemplate::Static(slf) => slf.path(db),
+            FormEthTemplate::StaticMut(slf) => slf.path(db),
+            FormEthTemplate::StaticVar(slf) => slf.path(db),
             FormEthTemplate::Compterm(slf) => slf.path(db),
         }
     }
@@ -45,7 +45,8 @@ impl FormEthTemplate {
             FormEthTemplate::TypeAlias(slf) => slf.template_parameters(db),
             FormEthTemplate::TypeVar(slf) => slf.template_parameters(db),
             FormEthTemplate::Val(_) => &[],
-            FormEthTemplate::Static(_) => &[],
+            FormEthTemplate::StaticMut(_) => &[],
+            FormEthTemplate::StaticVar(_) => &[],
             // maybe not empty in the future
             FormEthTemplate::Compterm(_) => &[],
         }
@@ -78,8 +79,11 @@ fn form_eth_template(db: &::salsa::Db, path: MajorFormPath) -> EthSignatureResul
         MajorFormDecTemplate::Compterm(dec_template) => {
             MajorComptermEthTemplate::from_dec(db, path, dec_template)?.into()
         }
-        MajorFormDecTemplate::Static(dec_template) => {
-            MajorStaticEthTemplate::from_dec(db, path, dec_template)?.into()
+        MajorFormDecTemplate::StaticMut(dec_template) => {
+            MajorStaticMutEthTemplate::from_dec(db, path, dec_template)?.into()
+        }
+        MajorFormDecTemplate::StaticVar(dec_template) => {
+            MajorStaticVarEthTemplate::from_dec(db, path, dec_template)?.into()
         }
     })
 }

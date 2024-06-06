@@ -167,25 +167,25 @@ AstSheet {
                 },
                 item_kind: EntityKind::MajorItem {
                     module_item_kind: MajorItemKind::Form(
-                        MajorFormKind::Static,
+                        MajorFormKind::StaticVar,
                     ),
                     connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `TASK`,
                     token_idx: TokenIdx(
-                        22,
+                        23,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        23,
+                        24,
                     ),
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`core::task::TASK`, `Static`),
+                    path: FormPath(`core::task::TASK`, `StaticVar`),
                     body: None,
                 },
             },

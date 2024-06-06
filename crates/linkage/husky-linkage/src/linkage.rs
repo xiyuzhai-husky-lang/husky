@@ -371,7 +371,18 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         )]
                     }
                     MajorFormKind::Compterm => todo!(),
-                    MajorFormKind::Static => {
+                    // ad hoc
+                    MajorFormKind::StaticMut => {
+                        smallvec![Linkage::new(
+                            db,
+                            LinkageData::MajorStatic {
+                                path,
+                                instantiation: LinInstantiation::new_empty(false),
+                            }
+                        )]
+                    }
+                    // ad hoc
+                    MajorFormKind::StaticVar => {
                         smallvec![Linkage::new(
                             db,
                             LinkageData::MajorStatic {
@@ -401,8 +412,9 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                     TypeItemKind::AssocVal => todo!(),
                     TypeItemKind::AssocType => smallvec![],
                     TypeItemKind::AssocConceptual => todo!(),
-                    TypeItemKind::AssocStatic => todo!(),
-                    TypeItemKind::AssocTermic => todo!(),
+                    TypeItemKind::AssocStaticMut => todo!(),
+                    TypeItemKind::AssocStaticVar => todo!(),
+                    TypeItemKind::AssocCompterm => todo!(),
                     TypeItemKind::MemoizedField => build(
                         instantiation,
                         |instantiation| {
@@ -499,8 +511,9 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         }
                     }
                     TraitItemKind::AssocConceptual => todo!(),
-                    TraitItemKind::AssocStatic => todo!(),
-                    TraitItemKind::AssocTermic => todo!(),
+                    TraitItemKind::AssocStaticMut => todo!(),
+                    TraitItemKind::AssocStaticVar => todo!(),
+                    TraitItemKind::AssocCompterm => todo!(),
                 },
                 JavPath::Type(path) => ty_linkages_emancipated_by_javelin(path, instantiation, db),
             }

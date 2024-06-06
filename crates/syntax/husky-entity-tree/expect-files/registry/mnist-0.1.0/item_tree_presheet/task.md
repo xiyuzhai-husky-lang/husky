@@ -7,25 +7,25 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist::Task`, `TypeAlias`, (0)),
+                            FormSynNodePath(`mnist::Task`, `TypeVar`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 1,
                         ident_token: IdentToken {
                             ident: `Task`,
                             token_idx: TokenIdx(
-                                9,
+                                10,
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist::Task`, `TypeAlias`),
+                            path: FormPath(`mnist::Task`, `TypeVar`),
                             body: None,
                         },
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist::Task`, `TypeAlias`, (0)),
+                        FormSynNodePath(`mnist::Task`, `TypeVar`, (0)),
                     ),
                 ),
                 ident: `Task`,
@@ -35,25 +35,25 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist::TASK`, `Static`, (0)),
+                            FormSynNodePath(`mnist::TASK`, `StaticVar`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 2,
                         ident_token: IdentToken {
                             ident: `TASK`,
                             token_idx: TokenIdx(
-                                14,
+                                16,
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist::TASK`, `Static`),
+                            path: FormPath(`mnist::TASK`, `StaticVar`),
                             body: None,
                         },
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist::TASK`, `Static`, (0)),
+                        FormSynNodePath(`mnist::TASK`, `StaticVar`, (0)),
                     ),
                 ),
                 ident: `TASK`,

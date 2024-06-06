@@ -143,7 +143,8 @@ impl Trace {
             | MajorFormKind::TypeAlias
             | MajorFormKind::TypeVar
             | MajorFormKind::Conceptual => None,
-            MajorFormKind::Static => todo!(),
+            MajorFormKind::StaticMut => todo!(),
+            MajorFormKind::StaticVar => todo!(),
         }
     }
 

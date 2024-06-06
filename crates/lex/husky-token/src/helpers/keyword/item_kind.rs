@@ -23,7 +23,8 @@ pub enum EntityKindKeywordGroup {
     TypeVar(TypeToken, VarToken),
     Trait(TraitToken),
     Compterm(TermicToken),
-    Static(StaticToken),
+    StaticMut(StaticToken, MutToken),
+    StaticVar(StaticToken, VarToken),
 }
 
 #[enum_class::from_variants]
@@ -323,9 +324,21 @@ where
                         )))
                     }
                 }
-                FormKeyword::Static => Ok(Some(EntityKindKeywordGroup::Static(StaticToken {
-                    token_idx,
-                }))),
+                FormKeyword::Static => {
+                    if let Some(mut_token) = ctx.try_parse_option::<MutToken>()? {
+                        Ok(Some(EntityKindKeywordGroup::StaticMut(
+                            StaticToken { token_idx },
+                            mut_token,
+                        )))
+                    } else if let Some(var_token) = ctx.try_parse_option::<VarToken>()? {
+                        Ok(Some(EntityKindKeywordGroup::StaticVar(
+                            StaticToken { token_idx },
+                            var_token,
+                        )))
+                    } else {
+                        todo!()
+                    }
+                }
                 FormKeyword::Compterm => Ok(Some(EntityKindKeywordGroup::Compterm(TermicToken {
                     token_idx,
                 }))),

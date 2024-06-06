@@ -13,7 +13,7 @@ Ok(
             },
         },
         data: PackageDecSignatureData {
-            task_ty_term: Some(
+            task_ty_default: Some(
                 EntityPath(
                     Type(
                         TypePath(

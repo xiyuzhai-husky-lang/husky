@@ -75,18 +75,19 @@ Ok(
             ),
             None,
             None,
+            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                FormSynNodePath(`mnist::Task`, `TypeAlias`, (0)),
+                                FormSynNodePath(`mnist::Task`, `TypeVar`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
                             module_item_kind: MajorItemKind::Form(
-                                MajorFormKind::TypeAlias,
+                                MajorFormKind::TypeVar,
                             ),
                             connection: MajorItemConnectionKind::Connected,
                         },
@@ -115,18 +116,19 @@ Ok(
             ),
             None,
             None,
+            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                FormSynNodePath(`mnist::TASK`, `Static`, (0)),
+                                FormSynNodePath(`mnist::TASK`, `StaticVar`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
                             module_item_kind: MajorItemKind::Form(
-                                MajorFormKind::Static,
+                                MajorFormKind::StaticVar,
                             ),
                             connection: MajorItemConnectionKind::Connected,
                         },

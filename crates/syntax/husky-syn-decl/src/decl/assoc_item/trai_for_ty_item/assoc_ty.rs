@@ -41,7 +41,7 @@ impl<'a> ItemSynNodeDeclParser<'a> {
         let eq_token = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEqForAssocType);
         let ty_term_expr_idx = parser.parse_expr_expected2(
             None,
-            SynExprRootKind::AssocTypeTerm,
+            SynExprRootKind::AssocTypeValue,
             OriginalSynExprError::ExpectedTypeTermForAssocType,
         );
         let generics = parser.try_parse_option();

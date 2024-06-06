@@ -28,7 +28,7 @@ impl<'a> ItemSynNodeDeclParser<'a> {
         let template_parameter_decl_list = parser.try_parse_option();
         let eq_token =
             parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEqTokenForTypeAlias);
-        let expr = parser.parse_expr_root(None, SynExprRootKind::TypeAliasTypeTerm);
+        let expr = parser.parse_expr_root(None, SynExprRootKind::TypeAliasValue);
         TypeAliasSynNodeDecl::new(
             self.db(),
             syn_node_path,

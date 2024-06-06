@@ -1,5 +1,5 @@
 use mnist::task::MnistTask
 
-pub type Task = MnistTask
+pub type var Task = MnistTask
 
-pub static TASK: mnist::task::MnistTask = MnistTask::new()
+pub static var TASK: mnist::task::MnistTask = MnistTask::new()

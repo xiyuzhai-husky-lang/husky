@@ -2,12 +2,12 @@
 [
     ItemPath::MajorItem(
         MajorItemPath::Form(
-            FormPath(`mnist::Task`, `TypeAlias`),
+            FormPath(`mnist::Task`, `TypeVar`),
         ),
     ),
     ItemPath::MajorItem(
         MajorItemPath::Form(
-            FormPath(`mnist::TASK`, `Static`),
+            FormPath(`mnist::TASK`, `StaticVar`),
         ),
     ),
 ]

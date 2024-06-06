@@ -40,7 +40,8 @@ pub enum TokenClass {
     Label,
     Error,
     DefEntity,
-    StaticEntity,
+    StaticMutEntity,
+    StaticVarEntity,
     TermicEntity,
 }
 
@@ -62,7 +63,8 @@ impl TokenClass {
             TokenClass::TypeVar => "type var token",
             TokenClass::FunctionEntity => "function entity token",
             TokenClass::ValEntity => "val entity token",
-            TokenClass::StaticEntity => "static entity token",
+            TokenClass::StaticMutEntity => "static mut entity token",
+            TokenClass::StaticVarEntity => "static var entity token",
             TokenClass::TraitEntity => "trait entity token",
             TokenClass::TypeVariantEntity => "type variant entity token",
             TokenClass::MethodEntity => "method entity token",
@@ -123,7 +125,8 @@ impl From<EntityClass> for TokenClass {
             EntityClass::AssocDef => TokenClass::DefEntity,
             EntityClass::Compterm => TokenClass::TermicEntity,
             EntityClass::Script => unreachable!(),
-            EntityClass::Static => TokenClass::StaticEntity,
+            EntityClass::StaticMut => TokenClass::StaticMutEntity,
+            EntityClass::StaticVar => TokenClass::StaticVarEntity,
         }
     }
 }

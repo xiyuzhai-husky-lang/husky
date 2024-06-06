@@ -154,10 +154,11 @@ impl EthTerm {
                 TraitItemKind::AssocType => DecTerm::Category(Sort::new(1.into())).into(), // todo: maybe consider template parameters?
                 TraitItemKind::AssocVal => todo!(),
                 TraitItemKind::AssocConceptual => todo!(),
-                TraitItemKind::AssocTermic => todo!(),
+                TraitItemKind::AssocCompterm => todo!(),
                 TraitItemKind::MemoizedField => todo!(),
                 TraitItemKind::MethodRitchie(_) => todo!(),
-                TraitItemKind::AssocStatic => todo!(),
+                TraitItemKind::AssocStaticMut => todo!(),
+                TraitItemKind::AssocStaticVar => todo!(),
             },
             EthTerm::TraitConstraint(_) => todo!(),
         })

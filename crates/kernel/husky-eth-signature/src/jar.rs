@@ -45,7 +45,8 @@ pub struct EthSignatureJar(
     crate::signature::major_item::form::ty_var::MajorTypeVarEthTemplate,
     crate::signature::major_item::form::val::MajorValEthTemplate,
     crate::signature::major_item::form::compterm::MajorComptermEthTemplate,
-    crate::signature::major_item::form::r#static::MajorStaticEthTemplate,
+    crate::signature::major_item::form::static_mut::MajorStaticMutEthTemplate,
+    crate::signature::major_item::form::static_var::MajorStaticVarEthTemplate,
     // ty
     crate::signature::major_item::ty::r#enum::EnumEthTemplate,
     crate::signature::major_item::ty::r#extern::ExternTypeEthTemplate,

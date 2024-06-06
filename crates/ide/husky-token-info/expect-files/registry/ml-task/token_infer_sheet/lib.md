@@ -83,6 +83,7 @@ Ok(
                 },
             ),
             None,
+            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
@@ -111,7 +112,7 @@ Ok(
                                                     disambiguated_item_path: DisambiguatedItemPath {
                                                         maybe_ambiguous_item_path: TraitItemPath(
                                                             `ml_task::IsMlTask::INPUT`,
-                                                            TraitItemKind::AssocStatic,
+                                                            TraitItemKind::AssocStaticVar,
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -124,7 +125,7 @@ Ok(
                         ),
                         EntityKind::AssocItem {
                             assoc_item_kind: AssocItemKind::TraitItem(
-                                TraitItemKind::AssocStatic,
+                                TraitItemKind::AssocStaticVar,
                             ),
                         },
                     ),

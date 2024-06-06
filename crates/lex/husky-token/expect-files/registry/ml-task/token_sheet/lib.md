@@ -28,6 +28,9 @@ TokenSheetData {
                 Static,
             ),
         ),
+        TokenData::Keyword(
+            Keyword::Var,
+        ),
         TokenData::Ident(
             `INPUT`,
         ),

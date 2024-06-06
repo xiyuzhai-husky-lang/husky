@@ -11,7 +11,7 @@ Ok(
             data: PackagePathSource::Library,
         },
         data: PackageDecSignatureData {
-            task_ty_term: None,
+            task_ty_default: None,
         },
     },
 )

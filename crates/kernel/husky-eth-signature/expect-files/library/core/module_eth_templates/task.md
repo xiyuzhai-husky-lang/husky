@@ -46,15 +46,15 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Form(
-                FormPath(`core::task::TASK`, `Static`),
+                FormPath(`core::task::TASK`, `StaticVar`),
             ),
         ),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Form(
-                    FormEthTemplate::Static(
-                        MajorStaticEthTemplate {
-                            path: FormPath(`core::task::TASK`, `Static`),
+                    FormEthTemplate::StaticVar(
+                        MajorStaticVarEthTemplate {
+                            path: FormPath(`core::task::TASK`, `StaticVar`),
                         },
                     ),
                 ),

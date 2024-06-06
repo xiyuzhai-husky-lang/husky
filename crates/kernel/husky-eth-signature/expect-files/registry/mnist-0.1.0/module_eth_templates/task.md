@@ -3,18 +3,15 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Form(
-                FormPath(`mnist::Task`, `TypeAlias`),
+                FormPath(`mnist::Task`, `TypeVar`),
             ),
         ),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Form(
-                    FormEthTemplate::TypeAlias(
-                        MajorTypeAliasEthTemplate {
-                            path: FormPath(`mnist::Task`, `TypeAlias`),
-                            template_parameters: EthTemplateParameters {
-                                data: [],
-                            },
+                    FormEthTemplate::TypeVar(
+                        MajorTypeVarEthTemplate {
+                            path: FormPath(`mnist::Task`, `TypeVar`),
                         },
                     ),
                 ),
@@ -24,15 +21,15 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Form(
-                FormPath(`mnist::TASK`, `Static`),
+                FormPath(`mnist::TASK`, `StaticVar`),
             ),
         ),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Form(
-                    FormEthTemplate::Static(
-                        MajorStaticEthTemplate {
-                            path: FormPath(`mnist::TASK`, `Static`),
+                    FormEthTemplate::StaticVar(
+                        MajorStaticVarEthTemplate {
+                            path: FormPath(`mnist::TASK`, `StaticVar`),
                         },
                     ),
                 ),

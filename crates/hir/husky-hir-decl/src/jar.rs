@@ -54,7 +54,8 @@ pub struct HirDeclJar(
     crate::decl::major_item::form::ty_alias::MajorTypeAliasHirDecl,
     crate::decl::major_item::form::val::MajorValHirDecl,
     crate::decl::major_item::form::compterm::MajorComptermHirDecl,
-    crate::decl::major_item::form::r#static::MajorStaticHirDecl,
+    crate::decl::major_item::form::static_mut::MajorStaticMutHirDecl,
+    crate::decl::major_item::form::static_var::MajorStaticVarHirDecl,
     // ty variant
     crate::decl::ty_variant_hir_decl,
     crate::decl::EnumTupleVariantHirDecl,

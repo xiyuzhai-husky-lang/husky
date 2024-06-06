@@ -1,15 +1,15 @@
 pub mod assoc_ritchie;
-pub mod assoc_static;
+pub mod assoc_static_mut;
+pub mod assoc_static_var;
 pub mod assoc_ty;
 pub mod assoc_val;
 pub mod memo_field;
 pub mod method_ritchie;
 
-use self::assoc_ritchie::*;
-use self::assoc_static::*;
-use self::assoc_ty::*;
-use self::assoc_val::*;
-use self::method_ritchie::*;
+use self::{
+    assoc_ritchie::*, assoc_static_mut::*, assoc_static_var::*, assoc_ty::*, assoc_val::*,
+    method_ritchie::*,
+};
 use super::*;
 use husky_entity_path::path::assoc_item::trai_item::TraitItemPath;
 use husky_syn_decl::decl::assoc_item::trai_item::TraitItemSynDecl;
@@ -21,7 +21,8 @@ pub enum TraitItemDecTemplate {
     AssocRitchie(TraitAssocRitchieDecTemplate),
     MethodRitchie(TraitMethodRitchieDecTemplate),
     AssocType(TraitAssocTypeDecTemplate),
-    AssocStatic(TraitAssocStaticDecTemplate),
+    AssocStaticMut(TraitAssocStaticMutDecTemplate),
+    AssocStaticVar(TraitAssocStaticVarDecTemplate),
     AssocVal(TraitAssocValDecTemplate),
 }
 
@@ -63,8 +64,11 @@ pub(crate) fn trai_item_syn_dec_template(
         TraitItemSynDecl::AssocVal(decl) => {
             TraitAssocValDecTemplate::from_decl(db, decl).map(Into::into)
         }
-        TraitItemSynDecl::AssocStatic(decl) => {
-            TraitAssocStaticDecTemplate::from_decl(db, decl).map(Into::into)
+        TraitItemSynDecl::AssocStaticMut(decl) => {
+            TraitAssocStaticMutDecTemplate::from_decl(db, decl).map(Into::into)
+        }
+        TraitItemSynDecl::AssocStaticVar(decl) => {
+            TraitAssocStaticVarDecTemplate::from_decl(db, decl).map(Into::into)
         }
     }
 }
@@ -79,7 +83,8 @@ impl TraitItemDecTemplate {
                 &[]
             }
             TraitItemDecTemplate::AssocVal(_) => &[],
-            TraitItemDecTemplate::AssocStatic(_) => &[],
+            TraitItemDecTemplate::AssocStaticMut(_) => &[],
+            TraitItemDecTemplate::AssocStaticVar(_) => &[],
         }
     }
 }

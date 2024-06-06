@@ -124,7 +124,8 @@ where
                                     } => match module_item_kind {
                                         MajorItemKind::Form(
                                             MajorFormKind::Val
-                                            | MajorFormKind::Static
+                                            | MajorFormKind::StaticMut
+                                            | MajorFormKind::StaticVar
                                             | MajorFormKind::Compterm,
                                         ) => DisambiguatedTokenData::SynBinaryOpr(
                                             regional_token_idx,

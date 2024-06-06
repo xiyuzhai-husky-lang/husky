@@ -317,8 +317,9 @@ impl<'a> DecTermEngine<'a> {
                 | SynExprRootKind::ReturnType
                 | SynExprRootKind::TupleStructFieldType
                 | SynExprRootKind::ParenateParameterDefaultValue { .. }
-                | SynExprRootKind::TypeAliasTypeTerm
-                | SynExprRootKind::AssocTypeTerm
+                | SynExprRootKind::TypeAliasValue
+                | SynExprRootKind::TypeVarDefault
+                | SynExprRootKind::AssocTypeValue
                 | SynExprRootKind::DefaultConstExclude => (),
                 SynExprRootKind::SelfType => {
                     let self_ty_term = self.infer_new_expr_term(expr_root.syn_expr_idx()).ok();

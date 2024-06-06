@@ -81,8 +81,9 @@ impl<'a> SemExprBuilder<'a> {
                         TraitItemKind::AssocVal => todo!(),
                         TraitItemKind::MemoizedField => todo!(),
                         TraitItemKind::MethodRitchie(_) => todo!(),
-                        TraitItemKind::AssocStatic => todo!(),
-                        TraitItemKind::AssocTermic => todo!(),
+                        TraitItemKind::AssocStaticMut => todo!(),
+                        TraitItemKind::AssocStaticVar => todo!(),
+                        TraitItemKind::AssocCompterm => todo!(),
                         TraitItemKind::AssocConceptual => todo!(),
                     };
                     (Ok(static_dispatch), ty_result)

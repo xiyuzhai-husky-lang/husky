@@ -1,28 +1,32 @@
 use super::*;
-use husky_hir_decl::decl::major_item::form::r#static::MajorStaticHirDecl;
+use husky_hir_decl::decl::major_item::form::static_mut::MajorStaticMutHirDecl;
 use husky_hir_expr::helpers::hir_body_with_expr_region;
 
 #[salsa::interned(constructor = new_inner)]
-pub struct MajorStaticHirDefn {
+pub struct MajorStaticMutHirDefn {
     pub path: MajorFormPath,
-    pub hir_decl: MajorStaticHirDecl,
+    pub hir_decl: MajorStaticMutHirDecl,
     pub hir_expr_body_and_region: Option<(HirExprIdx, HirExprRegion)>,
 }
 
-impl From<MajorStaticHirDefn> for MajorItemHirDefn {
-    fn from(hir_defn: MajorStaticHirDefn) -> Self {
+impl From<MajorStaticMutHirDefn> for MajorItemHirDefn {
+    fn from(hir_defn: MajorStaticMutHirDefn) -> Self {
         MajorItemHirDefn::Form(hir_defn.into())
     }
 }
 
-impl From<MajorStaticHirDefn> for HirDefn {
-    fn from(hir_defn: MajorStaticHirDefn) -> Self {
+impl From<MajorStaticMutHirDefn> for HirDefn {
+    fn from(hir_defn: MajorStaticMutHirDefn) -> Self {
         HirDefn::MajorItem(hir_defn.into())
     }
 }
 
-impl MajorStaticHirDefn {
-    pub(super) fn new(db: &::salsa::Db, path: MajorFormPath, hir_decl: MajorStaticHirDecl) -> Self {
+impl MajorStaticMutHirDefn {
+    pub(super) fn new(
+        db: &::salsa::Db,
+        path: MajorFormPath,
+        hir_decl: MajorStaticMutHirDecl,
+    ) -> Self {
         Self::new_inner(
             db,
             path,
@@ -36,18 +40,18 @@ impl MajorStaticHirDefn {
     }
 
     pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
-        major_static_hir_defn_dependencies(db, self)
+        major_static_mut_hir_defn_dependencies(db, self)
     }
 
     pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
-        major_static_hir_defn_version_stamp(db, self)
+        major_static_mut_hir_defn_version_stamp(db, self)
     }
 }
 
 #[salsa::tracked]
-fn major_static_hir_defn_dependencies(
+fn major_static_mut_hir_defn_dependencies(
     db: &::salsa::Db,
-    hir_defn: MajorStaticHirDefn,
+    hir_defn: MajorStaticMutHirDefn,
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
@@ -60,9 +64,9 @@ fn major_static_hir_defn_dependencies(
 }
 
 #[salsa::tracked]
-fn major_static_hir_defn_version_stamp(
+fn major_static_mut_hir_defn_version_stamp(
     db: &::salsa::Db,
-    hir_defn: MajorStaticHirDefn,
+    hir_defn: MajorStaticMutHirDefn,
 ) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)
 }
