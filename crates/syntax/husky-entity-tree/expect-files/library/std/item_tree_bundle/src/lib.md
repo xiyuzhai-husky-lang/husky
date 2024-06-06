@@ -2,7 +2,7 @@
 EntityTreeCrateBundle {
     sheets: [
         EntityTreeSheet {
-            module_path: `std`,
+            module_path: ModulePath(`std`),
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
                     ItemNodeEntry {
@@ -21,7 +21,7 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `std`,
+                                    ModulePath(`std`),
                                 ),
                                 ast_idx: 0,
                                 ident_token: IdentToken {
@@ -49,7 +49,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `prelude`,
                         visibility: Scope::PubUnder(
-                            `std`,
+                            ModulePath(`std`),
                         ),
                     },
                     ItemNodeEntry {
@@ -68,7 +68,7 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `std`,
+                                    ModulePath(`std`),
                                 ),
                                 ast_idx: 1,
                                 ident_token: IdentToken {
@@ -96,7 +96,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `logic`,
                         visibility: Scope::PubUnder(
-                            `std`,
+                            ModulePath(`std`),
                         ),
                     },
                     ItemNodeEntry {
@@ -115,7 +115,7 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `std`,
+                                    ModulePath(`std`),
                                 ),
                                 ast_idx: 2,
                                 ident_token: IdentToken {
@@ -143,7 +143,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `ops`,
                         visibility: Scope::PubUnder(
-                            `std`,
+                            ModulePath(`std`),
                         ),
                     },
                 ],
@@ -153,7 +153,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `prelude`,
                         visible_scope: Scope::PubUnder(
-                            `std`,
+                            ModulePath(`std`),
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(`std::prelude),
@@ -162,7 +162,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `logic`,
                         visible_scope: Scope::PubUnder(
-                            `std`,
+                            ModulePath(`std`),
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(`std::logic),
@@ -171,7 +171,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `ops`,
                         visible_scope: Scope::PubUnder(
-                            `std`,
+                            ModulePath(`std`),
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(`std::ops),
@@ -189,7 +189,7 @@ EntityTreeCrateBundle {
             errors: [],
         },
         EntityTreeSheet {
-            module_path: `std::prelude`,
+            module_path: ModulePath(`std::prelude`),
             major_item_node_table: MajorEntityNodeTable {
                 entries: [],
             },
@@ -206,7 +206,7 @@ EntityTreeCrateBundle {
             errors: [],
         },
         EntityTreeSheet {
-            module_path: `std::logic`,
+            module_path: ModulePath(`std::logic`),
             major_item_node_table: MajorEntityNodeTable {
                 entries: [],
             },
@@ -238,7 +238,7 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::UniversalPrelude {
                                     item_path: PrincipalEntityPath::Module(
-                                        `core`,
+                                        ModulePath(`core`),
                                     ),
                                 },
                             ),
@@ -264,11 +264,11 @@ EntityTreeCrateBundle {
                         parent: Some(
                             (
                                 MajorEntityPath::Module(
-                                    `core`,
+                                    ModulePath(`core`),
                                 ),
                                 EntitySymbol::UniversalPrelude {
                                     item_path: PrincipalEntityPath::Module(
-                                        `core`,
+                                        ModulePath(`core`),
                                     ),
                                 },
                             ),
@@ -277,7 +277,7 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::PackageDependencyOrSelfLib {
                                     item_path: PrincipalEntityPath::Module(
-                                        `core::logic`,
+                                        ModulePath(`core::logic`),
                                     ),
                                 },
                             ),
@@ -288,7 +288,7 @@ EntityTreeCrateBundle {
             use_all_rules: UseAllRules(
                 [
                     UseAllRule {
-                        parent_module_path: `core::logic`,
+                        parent_module_path: ModulePath(`core::logic`),
                         is_same_crate: false,
                         ast_idx: 0,
                         use_expr_idx: 0,
@@ -302,7 +302,7 @@ EntityTreeCrateBundle {
             errors: [],
         },
         EntityTreeSheet {
-            module_path: `std::ops`,
+            module_path: ModulePath(`std::ops`),
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
                     ItemNodeEntry {
@@ -325,7 +325,7 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `std::ops`,
+                                    ModulePath(`std::ops`),
                                 ),
                                 ast_idx: 3,
                                 ident_token: IdentToken {
@@ -366,7 +366,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `Add`,
                         visibility: Scope::PubUnder(
-                            `std::ops`,
+                            ModulePath(`std::ops`),
                         ),
                     },
                 ],
@@ -376,7 +376,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `Add`,
                         visible_scope: Scope::PubUnder(
-                            `std::ops`,
+                            ModulePath(`std::ops`),
                         ),
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Trait(

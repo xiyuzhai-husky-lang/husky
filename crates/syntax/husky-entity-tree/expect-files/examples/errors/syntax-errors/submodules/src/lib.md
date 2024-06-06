@@ -1,0 +1,10 @@
+```rust
+[
+    SubmodulePath(
+        ModulePath(`syntax_errors::ast`),
+    ),
+    SubmodulePath(
+        ModulePath(`syntax_errors::uses`),
+    ),
+]
+```

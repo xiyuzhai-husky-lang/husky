@@ -66,7 +66,7 @@ fn package_synopsis(
 
 #[test]
 fn package_synopsis_works() {
-    DB::vfs_expect_test_debug_with_db(
+    DB::vfs_rich_test_debug_with_db(
         |db, package_path: PackagePath| package_path.synopsis(db),
         &VfsTestConfig::new(
             "package_synopsis",

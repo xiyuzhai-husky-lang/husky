@@ -59,7 +59,7 @@ fn decl_sem_expr_range_regions(
 #[test]
 fn decl_sem_expr_range_regions_works() {
     use tests::*;
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         decl_sem_expr_range_regions,
         &AstTestConfig::new(
             "decl_sem_expr_range_regions",
@@ -89,7 +89,7 @@ fn defn_sem_expr_range_regions(
 #[test]
 fn defn_sem_expr_range_regions_works() {
     use tests::*;
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         defn_sem_expr_range_regions,
         &AstTestConfig::new(
             "defn_sem_expr_range_regions",

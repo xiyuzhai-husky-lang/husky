@@ -2,7 +2,7 @@
 EntityTreeCrateBundle {
     sheets: [
         EntityTreeSheet {
-            module_path: `syntax_basics`,
+            module_path: ModulePath(`syntax_basics`),
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
                     ItemNodeEntry {
@@ -21,7 +21,7 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `syntax_basics`,
+                                    ModulePath(`syntax_basics`),
                                 ),
                                 ast_idx: 0,
                                 ident_token: IdentToken {
@@ -49,7 +49,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `ast`,
                         visibility: Scope::PubUnder(
-                            `syntax_basics`,
+                            ModulePath(`syntax_basics`),
                         ),
                     },
                     ItemNodeEntry {
@@ -68,7 +68,7 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `syntax_basics`,
+                                    ModulePath(`syntax_basics`),
                                 ),
                                 ast_idx: 1,
                                 ident_token: IdentToken {
@@ -96,7 +96,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `uses`,
                         visibility: Scope::PubUnder(
-                            `syntax_basics`,
+                            ModulePath(`syntax_basics`),
                         ),
                     },
                     ItemNodeEntry {
@@ -115,7 +115,7 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `syntax_basics`,
+                                    ModulePath(`syntax_basics`),
                                 ),
                                 ast_idx: 2,
                                 ident_token: IdentToken {
@@ -143,7 +143,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `defn`,
                         visibility: Scope::PubUnder(
-                            `syntax_basics`,
+                            ModulePath(`syntax_basics`),
                         ),
                     },
                     ItemNodeEntry {
@@ -162,7 +162,7 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `syntax_basics`,
+                                    ModulePath(`syntax_basics`),
                                 ),
                                 ast_idx: 3,
                                 ident_token: IdentToken {
@@ -190,7 +190,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `expr`,
                         visibility: Scope::PubUnder(
-                            `syntax_basics`,
+                            ModulePath(`syntax_basics`),
                         ),
                     },
                 ],
@@ -200,7 +200,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `ast`,
                         visible_scope: Scope::PubUnder(
-                            `syntax_basics`,
+                            ModulePath(`syntax_basics`),
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(`syntax_basics::ast),
@@ -209,7 +209,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `uses`,
                         visible_scope: Scope::PubUnder(
-                            `syntax_basics`,
+                            ModulePath(`syntax_basics`),
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(`syntax_basics::uses),
@@ -218,7 +218,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `defn`,
                         visible_scope: Scope::PubUnder(
-                            `syntax_basics`,
+                            ModulePath(`syntax_basics`),
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(`syntax_basics::defn),
@@ -227,7 +227,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `expr`,
                         visible_scope: Scope::PubUnder(
-                            `syntax_basics`,
+                            ModulePath(`syntax_basics`),
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(`syntax_basics::expr),
@@ -245,7 +245,7 @@ EntityTreeCrateBundle {
             errors: [],
         },
         EntityTreeSheet {
-            module_path: `syntax_basics::ast`,
+            module_path: ModulePath(`syntax_basics::ast`),
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
                     ItemNodeEntry {
@@ -264,7 +264,7 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `syntax_basics::ast`,
+                                    ModulePath(`syntax_basics::ast`),
                                 ),
                                 ast_idx: 0,
                                 ident_token: IdentToken {
@@ -292,7 +292,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `submodule_name`,
                         visibility: Scope::PubUnder(
-                            `syntax_basics::ast`,
+                            ModulePath(`syntax_basics::ast`),
                         ),
                     },
                 ],
@@ -302,7 +302,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `submodule_name`,
                         visible_scope: Scope::PubUnder(
-                            `syntax_basics::ast`,
+                            ModulePath(`syntax_basics::ast`),
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(`syntax_basics::ast::submodule_name),
@@ -320,7 +320,7 @@ EntityTreeCrateBundle {
             errors: [],
         },
         EntityTreeSheet {
-            module_path: `syntax_basics::ast::submodule_name`,
+            module_path: ModulePath(`syntax_basics::ast::submodule_name`),
             major_item_node_table: MajorEntityNodeTable {
                 entries: [],
             },
@@ -337,7 +337,7 @@ EntityTreeCrateBundle {
             errors: [],
         },
         EntityTreeSheet {
-            module_path: `syntax_basics::uses`,
+            module_path: ModulePath(`syntax_basics::uses`),
             major_item_node_table: MajorEntityNodeTable {
                 entries: [],
             },
@@ -346,7 +346,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `ast`,
                         visible_scope: Scope::PubUnder(
-                            `syntax_basics::uses`,
+                            ModulePath(`syntax_basics::uses`),
                         ),
                         symbol: EntitySymbol::Use(
                             UseSymbol {
@@ -354,10 +354,10 @@ EntityTreeCrateBundle {
                                     submodule_item_path: SubmoduleItemPath(`syntax_basics::ast),
                                 },
                                 path: PrincipalEntityPath::Module(
-                                    `syntax_basics::ast`,
+                                    ModulePath(`syntax_basics::ast`),
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `syntax_basics::uses`,
+                                    ModulePath(`syntax_basics::uses`),
                                 ),
                                 ast_idx: 0,
                                 use_expr_idx: 0,
@@ -367,7 +367,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `uses`,
                         visible_scope: Scope::PubUnder(
-                            `syntax_basics::uses`,
+                            ModulePath(`syntax_basics::uses`),
                         ),
                         symbol: EntitySymbol::Use(
                             UseSymbol {
@@ -375,10 +375,10 @@ EntityTreeCrateBundle {
                                     submodule_item_path: SubmoduleItemPath(`syntax_basics::uses),
                                 },
                                 path: PrincipalEntityPath::Module(
-                                    `syntax_basics::uses`,
+                                    ModulePath(`syntax_basics::uses`),
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `syntax_basics::uses`,
+                                    ModulePath(`syntax_basics::uses`),
                                 ),
                                 ast_idx: 0,
                                 use_expr_idx: 0,
@@ -388,7 +388,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `defn`,
                         visible_scope: Scope::PubUnder(
-                            `syntax_basics::uses`,
+                            ModulePath(`syntax_basics::uses`),
                         ),
                         symbol: EntitySymbol::Use(
                             UseSymbol {
@@ -396,10 +396,10 @@ EntityTreeCrateBundle {
                                     submodule_item_path: SubmoduleItemPath(`syntax_basics::defn),
                                 },
                                 path: PrincipalEntityPath::Module(
-                                    `syntax_basics::defn`,
+                                    ModulePath(`syntax_basics::defn`),
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `syntax_basics::uses`,
+                                    ModulePath(`syntax_basics::uses`),
                                 ),
                                 ast_idx: 0,
                                 use_expr_idx: 0,
@@ -409,7 +409,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `expr`,
                         visible_scope: Scope::PubUnder(
-                            `syntax_basics::uses`,
+                            ModulePath(`syntax_basics::uses`),
                         ),
                         symbol: EntitySymbol::Use(
                             UseSymbol {
@@ -417,10 +417,10 @@ EntityTreeCrateBundle {
                                     submodule_item_path: SubmoduleItemPath(`syntax_basics::expr),
                                 },
                                 path: PrincipalEntityPath::Module(
-                                    `syntax_basics::expr`,
+                                    ModulePath(`syntax_basics::expr`),
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `syntax_basics::uses`,
+                                    ModulePath(`syntax_basics::uses`),
                                 ),
                                 ast_idx: 0,
                                 use_expr_idx: 0,
@@ -436,7 +436,7 @@ EntityTreeCrateBundle {
                         ast_idx: 0,
                         use_expr_idx: 1,
                         visibility: Scope::PubUnder(
-                            `syntax_basics::uses`,
+                            ModulePath(`syntax_basics::uses`),
                         ),
                         variant: OnceUseRuleVariant::Parent {
                             parent_name_token: PathNameToken::CrateRoot(
@@ -454,7 +454,7 @@ EntityTreeCrateBundle {
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
-                                    root_module_path: `syntax_basics`,
+                                    root_module_path: ModulePath(`syntax_basics`),
                                 },
                             ),
                         },
@@ -464,12 +464,12 @@ EntityTreeCrateBundle {
             use_all_rules: UseAllRules(
                 [
                     UseAllRule {
-                        parent_module_path: `syntax_basics`,
+                        parent_module_path: ModulePath(`syntax_basics`),
                         is_same_crate: true,
                         ast_idx: 0,
                         use_expr_idx: 0,
                         visibility: Scope::PubUnder(
-                            `syntax_basics::uses`,
+                            ModulePath(`syntax_basics::uses`),
                         ),
                         progress: Ok(
                             4,
@@ -480,7 +480,7 @@ EntityTreeCrateBundle {
             errors: [],
         },
         EntityTreeSheet {
-            module_path: `syntax_basics::defn`,
+            module_path: ModulePath(`syntax_basics::defn`),
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
                     ItemNodeEntry {
@@ -499,7 +499,7 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `syntax_basics::defn`,
+                                    ModulePath(`syntax_basics::defn`),
                                 ),
                                 ast_idx: 0,
                                 ident_token: IdentToken {
@@ -527,7 +527,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `major_item`,
                         visibility: Scope::PubUnder(
-                            `syntax_basics::defn`,
+                            ModulePath(`syntax_basics::defn`),
                         ),
                     },
                 ],
@@ -537,7 +537,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `major_item`,
                         visible_scope: Scope::PubUnder(
-                            `syntax_basics::defn`,
+                            ModulePath(`syntax_basics::defn`),
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(`syntax_basics::defn::major_item),
@@ -555,7 +555,7 @@ EntityTreeCrateBundle {
             errors: [],
         },
         EntityTreeSheet {
-            module_path: `syntax_basics::defn::major_item`,
+            module_path: ModulePath(`syntax_basics::defn::major_item`),
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
                     ItemNodeEntry {
@@ -574,7 +574,7 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `syntax_basics::defn::major_item`,
+                                    ModulePath(`syntax_basics::defn::major_item`),
                                 ),
                                 ast_idx: 0,
                                 ident_token: IdentToken {
@@ -602,7 +602,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `ty`,
                         visibility: Scope::PubUnder(
-                            `syntax_basics::defn::major_item`,
+                            ModulePath(`syntax_basics::defn::major_item`),
                         ),
                     },
                 ],
@@ -612,7 +612,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `ty`,
                         visible_scope: Scope::PubUnder(
-                            `syntax_basics::defn::major_item`,
+                            ModulePath(`syntax_basics::defn::major_item`),
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(`syntax_basics::defn::major_item::ty),
@@ -630,7 +630,7 @@ EntityTreeCrateBundle {
             errors: [],
         },
         EntityTreeSheet {
-            module_path: `syntax_basics::defn::major_item::ty`,
+            module_path: ModulePath(`syntax_basics::defn::major_item::ty`),
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
                     ItemNodeEntry {
@@ -649,7 +649,7 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `syntax_basics::defn::major_item::ty`,
+                                    ModulePath(`syntax_basics::defn::major_item::ty`),
                                 ),
                                 ast_idx: 0,
                                 ident_token: IdentToken {
@@ -677,7 +677,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `enum_ty`,
                         visibility: Scope::PubUnder(
-                            `syntax_basics::defn::major_item::ty`,
+                            ModulePath(`syntax_basics::defn::major_item::ty`),
                         ),
                     },
                 ],
@@ -687,7 +687,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `enum_ty`,
                         visible_scope: Scope::PubUnder(
-                            `syntax_basics::defn::major_item::ty`,
+                            ModulePath(`syntax_basics::defn::major_item::ty`),
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(`syntax_basics::defn::major_item::ty::enum_ty),
@@ -705,7 +705,7 @@ EntityTreeCrateBundle {
             errors: [],
         },
         EntityTreeSheet {
-            module_path: `syntax_basics::defn::major_item::ty::enum_ty`,
+            module_path: ModulePath(`syntax_basics::defn::major_item::ty::enum_ty`),
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
                     ItemNodeEntry {
@@ -728,7 +728,7 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `syntax_basics::defn::major_item::ty::enum_ty`,
+                                    ModulePath(`syntax_basics::defn::major_item::ty::enum_ty`),
                                 ),
                                 ast_idx: 5,
                                 ident_token: IdentToken {
@@ -769,7 +769,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `A`,
                         visibility: Scope::PubUnder(
-                            `syntax_basics::defn::major_item::ty::enum_ty`,
+                            ModulePath(`syntax_basics::defn::major_item::ty::enum_ty`),
                         ),
                     },
                 ],
@@ -779,7 +779,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `A`,
                         visible_scope: Scope::PubUnder(
-                            `syntax_basics::defn::major_item::ty::enum_ty`,
+                            ModulePath(`syntax_basics::defn::major_item::ty::enum_ty`),
                         ),
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
@@ -799,7 +799,7 @@ EntityTreeCrateBundle {
             errors: [],
         },
         EntityTreeSheet {
-            module_path: `syntax_basics::expr`,
+            module_path: ModulePath(`syntax_basics::expr`),
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
                     ItemNodeEntry {
@@ -811,7 +811,7 @@ EntityTreeCrateBundle {
                                     )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `syntax_basics::expr`,
+                                    ModulePath(`syntax_basics::expr`),
                                 ),
                                 ast_idx: 3,
                                 ident_token: IdentToken {
@@ -843,7 +843,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `nested`,
                         visibility: Scope::PubUnder(
-                            `syntax_basics::expr`,
+                            ModulePath(`syntax_basics::expr`),
                         ),
                     },
                     ItemNodeEntry {
@@ -855,7 +855,7 @@ EntityTreeCrateBundle {
                                     )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `syntax_basics::expr`,
+                                    ModulePath(`syntax_basics::expr`),
                                 ),
                                 ast_idx: 4,
                                 ident_token: IdentToken {
@@ -887,7 +887,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `closure_inline`,
                         visibility: Scope::PubUnder(
-                            `syntax_basics::expr`,
+                            ModulePath(`syntax_basics::expr`),
                         ),
                     },
                     ItemNodeEntry {
@@ -899,7 +899,7 @@ EntityTreeCrateBundle {
                                     )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `syntax_basics::expr`,
+                                    ModulePath(`syntax_basics::expr`),
                                 ),
                                 ast_idx: 5,
                                 ident_token: IdentToken {
@@ -931,7 +931,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `closure_nested`,
                         visibility: Scope::PubUnder(
-                            `syntax_basics::expr`,
+                            ModulePath(`syntax_basics::expr`),
                         ),
                     },
                 ],
@@ -941,7 +941,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `nested`,
                         visible_scope: Scope::PubUnder(
-                            `syntax_basics::expr`,
+                            ModulePath(`syntax_basics::expr`),
                         ),
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Form(
@@ -954,7 +954,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `closure_inline`,
                         visible_scope: Scope::PubUnder(
-                            `syntax_basics::expr`,
+                            ModulePath(`syntax_basics::expr`),
                         ),
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Form(
@@ -967,7 +967,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `closure_nested`,
                         visible_scope: Scope::PubUnder(
-                            `syntax_basics::expr`,
+                            ModulePath(`syntax_basics::expr`),
                         ),
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Form(

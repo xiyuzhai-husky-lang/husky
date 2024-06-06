@@ -1,0 +1,13 @@
+```rust
+[
+    SubmodulePath(
+        ModulePath(`std::prelude`),
+    ),
+    SubmodulePath(
+        ModulePath(`std::logic`),
+    ),
+    SubmodulePath(
+        ModulePath(`std::ops`),
+    ),
+]
+```

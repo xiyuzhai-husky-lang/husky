@@ -92,7 +92,7 @@ fn package_dec_signature(
 
 #[test]
 fn package_dec_signature_works() {
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         package_dec_signature,
         &AstTestConfig::new(
             "package_dec_signature",

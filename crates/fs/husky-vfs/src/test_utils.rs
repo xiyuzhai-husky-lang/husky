@@ -2,7 +2,7 @@ pub mod adversarial_test;
 pub mod config;
 pub mod db;
 pub mod domain;
-mod expect_test;
+mod rich_test;
 pub mod unit;
 
 pub use self::adversarial_test::*;
@@ -11,22 +11,22 @@ pub use self::db::*;
 pub use self::domain::*;
 pub use self::unit::*;
 
-use self::expect_test::*;
+use self::rich_test::*;
 use crate::*;
 use husky_path_utils::*;
 use salsa::Db;
-use std::path::PathBuf;
+use std::{collections::HashMap, path::PathBuf};
 
 pub trait VfsTestUtils: Default + std::ops::Deref<Target = Db> + std::ops::DerefMut {
     /// only run to see whether the program will panic
-    /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
+    /// it will invoke adversarial test if environment variable `ADVERSARIAL_ROUND` is set be a positive number
     fn vfs_plain_test<U>(f: impl Fn(&::salsa::Db, U), config: &VfsTestConfig)
     where
-        U: IsVfsTestUnit;
+        U: IsVfsTestUnit + salsa::DebugWithDb;
 
     /// run to see whether the output agrees with previous
-    /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
-    fn vfs_expect_test_debug_with_db<'a, U, R>(
+    /// it will invoke adversarial test if environment variable `ADVERSARIAL_ROUND` is set be a positive number
+    fn vfs_rich_test_debug_with_db<'a, U, R>(
         f: impl Fn(&'a ::salsa::Db, U) -> R,
         config: &VfsTestConfig,
     ) where
@@ -34,13 +34,13 @@ pub trait VfsTestUtils: Default + std::ops::Deref<Target = Db> + std::ops::Deref
         R: salsa::DebugWithDb;
 
     /// run to see whether the output agrees with previous
-    /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
-    fn vfs_expect_test_debug<'a, U, R>(f: impl Fn(&'a ::salsa::Db, U) -> R, config: &VfsTestConfig)
+    /// it will invoke adversarial test if environment variable `ADVERSARIAL_ROUND` is set be a positive number
+    fn vfs_rich_test_debug<'a, U, R>(f: impl Fn(&'a ::salsa::Db, U) -> R, config: &VfsTestConfig)
     where
         U: IsVfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Debug;
 
-    fn vfs_expect_test_display<U, R>(f: impl Fn(&::salsa::Db, U) -> R, config: &VfsTestConfig)
+    fn vfs_rich_test_display<U, R>(f: impl Fn(&::salsa::Db, U) -> R, config: &VfsTestConfig)
     where
         U: IsVfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Display;
@@ -53,11 +53,12 @@ where
     DB: Default + std::ops::Deref<Target = Db> + std::ops::DerefMut,
 {
     /// only run to see whether the program will panic
-    /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
+    /// it will invoke adversarial test if environment variable `ADVERSARIAL_ROUND` is set be a positive number
     fn vfs_plain_test<U>(f: impl Fn(&::salsa::Db, U), config: &VfsTestConfig)
     where
-        U: IsVfsTestUnit,
+        U: IsVfsTestUnit + ::salsa::DebugWithDb,
     {
+        let mut paths_used: HashMap<PathBuf, PathUsage<U>> = Default::default();
         for test_suite in config.test_domains() {
             for path in collect_package_relative_dirs(&test_suite.src_base()).into_iter() {
                 let db = &mut *DB::default();
@@ -77,6 +78,7 @@ where
                             unit,
                             &f,
                             config,
+                            &mut paths_used,
                         )
                     }
                 }
@@ -85,38 +87,45 @@ where
     }
 
     /// run to see whether the output agrees with previous
-    /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
-    fn vfs_expect_test_debug_with_db<'a, U, R>(
+    /// it will invoke adversarial test if environment variable `ADVERSARIAL_ROUND` is set be a positive number
+    fn vfs_rich_test_debug_with_db<'a, U, R>(
         f: impl Fn(&'a ::salsa::Db, U) -> R,
         config: &VfsTestConfig,
     ) where
         U: IsVfsTestUnit + salsa::DebugWithDb,
         R: salsa::DebugWithDb,
     {
-        vfs_expect_test::<DB, _>(
+        vfs_rich_test::<DB, _>(
             |db, u| format!("{:#?}", &f(unsafe { std::mem::transmute(db) }, u).debug(db)),
             config,
         )
     }
 
     /// run to see whether the output agrees with previous
-    /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
-    fn vfs_expect_test_debug<'a, U, R>(f: impl Fn(&'a ::salsa::Db, U) -> R, config: &VfsTestConfig)
+    /// it will invoke adversarial test if environment variable `ADVERSARIAL_ROUND` is set be a positive number
+    fn vfs_rich_test_debug<'a, U, R>(f: impl Fn(&'a ::salsa::Db, U) -> R, config: &VfsTestConfig)
     where
         U: IsVfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Debug,
     {
-        vfs_expect_test::<DB, _>(
+        vfs_rich_test::<DB, _>(
             |db, u| format!("{:#?}", &f(unsafe { std::mem::transmute(db) }, u)),
             config,
         )
     }
 
-    fn vfs_expect_test_display<U, R>(f: impl Fn(&::salsa::Db, U) -> R, config: &VfsTestConfig)
+    fn vfs_rich_test_display<U, R>(f: impl Fn(&::salsa::Db, U) -> R, config: &VfsTestConfig)
     where
         U: IsVfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Display,
     {
-        vfs_expect_test::<DB, _>(|db, u| format!("{}", &f(db, u)), config)
+        vfs_rich_test::<DB, _>(|db, u| format!("{}", &f(db, u)), config)
     }
+}
+
+#[salsa::derive_debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
+enum PathUsage<U> {
+    Expect(U),
+    Adversarial(U),
 }

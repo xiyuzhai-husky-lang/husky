@@ -1,6 +1,6 @@
 ```rust
 EntityTreePresheet {
-    module_path: `mnist`,
+    module_path: ModulePath(`mnist`),
     major_item_node_table: MajorEntityNodeTable {
         entries: [
             ItemNodeEntry {
@@ -67,7 +67,7 @@ EntityTreePresheet {
                 ast_idx: 0,
                 use_expr_idx: 2,
                 visibility: Scope::PubUnder(
-                    `mnist`,
+                    ModulePath(`mnist`),
                 ),
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::Ident(

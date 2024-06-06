@@ -363,7 +363,7 @@ pub fn trace_bundles(db: &::salsa::Db, target_path: CratePath) -> Vec<TraceBundl
 
 #[test]
 fn root_traces_works() {
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         |db, crate_path| root_traces(db, crate_path),
         &AstTestConfig::new(
             "root_traces",
@@ -417,7 +417,7 @@ fn find_traces_aux<R>(
 
 #[test]
 fn find_traces_works() {
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         |db, crate_path| find_traces(crate_path, 5, db, |_| ()),
         &AstTestConfig::new(
             "find_traces",
@@ -429,7 +429,7 @@ fn find_traces_works() {
 
 #[test]
 fn trace_view_data_works() {
-    DB::ast_expect_test_debug(
+    DB::ast_rich_test_debug(
         |db, crate_path| find_traces(crate_path, 5, db, |trace| trace.view_data(db)),
         &AstTestConfig::new(
             "trace_view_data",
@@ -441,7 +441,7 @@ fn trace_view_data_works() {
 
 #[test]
 fn trace_ki_repr_works() {
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         |db, crate_path| find_traces(crate_path, 5, db, |trace| trace.ki_repr(db)),
         &AstTestConfig::new(
             "trace_ki_repr",

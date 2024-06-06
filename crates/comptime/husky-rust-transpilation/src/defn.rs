@@ -106,7 +106,7 @@ use {}::{{*, ugly::*}};
 
 #[test]
 fn module_defn_rust_transpilation_works() {
-    DB::ast_expect_test_display(
+    DB::ast_rich_test_display(
         |db, module_path: ModulePath| -> String {
             let package_path = module_path.package_path(db);
             if package_path.is_virtual(db) {

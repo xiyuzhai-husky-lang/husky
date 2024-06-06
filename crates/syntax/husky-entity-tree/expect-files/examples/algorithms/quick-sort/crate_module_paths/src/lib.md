@@ -1,5 +1,5 @@
 ```rust
 [
-    `quick_sort`,
+    ModulePath(`quick_sort`),
 ]
 ```

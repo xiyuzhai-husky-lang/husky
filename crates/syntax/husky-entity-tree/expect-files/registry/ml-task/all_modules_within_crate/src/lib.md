@@ -1,5 +1,5 @@
 ```rust
 [
-    `ml_task`,
+    ModulePath(`ml_task`),
 ]
 ```

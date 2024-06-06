@@ -109,7 +109,7 @@ fn package_linkage_linkage_vmir_regions(
 
 #[test]
 fn package_linkage_vmir_regions_works() {
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         package_linkage_linkage_vmir_regions,
         &AstTestConfig::new(
             "package_linkage_linkage_vmir_regions",

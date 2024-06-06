@@ -17,7 +17,7 @@ Ok(
                             original_symbol: Some(
                                 EntitySymbol::PackageDependencyOrSelfLib {
                                     item_path: PrincipalEntityPath::Module(
-                                        `mnist`,
+                                        ModulePath(`mnist`),
                                     ),
                                 },
                             ),
@@ -40,7 +40,7 @@ Ok(
                             original_symbol: Some(
                                 EntitySymbol::PackageDependencyOrSelfLib {
                                     item_path: PrincipalEntityPath::Module(
-                                        `mnist::task`,
+                                        ModulePath(`mnist::task`),
                                     ),
                                 },
                             ),
@@ -141,12 +141,12 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::Module(
-                            `mnist`,
+                            ModulePath(`mnist`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::Module(
-                            `mnist`,
+                            ModulePath(`mnist`),
                         ),
                     ),
                 },
@@ -157,12 +157,12 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::Module(
-                            `mnist::task`,
+                            ModulePath(`mnist::task`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::Module(
-                            `mnist::task`,
+                            ModulePath(`mnist::task`),
                         ),
                     ),
                 },

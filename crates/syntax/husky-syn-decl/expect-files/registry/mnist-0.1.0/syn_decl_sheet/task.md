@@ -185,7 +185,7 @@ SynDeclSheet {
                                                     },
                                                 ),
                                                 principal_entity_path: PrincipalEntityPath::Module(
-                                                    `mnist`,
+                                                    ModulePath(`mnist`),
                                                 ),
                                             },
                                             SynPrincipalEntityPathExpr::Subitem {
@@ -205,7 +205,7 @@ SynDeclSheet {
                                                 ),
                                                 path: Ok(
                                                     PrincipalEntityPath::Module(
-                                                        `mnist::task`,
+                                                        ModulePath(`mnist::task`),
                                                     ),
                                                 ),
                                             },

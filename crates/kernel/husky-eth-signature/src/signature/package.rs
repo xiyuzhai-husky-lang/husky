@@ -61,7 +61,7 @@ impl PackageEthSignature {
 
 #[test]
 fn package_eth_signature_works() {
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         package_eth_signature,
         &AstTestConfig::new(
             "package_eth_signature",

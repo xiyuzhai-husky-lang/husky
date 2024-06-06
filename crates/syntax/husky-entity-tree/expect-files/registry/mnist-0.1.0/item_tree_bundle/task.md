@@ -2,7 +2,7 @@
 EntityTreeCrateBundle {
     sheets: [
         EntityTreeSheet {
-            module_path: `mnist`,
+            module_path: ModulePath(`mnist`),
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
                     ItemNodeEntry {
@@ -86,7 +86,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `MnistTask`,
                         visible_scope: Scope::PubUnder(
-                            `mnist`,
+                            ModulePath(`mnist`),
                         ),
                         symbol: EntitySymbol::Use(
                             UseSymbol {
@@ -103,7 +103,7 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `mnist`,
+                                    ModulePath(`mnist`),
                                 ),
                                 ast_idx: 0,
                                 use_expr_idx: 0,
@@ -119,7 +119,7 @@ EntityTreeCrateBundle {
                         ast_idx: 0,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
-                            `mnist`,
+                            ModulePath(`mnist`),
                         ),
                         variant: OnceUseRuleVariant::Parent {
                             parent_name_token: PathNameToken::Ident(
@@ -139,7 +139,7 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::PackageDependencyOrSelfLib {
                                     item_path: PrincipalEntityPath::Module(
-                                        `mnist`,
+                                        ModulePath(`mnist`),
                                     ),
                                 },
                             ),
@@ -149,7 +149,7 @@ EntityTreeCrateBundle {
                         ast_idx: 0,
                         use_expr_idx: 1,
                         visibility: Scope::PubUnder(
-                            `mnist`,
+                            ModulePath(`mnist`),
                         ),
                         variant: OnceUseRuleVariant::Parent {
                             parent_name_token: PathNameToken::Ident(
@@ -167,11 +167,11 @@ EntityTreeCrateBundle {
                         parent: Some(
                             (
                                 MajorEntityPath::Module(
-                                    `mnist`,
+                                    ModulePath(`mnist`),
                                 ),
                                 EntitySymbol::PackageDependencyOrSelfLib {
                                     item_path: PrincipalEntityPath::Module(
-                                        `mnist`,
+                                        ModulePath(`mnist`),
                                     ),
                                 },
                             ),
@@ -180,7 +180,7 @@ EntityTreeCrateBundle {
                             original_symbol: Some(
                                 EntitySymbol::PackageDependencyOrSelfLib {
                                     item_path: PrincipalEntityPath::Module(
-                                        `mnist::task`,
+                                        ModulePath(`mnist::task`),
                                     ),
                                 },
                             ),
@@ -190,7 +190,7 @@ EntityTreeCrateBundle {
                         ast_idx: 0,
                         use_expr_idx: 0,
                         visibility: Scope::PubUnder(
-                            `mnist`,
+                            ModulePath(`mnist`),
                         ),
                         variant: OnceUseRuleVariant::IdentLeaf {
                             ident_token: IdentToken {
@@ -203,11 +203,11 @@ EntityTreeCrateBundle {
                         parent: Some(
                             (
                                 MajorEntityPath::Module(
-                                    `mnist::task`,
+                                    ModulePath(`mnist::task`),
                                 ),
                                 EntitySymbol::PackageDependencyOrSelfLib {
                                     item_path: PrincipalEntityPath::Module(
-                                        `mnist::task`,
+                                        ModulePath(`mnist::task`),
                                     ),
                                 },
                             ),
