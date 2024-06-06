@@ -19,7 +19,8 @@ pub enum EntityKindKeywordGroup {
     /// type defined as a major entity
     MajorType(MajorTypeToken),
     /// type defined as an alias or associated entity
-    AliasOrAssociateType(TypeToken),
+    TypeAliasOrAssocType(TypeToken),
+    TypeVar(TypeToken, VarToken),
     Trait(TraitToken),
     Compterm(TermicToken),
     Static(StaticToken),
@@ -310,9 +311,18 @@ where
                 FormKeyword::Proposition => Ok(Some(EntityKindKeywordGroup::ConceptualEntity(
                     ConceptualEntityToken::Proposition(PropositionToken { token_idx }),
                 ))),
-                FormKeyword::Type => Ok(Some(EntityKindKeywordGroup::AliasOrAssociateType(
-                    TypeToken { token_idx },
-                ))),
+                FormKeyword::Type => {
+                    if let Some(var_token) = ctx.try_parse_option::<VarToken>()? {
+                        Ok(Some(EntityKindKeywordGroup::TypeVar(
+                            TypeToken { token_idx },
+                            var_token,
+                        )))
+                    } else {
+                        Ok(Some(EntityKindKeywordGroup::TypeAliasOrAssocType(
+                            TypeToken { token_idx },
+                        )))
+                    }
+                }
                 FormKeyword::Static => Ok(Some(EntityKindKeywordGroup::Static(StaticToken {
                     token_idx,
                 }))),

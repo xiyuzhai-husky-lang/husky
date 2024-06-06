@@ -34,6 +34,7 @@ pub fn sem_expr_region_requires_lazy(db: &::salsa::Db, sem_expr_region: SemExprR
             ItemPath::MajorItem(MajorItemPath::Form(path)) => match path.major_form_kind(db) {
                 MajorFormKind::Ritchie(_) => todo!(),
                 MajorFormKind::TypeAlias => todo!(),
+                MajorFormKind::TypeVar => todo!(),
                 MajorFormKind::Val => (),
                 MajorFormKind::Conceptual => todo!(),
                 MajorFormKind::Static => todo!(),

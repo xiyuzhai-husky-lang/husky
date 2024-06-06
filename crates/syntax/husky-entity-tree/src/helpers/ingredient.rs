@@ -51,6 +51,7 @@ impl IngredientPath {
                 MajorItemKind::Form(form_kind) => match form_kind {
                     MajorFormKind::Ritchie(ritchie_item_kind) => ritchie_item_kind.needs_jar(),
                     MajorFormKind::TypeAlias => false,
+                    MajorFormKind::TypeVar => false,
                     MajorFormKind::Val => true,
                     MajorFormKind::Conceptual => false,
                     MajorFormKind::Static => true,

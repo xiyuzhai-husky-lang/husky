@@ -182,6 +182,7 @@ impl Diagnose for (TokenVerseIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedMemoUnderModule => todo!(),
             OriginalAstError::UnexpectedMemoUnderForm => todo!(),
             OriginalAstError::UnexpectedConst => todo!(),
+            OriginalAstError::UnexpectedVar => todo!(),
         }
     }
 
@@ -251,6 +252,7 @@ impl Diagnose for (TokenVerseIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedMemoUnderModule => todo!(),
             OriginalAstError::UnexpectedMemoUnderForm => todo!(),
             OriginalAstError::UnexpectedConst => todo!(),
+            OriginalAstError::UnexpectedVar => todo!(),
         }
     }
 }

@@ -152,6 +152,7 @@ where
                                             )
                                         }
                                         MajorFormKind::TypeAlias => todo!(),
+                                        MajorFormKind::TypeVar => todo!(),
                                         MajorFormKind::Conceptual => todo!(),
                                         MajorFormKind::Static => todo!(),
                                         MajorFormKind::Compterm => todo!(),

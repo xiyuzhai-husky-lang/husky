@@ -372,7 +372,9 @@ impl<'a> KiReprExpansionBuilder<'a> {
                     MajorItemPath::Form(path) => match path.major_form_kind(db) {
                         MajorFormKind::Ritchie(_) => todo!(),
                         MajorFormKind::Val => return KiRepr::new_val_item(path, db),
-                        MajorFormKind::TypeAlias | MajorFormKind::Conceptual => unreachable!(),
+                        MajorFormKind::TypeAlias
+                        | MajorFormKind::TypeVar
+                        | MajorFormKind::Conceptual => unreachable!(),
                         MajorFormKind::Static => todo!(),
                         MajorFormKind::Compterm => todo!(),
                     },

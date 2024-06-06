@@ -32,7 +32,8 @@ impl IsAstChildren for TraitItems {
             EntityKindKeywordGroup::MajorType(_) => {
                 Err(OriginalAstError::UnexpectedMajorTypeInsideImplBlock)?
             }
-            EntityKindKeywordGroup::AliasOrAssociateType(_) => TraitItemKind::AssocType,
+            EntityKindKeywordGroup::TypeAliasOrAssocType(_) => TraitItemKind::AssocType,
+            EntityKindKeywordGroup::TypeVar(_, _) => todo!(),
             EntityKindKeywordGroup::Trait(_) => Err(OriginalAstError::UnexpectedTraitInsideTrait)?,
             EntityKindKeywordGroup::Val(_) => TraitItemKind::AssocVal,
             EntityKindKeywordGroup::Memo(_) => TraitItemKind::MemoizedField,

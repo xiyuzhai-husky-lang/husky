@@ -22,6 +22,7 @@ pub enum TypeKind {
 pub enum MajorFormKind {
     Ritchie(RitchieItemKind),
     TypeAlias,
+    TypeVar,
     Val,
     Static,
     Compterm,
@@ -78,6 +79,7 @@ impl EntityKind {
                 MajorItemKind::Form(major_form_kind) => match major_form_kind {
                     MajorFormKind::Ritchie(_) => EntityClass::MajorFunctionRitchie,
                     MajorFormKind::TypeAlias => EntityClass::TypeAlias,
+                    MajorFormKind::TypeVar => EntityClass::TypeVar,
                     MajorFormKind::Val => EntityClass::Val,
                     MajorFormKind::Conceptual => EntityClass::Formal,
                     MajorFormKind::Compterm => EntityClass::Compterm,
