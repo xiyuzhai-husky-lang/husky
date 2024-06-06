@@ -71,11 +71,6 @@ TokenSheetData {
         TokenData::Ident(
             `Task`,
         ),
-        TokenData::Punctuation(
-            Punctuation(
-                PunctuationMapped::Semicolon,
-            ),
-        ),
         TokenData::Keyword(
             Keyword::Pub,
         ),
@@ -142,7 +137,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            20,
+                            19,
                         ),
                     ),
                     indent: 0,

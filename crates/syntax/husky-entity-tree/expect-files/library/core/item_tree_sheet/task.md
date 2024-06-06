@@ -102,7 +102,7 @@ EntityTreeSheet {
                         ident_token: IdentToken {
                             ident: `TASK`,
                             token_idx: TokenIdx(
-                                23,
+                                22,
                             ),
                         },
                         block: DefnBlock::Form {
