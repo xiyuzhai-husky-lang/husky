@@ -1,0 +1,35 @@
+```rust
+[
+    ItemPath::MajorItem(
+        MajorItemPath::Trait(
+            TraitPath(`core::task::IsTask`),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TraitItem(
+            TraitItemPath(
+                `core::task::IsTask::Backend`,
+                TraitItemKind::AssocType,
+            ),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TraitItem(
+            TraitItemPath(
+                `core::task::IsTask::Frontend`,
+                TraitItemKind::AssocType,
+            ),
+        ),
+    ),
+    ItemPath::MajorItem(
+        MajorItemPath::Form(
+            FormPath(`core::task::Task`, `TypeVar`),
+        ),
+    ),
+    ItemPath::MajorItem(
+        MajorItemPath::Form(
+            FormPath(`core::task::TASK`, `StaticVar`),
+        ),
+    ),
+]
+```

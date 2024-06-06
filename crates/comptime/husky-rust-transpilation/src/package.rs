@@ -13,7 +13,7 @@ use husky_vfs::{
     path::{
         crate_path::CrateKind,
         linktime_target_path::{LinktimeTargetPath, LinktimeTargetPathData},
-        module_path::{relative_path::module_relative_stem, ModulePathData},
+        module_path::ModulePathData,
     },
     *,
 };
@@ -119,7 +119,7 @@ pub(crate) fn rust_transpilation_packages(
 
 #[test]
 fn rust_transpilation_packages_works() {
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         |db, package_path: PackagePath| {
             let linktime_target_path = LinktimeTargetPath::new_package(package_path, db);
             rust_transpilation_packages(db, linktime_target_path)
@@ -160,7 +160,6 @@ fn transpile_package_source_to_fs(
         return Ok(());
     }
     let package_dir = rust_workspace_dir.join(package_path.name(db).data(db));
-    let src_dir = package_dir.join("src");
     let cargo_toml_path = package_dir.join("Cargo.toml");
     husky_io_utils::diff_write(
         &cargo_toml_path,
@@ -175,7 +174,8 @@ fn transpile_package_source_to_fs(
             CrateKind::Lib | CrateKind::Main => {
                 for &module_path in crate_module_paths(db, crate_path) {
                     husky_io_utils::diff_write(
-                        &module_relative_path_for_transpilation(db, module_path).to_path(&src_dir),
+                        &module_relative_path_for_transpilation(db, module_path)
+                            .to_path(&package_dir),
                         module_defn_rust_transpilation(db, module_path, setup),
                         true,
                     );
@@ -197,14 +197,15 @@ fn module_relative_path_for_transpilation(
 ) -> RelativePathBuf {
     match module_path.data(db) {
         ModulePathData::Root(crate_path) => match crate_path.kind(db) {
-            CrateKind::Lib | CrateKind::Main | CrateKind::Requirements | CrateKind::Task => {
-                RelativePathBuf::from_path("lib.rs").unwrap()
-            }
+            CrateKind::Lib | CrateKind::Main => RelativePathBuf::from_path("lib.rs").unwrap(),
+            CrateKind::Requirements | CrateKind::Task => todo!(),
             CrateKind::Bin(_) => todo!(),
             CrateKind::IntegratedTest(_) => todo!(),
             CrateKind::Example => todo!(),
         },
-        ModulePathData::Child { .. } => module_relative_stem(db, module_path).with_extension("rs"),
+        ModulePathData::Child { .. } => module_path
+            .relative_dir_for_submodules(db)
+            .with_extension("rs"),
         ModulePathData::Script { .. } => unreachable!(),
     }
 }

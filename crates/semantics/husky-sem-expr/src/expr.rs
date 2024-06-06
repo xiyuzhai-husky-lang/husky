@@ -550,8 +550,9 @@ impl<'a> SemExprBuilder<'a> {
                 | SynExprRootKind::TupleStructFieldType
                 | SynExprRootKind::ConstantImplicitParameterType
                 | SynExprRootKind::ExplicitParameterType
-                | SynExprRootKind::TypeAliasTypeTerm
-                | SynExprRootKind::AssocTypeTerm => {
+                | SynExprRootKind::TypeAliasValue
+                | SynExprRootKind::TypeVarDefault
+                | SynExprRootKind::AssocTypeValue => {
                     let sem_expr_idx = self.build_sem_expr(root.syn_expr_idx(), ExpectSort::TYPE);
                     self.infer_expr_term(sem_expr_idx);
                     sem_expr_idx

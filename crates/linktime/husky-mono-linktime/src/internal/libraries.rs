@@ -1,5 +1,5 @@
 use super::*;
-use husky_cargo_utils::compile_workspace;
+use husky_cargo_utils::compile::compile_workspace;
 use husky_corgi_config::transpilation_setup::HasTranspilationSetup;
 use husky_linkage_impl::AnyLinkageImpls;
 use husky_manifest::helpers::upstream::HasAllUpstreamPackages;

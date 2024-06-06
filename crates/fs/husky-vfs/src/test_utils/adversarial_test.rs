@@ -8,9 +8,9 @@ use self::adversarial_generator::*;
 use self::adversarial_manager::*;
 use self::edit::*;
 use super::*;
-use serde::{Deserialize, Serialize};
-
 use husky_rng_utils::XRng;
+use salsa::DebugWithDb;
+use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum AdversarialKind {
@@ -41,14 +41,26 @@ pub(super) fn vfs_adversarial_test<U, R>(
     unit: U,
     f: &impl Fn(&::salsa::Db, U) -> R,
     config: &VfsTestConfig,
+    paths_used: &mut HashMap<PathBuf, PathUsage<U>>,
 ) where
-    U: IsVfsTestUnit,
+    U: IsVfsTestUnit + ::salsa::DebugWithDb,
 {
     let Some(adversarial_path) =
         unit.determine_adversarial_path(db, AdversarialKind::Vfs, package_adversarials_dir, config)
     else {
         return;
     };
+    if let Some(old_usage) =
+        paths_used.insert(adversarial_path.clone(), PathUsage::Adversarial(unit))
+    {
+        panic!(
+            r#"Detect conflicting path for unit `{:?}` while doing adversarial testing!
+Old usage is `{:?}`.
+The conflicting path is `{adversarial_path:?}`"#,
+            unit.debug(db),
+            old_usage.debug(db),
+        )
+    }
     let module = unit.vfs_test_unit_downcast_as_module_path().unwrap();
     let manager = VfsAdversarialManager::new(module, adversarial_path);
     manager.run(db, &|db| {

@@ -4,25 +4,24 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Form(
-                    FormSynNodePath(`mnist::Task`, `TypeAlias`, (0)),
+                    FormSynNodePath(`mnist::Task`, `TypeVar`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::TypeAlias(
-                        TypeAliasSynNodeDecl {
-                            syn_node_path: FormSynNodePath(`mnist::Task`, `TypeAlias`, (0)),
-                            template_parameter_obelisk_list: Ok(
-                                None,
-                            ),
+                    FormSynNodeDecl::TypeVar(
+                        TypeVarSynNodeDecl {
+                            syn_node_path: FormSynNodePath(`mnist::Task`, `TypeVar`, (0)),
                             eq_token: Ok(
-                                EqRegionalToken(
-                                    RegionalTokenIdx(
-                                        4,
+                                Some(
+                                    EqRegionalToken(
+                                        RegionalTokenIdx(
+                                            5,
+                                        ),
                                     ),
                                 ),
                             ),
-                            expr: Some(
+                            default: Some(
                                 0,
                             ),
                             syn_expr_region: SynExprRegion {
@@ -31,7 +30,7 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist::Task`, `TypeAlias`, (0)),
+                                                FormSynNodePath(`mnist::Task`, `TypeVar`, (0)),
                                             ),
                                         ),
                                     ),
@@ -56,7 +55,7 @@ SynNodeDeclSheet {
                                                     IdentRegionalToken {
                                                         ident: `MnistTask`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            5,
+                                                            6,
                                                         ),
                                                     },
                                                 ),
@@ -100,7 +99,7 @@ SynNodeDeclSheet {
                                     pattern_roots: [],
                                     expr_roots: [
                                         SynExprRoot {
-                                            kind: SynExprRootKind::TypeAliasTypeTerm,
+                                            kind: SynExprRootKind::TypeVarDefault,
                                             syn_expr_idx: 0,
                                         },
                                     ],
@@ -117,18 +116,18 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Form(
-                    FormSynNodePath(`mnist::TASK`, `Static`, (0)),
+                    FormSynNodePath(`mnist::TASK`, `StaticVar`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Static(
-                        MajorStaticSynNodeDecl {
-                            syn_node_path: FormSynNodePath(`mnist::TASK`, `Static`, (0)),
+                    FormSynNodeDecl::StaticVar(
+                        MajorStaticVarSynNodeDecl {
+                            syn_node_path: FormSynNodePath(`mnist::TASK`, `StaticVar`, (0)),
                             colon_token: Ok(
                                 ColonRegionalToken(
                                     RegionalTokenIdx(
-                                        4,
+                                        5,
                                     ),
                                 ),
                             ),
@@ -141,7 +140,7 @@ SynNodeDeclSheet {
                                 Left(
                                     EqRegionalToken(
                                         RegionalTokenIdx(
-                                            10,
+                                            11,
                                         ),
                                     ),
                                 ),
@@ -155,7 +154,7 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist::TASK`, `Static`, (0)),
+                                                FormSynNodePath(`mnist::TASK`, `StaticVar`, (0)),
                                             ),
                                         ),
                                     ),
@@ -178,13 +177,13 @@ SynNodeDeclSheet {
                                                 ),
                                                 colon_colon_regional_token: ColonColonRegionalToken(
                                                     RegionalTokenIdx(
-                                                        12,
+                                                        13,
                                                     ),
                                                 ),
                                                 ident_token: IdentRegionalToken {
                                                     ident: `new`,
                                                     regional_token_idx: RegionalTokenIdx(
-                                                        13,
+                                                        14,
                                                     ),
                                                 },
                                             },
@@ -192,11 +191,11 @@ SynNodeDeclSheet {
                                                 function: 1,
                                                 template_arguments: None,
                                                 lpar_regional_token_idx: RegionalTokenIdx(
-                                                    14,
+                                                    15,
                                                 ),
                                                 items: [],
                                                 rpar_regional_token_idx: RegionalTokenIdx(
-                                                    15,
+                                                    16,
                                                 ),
                                             },
                                         ],
@@ -208,32 +207,32 @@ SynNodeDeclSheet {
                                                     IdentRegionalToken {
                                                         ident: `mnist`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            5,
+                                                            6,
                                                         ),
                                                     },
                                                 ),
                                                 principal_entity_path: PrincipalEntityPath::Module(
-                                                    `mnist`,
+                                                    ModulePath(`mnist`),
                                                 ),
                                             },
                                             SynPrincipalEntityPathExpr::Subitem {
                                                 parent: 0,
                                                 colon_colon_token: ColonColonRegionalToken(
                                                     RegionalTokenIdx(
-                                                        6,
+                                                        7,
                                                     ),
                                                 ),
                                                 ident_token: Ok(
                                                     IdentRegionalToken {
                                                         ident: `task`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            7,
+                                                            8,
                                                         ),
                                                     },
                                                 ),
                                                 path: Ok(
                                                     PrincipalEntityPath::Module(
-                                                        `mnist::task`,
+                                                        ModulePath(`mnist::task`),
                                                     ),
                                                 ),
                                             },
@@ -241,14 +240,14 @@ SynNodeDeclSheet {
                                                 parent: 1,
                                                 colon_colon_token: ColonColonRegionalToken(
                                                     RegionalTokenIdx(
-                                                        8,
+                                                        9,
                                                     ),
                                                 ),
                                                 ident_token: Ok(
                                                     IdentRegionalToken {
                                                         ident: `MnistTask`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            9,
+                                                            10,
                                                         ),
                                                     },
                                                 ),
@@ -265,7 +264,7 @@ SynNodeDeclSheet {
                                                     IdentRegionalToken {
                                                         ident: `MnistTask`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            11,
+                                                            12,
                                                         ),
                                                     },
                                                 ),

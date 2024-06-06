@@ -322,7 +322,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                     .collect()
             }
             match path {
-                JavPath::Form(path) => match path.major_form_kind(db) {
+                JavPath::Form(path) => match path.kind(db) {
                     MajorFormKind::Ritchie(ritchie_item_kind) => {
                         match ritchie_item_kind.is_lazy() {
                             true => {
@@ -371,7 +371,8 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         )]
                     }
                     MajorFormKind::Compterm => todo!(),
-                    MajorFormKind::Static => {
+                    // ad hoc
+                    MajorFormKind::StaticMut => {
                         smallvec![Linkage::new(
                             db,
                             LinkageData::MajorStatic {
@@ -380,7 +381,19 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                             }
                         )]
                     }
-                    MajorFormKind::TypeAlias | MajorFormKind::Conceptual => unreachable!(),
+                    // ad hoc
+                    MajorFormKind::StaticVar => {
+                        smallvec![Linkage::new(
+                            db,
+                            LinkageData::MajorStatic {
+                                path,
+                                instantiation: LinInstantiation::new_empty(false),
+                            }
+                        )]
+                    }
+                    MajorFormKind::TypeAlias
+                    | MajorFormKind::TypeVar
+                    | MajorFormKind::Conceptual => unreachable!(),
                 },
                 JavPath::TypeItem(path) => match path.item_kind(db) {
                     TypeItemKind::AssocRitchie(_) => build(
@@ -399,8 +412,9 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                     TypeItemKind::AssocVal => todo!(),
                     TypeItemKind::AssocType => smallvec![],
                     TypeItemKind::AssocConceptual => todo!(),
-                    TypeItemKind::AssocStatic => todo!(),
-                    TypeItemKind::AssocTermic => todo!(),
+                    TypeItemKind::AssocStaticMut => todo!(),
+                    TypeItemKind::AssocStaticVar => todo!(),
+                    TypeItemKind::AssocCompterm => todo!(),
                     TypeItemKind::MemoizedField => build(
                         instantiation,
                         |instantiation| {
@@ -497,8 +511,9 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         }
                     }
                     TraitItemKind::AssocConceptual => todo!(),
-                    TraitItemKind::AssocStatic => todo!(),
-                    TraitItemKind::AssocTermic => todo!(),
+                    TraitItemKind::AssocStaticMut => todo!(),
+                    TraitItemKind::AssocStaticVar => todo!(),
+                    TraitItemKind::AssocCompterm => todo!(),
                 },
                 JavPath::Type(path) => ty_linkages_emancipated_by_javelin(path, instantiation, db),
             }
@@ -537,7 +552,7 @@ pub fn package_linkages(db: &::salsa::Db, package_path: PackagePath) -> Vec<Link
 
 #[test]
 fn package_linkages_works() {
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         package_linkages,
         &AstTestConfig::new(
             "package_linkages",

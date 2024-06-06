@@ -1159,6 +1159,14 @@ name = "cargo-rewrite"
 version = "0.1.0"
 
 [[package]]
+name = "cargo-tree-analysis"
+version = "0.1.0"
+dependencies = [
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "cargo-util"
 version = "0.2.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4096,6 +4104,7 @@ dependencies = [
  "either",
  "enum-class",
  "expect-test",
+ "husky-ast",
  "husky-coword",
  "husky-entity-kind",
  "husky-entity-path",
@@ -5922,6 +5931,10 @@ name = "husky-screen-utils"
 version = "0.1.0"
 
 [[package]]
+name = "husky-sem-deps"
+version = "0.1.0"
+
+[[package]]
 name = "husky-sem-expr"
 version = "0.1.0"
 dependencies = [
@@ -6751,6 +6764,7 @@ dependencies = [
  "husky-rng-utils",
  "husky-text-protocol",
  "husky-toml-utils",
+ "husky-vfs",
  "indicatif",
  "lsp-types 0.95.0",
  "maybe-result",

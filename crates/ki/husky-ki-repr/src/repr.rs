@@ -229,7 +229,7 @@ pub(crate) fn val_item_ki_reprs(
     module_item_paths(db, module_path)
         .iter()
         .filter_map(|&path| match path {
-            ItemPath::MajorItem(MajorItemPath::Form(path)) => match path.major_form_kind(db) {
+            ItemPath::MajorItem(MajorItemPath::Form(path)) => match path.kind(db) {
                 MajorFormKind::Val => Some((path, KiRepr::new_val_item(path, db))),
                 _ => None,
             },
@@ -241,7 +241,7 @@ pub(crate) fn val_item_ki_reprs(
 #[test]
 fn val_item_ki_repr_works() {
     let _db = DB::default();
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         val_item_ki_reprs,
         &AstTestConfig::new(
             "val_item_ki_reprs",

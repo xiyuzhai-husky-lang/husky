@@ -76,7 +76,7 @@ pub(super) fn submodule_contains_val_item(
                 }
             }
             ItemPath::MajorItem(MajorItemPath::Form(form_path))
-                if form_path.major_form_kind(db) == MajorFormKind::Val =>
+                if form_path.kind(db) == MajorFormKind::Val =>
             {
                 return true
             }

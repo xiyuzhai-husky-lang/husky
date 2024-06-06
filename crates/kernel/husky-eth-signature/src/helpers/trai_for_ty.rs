@@ -120,18 +120,33 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'db>(
         _ => (),
     }
     let application_expansion = ty_term.application_expansion(db);
+    let function = application_expansion.function();
     let arguments = application_expansion.arguments(db);
-    let TermFunctionReduced::TypeOntology(ty_path) = application_expansion.function() else {
-        unreachable!()
-    };
-    for template in trai_path_for_ty_path_impl_block_eth_templates(db, trai_path, ty_path)?.iter() {
-        match template.instantiate_ty(arguments, ty_term, context_itd, db) {
-            JustOk(_builder) => return Ok(true),
-            JustErr(e) => return Err(e),
-            Nothing => continue,
+    match function {
+        TermFunctionReduced::TypeOntology(ty_path) => {
+            for template in
+                trai_path_for_ty_path_impl_block_eth_templates(db, trai_path, ty_path)?.iter()
+            {
+                match template.instantiate_ty(arguments, ty_term, context_itd, db) {
+                    JustOk(_builder) => return Ok(true),
+                    JustErr(e) => return Err(e),
+                    Nothing => continue,
+                }
+            }
+            Ok(false)
         }
+        TermFunctionReduced::TypeVar(ty_var_path) => {
+            // use husky_print_utils::p;
+            // use salsa::DebugWithDb;
+
+            // p!(ty_var_path.debug(db), trai_path.debug(db));
+            // todo!()
+            // ad hoc
+            Ok(false)
+        }
+        TermFunctionReduced::Trait(_) => todo!(),
+        TermFunctionReduced::Other(_) => todo!(),
     }
-    Ok(false)
 }
 
 // todo: cache this, context could be simplified to increase caching rate

@@ -49,8 +49,9 @@ pub enum SynExprRootKind {
     ValExpr,
     StaticExpr,
     EvalExpr,
-    AssocTypeTerm,
-    TypeAliasTypeTerm,
+    AssocTypeValue,
+    TypeAliasValue,
+    TypeVarDefault,
     /// these are traits in the trait constraints
     TraitInConstraint,
     Effect,

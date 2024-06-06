@@ -359,7 +359,7 @@ impl<'db> ValkyrieRidesBuilder<'db> {
 fn item_valkyrie_rides_works() {
     use husky_entity_tree::helpers::paths::module_item_paths;
 
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         |db, module_path| -> Vec<_> {
             module_item_paths(db, module_path)
                 .iter()
@@ -493,7 +493,7 @@ impl ValkyrieJavelinPantheon {
 
 #[test]
 fn package_javelin_pantheon_works() {
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         |db, package_path| package_valkyrie_javelin_pantheon(db, package_path),
         &AstTestConfig::new(
             "package_javelin_pantheon",

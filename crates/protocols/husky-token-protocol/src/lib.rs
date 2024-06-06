@@ -17,6 +17,8 @@ pub enum TokenClass {
     LoopVariable,
     ModuleEntity,
     TypeEntity,
+    TypeAlias,
+    TypeVar,
     FunctionEntity,
     ValEntity,
     TraitEntity,
@@ -38,7 +40,8 @@ pub enum TokenClass {
     Label,
     Error,
     DefEntity,
-    StaticEntity,
+    StaticMutEntity,
+    StaticVarEntity,
     TermicEntity,
 }
 
@@ -56,9 +59,12 @@ impl TokenClass {
             TokenClass::LoopVariable => "frame variable token",
             TokenClass::ModuleEntity => "module entity token",
             TokenClass::TypeEntity => "type entity token",
+            TokenClass::TypeAlias => "type alias token",
+            TokenClass::TypeVar => "type var token",
             TokenClass::FunctionEntity => "function entity token",
             TokenClass::ValEntity => "val entity token",
-            TokenClass::StaticEntity => "static entity token",
+            TokenClass::StaticMutEntity => "static mut entity token",
+            TokenClass::StaticVarEntity => "static var entity token",
             TokenClass::TraitEntity => "trait entity token",
             TokenClass::TypeVariantEntity => "type variant entity token",
             TokenClass::MethodEntity => "method entity token",
@@ -103,7 +109,8 @@ impl From<EntityClass> for TokenClass {
             EntityClass::Module => TokenClass::ModuleEntity,
             EntityClass::Type => TokenClass::TypeEntity,
             EntityClass::MajorFunctionRitchie => TokenClass::FunctionEntity,
-            EntityClass::TypeAlias => TokenClass::TypeEntity,
+            EntityClass::TypeAlias => TokenClass::TypeAlias,
+            EntityClass::TypeVar => TokenClass::TypeVar,
             EntityClass::Val => TokenClass::ValEntity,
             EntityClass::Trait => TokenClass::TraitEntity,
             EntityClass::TypeVariant => TokenClass::TypeVariantEntity,
@@ -118,7 +125,8 @@ impl From<EntityClass> for TokenClass {
             EntityClass::AssocDef => TokenClass::DefEntity,
             EntityClass::Compterm => TokenClass::TermicEntity,
             EntityClass::Script => unreachable!(),
-            EntityClass::Static => TokenClass::StaticEntity,
+            EntityClass::StaticMut => TokenClass::StaticMutEntity,
+            EntityClass::StaticVar => TokenClass::StaticVarEntity,
         }
     }
 }

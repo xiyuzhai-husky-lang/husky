@@ -53,7 +53,7 @@ fn crate_eth_signature(
 
 #[test]
 fn crate_dec_signature_works() {
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         |db, crate_path| crate_eth_signature(db, crate_path),
         &AstTestConfig::new(
             "crate_dec_signature",

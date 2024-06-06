@@ -452,3 +452,46 @@ fn const_regional_token_works() {
     let db = DB::default();
     assert!(t(&db, "const").unwrap().is_some());
 }
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct VarRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
+}
+
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for VarRegionalToken
+where
+    Context: RegionalTokenStreamParser<'a>,
+{
+    type Error = TokenDataError;
+
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenDataResult<Option<Self>> {
+        if let Some((regional_token_idx, token)) = ctx.borrow_mut().next_indexed() {
+            match token {
+                TokenData::Keyword(Keyword::Var) => {
+                    Ok(Some(VarRegionalToken { regional_token_idx }))
+                }
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+#[test]
+fn var_regional_token_works() {
+    fn t(db: &::salsa::Db, input: &str) -> TokenDataResult<Option<VarRegionalToken>> {
+        quick_parse(db, input)
+    }
+
+    let db = DB::default();
+    assert!(t(&db, "var").unwrap().is_some());
+}

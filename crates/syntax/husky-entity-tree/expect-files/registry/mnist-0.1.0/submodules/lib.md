@@ -1,7 +1,0 @@
-```rust
-[
-    SubmodulePath(
-        `mnist::task`,
-    ),
-]
-```

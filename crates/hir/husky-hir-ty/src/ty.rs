@@ -4,6 +4,7 @@ pub mod ritchie;
 use self::{path_leading::HirTypePathLeading, ritchie::HirRitchieType};
 use crate::*;
 use either::*;
+use husky_entity_kind::MajorFormKind;
 use husky_entity_path::path::major_item::ty::{PreludeNumTypePath, PreludeTypePath};
 use husky_eth_signature::{
     helpers::trai_for_ty::is_ty_term_always_copyable, signature::HasEthTemplate,
@@ -15,6 +16,7 @@ use husky_eth_term::term::{
 };
 use husky_fly_term::{FlyTerm, FlyTermBase, FlyTerms};
 use husky_term_prelude::ItemPathTerm;
+use path::major_item::form::MajorFormPath;
 
 /// this is much simpler than that in Term, right?
 #[salsa::derive_debug_with_db]
@@ -26,6 +28,7 @@ pub enum HirType {
     TypeAssocType(HirTypeTypeAssocType),
     TraitAssocType(HirTypeTraitAssocType),
     Ritchie(HirRitchieType),
+    TypeVar(MajorFormPath),
 }
 
 #[salsa::interned(jar = HirTypeJar)]
@@ -42,7 +45,16 @@ impl HirType {
                 HirTypeTemplateVariable::from_eth(symbol, db).map(Into::into)
             }
             EthTerm::ItemPath(path) => match path {
-                ItemPathTerm::Form(_) => todo!(),
+                ItemPathTerm::Form(path) => match path.kind(db) {
+                    MajorFormKind::Ritchie(_) => todo!(),
+                    MajorFormKind::TypeAlias => todo!(),
+                    MajorFormKind::TypeVar => Some(HirType::TypeVar(path)),
+                    MajorFormKind::Val => todo!(),
+                    MajorFormKind::StaticMut => todo!(),
+                    MajorFormKind::StaticVar => todo!(),
+                    MajorFormKind::Compterm => todo!(),
+                    MajorFormKind::Conceptual => todo!(),
+                },
                 ItemPathTerm::Trait(_) => todo!(),
                 ItemPathTerm::TypeOntology(ty_path) => {
                     Some(HirTypePathLeading::new(db, ty_path, smallvec![], always_copyable).into())
@@ -93,6 +105,7 @@ impl HirType {
             HirType::TypeAssocType(_slf) => false, // ad hoc: todo check traits
             HirType::TraitAssocType(_slf) => false, // ad hoc: todo check traits
             HirType::Ritchie(_slf) => true,
+            HirType::TypeVar(_) => false, // ad hoc: todo check traits
         }
     }
     pub fn is_float(self, db: &::salsa::Db) -> bool {
@@ -152,6 +165,7 @@ pub(crate) fn hir_ty_from_eth_term_application(
             )
             .into()
         }
+        TermFunctionReduced::TypeVar(_) => todo!(),
         TermFunctionReduced::Trait(_) => todo!(),
         TermFunctionReduced::Other(_) => todo!(),
     }

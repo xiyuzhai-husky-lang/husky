@@ -2,7 +2,6 @@ use super::*;
 use husky_entity_path::path::major_item::{connection::MajorItemConnection, form::MajorFormPath};
 use husky_entity_tree::helpers::paths::module_test_paths;
 use husky_hir_decl::decl::HasHirDecl;
-use husky_vfs::test_utils::unit::determine_expect_file_path_without_extension;
 use husky_vfs::{jar::VfsDb, test_utils::*};
 
 #[salsa::derive_debug_with_db]
@@ -60,20 +59,18 @@ impl IsVfsTestUnit for TestLinkage {
     }
 
     fn determine_expect_file_path(
-        &self,
+        self,
         db: &salsa::Db,
         package_expect_files_dir: &std::path::Path,
         config: &VfsTestConfig,
     ) -> std::path::PathBuf {
         let path = self.path;
-        let file_path_without_extension = &determine_expect_file_path_without_extension(
-            db,
-            path.module_path(db),
-            package_expect_files_dir,
-            config,
-        );
+        let stem = path
+            .module_path(db)
+            .relative_stem(db)
+            .to_logical_path(package_expect_files_dir);
         match path.data(db).connection() {
-            MajorItemConnection::Connected => file_path_without_extension.join(format!(
+            MajorItemConnection::Connected => stem.join(format!(
                 "{}.{}",
                 path.ident(db).data(db),
                 config.expect_file_extension().str()

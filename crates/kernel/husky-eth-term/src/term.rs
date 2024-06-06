@@ -313,6 +313,7 @@ pub(crate) fn ethereal_term_from_dec_term_wrapper(
             }
         },
         TermFunctionReduced::Trait(_) => todo!(),
+        TermFunctionReduced::TypeVar(_) => todo!(),
         TermFunctionReduced::Other(_) => todo!(),
     }
 }

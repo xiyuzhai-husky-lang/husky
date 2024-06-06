@@ -81,6 +81,7 @@ fn hir_trai_from_eth_term_application(db: &::salsa::Db, trai_term: EthApplicatio
             .collect();
             HirTrait::new(db, trai_path, template_arguments).into()
         }
+        TermFunctionReduced::TypeVar(_) => todo!(),
         TermFunctionReduced::Other(_) => todo!(),
     }
 }

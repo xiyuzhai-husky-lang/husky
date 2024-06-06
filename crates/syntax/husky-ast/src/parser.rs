@@ -169,6 +169,10 @@ impl<'a> AstParser<'a> {
                     token_verse_idx,
                     error: OriginalAstError::UnexpectedConst.into(),
                 },
+                Keyword::Var => AstData::Err {
+                    token_verse_idx,
+                    error: OriginalAstError::UnexpectedVar.into(),
+                },
             },
             TokenData::Punctuation(Punctuation::POUND) => match snd {
                 Some(snd) => match snd {

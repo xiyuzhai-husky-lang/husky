@@ -63,6 +63,7 @@ pub(crate) fn reserved_cowords(_db: &::salsa::Db) -> VecPairMap<&'static str, Pr
             ConnectionKeyword::Where,
             Keyword::Pub,
             Keyword::Assoc,
+            Keyword::Var,
             WordOpr::And,
             WordOpr::Or,
             WordOpr::As,

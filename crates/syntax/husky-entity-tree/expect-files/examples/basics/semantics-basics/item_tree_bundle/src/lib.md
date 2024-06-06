@@ -2,7 +2,7 @@
 EntityTreeCrateBundle {
     sheets: [
         EntityTreeSheet {
-            module_path: `semantics_basics`,
+            module_path: ModulePath(`semantics_basics`),
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
                     ItemNodeEntry {
@@ -14,7 +14,7 @@ EntityTreeCrateBundle {
                                     )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `semantics_basics`,
+                                    ModulePath(`semantics_basics`),
                                 ),
                                 ast_idx: 3,
                                 ident_token: IdentToken {
@@ -46,7 +46,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `some_neural_network`,
                         visibility: Scope::PubUnder(
-                            `semantics_basics`,
+                            ModulePath(`semantics_basics`),
                         ),
                     },
                 ],
@@ -56,7 +56,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `some_neural_network`,
                         visible_scope: Scope::PubUnder(
-                            `semantics_basics`,
+                            ModulePath(`semantics_basics`),
                         ),
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Form(

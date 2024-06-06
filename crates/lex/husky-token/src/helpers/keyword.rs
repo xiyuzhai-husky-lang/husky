@@ -772,3 +772,34 @@ where
         }
     }
 }
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct VarToken {
+    token_idx: TokenIdx,
+}
+
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for VarToken
+where
+    Context: TokenStreamParser<'a>,
+{
+    type Error = TokenDataError;
+
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenDataResult<Option<Self>> {
+        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+            match token {
+                TokenData::Keyword(Keyword::Var) => Ok(Some(Self { token_idx })),
+                TokenData::Error(error) => Err(error),
+                TokenData::Label(_)
+                | TokenData::Punctuation(_)
+                | TokenData::Ident(_)
+                | TokenData::WordOpr(_)
+                | TokenData::Literal(_)
+                | TokenData::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}

@@ -1,5 +1,5 @@
 ```rust
 [
-    `malamute`,
+    ModulePath(`malamute`),
 ]
 ```

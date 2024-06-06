@@ -200,6 +200,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 }
                 self.add_hir_ty(hir_ty.return_ty(db))
             }
+            HirType::TypeVar(_) => (),
         }
     }
 
@@ -286,7 +287,7 @@ pub(crate) fn module_hir_defn_dependencies(
 
 #[test]
 fn module_hir_defn_dependencies_works() {
-    DB::ast_expect_test_debug(
+    DB::ast_rich_test_debug(
         module_hir_defn_dependencies,
         &AstTestConfig::new(
             "module_hir_defn_dependencies",

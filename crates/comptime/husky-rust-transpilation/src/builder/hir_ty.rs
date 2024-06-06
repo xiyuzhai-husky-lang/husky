@@ -59,6 +59,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirType {
             HirType::TypeAssocType(_) => todo!(),
             HirType::TraitAssocType(_) => todo!(),
             HirType::Ritchie(hir_ritchie_ty) => hir_ritchie_ty.transpile_to_rust(builder),
+            HirType::TypeVar(_) => todo!(),
         }
     }
 }

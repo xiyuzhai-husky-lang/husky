@@ -276,30 +276,26 @@ impl ToHirLazy for SemExprIdx {
                                     item_groups,
                                 },
                                 MajorItemPath::Trait(_) => unreachable!(),
-                                MajorItemPath::Form(path) => {
-                                    match path.major_form_kind(builder.db()) {
-                                        MajorFormKind::FN => {
-                                            HirLazyExprData::FunctionRitchieItemCall {
-                                                path,
-                                                instantiation,
-                                                item_groups,
-                                            }
-                                        }
-                                        MajorFormKind::GN => {
-                                            HirLazyExprData::FunctionRitchieItemCall {
-                                                path,
-                                                instantiation,
-                                                item_groups,
-                                            }
-                                        }
-                                        MajorFormKind::Ritchie(_) => todo!(),
-                                        MajorFormKind::TypeAlias
-                                        | MajorFormKind::Val
-                                        | MajorFormKind::Conceptual => unreachable!(),
-                                        MajorFormKind::Static => todo!(),
-                                        MajorFormKind::Compterm => todo!(),
-                                    }
-                                }
+                                MajorItemPath::Form(path) => match path.kind(builder.db()) {
+                                    MajorFormKind::FN => HirLazyExprData::FunctionRitchieItemCall {
+                                        path,
+                                        instantiation,
+                                        item_groups,
+                                    },
+                                    MajorFormKind::GN => HirLazyExprData::FunctionRitchieItemCall {
+                                        path,
+                                        instantiation,
+                                        item_groups,
+                                    },
+                                    MajorFormKind::Ritchie(_) => todo!(),
+                                    MajorFormKind::TypeAlias
+                                    | MajorFormKind::TypeVar
+                                    | MajorFormKind::Val
+                                    | MajorFormKind::Conceptual => unreachable!(),
+                                    MajorFormKind::StaticMut => todo!(),
+                                    MajorFormKind::StaticVar => todo!(),
+                                    MajorFormKind::Compterm => todo!(),
+                                },
                             },
                             PrincipalEntityPath::TypeVariant(path) => {
                                 HirLazyExprData::TypeVariantConstructorCall {

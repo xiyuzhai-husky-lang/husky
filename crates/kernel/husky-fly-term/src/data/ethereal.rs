@@ -120,6 +120,7 @@ pub(crate) fn term_application_fly_data(
             ty_ethereal_term: term.into(),
         },
         TermFunctionReduced::Trait(_) => todo!(),
+        TermFunctionReduced::TypeVar(_) => todo!(),
         TermFunctionReduced::Other(_) => todo!(),
     }
 }

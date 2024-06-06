@@ -5,7 +5,7 @@ use husky_hir_expr::{
     helpers::hir_expr_region_with_source_map, source_map::HirExprSourceMap, HirExprRegion,
 };
 use husky_hir_lazy_expr::HirLazyPatternIdx;
-use husky_hir_ty::{db::HirTypeDb, menu::HirTypeMenu, trai::HirTrait, HirType};
+use husky_hir_ty::{jar::HirTypeDb, menu::HirTypeMenu, trai::HirTrait, HirType};
 use husky_sem_expr::{SemExprDb, SemExprRegionData};
 use husky_syn_expr::{
     context::SynPatternRoot,

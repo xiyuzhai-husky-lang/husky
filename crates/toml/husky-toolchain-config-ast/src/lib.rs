@@ -1,5 +1,3 @@
-mod db;
-
-pub use self::db::*;
+mod jar;
 
 use husky_toml_ast::*;

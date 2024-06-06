@@ -1,5 +1,5 @@
 ```rust
 [
-    `semantics_basics`,
+    ModulePath(`semantics_basics`),
 ]
 ```

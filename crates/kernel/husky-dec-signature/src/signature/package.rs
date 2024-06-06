@@ -13,12 +13,12 @@ pub struct PackageDecSignature {
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct PackageDecSignatureData {
-    pub task_ty_term: Option<DecTerm>,
+    pub task_ty_default: Option<DecTerm>,
 }
 
 impl PackageDecSignatureData {
-    pub fn task_ty_term(&self) -> Option<DecTerm> {
-        self.task_ty_term
+    pub fn task_ty_default(&self) -> Option<DecTerm> {
+        self.task_ty_default
     }
 }
 
@@ -45,7 +45,7 @@ fn package_dec_signature(
             task_crate_path, ..
         } => Some(task_crate_path),
     };
-    let task_ty_term = match task_crate_path {
+    let task_ty_default = match task_crate_path {
         Some(task_crate_path) => {
             let task_module_path = task_crate_path.root_module_path(db);
             let coword_menu = coword_menu(db);
@@ -74,22 +74,25 @@ fn package_dec_signature(
                     todo!("{e}")
                 }
             };
-            let MajorFormDecTemplate::TypeAlias(task_ty_alias_dec_template) =
+            let MajorFormDecTemplate::TypeVar(task_ty_var_dec_template) =
                 task_ty_form_path.dec_template(db)?
             else {
                 todo!()
             };
-            Some(task_ty_alias_dec_template.ty_term(db))
+            let Some(task_ty_default) = task_ty_var_dec_template.default(db) else {
+                todo!()
+            };
+            Some(task_ty_default)
         }
         None => None,
     };
-    let data = PackageDecSignatureData { task_ty_term };
+    let data = PackageDecSignatureData { task_ty_default };
     Ok(PackageDecSignature::new(db, package_path, data))
 }
 
 #[test]
 fn package_dec_signature_works() {
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         package_dec_signature,
         &AstTestConfig::new(
             "package_dec_signature",

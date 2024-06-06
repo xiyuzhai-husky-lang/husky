@@ -1,16 +1,20 @@
 pub mod assoc_ritchie;
-pub mod assoc_static;
+pub mod assoc_static_mut;
+pub mod assoc_static_var;
 pub mod assoc_ty;
 pub mod assoc_val;
 pub mod memo_field;
 pub mod method_ritchie;
 
-use self::assoc_ritchie::*;
-use self::assoc_static::{TraitAssocStaticSynDecl, TraitAssocStaticSynNodeDecl};
-use self::assoc_ty::*;
-use self::assoc_val::*;
-use self::memo_field::TraitMemoizedFieldSynNodeDecl;
-use self::method_ritchie::*;
+use self::{
+    assoc_ritchie::*,
+    assoc_static_mut::{TraitAssocStaticMutSynDecl, TraitAssocStaticMutSynNodeDecl},
+    assoc_static_var::{TraitAssocStaticVarSynDecl, TraitAssocStaticVarSynNodeDecl},
+    assoc_ty::*,
+    assoc_val::*,
+    memo_field::TraitMemoizedFieldSynNodeDecl,
+    method_ritchie::*,
+};
 use super::*;
 use husky_entity_kind::TraitItemKind;
 use husky_entity_path::path::assoc_item::trai_item::TraitItemPath;
@@ -23,7 +27,8 @@ pub enum TraitItemSynNodeDecl {
     AssocRitchie(TraitAssocRitchieSynNodeDecl),
     MethodRitchie(TraitMethodRitchieSynNodeDecl),
     MemoizedField(TraitMemoizedFieldSynNodeDecl),
-    AssocStatic(TraitAssocStaticSynNodeDecl),
+    AssocStaticMut(TraitAssocStaticMutSynNodeDecl),
+    AssocStaticVar(TraitAssocStaticVarSynNodeDecl),
     AssocType(TraitAssocTypeSynNodeDecl),
     AssocVal(TraitAssocValSynNodeDecl),
 }
@@ -35,7 +40,8 @@ impl TraitItemSynNodeDecl {
             TraitItemSynNodeDecl::MethodRitchie(slf) => slf.syn_node_path(db),
             TraitItemSynNodeDecl::MemoizedField(slf) => slf.syn_node_path(db),
             TraitItemSynNodeDecl::AssocType(slf) => slf.syn_node_path(db),
-            TraitItemSynNodeDecl::AssocStatic(slf) => slf.syn_node_path(db),
+            TraitItemSynNodeDecl::AssocStaticMut(slf) => slf.syn_node_path(db),
+            TraitItemSynNodeDecl::AssocStaticVar(slf) => slf.syn_node_path(db),
             TraitItemSynNodeDecl::AssocVal(slf) => slf.syn_node_path(db),
         }
     }
@@ -46,7 +52,8 @@ impl TraitItemSynNodeDecl {
             TraitItemSynNodeDecl::MethodRitchie(slf) => slf.syn_expr_region(db),
             TraitItemSynNodeDecl::MemoizedField(slf) => slf.syn_expr_region(db),
             TraitItemSynNodeDecl::AssocType(slf) => slf.syn_expr_region(db),
-            TraitItemSynNodeDecl::AssocStatic(slf) => slf.syn_expr_region(db),
+            TraitItemSynNodeDecl::AssocStaticMut(slf) => slf.syn_expr_region(db),
+            TraitItemSynNodeDecl::AssocStaticVar(slf) => slf.syn_expr_region(db),
             TraitItemSynNodeDecl::AssocVal(slf) => slf.syn_expr_region(db),
         }
     }
@@ -57,7 +64,8 @@ impl TraitItemSynNodeDecl {
             TraitItemSynNodeDecl::MethodRitchie(slf) => slf.errors(db),
             TraitItemSynNodeDecl::MemoizedField(slf) => slf.errors(db),
             TraitItemSynNodeDecl::AssocType(slf) => slf.errors(db),
-            TraitItemSynNodeDecl::AssocStatic(slf) => slf.errors(db),
+            TraitItemSynNodeDecl::AssocStaticMut(slf) => slf.errors(db),
+            TraitItemSynNodeDecl::AssocStaticVar(slf) => slf.errors(db),
             TraitItemSynNodeDecl::AssocVal(slf) => slf.errors(db),
         }
     }
@@ -98,10 +106,13 @@ impl<'a> ItemSynNodeDeclParser<'a> {
                 .parse_trai_assoc_ritchie_node_decl(syn_node_path)
                 .into(),
             TraitItemKind::AssocConceptual => todo!(),
-            TraitItemKind::AssocStatic => {
-                self.parse_trai_assoc_static_node_decl(syn_node_path).into()
-            }
-            TraitItemKind::AssocTermic => todo!(),
+            TraitItemKind::AssocStaticMut => self
+                .parse_trai_assoc_static_mut_node_decl(syn_node_path)
+                .into(),
+            TraitItemKind::AssocStaticVar => self
+                .parse_trai_assoc_static_var_node_decl(syn_node_path)
+                .into(),
+            TraitItemKind::AssocCompterm => todo!(),
         }
     }
 }
@@ -113,7 +124,8 @@ pub enum TraitItemSynDecl {
     AssocRitchie(TraitAssocRitchieSynDecl),
     MethodFn(TraitMethodRitchieSynDecl),
     AssocType(TraitAssocTypeSynDecl),
-    AssocStatic(TraitAssocStaticSynDecl),
+    AssocStaticMut(TraitAssocStaticMutSynDecl),
+    AssocStaticVar(TraitAssocStaticVarSynDecl),
     AssocVal(TraitAssocValSynDecl),
 }
 
@@ -136,7 +148,8 @@ impl TraitItemSynDecl {
                 TraitAssocTypeSynDecl::from_node(path, syn_node_decl, db)?.into()
             }
             TraitItemSynNodeDecl::AssocVal(_) => todo!(),
-            TraitItemSynNodeDecl::AssocStatic(_) => todo!(),
+            TraitItemSynNodeDecl::AssocStaticMut(_) => todo!(),
+            TraitItemSynNodeDecl::AssocStaticVar(_) => todo!(),
         })
     }
 }
@@ -148,7 +161,8 @@ impl TraitItemSynDecl {
             TraitItemSynDecl::AssocRitchie(slf) => slf.path(db),
             TraitItemSynDecl::MethodFn(slf) => slf.path(db),
             TraitItemSynDecl::AssocType(slf) => slf.path(db),
-            TraitItemSynDecl::AssocStatic(slf) => slf.path(db),
+            TraitItemSynDecl::AssocStaticMut(slf) => slf.path(db),
+            TraitItemSynDecl::AssocStaticVar(slf) => slf.path(db),
             TraitItemSynDecl::AssocVal(slf) => slf.path(db),
         }
     }
@@ -158,7 +172,8 @@ impl TraitItemSynDecl {
             TraitItemSynDecl::AssocRitchie(slf) => slf.template_parameters(db),
             TraitItemSynDecl::MethodFn(slf) => slf.template_parameters(db),
             TraitItemSynDecl::AssocType(slf) => slf.template_parameters(db),
-            TraitItemSynDecl::AssocStatic(_slf) => &[],
+            TraitItemSynDecl::AssocStaticMut(_slf) => &[],
+            TraitItemSynDecl::AssocStaticVar(_slf) => &[],
             TraitItemSynDecl::AssocVal(_slf) => &[],
         }
     }
@@ -172,7 +187,8 @@ impl TraitItemSynDecl {
             TraitItemSynDecl::MethodFn(syn_decl) => Some(syn_decl.parenate_parameters(db)),
             TraitItemSynDecl::AssocType(_) => None,
             TraitItemSynDecl::AssocVal(_) => None,
-            TraitItemSynDecl::AssocStatic(_) => None,
+            TraitItemSynDecl::AssocStaticMut(_) => None,
+            TraitItemSynDecl::AssocStaticVar(_) => None,
         }
     }
 
@@ -182,7 +198,8 @@ impl TraitItemSynDecl {
             TraitItemSynDecl::MethodFn(slf) => slf.syn_expr_region(db),
             TraitItemSynDecl::AssocType(slf) => slf.syn_expr_region(db),
             TraitItemSynDecl::AssocVal(slf) => slf.syn_expr_region(db),
-            TraitItemSynDecl::AssocStatic(slf) => slf.syn_expr_region(db),
+            TraitItemSynDecl::AssocStaticMut(slf) => slf.syn_expr_region(db),
+            TraitItemSynDecl::AssocStaticVar(slf) => slf.syn_expr_region(db),
         }
     }
 }

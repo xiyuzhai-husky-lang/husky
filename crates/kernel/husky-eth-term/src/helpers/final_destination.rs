@@ -10,12 +10,14 @@ impl EthTerm {
                 FinalDestination::AnyOriginal
             }
             EthTerm::ItemPath(path) => match path {
-                ItemPathTerm::Form(path) => match path.major_form_kind(db) {
+                ItemPathTerm::Form(path) => match path.kind(db) {
                     MajorFormKind::TypeAlias => todo!(),
+                    MajorFormKind::TypeVar => todo!(),
                     MajorFormKind::Ritchie(_)
                     | MajorFormKind::Val
                     | MajorFormKind::Conceptual
-                    | MajorFormKind::Static
+                    | MajorFormKind::StaticMut
+                    | MajorFormKind::StaticVar
                     | MajorFormKind::Compterm => FinalDestination::AnyDerived,
                 },
                 ItemPathTerm::TypeOntology(_) => FinalDestination::TypeOntology,
