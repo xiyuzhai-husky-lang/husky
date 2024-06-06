@@ -4,6 +4,7 @@ pub enum EntityClass {
     Type,
     MajorFunctionRitchie,
     TypeAlias,
+    TypeVar,
     Val,
     Trait,
     TypeVariant,

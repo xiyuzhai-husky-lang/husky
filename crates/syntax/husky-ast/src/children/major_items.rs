@@ -21,7 +21,8 @@ impl IsAstChildren for MajorItems {
             EntityKindKeywordGroup::Memo(_) => Err(OriginalAstError::UnexpectedMemoUnderModule)?,
             EntityKindKeywordGroup::ConceptualEntity(_) => MajorFormKind::Conceptual.into(),
             EntityKindKeywordGroup::MajorType(token) => token.type_kind().into(),
-            EntityKindKeywordGroup::AliasOrAssociateType(_) => MajorFormKind::TypeAlias.into(),
+            EntityKindKeywordGroup::TypeAliasOrAssocType(_) => MajorFormKind::TypeAlias.into(),
+            EntityKindKeywordGroup::TypeVar(_, _) => MajorFormKind::TypeVar.into(),
             EntityKindKeywordGroup::Trait(_) => MajorItemKind::Trait,
             EntityKindKeywordGroup::Static(_) => MajorFormKind::Static.into(),
         };

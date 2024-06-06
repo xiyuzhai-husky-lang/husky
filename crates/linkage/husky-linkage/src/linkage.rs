@@ -380,7 +380,9 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                             }
                         )]
                     }
-                    MajorFormKind::TypeAlias | MajorFormKind::Conceptual => unreachable!(),
+                    MajorFormKind::TypeAlias
+                    | MajorFormKind::TypeVar
+                    | MajorFormKind::Conceptual => unreachable!(),
                 },
                 JavPath::TypeItem(path) => match path.item_kind(db) {
                     TypeItemKind::AssocRitchie(_) => build(

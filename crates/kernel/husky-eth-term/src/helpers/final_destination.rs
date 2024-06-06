@@ -12,6 +12,7 @@ impl EthTerm {
             EthTerm::ItemPath(path) => match path {
                 ItemPathTerm::Form(path) => match path.major_form_kind(db) {
                     MajorFormKind::TypeAlias => todo!(),
+                    MajorFormKind::TypeVar => todo!(),
                     MajorFormKind::Ritchie(_)
                     | MajorFormKind::Val
                     | MajorFormKind::Conceptual

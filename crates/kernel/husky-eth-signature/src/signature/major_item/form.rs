@@ -2,12 +2,14 @@ pub mod compterm;
 pub mod function_ritchie;
 pub mod r#static;
 pub mod ty_alias;
+pub mod ty_var;
 pub mod val;
 
 use self::compterm::*;
 use self::function_ritchie::*;
 use self::r#static::*;
 use self::ty_alias::*;
+use self::ty_var::*;
 use self::val::*;
 use super::*;
 use husky_dec_signature::signature::major_item::form::MajorFormDecTemplate;
@@ -19,6 +21,7 @@ use husky_entity_path::path::major_item::form::MajorFormPath;
 pub enum FormEthTemplate {
     Ritchie(MajorFunctionRitchieEthTemplate),
     TypeAlias(MajorTypeAliasEthTemplate),
+    TypeVar(MajorTypeVarEthTemplate),
     Val(MajorValEthTemplate),
     Static(MajorStaticEthTemplate),
     Compterm(MajorComptermEthTemplate),
@@ -29,6 +32,7 @@ impl FormEthTemplate {
         match self {
             FormEthTemplate::Ritchie(slf) => slf.path(db),
             FormEthTemplate::TypeAlias(slf) => slf.path(db),
+            FormEthTemplate::TypeVar(slf) => slf.path(db),
             FormEthTemplate::Val(slf) => slf.path(db),
             FormEthTemplate::Static(slf) => slf.path(db),
             FormEthTemplate::Compterm(slf) => slf.path(db),
@@ -39,6 +43,7 @@ impl FormEthTemplate {
         match self {
             FormEthTemplate::Ritchie(slf) => slf.template_parameters(db),
             FormEthTemplate::TypeAlias(slf) => slf.template_parameters(db),
+            FormEthTemplate::TypeVar(slf) => slf.template_parameters(db),
             FormEthTemplate::Val(_) => &[],
             FormEthTemplate::Static(_) => &[],
             // maybe not empty in the future
@@ -63,6 +68,9 @@ fn form_eth_template(db: &::salsa::Db, path: MajorFormPath) -> EthSignatureResul
         }
         MajorFormDecTemplate::TypeAlias(dec_template) => {
             MajorTypeAliasEthTemplate::from_dec(db, path, dec_template)?.into()
+        }
+        MajorFormDecTemplate::TypeVar(dec_template) => {
+            MajorTypeVarEthTemplate::from_dec(db, path, dec_template)?.into()
         }
         MajorFormDecTemplate::Val(dec_template) => {
             MajorValEthTemplate::from_dec(db, path, dec_template)?.into()

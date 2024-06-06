@@ -141,6 +141,7 @@ impl Trace {
             MajorFormKind::Compterm
             | MajorFormKind::Ritchie(_)
             | MajorFormKind::TypeAlias
+            | MajorFormKind::TypeVar
             | MajorFormKind::Conceptual => None,
             MajorFormKind::Static => todo!(),
         }
