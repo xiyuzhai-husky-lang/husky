@@ -143,7 +143,7 @@ AstSheet {
                     next_token_idx: TokenIdx(
                         19,
                     ),
-                    drained: false,
+                    drained: true,
                 },
                 block: DefnBlock::Form {
                     path: FormPath(`core::task::Task`, `TypeVar`),
@@ -159,7 +159,7 @@ AstSheet {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                20,
+                                19,
                             ),
                         },
                     },
@@ -174,13 +174,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `TASK`,
                     token_idx: TokenIdx(
-                        23,
+                        22,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        24,
+                        23,
                     ),
                     drained: false,
                 },
