@@ -19,10 +19,12 @@ pub enum EntityKindKeywordGroup {
     /// type defined as a major entity
     MajorType(MajorTypeToken),
     /// type defined as an alias or associated entity
-    AliasOrAssociateType(TypeToken),
+    TypeAliasOrAssocType(TypeToken),
+    TypeVar(TypeToken, VarToken),
     Trait(TraitToken),
     Compterm(TermicToken),
-    Static(StaticToken),
+    StaticMut(StaticToken, MutToken),
+    StaticVar(StaticToken, VarToken),
 }
 
 #[enum_class::from_variants]
@@ -310,12 +312,33 @@ where
                 FormKeyword::Proposition => Ok(Some(EntityKindKeywordGroup::ConceptualEntity(
                     ConceptualEntityToken::Proposition(PropositionToken { token_idx }),
                 ))),
-                FormKeyword::Type => Ok(Some(EntityKindKeywordGroup::AliasOrAssociateType(
-                    TypeToken { token_idx },
-                ))),
-                FormKeyword::Static => Ok(Some(EntityKindKeywordGroup::Static(StaticToken {
-                    token_idx,
-                }))),
+                FormKeyword::Type => {
+                    if let Some(var_token) = ctx.try_parse_option::<VarToken>()? {
+                        Ok(Some(EntityKindKeywordGroup::TypeVar(
+                            TypeToken { token_idx },
+                            var_token,
+                        )))
+                    } else {
+                        Ok(Some(EntityKindKeywordGroup::TypeAliasOrAssocType(
+                            TypeToken { token_idx },
+                        )))
+                    }
+                }
+                FormKeyword::Static => {
+                    if let Some(mut_token) = ctx.try_parse_option::<MutToken>()? {
+                        Ok(Some(EntityKindKeywordGroup::StaticMut(
+                            StaticToken { token_idx },
+                            mut_token,
+                        )))
+                    } else if let Some(var_token) = ctx.try_parse_option::<VarToken>()? {
+                        Ok(Some(EntityKindKeywordGroup::StaticVar(
+                            StaticToken { token_idx },
+                            var_token,
+                        )))
+                    } else {
+                        todo!()
+                    }
+                }
                 FormKeyword::Compterm => Ok(Some(EntityKindKeywordGroup::Compterm(TermicToken {
                     token_idx,
                 }))),

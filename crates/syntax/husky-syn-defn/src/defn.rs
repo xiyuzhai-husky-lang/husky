@@ -45,9 +45,9 @@ pub fn item_syn_node_defn(
                         TypeItemKind::AssocType => AllowSelfValue::False,
                         TypeItemKind::MemoizedField => AllowSelfValue::True,
                         TypeItemKind::AssocConceptual => todo!(),
-                        TypeItemKind::AssocStatic | TypeItemKind::AssocTermic => {
-                            AllowSelfValue::False
-                        }
+                        TypeItemKind::AssocStaticMut
+                        | TypeItemKind::AssocStaticVar
+                        | TypeItemKind::AssocCompterm => AllowSelfValue::False,
                     }
                 }
                 AssocItemSynNodePath::TraitItem(syn_node_path) => {
@@ -58,9 +58,9 @@ pub fn item_syn_node_defn(
                         TraitItemKind::AssocVal => AllowSelfValue::True,
                         TraitItemKind::AssocRitchie(_) => AllowSelfValue::False,
                         TraitItemKind::AssocConceptual => todo!(),
-                        TraitItemKind::AssocStatic | TraitItemKind::AssocTermic => {
-                            AllowSelfValue::False
-                        }
+                        TraitItemKind::AssocStaticMut
+                        | TraitItemKind::AssocStaticVar
+                        | TraitItemKind::AssocCompterm => AllowSelfValue::False,
                     }
                 }
                 AssocItemSynNodePath::TraitForTypeItem(syn_node_path) => {
@@ -71,9 +71,9 @@ pub fn item_syn_node_defn(
                         TraitItemKind::AssocVal => AllowSelfValue::True,
                         TraitItemKind::AssocRitchie(_) => AllowSelfValue::False,
                         TraitItemKind::AssocConceptual => todo!(),
-                        TraitItemKind::AssocStatic | TraitItemKind::AssocTermic => {
-                            AllowSelfValue::False
-                        }
+                        TraitItemKind::AssocStaticMut
+                        | TraitItemKind::AssocStaticVar
+                        | TraitItemKind::AssocCompterm => AllowSelfValue::False,
                     }
                 }
                 AssocItemSynNodePath::IllFormedItem(_) => todo!(),
@@ -127,7 +127,7 @@ pub fn module_item_syn_node_defns(
 fn module_item_syn_node_defns_works() {
     use tests::*;
 
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         |db, module_path: ModulePath| module_item_syn_node_defns(db, module_path),
         &AstTestConfig::new(
             "module_item_syn_node_defns",
@@ -152,7 +152,7 @@ pub fn module_item_syn_defns(
 fn module_item_syn_defns_works() {
     use tests::*;
 
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         |db, module_path: ModulePath| module_item_syn_defns(db, module_path),
         &AstTestConfig::new(
             "module_item_syn_defns",

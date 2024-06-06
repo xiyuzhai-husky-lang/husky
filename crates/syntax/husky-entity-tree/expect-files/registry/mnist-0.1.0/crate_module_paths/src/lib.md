@@ -1,6 +1,6 @@
 ```rust
 [
-    `mnist`,
-    `mnist::task`,
+    ModulePath(`mnist`),
+    ModulePath(`mnist::task`),
 ]
 ```

@@ -114,7 +114,7 @@ fn transpile_hir_eager_expr_to_rust(
             match principal_entity_path {
                 PrincipalEntityPath::Module(_) => unreachable!(),
                 PrincipalEntityPath::MajorItem(MajorItemPath::Form(path)) => {
-                    if let MajorFormKind::Val = path.major_form_kind(db) {
+                    if let MajorFormKind::Val = path.kind(db) {
                         builder.delimited(RustDelimiter::Par, |_| ())
                     }
                 }

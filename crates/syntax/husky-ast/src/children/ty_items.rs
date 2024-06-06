@@ -29,14 +29,16 @@ impl IsAstChildren for TypeItems {
             EntityKindKeywordGroup::MajorType(_) => {
                 Err(OriginalAstError::UnexpectedMajorTypeInsideImplBlock)?
             }
-            EntityKindKeywordGroup::AliasOrAssociateType(_) => TypeItemKind::AssocType,
+            EntityKindKeywordGroup::TypeAliasOrAssocType(_) => TypeItemKind::AssocType,
+            EntityKindKeywordGroup::TypeVar(_, _) => todo!(),
             EntityKindKeywordGroup::Trait(_) => {
                 Err(OriginalAstError::UnexpectedTraitInsideImplBlock)?
             }
             EntityKindKeywordGroup::Val(_) => TypeItemKind::AssocVal,
             EntityKindKeywordGroup::Memo(_) => TypeItemKind::MemoizedField,
-            EntityKindKeywordGroup::Static(_) => TypeItemKind::AssocStatic,
-            EntityKindKeywordGroup::Compterm(_) => TypeItemKind::AssocTermic,
+            EntityKindKeywordGroup::StaticMut(_, _) => TypeItemKind::AssocStaticMut,
+            EntityKindKeywordGroup::StaticVar(_, _) => TypeItemKind::AssocStaticVar,
+            EntityKindKeywordGroup::Compterm(_) => TypeItemKind::AssocCompterm,
         };
         Ok(EntityKind::AssocItem {
             assoc_item_kind: AssocItemKind::TypeItem(ty_item_kind),

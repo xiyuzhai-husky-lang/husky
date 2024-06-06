@@ -19,7 +19,7 @@ pub(crate) struct DB;
 
 #[test]
 fn ast_sheet_works() {
-    DB::token_expect_test_debug_with_db(
+    DB::token_rich_test_debug_with_db(
         |db, module_path: ModulePath| module_path.ast_sheet(db),
         &TokenTestConfig::new(
             "ast_sheet",

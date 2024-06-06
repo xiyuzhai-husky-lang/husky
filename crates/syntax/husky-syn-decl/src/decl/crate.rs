@@ -55,7 +55,7 @@ impl<'db> CrateDeclParser<'db> {
 
 #[test]
 fn crate_syn_node_decl_works() {
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         crate_syn_node_decl,
         &AstTestConfig::new(
             "crate_syn_node_decl",
@@ -105,7 +105,7 @@ fn crate_syn_decl(db: &::salsa::Db, crate_path: CratePath) -> SynDeclResult<Opti
 
 #[test]
 fn crate_syn_decl_works() {
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         crate_syn_decl,
         &AstTestConfig::new(
             "crate_syn_decl",

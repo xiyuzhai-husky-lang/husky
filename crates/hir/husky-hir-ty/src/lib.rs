@@ -1,7 +1,7 @@
 #![feature(if_let_guard)]
-pub mod db;
 pub mod indirections;
 pub mod instantiation;
+pub mod jar;
 pub mod lifetime;
 pub mod menu;
 pub mod place_contract_site;
@@ -19,6 +19,6 @@ pub use self::template_argument::*;
 pub use self::ty::*;
 pub use self::ty_constant::*;
 
-use self::db::*;
+use self::jar::*;
 use husky_entity_path::*;
 use smallvec::*;

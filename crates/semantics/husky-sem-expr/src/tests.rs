@@ -47,7 +47,7 @@ fn decl_sem_expr_regions(db: &::salsa::Db, module_path: ModulePath) -> Vec<SemEx
 
 #[test]
 fn decl_sem_expr_regions_works() {
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         decl_sem_expr_regions,
         &AstTestConfig::new(
             "decl_sem_expr_regions",
@@ -67,7 +67,7 @@ fn defn_sem_expr_regions(db: &::salsa::Db, module_path: ModulePath) -> Vec<SemEx
 
 #[test]
 fn defn_sem_expr_regions_works() {
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         defn_sem_expr_regions,
         &AstTestConfig::new(
             "defn_sem_expr_regions",

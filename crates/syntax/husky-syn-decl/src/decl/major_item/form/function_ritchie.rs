@@ -97,7 +97,7 @@ impl MajorFunctionRitchieSynDecl {
         syn_node_decl: MajorFunctionRitchieSynNodeDecl,
     ) -> SynDeclResult<Self> {
         let ritchie_item_kind = syn_node_decl.ritchie_item_kind(db);
-        debug_assert_eq!(path.major_form_kind(db), ritchie_item_kind.into());
+        debug_assert_eq!(path.kind(db), ritchie_item_kind.into());
         let template_parameters = syn_node_decl
             .template_parameter_obelisk_list(db)
             .as_ref()?

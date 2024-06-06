@@ -24,7 +24,7 @@ pub(crate) fn item_tree_presheet(db: &::salsa::Db, module_path: ModulePath) -> E
 
 #[test]
 fn item_tree_presheet_works() {
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         |db, module_path| item_tree_presheet(db, module_path),
         &AstTestConfig::new(
             "item_tree_presheet",

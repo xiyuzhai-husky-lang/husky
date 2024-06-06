@@ -87,6 +87,8 @@ impl SubmodulePath {
         self.0.parent(db).unwrap()
     }
 
+    /// this is the parent module path where the submodule is declared
+    /// not the module_path of the submodule
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         self.parent(db)
     }
@@ -248,9 +250,9 @@ impl ModulePath {
 
     #[inline(never)]
     pub fn show(&self, f: &mut ::std::fmt::Formatter<'_>, db: &::salsa::Db) -> ::std::fmt::Result {
-        f.write_str("`")?;
+        f.write_str("ModulePath(`")?;
         self.show_aux(f, db)?;
-        f.write_str("`")
+        f.write_str("`)")
     }
 
     #[inline(never)]
@@ -302,21 +304,21 @@ fn module_path_debug_with_db_works() {
     let db = DB::default();
     let db = &*db;
     let path_menu = db.dev_path_menu().unwrap();
-    t(db, path_menu.core_num().inner(), "`core::num`");
-    t(db, path_menu.core_root(), "`core`");
-    t(db, path_menu.std_root(), "`std`");
+    t(db, path_menu.core_num().inner(), "ModulePath(`core::num`)");
+    t(db, path_menu.core_root(), "ModulePath(`core`)");
+    t(db, path_menu.std_root(), "ModulePath(`std`)");
     ::expect_test::expect![[r#"
-        `core`
+        ModulePath(`core`)
     "#]]
     .assert_debug_eq(&path_menu.core_root().debug(db));
     ::expect_test::expect![[r#"
         SubmodulePath(
-            `core::num`,
+            ModulePath(`core::num`),
         )
     "#]]
     .assert_debug_eq(&path_menu.core_num().debug(db));
     ::expect_test::expect![[r#"
-        `std`
+        ModulePath(`std`)
     "#]]
     .assert_debug_eq(&path_menu.std_root().debug(db));
 }

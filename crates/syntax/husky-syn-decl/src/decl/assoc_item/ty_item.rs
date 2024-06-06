@@ -93,8 +93,9 @@ impl<'a> ItemSynNodeDeclParser<'a> {
             TypeItemKind::AssocVal => todo!(),
             TypeItemKind::AssocType => todo!(),
             TypeItemKind::AssocConceptual => todo!(),
-            TypeItemKind::AssocStatic => todo!(),
-            TypeItemKind::AssocTermic => todo!(),
+            TypeItemKind::AssocStaticMut => todo!(),
+            TypeItemKind::AssocStaticVar => todo!(),
+            TypeItemKind::AssocCompterm => todo!(),
         }
     }
 }

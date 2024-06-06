@@ -54,7 +54,7 @@ pub(crate) fn package_amazon_javelins(
 
 #[test]
 fn package_amazon_javelins_works() {
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         package_amazon_javelins,
         &AstTestConfig::new(
             "package_amazon_javelins",

@@ -124,6 +124,8 @@ pub enum OriginalAstError {
     UnexpectedMemoUnderForm,
     #[error("unexpected const")]
     UnexpectedConst,
+    #[error("unexpected var")]
+    UnexpectedVar,
 }
 
 impl From<std::convert::Infallible> for AstError {

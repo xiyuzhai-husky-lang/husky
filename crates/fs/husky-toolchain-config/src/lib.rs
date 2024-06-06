@@ -1,7 +1,7 @@
 /// this is the same as husky_vfs::toolchain_config
 ///
 /// todo: refactor husky-vfs into two crates, let this crate depends on one and be dependent of the other
-mod db;
+mod jar;
 
 use husky_toml_utils::read_toml;
 use husky_vfs::{

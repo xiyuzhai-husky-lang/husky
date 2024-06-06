@@ -4,6 +4,7 @@ pub enum EntityClass {
     Type,
     MajorFunctionRitchie,
     TypeAlias,
+    TypeVar,
     Val,
     Trait,
     TypeVariant,
@@ -18,5 +19,6 @@ pub enum EntityClass {
     AssocDef,
     Compterm,
     Script,
-    Static,
+    StaticMut,
+    StaticVar,
 }

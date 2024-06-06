@@ -57,7 +57,7 @@ pub(crate) struct DB;
 #[test]
 fn hover_result_works() {
     const N: usize = 20;
-    DB::ast_expect_test_debug(
+    DB::ast_rich_test_debug(
         |db, module_path| -> Vec<(TokenIdx, Option<HoverResult>)> {
             let ranged_token_sheet = db.ranged_token_sheet(module_path);
             let len = ranged_token_sheet.len();

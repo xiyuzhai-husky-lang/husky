@@ -1,18 +1,21 @@
 pub mod compterm;
 pub mod function_ritchie;
-pub mod r#static;
+pub mod static_mut;
+pub mod static_var;
 pub mod ty_alias;
+pub mod ty_var;
 pub mod val;
 
-use self::function_ritchie::*;
-use self::ty_alias::*;
-use self::val::*;
 use self::{
     compterm::{MajorComptermSynDecl, MajorComptermSynNodeDecl},
-    r#static::MajorStaticSynDecl,
+    function_ritchie::*,
+    static_mut::{MajorStaticMutSynDecl, MajorStaticMutSynNodeDecl},
+    static_var::{MajorStaticVarSynDecl, MajorStaticVarSynNodeDecl},
+    ty_alias::*,
+    ty_var::{TypeVarSynDecl, TypeVarSynNodeDecl},
+    val::*,
 };
 use super::*;
-use crate::decl::major_item::form::r#static::MajorStaticSynNodeDecl;
 use husky_entity_kind::MajorFormKind;
 use husky_entity_path::path::major_item::form::MajorFormPath;
 use husky_entity_tree::node::major_item::form::FormSynNodePath;
@@ -24,8 +27,10 @@ pub enum FormSynNodeDecl {
     FunctionRitchie(MajorFunctionRitchieSynNodeDecl),
     Val(MajorValSynNodeDecl),
     Compterm(MajorComptermSynNodeDecl),
-    Static(MajorStaticSynNodeDecl),
+    StaticMut(MajorStaticMutSynNodeDecl),
+    StaticVar(MajorStaticVarSynNodeDecl),
     TypeAlias(TypeAliasSynNodeDecl),
+    TypeVar(TypeVarSynNodeDecl),
 }
 
 impl FormSynNodeDecl {
@@ -34,8 +39,10 @@ impl FormSynNodeDecl {
             FormSynNodeDecl::FunctionRitchie(slf) => slf.syn_expr_region(db),
             FormSynNodeDecl::Val(slf) => slf.syn_expr_region(db),
             FormSynNodeDecl::Compterm(slf) => slf.syn_expr_region(db),
-            FormSynNodeDecl::Static(slf) => slf.syn_expr_region(db),
+            FormSynNodeDecl::StaticMut(slf) => slf.syn_expr_region(db),
+            FormSynNodeDecl::StaticVar(slf) => slf.syn_expr_region(db),
             FormSynNodeDecl::TypeAlias(slf) => slf.syn_expr_region(db),
+            FormSynNodeDecl::TypeVar(slf) => slf.syn_expr_region(db),
         }
     }
 
@@ -44,8 +51,10 @@ impl FormSynNodeDecl {
             FormSynNodeDecl::FunctionRitchie(slf) => slf.errors(db),
             FormSynNodeDecl::Val(slf) => slf.errors(db),
             FormSynNodeDecl::TypeAlias(slf) => slf.errors(db),
+            FormSynNodeDecl::TypeVar(slf) => slf.errors(db),
             FormSynNodeDecl::Compterm(slf) => slf.errors(db),
-            FormSynNodeDecl::Static(slf) => slf.errors(db),
+            FormSynNodeDecl::StaticMut(slf) => slf.errors(db),
+            FormSynNodeDecl::StaticVar(slf) => slf.errors(db),
         }
     }
 }
@@ -74,9 +83,11 @@ impl<'a> ItemSynNodeDeclParser<'a> {
                 .parse_ritchie_syn_node_decl(syn_node_path, ritchie_item_kind)
                 .into(),
             MajorFormKind::TypeAlias => self.parse_ty_alias_syn_node_decl(syn_node_path).into(),
+            MajorFormKind::TypeVar => self.parse_ty_var_syn_node_decl(syn_node_path).into(),
             MajorFormKind::Conceptual => todo!(),
             // self.parse_conceptual_syn_node_decl(syn_node_path).into(),
-            MajorFormKind::Static => self.parse_static_syn_node_decl(syn_node_path).into(),
+            MajorFormKind::StaticMut => self.parse_static_mut_syn_node_decl(syn_node_path).into(),
+            MajorFormKind::StaticVar => self.parse_static_var_syn_node_decl(syn_node_path).into(),
             MajorFormKind::Compterm => self.parse_termic_syn_node_decl(syn_node_path).into(),
         }
     }
@@ -89,8 +100,10 @@ pub enum FormSynDecl {
     Ritchie(MajorFunctionRitchieSynDecl),
     Val(MajorValSynDecl),
     Compterm(MajorComptermSynDecl),
-    Static(MajorStaticSynDecl),
+    StaticMut(MajorStaticMutSynDecl),
+    StaticVar(MajorStaticVarSynDecl),
     TypeAlias(TypeAliasSynDecl),
+    TypeVar(TypeVarSynDecl),
 }
 
 impl FormSynDecl {
@@ -109,11 +122,17 @@ impl FormSynDecl {
             FormSynNodeDecl::TypeAlias(syn_node_decl) => {
                 TypeAliasSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
+            FormSynNodeDecl::TypeVar(syn_node_decl) => {
+                TypeVarSynDecl::from_node(db, path, syn_node_decl)?.into()
+            }
             FormSynNodeDecl::Compterm(syn_node_decl) => {
                 MajorComptermSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
-            FormSynNodeDecl::Static(syn_node_decl) => {
-                MajorStaticSynDecl::from_node(db, path, syn_node_decl)?.into()
+            FormSynNodeDecl::StaticMut(syn_node_decl) => {
+                MajorStaticMutSynDecl::from_node(db, path, syn_node_decl)?.into()
+            }
+            FormSynNodeDecl::StaticVar(syn_node_decl) => {
+                MajorStaticVarSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
         })
     }
@@ -123,8 +142,10 @@ impl FormSynDecl {
             FormSynDecl::Ritchie(decl) => decl.template_parameters(db),
             FormSynDecl::Val(_decl) => &[],
             FormSynDecl::TypeAlias(_) => todo!(),
+            FormSynDecl::TypeVar(_) => &[],
             FormSynDecl::Compterm(_) => todo!(),
-            FormSynDecl::Static(_) => todo!(),
+            FormSynDecl::StaticMut(_) => todo!(),
+            FormSynDecl::StaticVar(_) => todo!(),
         }
     }
 
@@ -133,8 +154,10 @@ impl FormSynDecl {
             FormSynDecl::Ritchie(slf) => slf.syn_expr_region(db),
             FormSynDecl::Val(slf) => slf.syn_expr_region(db),
             FormSynDecl::TypeAlias(slf) => slf.syn_expr_region(db),
+            FormSynDecl::TypeVar(slf) => slf.syn_expr_region(db),
             FormSynDecl::Compterm(slf) => slf.syn_expr_region(db),
-            FormSynDecl::Static(slf) => slf.syn_expr_region(db),
+            FormSynDecl::StaticMut(slf) => slf.syn_expr_region(db),
+            FormSynDecl::StaticVar(slf) => slf.syn_expr_region(db),
         }
     }
 
@@ -143,8 +166,10 @@ impl FormSynDecl {
             FormSynDecl::Ritchie(slf) => slf.path(db),
             FormSynDecl::Val(slf) => slf.path(db),
             FormSynDecl::TypeAlias(slf) => slf.path(db),
+            FormSynDecl::TypeVar(slf) => slf.path(db),
             FormSynDecl::Compterm(slf) => slf.path(db),
-            FormSynDecl::Static(slf) => slf.path(db),
+            FormSynDecl::StaticMut(slf) => slf.path(db),
+            FormSynDecl::StaticVar(slf) => slf.path(db),
         }
     }
 }

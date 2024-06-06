@@ -38,6 +38,8 @@ impl SemanticToken {
             TokenClass::LoopVariable => ext::SemanticTokenType::VARIABLE,
             TokenClass::ModuleEntity => ext::SemanticTokenType::NAMESPACE,
             TokenClass::TypeEntity => ext::SemanticTokenType::TYPE,
+            TokenClass::TypeAlias => ext::SemanticTokenType::TYPE,
+            TokenClass::TypeVar => ext::SemanticTokenType::TYPE,
             TokenClass::ValEntity => ext::SemanticTokenType::VARIABLE,
             TokenClass::FunctionEntity => ext::SemanticTokenType::FUNCTION,
             TokenClass::TraitEntity => ext::SemanticTokenType::CLASS,
@@ -61,7 +63,8 @@ impl SemanticToken {
             TokenClass::Label => ext::SemanticTokenType::VARIABLE,
             TokenClass::Error => ext::SemanticTokenType::MACRO,
             TokenClass::DefEntity => ext::SemanticTokenType::VARIABLE,
-            TokenClass::StaticEntity => ext::SemanticTokenType::VARIABLE,
+            TokenClass::StaticMutEntity => ext::SemanticTokenType::VARIABLE,
+            TokenClass::StaticVarEntity => ext::SemanticTokenType::VARIABLE,
             TokenClass::TermicEntity => todo!(),
         })
     }

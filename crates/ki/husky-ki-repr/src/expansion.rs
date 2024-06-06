@@ -369,11 +369,14 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 PrincipalEntityPath::MajorItem(path) => match path {
                     MajorItemPath::Type(_) => todo!(),
                     MajorItemPath::Trait(_) => todo!(),
-                    MajorItemPath::Form(path) => match path.major_form_kind(db) {
+                    MajorItemPath::Form(path) => match path.kind(db) {
                         MajorFormKind::Ritchie(_) => todo!(),
                         MajorFormKind::Val => return KiRepr::new_val_item(path, db),
-                        MajorFormKind::TypeAlias | MajorFormKind::Conceptual => unreachable!(),
-                        MajorFormKind::Static => todo!(),
+                        MajorFormKind::TypeAlias
+                        | MajorFormKind::TypeVar
+                        | MajorFormKind::Conceptual => unreachable!(),
+                        MajorFormKind::StaticMut => todo!(),
+                        MajorFormKind::StaticVar => todo!(),
                         MajorFormKind::Compterm => todo!(),
                     },
                 },
@@ -493,7 +496,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 ref item_groups,
                 ..
             } => {
-                let opn = match path.major_form_kind(db).ritchie() {
+                let opn = match path.kind(db).ritchie() {
                     RitchieItemKind::Fn => {
                         KiOpn::Linkage(Linkage::new_major_function_ritchie_item(
                             path,
@@ -786,7 +789,7 @@ fn val_item_ki_repr_expansions(
 fn val_item_ki_repr_expansions_works() {
     // todo: why compiler needs this line to work?
     use husky_ast::test_utils::AstTestUtils;
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         val_item_ki_repr_expansions,
         &AstTestConfig::new(
             "val_item_ki_repr_expansions",

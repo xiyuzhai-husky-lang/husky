@@ -47,7 +47,7 @@ use husky_toml_ast::TomlAstJar;
     FlyTermJar,
     SemExprJar,
     husky_sem_place_contract::jar::SemPlaceContractJar,
-    husky_hir_ty::db::HirTypeJar,
+    husky_hir_ty::jar::HirTypeJar,
     husky_hir_eager_expr::jar::HirEagerExprJar,
     husky_hir_lazy_expr::jar::HirLazyExprJar,
     husky_hir_expr::jar::HirExprJar,
@@ -64,7 +64,7 @@ fn module_hir_decls(db: &::salsa::Db, module_path: ModulePath) -> Vec<HirDecl> {
 
 #[test]
 fn module_hir_decls_works() {
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         module_hir_decls,
         &AstTestConfig::new(
             "module_hir_decls",

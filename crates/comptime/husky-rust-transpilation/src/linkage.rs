@@ -70,7 +70,7 @@ impl TranspileToRustWith<()> for Linkage {
             LinkageData::MajorFunctionRitchie {
                 path,
                 ref instantiation,
-            } => match path.major_form_kind(db).ritchie() {
+            } => match path.kind(db).ritchie() {
                 RitchieItemKind::Fn => builder
                     .macro_call(RustMacroName::FnLinkageImpl, |builder| {
                         (path, instantiation).transpile_to_rust(builder)

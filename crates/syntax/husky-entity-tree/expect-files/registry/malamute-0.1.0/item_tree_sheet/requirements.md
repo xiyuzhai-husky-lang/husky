@@ -1,6 +1,6 @@
 ```rust
 EntityTreeSheet {
-    module_path: `malamute`,
+    module_path: ModulePath(`malamute`),
     major_item_node_table: MajorEntityNodeTable {
         entries: [],
     },

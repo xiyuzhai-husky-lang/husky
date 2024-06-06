@@ -62,7 +62,7 @@ fn module_ancestry_works() {
                 kind: Lib,
             },
             module_paths: [
-                `core`,
+                ModulePath(`core`),
             ],
         }
     "#]]
@@ -82,8 +82,8 @@ fn module_ancestry_works() {
                 kind: Lib,
             },
             module_paths: [
-                `core`,
-                `core::basic`,
+                ModulePath(`core`),
+                ModulePath(`core::basic`),
             ],
         }
     "#]]

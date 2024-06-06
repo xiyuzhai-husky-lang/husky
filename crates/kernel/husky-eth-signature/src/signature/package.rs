@@ -43,7 +43,9 @@ impl PackageEthSignature {
         dec_signature: PackageDecSignature,
         db: &::salsa::Db,
     ) -> EthSignatureResult<Self> {
-        let PackageDecSignatureData { task_ty_term } = *dec_signature.data(db);
+        let PackageDecSignatureData {
+            task_ty_default: task_ty_term,
+        } = *dec_signature.data(db);
         Ok(Self::new(
             db,
             package_path,
@@ -59,7 +61,7 @@ impl PackageEthSignature {
 
 #[test]
 fn package_eth_signature_works() {
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         package_eth_signature,
         &AstTestConfig::new(
             "package_eth_signature",

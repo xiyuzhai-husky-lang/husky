@@ -14,7 +14,7 @@ pub fn sem_expr_region_requires_lazy(db: &::salsa::Db, sem_expr_region: SemExprR
         RegionPath::CrateDecl(_) => todo!(),
         RegionPath::Script(_) => return false, // ad hoc
         RegionPath::ItemDecl(path) => match path {
-            ItemPath::MajorItem(MajorItemPath::Form(path)) => match path.major_form_kind(db) {
+            ItemPath::MajorItem(MajorItemPath::Form(path)) => match path.kind(db) {
                 MajorFormKind::Ritchie(ritchie_item_kind) => match ritchie_item_kind {
                     RitchieItemKind::Fn => todo!(),
                     RitchieItemKind::Gn => todo!(),
@@ -31,12 +31,14 @@ pub fn sem_expr_region_requires_lazy(db: &::salsa::Db, sem_expr_region: SemExprR
             _ => return false,
         },
         RegionPath::ItemDefn(path) => match path {
-            ItemPath::MajorItem(MajorItemPath::Form(path)) => match path.major_form_kind(db) {
+            ItemPath::MajorItem(MajorItemPath::Form(path)) => match path.kind(db) {
                 MajorFormKind::Ritchie(_) => todo!(),
                 MajorFormKind::TypeAlias => todo!(),
+                MajorFormKind::TypeVar => todo!(),
                 MajorFormKind::Val => (),
                 MajorFormKind::Conceptual => todo!(),
-                MajorFormKind::Static => todo!(),
+                MajorFormKind::StaticMut => todo!(),
+                MajorFormKind::StaticVar => todo!(),
                 MajorFormKind::Compterm => todo!(),
             },
             ItemPath::AssocItem(path) => todo!(),
@@ -48,7 +50,7 @@ pub fn sem_expr_region_requires_lazy(db: &::salsa::Db, sem_expr_region: SemExprR
             SemExprData::PrincipalEntityPath {
                 path: PrincipalEntityPath::MajorItem(MajorItemPath::Form(path)),
                 ..
-            } => match path.major_form_kind(db) {
+            } => match path.kind(db) {
                 MajorFormKind::Ritchie(ritchie_item_kind) if ritchie_item_kind.is_lazy() => {
                     return true
                 }

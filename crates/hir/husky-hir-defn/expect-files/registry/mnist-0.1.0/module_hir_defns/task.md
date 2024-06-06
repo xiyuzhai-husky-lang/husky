@@ -2,11 +2,11 @@
 [
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
-            MajorFormHirDefn::Static(
-                MajorStaticHirDefn {
-                    path: FormPath(`mnist::TASK`, `Static`),
-                    hir_decl: MajorStaticHirDecl {
-                        path: FormPath(`mnist::TASK`, `Static`),
+            MajorFormHirDefn::StaticVar(
+                MajorStaticVarHirDefn {
+                    path: FormPath(`mnist::TASK`, `StaticVar`),
+                    hir_decl: MajorStaticVarHirDecl {
+                        path: FormPath(`mnist::TASK`, `StaticVar`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist::task::MnistTask`, `Extern`),
@@ -18,7 +18,7 @@
                             region_path: RegionPath::ItemDecl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`mnist::TASK`, `Static`),
+                                        FormPath(`mnist::TASK`, `StaticVar`),
                                     ),
                                 ),
                             ),

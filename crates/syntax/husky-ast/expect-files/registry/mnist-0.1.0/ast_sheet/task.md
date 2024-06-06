@@ -10,7 +10,7 @@ AstSheet {
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
                     visibility: Scope::PubUnder(
-                        `mnist`,
+                        ModulePath(`mnist`),
                     ),
                 },
                 state_after_visibility_expr: None,
@@ -32,25 +32,25 @@ AstSheet {
                 },
                 item_kind: EntityKind::MajorItem {
                     module_item_kind: MajorItemKind::Form(
-                        MajorFormKind::TypeAlias,
+                        MajorFormKind::TypeVar,
                     ),
                     connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `Task`,
                     token_idx: TokenIdx(
-                        9,
+                        10,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        10,
+                        11,
                     ),
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist::Task`, `TypeAlias`),
+                    path: FormPath(`mnist::Task`, `TypeVar`),
                     body: None,
                 },
             },
@@ -63,7 +63,7 @@ AstSheet {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                12,
+                                13,
                             ),
                         },
                     },
@@ -71,25 +71,25 @@ AstSheet {
                 },
                 item_kind: EntityKind::MajorItem {
                     module_item_kind: MajorItemKind::Form(
-                        MajorFormKind::Static,
+                        MajorFormKind::StaticVar,
                     ),
                     connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
                     ident: `TASK`,
                     token_idx: TokenIdx(
-                        14,
+                        16,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        15,
+                        17,
                     ),
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist::TASK`, `Static`),
+                    path: FormPath(`mnist::TASK`, `StaticVar`),
                     body: None,
                 },
             },

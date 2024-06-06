@@ -1,0 +1,43 @@
+```rust
+[
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`ml_task::IsMlTask`),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [],
+            },
+        ),
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(
+                    `ml_task::IsMlTask::Input`,
+                    TraitItemKind::AssocType,
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(
+                    `ml_task::IsMlTask::INPUT`,
+                    TraitItemKind::AssocStaticVar,
+                ),
+            ),
+        ),
+        None,
+    ),
+]
+```

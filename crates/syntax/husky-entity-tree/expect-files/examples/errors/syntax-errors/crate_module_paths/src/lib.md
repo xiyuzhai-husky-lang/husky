@@ -1,7 +1,7 @@
 ```rust
 [
-    `syntax_errors`,
-    `syntax_errors::ast`,
-    `syntax_errors::uses`,
+    ModulePath(`syntax_errors`),
+    ModulePath(`syntax_errors::ast`),
+    ModulePath(`syntax_errors::uses`),
 ]
 ```

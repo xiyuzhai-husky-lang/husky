@@ -141,7 +141,7 @@ fn ingredient_vals(
                     .map(|&ingredient_path| {
                         let ki_repr = match ingredient_path.item_path() {
                             ItemPath::MajorItem(MajorItemPath::Form(path))
-                                if path.major_form_kind(db) == MajorFormKind::Val =>
+                                if path.kind(db) == MajorFormKind::Val =>
                             {
                                 Some(KiRepr::new_val_item(path, db))
                             }

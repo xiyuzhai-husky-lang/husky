@@ -2,7 +2,7 @@
 EntityTreeCrateBundle {
     sheets: [
         EntityTreeSheet {
-            module_path: `mnist`,
+            module_path: ModulePath(`mnist`),
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
                     ItemNodeEntry {
@@ -596,7 +596,7 @@ EntityTreeCrateBundle {
             errors: [],
         },
         EntityTreeSheet {
-            module_path: `mnist::task`,
+            module_path: ModulePath(`mnist::task`),
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
                     ItemNodeEntry {

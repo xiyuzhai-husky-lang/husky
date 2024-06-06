@@ -87,6 +87,9 @@ impl<'a> SemExprBuilder<'a> {
                                 &instantiation,
                             ),
                             FormEthTemplate::TypeAlias(_) => todo!(),
+                            FormEthTemplate::TypeVar(_) => {
+                                return (Ok(None), Ok(self.term_menu().ty0().into()))
+                            }
                             FormEthTemplate::Val(tmpl) => FlyInstantiate::instantiate(
                                 tmpl.return_ty(db),
                                 self,
@@ -94,7 +97,8 @@ impl<'a> SemExprBuilder<'a> {
                                 &instantiation,
                             )
                             .with_quary(FlyQuary::Leashed { place_idx: None }),
-                            FormEthTemplate::Static(_) => todo!(),
+                            FormEthTemplate::StaticMut(_) => todo!(),
+                            FormEthTemplate::StaticVar(_) => todo!(),
                             FormEthTemplate::Compterm(_) => todo!(),
                         };
                         (Ok(Some(instantiation)), Ok(ty))

@@ -1,14 +1,11 @@
 pub mod compterm;
 pub mod function_ritchie;
-pub mod r#static;
+pub mod static_mut;
+pub mod static_var;
 pub mod ty_alias;
 pub mod val;
 
-use self::compterm::*;
-use self::function_ritchie::*;
-use self::r#static::*;
-use self::ty_alias::*;
-use self::val::*;
+use self::{compterm::*, function_ritchie::*, static_mut::*, static_var::*, ty_alias::*, val::*};
 use super::*;
 use husky_entity_path::path::major_item::form::MajorFormPath;
 use husky_syn_decl::decl::major_item::form::FormSynDecl;
@@ -20,7 +17,8 @@ pub enum MajorFormHirDecl {
     Ritchie(MajorFunctionRitchieHirDecl),
     Val(MajorValHirDecl),
     Compterm(MajorComptermHirDecl),
-    Static(MajorStaticHirDecl),
+    StaticMut(MajorStaticMutHirDecl),
+    StaticVar(MajorStaticVarHirDecl),
     TypeAlias(MajorTypeAliasHirDecl),
 }
 
@@ -31,7 +29,8 @@ impl MajorFormHirDecl {
             MajorFormHirDecl::Val(_decl) => None,
             MajorFormHirDecl::TypeAlias(_) => todo!(),
             MajorFormHirDecl::Compterm(_decl) => None,
-            MajorFormHirDecl::Static(_) => None,
+            MajorFormHirDecl::StaticMut(_) => None,
+            MajorFormHirDecl::StaticVar(_) => None,
         }
     }
 
@@ -41,7 +40,8 @@ impl MajorFormHirDecl {
             MajorFormHirDecl::Val(slf) => slf.hir_eager_expr_region(db).into(),
             MajorFormHirDecl::TypeAlias(slf) => slf.hir_eager_expr_region(db).into(),
             MajorFormHirDecl::Compterm(_) => todo!(),
-            MajorFormHirDecl::Static(slf) => slf.hir_eager_expr_region(db).into(),
+            MajorFormHirDecl::StaticMut(slf) => slf.hir_eager_expr_region(db).into(),
+            MajorFormHirDecl::StaticVar(slf) => slf.hir_eager_expr_region(db).into(),
         }
     }
 
@@ -51,7 +51,8 @@ impl MajorFormHirDecl {
             MajorFormHirDecl::Val(decl) => decl.path(db),
             MajorFormHirDecl::TypeAlias(decl) => decl.path(db),
             MajorFormHirDecl::Compterm(_) => todo!(),
-            MajorFormHirDecl::Static(_) => todo!(),
+            MajorFormHirDecl::StaticMut(_) => todo!(),
+            MajorFormHirDecl::StaticVar(_) => todo!(),
         }
     }
 }
@@ -71,12 +72,18 @@ fn major_form_hir_decl(db: &::salsa::Db, path: MajorFormPath) -> Option<MajorFor
             Some(MajorFunctionRitchieHirDecl::from_syn(path, syn_decl, db).into())
         }
         FormSynDecl::Val(syn_decl) => Some(MajorValHirDecl::from_syn(path, syn_decl, db).into()),
+        // todo: reconsider?
         FormSynDecl::TypeAlias(_) => None,
+        // todo: reconsider?
+        FormSynDecl::TypeVar(_) => None,
         FormSynDecl::Compterm(syn_decl) => {
             Some(MajorComptermHirDecl::from_syn(path, syn_decl, db).into())
         }
-        FormSynDecl::Static(syn_decl) => {
-            Some(MajorStaticHirDecl::from_syn(path, syn_decl, db).into())
+        FormSynDecl::StaticMut(syn_decl) => {
+            Some(MajorStaticMutHirDecl::from_syn(path, syn_decl, db).into())
+        }
+        FormSynDecl::StaticVar(syn_decl) => {
+            Some(MajorStaticVarHirDecl::from_syn(path, syn_decl, db).into())
         }
     }
 }

@@ -3,7 +3,7 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Form(
-                FormSynNodePath(`mnist::Task`, `TypeAlias`, (0)),
+                FormSynNodePath(`mnist::Task`, `TypeVar`, (0)),
             ),
         ),
         None,
@@ -11,7 +11,7 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Form(
-                FormSynNodePath(`mnist::TASK`, `Static`, (0)),
+                FormSynNodePath(`mnist::TASK`, `StaticVar`, (0)),
             ),
         ),
         None,

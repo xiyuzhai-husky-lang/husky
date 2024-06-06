@@ -30,10 +30,12 @@ pub fn form_path_declarative_ty(
             val_path_declarative_ty(db, signature, dec_term_menu)
         }
         MajorFormDecTemplate::TypeAlias(_) => todo!(),
+        MajorFormDecTemplate::TypeVar(_) => todo!(),
         MajorFormDecTemplate::Compterm(signature) => {
             compterm_path_declarative_ty(db, signature, dec_term_menu)
         }
-        MajorFormDecTemplate::Static(_) => todo!(),
+        MajorFormDecTemplate::StaticMut(_) => todo!(),
+        MajorFormDecTemplate::StaticVar(_) => todo!(),
     }
 }
 
