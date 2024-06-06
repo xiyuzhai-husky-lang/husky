@@ -12,14 +12,14 @@ use husky_hir_ty::{
 use vec_like::VecSet;
 
 #[salsa::tracked(constructor = new)]
-pub(crate) struct HirDefnDependencies {
+pub(crate) struct HirDefnDeps {
     #[return_ref]
     pub(crate) item_paths_in_current_crate: VecSet<ItemPath>,
     #[return_ref]
     pub(crate) item_paths_in_other_local_crates: VecSet<ItemPath>,
 }
 
-pub(crate) struct HirDefnDependenciesBuilder<'a> {
+pub(crate) struct HirDefnDepsBuilder<'a> {
     item_path: ItemPath,
     crate_path: CratePath,
     item_paths_in_current_crate: VecSet<ItemPath>,
@@ -27,7 +27,7 @@ pub(crate) struct HirDefnDependenciesBuilder<'a> {
     db: &'a ::salsa::Db,
 }
 
-impl<'a> HirDefnDependenciesBuilder<'a> {
+impl<'a> HirDefnDepsBuilder<'a> {
     pub(crate) fn new(item_path: impl Into<ItemPath>, db: &'a ::salsa::Db) -> Self {
         let item_path = item_path.into();
         Self {
@@ -244,8 +244,8 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
         }
     }
 
-    pub(crate) fn finish(self) -> HirDefnDependencies {
-        HirDefnDependencies::new(
+    pub(crate) fn finish(self) -> HirDefnDeps {
+        HirDefnDeps::new(
             self.db,
             self.item_paths_in_current_crate,
             self.item_paths_in_other_local_crates,
@@ -275,22 +275,19 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
 }
 
 #[cfg(test)]
-pub(crate) fn module_hir_defn_dependencies(
-    db: &::salsa::Db,
-    module_path: ModulePath,
-) -> Vec<HirDefnDependencies> {
+pub(crate) fn module_hir_defn_deps(db: &::salsa::Db, module_path: ModulePath) -> Vec<HirDefnDeps> {
     module_item_paths(db, module_path)
         .iter()
-        .filter_map(|path| path.hir_defn(db)?.dependencies(db))
+        .filter_map(|path| path.hir_defn(db)?.deps(db))
         .collect()
 }
 
 #[test]
-fn module_hir_defn_dependencies_works() {
+fn module_hir_defn_deps_works() {
     DB::ast_rich_test_debug(
-        module_hir_defn_dependencies,
+        module_hir_defn_deps,
         &AstTestConfig::new(
-            "module_hir_defn_dependencies",
+            "module_hir_defn_deps",
             FileExtensionConfig::Markdown,
             TestDomainsConfig::HIR,
         ),

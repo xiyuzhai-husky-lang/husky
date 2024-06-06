@@ -56,14 +56,14 @@ impl TypeHirDefn {
         }
     }
 
-    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
+    pub(super) fn deps(self, db: &::salsa::Db) -> HirDefnDeps {
         match self {
-            TypeHirDefn::Enum(hir_defn) => hir_defn.dependencies(db),
-            TypeHirDefn::PropsStruct(hir_defn) => hir_defn.dependencies(db),
-            TypeHirDefn::TupleStruct(hir_defn) => hir_defn.dependencies(db),
-            TypeHirDefn::UnitStruct(hir_defn) => hir_defn.dependencies(db),
-            TypeHirDefn::Extern(hir_defn) => hir_defn.dependencies(db),
-            TypeHirDefn::Union(hir_defn) => hir_defn.dependencies(db),
+            TypeHirDefn::Enum(hir_defn) => hir_defn.deps(db),
+            TypeHirDefn::PropsStruct(hir_defn) => hir_defn.deps(db),
+            TypeHirDefn::TupleStruct(hir_defn) => hir_defn.deps(db),
+            TypeHirDefn::UnitStruct(hir_defn) => hir_defn.deps(db),
+            TypeHirDefn::Extern(hir_defn) => hir_defn.deps(db),
+            TypeHirDefn::Union(hir_defn) => hir_defn.deps(db),
         }
     }
 

@@ -82,14 +82,14 @@ impl HirDefn {
         }
     }
 
-    pub(crate) fn dependencies(self, db: &::salsa::Db) -> Option<HirDefnDependencies> {
+    pub(crate) fn deps(self, db: &::salsa::Db) -> Option<HirDefnDeps> {
         match self {
             HirDefn::Submodule(_) => None,
-            HirDefn::MajorItem(hir_defn) => Some(hir_defn.dependencies(db)),
+            HirDefn::MajorItem(hir_defn) => Some(hir_defn.deps(db)),
             // ask its parent
-            HirDefn::TypeVariant(hir_defn) => Some(hir_defn.dependencies(db)),
-            HirDefn::ImplBlock(hir_defn) => Some(hir_defn.dependencies(db)),
-            HirDefn::AssocItem(hir_defn) => Some(hir_defn.dependencies(db)),
+            HirDefn::TypeVariant(hir_defn) => Some(hir_defn.deps(db)),
+            HirDefn::ImplBlock(hir_defn) => Some(hir_defn.deps(db)),
+            HirDefn::AssocItem(hir_defn) => Some(hir_defn.deps(db)),
             HirDefn::Attr(_) => None,
         }
     }
