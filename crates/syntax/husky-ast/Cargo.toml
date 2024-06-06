@@ -44,6 +44,8 @@ husky-vfs = { workspace = true, features = ["test_utils"] }
 husky-term-prelude.workspace = true
 # lex
 husky-token = { path = "../../lex/husky-token", features = ["test_utils"] }
+# syntax
+husky-ast = { path = ".", features = ["test_utils"] }
 # utils
 husky-path-utils.workspace = true
 

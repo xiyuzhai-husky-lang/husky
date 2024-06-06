@@ -241,7 +241,7 @@ pub(crate) fn val_item_ki_reprs(
 #[test]
 fn val_item_ki_repr_works() {
     let _db = DB::default();
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         val_item_ki_reprs,
         &AstTestConfig::new(
             "val_item_ki_reprs",

@@ -27,7 +27,7 @@ pub(crate) fn ast_token_idx_range_sheet(
 
 #[test]
 fn ast_range_sheet_works() {
-    DB::token_expect_test_debug_with_db(
+    DB::token_rich_test_debug_with_db(
         |db, module_path: ModulePath| module_path.ast_token_idx_range_sheet(db),
         &TokenTestConfig::new(
             "ast_range_sheet",

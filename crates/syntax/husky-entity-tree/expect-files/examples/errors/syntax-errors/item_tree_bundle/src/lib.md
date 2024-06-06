@@ -2,7 +2,7 @@
 EntityTreeCrateBundle {
     sheets: [
         EntityTreeSheet {
-            module_path: `syntax_errors`,
+            module_path: ModulePath(`syntax_errors`),
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
                     ItemNodeEntry {
@@ -21,7 +21,7 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `syntax_errors`,
+                                    ModulePath(`syntax_errors`),
                                 ),
                                 ast_idx: 0,
                                 ident_token: IdentToken {
@@ -49,7 +49,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `ast`,
                         visibility: Scope::PubUnder(
-                            `syntax_errors`,
+                            ModulePath(`syntax_errors`),
                         ),
                     },
                     ItemNodeEntry {
@@ -68,7 +68,7 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `syntax_errors`,
+                                    ModulePath(`syntax_errors`),
                                 ),
                                 ast_idx: 1,
                                 ident_token: IdentToken {
@@ -96,7 +96,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `uses`,
                         visibility: Scope::PubUnder(
-                            `syntax_errors`,
+                            ModulePath(`syntax_errors`),
                         ),
                     },
                 ],
@@ -106,7 +106,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `ast`,
                         visible_scope: Scope::PubUnder(
-                            `syntax_errors`,
+                            ModulePath(`syntax_errors`),
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(`syntax_errors::ast),
@@ -115,7 +115,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `uses`,
                         visible_scope: Scope::PubUnder(
-                            `syntax_errors`,
+                            ModulePath(`syntax_errors`),
                         ),
                         symbol: EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(`syntax_errors::uses),
@@ -133,7 +133,7 @@ EntityTreeCrateBundle {
             errors: [],
         },
         EntityTreeSheet {
-            module_path: `syntax_errors::ast`,
+            module_path: ModulePath(`syntax_errors::ast`),
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
                     ItemNodeEntry {
@@ -156,7 +156,7 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `syntax_errors::ast`,
+                                    ModulePath(`syntax_errors::ast`),
                                 ),
                                 ast_idx: 2,
                                 ident_token: IdentToken {
@@ -191,7 +191,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `A`,
                         visibility: Scope::PubUnder(
-                            `syntax_errors::ast`,
+                            ModulePath(`syntax_errors::ast`),
                         ),
                     },
                 ],
@@ -201,7 +201,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `A`,
                         visible_scope: Scope::PubUnder(
-                            `syntax_errors::ast`,
+                            ModulePath(`syntax_errors::ast`),
                         ),
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
@@ -264,7 +264,7 @@ EntityTreeCrateBundle {
             errors: [],
         },
         EntityTreeSheet {
-            module_path: `syntax_errors::uses`,
+            module_path: ModulePath(`syntax_errors::uses`),
             major_item_node_table: MajorEntityNodeTable {
                 entries: [],
             },

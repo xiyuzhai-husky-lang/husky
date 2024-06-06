@@ -24,5 +24,6 @@ cargo check --tests
 
 # Run tests, handling failure and success with respective scripts
 UPDATE_EXPECT=1 cargo test --features "allow-print" -- --nocapture \
+  && cargo test \
   && scripts/play_update_expect_success_music.sh \
   || scripts/play_update_expect_failure_music.sh

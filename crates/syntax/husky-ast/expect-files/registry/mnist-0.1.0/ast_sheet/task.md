@@ -10,7 +10,7 @@ AstSheet {
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
                     visibility: Scope::PubUnder(
-                        `mnist`,
+                        ModulePath(`mnist`),
                     ),
                 },
                 state_after_visibility_expr: None,

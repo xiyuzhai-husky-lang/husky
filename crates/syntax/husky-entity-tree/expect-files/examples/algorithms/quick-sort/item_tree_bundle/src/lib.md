@@ -2,7 +2,7 @@
 EntityTreeCrateBundle {
     sheets: [
         EntityTreeSheet {
-            module_path: `quick_sort`,
+            module_path: ModulePath(`quick_sort`),
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
                     ItemNodeEntry {
@@ -54,7 +54,7 @@ EntityTreeCrateBundle {
                                     )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `quick_sort`,
+                                    ModulePath(`quick_sort`),
                                 ),
                                 ast_idx: 27,
                                 ident_token: IdentToken {
@@ -86,7 +86,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `quick_sort_aux`,
                         visibility: Scope::PubUnder(
-                            `quick_sort`,
+                            ModulePath(`quick_sort`),
                         ),
                     },
                     ItemNodeEntry {
@@ -98,7 +98,7 @@ EntityTreeCrateBundle {
                                     )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `quick_sort`,
+                                    ModulePath(`quick_sort`),
                                 ),
                                 ast_idx: 28,
                                 ident_token: IdentToken {
@@ -130,7 +130,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `partition`,
                         visibility: Scope::PubUnder(
-                            `quick_sort`,
+                            ModulePath(`quick_sort`),
                         ),
                     },
                     ItemNodeEntry {
@@ -142,7 +142,7 @@ EntityTreeCrateBundle {
                                     )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `quick_sort`,
+                                    ModulePath(`quick_sort`),
                                 ),
                                 ast_idx: 30,
                                 ident_token: IdentToken {
@@ -174,7 +174,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `quick_sort_works_for_integers`,
                         visibility: Scope::PubUnder(
-                            `quick_sort`,
+                            ModulePath(`quick_sort`),
                         ),
                     },
                     ItemNodeEntry {
@@ -186,7 +186,7 @@ EntityTreeCrateBundle {
                                     )`, (0)),
                                 ),
                                 visibility: Scope::PubUnder(
-                                    `quick_sort`,
+                                    ModulePath(`quick_sort`),
                                 ),
                                 ast_idx: 32,
                                 ident_token: IdentToken {
@@ -218,7 +218,7 @@ EntityTreeCrateBundle {
                         ),
                         ident: `quick_sort_works_for_strs`,
                         visibility: Scope::PubUnder(
-                            `quick_sort`,
+                            ModulePath(`quick_sort`),
                         ),
                     },
                 ],
@@ -239,7 +239,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `quick_sort_aux`,
                         visible_scope: Scope::PubUnder(
-                            `quick_sort`,
+                            ModulePath(`quick_sort`),
                         ),
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Form(
@@ -252,7 +252,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `partition`,
                         visible_scope: Scope::PubUnder(
-                            `quick_sort`,
+                            ModulePath(`quick_sort`),
                         ),
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Form(
@@ -265,7 +265,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `quick_sort_works_for_integers`,
                         visible_scope: Scope::PubUnder(
-                            `quick_sort`,
+                            ModulePath(`quick_sort`),
                         ),
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Form(
@@ -278,7 +278,7 @@ EntityTreeCrateBundle {
                     EntitySymbolEntry {
                         ident: `quick_sort_works_for_strs`,
                         visible_scope: Scope::PubUnder(
-                            `quick_sort`,
+                            ModulePath(`quick_sort`),
                         ),
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Form(

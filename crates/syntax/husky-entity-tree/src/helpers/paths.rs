@@ -91,7 +91,7 @@ pub fn module_item_paths(db: &::salsa::Db, module_path: ModulePath) -> Vec<ItemP
 
 #[test]
 fn module_item_paths_works() {
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         |db, module_path| module_item_paths(db, module_path),
         &AstTestConfig::new(
             "module_item_paths",
@@ -111,7 +111,7 @@ pub fn module_test_paths(db: &::salsa::Db, module_path: ModulePath) -> Vec<Major
 
 #[test]
 fn module_test_paths_works() {
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         |db, module_path| module_test_paths(db, module_path),
         &AstTestConfig::new(
             "module_test_paths",
@@ -132,7 +132,7 @@ pub fn crate_item_paths(db: &::salsa::Db, crate_path: CratePath) -> Vec<ItemPath
 
 #[test]
 fn crate_item_paths_works() {
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         |db, crate_path| crate_item_paths(db, crate_path),
         &AstTestConfig::new(
             "crate_item_paths",
@@ -152,7 +152,7 @@ pub fn crate_test_paths(db: &::salsa::Db, crate_path: CratePath) -> Vec<MajorFor
 
 #[test]
 fn crate_test_paths_works() {
-    DB::ast_expect_test_debug_with_db(
+    DB::ast_rich_test_debug_with_db(
         |db, crate_path| crate_test_paths(db, crate_path),
         &AstTestConfig::new(
             "crate_test_paths",
@@ -250,7 +250,7 @@ pub fn collect_module_paths(
 
 #[test]
 fn crate_module_paths_works() {
-    DB::vfs_expect_test_debug_with_db(
+    DB::vfs_rich_test_debug_with_db(
         |db, crate_path: CratePath| crate_module_paths(db, crate_path),
         &VfsTestConfig::new(
             "crate_module_paths",

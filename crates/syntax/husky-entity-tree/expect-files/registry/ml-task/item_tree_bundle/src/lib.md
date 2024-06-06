@@ -2,7 +2,7 @@
 EntityTreeCrateBundle {
     sheets: [
         EntityTreeSheet {
-            module_path: `ml_task`,
+            module_path: ModulePath(`ml_task`),
             major_item_node_table: MajorEntityNodeTable {
                 entries: [
                     ItemNodeEntry {

@@ -1,5 +1,5 @@
 ```rust
 [
-    `mnist`,
+    ModulePath(`mnist`),
 ]
 ```
