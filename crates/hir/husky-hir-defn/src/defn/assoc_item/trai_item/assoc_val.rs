@@ -31,10 +31,7 @@ impl TraitAssocValHirDefn {
 }
 
 #[salsa::tracked]
-fn trai_assoc_val_hir_defn_deps(
-    db: &::salsa::Db,
-    hir_defn: TraitAssocValHirDefn,
-) -> HirDefnDeps {
+fn trai_assoc_val_hir_defn_deps(db: &::salsa::Db, hir_defn: TraitAssocValHirDefn) -> HirDefnDeps {
     let mut builder = HirDefnDepsBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
     builder.add_item_path(hir_decl.path(db).trai_path(db));

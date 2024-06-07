@@ -49,10 +49,7 @@ impl MajorComptermHirDefn {
 }
 
 #[salsa::tracked]
-fn major_const_hir_defn_deps(
-    db: &::salsa::Db,
-    hir_defn: MajorComptermHirDefn,
-) -> HirDefnDeps {
+fn major_const_hir_defn_deps(db: &::salsa::Db, hir_defn: MajorComptermHirDefn) -> HirDefnDeps {
     let mut builder = HirDefnDepsBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
     builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));

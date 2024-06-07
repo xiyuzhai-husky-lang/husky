@@ -44,10 +44,7 @@ impl TypeImplBlockHirDefn {
 }
 
 #[salsa::tracked]
-fn ty_impl_block_deps(
-    db: &::salsa::Db,
-    hir_defn: TypeImplBlockHirDefn,
-) -> HirDefnDeps {
+fn ty_impl_block_deps(db: &::salsa::Db, hir_defn: TypeImplBlockHirDefn) -> HirDefnDeps {
     let mut builder = HirDefnDepsBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl();
     builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));

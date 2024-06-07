@@ -13,5 +13,8 @@ keywords.workspace = true
 
 [dependencies]
 
+[dev-dependencies]
+salsa.workspace = true
+
 [lints]
 workspace = true

@@ -39,10 +39,7 @@ impl TypeAssocValHirDefn {
 }
 
 #[salsa::tracked]
-fn ty_assoc_val_hir_defn_deps(
-    db: &::salsa::Db,
-    hir_defn: TypeAssocValHirDefn,
-) -> HirDefnDeps {
+fn ty_assoc_val_hir_defn_deps(db: &::salsa::Db, hir_defn: TypeAssocValHirDefn) -> HirDefnDeps {
     let mut builder = HirDefnDepsBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
     builder.add_item_path(hir_decl.path(db).impl_block(db));
