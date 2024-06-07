@@ -1,12 +1,12 @@
 pub mod defn;
-mod dependencies;
+mod deps;
 pub mod jar;
 #[cfg(test)]
 mod tests;
 pub mod version_stamp;
 
 use self::defn::*;
-use self::dependencies::*;
+use self::deps::*;
 use self::jar::HirDefnJar as Jar;
 #[cfg(test)]
 use self::tests::*;

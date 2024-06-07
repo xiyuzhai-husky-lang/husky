@@ -20,8 +20,8 @@ impl From<UnitStructHirDefn> for HirDefn {
 }
 
 impl UnitStructHirDefn {
-    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
-        unit_struct_hir_defn_dependencies(db, self)
+    pub(super) fn deps(self, db: &::salsa::Db) -> HirDefnDeps {
+        unit_struct_hir_defn_deps(db, self)
     }
 
     pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
@@ -30,11 +30,8 @@ impl UnitStructHirDefn {
 }
 
 #[salsa::tracked]
-fn unit_struct_hir_defn_dependencies(
-    db: &::salsa::Db,
-    hir_defn: UnitStructHirDefn,
-) -> HirDefnDependencies {
-    let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
+fn unit_struct_hir_defn_deps(db: &::salsa::Db, hir_defn: UnitStructHirDefn) -> HirDefnDeps {
+    let mut builder = HirDefnDepsBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
     builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));
     builder.finish()

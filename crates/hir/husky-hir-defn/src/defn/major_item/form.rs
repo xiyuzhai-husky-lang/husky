@@ -77,14 +77,14 @@ impl MajorFormHirDefn {
         }
     }
 
-    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
+    pub(super) fn deps(self, db: &::salsa::Db) -> HirDefnDeps {
         match self {
-            MajorFormHirDefn::Ritchie(slf) => slf.dependencies(db),
-            MajorFormHirDefn::Val(slf) => slf.dependencies(db),
-            MajorFormHirDefn::TypeAlias(slf) => slf.dependencies(db),
-            MajorFormHirDefn::Compterm(slf) => slf.dependencies(db),
-            MajorFormHirDefn::StaticMut(slf) => slf.dependencies(db),
-            MajorFormHirDefn::StaticVar(slf) => slf.dependencies(db),
+            MajorFormHirDefn::Ritchie(slf) => slf.deps(db),
+            MajorFormHirDefn::Val(slf) => slf.deps(db),
+            MajorFormHirDefn::TypeAlias(slf) => slf.deps(db),
+            MajorFormHirDefn::Compterm(slf) => slf.deps(db),
+            MajorFormHirDefn::StaticMut(slf) => slf.deps(db),
+            MajorFormHirDefn::StaticVar(slf) => slf.deps(db),
         }
     }
 

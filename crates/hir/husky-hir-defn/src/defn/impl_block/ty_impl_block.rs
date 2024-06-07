@@ -34,8 +34,8 @@ impl TypeImplBlockHirDefn {
         self.hir_decl.path(db)
     }
 
-    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
-        ty_impl_block_dependencies(db, self)
+    pub(super) fn deps(self, db: &::salsa::Db) -> HirDefnDeps {
+        ty_impl_block_deps(db, self)
     }
 
     pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
@@ -44,11 +44,8 @@ impl TypeImplBlockHirDefn {
 }
 
 #[salsa::tracked]
-fn ty_impl_block_dependencies(
-    db: &::salsa::Db,
-    hir_defn: TypeImplBlockHirDefn,
-) -> HirDefnDependencies {
-    let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
+fn ty_impl_block_deps(db: &::salsa::Db, hir_defn: TypeImplBlockHirDefn) -> HirDefnDeps {
+    let mut builder = HirDefnDepsBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl();
     builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));
     builder.add_hir_ty(hir_decl.self_ty(db));

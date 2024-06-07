@@ -53,15 +53,12 @@ impl<'a> HirDefnVersionStampSimpleBuilder<'a> {
         let db = self.db;
         for i in round_start..self.item_hir_defns_in_current_crate.len() {
             let hir_defn = self.item_hir_defns_in_current_crate[i];
-            let hir_defn_dependencies = hir_defn.dependencies(db).unwrap();
-            for &item_path in hir_defn_dependencies.item_paths_in_current_crate(db).iter() {
+            let hir_defn_deps = hir_defn.deps(db).unwrap();
+            for &item_path in hir_defn_deps.item_paths_in_current_crate(db).iter() {
                 self.item_hir_defns_in_current_crate
                     .insert(item_path.hir_defn(db).unwrap())
             }
-            for &item_path in hir_defn_dependencies
-                .item_paths_in_other_local_crates(db)
-                .iter()
-            {
+            for &item_path in hir_defn_deps.item_paths_in_other_local_crates(db).iter() {
                 self.item_hir_defn_version_stamps_in_other_local_crates
                     .insert(
                         item_path
