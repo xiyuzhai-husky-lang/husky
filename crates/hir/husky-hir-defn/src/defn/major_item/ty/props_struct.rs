@@ -30,10 +30,7 @@ impl PropsStructHirDefn {
 }
 
 #[salsa::tracked]
-fn props_struct_hir_defn_deps(
-    db: &::salsa::Db,
-    hir_defn: PropsStructHirDefn,
-) -> HirDefnDeps {
+fn props_struct_hir_defn_deps(db: &::salsa::Db, hir_defn: PropsStructHirDefn) -> HirDefnDeps {
     let mut builder = HirDefnDepsBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
     builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));

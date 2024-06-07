@@ -1,6 +1,10 @@
 pub mod state;
+#[cfg(test)]
+pub mod tests;
 
 use self::state::*;
+#[cfg(test)]
+use self::tests::Jar;
 
 pub trait IsPathIntegralContext: Sized {
     type Node: Eq + Copy;
@@ -12,7 +16,10 @@ pub trait IsPathIntegralContext: Sized {
     /// cached.
     fn value(&self, node: Self::Node) -> &Self::Value;
     /// expected to be cached
-    fn weighted_reaches(&self, node: Self::Node) -> &[(Self::Node, Self::Weight)];
+    fn weighted_reaches(
+        &self,
+        node: Self::Node,
+    ) -> impl IntoIterator<Item = (Self::Node, &Self::Weight)>;
     fn calc_full_reaches(&self) -> Vec<Self::Node> {
         let mut cache = FullReachCache::new(self);
         cache.populate_util_stable();
@@ -26,7 +33,7 @@ pub trait IsPathIntegralContext: Sized {
     fn full_reaches(&self, node: Self::Node) -> &[Self::Node];
     fn integrate<'a>(
         &self,
-        weighted_values: impl Iterator<Item = (&'a Self::Value, Self::Weight)>,
+        weighted_values: impl IntoIterator<Item = (&'a Self::Value, Self::Weight)>,
     ) -> Self::Value
     where
         Self::Value: 'a;
@@ -89,7 +96,7 @@ impl<'a, C: IsPathIntegralContext> FullReachCache<'a, C> {
 
     fn populate(&mut self, source_index: usize) {
         let node = self.full_reaches[source_index];
-        for &(reach, _) in self.ctx.weighted_reaches(node) {
+        for (reach, _) in self.ctx.weighted_reaches(node) {
             if !self.full_reaches.contains(&reach) {
                 self.full_reaches.push(reach)
             }
@@ -149,7 +156,7 @@ impl<'a, C: IsPathIntegralContext> PathIntegralCache<'a, C> {
     fn propagate(&mut self, source_index: usize) {
         let node = self.weighted_values[source_index].0;
         let reaches = self.ctx.weighted_reaches(node);
-        for &(reach, ref reach_weight) in reaches {
+        for (reach, reach_weight) in reaches {
             // avoid self referencing
             if reach != self.ctx.center() {
                 self.propagate_reach(source_index, reach, reach_weight)
