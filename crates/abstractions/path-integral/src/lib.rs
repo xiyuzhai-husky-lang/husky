@@ -1,3 +1,7 @@
+pub mod state;
+
+use self::state::*;
+
 pub trait IsPathIntegralContext: Sized {
     type Node: Eq + Copy;
     type Weight: Eq;
@@ -20,19 +24,16 @@ pub trait IsPathIntegralContext: Sized {
     ///
     /// the convention is that the first element is equal to node itself
     fn full_reaches(&self, node: Self::Node) -> &[Self::Node];
-    fn integrate(
+    fn integrate<'a>(
         &self,
-        weighted_values: &[(Self::Node, Self::Value, bool, Self::Weight)],
-    ) -> Self::Value;
+        weighted_values: impl Iterator<Item = (&'a Self::Value, Self::Weight)>,
+    ) -> Self::Value
+    where
+        Self::Value: 'a;
     /// expected to be a field access
     fn center(&self) -> Self::Node;
     /// final
-    fn calc_integrated_value(
-        &self,
-    ) -> (
-        Self::Value,
-        Vec<(Self::Node, Self::Value, bool, Self::Weight)>,
-    ) {
+    fn calc_integrated_value(&self) -> Self::Value {
         let mut cache = PathIntegralCache::new(self);
         cache.propagate_util_stable();
         cache.integrate()
@@ -44,9 +45,9 @@ pub trait IsPathIntegralContext: Sized {
     /// otherwise, equal to `value`
     fn smart_value(&self, node: Self::Node) -> (&Self::Value, bool) {
         if self.full_reaches(node).contains(&self.center()) {
-            (self.value(node), false)
+            (self.value(node), true)
         } else {
-            (self.integrated_value(node), true)
+            (self.integrated_value(node), false)
         }
     }
 }
@@ -103,8 +104,8 @@ impl<'a, C: IsPathIntegralContext> FullReachCache<'a, C> {
 
 struct PathIntegralCache<'a, C: IsPathIntegralContext> {
     ctx: &'a C,
-    weighted_values: Vec<(C::Node, C::Value, bool, C::Weight)>,
-    changed_flag: bool,
+    weighted_values: Vec<(C::Node, &'a C::Value, TrackedWeight<C>)>,
+    global_state: GlobalState,
 }
 
 /// # constructor
@@ -115,23 +116,22 @@ impl<'a, C: IsPathIntegralContext> PathIntegralCache<'a, C> {
             ctx,
             weighted_values: vec![(
                 center,
-                ctx.value(center).clone(),
-                false,
-                ctx.identity_weight(),
+                ctx.value(center),
+                TrackedWeight::new(ctx.identity_weight(), true),
             )],
-            changed_flag: false,
+            global_state: Default::default(),
         }
     }
 }
 
 /// actions
 
-impl<'a, P: IsPathIntegralContext> PathIntegralCache<'a, P> {
+impl<'a, C: IsPathIntegralContext> PathIntegralCache<'a, C> {
     fn propagate_util_stable(&mut self) {
         loop {
-            self.changed_flag = false;
+            self.global_state = Default::default();
             self.propagate_from_all_nonterminal_nodes();
-            if !self.changed_flag {
+            if !self.global_state.change_flag() {
                 break;
             }
         }
@@ -140,7 +140,7 @@ impl<'a, P: IsPathIntegralContext> PathIntegralCache<'a, P> {
     fn propagate_from_all_nonterminal_nodes(&mut self) {
         let len = self.weighted_values.len();
         for source_index in 0..len {
-            if !self.weighted_values[source_index].2 {
+            if self.weighted_values[source_index].2.try_propagate() {
                 self.propagate(source_index);
             }
         }
@@ -157,31 +157,36 @@ impl<'a, P: IsPathIntegralContext> PathIntegralCache<'a, P> {
         }
     }
 
-    fn propagate_reach(&mut self, source_index: usize, reach: P::Node, reach_weight: &P::Weight) {
-        let weight = &self.weighted_values[source_index].3;
-        let new_weight = self.ctx.compose_weights(weight, reach_weight);
+    fn propagate_reach(&mut self, source_index: usize, reach: C::Node, reach_weight: &C::Weight) {
+        let tracked_weight = &self.weighted_values[source_index].2;
+        let new_weight = self
+            .ctx
+            .compose_weights(tracked_weight.weight(), reach_weight);
         match self
             .weighted_values
             .iter_mut()
             .find(|&&mut (node, ..)| node == reach)
         {
-            Some((_, _, _, old_weight)) => {
-                let new_weight = self.ctx.merge_weights(old_weight, new_weight);
-                if new_weight != *old_weight {
-                    self.changed_flag = true;
-                }
-                *old_weight = new_weight
+            Some((_, _, tracked_weight)) => {
+                tracked_weight.merge(new_weight, self.ctx, &mut self.global_state)
             }
             None => {
-                let (value, terminal) = self.ctx.smart_value(reach);
-                self.weighted_values
-                    .push((reach, value.clone(), terminal, new_weight));
+                let (value, is_nonterminal) = self.ctx.smart_value(reach);
+                self.weighted_values.push((
+                    reach,
+                    value,
+                    TrackedWeight::new(new_weight, is_nonterminal),
+                ));
             }
         }
     }
 
-    fn integrate(self) -> (P::Value, Vec<(P::Node, P::Value, bool, P::Weight)>) {
-        let integrated_value = self.ctx.integrate(&self.weighted_values);
-        (integrated_value, self.weighted_values)
+    fn integrate(self) -> C::Value {
+        let weighted_values = self
+            .weighted_values
+            .into_iter()
+            .map(|(_, value, tracked_weight)| (value, tracked_weight.finish()));
+        let integrated_value = self.ctx.integrate(weighted_values);
+        integrated_value
     }
 }
