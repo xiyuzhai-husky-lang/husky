@@ -3815,6 +3815,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "graph-recursion"
+version = "0.1.0"
+dependencies = [
+ "salsa",
+ "vec-like",
+]
+
+[[package]]
 name = "group"
 version = "0.13.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"

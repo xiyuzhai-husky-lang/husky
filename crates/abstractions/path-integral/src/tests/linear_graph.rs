@@ -57,7 +57,7 @@ impl<'db> IsPathIntegralContext for LinearGraphContext<'db> {
     where
         Self::Value: 'a,
     {
-        todo!()
+        *weighted_values.into_iter().map(|(v, ())| v).max().unwrap()
     }
 
     fn center(&self) -> Self::Node {
@@ -65,7 +65,7 @@ impl<'db> IsPathIntegralContext for LinearGraphContext<'db> {
     }
 
     fn integrated_value(&self, node: Self::Node) -> &Self::Value {
-        todo!()
+        linear_graph_integrated_value(self.db, node)
     }
 }
 
@@ -77,6 +77,16 @@ pub fn linear_graph_full_reaches(db: &::salsa::Db, node: LinearGraphNode) -> Vec
         center: node,
     };
     ctx.calc_full_reaches()
+}
+
+#[salsa::tracked(return_ref)]
+pub fn linear_graph_integrated_value(db: &::salsa::Db, node: LinearGraphNode) -> usize {
+    let ctx = LinearGraphContext {
+        db,
+        len: node.len(db),
+        center: node,
+    };
+    ctx.calc_integrated_value()
 }
 
 #[test]
@@ -96,4 +106,21 @@ fn linear_graph_full_reaches_works() {
     t(2, 1, &[1], db);
     t(3, 0, &[0, 1, 2], db);
     t(4, 0, &[0, 1, 2, 3], db);
+}
+
+#[test]
+fn linear_graph_integrated_value_works() {
+    #[track_caller]
+    fn t(len: usize, id: usize, expected: usize, db: &::salsa::Db) {
+        let integrated_value =
+            *linear_graph_integrated_value(db, LinearGraphNode::new(db, id, len));
+        assert_eq!(integrated_value, expected);
+    }
+
+    let db = &DB::default();
+    t(1, 0, 0, db);
+    t(2, 0, 1, db);
+    t(2, 1, 1, db);
+    t(3, 0, 2, db);
+    t(4, 0, 3, db);
 }
