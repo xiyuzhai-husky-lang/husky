@@ -73,12 +73,12 @@ impl TraitForTypeItemHirDefn {
         }
     }
 
-    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
+    pub(super) fn deps(self, db: &::salsa::Db) -> HirDefnDeps {
         match self {
-            TraitForTypeItemHirDefn::AssocRitchie(hir_defn) => hir_defn.dependencies(db),
-            TraitForTypeItemHirDefn::MethodFn(hir_defn) => hir_defn.dependencies(db),
-            TraitForTypeItemHirDefn::AssocType(hir_defn) => hir_defn.dependencies(db),
-            TraitForTypeItemHirDefn::AssocVal(hir_defn) => hir_defn.dependencies(db),
+            TraitForTypeItemHirDefn::AssocRitchie(hir_defn) => hir_defn.deps(db),
+            TraitForTypeItemHirDefn::MethodFn(hir_defn) => hir_defn.deps(db),
+            TraitForTypeItemHirDefn::AssocType(hir_defn) => hir_defn.deps(db),
+            TraitForTypeItemHirDefn::AssocVal(hir_defn) => hir_defn.deps(db),
         }
     }
 

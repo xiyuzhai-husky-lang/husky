@@ -49,11 +49,11 @@ impl MajorItemHirDefn {
         }
     }
 
-    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
+    pub(super) fn deps(self, db: &::salsa::Db) -> HirDefnDeps {
         match self {
-            MajorItemHirDefn::Type(hir_defn) => hir_defn.dependencies(db),
-            MajorItemHirDefn::Trait(hir_defn) => hir_defn.dependencies(db),
-            MajorItemHirDefn::Form(hir_defn) => hir_defn.dependencies(db),
+            MajorItemHirDefn::Type(hir_defn) => hir_defn.deps(db),
+            MajorItemHirDefn::Trait(hir_defn) => hir_defn.deps(db),
+            MajorItemHirDefn::Form(hir_defn) => hir_defn.deps(db),
         }
     }
 

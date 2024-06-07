@@ -39,8 +39,8 @@ impl MajorComptermHirDefn {
         self.hir_expr_body_and_region(db).map(|v| v.1)
     }
 
-    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
-        major_const_hir_defn_dependencies(db, self)
+    pub(super) fn deps(self, db: &::salsa::Db) -> HirDefnDeps {
+        major_const_hir_defn_deps(db, self)
     }
 
     pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
@@ -49,11 +49,8 @@ impl MajorComptermHirDefn {
 }
 
 #[salsa::tracked]
-fn major_const_hir_defn_dependencies(
-    db: &::salsa::Db,
-    hir_defn: MajorComptermHirDefn,
-) -> HirDefnDependencies {
-    let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
+fn major_const_hir_defn_deps(db: &::salsa::Db, hir_defn: MajorComptermHirDefn) -> HirDefnDeps {
+    let mut builder = HirDefnDepsBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
     builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));
     builder.add_hir_ty(hir_decl.return_ty(db));

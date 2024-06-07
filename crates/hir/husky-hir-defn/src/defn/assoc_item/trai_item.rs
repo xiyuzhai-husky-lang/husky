@@ -39,12 +39,12 @@ impl TraitItemHirDefn {
         todo!()
     }
 
-    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
+    pub(super) fn deps(self, db: &::salsa::Db) -> HirDefnDeps {
         match self {
-            TraitItemHirDefn::AssocRitchie(hir_defn) => hir_defn.dependencies(db),
-            TraitItemHirDefn::MethodFn(hir_defn) => hir_defn.dependencies(db),
-            TraitItemHirDefn::AssocType(hir_defn) => hir_defn.dependencies(db),
-            TraitItemHirDefn::AssocVal(hir_defn) => hir_defn.dependencies(db),
+            TraitItemHirDefn::AssocRitchie(hir_defn) => hir_defn.deps(db),
+            TraitItemHirDefn::MethodFn(hir_defn) => hir_defn.deps(db),
+            TraitItemHirDefn::AssocType(hir_defn) => hir_defn.deps(db),
+            TraitItemHirDefn::AssocVal(hir_defn) => hir_defn.deps(db),
         }
     }
 

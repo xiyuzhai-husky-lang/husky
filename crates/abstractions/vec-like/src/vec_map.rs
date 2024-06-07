@@ -201,7 +201,7 @@ where
         self.entries.iter().find(|entry| entry.key() == key)
     }
 
-    pub fn get_entry_mut(&mut self, key: K) -> Option<&mut Entry>
+    pub unsafe fn get_entry_mut(&mut self, key: K) -> Option<&mut Entry>
     where
         K: Copy,
     {
@@ -478,11 +478,7 @@ where
     }
 }
 
-impl<K, V> Deref for VecMap<V>
-where
-    K: PartialEq + Eq + Copy + std::fmt::Debug,
-    V: AsVecMapEntry<K = K>,
-{
+impl<V> Deref for VecMap<V> {
     type Target = [V];
 
     fn deref(&self) -> &Self::Target {

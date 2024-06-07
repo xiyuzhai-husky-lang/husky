@@ -85,13 +85,13 @@ impl TypeItemHirDefn {
         }
     }
 
-    pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
+    pub(super) fn deps(self, db: &::salsa::Db) -> HirDefnDeps {
         match self {
-            TypeItemHirDefn::AssocRitchie(hir_defn) => hir_defn.dependencies(db),
-            TypeItemHirDefn::MethodFn(hir_defn) => hir_defn.dependencies(db),
-            TypeItemHirDefn::AssocType(hir_defn) => hir_defn.dependencies(db),
-            TypeItemHirDefn::AssocVal(hir_defn) => hir_defn.dependencies(db),
-            TypeItemHirDefn::MemoizedField(hir_defn) => hir_defn.dependencies(db),
+            TypeItemHirDefn::AssocRitchie(hir_defn) => hir_defn.deps(db),
+            TypeItemHirDefn::MethodFn(hir_defn) => hir_defn.deps(db),
+            TypeItemHirDefn::AssocType(hir_defn) => hir_defn.deps(db),
+            TypeItemHirDefn::AssocVal(hir_defn) => hir_defn.deps(db),
+            TypeItemHirDefn::MemoizedField(hir_defn) => hir_defn.deps(db),
         }
     }
 
