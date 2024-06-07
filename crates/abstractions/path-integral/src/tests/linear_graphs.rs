@@ -3,14 +3,14 @@ use super::*;
 pub(crate) struct LinearGraphContext<'a> {
     db: &'a ::salsa::Db,
     len: usize,
+    center: LinearGraphNode,
 }
-
-const LEN: usize = 10;
 
 #[salsa::interned]
 pub struct LinearGraphNode {
     #[return_ref]
     id: usize,
+    len: usize,
 }
 
 impl<'db> IsPathIntegralContext for LinearGraphContext<'db> {
@@ -40,7 +40,7 @@ impl<'db> IsPathIntegralContext for LinearGraphContext<'db> {
         let db = self.db;
         let id = *node.id(db);
         if id + 1 < self.len {
-            vec![(LinearGraphNode::new(db, id + 1), &())]
+            vec![(LinearGraphNode::new(db, id + 1, self.len), &())]
         } else {
             vec![]
         }
@@ -61,7 +61,7 @@ impl<'db> IsPathIntegralContext for LinearGraphContext<'db> {
     }
 
     fn center(&self) -> Self::Node {
-        todo!()
+        self.center
     }
 
     fn integrated_value(&self, node: Self::Node) -> &Self::Value {
@@ -71,12 +71,26 @@ impl<'db> IsPathIntegralContext for LinearGraphContext<'db> {
 
 #[salsa::tracked(return_ref)]
 pub fn linear_graph_full_reaches(db: &::salsa::Db, node: LinearGraphNode) -> Vec<LinearGraphNode> {
-    let ctx = LinearGraphContext { db, len: LEN };
-    ctx.calc_full_reaches();
-    todo!()
+    let ctx = LinearGraphContext {
+        db,
+        len: node.len(db),
+        center: node,
+    };
+    ctx.calc_full_reaches()
 }
 
 #[test]
 fn linear_graph_full_reaches_works() {
-    fn t(len: usize) {}
+    #[track_caller]
+    fn t(len: usize, id: usize, expected: &[usize], db: &::salsa::Db) {
+        let full_reaches = linear_graph_full_reaches(db, LinearGraphNode::new(db, id, len))
+            .iter()
+            .map(|reach| *reach.id(db))
+            .collect::<Vec<_>>();
+        assert_eq!(full_reaches, expected);
+    }
+
+    let db = &DB::default();
+    t(1, 0, &[0], db);
+    t(2, 0, &[0, 1], db);
 }
