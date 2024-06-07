@@ -93,4 +93,7 @@ fn linear_graph_full_reaches_works() {
     let db = &DB::default();
     t(1, 0, &[0], db);
     t(2, 0, &[0, 1], db);
+    t(2, 1, &[1], db);
+    t(3, 0, &[0, 1, 2], db);
+    t(4, 0, &[0, 1, 2, 3], db);
 }

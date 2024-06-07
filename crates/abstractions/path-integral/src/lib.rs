@@ -78,12 +78,14 @@ impl<'a, C: IsPathIntegralContext> FullReachCache<'a, C> {
 
 impl<'a, C: IsPathIntegralContext> FullReachCache<'a, C> {
     fn populate_util_stable(&mut self) {
+        let mut prev_len = 0;
         loop {
             let len = self.full_reaches.len();
-            self.populate_from_new_nodes(len);
+            self.populate_from_new_nodes(prev_len);
             if self.full_reaches.len() == len {
                 break;
             }
+            prev_len = len;
         }
     }
 
