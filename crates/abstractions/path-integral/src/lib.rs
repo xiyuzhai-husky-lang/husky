@@ -89,7 +89,7 @@ impl<'a, C: IsPathIntegralContext> FullReachCache<'a, C> {
 
     fn populate_from_new_nodes(&mut self, prev_len: usize) {
         let len = self.full_reaches.len();
-        for source_index in 0..len {
+        for source_index in prev_len..len {
             self.populate(source_index);
         }
     }
@@ -101,7 +101,6 @@ impl<'a, C: IsPathIntegralContext> FullReachCache<'a, C> {
                 self.full_reaches.push(reach)
             }
         }
-        todo!()
     }
 
     fn finish(self) -> Vec<C::Node> {
