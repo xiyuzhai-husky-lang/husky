@@ -482,7 +482,7 @@ where
 
 impl<K, E, const N: usize> std::ops::Index<K> for OrderedSmallVecMap<E, N>
 where
-    K: PartialEq + Eq + Copy + std::fmt::Debug,
+    K: Eq + Copy,
     E: AsVecMapEntry<K = K>,
     [E; N]: Array<Item = E>,
 {

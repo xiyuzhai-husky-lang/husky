@@ -9,7 +9,7 @@ use self::tests::Jar;
 pub trait IsPathIntegralContext: Sized {
     type Node: Eq + Copy;
     type Weight: Eq;
-    type Value: Clone;
+    type Value;
     fn identity_weight(&self) -> Self::Weight;
     fn compose_weights(&self, a: &Self::Weight, b: &Self::Weight) -> Self::Weight;
     fn merge_weights(&self, a: &Self::Weight, b: Self::Weight) -> Self::Weight;
