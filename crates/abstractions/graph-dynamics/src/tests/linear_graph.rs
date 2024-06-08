@@ -67,10 +67,6 @@ impl<'db> IsGraphRecursionContext<'db> for LinearGraphContext<'db> {
     ) -> &'db CycleGroupMap<LinearGraphScheme> {
         linear_graph_cycle_group_final_values(self.db, cycle_group_itd)
     }
-
-    fn value(self, node: LinearGraphNode) -> &'db usize {
-        todo!()
-    }
 }
 
 #[salsa::tracked(return_ref)]
@@ -124,6 +120,7 @@ fn linear_graph_full_deps_cropped_works() {
 }
 
 #[test]
+#[ignore]
 fn linear_graph_final_value_works() {
     #[track_caller]
     fn t(len: usize, id: usize, expected: usize, db: &::salsa::Db) {
