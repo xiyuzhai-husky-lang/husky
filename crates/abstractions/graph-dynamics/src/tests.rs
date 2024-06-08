@@ -7,8 +7,8 @@ use crate::cycle_group::{CycleGroup, CycleGroupMap};
 pub struct Jar(
     self::linear_graph::LinearGraphNode,
     self::linear_graph::LinearGraphCycleGroupItd,
-    self::linear_graph::linear_graph_full_deps,
-    self::linear_graph::linear_graph_cycle_group_recursion_values,
+    self::linear_graph::linear_graph_full_deps_cropped,
+    self::linear_graph::linear_graph_cycle_group_final_values,
 );
 
 #[salsa::db(Jar)]

@@ -51,7 +51,7 @@ impl<'db, C: IsGraphRecursionContext<'db>> FullDepsCroppedCache<'db, C> {
 
     fn populate(&mut self, source_index: usize) {
         let node = self.full_deps_cropped[source_index];
-        for &dep in self.ctx.deps_cropped(node) {
+        for dep in self.ctx.deps_cropped(node) {
             if !self.full_deps_cropped.contains(&dep) {
                 self.full_deps_cropped.push(dep)
             }

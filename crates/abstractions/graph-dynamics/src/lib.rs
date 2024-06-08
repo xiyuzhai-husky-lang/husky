@@ -1,3 +1,4 @@
+#![warn(type_alias_bounds)]
 #![feature(generic_const_exprs)]
 pub mod context;
 pub mod cycle_group;

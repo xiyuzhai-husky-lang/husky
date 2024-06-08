@@ -25,15 +25,21 @@ impl<'db> IsGraphRecursionScheme for LinearGraphScheme {
 impl<'db> IsGraphRecursionContext<'db> for LinearGraphContext<'db> {
     type Scheme = LinearGraphScheme;
 
-    fn deps_cropped(self, node: LinearGraphNode) -> &'db [LinearGraphNode] {
-        todo!()
+    fn deps_cropped(self, node: LinearGraphNode) -> impl IntoIterator<Item = LinearGraphNode> {
+        let db = self.db;
+        let id = *node.id(db);
+        if id + 1 < self.len {
+            vec![LinearGraphNode::new(db, id + 1, self.len)]
+        } else {
+            vec![]
+        }
     }
 
     fn full_deps_cropped(self, node: LinearGraphNode) -> &'db [LinearGraphNode] {
         todo!()
     }
 
-    fn cycle_group(self, node: LinearGraphNode) -> LinearGraphCycleGroupItd {
+    fn cycle_group_itd(self, node: LinearGraphNode) -> LinearGraphCycleGroupItd {
         todo!()
     }
 
@@ -41,19 +47,25 @@ impl<'db> IsGraphRecursionContext<'db> for LinearGraphContext<'db> {
         todo!()
     }
 
-    fn calc_value_step(
+    fn updated_value(
         self,
         node: LinearGraphNode,
-        cycle_group_map: &'db crate::cycle_group::CycleGroupMap<LinearGraphScheme>,
+        query: impl Fn(LinearGraphNode) -> usize,
     ) -> usize {
-        todo!()
+        // in our case, deps is equal to deps_cropped
+        self.deps_cropped(node)
+            .into_iter()
+            .map(&query)
+            .chain([query(node)])
+            .max()
+            .expect("impossible to be none because of chaining")
     }
 
     fn cycle_group_values(
         self,
         cycle_group_itd: LinearGraphCycleGroupItd,
     ) -> &'db CycleGroupMap<LinearGraphScheme> {
-        linear_graph_cycle_group_recursion_values(self.db, cycle_group_itd)
+        linear_graph_cycle_group_final_values(self.db, cycle_group_itd)
     }
 
     fn value(self, node: LinearGraphNode) -> &'db usize {
@@ -62,7 +74,10 @@ impl<'db> IsGraphRecursionContext<'db> for LinearGraphContext<'db> {
 }
 
 #[salsa::tracked(return_ref)]
-pub fn linear_graph_full_deps(db: &::salsa::Db, node: LinearGraphNode) -> Vec<LinearGraphNode> {
+pub fn linear_graph_full_deps_cropped(
+    db: &::salsa::Db,
+    node: LinearGraphNode,
+) -> Vec<LinearGraphNode> {
     let ctx = LinearGraphContext {
         db,
         len: node.len(db),
@@ -76,7 +91,7 @@ pub struct LinearGraphCycleGroupItd {
 }
 
 #[salsa::tracked(return_ref)]
-pub fn linear_graph_cycle_group_recursion_values(
+pub fn linear_graph_cycle_group_final_values(
     db: &::salsa::Db,
     cycle_group_itd: LinearGraphCycleGroupItd,
 ) -> CycleGroupMap<LinearGraphScheme> {
@@ -90,10 +105,10 @@ pub fn linear_graph_cycle_group_recursion_values(
 }
 
 #[test]
-fn linear_graph_full_reaches_works() {
+fn linear_graph_full_deps_cropped_works() {
     #[track_caller]
     fn t(len: usize, id: usize, expected: &[usize], db: &::salsa::Db) {
-        let full_reaches = linear_graph_full_deps(db, LinearGraphNode::new(db, id, len))
+        let full_reaches = linear_graph_full_deps_cropped(db, LinearGraphNode::new(db, id, len))
             .iter()
             .map(|reach| *reach.id(db))
             .collect::<Vec<_>>();
@@ -109,7 +124,7 @@ fn linear_graph_full_reaches_works() {
 }
 
 #[test]
-fn linear_graph_integrated_value_works() {
+fn linear_graph_final_value_works() {
     #[track_caller]
     fn t(len: usize, id: usize, expected: usize, db: &::salsa::Db) {
         let ctx = LinearGraphContext { db, len };

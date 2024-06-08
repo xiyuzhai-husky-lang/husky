@@ -96,6 +96,17 @@ where
     nodes: OrderedSmallVecMap<(S::Node, S::Value), { S::CYCLE_GROUP_N }>,
 }
 
+impl<S: IsGraphRecursionScheme> std::ops::Deref for CycleGroupMap<S>
+where
+    [(); S::CYCLE_GROUP_N]:,
+{
+    type Target = OrderedSmallVecMap<(S::Node, S::Value), { S::CYCLE_GROUP_N }>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.nodes
+    }
+}
+
 impl<S: IsGraphRecursionScheme> std::fmt::Debug for CycleGroupMap<S>
 where
     [(); S::CYCLE_GROUP_N]:,

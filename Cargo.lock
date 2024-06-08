@@ -3815,7 +3815,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "graph-recursion"
+name = "graph-dynamics"
 version = "0.1.0"
 dependencies = [
  "salsa",
@@ -4085,7 +4085,7 @@ dependencies = [
  "husky-toml-ast",
  "husky-toml-token",
  "husky-vfs",
- "itertools 0.12.1",
+ "itertools 0.13.0",
  "lsp-server",
  "lsp-types 0.95.0",
  "rustc-hash",
@@ -7318,6 +7318,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "itertools"
+version = "0.13.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "413ee7dfc52ee1a4949ceeb7dbc8a33f2d6c088194d9f922fb8318faf1f01186"
+dependencies = [
+ "either",
+]
+
+[[package]]
 name = "itoa"
 version = "1.0.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -7777,9 +7786,9 @@ dependencies = [
 
 [[package]]
 name = "measureme"
-version = "11.0.1"
+version = "12.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dfa4a40f09af7aa6faef38285402a78847d0d72bf8827006cd2a332e1e6e4a8d"
+checksum = "3ed2d26a61b68ba37bf203340b6b6addf4da2c2e7cfb0cff700792088d69ebc9"
 dependencies = [
  "log",
  "memmap2 0.2.3",
