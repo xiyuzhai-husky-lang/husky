@@ -1,3 +1,5 @@
+use propagate::{PropagationResult, PropagationResultRef};
+
 use super::*;
 
 #[derive(Clone, Copy)]
@@ -20,6 +22,8 @@ impl<'db> IsGraphRecursionScheme for LinearGraphScheme {
     type Value = usize;
     const CYCLE_GROUP_N: usize = 2;
     type CycleGroupItd = LinearGraphCycleGroupItd;
+
+    const MAX_ITERATION: usize = 1000;
 }
 
 impl<'db> IsGraphRecursionContext<'db> for LinearGraphContext<'db> {
@@ -44,16 +48,17 @@ impl<'db> IsGraphRecursionContext<'db> for LinearGraphContext<'db> {
     }
 
     fn initial_value(self, node: LinearGraphNode) -> usize {
-        todo!()
+        *node.id(self.db)
     }
 
-    fn updated_value(
+    fn updated_value<'a>(
         self,
         node: LinearGraphNode,
-        query: impl Fn(LinearGraphNode) -> usize,
+        query: impl Fn(LinearGraphNode) -> &'a usize,
     ) -> usize {
         // in our case, deps is equal to deps_cropped
-        self.deps_cropped(node)
+        *self
+            .deps_cropped(node)
             .into_iter()
             .map(&query)
             .chain([query(node)])
@@ -64,8 +69,8 @@ impl<'db> IsGraphRecursionContext<'db> for LinearGraphContext<'db> {
     fn cycle_group_values(
         self,
         cycle_group_itd: LinearGraphCycleGroupItd,
-    ) -> &'db CycleGroupMap<LinearGraphScheme> {
-        linear_graph_cycle_group_final_values(self.db, cycle_group_itd)
+    ) -> PropagationResultRef<'db, &'db CycleGroupMap<LinearGraphScheme>> {
+        linear_graph_cycle_group_final_values(self.db, cycle_group_itd).as_ref()
     }
 }
 
@@ -92,7 +97,7 @@ pub struct LinearGraphCycleGroupItd {
 pub fn linear_graph_cycle_group_final_values(
     db: &::salsa::Db,
     cycle_group_itd: LinearGraphCycleGroupItd,
-) -> CycleGroupMap<LinearGraphScheme> {
+) -> PropagationResult<CycleGroupMap<LinearGraphScheme>> {
     let ctx = LinearGraphContext {
         db,
         len: cycle_group_itd.len(db),
@@ -135,7 +140,7 @@ fn linear_graph_final_value_works() {
     #[track_caller]
     fn t(len: usize, id: usize, expected: usize, db: &::salsa::Db) {
         let ctx = LinearGraphContext { db, len };
-        let recursion_value = *ctx.value(LinearGraphNode::new(db, id, len));
+        let recursion_value = *ctx.value(LinearGraphNode::new(db, id, len)).unwrap();
         assert_eq!(recursion_value, expected);
     }
 

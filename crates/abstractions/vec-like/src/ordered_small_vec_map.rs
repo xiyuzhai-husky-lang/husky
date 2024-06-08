@@ -154,6 +154,12 @@ where
         self.entries.clear()
     }
 
+    pub fn new_one_element_map(entry: E) -> Self {
+        Self {
+            entries: smallvec![entry],
+        }
+    }
+
     pub fn take_data(self) -> SmallVec<[E; N]> {
         self.entries
     }
@@ -381,6 +387,10 @@ where
                 })
                 .collect(),
         }
+    }
+
+    pub unsafe fn entries_mut(&mut self) -> &mut SmallVec<[E; N]> {
+        &mut self.entries
     }
 }
 

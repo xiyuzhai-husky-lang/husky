@@ -6,23 +6,25 @@ mod tests;
 pub use error::*;
 
 use self::engine::*;
-
-pub trait Graph {
+use sealed::sealed;
+pub trait IsGraph: std::fmt::Debug {
     type Value: Eq;
     fn len(&self) -> usize;
-    fn dependencies(&self, idx: usize) -> &[usize];
+    fn deps(&self, idx: usize) -> impl IntoIterator<Item = usize>;
     fn value_mut(&mut self, idx: usize) -> &mut Self::Value;
     fn eval(&self, idx: usize) -> Self::Value;
 }
 
-pub trait Propagate: Graph {
+#[sealed]
+pub trait Propagate: IsGraph + Sized {
     fn update(&mut self, idx: usize) -> bool;
-    fn propagate(&mut self, version_limit: usize) -> PropagationResult<()>;
+    fn propagate(self, version_limit: usize) -> PropagationResult<Self>;
 }
 
+#[sealed]
 impl<G> Propagate for G
 where
-    G: Graph,
+    G: IsGraph,
 {
     /// returns a flag indicating whether value has been changed
     fn update(&mut self, idx: usize) -> bool {
@@ -35,7 +37,7 @@ where
         changed
     }
 
-    fn propagate(&mut self, version_limit: usize) -> PropagationResult<()> {
+    fn propagate(self, version_limit: usize) -> PropagationResult<Self> {
         let mut engine = PropagationEngine::new(self);
         let mut prev_version = 0;
         while prev_version < engine.max_version() {
@@ -45,6 +47,6 @@ where
             prev_version = engine.max_version();
             engine.update_all()
         }
-        Ok(())
+        Ok(engine.finish())
     }
 }

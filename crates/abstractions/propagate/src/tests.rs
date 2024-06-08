@@ -11,10 +11,10 @@ pub(crate) struct MaxGraph {
 #[derive(Debug, PartialEq, Eq)]
 pub(crate) struct MaxGraphNode {
     value: i32,
-    dependencies: Vec<usize>,
+    deps: Vec<usize>,
 }
 
-impl Graph for MaxGraph {
+impl IsGraph for MaxGraph {
     type Value = i32;
 
     fn len(&self) -> usize {
@@ -28,15 +28,15 @@ impl Graph for MaxGraph {
     fn eval(&self, idx: usize) -> Self::Value {
         // take the maximum of its dependencies
         self.nodes[idx]
-            .dependencies
+            .deps
             .iter()
             .map(|idx| self.nodes[*idx].value)
             .max()
             .unwrap_or_default()
     }
 
-    fn dependencies(&self, idx: usize) -> &[usize] {
-        &self.nodes[idx].dependencies
+    fn deps(&self, idx: usize) -> impl IntoIterator<Item = usize> {
+        self.nodes[idx].deps.iter().copied()
     }
 }
 
@@ -46,22 +46,22 @@ fn progation_works() {
         initial_nodes: impl IntoIterator<Item = (i32, Vec<usize>)>,
         final_nodes: impl IntoIterator<Item = (i32, Vec<usize>)>,
     ) {
-        let mut graph = MaxGraph {
+        let graph = MaxGraph {
             nodes: initial_nodes
                 .into_iter()
                 .map(|(value, dependencies)| MaxGraphNode {
                     value,
-                    dependencies,
+                    deps: dependencies,
                 })
                 .collect(),
         };
-        graph.propagate(1000).unwrap();
+        let graph = graph.propagate(1000).unwrap();
         let final_graph = MaxGraph {
             nodes: final_nodes
                 .into_iter()
                 .map(|(value, dependencies)| MaxGraphNode {
                     value,
-                    dependencies,
+                    deps: dependencies,
                 })
                 .collect(),
         };

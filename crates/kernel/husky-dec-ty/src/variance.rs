@@ -102,8 +102,8 @@ fn calc_item_path_variances(
     db: &::salsa::Db,
     path: impl Into<ItemPath>,
 ) -> VarianceResult<Vec<Variance>> {
-    let mut graph = VarianceGraph::new(db, path.into())?;
-    graph.propagate(1000).unwrap();
+    let graph = VarianceGraph::new(db, path.into())?;
+    let graph = graph.propagate(1000).unwrap();
     Ok(graph.finish())
 }
 

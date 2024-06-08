@@ -2,21 +2,22 @@ use super::*;
 use husky_entity_path::path::ItemPath;
 use vec_like::VecSet;
 
+#[derive(Debug)]
 pub(super) struct VarianceGraph<'a> {
     ids: VecSet<VarianceId>,
     nodes: Vec<VarianceGraphNode<'a>>,
     original_len: usize,
 }
 
-impl<'a> Graph for VarianceGraph<'a> {
+impl<'a> IsGraph for VarianceGraph<'a> {
     type Value = Variance;
 
     fn len(&self) -> usize {
         self.nodes.len()
     }
 
-    fn dependencies(&self, idx: usize) -> &[usize] {
-        &self.nodes[idx].dependencies
+    fn deps(&self, idx: usize) -> impl IntoIterator<Item = usize> {
+        self.nodes[idx].deps.iter().copied()
     }
 
     fn value_mut(&mut self, _idx: usize) -> &mut Self::Value {
@@ -61,10 +62,11 @@ impl<'a> VarianceGraph<'a> {
     }
 }
 
+#[derive(Debug)]
 pub(super) struct VarianceGraphNode<'a> {
     repr: &'a VarianceRepr,
     value: Variance,
-    dependencies: Vec<usize>,
+    deps: Vec<usize>,
 }
 
 impl<'a> VarianceGraphNode<'a> {
@@ -72,7 +74,7 @@ impl<'a> VarianceGraphNode<'a> {
         Self {
             repr,
             value: repr.base(),
-            dependencies: repr.dependencies().iter().map(|_| todo!()).collect(),
+            deps: repr.dependencies().iter().map(|_| todo!()).collect(),
         }
     }
 }

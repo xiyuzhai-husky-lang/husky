@@ -12,6 +12,7 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+propagate.workspace = true
 vec-like.workspace = true
 
 [dev-dependencies]
