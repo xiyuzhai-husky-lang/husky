@@ -8,6 +8,17 @@ where
     nodes: OrderedSmallVecSet<S::Node, { S::CYCLE_GROUP_N }>,
 }
 
+impl<S: IsGraphRecursionScheme> std::ops::Deref for CycleGroup<S>
+where
+    [(); S::CYCLE_GROUP_N]:,
+{
+    type Target = OrderedSmallVecSet<S::Node, { S::CYCLE_GROUP_N }>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.nodes
+    }
+}
+
 impl<S: IsGraphRecursionScheme> std::fmt::Debug for CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
@@ -147,11 +158,25 @@ where
         ctx: C,
         cycle_group: &'db CycleGroup<S>,
     ) -> Self {
-        CycleGroupMap {
+        Self {
             map: cycle_group
                 .nodes
                 .map_collect(|node| ctx.initial_value(node)),
         }
+    }
+    pub(crate) fn new_one_element_map(node: S::Node, value: S::Value) -> Self {
+        Self {
+            map: OrderedSmallVecMap::new_one_element_map((node, value)),
+        }
+    }
+}
+
+impl<S: IsGraphRecursionScheme> CycleGroupMap<S>
+where
+    [(); S::CYCLE_GROUP_N]:,
+{
+    pub(crate) unsafe fn entries_mut(&mut self) -> &mut [(S::Node, S::Value)] {
+        self.map.entries_mut()
     }
 }
 
