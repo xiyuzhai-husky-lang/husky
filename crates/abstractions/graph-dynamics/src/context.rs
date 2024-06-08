@@ -66,7 +66,7 @@ pub trait IsGraphRecursionContext<'db>: Copy {
     where
         [(); <Self::Scheme as IsGraphRecursionScheme>::CYCLE_GROUP_N]:,
     {
-        &self.cycle_group_values(self.cycle_group_itd(node))[node].1
+        &self.cycle_group_values(self.cycle_group_itd(node))[node]
     }
 }
 

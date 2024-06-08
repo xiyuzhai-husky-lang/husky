@@ -8,6 +8,7 @@ pub struct Jar(
     self::linear_graph::LinearGraphNode,
     self::linear_graph::LinearGraphCycleGroupItd,
     self::linear_graph::linear_graph_full_deps_cropped,
+    self::linear_graph::linear_graph_cycle_group_itd,
     self::linear_graph::linear_graph_cycle_group_final_values,
 );
 
