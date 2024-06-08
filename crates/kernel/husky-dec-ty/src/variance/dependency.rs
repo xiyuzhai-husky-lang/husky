@@ -8,13 +8,14 @@ use vec_like::VecSet;
 
 use super::*;
 
+/// the path that represent the variance for a specific template argument of a path
 #[derive(Debug, PartialEq, Eq)]
-pub(crate) struct VarianceId {
+pub(crate) struct VariancePath {
     path: ItemPath,
     idx: u8,
 }
 
-impl VarianceId {
+impl VariancePath {
     pub(super) fn new(
         db: &::salsa::Db,
         crate_path: CratePath,
@@ -27,20 +28,25 @@ impl VarianceId {
 
 pub(crate) fn item_variance_crate_dependencies(
     db: &::salsa::Db,
-    id: VarianceId,
-) -> VarianceResultRef<&[VarianceId]> {
-    let _declarative_term_menu = db.dec_term_menu(id.path.toolchain(db)).as_ref().unwrap();
-    match id.path {
+    variance_path: VariancePath,
+) -> VarianceResultRef<&[VariancePath]> {
+    let _declarative_term_menu = db
+        .dec_term_menu(variance_path.path.toolchain(db))
+        .as_ref()
+        .unwrap();
+    match variance_path.path {
         ItemPath::Submodule(_, _) => todo!(),
         ItemPath::MajorItem(path) => match path {
             MajorItemPath::Type(path) => {
-                declarative_ty_item_variance_crate_dependencies(db, path, id.idx)
+                declarative_ty_item_variance_crate_dependencies(db, path, variance_path.idx)
                     .as_ref()
                     .map(|t| t.as_ref())
             }
-            MajorItemPath::Trait(path) => trai_item_variance_crate_dependencies(db, path, id.idx)
-                .as_ref()
-                .map(|t| t.as_ref()),
+            MajorItemPath::Trait(path) => {
+                trai_item_variance_crate_dependencies(db, path, variance_path.idx)
+                    .as_ref()
+                    .map(|t| t.as_ref())
+            }
             MajorItemPath::Form(_path) => {
                 todo!()
                 // form_item_variance_crate_dependencies(db, path, id.idx)
@@ -61,7 +67,7 @@ pub(crate) fn declarative_ty_item_variance_crate_dependencies(
     db: &::salsa::Db,
     path: TypePath,
     _idx: u8,
-) -> VarianceResult<VecSet<VarianceId>> {
+) -> VarianceResult<VecSet<VariancePath>> {
     let _declarative_term_menu = db.dec_term_menu(path.toolchain(db)).unwrap();
     let signature = match path.dec_template(db) {
         Ok(signature) => signature,
@@ -85,7 +91,7 @@ pub(crate) fn trai_item_variance_crate_dependencies(
     _db: &::salsa::Db,
     _path: TraitPath,
     _idx: u8,
-) -> VarianceResult<VecSet<VarianceId>> {
+) -> VarianceResult<VecSet<VariancePath>> {
     todo!()
 }
 
@@ -94,7 +100,7 @@ pub(crate) fn form_item_variance_crate_dependencies(
     db: &::salsa::Db,
     path: MajorFormPath,
     _idx: u8,
-) -> VarianceResult<VecSet<VarianceId>> {
+) -> VarianceResult<VecSet<VariancePath>> {
     let _signature = match path.dec_template(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),

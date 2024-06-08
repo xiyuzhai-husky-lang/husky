@@ -11,13 +11,13 @@ use husky_entity_path::path::{
 pub(crate) struct VarianceRepr {
     base: Variance,
     dependency_exprs: Vec<VarianceExpr>,
-    dependencies: Vec<VarianceId>,
+    deps: Vec<VariancePath>,
 }
 
 #[derive(Debug, PartialEq, Eq)]
 pub(crate) enum VarianceExpr {
-    Atom(VarianceId),
-    Compose(VarianceId, Vec<VarianceExpr>),
+    Atom(VariancePath),
+    Compose(VariancePath, Vec<VarianceExpr>),
 }
 
 impl VarianceRepr {
@@ -25,8 +25,8 @@ impl VarianceRepr {
         self.base
     }
 
-    pub(crate) fn dependencies(&self) -> &[VarianceId] {
-        self.dependencies.as_ref()
+    pub(crate) fn deps(&self) -> &[VariancePath] {
+        self.deps.as_ref()
     }
 }
 
@@ -75,7 +75,7 @@ pub(crate) fn ty_template_parameter_variance_reprs(
                 .annotated_variance()
                 .unwrap_or(TYPE_VARIANCE_DEFAULT),
             dependency_exprs: vec![],
-            dependencies: vec![],
+            deps: vec![],
         })
         .collect::<Vec<_>>();
     if reprs.len() > 0 {
@@ -129,7 +129,7 @@ pub(crate) fn trai_item_variance_reprs(
                 .annotated_variance()
                 .unwrap_or(TRAIT_VARIANCE_DEFAULT),
             dependency_exprs: vec![],
-            dependencies: vec![],
+            deps: vec![],
         })
         .collect::<Vec<_>>();
     if reprs.len() > 0 {
@@ -155,7 +155,7 @@ pub(crate) fn form_item_variance_reprs(
                 .annotated_variance()
                 .unwrap_or(FORM_VARIANCE_DEFAULT),
             dependency_exprs: vec![],
-            dependencies: vec![],
+            deps: vec![],
         })
         .collect::<Vec<_>>();
     if reprs.len() > 0 {
@@ -181,7 +181,7 @@ pub(crate) fn ty_item_item_variance_reprs(
                 .annotated_variance()
                 .unwrap_or(TY_ITEM_VARIANCE_DEFAULT),
             dependency_exprs: vec![],
-            dependencies: vec![],
+            deps: vec![],
         })
         .collect::<Vec<_>>();
     if reprs.len() > 0 {

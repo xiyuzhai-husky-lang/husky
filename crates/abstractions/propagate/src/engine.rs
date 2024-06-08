@@ -36,6 +36,7 @@ impl<G: IsGraph> PropagationEngine<G> {
 
     fn should_update(&mut self, i: usize) -> bool {
         let version = self.versions[i];
+        // guarantees that each node will be updated at least once
         if version == 1 {
             return true;
         }
