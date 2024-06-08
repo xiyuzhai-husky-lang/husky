@@ -1,6 +1,8 @@
 use crate::*;
 use husky_print_utils::p;
 
+/// version 1 is for the beginning,
+/// version 0 is intended to be a strict lower bound not achievable
 pub(crate) struct PropagationEngine<G: IsGraph> {
     versions: Vec<usize>,
     graph: G,
