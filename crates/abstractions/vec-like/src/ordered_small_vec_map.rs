@@ -154,6 +154,12 @@ where
         self.entries.clear()
     }
 
+    pub fn new_one_element_map(entry: E) -> Self {
+        Self {
+            entries: smallvec![entry],
+        }
+    }
+
     pub fn take_data(self) -> SmallVec<[E; N]> {
         self.entries
     }
@@ -180,6 +186,12 @@ where
 
     pub unsafe fn from_smallvec_unchecked(entries: SmallVec<[E; N]>) -> Self {
         Self { entries }
+    }
+
+    pub unsafe fn from_iter_unchecked(into_iter: impl IntoIterator<Item = E>) -> Self {
+        Self {
+            entries: into_iter.into_iter().collect(),
+        }
     }
 
     pub fn len(&self) -> usize {
@@ -375,6 +387,10 @@ where
                 })
                 .collect(),
         }
+    }
+
+    pub unsafe fn entries_mut(&mut self) -> &mut SmallVec<[E; N]> {
+        &mut self.entries
     }
 }
 

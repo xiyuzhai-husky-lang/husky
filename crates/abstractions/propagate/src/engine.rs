@@ -1,13 +1,16 @@
 use crate::*;
+use husky_print_utils::p;
 
-pub(crate) struct PropagationEngine<'a, G: Graph> {
+/// version 1 is for the beginning,
+/// version 0 is intended to be a strict lower bound not achievable
+pub(crate) struct PropagationEngine<G: IsGraph> {
     versions: Vec<usize>,
-    graph: &'a mut G,
+    graph: G,
     max_version: usize,
 }
 
-impl<'a, G: Graph> PropagationEngine<'a, G> {
-    pub(crate) fn new(graph: &'a mut G) -> Self {
+impl<G: IsGraph> PropagationEngine<G> {
+    pub(crate) fn new(graph: G) -> Self {
         Self {
             versions: (0..graph.len()).into_iter().map(|_| 1).collect(),
             graph,
@@ -17,28 +20,36 @@ impl<'a, G: Graph> PropagationEngine<'a, G> {
 
     pub(crate) fn update_all(&mut self) {
         for i in 0..self.versions.len() {
-            self.update_one(i)
+            self.try_update(i)
         }
     }
 
-    fn update_one(&mut self, i: usize) {
-        let mut try_updating = false;
-        let version = self.versions[i];
-        // only try updating when at least one of the dependencies
-        // is of version no less than current
-        for d in self.graph.dependencies(i) {
-            if self.versions[*d] >= version {
-                try_updating = true;
-                break;
-            }
-        }
-        if try_updating {
+    fn try_update(&mut self, i: usize) {
+        if self.should_update(i) {
             let changed = self.graph.update(i);
             if changed {
                 self.max_version += 1;
                 self.versions[i] = self.max_version
             }
         }
+    }
+
+    fn should_update(&mut self, i: usize) -> bool {
+        let version = self.versions[i];
+        // guarantees that each node will be updated at least once
+        if version == 1 {
+            return true;
+        }
+        for d in self.graph.deps(i) {
+            if self.versions[d] >= version {
+                return true;
+            }
+        }
+        false
+    }
+
+    pub(crate) fn finish(self) -> G {
+        self.graph
     }
 
     pub(crate) fn max_version(&self) -> usize {
