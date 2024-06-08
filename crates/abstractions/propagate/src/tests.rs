@@ -31,8 +31,9 @@ impl IsGraph for MaxGraph {
             .deps
             .iter()
             .map(|idx| self.nodes[*idx].value)
+            .chain([self.nodes[idx].value])
             .max()
-            .unwrap_or_default()
+            .unwrap()
     }
 
     fn deps(&self, idx: usize) -> impl IntoIterator<Item = usize> {
@@ -42,9 +43,10 @@ impl IsGraph for MaxGraph {
 
 #[test]
 fn progation_works() {
+    #[track_caller]
     fn t(
         initial_nodes: impl IntoIterator<Item = (i32, Vec<usize>)>,
-        final_nodes: impl IntoIterator<Item = (i32, Vec<usize>)>,
+        expected: impl IntoIterator<Item = (i32, Vec<usize>)>,
     ) {
         let graph = MaxGraph {
             nodes: initial_nodes
@@ -56,8 +58,8 @@ fn progation_works() {
                 .collect(),
         };
         let graph = graph.propagate(1000).unwrap();
-        let final_graph = MaxGraph {
-            nodes: final_nodes
+        let expected = MaxGraph {
+            nodes: expected
                 .into_iter()
                 .map(|(value, dependencies)| MaxGraphNode {
                     value,
@@ -65,7 +67,7 @@ fn progation_works() {
                 })
                 .collect(),
         };
-        assert_eq!(graph, final_graph);
+        assert_eq!(graph, expected);
     }
 
     t([], []);

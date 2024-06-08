@@ -2,9 +2,10 @@ use super::*;
 use husky_entity_path::path::ItemPath;
 use vec_like::VecSet;
 
+#[deprecated(note = "use crates/abstractions/graph-dynamics instead")]
 #[derive(Debug)]
 pub(super) struct VarianceGraph<'a> {
-    ids: VecSet<VarianceId>,
+    ids: VecSet<VariancePath>,
     nodes: Vec<VarianceGraphNode<'a>>,
     original_len: usize,
 }
@@ -20,12 +21,17 @@ impl<'a> IsGraph for VarianceGraph<'a> {
         self.nodes[idx].deps.iter().copied()
     }
 
-    fn value_mut(&mut self, _idx: usize) -> &mut Self::Value {
-        todo!()
+    fn value_mut(&mut self, idx: usize) -> &mut Self::Value {
+        &mut self.nodes[idx].value
     }
 
-    fn eval(&self, _idx: usize) -> Self::Value {
-        todo!()
+    fn eval(&self, idx: usize) -> Self::Value {
+        let node = &self.nodes[idx];
+        let mut value = node.value;
+        for _ in &node.deps {
+            todo!()
+        }
+        value
     }
 }
 
@@ -34,7 +40,7 @@ impl<'a> VarianceGraph<'a> {
         let Ok(item_variance_reprs) = item_variance_reprs(db, path) else {
             todo!()
         };
-        let mut ids: VecSet<VarianceId> = Default::default();
+        let mut ids: VecSet<VariancePath> = Default::default();
         let nodes = item_variance_reprs
             .iter()
             .map(|repr| VarianceGraphNode::new(&mut ids, repr))
@@ -70,11 +76,11 @@ pub(super) struct VarianceGraphNode<'a> {
 }
 
 impl<'a> VarianceGraphNode<'a> {
-    pub(super) fn new(_ids: &mut VecSet<VarianceId>, repr: &'a VarianceRepr) -> Self {
+    pub(super) fn new(_ids: &mut VecSet<VariancePath>, repr: &'a VarianceRepr) -> Self {
         Self {
             repr,
             value: repr.base(),
-            deps: repr.dependencies().iter().map(|_| todo!()).collect(),
+            deps: repr.deps().iter().map(|_| todo!()).collect(),
         }
     }
 }
