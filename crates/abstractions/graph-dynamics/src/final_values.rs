@@ -11,20 +11,6 @@ pub(crate) fn calc_cycle_group_final_values<'db, C: IsGraphRecursionContext<'db>
 where
     [(); <C::Scheme as IsGraphRecursionScheme>::CYCLE_GROUP_N]:,
 {
-    if cycle_group.len() == 1 {
-        let node = cycle_group[0];
-        let initial_value = ctx.initial_value(node);
-        return Ok(CycleGroupMap::new_one_element_map(
-            node,
-            ctx.updated_value(node, |dep_node| {
-                if dep_node == node {
-                    &initial_value
-                } else {
-                    ctx.value(dep_node).expect("todo: handle error")
-                }
-            }),
-        ));
-    }
     let local_graph = LocalGraph::new(ctx, cycle_group);
     Ok(local_graph
         .propagate(<C::Scheme as IsGraphRecursionScheme>::MAX_ITERATION)?
