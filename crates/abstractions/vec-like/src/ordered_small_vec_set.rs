@@ -1,4 +1,5 @@
 use crate::{error::InsertEntryRepeatError, *};
+use ordered_small_vec_map::OrderedSmallVecPairMap;
 use smallvec::*;
 
 /// always keep the elements in order,
@@ -229,6 +230,17 @@ where
             .copied()
             .filter(|&element| other.has(element))
             .collect()
+    }
+
+    pub fn map_collect<V>(&self, f: impl Fn(K) -> V) -> OrderedSmallVecPairMap<K, V, N>
+    where
+        K: Ord + Copy,
+    {
+        unsafe {
+            OrderedSmallVecPairMap::from_iter_unchecked(
+                self.iter().map(|&element| (element, f(element))),
+            )
+        }
     }
 }
 

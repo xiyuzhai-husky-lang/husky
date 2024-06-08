@@ -182,6 +182,12 @@ where
         Self { entries }
     }
 
+    pub unsafe fn from_iter_unchecked(into_iter: impl IntoIterator<Item = E>) -> Self {
+        Self {
+            entries: into_iter.into_iter().collect(),
+        }
+    }
+
     pub fn len(&self) -> usize {
         self.entries.len()
     }
