@@ -59,7 +59,7 @@ fn check_jar_paths<'a>(jar_paths: impl Iterator<Item = &'a syn::Path>) {
         .map(|jar_path| jar_path.segments.last().unwrap().ident.to_string())
         .collect();
     for jar_ident in &jar_idents {
-        for &dep in jar_dependencies(jar_ident) {
+        for &dep in jar_deps(jar_ident) {
             assert!(
                 jar_idents.contains(&dep.to_string()),
                 "expect `{dep}` to be included as a dependency for `{jar_ident}`"
@@ -67,7 +67,7 @@ fn check_jar_paths<'a>(jar_paths: impl Iterator<Item = &'a syn::Path>) {
         }
     }
 
-    fn jar_dependencies(jar_ident: &str) -> &[&str] {
+    fn jar_deps(jar_ident: &str) -> &[&str] {
         // todo: update this list
         match jar_ident {
             "Jar" => &[],
@@ -118,6 +118,9 @@ fn check_jar_paths<'a>(jar_paths: impl Iterator<Item = &'a syn::Path>) {
             "LinkageJar" => &[],
             // semantics
             "SemExprJar" => &["TextJar"],
+            "SemDepsJar" => &["SemExprJar"],
+            "SemExprDepsJar" => &["SemDepsJar"],
+            "SemVarDepsJar" => &["SemExprDepsJar"],
             "SemPlaceContractJar" => &[],
             // super
             "SuperNodeJar" => &[],

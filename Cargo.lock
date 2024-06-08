@@ -5995,6 +5995,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-sem-expr-deps"
+version = "0.1.0"
+
+[[package]]
 name = "husky-sem-fmt"
 version = "0.1.0"
 
