@@ -47,6 +47,7 @@ husky-virtual-value.workspace = true
 # hir
 husky-hir-ty.workspace = true
 husky-hir-decl.workspace = true
+husky-hir-prelude.workspace = true
 # kernel
 husky-eth-signature.workspace = true
 husky-term-prelude.workspace = true

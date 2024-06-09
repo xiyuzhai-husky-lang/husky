@@ -47,6 +47,7 @@ use husky_vfs::jar::VfsJar;
     husky_dec_ty::jar::DecTypeJar,
     EthTermJar,
     EthSignatureJar,
+    husky_place::jar::PlaceJar,
     FlyTermJar,
     SemExprJar,
     husky_sem_place_contract::jar::SemPlaceContractJar,
@@ -56,6 +57,7 @@ use husky_vfs::jar::VfsJar;
     husky_hir_expr::jar::HirExprJar,
     husky_hir_decl::jar::HirDeclJar,
     husky_hir_defn::jar::HirDefnJar,
+    husky_hir_prelude::jar::HirPreludeJar,
     // linkage
     husky_javelin::jar::JavelinJar,
     husky_linkage::jar::LinkageJar,

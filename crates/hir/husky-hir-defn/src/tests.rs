@@ -23,6 +23,7 @@ use husky_toml_ast::TomlAstJar;
     CowordJar,
     husky_vfs::jar::VfsJar,
     husky_entity_path::jar::EntityPathJar,
+    husky_place::jar::PlaceJar,
     husky_token_data::jar::TokenDataJar,
     TokenJar,
     husky_ast::jar::AstJar,
@@ -51,6 +52,7 @@ use husky_toml_ast::TomlAstJar;
     husky_hir_lazy_expr::jar::HirLazyExprJar,
     husky_hir_expr::jar::HirExprJar,
     husky_hir_decl::jar::HirDeclJar,
+    husky_hir_prelude::jar::HirPreludeJar,
     HirDefnJar
 )]
 #[derive(Default)]

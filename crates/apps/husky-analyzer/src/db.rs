@@ -16,6 +16,7 @@ use salsa::snapshot::SnapshotClone;
     husky_eth_term::jar::EthTermJar,
     husky_eth_signature::jar::EthSignatureJar,
     husky_fly_term::jar::FlyTermJar,
+    husky_place::jar::PlaceJar,
     // lex
     husky_text::jar::TextJar,
     husky_token_data::jar::TokenDataJar,
@@ -32,11 +33,12 @@ use salsa::snapshot::SnapshotClone;
     husky_syn_defn::jar::SynDefnJar,
     // semantics
     husky_sem_expr::jar::SemExprJar,
+    husky_sem_place_contract::jar::SemPlaceContractJar,
     husky_corgi_config::jar::CorgiConfigJar,
     husky_manifest::jar::ManifestJar,
     // ide
     husky_token_info::TokenInfoJar,
-    husky_folding_range::FoldingRangeJar,
+    husky_folding_range::jar::FoldingRangeJar,
     husky_semantic_token::SemanticTokenJar,
     husky_hover::HoverJar,
     husky_ide_fmt::jar::IdeFmtJar,

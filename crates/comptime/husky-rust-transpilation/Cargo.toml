@@ -52,12 +52,14 @@ husky-print-utils.workspace = true
 
 [dev-dependencies]
 # hir
+husky-hir-prelude.workspace = true
 # kernel
 husky-eth-term.workspace = true
 husky-dec-term.workspace = true
 husky-dec-ty.workspace = true
 husky-dec-signature.workspace = true
 husky-fly-term.workspace = true
+husky-place.workspace = true
 # lex
 husky-text.workspace = true
 husky-token-data.workspace = true

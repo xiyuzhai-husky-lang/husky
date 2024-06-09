@@ -25,7 +25,9 @@ use husky_toml_token::jar::TomlTokenJar;
 #[salsa::db(
     CowordJar,
     husky_vfs::jar::VfsJar,
+    // kernel
     husky_entity_path::jar::EntityPathJar,
+    husky_place::jar::PlaceJar,
     husky_token_data::jar::TokenDataJar,
     husky_text::jar::TextJar,
     TokenJar,
@@ -52,6 +54,7 @@ use husky_toml_token::jar::TomlTokenJar;
     FlyTermJar,
     SemExprJar,
     husky_sem_place_contract::jar::SemPlaceContractJar,
+    husky_hir_prelude::jar::HirPreludeJar,
     husky_hir_ty::jar::HirTypeJar,
     husky_hir_eager_expr::jar::HirEagerExprJar,
     husky_hir_lazy_expr::jar::HirLazyExprJar,
