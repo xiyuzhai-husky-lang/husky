@@ -32,7 +32,7 @@ impl<'a> SemExprBuilder<'a> {
             } => match refined_ty_path {
                 Left(PreludeTypePath::Option | PreludeTypePath::Result) => (
                     Ok(SemExprData::Unwrap {
-                        opd_sem_expr_idx,
+                        opd: opd_sem_expr_idx,
                         opr_regional_token_idx,
                         // unwrap_method_path: todo!(),
                         // instantiation: todo!(),

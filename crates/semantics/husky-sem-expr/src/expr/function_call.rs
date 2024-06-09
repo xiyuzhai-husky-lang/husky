@@ -46,7 +46,7 @@ impl<'a> SemExprBuilder<'a> {
                 };
                 (
                     Ok(SemExprData::FunctionRitchieCall {
-                        function_sem_expr_idx,
+                        function: function_sem_expr_idx,
                         ritchie_ty_kind,
                         template_arguments: template_arguments.map(|_| todo!()),
                         lpar_regional_token_idx,
@@ -79,8 +79,8 @@ impl<'a> SemExprBuilder<'a> {
                 };
                 (
                     Ok(SemExprData::FunctionApplication {
-                        function_sem_expr_idx,
-                        argument_sem_expr_idx,
+                        function: function_sem_expr_idx,
+                        argument: argument_sem_expr_idx,
                     }),
                     Ok(return_ty),
                 )
@@ -124,7 +124,7 @@ impl<'a> SemExprBuilder<'a> {
         let ritchie_ty_kind = function_expectation_outcome.ritchie_ty_kind();
         let return_ty = function_expectation_outcome.return_ty();
         let data = SemExprData::FunctionRitchieCall {
-            function_sem_expr_idx,
+            function: function_sem_expr_idx,
             ritchie_ty_kind,
             template_arguments: template_arguments.map(|_| todo!()),
             lpar_regional_token_idx,

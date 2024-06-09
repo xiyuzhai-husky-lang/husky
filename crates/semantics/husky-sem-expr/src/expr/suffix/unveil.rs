@@ -45,7 +45,7 @@ impl<'a> SemExprBuilder<'a> {
                 );
                 (
                     Ok(SemExprData::Unveil {
-                        opd_sem_expr_idx,
+                        opd: opd_sem_expr_idx,
                         opr_regional_token_idx,
                         unveil_output_ty_signature,
                         unveil_assoc_fn_path,
@@ -106,7 +106,7 @@ impl<'a> SemExprBuilder<'a> {
                             let ty_term = unveil_output_ty_signature.ty_term().into();
                             (
                                 Ok(SemExprData::Unveil {
-                                    opd_sem_expr_idx,
+                                    opd: opd_sem_expr_idx,
                                     opr_regional_token_idx,
                                     unveil_assoc_fn_path: unveil_assoc_fn_path(
                                         &unveil_output_ty_signature,
