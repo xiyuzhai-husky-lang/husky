@@ -40,6 +40,7 @@ use husky_toml_ast::TomlAstJar;
     SynDeclJar,
     SynDefnJar,
     SynExprJar,
+    husky_place::jar::PlaceJar,
     TermPreludeJar,
     husky_dec_term::jar::DecTermJar,
     DecSignatureJar,

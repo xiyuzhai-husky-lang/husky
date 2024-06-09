@@ -19,6 +19,7 @@ husky-hir-lazy-expr.workspace = true
 husky-hir-expr.workspace = true
 husky-hir-decl.workspace = true
 husky-hir-defn.workspace = true
+husky-hir-prelude.workspace = true
 # ide
 husky-token-info = { workspace = true, features = ["protocol_support"] }
 # kernel
@@ -27,6 +28,7 @@ husky-eth-term.workspace = true
 husky-eth-signature.workspace = true
 husky-coword.workspace = true
 husky-entity-kind.workspace = true
+husky-place.workspace = true
 # lex
 husky-text.workspace = true
 husky-token.workspace = true

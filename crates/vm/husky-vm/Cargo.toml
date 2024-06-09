@@ -39,6 +39,7 @@ husky-hir-lazy-expr.workspace = true
 husky-hir-expr.workspace = true
 husky-hir-decl.workspace = true
 husky-hir-defn.workspace = true
+husky-hir-prelude.workspace = true
 # kernel
 husky-coword.workspace = true
 husky-entity-path.workspace = true
@@ -72,7 +73,6 @@ husky-syn-expr.workspace = true
 husky-syn-defn.workspace = true
 
 [features]
-
 
 [lints]
 workspace = true

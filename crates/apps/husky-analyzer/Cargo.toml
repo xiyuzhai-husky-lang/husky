@@ -36,15 +36,16 @@ husky-semantic-token.workspace = true
 husky-token-info.workspace = true
 husky-ide-fmt.workspace = true
 # kernel
+husky-coword.workspace = true
 husky-entity-path.workspace = true
-husky-term-prelude.workspace = true
 husky-dec-term.workspace = true
 husky-dec-ty.workspace = true
 husky-dec-signature.workspace = true
 husky-eth-term.workspace = true
 husky-eth-signature.workspace = true
 husky-fly-term.workspace = true
-husky-coword.workspace = true
+husky-place.workspace = true
+husky-term-prelude.workspace = true
 # lex
 husky-text.workspace = true
 husky-token-data.workspace = true
@@ -55,6 +56,7 @@ husky-text-protocol = { workspace = true, features = ["lsp_support"] }
 # semantics
 husky-manifest.workspace = true
 husky-sem-expr.workspace = true
+husky-sem-place-contract.workspace = true
 husky-corgi-config.workspace = true
 # syntax
 husky-ast.workspace = true
