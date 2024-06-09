@@ -392,6 +392,10 @@ impl<'a> SemExprBuilder<'a> {
         &self.sem_expr_arena
     }
 
+    pub(crate) fn sem_expr_term_result(&self, expr: SemExprIdx) -> &SemExprTermResult<FlyTerm> {
+        &self.sem_expr_term_results[expr].1
+    }
+
     pub(crate) fn return_ty(&self) -> Option<EthTerm> {
         self.return_ty
     }
