@@ -6,14 +6,12 @@ use husky_syn_defn::item_syn_defn;
 pub fn sem_expr_region_from_region_path(
     region_path: RegionPath,
     db: &::salsa::Db,
-) -> SemExprRegion {
+) -> Option<SemExprRegion> {
     let syn_expr_region = match region_path {
-        RegionPath::CrateDecl(_) => todo!(),
+        RegionPath::CrateDecl(crate_path) => crate_path.syn_decl(db).unwrap()?.syn_expr_region(db),
         RegionPath::Script(_) => todo!(),
-        RegionPath::ItemDecl(item_path) => {
-            item_path.syn_decl(db).unwrap().syn_expr_region(db).unwrap()
-        }
-        RegionPath::ItemDefn(item_path) => item_syn_defn(db, item_path).unwrap().syn_expr_region,
+        RegionPath::ItemDecl(item_path) => item_path.syn_decl(db).unwrap().syn_expr_region(db)?,
+        RegionPath::ItemDefn(item_path) => item_syn_defn(db, item_path)?.syn_expr_region,
     };
-    sem_expr_region(db, syn_expr_region)
+    Some(sem_expr_region(db, syn_expr_region))
 }

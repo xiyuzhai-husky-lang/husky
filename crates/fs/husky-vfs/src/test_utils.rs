@@ -69,7 +69,7 @@ where
                     &path.to_logical_path(&test_suite.src_base()),
                 )
                 .unwrap();
-                let units: Vec<_> = U::collect_from_package_path(db, package_path).collect();
+                let units = collect_units_from_package_path::<U>(db, package_path);
                 for unit in units {
                     f(db, unit);
                     if let Some(adversarials_base) = test_suite.adversarials_base() {

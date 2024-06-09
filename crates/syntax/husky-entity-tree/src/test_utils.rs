@@ -9,11 +9,11 @@ use husky_vfs::{
 };
 
 impl IsVfsTestUnit for ItemSynNodePath {
-    fn collect_from_package_path(
+    fn collect_from_package_path_aux(
         db: &salsa::Db,
         package_path: husky_vfs::path::package_path::PackagePath,
     ) -> impl Iterator<Item = Self> {
-        ModulePath::collect_from_package_path(db, package_path)
+        ModulePath::collect_from_package_path_aux(db, package_path)
             .into_iter()
             .map(|module_path| module_item_syn_node_paths(db, module_path))
             .flatten()
@@ -38,10 +38,11 @@ impl IsVfsTestUnit for ItemSynNodePath {
         config: &VfsTestConfig,
     ) -> Option<std::path::PathBuf> {
         let stem = self.stem(package_adversarials_dir, config, db);
-        Some(
-            stem.with_extension(adversarial_kind.as_str())
-                .with_extension(config.adversarial_extension()),
-        )
+        Some(stem.with_extension(format!(
+            "{}.{}",
+            adversarial_kind.as_str(),
+            config.adversarial_extension()
+        )))
     }
 
     fn vfs_test_unit_downcast_as_module_path(
@@ -66,19 +67,19 @@ impl ItemSynNodePath {
 }
 
 impl IsVfsTestUnit for SynNodeRegionPath {
-    fn collect_from_package_path(
+    fn collect_from_package_path_aux(
         db: &salsa::Db,
         package_path: husky_vfs::path::package_path::PackagePath,
     ) -> impl Iterator<Item = Self> {
-        CratePath::collect_from_package_path(db, package_path)
+        CratePath::collect_from_package_path_aux(db, package_path)
             .map(|crate_path| SynNodeRegionPath::CrateDecl(crate_path))
             .chain(
-                ItemSynNodePath::collect_from_package_path(db, package_path)
+                ItemSynNodePath::collect_from_package_path_aux(db, package_path)
                     .into_iter()
                     .map(|syn_node_path| {
                         [
                             SynNodeRegionPath::ItemDecl(syn_node_path),
-                            SynNodeRegionPath::ItemDecl(syn_node_path),
+                            SynNodeRegionPath::ItemDefn(syn_node_path),
                         ]
                     })
                     .flatten(),
@@ -97,12 +98,10 @@ impl IsVfsTestUnit for SynNodeRegionPath {
             }
             SynNodeRegionPath::ItemDecl(syn_node_path) => syn_node_path
                 .stem(package_expect_files_dir, config, db)
-                .with_extension("decl")
-                .with_extension(config.expect_file_extension().str()),
+                .with_extension(format!("decl.{}", config.expect_file_extension().str())),
             SynNodeRegionPath::ItemDefn(syn_node_path) => syn_node_path
                 .stem(package_expect_files_dir, config, db)
-                .with_extension("defn")
-                .with_extension(config.expect_file_extension().str()),
+                .with_extension(format!("defn.{}", config.expect_file_extension().str())),
         }
     }
 
@@ -123,16 +122,20 @@ impl IsVfsTestUnit for SynNodeRegionPath {
             SynNodeRegionPath::ItemDecl(syn_node_path) => Some(
                 syn_node_path
                     .stem(package_adversarials_dir, config, db)
-                    .with_extension("defn")
-                    .with_extension(adversarial_kind.as_str())
-                    .with_extension(config.adversarial_extension()),
+                    .with_extension(format!(
+                        "decl.{}.{}",
+                        adversarial_kind.as_str(),
+                        config.adversarial_extension(),
+                    )),
             ),
             SynNodeRegionPath::ItemDefn(syn_node_path) => Some(
                 syn_node_path
                     .stem(package_adversarials_dir, config, db)
-                    .with_extension("defn")
-                    .with_extension(adversarial_kind.as_str())
-                    .with_extension(config.adversarial_extension()),
+                    .with_extension(format!(
+                        "defn.{}.{}",
+                        adversarial_kind.as_str(),
+                        config.adversarial_extension(),
+                    )),
             ),
         }
     }

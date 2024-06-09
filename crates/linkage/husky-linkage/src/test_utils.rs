@@ -30,7 +30,7 @@ impl TestLinkage {
 }
 
 impl IsVfsTestUnit for TestLinkage {
-    fn collect_from_package_path(
+    fn collect_from_package_path_aux(
         db: &salsa::Db,
         package_path: husky_vfs::path::package_path::PackagePath,
     ) -> impl Iterator<Item = Self> {

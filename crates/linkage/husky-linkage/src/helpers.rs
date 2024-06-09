@@ -55,7 +55,7 @@ impl Linkage {
 
         let (path, _) = self.path_and_instantiation_for_definition(db)?;
         Some(
-            sem_expr_region_from_region_path(RegionPath::ItemDefn(path), db)
+            sem_expr_region_from_region_path(RegionPath::ItemDefn(path), db)?
                 .data(db)
                 .place_registry(),
         )
