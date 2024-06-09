@@ -1,4 +1,4 @@
-use std::collections::{HashMap, HashSet};
+use std::collections::{BTreeMap, BTreeSet};
 
 use cargo::core::Summary;
 use husky_cargo_utils::metadata::workspace_package_summaries;
@@ -65,7 +65,7 @@ pub fn husky_lang_jar_packages() -> Vec<JarPackageSummary> {
                     .exists()
         })
         .collect();
-    let package_names: HashSet<String> = package_summaries
+    let package_names: BTreeSet<String> = package_summaries
         .iter()
         .map(|package| package.name.clone())
         .collect();
@@ -82,7 +82,7 @@ pub struct JarPackageSummary {
 }
 
 impl JarPackageSummary {
-    fn new(summary: PackageSummary, package_names: &HashSet<String>) -> Self {
+    fn new(summary: PackageSummary, package_names: &BTreeSet<String>) -> Self {
         Self {
             name: summary.name,
             dependencies: summary
@@ -110,7 +110,7 @@ fn husky_lang_jar_packages_works() {
 
 struct JarTreeBuilder<'a> {
     jar_package_summaries: &'a [JarPackageSummary],
-    dependencies_table: HashMap<String, HashSet<String>>,
+    dependencies_table: BTreeMap<String, BTreeSet<String>>,
 }
 
 impl<'a> JarTreeBuilder<'a> {
@@ -134,7 +134,7 @@ impl<'a> JarTreeBuilder<'a> {
             return;
         }
         println!("building {}", &summary.name);
-        let mut dependencies: HashSet<String> = Default::default();
+        let mut dependencies: BTreeSet<String> = Default::default();
         for dep in &summary.dependencies {
             if dep != &summary.name {
                 dependencies.insert(dep.clone());
@@ -151,12 +151,12 @@ impl<'a> JarTreeBuilder<'a> {
             .insert(summary.name.clone(), dependencies);
     }
 
-    fn finish(self) -> HashMap<String, HashSet<String>> {
+    fn finish(self) -> BTreeMap<String, BTreeSet<String>> {
         self.dependencies_table
     }
 }
 
-pub fn husky_lang_jar_tree() -> HashMap<String, HashSet<String>> {
+pub fn husky_lang_jar_tree() -> BTreeMap<String, BTreeSet<String>> {
     let jar_packages = husky_lang_jar_packages();
     let mut builder = JarTreeBuilder::new(&jar_packages);
     builder.build_all();
@@ -177,7 +177,7 @@ fn husky_lang_jar_tree_works() {
     expected.assert_eq(&format!("{jar_tree:#?}"));
 }
 
-pub fn husky_lang_jar_tree_trimmed() -> HashMap<String, HashSet<String>> {
+pub fn husky_lang_jar_tree_trimmed() -> BTreeMap<String, BTreeSet<String>> {
     let jar_tree = husky_lang_jar_tree();
     jar_tree
         .iter()

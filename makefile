@@ -30,6 +30,10 @@ count-todo:
 	scripts/pattern_statistics.py "todo!()" crates 1 10
 	scripts/pattern_statistics.py "todo!()" crates 2 10
 
+update-jar-tree:
+	UPDATE_EXPECT=1 cargo test -p husky-jar-utils
+	cargo test -p husky-jar-utils
+
 update-expect:
 	scripts/update_expect.sh
 
