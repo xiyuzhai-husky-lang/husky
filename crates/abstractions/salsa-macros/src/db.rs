@@ -103,81 +103,6 @@ fn check_jar_paths<'a>(jar_paths: impl Iterator<Item = &'a syn::Path>) {
         let text = std::fs::read_to_string(path).unwrap();
         serde_json::from_str(&text).unwrap()
     }
-
-    fn jar_deps(jar_ident: &str) -> &[&str] {
-        // todo: update this list
-        match jar_ident {
-            "Jar" => &[],
-            // comptime
-            "RustTranspilationJar" => &[],
-            // devtime
-            "TraceJar" => &["TextJar"],
-            // fs
-            "CorgiConfigJar" => &[],
-            "ManifestJar" => &[],
-            "ToolchainConfigJar" => &[],
-            "VfsJar" => &[],
-            // hir
-            "HirDeclJar" => &[],
-            "HirDefnJar" => &[],
-            "HirEagerExprJar" => &["TextJar"],
-            "HirExprJar" => &[],
-            "HirLazyExprJar" => &[],
-            "HirPreludeJar" => &[],
-            "HirTypeJar" => &[],
-            // ide
-            "CompletionJar" => &[],
-            "DiagnosticsJar" => &[],
-            "DocumentationJar" => &[],
-            "FoldingRangeJar" => &[],
-            "HoverJar" => &[],
-            "SemanticTokenJar" => &[],
-            "IdeFmtJar" => &[],
-            "TokenInfoJar" => &[],
-            // kernel
-            "CowordJar" => &[],
-            "DecSignatureJar" => &[],
-            "DecTermJar" => &[],
-            "DecTypeJar" => &[],
-            "EntityPathJar" => &[],
-            "EthSignatureJar" => &[],
-            "EthTermJar" => &["DecTermJar"],
-            "FlyTermJar" => &["EthTermJar"],
-            "TermPreludeJar" => &[],
-            "PlaceJar" => &[],
-            // lex
-            "TextJar" => &[],
-            "TokenDataJar" => &[],
-            "TokenJar" => &["TokenDataJar"],
-            "TomlTokenJar" => &[],
-            // linkage
-            "JavelinJar" => &[],
-            "LinkageJar" => &[],
-            // semantics
-            "SemExprJar" => &["TextJar"],
-            "SemDepsJar" => &["SemExprJar"],
-            "SemExprDepsJar" => &["SemDepsJar"],
-            "SemVarDepsJar" => &["SemExprDepsJar"],
-            "SemPlaceContractJar" => &[],
-            // super
-            "SuperNodeJar" => &[],
-            // syntax
-            "AstJar" => &["TokenJar"],
-            "EntityTreeJar" => &["AstJar"],
-            "ManifestAstJar" => &[],
-            "SynDeclJar" => &[],
-            "SynDefnJar" => &[],
-            "SynExprJar" => &[],
-            "TomlAstJar" => &[],
-            "CorgiConfigAstJar" => &[],
-            // val
-            "KiJar" => &[],
-            "KiReprJar" => &["KiJar"],
-            // vm
-            "VmirJar" => &[],
-            other => panic!("unknown jar ident `{other}`"),
-        }
-    }
 }
 
 pub struct Args {
@@ -190,10 +115,4 @@ impl syn::parse::Parse for Args {
             jar_paths: syn::punctuated::Punctuated::parse_terminated(input)?,
         })
     }
-}
-
-#[test]
-fn jar_deps_works() {
-    // let export_info = husky_cargo_utils::metadata::output_metadata(&dev_paths.dev_root().join("Cargo.toml"));
-    // let packages=export_info.
 }

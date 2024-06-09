@@ -20,6 +20,7 @@ husky-coword.workspace = true
 # lex
 husky-token.workspace = true
 # syntax
+husky-text.workspace = true
 husky-ast.workspace = true
 husky-entity-tree.workspace = true
 husky-syn-expr.workspace = true
