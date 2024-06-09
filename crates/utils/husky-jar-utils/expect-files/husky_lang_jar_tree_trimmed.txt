@@ -1,56 +1,151 @@
 {
-    "husky-place": {
-        "husky-eth-term",
+    "husky-ast": {
+        "husky-text",
+        "husky-token",
     },
-    "husky-syn-defn": {
+    "husky-completion": {
+        "husky-syn-expr",
+    },
+    "husky-corgi-config": {
+        "husky-corgi-config-ast",
+    },
+    "husky-corgi-config-ast": {
+        "husky-toml-ast",
+    },
+    "husky-coword": {},
+    "husky-dec-signature": {
+        "husky-dec-term",
         "husky-syn-decl",
     },
-    "husky-token-info": {
-        "husky-sem-place-contract",
+    "husky-dec-term": {
+        "husky-entity-tree",
+    },
+    "husky-dec-ty": {
+        "husky-dec-signature",
+    },
+    "husky-diagnostics": {
+        "husky-sem-expr",
+    },
+    "husky-entity-path": {
+        "husky-vfs",
+    },
+    "husky-entity-tree": {
+        "husky-ast",
+        "husky-manifest",
+    },
+    "husky-eth-signature": {
+        "husky-eth-term",
+    },
+    "husky-eth-term": {
+        "husky-dec-ty",
+    },
+    "husky-fly-term": {
+        "husky-eth-signature",
+        "husky-place",
+    },
+    "husky-hir-decl": {
+        "husky-hir-expr",
+    },
+    "husky-hir-defn": {
+        "husky-hir-decl",
+    },
+    "husky-hir-eager-expr": {
+        "husky-hir-ty",
+    },
+    "husky-hir-expr": {
+        "husky-hir-eager-expr",
+        "husky-hir-lazy-expr",
+    },
+    "husky-hir-lazy-expr": {
+        "husky-hir-ty",
+    },
+    "husky-hir-prelude": {
+        "husky-term-prelude",
     },
     "husky-hir-ty": {
         "husky-hir-prelude",
         "husky-sem-place-contract",
     },
-    "husky-syn-decl": {
-        "husky-syn-expr",
+    "husky-hover": {
+        "husky-token-info",
     },
-    "husky-hir-eager-expr": {
-        "husky-hir-ty",
-    },
-    "husky-eth-signature": {
-        "husky-eth-term",
-    },
-    "husky-toolchain-config": {
-        "husky-vfs",
+    "husky-ide-fmt": {},
+    "husky-javelin": {
+        "husky-hir-defn",
     },
     "husky-ki": {
         "husky-linkage",
     },
-    "husky-dec-signature": {
+    "husky-ki-repr": {
+        "husky-ki",
+    },
+    "husky-linkage": {
+        "husky-javelin",
+    },
+    "husky-manifest": {
+        "husky-corgi-config",
+        "husky-manifest-ast",
+    },
+    "husky-manifest-ast": {
+        "husky-toml-ast",
+    },
+    "husky-namekian-ast": {},
+    "husky-place": {
+        "husky-eth-term",
+    },
+    "husky-rust-transpilation": {
+        "husky-linkage",
+    },
+    "husky-sem-deps": {},
+    "husky-sem-expr": {
+        "husky-fly-term",
+        "husky-syn-defn",
+    },
+    "husky-sem-place-contract": {
+        "husky-sem-expr",
+    },
+    "husky-sem-var-deps": {},
+    "husky-semantic-token": {
+        "husky-token-info",
+    },
+    "husky-syn-decl": {
+        "husky-syn-expr",
+    },
+    "husky-syn-defn": {
         "husky-syn-decl",
-        "husky-dec-term",
+    },
+    "husky-syn-expr": {
+        "husky-entity-tree",
+    },
+    "husky-term-prelude": {
+        "husky-entity-path",
+    },
+    "husky-tex-ast": {
+        "husky-coword",
+    },
+    "husky-tex-command": {
+        "husky-coword",
+    },
+    "husky-text": {
+        "husky-vfs",
+    },
+    "husky-token": {
+        "husky-token-data",
+    },
+    "husky-token-data": {
+        "husky-term-prelude",
+    },
+    "husky-token-info": {
+        "husky-sem-place-contract",
     },
     "husky-toml-ast": {
         "husky-toml-token",
     },
-    "husky-hir-decl": {
-        "husky-hir-expr",
+    "husky-toml-token": {
+        "husky-entity-path",
     },
-    "husky-manifest": {
-        "husky-manifest-ast",
-        "husky-corgi-config",
-    },
-    "husky-fly-term": {
-        "husky-place",
-        "husky-eth-signature",
-    },
-    "husky-sem-deps": {},
-    "husky-dec-term": {
-        "husky-entity-tree",
-    },
-    "husky-diagnostics": {
-        "husky-sem-expr",
+    "husky-toolchain-config": {
+        "husky-vfs",
     },
     "husky-trace": {
         "husky-ki-repr",
@@ -59,102 +154,7 @@
     "husky-vfs": {
         "husky-coword",
     },
-    "husky-ide-fmt": {},
-    "husky-semantic-token": {
-        "husky-token-info",
-    },
-    "husky-eth-term": {
-        "husky-dec-ty",
-    },
-    "husky-linkage": {
-        "husky-javelin",
-    },
-    "husky-text": {
-        "husky-vfs",
-    },
-    "husky-hover": {
-        "husky-token-info",
-    },
-    "husky-token": {
-        "husky-token-data",
-    },
-    "husky-coword": {},
-    "husky-sem-var-deps": {},
-    "husky-ast": {
-        "husky-token",
-        "husky-text",
-    },
-    "husky-term-prelude": {
-        "husky-entity-path",
-    },
-    "husky-javelin": {
-        "husky-hir-defn",
-    },
-    "husky-ki-repr": {
-        "husky-ki",
-    },
-    "husky-sem-expr": {
-        "husky-fly-term",
-        "husky-syn-defn",
-    },
-    "husky-namekian-ast": {},
-    "husky-sem-place-contract": {
-        "husky-sem-expr",
-    },
-    "husky-rust-transpilation": {
-        "husky-linkage",
-    },
-    "husky-tex-command": {
-        "husky-coword",
-    },
-    "husky-syn-expr": {
-        "husky-entity-tree",
-    },
-    "husky-hir-prelude": {
-        "husky-term-prelude",
-    },
-    "husky-tex-ast": {
-        "husky-coword",
-    },
-    "husky-entity-tree": {
-        "husky-ast",
-        "husky-manifest",
-    },
-    "husky-hir-defn": {
-        "husky-hir-decl",
-    },
     "husky-vmir": {
         "husky-linkage",
-    },
-    "husky-toml-token": {
-        "husky-entity-path",
-    },
-    "husky-dec-ty": {
-        "husky-dec-signature",
-    },
-    "husky-manifest-ast": {
-        "husky-toml-ast",
-    },
-    "husky-entity-path": {
-        "husky-vfs",
-    },
-    "husky-corgi-config-ast": {
-        "husky-toml-ast",
-    },
-    "husky-token-data": {
-        "husky-term-prelude",
-    },
-    "husky-hir-expr": {
-        "husky-hir-eager-expr",
-        "husky-hir-lazy-expr",
-    },
-    "husky-completion": {
-        "husky-syn-expr",
-    },
-    "husky-corgi-config": {
-        "husky-corgi-config-ast",
-    },
-    "husky-hir-lazy-expr": {
-        "husky-hir-ty",
     },
 }

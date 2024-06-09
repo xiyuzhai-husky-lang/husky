@@ -119,7 +119,7 @@ git2 = "0.18.2"
 hashlink = "0.9.0"
 heck = "0.5"
 image = "0.25.0"
-imageproc = "0.24.0"
+imageproc = "0.25.0"
 indexmap = "2.0.0"
 itertools = "0.13.0"
 jobserver_crate = { version = "0.1.28", package = "jobserver" }
