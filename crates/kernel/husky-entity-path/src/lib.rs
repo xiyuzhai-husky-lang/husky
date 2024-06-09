@@ -6,6 +6,8 @@ pub mod jar;
 pub mod menu;
 pub mod path;
 pub mod region;
+#[cfg(feature = "tes")]
+pub mod test_utils;
 #[cfg(test)]
 mod tests;
 mod utils;

@@ -60,7 +60,7 @@ husky-token.workspace = true
 husky-ast = { workspace = true, features = ["test_utils"] }
 husky-toml-ast.workspace = true
 husky-manifest-ast.workspace = true
-husky-entity-tree.workspace = true
+husky-entity-tree = { workspace = true, features = ["test_utils"] }
 husky-corgi-config-ast.workspace = true
 # kernel
 husky-dec-term.workspace = true

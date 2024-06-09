@@ -80,7 +80,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unveil {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         0,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -203,7 +203,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unveil {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         2,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -326,7 +326,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unveil {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         4,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -449,7 +449,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unveil {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         6,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -572,7 +572,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unveil {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         8,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -695,7 +695,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unveil {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         10,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -818,7 +818,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unveil {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         12,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -941,7 +941,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unveil {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         14,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -1064,7 +1064,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unveil {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         16,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(

@@ -4642,6 +4642,7 @@ dependencies = [
  "expect-test",
  "husky-coword",
  "husky-entity-kind",
+ "husky-entity-path",
  "husky-vfs",
  "once_cell",
  "optional",
