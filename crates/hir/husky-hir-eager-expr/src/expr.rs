@@ -303,7 +303,7 @@ impl ToHirEager for SemExprIdx {
                 return_ty,
                 ref unveil_output_ty_signature,
                 unveil_assoc_fn_path,
-                opd_sem_expr_idx,
+                opd,
                 ..
             } => {
                 let db = builder.db();
@@ -313,12 +313,13 @@ impl ToHirEager for SemExprIdx {
                         unveil_output_ty_signature.instantiation(),
                         db,
                     ),
-                    opd: opd_sem_expr_idx.to_hir_eager(builder),
+                    opd: opd.to_hir_eager(builder),
                     return_ty: HirType::from_eth(return_ty, db).unwrap(),
                 }
             }
             SemExprData::Unwrap {
-                opd_sem_expr_idx, ..
+                opd: opd_sem_expr_idx,
+                ..
             } => HirEagerExprData::Unwrap {
                 opd: opd_sem_expr_idx.to_hir_eager(builder),
             },
@@ -328,7 +329,7 @@ impl ToHirEager for SemExprIdx {
                 unreachable!()
             }
             SemExprData::FunctionRitchieCall {
-                function_sem_expr_idx,
+                function: function_sem_expr_idx,
                 ref template_arguments,
                 ref ritchie_parameter_argument_matches,
                 ..
@@ -442,7 +443,7 @@ impl ToHirEager for SemExprIdx {
             },
             SemExprData::MethodApplication { .. } => todo!(),
             SemExprData::MethodFnCall {
-                self_argument_sem_expr_idx,
+                self_argument: self_argument_sem_expr_idx,
                 self_contract,
                 ident_token,
                 ref dispatch,

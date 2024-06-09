@@ -225,7 +225,7 @@ impl ToHirLazy for SemExprIdx {
             SemExprData::Unveil {
                 ref unveil_output_ty_signature,
                 unveil_assoc_fn_path,
-                opd_sem_expr_idx,
+                opd,
                 ..
             } => HirLazyExprData::Unveil {
                 unveil_assoc_fn_path,
@@ -233,21 +233,22 @@ impl ToHirLazy for SemExprIdx {
                     unveil_output_ty_signature.instantiation(),
                     builder.db(),
                 ),
-                opd_hir_expr_idx: opd_sem_expr_idx.to_hir_lazy(builder),
+                opd_hir_expr_idx: opd.to_hir_lazy(builder),
             },
             SemExprData::Unwrap {
-                opd_sem_expr_idx, ..
+                opd: opd_sem_expr_idx,
+                ..
             } => HirLazyExprData::Unwrap {
                 opd_hir_expr_idx: opd_sem_expr_idx.to_hir_lazy(builder),
             },
             SemExprData::FunctionApplication {
-                function_sem_expr_idx: _,
-                argument_sem_expr_idx: _,
+                function: _,
+                argument: _,
             } => {
                 todo!()
             }
             SemExprData::FunctionRitchieCall {
-                function_sem_expr_idx,
+                function: function_sem_expr_idx,
                 ref ritchie_parameter_argument_matches,
                 ..
             } => {
@@ -317,7 +318,7 @@ impl ToHirLazy for SemExprIdx {
                 parameter_ty_items: _,
                 rpar_regional_token_idx: _,
                 light_arrow_token: _,
-                return_ty_sem_expr_idx: _,
+                return_ty: _,
             } => todo!(),
             SemExprData::Field {
                 self_argument: owner,
@@ -364,7 +365,7 @@ impl ToHirLazy for SemExprIdx {
                 todo!()
             }
             SemExprData::MethodFnCall {
-                self_argument_sem_expr_idx,
+                self_argument: self_argument_sem_expr_idx,
                 ident_token,
                 ref dispatch,
                 ref ritchie_parameter_argument_matches,

@@ -55,7 +55,7 @@ impl<'a> SemExprBuilder<'a> {
                 };
                 (
                     Ok(SemExprData::MethodFnCall {
-                        self_argument_sem_expr_idx,
+                        self_argument: self_argument_sem_expr_idx,
                         self_contract: signature.self_value_parameter.contract,
                         dot_regional_token_idx,
                         ident_token,
