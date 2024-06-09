@@ -60,6 +60,7 @@ husky-hir-eager-expr.workspace = true
 husky-hir-lazy-expr.workspace = true
 husky-hir-expr.workspace = true
 husky-hir-decl.workspace = true
+husky-hir-prelude.workspace = true
 # kernel
 husky-eth-signature.workspace = true
 husky-term-prelude.workspace = true

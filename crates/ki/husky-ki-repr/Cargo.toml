@@ -23,10 +23,12 @@ husky-hir-ty.workspace = true
 husky-hir-lazy-expr.workspace = true
 husky-hir-expr.workspace = true
 husky-hir-defn.workspace = true
+husky-hir-prelude.workspace = true
 # kernel
 husky-entity-kind.workspace = true
 husky-entity-path.workspace = true
 husky-coword.workspace = true
+husky-place.workspace = true
 husky-term-prelude.workspace = true
 husky-task.workspace = true
 # lex

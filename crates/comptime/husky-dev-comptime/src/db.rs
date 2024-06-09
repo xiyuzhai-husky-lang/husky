@@ -11,6 +11,7 @@ use std::panic::RefUnwindSafe;
     husky_manifest::jar::ManifestJar,
     husky_vfs::jar::VfsJar,
     // hir
+    husky_hir_prelude::jar::HirPreludeJar,
     husky_hir_eager_expr::jar::HirEagerExprJar,
     husky_hir_lazy_expr::jar::HirLazyExprJar,
     husky_hir_expr::jar::HirExprJar,
@@ -29,6 +30,7 @@ use std::panic::RefUnwindSafe;
     husky_eth_signature::jar::EthSignatureJar,
     husky_fly_term::jar::FlyTermJar,
     husky_hir_ty::jar::HirTypeJar,
+    husky_place::jar::PlaceJar,
     // lex
     husky_token_data::jar::TokenDataJar,
     husky_token::jar::TokenJar,

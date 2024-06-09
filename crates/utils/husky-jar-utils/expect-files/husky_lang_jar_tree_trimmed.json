@@ -1,5 +1,6 @@
 {
   "husky-ast": [
+    "husky-text",
     "husky-token"
   ],
   "husky-completion": [
@@ -23,8 +24,7 @@
     "husky-dec-signature"
   ],
   "husky-diagnostics": [
-    "husky-sem-expr",
-    "husky-text"
+    "husky-sem-expr"
   ],
   "husky-entity-path": [
     "husky-vfs"
@@ -140,8 +140,7 @@
     "husky-term-prelude"
   ],
   "husky-token-info": [
-    "husky-sem-place-contract",
-    "husky-text"
+    "husky-sem-place-contract"
   ],
   "husky-toml-ast": [
     "husky-toml-token"

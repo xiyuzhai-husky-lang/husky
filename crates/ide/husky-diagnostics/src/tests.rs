@@ -44,6 +44,7 @@ use husky_toml_ast::TomlAstJar;
     EthTermJar,
     EthSignatureJar,
     DecSignatureJar,
+    husky_place::jar::PlaceJar,
     FlyTermJar,
     SemExprJar
 )]
