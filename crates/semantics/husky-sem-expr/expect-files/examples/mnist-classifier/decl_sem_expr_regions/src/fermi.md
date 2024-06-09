@@ -162,10 +162,10 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::FunctionApplication {
-                                    function_sem_expr_idx: SemExprIdx(
+                                    function: SemExprIdx(
                                         0,
                                     ),
-                                    argument_sem_expr_idx: SemExprIdx(
+                                    argument: SemExprIdx(
                                         3,
                                     ),
                                 },
@@ -289,10 +289,10 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::FunctionApplication {
-                                    function_sem_expr_idx: SemExprIdx(
+                                    function: SemExprIdx(
                                         5,
                                     ),
-                                    argument_sem_expr_idx: SemExprIdx(
+                                    argument: SemExprIdx(
                                         7,
                                     ),
                                 },
@@ -943,10 +943,10 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::FunctionApplication {
-                                    function_sem_expr_idx: SemExprIdx(
+                                    function: SemExprIdx(
                                         0,
                                     ),
-                                    argument_sem_expr_idx: SemExprIdx(
+                                    argument: SemExprIdx(
                                         1,
                                     ),
                                 },
@@ -1198,7 +1198,7 @@
                                             ),
                                         ),
                                     ),
-                                    return_ty_sem_expr_idx: Some(
+                                    return_ty: Some(
                                         SemExprIdx(
                                             8,
                                         ),
@@ -1228,10 +1228,10 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::FunctionApplication {
-                                    function_sem_expr_idx: SemExprIdx(
+                                    function: SemExprIdx(
                                         4,
                                     ),
-                                    argument_sem_expr_idx: SemExprIdx(
+                                    argument: SemExprIdx(
                                         9,
                                     ),
                                 },

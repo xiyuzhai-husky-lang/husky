@@ -33,7 +33,7 @@ impl IsVfsTestUnit for TestLinkage {
     fn collect_from_package_path(
         db: &salsa::Db,
         package_path: husky_vfs::path::package_path::PackagePath,
-    ) -> Vec<Self> {
+    ) -> impl Iterator<Item = Self> {
         db.collect_probable_modules(package_path)
             .into_iter()
             .flat_map(|module_path| module_test_paths(db, module_path).iter().copied())
@@ -55,7 +55,6 @@ impl IsVfsTestUnit for TestLinkage {
                     ),
                 }
             })
-            .collect()
     }
 
     fn determine_expect_file_path(

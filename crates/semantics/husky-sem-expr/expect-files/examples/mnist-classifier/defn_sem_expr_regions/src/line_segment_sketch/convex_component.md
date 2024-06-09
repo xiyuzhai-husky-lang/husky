@@ -162,7 +162,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemExprIdx(
+                                    self_argument: SemExprIdx(
                                         1,
                                     ),
                                     self_contract: Pure,

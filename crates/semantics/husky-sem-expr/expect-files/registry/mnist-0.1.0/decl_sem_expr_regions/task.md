@@ -341,7 +341,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::FunctionRitchieCall {
-                                    function_sem_expr_idx: SemExprIdx(
+                                    function: SemExprIdx(
                                         1,
                                     ),
                                     ritchie_ty_kind: RitchieTypeKind::Item(

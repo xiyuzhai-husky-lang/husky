@@ -17,6 +17,8 @@ pub mod subitem;
 mod submodule;
 pub mod symbol;
 mod table;
+#[cfg(feature = "test_utils")]
+pub mod test_utils;
 #[cfg(test)]
 mod tests;
 mod utils;

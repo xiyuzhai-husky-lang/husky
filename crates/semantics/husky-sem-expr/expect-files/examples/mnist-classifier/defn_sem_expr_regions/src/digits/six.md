@@ -227,7 +227,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::FunctionRitchieCall {
-                                    function_sem_expr_idx: SemExprIdx(
+                                    function: SemExprIdx(
                                         0,
                                     ),
                                     ritchie_ty_kind: RitchieTypeKind::Item(
@@ -990,7 +990,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::FunctionRitchieCall {
-                                    function_sem_expr_idx: SemExprIdx(
+                                    function: SemExprIdx(
                                         0,
                                     ),
                                     ritchie_ty_kind: RitchieTypeKind::Item(
@@ -3117,7 +3117,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::FunctionRitchieCall {
-                                    function_sem_expr_idx: SemExprIdx(
+                                    function: SemExprIdx(
                                         18,
                                     ),
                                     ritchie_ty_kind: RitchieTypeKind::Item(
@@ -3250,7 +3250,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unveil {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         24,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -3603,7 +3603,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unwrap {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         30,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -3634,7 +3634,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemExprIdx(
+                                    self_argument: SemExprIdx(
                                         31,
                                     ),
                                     self_contract: Pure,
@@ -3918,7 +3918,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unwrap {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         35,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -3949,7 +3949,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemExprIdx(
+                                    self_argument: SemExprIdx(
                                         36,
                                     ),
                                     self_contract: Pure,
@@ -5055,7 +5055,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::FunctionRitchieCall {
-                                    function_sem_expr_idx: SemExprIdx(
+                                    function: SemExprIdx(
                                         54,
                                     ),
                                     ritchie_ty_kind: RitchieTypeKind::Item(
@@ -5169,7 +5169,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unveil {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         57,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -5525,7 +5525,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unwrap {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         62,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -5556,7 +5556,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemExprIdx(
+                                    self_argument: SemExprIdx(
                                         63,
                                     ),
                                     self_contract: Pure,
@@ -5665,7 +5665,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemExprIdx(
+                                    self_argument: SemExprIdx(
                                         61,
                                     ),
                                     self_contract: Pure,
@@ -6132,7 +6132,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemExprIdx(
+                                    self_argument: SemExprIdx(
                                         70,
                                     ),
                                     self_contract: Pure,
@@ -6319,7 +6319,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::FunctionRitchieCall {
-                                    function_sem_expr_idx: SemExprIdx(
+                                    function: SemExprIdx(
                                         66,
                                     ),
                                     ritchie_ty_kind: RitchieTypeKind::Item(
@@ -6496,7 +6496,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unveil {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         74,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -7227,7 +7227,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::FunctionRitchieCall {
-                                    function_sem_expr_idx: SemExprIdx(
+                                    function: SemExprIdx(
                                         82,
                                     ),
                                     ritchie_ty_kind: RitchieTypeKind::Item(
@@ -7339,7 +7339,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unveil {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         86,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -8135,7 +8135,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unwrap {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         99,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -8261,7 +8261,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemExprIdx(
+                                    self_argument: SemExprIdx(
                                         101,
                                     ),
                                     self_contract: Pure,
@@ -8991,7 +8991,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unwrap {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         113,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -9117,7 +9117,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemExprIdx(
+                                    self_argument: SemExprIdx(
                                         115,
                                     ),
                                     self_contract: Pure,
@@ -17894,7 +17894,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemExprIdx(
+                                    self_argument: SemExprIdx(
                                         0,
                                     ),
                                     self_contract: Pure,
@@ -19020,7 +19020,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemExprIdx(
+                                    self_argument: SemExprIdx(
                                         0,
                                     ),
                                     self_contract: Pure,
@@ -19732,7 +19732,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemExprIdx(
+                                    self_argument: SemExprIdx(
                                         12,
                                     ),
                                     self_contract: Pure,
@@ -20071,7 +20071,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemExprIdx(
+                                    self_argument: SemExprIdx(
                                         17,
                                     ),
                                     self_contract: Pure,
@@ -20538,7 +20538,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemExprIdx(
+                                    self_argument: SemExprIdx(
                                         24,
                                     ),
                                     self_contract: Pure,
@@ -20651,7 +20651,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemExprIdx(
+                                    self_argument: SemExprIdx(
                                         23,
                                     ),
                                     self_contract: Pure,
@@ -21060,7 +21060,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemExprIdx(
+                                    self_argument: SemExprIdx(
                                         31,
                                     ),
                                     self_contract: Pure,

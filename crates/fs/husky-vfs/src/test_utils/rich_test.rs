@@ -23,7 +23,9 @@ where
                 &package_relative_dir.to_logical_path(&test_domain.src_base()),
             )
             .unwrap();
-            for unit in <U as IsVfsTestUnit>::collect_from_package_path(db, package_path) {
+            let units: Vec<_> =
+                <U as IsVfsTestUnit>::collect_from_package_path(db, package_path).collect();
+            for unit in units {
                 let expect_file_path = unit.determine_expect_file_path(
                     db,
                     &package_relative_dir.to_logical_path(&test_domain.expect_files_base()),

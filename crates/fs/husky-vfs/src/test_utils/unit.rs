@@ -2,7 +2,10 @@ use super::*;
 use crate::jar::VfsDb;
 
 pub trait IsVfsTestUnit: Copy {
-    fn collect_from_package_path(db: &::salsa::Db, package_path: PackagePath) -> Vec<Self>;
+    fn collect_from_package_path(
+        db: &::salsa::Db,
+        package_path: PackagePath,
+    ) -> impl Iterator<Item = Self>;
     fn determine_expect_file_path(
         self,
         db: &::salsa::Db,
@@ -17,12 +20,16 @@ pub trait IsVfsTestUnit: Copy {
         package_adversarials_dir: &Path,
         config: &VfsTestConfig,
     ) -> Option<PathBuf>;
+    #[deprecated(note = "use downcast instead")]
     fn vfs_test_unit_downcast_as_module_path(self) -> Option<ModulePath>;
 }
 
 impl IsVfsTestUnit for PackagePath {
-    fn collect_from_package_path(_db: &::salsa::Db, package_path: PackagePath) -> Vec<Self> {
-        vec![package_path]
+    fn collect_from_package_path(
+        _db: &::salsa::Db,
+        package_path: PackagePath,
+    ) -> impl Iterator<Item = Self> {
+        [package_path].into_iter()
     }
 
     fn determine_expect_file_path(
@@ -52,11 +59,15 @@ impl IsVfsTestUnit for PackagePath {
 }
 
 impl IsVfsTestUnit for CratePath {
-    fn collect_from_package_path(db: &::salsa::Db, package_path: PackagePath) -> Vec<Self> {
+    fn collect_from_package_path(
+        db: &::salsa::Db,
+        package_path: PackagePath,
+    ) -> impl Iterator<Item = Self> {
         package_path
             .crate_paths(db)
             .expect("no vfs error in testing")
-            .to_vec()
+            .iter()
+            .copied()
     }
 
     fn determine_expect_file_path(
@@ -97,8 +108,11 @@ impl IsVfsTestUnit for CratePath {
 }
 
 impl IsVfsTestUnit for ModulePath {
-    fn collect_from_package_path(db: &::salsa::Db, package_path: PackagePath) -> Vec<Self> {
-        db.collect_probable_modules(package_path)
+    fn collect_from_package_path(
+        db: &::salsa::Db,
+        package_path: PackagePath,
+    ) -> impl Iterator<Item = Self> {
+        db.collect_probable_modules(package_path).into_iter()
     }
 
     fn determine_expect_file_path(
