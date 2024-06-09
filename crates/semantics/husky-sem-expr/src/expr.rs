@@ -158,24 +158,24 @@ pub enum SemExprData {
         opr_regional_token_idx: RegionalTokenIdx,
     },
     Unveil {
-        opd_sem_expr_idx: SemExprIdx,
+        opd: SemExprIdx,
         opr_regional_token_idx: RegionalTokenIdx,
         unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature,
         unveil_assoc_fn_path: TraitForTypeItemPath,
         return_ty: EthTerm,
     },
     Unwrap {
-        opd_sem_expr_idx: SemExprIdx,
+        opd: SemExprIdx,
         opr_regional_token_idx: RegionalTokenIdx,
         // unwrap_method_path: TraitForTypeItemPath,
         // instantiation: FlyInstantiation,
     },
     FunctionApplication {
-        function_sem_expr_idx: SemExprIdx,
-        argument_sem_expr_idx: SemExprIdx,
+        function: SemExprIdx,
+        argument: SemExprIdx,
     },
     FunctionRitchieCall {
-        function_sem_expr_idx: SemExprIdx,
+        function: SemExprIdx,
         ritchie_ty_kind: RitchieTypeKind,
         template_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
@@ -192,7 +192,7 @@ pub enum SemExprData {
         light_arrow_token: Option<LightArrowRegionalToken>,
         /// it's guaranteed that `return_ty_expr` is some if and only if
         /// `light_arrow_token` is some
-        return_ty_sem_expr_idx: Option<SemExprIdx>,
+        return_ty: Option<SemExprIdx>,
     },
     Field {
         self_argument: SemExprIdx,
@@ -211,7 +211,7 @@ pub enum SemExprData {
         rpar_regional_token_idx: RegionalTokenIdx,
     },
     MethodFnCall {
-        self_argument_sem_expr_idx: SemExprIdx,
+        self_argument: SemExprIdx,
         self_contract: Contract,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
@@ -223,7 +223,7 @@ pub enum SemExprData {
         rpar_regional_token_idx: RegionalTokenIdx,
     },
     MethodGnCall {
-        self_argument_sem_expr_idx: SemExprIdx,
+        self_argument: SemExprIdx,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
         method_dynamic_dispatch: FlyMethodDynamicDispatch,
@@ -1280,7 +1280,7 @@ impl<'a> SemExprBuilder<'a> {
                         parameter_ty_items,
                         rpar_regional_token_idx,
                         light_arrow_token,
-                        return_ty_sem_expr_idx,
+                        return_ty: return_ty_sem_expr_idx,
                     }),
                     Ok(self.term_menu().ty0().into()),
                 )
@@ -1536,8 +1536,8 @@ impl<'a> SemExprBuilder<'a> {
             SemExprData::Unveil { .. } => todo!(),
             SemExprData::Unwrap { .. } => todo!(),
             SemExprData::FunctionApplication {
-                function_sem_expr_idx,
-                argument_sem_expr_idx,
+                function: function_sem_expr_idx,
+                argument: argument_sem_expr_idx,
             } => {
                 // todo: implicit arguments
                 self.calc_explicit_application_expr_term(
@@ -1610,7 +1610,7 @@ impl<'a> SemExprBuilder<'a> {
             SemExprData::Ritchie {
                 ritchie_kind,
                 ref parameter_ty_items,
-                return_ty_sem_expr_idx,
+                return_ty: return_ty_sem_expr_idx,
                 ..
             } => {
                 let mut params: Vec<FlyRitchieParameter> = vec![];
@@ -1672,7 +1672,7 @@ impl<'a> SemExprBuilder<'a> {
                 ref parameter_ty_items,
                 rpar_regional_token_idx,
                 light_arrow_token,
-                return_ty_sem_expr_idx,
+                return_ty: return_ty_sem_expr_idx,
             } => todo!(),
             SemExprData::NestedBlock {
                 lcurl_regional_token_idx,

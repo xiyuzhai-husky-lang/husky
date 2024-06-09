@@ -386,22 +386,22 @@ impl<'a> SemExprRangeCalculator<'a> {
                 ..
             }
             | SemExprData::Unveil {
-                opd_sem_expr_idx,
+                opd: opd_sem_expr_idx,
                 opr_regional_token_idx,
                 ..
             }
             | SemExprData::Unwrap {
-                opd_sem_expr_idx,
+                opd: opd_sem_expr_idx,
                 opr_regional_token_idx,
                 ..
             } => self[opd_sem_expr_idx]
                 .to(RegionalTokenIdxRangeEnd::new_after(*opr_regional_token_idx)),
             SemExprData::FunctionApplication {
-                function_sem_expr_idx,
-                argument_sem_expr_idx,
+                function: function_sem_expr_idx,
+                argument: argument_sem_expr_idx,
             } => self[function_sem_expr_idx].join(self[argument_sem_expr_idx]),
             SemExprData::FunctionRitchieCall {
-                function_sem_expr_idx,
+                function: function_sem_expr_idx,
                 rpar_regional_token_idx,
                 ..
             } => self[function_sem_expr_idx].to(RegionalTokenIdxRangeEnd::new_after(
@@ -413,7 +413,7 @@ impl<'a> SemExprRangeCalculator<'a> {
                 ..
             } => todo!(),
             SemExprData::MethodFnCall {
-                self_argument_sem_expr_idx,
+                self_argument: self_argument_sem_expr_idx,
                 rpar_regional_token_idx,
                 ..
             } => self[self_argument_sem_expr_idx].to(RegionalTokenIdxRangeEnd::new_after(
@@ -496,7 +496,7 @@ impl<'a> SemExprRangeCalculator<'a> {
             SemExprData::Ritchie {
                 ritchie_kind_regional_token_idx,
                 rpar_regional_token_idx,
-                return_ty_sem_expr_idx: return_ty_expr,
+                return_ty: return_ty_expr,
                 ..
             } => match return_ty_expr {
                 Some(return_ty_expr) => RegionalTokenIdxRange::new(

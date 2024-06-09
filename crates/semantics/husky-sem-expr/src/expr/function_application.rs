@@ -38,8 +38,8 @@ impl<'a> SemExprBuilder<'a> {
                     );
                 (
                     Ok(SemExprData::FunctionApplication {
-                        function_sem_expr_idx,
-                        argument_sem_expr_idx,
+                        function: function_sem_expr_idx,
+                        argument: argument_sem_expr_idx,
                     }),
                     ty_result,
                 )
@@ -49,8 +49,8 @@ impl<'a> SemExprBuilder<'a> {
                     self.build_sem_expr(argument_syn_expr_idx, ExpectAnyDerived);
                 (
                     Ok(SemExprData::FunctionApplication {
-                        function_sem_expr_idx,
-                        argument_sem_expr_idx,
+                        function: function_sem_expr_idx,
+                        argument: argument_sem_expr_idx,
                     }),
                     Err(OriginalSemExprTypeError::ExpectedCurryButGotRitchieInstead.into()),
                 )
