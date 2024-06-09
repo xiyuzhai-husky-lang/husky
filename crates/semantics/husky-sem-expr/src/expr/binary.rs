@@ -141,6 +141,7 @@ impl<'a> SemExprBuilder<'a> {
         SemExprDataResult<SemaBinaryOprDynamicDispatch>,
         SemExprTypeResult<FlyTerm>,
     ) {
+        todo!("consider as trait");
         let ropd_sem_expr_idx = self.build_sem_expr(ropd, ExpectSort::ANY);
         let Some(ropd_term) = self.infer_expr_term(ropd_sem_expr_idx) else {
             let lopd_sem_expr_idx = self.build_sem_expr(lopd, ExpectAnyDerived);
