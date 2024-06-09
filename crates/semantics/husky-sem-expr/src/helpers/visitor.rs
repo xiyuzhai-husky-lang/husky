@@ -270,7 +270,7 @@ fn visit_sem_expr_works() {
             None => None,
         },
         &AstTestConfig::new(
-            "syn_node_path_id_conversion",
+            "visit_sem_expr",
             FileExtensionConfig::Markdown,
             TestDomainsConfig::SEMANTICS,
         ),
