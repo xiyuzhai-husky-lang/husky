@@ -113,7 +113,7 @@ impl SemExprIdx {
                     ref items,
                     rbox_regional_token_idx,
                 } => todo!(),
-                SemExprData::VecFunctor { .. } => todo!(),
+                SemExprData::VecFunctor { .. } => (),
                 SemExprData::ArrayFunctor {
                     lbox_regional_token_idx,
                     ref items,
@@ -154,15 +154,15 @@ fn visit_sem_expr_works() {
     }
 
     impl<'db> SemExprVisitor<'db> {
-        fn new(region_path: RegionPath, db: &'db ::salsa::Db) -> Self {
+        fn new(region_path: RegionPath, db: &'db ::salsa::Db) -> Option<Self> {
             let module_path = region_path.module_path(db);
             let text = module_path.text(db);
-            Self {
+            Some(Self {
                 db,
                 text,
-                sem_expr_region_data: sem_expr_region_from_region_path(region_path, db).data(db),
+                sem_expr_region_data: sem_expr_region_from_region_path(region_path, db)?.data(db),
                 visits: vec![],
-            }
+            })
         }
     }
 
@@ -201,7 +201,7 @@ fn visit_sem_expr_works() {
     DB::ast_rich_test_debug(
         |db, syn_node_region_path: SynNodeRegionPath| match syn_node_region_path.region_path(db) {
             Some(region_path) => {
-                let mut visitor = SemExprVisitor::new(region_path, db);
+                let mut visitor = SemExprVisitor::new(region_path, db)?;
 
                 for (expr, _) in visitor.sem_expr_region_data.sem_expr_roots() {
                     expr.simulate(&mut visitor)

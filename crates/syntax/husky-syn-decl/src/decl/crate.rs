@@ -74,6 +74,18 @@ pub enum CrateSynDecl {
     Requirements(RequirementsCrateSynDecl),
     Task(TaskCrateSynDecl),
 }
+
+impl CrateSynDecl {
+    pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
+        match self {
+            CrateSynDecl::Lib(_) => todo!(),
+            CrateSynDecl::Main(_) => todo!(),
+            CrateSynDecl::Requirements(_) => todo!(),
+            CrateSynDecl::Task(_) => todo!(),
+        }
+    }
+}
+
 impl HasSynDecl for CratePath {
     type Decl = Option<CrateSynDecl>;
 

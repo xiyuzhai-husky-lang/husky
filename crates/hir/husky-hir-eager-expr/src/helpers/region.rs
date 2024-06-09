@@ -41,6 +41,6 @@ pub fn hir_eager_expr_source_map_from_sema(
 impl HirEagerExprRegion {
     pub fn sem_expr_region(self, db: &::salsa::Db) -> SemExprRegion {
         let region_path = self.region_path(db);
-        sem_expr_region_from_region_path(region_path, db)
+        sem_expr_region_from_region_path(region_path, db).unwrap()
     }
 }

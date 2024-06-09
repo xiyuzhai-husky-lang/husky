@@ -1,8 +1,21 @@
 use super::*;
 use crate::jar::VfsDb;
 
-pub trait IsVfsTestUnit: Copy {
-    fn collect_from_package_path(
+pub(crate) fn collect_units_from_package_path<U: IsVfsTestUnit>(
+    db: &::salsa::Db,
+    package_path: PackagePath,
+) -> Vec<U> {
+    let units = U::collect_from_package_path_aux(db, package_path).collect::<Vec<_>>();
+    for i in 0..units.len() {
+        for j in (i + 1)..units.len() {
+            assert_ne!(units[i], units[j])
+        }
+    }
+    units
+}
+
+pub trait IsVfsTestUnit: Copy + std::fmt::Debug + salsa::DebugWithDb + Eq {
+    fn collect_from_package_path_aux(
         db: &::salsa::Db,
         package_path: PackagePath,
     ) -> impl Iterator<Item = Self>;
@@ -25,7 +38,7 @@ pub trait IsVfsTestUnit: Copy {
 }
 
 impl IsVfsTestUnit for PackagePath {
-    fn collect_from_package_path(
+    fn collect_from_package_path_aux(
         _db: &::salsa::Db,
         package_path: PackagePath,
     ) -> impl Iterator<Item = Self> {
@@ -59,7 +72,7 @@ impl IsVfsTestUnit for PackagePath {
 }
 
 impl IsVfsTestUnit for CratePath {
-    fn collect_from_package_path(
+    fn collect_from_package_path_aux(
         db: &::salsa::Db,
         package_path: PackagePath,
     ) -> impl Iterator<Item = Self> {
@@ -108,7 +121,7 @@ impl IsVfsTestUnit for CratePath {
 }
 
 impl IsVfsTestUnit for ModulePath {
-    fn collect_from_package_path(
+    fn collect_from_package_path_aux(
         db: &::salsa::Db,
         package_path: PackagePath,
     ) -> impl Iterator<Item = Self> {
@@ -136,8 +149,11 @@ impl IsVfsTestUnit for ModulePath {
         Some(
             self.relative_stem(db)
                 .to_logical_path(package_adversarials_dir.join(config.test_name()))
-                .with_extension(adversarial_kind.as_str())
-                .with_extension(config.adversarial_extension()),
+                .with_extension(&format!(
+                    "{}.{}",
+                    adversarial_kind.as_str(),
+                    config.adversarial_extension()
+                )),
         )
     }
 
