@@ -1578,15 +1578,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "conv"
-version = "0.3.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "78ff10625fd0ac447827aa30ea8b861fead473bb60aeb73af6c1c58caf0d1299"
-dependencies = [
- "custom_derive",
-]
-
-[[package]]
 name = "convert_case"
 version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1804,12 +1795,6 @@ name = "cursor-icon"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "96a6ac251f4a2aca6b3f91340350eab87ae57c3f127ffeb585e92bd336717991"
-
-[[package]]
-name = "custom_derive"
-version = "0.1.7"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ef8ae57c4978a2acd8b869ce6b9ca1dfe817bff704c220209fdef2c0b75a01b9"
 
 [[package]]
 name = "cxx"
@@ -4070,9 +4055,11 @@ dependencies = [
  "husky-manifest",
  "husky-manifest-ast",
  "husky-path-utils",
+ "husky-place",
  "husky-print-utils",
  "husky-profile-utils",
  "husky-sem-expr",
+ "husky-sem-place-contract",
  "husky-semantic-token",
  "husky-syn-decl",
  "husky-syn-defn",
@@ -4472,6 +4459,7 @@ dependencies = [
  "husky-hir-eager-expr",
  "husky-hir-expr",
  "husky-hir-lazy-expr",
+ "husky-hir-prelude",
  "husky-hir-ty",
  "husky-javelin",
  "husky-ki",
@@ -4479,6 +4467,7 @@ dependencies = [
  "husky-linkage",
  "husky-manifest",
  "husky-manifest-ast",
+ "husky-place",
  "husky-print-utils",
  "husky-rust-transpilation",
  "husky-sem-expr",
@@ -4609,6 +4598,7 @@ dependencies = [
  "husky-manifest",
  "husky-manifest-ast",
  "husky-path-utils",
+ "husky-place",
  "husky-print-utils",
  "husky-regional-token",
  "husky-scope-expr",
@@ -4876,15 +4866,16 @@ version = "0.1.0"
 dependencies = [
  "expect-test",
  "husky-ast",
+ "husky-corgi-config",
+ "husky-corgi-config-ast",
  "husky-coword",
  "husky-entity-path",
- "husky-eth-signature",
- "husky-eth-term",
  "husky-folding-range",
  "husky-term-prelude",
- "husky-text",
  "husky-token",
  "husky-token-data",
+ "husky-toml-ast",
+ "husky-toml-token",
  "husky-vfs",
  "lsp-types 0.95.0",
  "salsa",
@@ -4963,9 +4954,11 @@ dependencies = [
  "husky-hir-eager-expr",
  "husky-hir-expr",
  "husky-hir-lazy-expr",
+ "husky-hir-prelude",
  "husky-hir-ty",
  "husky-manifest",
  "husky-manifest-ast",
+ "husky-place",
  "husky-print-utils",
  "husky-sem-expr",
  "husky-sem-place-contract",
@@ -5005,9 +4998,11 @@ dependencies = [
  "husky-hir-eager-expr",
  "husky-hir-expr",
  "husky-hir-lazy-expr",
+ "husky-hir-prelude",
  "husky-hir-ty",
  "husky-manifest",
  "husky-manifest-ast",
+ "husky-place",
  "husky-print-utils",
  "husky-sem-expr",
  "husky-sem-place-contract",
@@ -5181,6 +5176,7 @@ dependencies = [
  "husky-hover",
  "husky-manifest",
  "husky-manifest-ast",
+ "husky-place",
  "husky-print-utils",
  "husky-sem-expr",
  "husky-sem-place-contract",
@@ -5265,6 +5261,18 @@ name = "husky-iter-utils"
 version = "0.1.0"
 
 [[package]]
+name = "husky-jar-utils"
+version = "0.1.0"
+dependencies = [
+ "cargo",
+ "expect-test",
+ "husky-cargo-utils",
+ "husky-path-utils",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "husky-javelin"
 version = "0.1.0"
 dependencies = [
@@ -5289,9 +5297,11 @@ dependencies = [
  "husky-hir-eager-expr",
  "husky-hir-expr",
  "husky-hir-lazy-expr",
+ "husky-hir-prelude",
  "husky-hir-ty",
  "husky-manifest",
  "husky-manifest-ast",
+ "husky-place",
  "husky-print-utils",
  "husky-sem-expr",
  "husky-sem-place-contract",
@@ -5350,6 +5360,7 @@ dependencies = [
  "husky-hir-expr",
  "husky-hir-lazy-expr",
  "husky-hir-opr",
+ "husky-hir-prelude",
  "husky-hir-ty",
  "husky-javelin",
  "husky-ki",
@@ -5358,6 +5369,7 @@ dependencies = [
  "husky-manifest",
  "husky-manifest-ast",
  "husky-ml-task",
+ "husky-place",
  "husky-print-utils",
  "husky-regional-token",
  "husky-sem-expr",
@@ -5426,6 +5438,7 @@ dependencies = [
  "husky-hir-eager-expr",
  "husky-hir-expr",
  "husky-hir-lazy-expr",
+ "husky-hir-prelude",
  "husky-hir-ty",
  "husky-javelin",
  "husky-manifest",
@@ -5868,6 +5881,7 @@ dependencies = [
  "husky-hir-expr",
  "husky-hir-lazy-expr",
  "husky-hir-opr",
+ "husky-hir-prelude",
  "husky-hir-ty",
  "husky-io-utils",
  "husky-javelin",
@@ -5995,6 +6009,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-sem-expr-deps"
+version = "0.1.0"
+
+[[package]]
 name = "husky-sem-fmt"
 version = "0.1.0"
 
@@ -6068,6 +6086,7 @@ dependencies = [
  "husky-fly-term",
  "husky-manifest",
  "husky-manifest-ast",
+ "husky-place",
  "husky-sem-expr",
  "husky-sem-place-contract",
  "husky-semantic-token",
@@ -6530,6 +6549,7 @@ dependencies = [
  "husky-item-defn-ast",
  "husky-manifest",
  "husky-manifest-ast",
+ "husky-place",
  "husky-print-utils",
  "husky-regional-token",
  "husky-sem-expr",
@@ -6566,7 +6586,6 @@ version = "0.1.0"
 dependencies = [
  "expect-test",
  "husky-coword",
- "husky-entity-path",
  "husky-print-utils",
  "husky-toml-ast",
  "husky-toml-token",
@@ -6586,7 +6605,6 @@ version = "0.1.0"
 dependencies = [
  "expect-test",
  "husky-coword",
- "husky-entity-path",
  "husky-print-utils",
  "husky-text-protocol",
  "husky-text-span",
@@ -6641,6 +6659,7 @@ dependencies = [
  "husky-hir-expr",
  "husky-hir-lazy-expr",
  "husky-hir-opr",
+ "husky-hir-prelude",
  "husky-hir-ty",
  "husky-javelin",
  "husky-ki",
@@ -6648,6 +6667,7 @@ dependencies = [
  "husky-linkage",
  "husky-manifest",
  "husky-manifest-ast",
+ "husky-place",
  "husky-print-utils",
  "husky-regional-token",
  "husky-sem-expr",
@@ -6840,6 +6860,7 @@ dependencies = [
  "husky-hir-eager-expr",
  "husky-hir-expr",
  "husky-hir-lazy-expr",
+ "husky-hir-prelude",
  "husky-hir-ty",
  "husky-javelin",
  "husky-linkage",
@@ -6893,6 +6914,7 @@ dependencies = [
  "husky-hir-expr",
  "husky-hir-lazy-expr",
  "husky-hir-opr",
+ "husky-hir-prelude",
  "husky-hir-ty",
  "husky-javelin",
  "husky-lifetime-utils",
@@ -7141,13 +7163,12 @@ dependencies = [
 
 [[package]]
 name = "imageproc"
-version = "0.24.0"
+version = "0.25.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a2a0d7770f428b4615960cc8602775d1f04c75d41b0ccdef862e889ebaae9bbf"
+checksum = "2393fb7808960751a52e8a154f67e7dd3f8a2ef9bd80d1553078a7b4e8ed3f0d"
 dependencies = [
  "ab_glyph",
  "approx 0.5.1",
- "conv",
  "getrandom",
  "image 0.25.0",
  "itertools 0.12.1",
@@ -9610,10 +9631,12 @@ dependencies = [
 name = "salsa-macros"
 version = "0.1.0"
 dependencies = [
+ "convert_case",
  "heck 0.5.0",
  "husky-proc-macro-utils",
  "proc-macro2",
  "quote",
+ "serde_json",
  "syn 2.0.55",
 ]
 

@@ -35,6 +35,7 @@ husky-hir-eager-expr.workspace = true
 husky-hir-lazy-expr.workspace = true
 husky-hir-expr.workspace = true
 husky-hir-decl.workspace = true
+husky-hir-prelude.workspace = true
 # kernel
 husky-coword.workspace = true
 husky-eth-signature.workspace = true
@@ -43,6 +44,7 @@ husky-dec-term.workspace = true
 husky-dec-ty.workspace = true
 husky-dec-signature.workspace = true
 husky-fly-term.workspace = true
+husky-place.workspace = true
 # lex
 husky-text.workspace = true
 husky-token-data.workspace = true

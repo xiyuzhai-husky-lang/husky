@@ -1,6 +1,5 @@
-use jar::VfsDb;
-
 use super::*;
+use crate::jar::VfsDb;
 
 pub trait IsVfsTestUnit: Copy {
     fn collect_from_package_path(db: &::salsa::Db, package_path: PackagePath) -> Vec<Self>;

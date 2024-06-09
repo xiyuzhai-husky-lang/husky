@@ -1,17 +1,9 @@
-use cargo::{
-    core::{resolver::CliFeatures, Workspace},
-    ops::{ExportInfo, OutputMetadataOptions},
-};
+use cargo::core::{Summary, Workspace};
+use std::path::Path;
 
-pub fn output_metadata<R>(manifest_path: &std::path::Path, f: impl FnOnce(ExportInfo) -> R) -> R {
+pub fn workspace_package_summaries(workspace_dir: &Path) -> Vec<Summary> {
+    let manifest_path = &workspace_dir.join("Cargo.toml");
     let config = cargo::Config::default().expect("what the hell");
-    let workspace = Workspace::new(manifest_path, &config).expect("what the hell");
-    let cli_features = CliFeatures::new_all(true);
-    let opt = &OutputMetadataOptions {
-        cli_features,
-        no_deps: false,
-        version: 1,
-        filter_platforms: vec![],
-    };
-    f(cargo::ops::output_metadata(&workspace, opt).unwrap())
+    let ws = Workspace::new(manifest_path, &config).expect("what the hell");
+    ws.members().map(|pkg| pkg.summary().clone()).collect()
 }
