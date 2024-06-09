@@ -139,6 +139,10 @@ impl EthTerm {
                     ty_expectation,
                 )?
             }
+            DecTerm::TypeAsTrait(declarative_term) => {
+                todo!()
+                // EthTypeAsTraitItem::from_dec(db, declarative_term, ty_expectation)?.into()
+            }
             DecTerm::TypeAsTraitItem(declarative_term) => {
                 EthTypeAsTraitItem::from_dec(db, declarative_term, ty_expectation)?.into()
             }

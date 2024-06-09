@@ -19,6 +19,7 @@ use husky_syn_expr::{
 use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr};
 use husky_vfs::toolchain::Toolchain;
 use salsa::DebugWithDb;
+use ty_as_trai::DecTypeAsTrait;
 
 pub(super) struct DecTermEngine<'a> {
     db: &'a ::salsa::Db,
@@ -445,6 +446,12 @@ impl<'a> DecTermEngine<'a> {
                     DecTerm::Abstraction(_) => todo!(),
                     DecTerm::Application(_) => todo!(),
                     DecTerm::ApplicationOrRitchieCall(_) => todo!(),
+                    DecTerm::TypeAsTrait(parent) => {
+                        Ok(
+                            DecTypeAsTraitItem::new(db, parent.parent(db), parent.trai(db), ident)
+                                .into(),
+                        )
+                    }
                     DecTerm::TypeAsTraitItem(_) => todo!(),
                     DecTerm::TraitConstraint(_) => todo!(),
                     DecTerm::LeashOrBitNot(_) => todo!(),
@@ -511,7 +518,7 @@ impl<'a> DecTermEngine<'a> {
                         ropd,
                     )
                     .into()),
-                    SynBinaryOpr::As => todo!(),
+                    SynBinaryOpr::As => Ok(DecTypeAsTrait::new(db, lopd, ropd).into()),
                     SynBinaryOpr::Ins => todo!(),
                     SynBinaryOpr::In => todo!(),
                 }

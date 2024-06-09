@@ -1,7 +1,6 @@
 pub mod abstraction;
 pub mod application;
 pub mod application_or_ritchie_call;
-pub mod assoc_item;
 pub mod constraint;
 pub mod curry;
 pub mod item_path;
@@ -10,12 +9,14 @@ pub mod list;
 pub mod literal;
 pub mod ritchie;
 pub mod symbolic_variable;
+pub mod ty_as_trai;
 pub mod ty_as_trai_item;
 pub mod wrapper;
 
+use ty_as_trai::DecTypeAsTrait;
+
 pub use self::application::*;
 pub use self::application_or_ritchie_call::*;
-pub use self::assoc_item::*;
 pub use self::constraint::*;
 pub use self::curry::*;
 pub use self::item_path::*;
@@ -66,6 +67,8 @@ pub enum DecTerm {
     /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
     Application(DecApplication),
     ApplicationOrRitchieCall(DecApplicationOrRitchieCall),
+    /// (<type> as <trait>)
+    TypeAsTrait(DecTypeAsTrait),
     /// (<type> as <trait>)::<ident>
     TypeAsTraitItem(DecTypeAsTraitItem),
     /// <type> : <trait>
