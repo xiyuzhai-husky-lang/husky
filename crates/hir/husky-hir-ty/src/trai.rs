@@ -29,7 +29,7 @@ impl HirTrait {
                 ItemPathTerm::TypeInstance(_) => todo!(),
                 ItemPathTerm::TypeVariant(_) => todo!(),
             },
-            EthTerm::Category(_) => todo!(),
+            EthTerm::Sort(_) => todo!(),
             EthTerm::Universe(_) => todo!(),
             EthTerm::Curry(_) => todo!(),
             EthTerm::Ritchie(_) => todo!(),

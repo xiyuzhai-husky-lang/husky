@@ -66,7 +66,7 @@ impl<'a> SemExprBuilder<'a> {
                         ty_ethereal_term,
                     } => todo!(),
                     FlyBaseTypeData::Hole(_, _) => lopd_ty, // ad hoc
-                    FlyBaseTypeData::Category(_) => todo!(),
+                    FlyBaseTypeData::Sort(_) => todo!(),
                     FlyBaseTypeData::Ritchie {
                         ritchie_kind,
                         parameter_contracted_tys,

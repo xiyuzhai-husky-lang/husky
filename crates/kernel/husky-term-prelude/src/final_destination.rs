@@ -15,4 +15,5 @@ pub enum FinalDestination {
     AnyOriginal,
     AnyDerived,
     Ritchie(RitchieKind),
+    SortOrTrait,
 }

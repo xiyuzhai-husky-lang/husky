@@ -52,7 +52,7 @@ fn reduce_eth_ty_as_trai_item(db: &::salsa::Db, term: EthTypeAsTraitItem) -> Eth
         EthTerm::SymbolicVariable(_) => term.into(),
         EthTerm::LambdaVariable(_) => todo!(),
         EthTerm::ItemPath(_) => todo!(),
-        EthTerm::Category(_) => todo!(),
+        EthTerm::Sort(_) => todo!(),
         EthTerm::Universe(_) => todo!(),
         EthTerm::Curry(_) => todo!(),
         EthTerm::Ritchie(_) => todo!(),

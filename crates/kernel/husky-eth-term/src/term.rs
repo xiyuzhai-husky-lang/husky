@@ -37,7 +37,7 @@ pub enum EthTerm {
     /// the name `hvar` is to be distinguishable from runtime variable
     LambdaVariable(EthLambdaVariable),
     ItemPath(ItemPathTerm),
-    Category(Sort),
+    Sort(Sort),
     Universe(Universe),
     /// X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
     Curry(EthCurry),
@@ -184,7 +184,7 @@ impl EthTerm {
             .into(),
             EthTerm::LambdaVariable(slf) => slf.into_declarative(db).into(),
             EthTerm::ItemPath(slf) => slf.into(),
-            EthTerm::Category(slf) => DecTerm::Category(slf),
+            EthTerm::Sort(slf) => DecTerm::Category(slf),
             EthTerm::Universe(slf) => slf.into(),
             EthTerm::Curry(slf) => DecCurry::new(
                 db,
@@ -216,7 +216,7 @@ impl EthTerm {
                 | ItemPathTerm::TypeInstance(_)
                 | ItemPathTerm::TypeVariant(_),
             )
-            | EthTerm::Category(_)
+            | EthTerm::Sort(_)
             | EthTerm::Universe(_) => self,
             EthTerm::ItemPath(ItemPathTerm::Form(_)) => todo!(),
             EthTerm::Curry(_) => self,
@@ -354,7 +354,7 @@ impl salsa::DisplayWithDb for EthTerm {
             EthTerm::SymbolicVariable(term) => term.display_fmt_with_db(f, db),
             EthTerm::LambdaVariable(term) => term.display_fmt_with_db(f, db),
             EthTerm::ItemPath(term) => term.display_fmt_with_db(f, db),
-            EthTerm::Category(term) => f.write_str(&term.to_string()),
+            EthTerm::Sort(term) => f.write_str(&term.to_string()),
             EthTerm::Universe(term) => f.write_str(&term.to_string()),
             EthTerm::Curry(term) => term.display_fmt_with_db(f, db),
             EthTerm::Ritchie(term) => term.display_fmt_with_db(f, db),
@@ -373,7 +373,7 @@ impl EthTerm {
         match self {
             EthTerm::Literal(_)
             | EthTerm::ItemPath(_)
-            | EthTerm::Category(_)
+            | EthTerm::Sort(_)
             | EthTerm::Universe(_) => self,
             EthTerm::SymbolicVariable(_symbol) => todo!(),
             EthTerm::LambdaVariable(slf) => slf.substitute(substitution, db),
@@ -409,7 +409,7 @@ impl EthInstantiate for EthTerm {
         match self {
             EthTerm::Literal(_)
             | EthTerm::ItemPath(_)
-            | EthTerm::Category(_)
+            | EthTerm::Sort(_)
             | EthTerm::Universe(_) => self,
             EthTerm::SymbolicVariable(slf) => slf.instantiate(instantiation, ctx, db),
             EthTerm::LambdaVariable(slf) => slf.instantiate(instantiation, ctx, db).into(),

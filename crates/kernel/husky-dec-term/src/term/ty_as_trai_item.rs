@@ -2,9 +2,9 @@ use super::*;
 
 #[salsa::interned]
 pub struct DecTypeAsTraitItem {
-    parent: DecTerm,
-    trai: DecTerm,
-    ident: Ident,
+    pub ty: DecTerm,
+    pub trai: DecTerm,
+    pub ident: Ident,
 }
 
 impl DecTypeAsTraitItem {
@@ -24,14 +24,14 @@ impl DecTermRewriteCopy for DecTypeAsTraitItem {
     where
         Self: Copy,
     {
-        let old_parent = self.parent(db);
-        let parent = old_parent.substitute_copy(db, substitution);
+        let old_ty = self.ty(db);
+        let ty = old_ty.substitute_copy(db, substitution);
         let old_trai = self.trai(db);
         let trai = old_trai.substitute_copy(db, substitution);
-        if old_parent == parent && old_trai == trai {
+        if old_ty == ty && old_trai == trai {
             return self;
         }
         let ident = self.ident(db);
-        Self::new(db, parent, trai, ident)
+        Self::new(db, ty, trai, ident)
     }
 }

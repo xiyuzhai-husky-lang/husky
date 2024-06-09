@@ -24,6 +24,16 @@ pub enum SynExprData {
         colon_colon_regional_token: ColonColonRegionalToken,
         ident_token: IdentRegionalToken,
     },
+    TypeAsTraitItem {
+        lpar_regional_token_idx: RegionalTokenIdx,
+        ty: SynExprIdx,
+        as_region_token_idx: RegionalTokenIdx,
+        trai: SynExprIdx,
+        rpar_regional_token_idx: RegionalTokenIdx,
+        colon_colon_regional_token_idx: RegionalTokenIdx,
+        ident: Ident,
+        ident_regional_token_idx: RegionalTokenIdx,
+    },
     /// more general case
     AssocItem {
         parent_expr_idx: SynExprIdx,

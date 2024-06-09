@@ -256,7 +256,7 @@ impl EthInstantiationBuilder {
             }
             EthTerm::Literal(_)
             | EthTerm::ItemPath(_)
-            | EthTerm::Category(_)
+            | EthTerm::Sort(_)
             | EthTerm::Universe(_)
             | EthTerm::LambdaVariable(_) => Nothing,
             EthTerm::Curry(_) => {

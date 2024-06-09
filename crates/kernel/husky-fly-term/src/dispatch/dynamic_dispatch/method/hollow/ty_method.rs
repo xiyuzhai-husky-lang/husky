@@ -43,7 +43,7 @@ impl HasFlyTypeMethodDispatch for HolTerm {
                     indirections,
                 )
             }
-            FlyBaseTypeData::Category(_) => todo!(),
+            FlyBaseTypeData::Sort(_) => todo!(),
             FlyBaseTypeData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,

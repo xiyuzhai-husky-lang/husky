@@ -26024,12 +26024,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::EqsSort(
-                                    ExpectSort {
-                                        smallest_universe: Universe(
-                                            0,
-                                        ),
-                                    },
+                                expectation: Expectation::TypeOrTrait(
+                                    ExpectSortOrTrait,
                                 ),
                                 state: ExpectationState {
                                     idx: 18,
@@ -26045,10 +26041,8 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::EqsSort(
-                                                Universe(
-                                                    1,
-                                                ),
+                                            ExpectationOutcome::SortOrTrait(
+                                                Sort,
                                             ),
                                         ),
                                     ),
@@ -28139,12 +28133,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::EqsSort(
-                                    ExpectSort {
-                                        smallest_universe: Universe(
-                                            0,
-                                        ),
-                                    },
+                                expectation: Expectation::TypeOrTrait(
+                                    ExpectSortOrTrait,
                                 ),
                                 state: ExpectationState {
                                     idx: 14,
@@ -28160,10 +28150,8 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::EqsSort(
-                                                Universe(
-                                                    1,
-                                                ),
+                                            ExpectationOutcome::SortOrTrait(
+                                                Sort,
                                             ),
                                         ),
                                     ),
@@ -29917,12 +29905,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::EqsSort(
-                                    ExpectSort {
-                                        smallest_universe: Universe(
-                                            0,
-                                        ),
-                                    },
+                                expectation: Expectation::TypeOrTrait(
+                                    ExpectSortOrTrait,
                                 ),
                                 state: ExpectationState {
                                     idx: 11,
@@ -29938,10 +29922,8 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::EqsSort(
-                                                Universe(
-                                                    1,
-                                                ),
+                                            ExpectationOutcome::SortOrTrait(
+                                                Sort,
                                             ),
                                         ),
                                     ),
@@ -37286,12 +37268,8 @@
                     arena: Arena {
                         data: [
                             FlyTermExpectationEntry {
-                                expectation: Expectation::EqsSort(
-                                    ExpectSort {
-                                        smallest_universe: Universe(
-                                            0,
-                                        ),
-                                    },
+                                expectation: Expectation::TypeOrTrait(
+                                    ExpectSortOrTrait,
                                 ),
                                 state: ExpectationState {
                                     idx: 0,
@@ -37307,10 +37285,8 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::EqsSort(
-                                                Universe(
-                                                    1,
-                                                ),
+                                            ExpectationOutcome::SortOrTrait(
+                                                Sort,
                                             ),
                                         ),
                                     ),
@@ -37967,12 +37943,8 @@
                     arena: Arena {
                         data: [
                             FlyTermExpectationEntry {
-                                expectation: Expectation::EqsSort(
-                                    ExpectSort {
-                                        smallest_universe: Universe(
-                                            0,
-                                        ),
-                                    },
+                                expectation: Expectation::TypeOrTrait(
+                                    ExpectSortOrTrait,
                                 ),
                                 state: ExpectationState {
                                     idx: 0,
@@ -37988,10 +37960,8 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::EqsSort(
-                                                Universe(
-                                                    1,
-                                                ),
+                                            ExpectationOutcome::SortOrTrait(
+                                                Sort,
                                             ),
                                         ),
                                     ),
@@ -41147,12 +41117,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::EqsSort(
-                                    ExpectSort {
-                                        smallest_universe: Universe(
-                                            0,
-                                        ),
-                                    },
+                                expectation: Expectation::TypeOrTrait(
+                                    ExpectSortOrTrait,
                                 ),
                                 state: ExpectationState {
                                     idx: 23,
@@ -41168,10 +41134,8 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::EqsSort(
-                                                Universe(
-                                                    1,
-                                                ),
+                                            ExpectationOutcome::SortOrTrait(
+                                                Sort,
                                             ),
                                         ),
                                     ),
@@ -44263,12 +44227,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::EqsSort(
-                                    ExpectSort {
-                                        smallest_universe: Universe(
-                                            0,
-                                        ),
-                                    },
+                                expectation: Expectation::TypeOrTrait(
+                                    ExpectSortOrTrait,
                                 ),
                                 state: ExpectationState {
                                     idx: 23,
@@ -44284,10 +44244,8 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::EqsSort(
-                                                Universe(
-                                                    1,
-                                                ),
+                                            ExpectationOutcome::SortOrTrait(
+                                                Sort,
                                             ),
                                         ),
                                     ),
