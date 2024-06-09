@@ -28,7 +28,7 @@ pub(super) fn ethereal_term_data<'a>(db: &'a ::salsa::Db, term: EthTerm) -> FlyT
             ItemPathTerm::TypeInstance(_) => todo!(),
             ItemPathTerm::TypeVariant(path) => FlyTermData::TypeVariant { path },
         },
-        EthTerm::Category(term) => FlyTermData::Sort(term),
+        EthTerm::Sort(term) => FlyTermData::Sort(term),
         EthTerm::Universe(_) => todo!(),
         EthTerm::Curry(term) => FlyTermData::Curry {
             toolchain: term.toolchain(db),
@@ -183,7 +183,7 @@ pub(super) fn ethereal_term_fly_base_ty_data<'a>(
             ItemPathTerm::TypeInstance(_) => todo!(),
             ItemPathTerm::TypeVariant(path) => unreachable!(),
         },
-        EthTerm::Category(term) => FlyBaseTypeData::Category(term),
+        EthTerm::Sort(term) => FlyBaseTypeData::Sort(term),
         EthTerm::Universe(_) => todo!(),
         EthTerm::Curry(term) => FlyBaseTypeData::Curry {
             curry_kind: term.curry_kind(db),

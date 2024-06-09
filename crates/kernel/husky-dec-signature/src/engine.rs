@@ -415,6 +415,13 @@ impl<'a> DecTermEngine<'a> {
                 colon_colon_regional_token,
                 ident_token,
             } => todo!(),
+            SynExprData::TypeAsTraitItem {
+                ty, trai, ident, ..
+            } => {
+                let ty = self.infer_new_expr_term(ty)?;
+                let trai = self.infer_new_expr_term(trai)?;
+                Ok(DecTypeAsTraitItem::new(db, ty, trai, ident).into())
+            }
             SynExprData::AssocItem {
                 parent_expr_idx,
                 colon_colon_regional_token_idx,
@@ -518,7 +525,8 @@ impl<'a> DecTermEngine<'a> {
                         ropd,
                     )
                     .into()),
-                    SynBinaryOpr::As => Ok(DecTypeAsTrait::new(db, lopd, ropd).into()),
+                    SynBinaryOpr::As => todo!(),
+                    // Ok(DecTypeAsTrait::new(db, lopd, ropd).into()),
                     SynBinaryOpr::Ins => todo!(),
                     SynBinaryOpr::In => todo!(),
                 }

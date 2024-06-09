@@ -125,7 +125,7 @@ pub enum DerivedSemExprTypeError {
     #[error("function type not inferred in application or function call")]
     FunctionTypeNotInferredInApplicationOrFunctionCall,
     #[error("as operation right operand term not inferred")]
-    AsOperationRightOperandTermNotInferred,
+    CastAsOperationRightOperandTermNotInferred,
     #[error("return type not given in ritchie call")]
     ReturnTypeNotGivenInRitchieCall,
     #[error("self type not inferred")]

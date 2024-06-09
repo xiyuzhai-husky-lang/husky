@@ -156,7 +156,7 @@ pub enum FlyBaseTypeData<'a> {
         ty_ethereal_term: Option<EthCurry>,
     },
     Hole(HoleKind, Hole),
-    Category(Sort),
+    Sort(Sort),
     Ritchie {
         ritchie_kind: RitchieKind,
         parameter_contracted_tys: &'a [FlyRitchieParameter],
@@ -245,7 +245,7 @@ impl FlyTerm {
                 HoleKind::ImplicitType => todo!(),
                 HoleKind::AnyOriginal | HoleKind::AnyDerived => todo!(),
             },
-            FlyBaseTypeData::Category(_) => Ok(None),
+            FlyBaseTypeData::Sort(_) => Ok(None),
             FlyBaseTypeData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,

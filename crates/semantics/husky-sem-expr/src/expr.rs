@@ -483,6 +483,13 @@ impl SemExprIdx {
         arena[self].ty().unwrap()
     }
 
+    pub(crate) fn immediate_ty_result<'a>(
+        self,
+        arena: &'a SemExprArena,
+    ) -> &'a SemExprTypeResult<FlyTerm> {
+        &arena[self].immediate_ty_result
+    }
+
     /// outside crate wouldn't need to access this
     ///
     /// for downstream crates, it's assumed that there are no semantic errors otherwise the analysis stops at semantic
@@ -698,7 +705,9 @@ impl<'a> SemExprBuilder<'a> {
         expr_ty_expectation: E,
     ) -> SemExprIdx {
         let ty = match expr_ty_expectation.final_destination(self) {
-            FinalDestination::Sort => self.eth_term_menu().ty0().into(),
+            FinalDestination::Sort | FinalDestination::SortOrTrait => {
+                self.eth_term_menu().ty0().into()
+            }
             FinalDestination::TypeOntology => self.eth_term_menu().unit_ty_ontology(),
             FinalDestination::AnyOriginal => todo!(),
             FinalDestination::AnyDerived => todo!(),
@@ -779,6 +788,9 @@ impl<'a> SemExprBuilder<'a> {
                     }
                 });
                 (data_result, ty_result)
+            }
+            SynExprData::TypeAsTraitItem { .. } => {
+                todo!()
             }
             SynExprData::AssocItem {
                 parent_expr_idx,
@@ -1059,7 +1071,9 @@ impl<'a> SemExprBuilder<'a> {
                     rpar_regional_token_idx,
                 }),
                 match expr_ty_expectation.final_destination(self) {
-                    FinalDestination::Sort => Ok(self.term_menu().ty0().into()),
+                    FinalDestination::Sort | FinalDestination::SortOrTrait => {
+                        Ok(self.term_menu().ty0().into())
+                    }
                     FinalDestination::TypeOntology
                     | FinalDestination::AnyOriginal
                     | FinalDestination::AnyDerived => {

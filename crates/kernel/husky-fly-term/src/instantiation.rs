@@ -288,7 +288,7 @@ impl FlyTermInstantiationBuilder {
             }
             EthTerm::LambdaVariable(_) => todo!(),
             EthTerm::ItemPath(_) => todo!(),
-            EthTerm::Category(_) => todo!(),
+            EthTerm::Sort(_) => todo!(),
             EthTerm::Universe(_) => todo!(),
             EthTerm::Curry(_) => todo!(),
             EthTerm::Ritchie(_) => todo!(),
@@ -348,7 +348,7 @@ impl FlyInstantiate for EthTerm {
             },
             EthTerm::LambdaVariable(_) => todo!(),
             EthTerm::ItemPath(_) => self.into(),
-            EthTerm::Category(_) => todo!(),
+            EthTerm::Sort(_) => todo!(),
             EthTerm::Universe(_) => todo!(),
             EthTerm::Curry(_) => todo!(),
             EthTerm::Ritchie(term) => term.instantiate(engine, expr_idx, instantiation),

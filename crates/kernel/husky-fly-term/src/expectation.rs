@@ -10,6 +10,7 @@ mod int_ty;
 pub mod num_ty;
 mod ritchie_ty;
 mod sort;
+pub mod sort_or_trai;
 mod subtype;
 
 pub use self::any_derived::*;
@@ -27,6 +28,7 @@ pub use self::ritchie_ty::*;
 pub use self::sort::*;
 pub use self::subtype::*;
 
+use self::sort_or_trai::*;
 use super::*;
 use husky_entity_path::path::major_item::ty::TypePath;
 use husky_term_prelude::ritchie::RitchieKind;
@@ -47,6 +49,7 @@ pub enum Expectation {
     EqsRitchieType(ExpectEqsRitchieType),
     AnyOriginal(ExpectAnyOriginal),
     AnyDerived(ExpectAnyDerived),
+    TypeOrTrait(ExpectSortOrTrait),
     ConditionType(ExpectConditionType),
     IntType(ExpectIntType),
     NumType(ExpectNumType),
@@ -76,6 +79,7 @@ impl Expectation {
             Expectation::EqsExactly(epn) => epn.resolve(db, terms, state),
             Expectation::AnyOriginal(epn) => epn.resolve(db, terms, state),
             Expectation::AnyDerived(epn) => epn.resolve(db, terms, state),
+            Expectation::TypeOrTrait(epn) => epn.resolve(db, terms, state),
             Expectation::IntType(epn) => epn.resolve(db, terms, state),
             Expectation::NumType(epn) => epn.resolve(db, terms, state),
             Expectation::FinalDestination(epn) => epn.resolve(db, terms, state),
@@ -114,7 +118,7 @@ impl ExpectFlyTerm for Expectation {
 pub trait ExpectFlyTerm: Into<Expectation> + Clone {
     type Outcome: Clone + Into<ExpectationOutcome>;
 
-    /// override this for ExpectAny*
+    /// override this for ExpectAny* because they don't care
     fn initial_resolve_progress() -> ExpectationProgress {
         ExpectationProgress::Intact
     }
@@ -149,7 +153,9 @@ pub trait ExpectFlyTerm: Into<Expectation> + Clone {
         terms: &FlyTerms,
     ) -> TypePathDisambiguation {
         match self.final_destination_inner(db, terms) {
-            FinalDestination::Sort => TypePathDisambiguation::OntologyConstructor,
+            FinalDestination::Sort | FinalDestination::SortOrTrait => {
+                TypePathDisambiguation::OntologyConstructor
+            }
             FinalDestination::TypeOntology
             | FinalDestination::AnyOriginal
             | FinalDestination::AnyDerived => TypePathDisambiguation::InstanceConstructor,
@@ -205,6 +211,7 @@ pub enum ExpectationOutcome {
     FinalDestination(ExpectFinalDestinationOutcome),
     AnyOriginal(ExpectAnyOriginalOutcome),
     AnyDerived(ExpectAnyDerivedOutcome),
+    SortOrTrait(ExpectSortOrTraitOutcome),
 }
 
 #[salsa::derive_debug_with_db]

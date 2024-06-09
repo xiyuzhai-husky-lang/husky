@@ -44,9 +44,9 @@ impl ExpectFlyTerm for ExpectSort {
         state: &mut ExpectationState,
     ) -> AltOption<FlyTermEffect> {
         match state.expectee().base_resolved_inner(terms) {
-            FlyTermBase::Eth(EthTerm::Category(cat)) => {
-                match cat.universe() >= self.smallest_universe {
-                    true => state.set_ok(ExpectationOutcome::EqsSort(cat.universe()), smallvec![]),
+            FlyTermBase::Eth(EthTerm::Sort(sort)) => {
+                match sort.universe() >= self.smallest_universe {
+                    true => state.set_ok(ExpectationOutcome::EqsSort(sort.universe()), smallvec![]),
                     false => todo!(),
                     // state.set_err(todo!(), smallvec![]),
                 }

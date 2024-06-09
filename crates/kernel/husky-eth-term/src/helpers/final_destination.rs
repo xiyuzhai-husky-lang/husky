@@ -25,7 +25,7 @@ impl EthTerm {
                 | ItemPathTerm::TypeInstance(_)
                 | ItemPathTerm::TypeVariant(_) => FinalDestination::AnyDerived,
             },
-            EthTerm::Category(_) => FinalDestination::Sort,
+            EthTerm::Sort(_) => FinalDestination::Sort,
             EthTerm::Universe(_) => unreachable!("expect ty term"),
             EthTerm::Curry(slf) => curry_ethereal_term_final_destination(db, slf),
             EthTerm::Ritchie(slf) => FinalDestination::Ritchie(slf.ritchie_kind(db)),
