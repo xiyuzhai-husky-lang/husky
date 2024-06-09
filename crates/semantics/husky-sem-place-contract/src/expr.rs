@@ -100,13 +100,15 @@ impl<'a> PlaceContractEngine<'a> {
                 self.infer_expr(opd, contract, site.clone())
             }
             SemExprData::Unveil {
-                opd_sem_expr_idx, ..
+                opd: opd_sem_expr_idx,
+                ..
             } => self.infer_expr(opd_sem_expr_idx, Contract::Move, site.clone()),
             SemExprData::Unwrap {
-                opd_sem_expr_idx, ..
+                opd: opd_sem_expr_idx,
+                ..
             } => self.infer_expr(opd_sem_expr_idx, Contract::At, site.clone()),
             SemExprData::FunctionRitchieCall {
-                function_sem_expr_idx,
+                function: function_sem_expr_idx,
                 ritchie_ty_kind,
                 ref ritchie_parameter_argument_matches,
                 ..
@@ -135,7 +137,7 @@ impl<'a> PlaceContractEngine<'a> {
             },
             SemExprData::MethodApplication { .. } => (),
             SemExprData::MethodFnCall {
-                self_argument_sem_expr_idx,
+                self_argument: self_argument_sem_expr_idx,
                 self_contract,
                 ref ritchie_parameter_argument_matches,
                 ..
@@ -144,7 +146,7 @@ impl<'a> PlaceContractEngine<'a> {
                 self.infer_ritchie_parameter_argument_matches(ritchie_parameter_argument_matches)
             }
             SemExprData::MethodGnCall {
-                self_argument_sem_expr_idx,
+                self_argument: self_argument_sem_expr_idx,
                 dot_regional_token_idx,
                 ident_token,
                 ref method_dynamic_dispatch,
