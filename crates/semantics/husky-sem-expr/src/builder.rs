@@ -10,7 +10,10 @@ use self::symbol::*;
 use crate::*;
 use husky_dec_signature::{jar::DecSignatureDb, region::SynExprDecTermRegion};
 use husky_entity_path::menu::{item_path_menu, ItemPathMenu};
-use husky_entity_tree::{helpers::AvailableTraitItemsTable, region_path::SynNodeRegionPath};
+use husky_entity_tree::{
+    helpers::{tokra_region::crate_decl::HasCrateDeclTokraRegion, AvailableTraitItemsTable},
+    region_path::SynNodeRegionPath,
+};
 use husky_eth_signature::{
     context::EthSignatureBuilderContextItd,
     error::EthSignatureResult,
@@ -127,7 +130,10 @@ impl<'a> SemExprBuilder<'a> {
         let parent_sem_expr_region =
             parent_expr_region.map(|parent_expr_region| db.sem_expr_region(parent_expr_region));
         let regional_tokens_data = match syn_expr_region_data.path() {
-            SynNodeRegionPath::CrateDecl(_) => todo!(),
+            SynNodeRegionPath::CrateDecl(path) => match path.decl_tokra_region(db) {
+                Some(region) => region.regional_tokens_data(db),
+                None => todo!(),
+            },
             SynNodeRegionPath::ItemDecl(path) => {
                 path.decl_tokra_region(db).regional_tokens_data(db)
             }

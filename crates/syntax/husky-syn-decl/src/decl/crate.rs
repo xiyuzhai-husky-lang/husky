@@ -78,10 +78,10 @@ pub enum CrateSynDecl {
 impl CrateSynDecl {
     pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
-            CrateSynDecl::Lib(_) => todo!(),
-            CrateSynDecl::Main(_) => todo!(),
-            CrateSynDecl::Requirements(_) => todo!(),
-            CrateSynDecl::Task(_) => todo!(),
+            CrateSynDecl::Lib(slf) => slf.syn_expr_region(db),
+            CrateSynDecl::Main(slf) => slf.syn_expr_region(db),
+            CrateSynDecl::Requirements(slf) => slf.syn_expr_region(db),
+            CrateSynDecl::Task(slf) => slf.syn_expr_region(db),
         }
     }
 }
