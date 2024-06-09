@@ -1,14 +1,14 @@
 pub mod adversarial_test;
 pub mod config;
-pub mod db;
 pub mod domain;
+pub mod jar;
 mod rich_test;
 pub mod unit;
 
 pub use self::adversarial_test::*;
 pub use self::config::*;
-pub use self::db::*;
 pub use self::domain::*;
+pub use self::jar::*;
 pub use self::unit::*;
 
 use self::rich_test::*;

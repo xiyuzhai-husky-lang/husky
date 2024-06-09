@@ -516,7 +516,7 @@ impl ItemPathMenu {
 
 #[test]
 fn menu_works() {
-    use husky_vfs::test_utils::db::VfsTestUtilsDb;
+    use husky_vfs::test_utils::jar::VfsTestUtilsDb;
 
     let db = DB::default();
     let db = &*db;
