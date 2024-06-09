@@ -1,11 +1,13 @@
 mod calc;
 mod error;
+pub mod jar;
 #[cfg(test)]
 mod tests;
 
 pub use error::*;
 
 use self::calc::*;
+use self::jar::FoldingRangeJar as Jar;
 use husky_token::TokenDb;
 use husky_vfs::path::module_path::ModulePath;
 use lsp_types::FoldingRange;
@@ -20,10 +22,7 @@ impl FoldingRangeDb for ::salsa::Db {
     }
 }
 
-#[salsa::jar]
-pub struct FoldingRangeJar(folding_ranges);
-
-#[salsa::tracked(jar = FoldingRangeJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn folding_ranges(db: &::salsa::Db, module_path: ModulePath) -> Vec<FoldingRange> {
     use husky_ast::HasAstSheet;
 

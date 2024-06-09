@@ -173,8 +173,10 @@ fn husky_lang_jar_tree_works() {
         .unwrap_or("temp".into())
         .join("expect-files");
     std::fs::create_dir_all(&dir).expect("failed_to_create_dir_all");
-    let expected = expect_test::expect_file![dir.join("husky_lang_jar_tree.txt")];
-    expected.assert_eq(&format!("{jar_tree:#?}"));
+    expect_test::expect_file![dir.join("husky_lang_jar_tree.txt")]
+        .assert_eq(&format!("{jar_tree:#?}"));
+    expect_test::expect_file![dir.join("husky_lang_jar_tree.json")]
+        .assert_eq(&serde_json::to_string_pretty(&jar_tree).unwrap());
 }
 
 pub fn husky_lang_jar_tree_trimmed() -> BTreeMap<String, BTreeSet<String>> {
@@ -203,6 +205,8 @@ fn husky_lang_jar_tree_trimmed_works() {
         .unwrap_or("temp".into())
         .join("expect-files");
     std::fs::create_dir_all(&dir).expect("failed_to_create_dir_all");
-    let expected = expect_test::expect_file![dir.join("husky_lang_jar_tree_trimmed.txt")];
-    expected.assert_eq(&format!("{jar_tree_trimmed:#?}"));
+    expect_test::expect_file![dir.join("husky_lang_jar_tree_trimmed.txt")]
+        .assert_eq(&format!("{jar_tree_trimmed:#?}"));
+    expect_test::expect_file![dir.join("husky_lang_jar_tree_trimmed.json")]
+        .assert_eq(&serde_json::to_string_pretty(&jar_tree_trimmed).unwrap());
 }

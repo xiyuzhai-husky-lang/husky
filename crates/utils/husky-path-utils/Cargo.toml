@@ -21,6 +21,7 @@ husky-minimal-toml-utils = { path = "../../utils/husky-minimal-toml-utils" }
 
 [dev-dependencies]
 expect-test.workspace = true
+# utils
 husky-path-utils = { path = ".", features = ["test_utils"] }
 
 [features]
