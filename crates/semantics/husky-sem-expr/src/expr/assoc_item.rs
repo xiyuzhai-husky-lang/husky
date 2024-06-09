@@ -46,7 +46,9 @@ impl<'a> SemExprBuilder<'a> {
             p!(
                 self.syn_expr_region_data().path().debug(self.db()),
                 colon_colon_regional_token_idx,
-                ident.debug(self.db())
+                ident.debug(self.db()),
+                parent_expr.data_result(self.sem_expr_arena()),
+                self.sem_expr_term_result(parent_expr)
             );
             todo!()
         };

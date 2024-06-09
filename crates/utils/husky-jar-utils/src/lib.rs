@@ -32,7 +32,9 @@ impl From<Summary> for PackageSummary {
             dependencies: summary
                 .dependencies()
                 .iter()
-                .map(|dep| dep.package_name().to_string())
+                .filter_map(|dep| {
+                    (dep.package_name() != summary.name()).then(|| dep.package_name().to_string())
+                })
                 .collect(),
         }
     }

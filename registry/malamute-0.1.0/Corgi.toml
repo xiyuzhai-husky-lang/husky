@@ -8,3 +8,6 @@ description = "The Husky Malamute Library for Basic Machine Learning Algorithms"
 [lib]
 test = false
 bench = false
+
+[dependencies]
+ml-task = "0.1.0"
