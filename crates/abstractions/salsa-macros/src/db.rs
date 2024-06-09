@@ -154,3 +154,9 @@ impl syn::parse::Parse for Args {
         })
     }
 }
+
+#[test]
+fn jar_deps_works() {
+    // let export_info = husky_cargo_utils::metadata::output_metadata(&dev_paths.dev_root().join("Cargo.toml"));
+    // let packages=export_info.
+}
