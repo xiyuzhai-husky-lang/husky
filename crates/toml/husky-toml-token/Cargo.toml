@@ -20,8 +20,6 @@ husky-print-utils.workspace = true
 [dev-dependencies]
 expect-test.workspace = true
 salsa.workspace = true
-# kernel
-husky-entity-path.workspace = true
 
 [features]
 test_utils = ["salsa/test_utils", "husky-vfs/test_utils"]

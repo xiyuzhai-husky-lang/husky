@@ -1,6 +1,5 @@
 {
     "husky-ast": {
-        "husky-text",
         "husky-token",
     },
     "husky-completion": {
@@ -25,6 +24,7 @@
     },
     "husky-diagnostics": {
         "husky-sem-expr",
+        "husky-text",
     },
     "husky-entity-path": {
         "husky-vfs",
@@ -42,6 +42,10 @@
     "husky-fly-term": {
         "husky-eth-signature",
         "husky-place",
+    },
+    "husky-folding-range": {
+        "husky-ast",
+        "husky-corgi-config",
     },
     "husky-hir-decl": {
         "husky-hir-expr",
@@ -137,12 +141,13 @@
     },
     "husky-token-info": {
         "husky-sem-place-contract",
+        "husky-text",
     },
     "husky-toml-ast": {
         "husky-toml-token",
     },
     "husky-toml-token": {
-        "husky-entity-path",
+        "husky-vfs",
     },
     "husky-toolchain-config": {
         "husky-vfs",

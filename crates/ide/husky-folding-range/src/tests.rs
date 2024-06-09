@@ -2,18 +2,21 @@ pub(crate) use husky_ast::test_utils::*;
 
 use crate::*;
 use husky_coword::jar::CowordJar;
-use husky_term_prelude::jar::TermPreludeJar;
 use husky_token::TokenJar;
 
 #[salsa::db(
     CowordJar,
+    husky_corgi_config::jar::CorgiConfigJar,
     husky_vfs::jar::VfsJar,
     husky_entity_path::jar::EntityPathJar,
-    TermPreludeJar,
+    husky_term_prelude::jar::TermPreludeJar,
     husky_token_data::jar::TokenDataJar,
     TokenJar,
     husky_ast::jar::AstJar,
-    FoldingRangeJar
+    Jar,
+    husky_toml_token::jar::TomlTokenJar,
+    husky_toml_ast::jar::TomlAstJar,
+    husky_corgi_config_ast::jar::CorgiConfigAstJar
 )]
 #[derive(Default)]
 pub struct DB;
