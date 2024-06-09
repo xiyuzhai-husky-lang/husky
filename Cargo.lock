@@ -5265,6 +5265,18 @@ name = "husky-iter-utils"
 version = "0.1.0"
 
 [[package]]
+name = "husky-jar-utils"
+version = "0.1.0"
+dependencies = [
+ "cargo",
+ "expect-test",
+ "husky-cargo-utils",
+ "husky-path-utils",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "husky-javelin"
 version = "0.1.0"
 dependencies = [
