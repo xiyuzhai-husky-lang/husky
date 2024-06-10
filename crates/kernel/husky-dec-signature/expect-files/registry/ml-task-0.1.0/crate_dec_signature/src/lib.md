@@ -9,24 +9,14 @@ Ok(
                             library_path: "../../../library",
                         },
                     },
-                    name: `malamute`,
+                    name: `ml-task`,
                     data: PackagePathSource::Local {
-                        path: "../../../registry/malamute-0.1.0",
+                        path: "../../../registry/ml-task-0.1.0",
                     },
                 },
                 kind: Lib,
             },
-            default_const_excludes: Some(
-                [
-                    TypeAsTraitItem(
-                        DecTypeAsTraitItem(
-                            Id {
-                                value: 1,
-                            },
-                        ),
-                    ),
-                ],
-            ),
+            default_const_excludes: None,
         },
     ),
 )
