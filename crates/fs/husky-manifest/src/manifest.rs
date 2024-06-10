@@ -25,3 +25,15 @@ impl HasManifest for PackagePath {
         full_dependent_package_paths(db, self)
     }
 }
+
+#[test]
+fn package_full_dependencies_works() {
+    DB::vfs_rich_test_debug_with_db(
+        |db, package_path: PackagePath| package_path.full_dependencies(db),
+        &VfsTestConfig::new(
+            "package_full_dependencies",
+            FileExtensionConfig::Markdown,
+            TestDomainsConfig::FS,
+        ),
+    );
+}

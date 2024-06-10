@@ -1,5 +1,5 @@
 [package]
-name = "malamute-linkages"
+name = "ml-task-linkages"
 edition = "2021"
 version = "0.1.0"
 
@@ -7,9 +7,6 @@ version = "0.1.0"
 workspace = true
 
 [dependencies.husky-core]
-workspace = true
-
-[dependencies.malamute]
 workspace = true
 
 [dependencies.ml-task]

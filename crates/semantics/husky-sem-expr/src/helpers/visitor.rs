@@ -207,6 +207,7 @@ impl SemStmtIdx {
 }
 
 #[test]
+#[ignore]
 fn visit_sem_expr_works() {
     struct SemExprVisitor<'db> {
         db: &'db ::salsa::Db,

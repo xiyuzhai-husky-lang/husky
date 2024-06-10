@@ -14,9 +14,9 @@ fn main() {
     // remove_folder_in_tests("try/try");
     clean_expect_files();
     // clean_library_adversarials();
-    // clean_tests()
-    // restructure()
-    // clean_target_rs()
+    // clean_tests();
+    // restructure();
+    clean_target_rs();
 }
 
 pub fn clean_target_rs() {

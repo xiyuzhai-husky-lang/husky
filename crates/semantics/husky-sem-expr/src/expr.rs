@@ -798,9 +798,6 @@ impl<'a> SemExprBuilder<'a> {
                 ident,
                 ident_regional_token_idx,
             } => {
-                use husky_print_utils::p;
-
-                p!(self.syn_expr_region_data()[parent_expr_idx].debug(self.db()));
                 let parent_expr_idx = self.build_sem_expr(parent_expr_idx, ExpectAnyOriginal);
                 let (static_dispatch_result, ty_result) = self.calc_assoc_item_ty(
                     syn_expr_idx,
