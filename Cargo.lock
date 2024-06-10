@@ -5519,6 +5519,7 @@ dependencies = [
  "husky-corgi-config",
  "husky-corgi-config-ast",
  "husky-coword",
+ "husky-manifest",
  "husky-manifest-ast",
  "husky-print-utils",
  "husky-text-protocol",

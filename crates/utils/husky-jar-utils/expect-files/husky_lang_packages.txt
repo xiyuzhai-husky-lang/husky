@@ -3379,6 +3379,13 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "husky-cybertron-prototype",
+        relative_path: "crates/prototypes/husky-cybertron-prototype",
+        dependencies: [
+            "shifted-unsigned-int",
+        ],
+    },
+    PackageSummary {
         name: "husky-logicm-prototype",
         relative_path: "crates/prototypes/husky-logicm-prototype",
         dependencies: [
@@ -3603,7 +3610,7 @@
     },
     PackageSummary {
         name: "ml-task",
-        relative_path: "registry/ml-task",
+        relative_path: "registry/ml-task-0.1.0",
         dependencies: [
             "ad-hoc-task-dependency",
             "husky-core",
