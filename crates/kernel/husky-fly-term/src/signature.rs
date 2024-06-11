@@ -1,4 +1,6 @@
 mod assoc_ritchie;
+pub mod assoc_static_var;
+pub mod assoc_ty;
 pub mod binary_opr;
 mod field;
 mod index;

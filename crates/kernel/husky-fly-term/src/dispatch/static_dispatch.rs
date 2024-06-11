@@ -3,9 +3,9 @@ mod hollow;
 mod solid;
 
 use super::*;
+use assoc_static_var::AssocStaticVarFlySignature;
 use husky_coword::Ident;
-use husky_entity_kind::TraitItemKind;
-use husky_entity_path::path::assoc_item::trai_item::TraitItemPath;
+use husky_entity_path::path::major_item::trai::TraitPath;
 use husky_entity_tree::node::HasAssocItemPaths;
 use husky_eth_signature::signature::{
     assoc_item::{
@@ -15,48 +15,21 @@ use husky_eth_signature::signature::{
     HasEthTemplate,
 };
 use husky_eth_term::term::application::TermFunctionReduced;
-use path::{assoc_item::trai_for_ty_item::TraitForTypeItemPath, major_item::trai::TraitPath};
 use vec_like::VecMapGetEntry;
 
 #[derive(Debug, PartialEq, Eq)]
 #[enum_class::from_variants]
 pub enum StaticDispatch {
     AssocRitchie(AssocRitchieFlySignature),
-    AssocGn,
-    TypeAsTrait {
-        trai: FlyTerm,
-        trai_item_path: TraitItemPath,
-        /// None means either the impl block is not possible to resolve or default
-        trai_for_ty_item_path: Option<TraitForTypeItemPath>,
-    },
+    AssocStaticVar(AssocStaticVarFlySignature),
 }
 
 impl StaticDispatch {
     pub fn ty_result(&self, engine: &mut impl FlyTermEngineMut) -> FlyTermResult<FlyTerm> {
         let db = engine.db();
         match self {
-            StaticDispatch::AssocRitchie(ref signature) => {
-                let ty = signature.ty();
-                Ok(ty)
-            }
-            StaticDispatch::AssocGn => todo!(),
-            StaticDispatch::TypeAsTrait {
-                trai,
-                trai_item_path,
-                ..
-            } => {
-                let ty_result = match trai_item_path.eth_template(db)? {
-                    TraitItemEthTemplate::AssocRitchie(_) => todo!(),
-                    TraitItemEthTemplate::AssocVal(_) => todo!(),
-                    // maybe ty0 is not entirely correct?
-                    TraitItemEthTemplate::AssocType(_) => Ok(engine.term_menu().ty0().into()),
-                    TraitItemEthTemplate::AssocStaticMut(_) => todo!(),
-                    TraitItemEthTemplate::AssocStaticVar(_) => todo!(),
-                    TraitItemEthTemplate::MethodRitchie(_) => todo!(),
-                    TraitItemEthTemplate::MethodCurry(_) => todo!(),
-                };
-                ty_result
-            }
+            StaticDispatch::AssocRitchie(ref signature) => Ok(signature.ty()),
+            StaticDispatch::AssocStaticVar(ref signature) => Ok(signature.ty()),
         }
     }
 }
@@ -78,6 +51,7 @@ impl FlyTerm {
                 ty_arguments,
                 ..
             } => match ty_path.ty_item_eth_templates(db, ident) {
+                // we prioritize type item than trait item
                 JustOk(templates) => match templates {
                     TypeItemEthTemplates::AssocRitchie(templates) => {
                         let dst_ty_arguments: SmallVec<[_; 2]> = ty_arguments.to_smallvec();
@@ -85,7 +59,7 @@ impl FlyTerm {
                             .iter()
                             .copied()
                             .filter_map(|template| {
-                                ty_assoc_fn_fly_signature(
+                                AssocRitchieFlySignature::from_ty_assoc_ritchie(
                                     engine,
                                     syn_expr_idx,
                                     template,
@@ -170,11 +144,7 @@ impl FlyTerm {
                         else {
                             todo!()
                         };
-                        JustOk(StaticDispatch::TypeAsTrait {
-                            trai: trai.into(),
-                            trai_item_path,
-                            trai_for_ty_item_path: None,
-                        })
+                        todo!()
                     }
                     _ => todo!(),
                 }
@@ -232,11 +202,7 @@ impl FlyTerm {
                 else {
                     todo!()
                 };
-                JustOk(StaticDispatch::TypeAsTrait {
-                    trai,
-                    trai_item_path,
-                    trai_for_ty_item_path: None,
-                })
+                JustOk(todo!())
             }
         }
     }
