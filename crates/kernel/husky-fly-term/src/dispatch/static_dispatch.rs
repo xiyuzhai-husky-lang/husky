@@ -4,12 +4,14 @@ mod solid;
 
 use super::*;
 use husky_coword::Ident;
+use husky_entity_kind::TraitItemKind;
 use husky_entity_path::path::assoc_item::trai_item::TraitItemPath;
 use husky_entity_tree::node::HasAssocItemPaths;
 use husky_eth_signature::signature::assoc_item::ty_item::{
     HasTypeItemTemplates, TypeItemEthTemplates,
 };
 use husky_eth_term::term::application::TermFunctionReduced;
+use path::{assoc_item::trai_for_ty_item::TraitForTypeItemPath, major_item::trai::TraitPath};
 use vec_like::VecMapGetEntry;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -18,9 +20,43 @@ pub enum StaticDispatch {
     AssocRitchie(AssocRitchieFlySignature),
     AssocGn,
     TypeAsTrait {
-        trai: EthTerm,
+        trai: FlyTerm,
         trai_item_path: TraitItemPath,
+        /// None means either the impl block is not possible to resolve or default
+        trai_for_ty_item_path: Option<TraitForTypeItemPath>,
     },
+}
+
+impl StaticDispatch {
+    pub fn ty_result(&self, engine: &mut impl FlyTermEngineMut) -> FlyTermResult<FlyTerm> {
+        let db = engine.db();
+        match self {
+            StaticDispatch::AssocRitchie(ref signature) => {
+                let ty = signature.ty();
+                Ok(ty)
+            }
+            StaticDispatch::AssocGn => todo!(),
+            StaticDispatch::TypeAsTrait {
+                trai,
+                trai_item_path,
+                ..
+            } => {
+                let ty_result = match trai_item_path.item_kind(db) {
+                    TraitItemKind::AssocRitchie(_) => todo!(),
+                    // maybe ty0 is not entirely correct?
+                    TraitItemKind::AssocType => Ok(engine.term_menu().ty0().into()),
+                    TraitItemKind::AssocVal => todo!(),
+                    TraitItemKind::MemoizedField => todo!(),
+                    TraitItemKind::MethodRitchie(_) => todo!(),
+                    TraitItemKind::AssocStaticMut => todo!(),
+                    TraitItemKind::AssocStaticVar => todo!("intro type StaticVar?"),
+                    TraitItemKind::AssocCompterm => todo!(),
+                    TraitItemKind::AssocConceptual => todo!(),
+                };
+                ty_result
+            }
+        }
+    }
 }
 
 impl FlyTerm {
@@ -93,6 +129,7 @@ impl FlyTerm {
                 JustErr(_) => todo!(),
                 Nothing => todo!(),
             },
+            FlyTermData::Trait { .. } => todo!(),
             FlyTermData::Curry {
                 toolchain,
                 curry_kind,
@@ -132,8 +169,9 @@ impl FlyTerm {
                             todo!()
                         };
                         JustOk(StaticDispatch::TypeAsTrait {
-                            trai,
+                            trai: trai.into(),
                             trai_item_path,
+                            trai_for_ty_item_path: None,
                         })
                     }
                     _ => todo!(),
@@ -141,6 +179,63 @@ impl FlyTerm {
             }
             FlyTermData::LambdaVariable { ty, index } => todo!(),
             FlyTermData::TypeVariant { path } => todo!(),
+            FlyTermData::MajorTypeVar(_) => todo!(),
+        }
+    }
+    pub fn static_dispatch_as_trai(
+        self,
+        trai: Self,
+        engine: &mut impl FlyTermEngineMut,
+        syn_expr_idx: SynExprIdx,
+        ident: Ident,
+    ) -> FlyTermMaybeResult<StaticDispatch> {
+        let db = engine.db();
+        match self.data(engine) {
+            FlyTermData::Literal(_) => todo!(),
+            FlyTermData::TypeOntology {
+                ty_path,
+                refined_ty_path,
+                ty_arguments,
+                ty_ethereal_term,
+            } => todo!(),
+            FlyTermData::Trait { .. } => todo!(),
+            FlyTermData::Curry {
+                toolchain,
+                curry_kind,
+                variance,
+                parameter_hvar,
+                parameter_ty,
+                return_ty,
+                ty_ethereal_term,
+            } => todo!(),
+            FlyTermData::Hole(_, _) => todo!(),
+            FlyTermData::Sort(_) => todo!(),
+            FlyTermData::Ritchie {
+                ritchie_kind,
+                parameter_contracted_tys,
+                return_ty,
+            } => todo!(),
+            FlyTermData::SymbolicVariable {
+                symbolic_variable,
+                ty,
+            } => todo!(),
+            FlyTermData::LambdaVariable { ty, index } => todo!(),
+            FlyTermData::TypeVariant { path } => todo!(),
+            FlyTermData::MajorTypeVar(_) => {
+                let trai_path: TraitPath = match trai.data(engine) {
+                    FlyTermData::Trait { trai_path, .. } => trai_path,
+                    _ => todo!(),
+                };
+                let Some(&(_, trai_item_path)) = trai_path.assoc_item_paths(db).get_entry(ident)
+                else {
+                    todo!()
+                };
+                JustOk(StaticDispatch::TypeAsTrait {
+                    trai,
+                    trai_item_path,
+                    trai_for_ty_item_path: None,
+                })
+            }
         }
     }
 }

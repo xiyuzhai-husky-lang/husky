@@ -44,6 +44,7 @@ fn coersible_to_int(engine: &mut impl FlyTermEngineMut, index_ty: FlyTerm) -> bo
             Left(PreludeTypePath::Num(PreludeNumTypePath::Int(_))) => true,
             _ => false,
         },
+        FlyTermData::Trait { .. } => todo!(),
         FlyTermData::Curry { .. } => false,
         FlyTermData::Hole(hole_kind, _) => match hole_kind {
             HoleKind::UnspecifiedIntegerType => true,
@@ -62,5 +63,6 @@ fn coersible_to_int(engine: &mut impl FlyTermEngineMut, index_ty: FlyTerm) -> bo
         } => false,
         FlyTermData::LambdaVariable { .. } => unreachable!(),
         FlyTermData::TypeVariant { path } => unreachable!(),
+        FlyTermData::MajorTypeVar(_) => todo!(),
     }
 }

@@ -11,6 +11,8 @@ impl FlyTerm {
             | FlyTermData::LambdaVariable { .. } => self,
             FlyTermData::Curry { return_ty, .. } => return_ty.curry_destination(db, terms),
             FlyTermData::Literal(_) | FlyTermData::TypeVariant { .. } => unreachable!(),
+            FlyTermData::MajorTypeVar(_) => todo!(),
+            FlyTermData::Trait { .. } => todo!(),
         }
     }
 
@@ -27,6 +29,7 @@ impl FlyTerm {
     ) -> FinalDestination {
         match self.data_inner(db, fly_terms) {
             FlyTermData::TypeOntology { .. } => FinalDestination::TypeOntology,
+            FlyTermData::Trait { .. } => todo!(),
             FlyTermData::Curry { return_ty, .. } => {
                 return_ty.final_destination_inner(db, fly_terms)
             }
@@ -43,6 +46,7 @@ impl FlyTerm {
                 FinalDestination::AnyOriginal
             }
             FlyTermData::Literal(_) | FlyTermData::TypeVariant { .. } => unreachable!(),
+            FlyTermData::MajorTypeVar(_) => todo!(),
         }
     }
 
@@ -84,6 +88,8 @@ impl FlyTerm {
             } => 0,
             FlyTermData::SymbolicVariable { .. } | FlyTermData::LambdaVariable { .. } => 0,
             FlyTermData::TypeVariant { path } => todo!(),
+            FlyTermData::MajorTypeVar(_) => todo!(),
+            FlyTermData::Trait { .. } => todo!(),
         }
     }
 }

@@ -118,6 +118,7 @@ impl FlyTerm {
                     .collect();
                 FlyTerm::new_ty_ontology(db, terms, path, refined_ty_path, arguments)
             }
+            FlyTermData::Trait { .. } => todo!(),
             FlyTermData::Curry {
                 toolchain,
                 curry_kind,
@@ -176,6 +177,7 @@ impl FlyTerm {
                 .find_map(|rule| (*rule.hvar == self).then_some(rule.substitute))
                 .unwrap_or(self),
             FlyTermData::TypeVariant { path } => todo!(),
+            FlyTermData::MajorTypeVar(_) => todo!(),
         }
     }
 }

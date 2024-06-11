@@ -41,6 +41,7 @@ impl FlyTerm {
                             arguments,
                         }
                     }
+                    FlyTermData::Trait { .. } => todo!(),
                     FlyTermData::Hole(_, _) => todo!(),
                     FlyTermData::SymbolicVariable { .. } => todo!(),
                     FlyTermData::LambdaVariable { .. } => todo!(),
@@ -49,6 +50,7 @@ impl FlyTerm {
                     | FlyTermData::Literal(_)
                     | FlyTermData::Curry { .. }
                     | FlyTermData::Ritchie { .. } => unreachable!(),
+                    FlyTermData::MajorTypeVar(_) => todo!(),
                 };
                 Ok(HolTerm::new(engine, data).into())
             }
