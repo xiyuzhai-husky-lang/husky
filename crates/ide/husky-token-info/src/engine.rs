@@ -324,6 +324,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             | SemExprData::Be { .. } => (),
             SemExprData::FunctionApplication { .. } => (),
             SemExprData::MajorItemPathAssocItem { .. } => (),
+            SemExprData::TypeAsTraitItem { .. } => (),
             SemExprData::AssocItem { .. } => (),
             SemExprData::Index {
                 owner: _,

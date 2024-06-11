@@ -1,4 +1,4 @@
-pub mod assoc_item;
+mod assoc_item;
 pub mod binary;
 pub mod box_list;
 pub mod closure;
@@ -16,6 +16,7 @@ pub mod principal_entity_path;
 pub mod ritchie_call_arguments_ty;
 pub mod suffix;
 pub mod template_argument;
+mod ty_as_trai_item;
 pub mod utils;
 pub mod variable;
 
@@ -102,6 +103,11 @@ pub enum SemExprData {
         parent_path: MajorItemPath,
         colon_colon_regional_token: ColonColonRegionalToken,
         ident_token: IdentRegionalToken,
+        static_dispatch: StaticDispatch,
+    },
+    TypeAsTraitItem {
+        ty: (),
+        trai: (),
         static_dispatch: StaticDispatch,
     },
     AssocItem {
@@ -789,7 +795,20 @@ impl<'a> SemExprBuilder<'a> {
                 });
                 (data_result, ty_result)
             }
-            SynExprData::TypeAsTraitItem { .. } => {
+            SynExprData::TypeAsTraitItem {
+                ty,
+                trai,
+                ident,
+                ident_regional_token_idx,
+                ..
+            } => {
+                let (static_dispatch_result, ty_result) = self.calc_ty_as_target_item_ty(
+                    syn_expr_idx,
+                    ty,
+                    trai,
+                    ident,
+                    ident_regional_token_idx,
+                );
                 todo!()
             }
             SynExprData::AssocItem {
@@ -1478,6 +1497,7 @@ impl<'a> SemExprBuilder<'a> {
                 ident_token,
                 ref static_dispatch,
             } => todo!(),
+            SemExprData::TypeAsTraitItem { .. } => todo!(),
             SemExprData::AssocItem {
                 parent_expr_idx,
                 colon_colon_regional_token_idx,

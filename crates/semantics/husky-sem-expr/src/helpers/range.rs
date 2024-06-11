@@ -359,6 +359,7 @@ impl<'a> SemExprRangeCalculator<'a> {
                     ident_token.regional_token_idx(),
                 ))
             }
+            SemExprData::TypeAsTraitItem { .. } => todo!(),
             SemExprData::AssocItem {
                 parent_expr_idx,
                 colon_colon_regional_token_idx,
