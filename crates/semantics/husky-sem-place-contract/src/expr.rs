@@ -55,6 +55,7 @@ impl<'a> PlaceContractEngine<'a> {
             | SemExprData::Unit { .. }
             | SemExprData::PrincipalEntityPath { .. }
             | SemExprData::MajorItemPathAssocItem { .. }
+            | SemExprData::TypeAsTraitItem { .. }
             | SemExprData::AssocItem { .. }
             | SemExprData::InheritedSynSymbol { .. }
             | SemExprData::CurrentSynSymbol { .. }

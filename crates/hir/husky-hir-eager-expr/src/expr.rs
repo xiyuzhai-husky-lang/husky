@@ -205,6 +205,10 @@ impl ToHirEager for SemExprIdx {
                 ref static_dispatch,
                 ..
             }
+            | SemExprData::TypeAsTraitItem {
+                ref static_dispatch,
+                ..
+            }
             | SemExprData::AssocItem {
                 ref static_dispatch,
                 ..

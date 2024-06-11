@@ -151,6 +151,7 @@ impl ToHirLazy for SemExprIdx {
                 HirLazyExprData::PrincipalEntityPath(path)
             }
             SemExprData::MajorItemPathAssocItem { .. } => todo!(),
+            SemExprData::TypeAsTraitItem { .. } => todo!(),
             SemExprData::AssocItem { .. } => todo!(),
             SemExprData::InheritedSynSymbol {
                 inherited_syn_symbol_idx,
