@@ -7,8 +7,12 @@ use husky_coword::Ident;
 use husky_entity_kind::TraitItemKind;
 use husky_entity_path::path::assoc_item::trai_item::TraitItemPath;
 use husky_entity_tree::node::HasAssocItemPaths;
-use husky_eth_signature::signature::assoc_item::ty_item::{
-    HasTypeItemTemplates, TypeItemEthTemplates,
+use husky_eth_signature::signature::{
+    assoc_item::{
+        trai_item::TraitItemEthTemplate,
+        ty_item::{HasTypeItemTemplates, TypeItemEthTemplates},
+    },
+    HasEthTemplate,
 };
 use husky_eth_term::term::application::TermFunctionReduced;
 use path::{assoc_item::trai_for_ty_item::TraitForTypeItemPath, major_item::trai::TraitPath};
@@ -49,7 +53,9 @@ impl StaticDispatch {
                     TraitItemKind::MemoizedField => todo!(),
                     TraitItemKind::MethodRitchie(_) => todo!(),
                     TraitItemKind::AssocStaticMut => todo!(),
-                    TraitItemKind::AssocStaticVar => todo!("intro type StaticVar?"),
+                    TraitItemKind::AssocStaticVar => match trai_item_path.eth_template(db)? {
+                        TraitItemEthTemplate::AssocRitchie(_) => todo!(),
+                    },
                     TraitItemKind::AssocCompterm => todo!(),
                     TraitItemKind::AssocConceptual => todo!(),
                 };
