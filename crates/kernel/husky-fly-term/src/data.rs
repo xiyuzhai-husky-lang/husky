@@ -21,6 +21,7 @@ use husky_eth_term::term::{
 };
 use husky_term_prelude::{literal::Literal, ritchie::RitchieKind};
 use husky_vfs::toolchain::Toolchain;
+use path::major_item::{form::MajorFormPath, trai::TraitPath};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
@@ -32,6 +33,12 @@ pub enum FlyTermData<'a> {
         ty_arguments: &'a [FlyTerm],
         ty_ethereal_term: Option<EthTerm>,
     },
+    Trait {
+        trai_path: TraitPath,
+        trai_arguments: &'a [FlyTerm],
+        trai_ethereal_term: Option<EthTerm>,
+    },
+    MajorTypeVar(MajorFormPath),
     Curry {
         toolchain: Toolchain,
         curry_kind: CurryKind,
@@ -85,6 +92,7 @@ impl<'a> FlyTermData<'a> {
                     s
                 }
             },
+            FlyTermData::Trait { .. } => todo!(),
             FlyTermData::Curry {
                 toolchain,
                 curry_kind,
@@ -134,6 +142,7 @@ impl<'a> FlyTermData<'a> {
                 format!("hvar({idx}, {})", ty.show(db, terms))
             }
             FlyTermData::TypeVariant { path } => format!("{:?}", path.debug(db)),
+            FlyTermData::MajorTypeVar(_) => todo!(),
         }
     }
 }

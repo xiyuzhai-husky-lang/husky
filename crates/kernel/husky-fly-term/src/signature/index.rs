@@ -51,6 +51,7 @@ fn list_like_index_signature(
             },
             Right(_) => todo!(),
         },
+        FlyTermData::Trait { .. } => todo!(),
         FlyTermData::Curry {
             toolchain,
             curry_kind,
@@ -81,5 +82,6 @@ fn list_like_index_signature(
         FlyTermData::SymbolicVariable { .. } => todo!(),
         FlyTermData::LambdaVariable { .. } => todo!(),
         FlyTermData::TypeVariant { path } => todo!(),
+        FlyTermData::MajorTypeVar(_) => todo!(),
     }
 }

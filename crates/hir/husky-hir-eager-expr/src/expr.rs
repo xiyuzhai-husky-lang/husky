@@ -220,6 +220,7 @@ impl ToHirEager for SemExprIdx {
                 StaticDispatch::TypeAsTrait {
                     trai,
                     trai_item_path,
+                    ..
                 } => todo!(),
             },
             SemExprData::InheritedSynSymbol {
@@ -405,6 +406,7 @@ impl ToHirEager for SemExprIdx {
                         StaticDispatch::TypeAsTrait {
                             trai,
                             trai_item_path,
+                            ..
                         } => todo!(),
                     },
                     _ => todo!(),

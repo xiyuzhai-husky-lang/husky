@@ -67,30 +67,10 @@ impl<'a> SemExprBuilder<'a> {
     ) {
         let db = self.db();
         match parent_term.static_dispatch(self, expr_idx, ident, /*ad hoc */ &[]) {
-            JustOk(static_dispatch) => match static_dispatch {
-                StaticDispatch::AssocRitchie(ref signature) => {
-                    let ty = signature.ty();
-                    (Ok(static_dispatch), Ok(ty))
-                }
-                StaticDispatch::AssocGn => todo!(),
-                StaticDispatch::TypeAsTrait {
-                    trai,
-                    trai_item_path,
-                } => {
-                    let ty_result = match trai_item_path.item_kind(db) {
-                        TraitItemKind::AssocRitchie(_) => todo!(),
-                        TraitItemKind::AssocType => Ok(self.term_menu().ty0().into()),
-                        TraitItemKind::AssocVal => todo!(),
-                        TraitItemKind::MemoizedField => todo!(),
-                        TraitItemKind::MethodRitchie(_) => todo!(),
-                        TraitItemKind::AssocStaticMut => todo!(),
-                        TraitItemKind::AssocStaticVar => todo!(),
-                        TraitItemKind::AssocCompterm => todo!(),
-                        TraitItemKind::AssocConceptual => todo!(),
-                    };
-                    (Ok(static_dispatch), ty_result)
-                }
-            },
+            JustOk(static_dispatch) => {
+                let ty_result = static_dispatch.ty_result(self).map_err(Into::into);
+                (Ok(static_dispatch), ty_result)
+            }
             JustErr(_) => todo!(),
             Nothing => todo!(),
         }

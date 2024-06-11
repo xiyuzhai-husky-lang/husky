@@ -159,6 +159,7 @@ impl FlyLifetime {
                 _ => todo!(),
             },
             FlyTermData::TypeOntology { .. } => todo!(),
+            FlyTermData::Trait { .. } => todo!(),
             FlyTermData::Curry { .. } => todo!(),
             FlyTermData::Hole(_, _) => todo!(),
             FlyTermData::Sort(_) => todo!(),
@@ -166,6 +167,7 @@ impl FlyLifetime {
             FlyTermData::SymbolicVariable { .. } => todo!(),
             FlyTermData::LambdaVariable { .. } => todo!(),
             FlyTermData::TypeVariant { .. } => todo!(),
+            FlyTermData::MajorTypeVar(_) => todo!(),
         }
     }
 }

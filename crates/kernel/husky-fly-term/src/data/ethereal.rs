@@ -17,8 +17,12 @@ pub(super) fn ethereal_term_data<'a>(db: &'a ::salsa::Db, term: EthTerm) -> FlyT
             index: term.index(db),
         },
         EthTerm::ItemPath(path) => match path {
-            ItemPathTerm::Form(_) => todo!(),
-            ItemPathTerm::Trait(_) => todo!(),
+            ItemPathTerm::Form(path) => FlyTermData::MajorTypeVar(path),
+            ItemPathTerm::Trait(trai_path) => FlyTermData::Trait {
+                trai_path,
+                trai_arguments: &[],
+                trai_ethereal_term: Some(term),
+            },
             ItemPathTerm::TypeOntology(ty_path) => FlyTermData::TypeOntology {
                 ty_path,
                 refined_ty_path: ty_path.refine(db),

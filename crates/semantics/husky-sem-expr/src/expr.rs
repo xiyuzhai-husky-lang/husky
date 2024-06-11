@@ -16,7 +16,7 @@ pub mod principal_entity_path;
 pub mod ritchie_call_arguments_ty;
 pub mod suffix;
 pub mod template_argument;
-mod ty_as_trai_item;
+mod ty_as_target_item;
 pub mod utils;
 pub mod variable;
 
@@ -106,8 +106,8 @@ pub enum SemExprData {
         static_dispatch: StaticDispatch,
     },
     TypeAsTraitItem {
-        ty: (),
-        trai: (),
+        ty: SemExprIdx,
+        trai: SemExprIdx,
         static_dispatch: StaticDispatch,
     },
     AssocItem {
@@ -801,16 +801,13 @@ impl<'a> SemExprBuilder<'a> {
                 ident,
                 ident_regional_token_idx,
                 ..
-            } => {
-                let (static_dispatch_result, ty_result) = self.calc_ty_as_target_item_ty(
-                    syn_expr_idx,
-                    ty,
-                    trai,
-                    ident,
-                    ident_regional_token_idx,
-                );
-                todo!()
-            }
+            } => self.calc_ty_as_target_item_ty(
+                syn_expr_idx,
+                ty,
+                trai,
+                ident,
+                ident_regional_token_idx,
+            ),
             SynExprData::AssocItem {
                 parent_expr_idx,
                 colon_colon_regional_token_idx,
@@ -1194,6 +1191,8 @@ impl<'a> SemExprBuilder<'a> {
                                 FlyTermData::SymbolicVariable { .. } => todo!(),
                                 FlyTermData::LambdaVariable { .. } => todo!(),
                                 FlyTermData::TypeVariant { path } => todo!(),
+                                FlyTermData::MajorTypeVar(_) => todo!(),
+                                FlyTermData::Trait { .. } => todo!(),
                             },
                             FlyTermDestination::AnyOriginal => {
                                 self.new_hole(syn_expr_idx, HoleKind::AnyOriginal).into()
@@ -1510,6 +1509,7 @@ impl<'a> SemExprBuilder<'a> {
                 StaticDispatch::TypeAsTrait {
                     trai,
                     trai_item_path,
+                    ..
                 } => {
                     let ty = self.calc_expr_term(parent_expr_idx).expect(
                         "should be guaranteed to be okay by the fact that static dispatch is calculated",
