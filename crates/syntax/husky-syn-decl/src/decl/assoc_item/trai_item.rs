@@ -149,7 +149,9 @@ impl TraitItemSynDecl {
             }
             TraitItemSynNodeDecl::AssocVal(_) => todo!(),
             TraitItemSynNodeDecl::AssocStaticMut(_) => todo!(),
-            TraitItemSynNodeDecl::AssocStaticVar(_) => todo!(),
+            TraitItemSynNodeDecl::AssocStaticVar(syn_node_decl) => {
+                TraitAssocStaticVarSynDecl::from_node(path, syn_node_decl, db)?.into()
+            }
         })
     }
 }

@@ -4,7 +4,7 @@ use either::*;
 #[salsa::tracked]
 pub struct MajorComptermSynNodeDecl {
     #[id]
-    pub syn_node_path: FormSynNodePath,
+    pub syn_node_path: MajorFormSynNodePath,
     #[return_ref]
     pub colon_token: SynNodeDeclResult<ColonRegionalToken>,
     #[return_ref]
@@ -29,7 +29,7 @@ impl MajorComptermSynNodeDecl {
 impl<'a> ItemSynNodeDeclParser<'a> {
     pub(super) fn parse_termic_syn_node_decl(
         &self,
-        syn_node_path: FormSynNodePath,
+        syn_node_path: MajorFormSynNodePath,
     ) -> MajorComptermSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::False, AllowSelfValue::False, None);
         let colon_token =

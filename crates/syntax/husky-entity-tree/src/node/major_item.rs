@@ -15,7 +15,7 @@ use husky_entity_path::path::major_item::MajorItemPath;
 pub enum MajorItemSynNodePath {
     Trait(TraitSynNodePath),
     Type(TypeSynNodePath),
-    Form(FormSynNodePath),
+    Form(MajorFormSynNodePath),
 }
 
 impl std::ops::Deref for MajorItemSynNodePath {
@@ -45,7 +45,7 @@ impl MajorItemSynNodePath {
         match path {
             MajorItemPath::Type(path) => TypeSynNodePath::new(db, registry, path).into(),
             MajorItemPath::Trait(path) => TraitSynNodePath::new(db, registry, path).into(),
-            MajorItemPath::Form(path) => FormSynNodePath::new(db, registry, path).into(),
+            MajorItemPath::Form(path) => MajorFormSynNodePath::new(db, registry, path).into(),
         }
     }
 
