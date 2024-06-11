@@ -19,7 +19,5 @@ impl TraitForTypeAssocValSynNodeDecl {
 pub struct TraitForTypeAssocValSynDecl {
     #[id]
     pub path: TraitForTypeItemPath,
-    #[return_ref]
-    pub template_parameters: TemplateSynParametersData,
     pub syn_expr_region: SynExprRegion,
 }

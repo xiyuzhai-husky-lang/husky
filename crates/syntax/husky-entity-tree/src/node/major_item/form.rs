@@ -5,7 +5,7 @@ use husky_entity_path::path::major_item::form::MajorFormPath;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::as_id]
 #[salsa::deref_id]
-pub struct FormSynNodePath(ItemSynNodePathId);
+pub struct MajorFormSynNodePath(ItemSynNodePathId);
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -13,17 +13,17 @@ pub struct FormSynNodePathData {
     pub disambiguated_item_path: DisambiguatedItemPath<MajorFormPath>,
 }
 
-impl From<FormSynNodePath> for ItemSynNodePath {
-    fn from(id: FormSynNodePath) -> Self {
+impl From<MajorFormSynNodePath> for ItemSynNodePath {
+    fn from(id: MajorFormSynNodePath) -> Self {
         ItemSynNodePath::MajorItem(id.into())
     }
 }
 
 impl HasSynNodePath for MajorFormPath {
-    type SynNodePath = FormSynNodePath;
+    type SynNodePath = MajorFormSynNodePath;
 
     fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
-        FormSynNodePath(ItemSynNodePathId::new(
+        MajorFormSynNodePath(ItemSynNodePathId::new(
             db,
             ItemSynNodePathData::MajorItem(MajorItemSynNodePathData::Form(FormSynNodePathData {
                 disambiguated_item_path: DisambiguatedItemPath::from_path(self),
@@ -32,7 +32,7 @@ impl HasSynNodePath for MajorFormPath {
     }
 }
 
-impl FormSynNodePath {
+impl MajorFormSynNodePath {
     pub(super) fn new(
         db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
@@ -80,7 +80,7 @@ impl FormSynNodePath {
     }
 }
 
-impl salsa::DebugWithDb for FormSynNodePath {
+impl salsa::DebugWithDb for MajorFormSynNodePath {
     fn debug_fmt_with_db(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -88,7 +88,7 @@ impl salsa::DebugWithDb for FormSynNodePath {
     ) -> std::fmt::Result {
         use std::fmt::Debug;
 
-        f.write_str("FormSynNodePath(`")?;
+        f.write_str("MajorFormSynNodePath(`")?;
         let disambiguated_item_path = self.data(db).disambiguated_item_path;
         disambiguated_item_path
             .maybe_ambiguous_item_path
@@ -107,8 +107,8 @@ impl salsa::DebugWithDb for FormSynNodePath {
 }
 
 impl FormSynNodePathData {
-    pub fn syn_node_path(self, id: ItemSynNodePathId) -> FormSynNodePath {
-        FormSynNodePath(id)
+    pub fn syn_node_path(self, id: ItemSynNodePathId) -> MajorFormSynNodePath {
+        MajorFormSynNodePath(id)
     }
 
     pub fn path(self) -> Option<MajorFormPath> {
@@ -122,6 +122,6 @@ impl FormSynNodePathData {
     }
 
     pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
-        FormSynNodePath(id).syn_node(db).ast_idx
+        MajorFormSynNodePath(id).syn_node(db).ast_idx
     }
 }

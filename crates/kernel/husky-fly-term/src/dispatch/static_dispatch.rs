@@ -45,19 +45,15 @@ impl StaticDispatch {
                 trai_item_path,
                 ..
             } => {
-                let ty_result = match trai_item_path.item_kind(db) {
-                    TraitItemKind::AssocRitchie(_) => todo!(),
+                let ty_result = match trai_item_path.eth_template(db)? {
+                    TraitItemEthTemplate::AssocRitchie(_) => todo!(),
+                    TraitItemEthTemplate::AssocVal(_) => todo!(),
                     // maybe ty0 is not entirely correct?
-                    TraitItemKind::AssocType => Ok(engine.term_menu().ty0().into()),
-                    TraitItemKind::AssocVal => todo!(),
-                    TraitItemKind::MemoizedField => todo!(),
-                    TraitItemKind::MethodRitchie(_) => todo!(),
-                    TraitItemKind::AssocStaticMut => todo!(),
-                    TraitItemKind::AssocStaticVar => match trai_item_path.eth_template(db)? {
-                        TraitItemEthTemplate::AssocRitchie(_) => todo!(),
-                    },
-                    TraitItemKind::AssocCompterm => todo!(),
-                    TraitItemKind::AssocConceptual => todo!(),
+                    TraitItemEthTemplate::AssocType(_) => Ok(engine.term_menu().ty0().into()),
+                    TraitItemEthTemplate::AssocStaticMut(_) => todo!(),
+                    TraitItemEthTemplate::AssocStaticVar(_) => todo!(),
+                    TraitItemEthTemplate::MethodRitchie(_) => todo!(),
+                    TraitItemEthTemplate::MethodCurry(_) => todo!(),
                 };
                 ty_result
             }
