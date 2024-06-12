@@ -19,7 +19,7 @@ use husky_regional_token::IdentRegionalToken;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct MethodFnFlySignature {
+pub struct MethodRitchieFlySignature {
     pub path: AssocItemPath,
     pub self_value_parameter: FlyRitchieSimpleParameter,
     pub parenate_parameters: SmallVec<[FlyRitchieParameter; 4]>,
@@ -27,13 +27,13 @@ pub struct MethodFnFlySignature {
     pub instantiation: FlyInstantiation,
 }
 
-impl MemberSignature for MethodFnFlySignature {
+impl MemberSignature for MethodRitchieFlySignature {
     fn expr_ty(&self, self_value_final_place: FlyQuary) -> FlyTermResult<FlyTerm> {
         todo!()
     }
 }
 
-impl MethodFnFlySignature {
+impl MethodRitchieFlySignature {
     pub(crate) fn from_eth(
         self_place: FlyQuary,
         eth_sig: &TraitForTypeMethodRitchieEtherealSignature,
@@ -59,7 +59,7 @@ impl MethodFnFlySignature {
     }
 }
 
-impl MethodFnFlySignature {
+impl MethodRitchieFlySignature {
     pub fn nonself_parameter_contracted_tys(&self) -> &[FlyRitchieParameter] {
         &self.parenate_parameters
     }
@@ -85,7 +85,7 @@ pub(crate) fn ty_method_fly_signature<'db, Term: Copy + Into<FlyTerm>>(
     ident_token: IdentRegionalToken,
     self_place: FlyQuary,
     context_itd: EthSignatureBuilderContextItd,
-) -> FlyTermMaybeResult<MethodFnFlySignature> {
+) -> FlyTermMaybeResult<MethodRitchieFlySignature> {
     let ident = ident_token.ident();
     match ty_path.ty_item_eth_templates(engine.db(), ident)? {
         TypeItemEthTemplates::MethodFn(templates) => {
@@ -130,7 +130,7 @@ fn ty_method_ritchie_fly_signature<'db, Term: Copy + Into<FlyTerm>>(
     method_template_arguments: &[FlyTerm],
     self_place: FlyQuary,
     context_itd: EthSignatureBuilderContextItd,
-) -> FlyTermMaybeResult<MethodFnFlySignature> {
+) -> FlyTermMaybeResult<MethodRitchieFlySignature> {
     let db = engine.db();
     let self_ty_application_expansion = template.self_ty(db).application_expansion(db);
     if self_ty_application_expansion.arguments(db).len() != ty_template_arguments.len() {
@@ -196,7 +196,7 @@ fn ty_method_ritchie_fly_signature<'db, Term: Copy + Into<FlyTerm>>(
         todo!()
     }
     let instantiation = instantiation_builder.finish(db);
-    JustOk(MethodFnFlySignature {
+    JustOk(MethodRitchieFlySignature {
         path: template.path(db).into(),
         self_value_parameter: template.self_value_parameter(db).instantiate(
             engine,
@@ -220,6 +220,6 @@ fn ty_method_curry_fly_signature<Term: Copy + Into<FlyTerm>>(
     template: &TypeMethodCurryEthTemplate,
     ty_template_arguments: &[Term],
     method_template_arguments: &[FlyTerm],
-) -> FlyTermMaybeResult<MethodFnFlySignature> {
+) -> FlyTermMaybeResult<MethodRitchieFlySignature> {
     todo!()
 }

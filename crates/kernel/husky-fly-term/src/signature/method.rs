@@ -1,13 +1,13 @@
 pub(crate) mod method_ritchie;
 
-use self::{method_ritchie::MethodFnFlySignature, quary::FlyQuary};
+use self::{method_ritchie::MethodRitchieFlySignature, quary::FlyQuary};
 use super::*;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[enum_class::from_variants]
 pub enum MethodFlySignature {
-    MethodFn(MethodFnFlySignature),
+    MethodFn(MethodRitchieFlySignature),
     MethodGn,
 }
 
