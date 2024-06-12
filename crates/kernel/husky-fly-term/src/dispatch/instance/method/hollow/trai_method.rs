@@ -8,7 +8,7 @@ impl HasFlyTraitMethodDispatch for HolTerm {
         ident_token: IdentRegionalToken,
         trai_item_records: AvailableTraitItemsWithGivenIdent,
         indirections: FlyIndirections,
-    ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
+    ) -> FlyTermMaybeResult<MethodFlyInstanceDispatch> {
         todo!()
     }
 }

@@ -134,7 +134,7 @@ impl<'a> SemExprBuilder<'a> {
                 Err(todo!()),
                 Err(DerivedSemExprTypeError::UnableToInferReturnTypeForUnveiling.into()),
             ),
-            Unveiler::ErrEtherealSignature(e) => (Err(todo!()), Err(e.into())),
+            Unveiler::ErrEthSignature(e) => (Err(todo!()), Err(e.into())),
             Unveiler::Uninitialized => unreachable!(),
         }
     }
@@ -154,7 +154,7 @@ pub(crate) enum Unveiler {
         opd_ty: EthTerm,
         unveil_output_ty: EthTerm,
         unveil_output_ty_final_destination: FinalDestination,
-        unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature,
+        unveil_output_ty_signature: TraitForTypeAssocTypeEthSignature,
         unveil_assoc_fn_path: TraitForTypeItemPath,
     },
     UniquePartiallyInstanted {
@@ -162,7 +162,7 @@ pub(crate) enum Unveiler {
     },
     Nothing,
     ErrUnableToInferReturnTypeForUnveiling,
-    ErrEtherealSignature(EthSignatureError),
+    ErrEthSignature(EthSignatureError),
 }
 
 impl Unveiler {
@@ -182,7 +182,7 @@ impl Unveiler {
         };
         *self = match Self::new_aux(db, return_ty, context_itd) {
             MaybeResult::JustOk(unveiler) => unveiler,
-            MaybeResult::JustErr(e) => Unveiler::ErrEtherealSignature(e),
+            MaybeResult::JustErr(e) => Unveiler::ErrEthSignature(e),
             MaybeResult::Nothing => Unveiler::Nothing,
         }
     }
@@ -223,7 +223,7 @@ impl Unveiler {
 }
 
 fn unveil_assoc_fn_path(
-    unveil_output_ty_signature: &TraitForTypeAssocTypeEtherealSignature,
+    unveil_output_ty_signature: &TraitForTypeAssocTypeEthSignature,
     db: &::salsa::Db,
 ) -> TraitForTypeItemPath {
     let snake_case_unveil_ident = coword_menu(db).snake_case_unveil_ident();

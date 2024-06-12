@@ -87,7 +87,7 @@ impl SemExprIdx {
                     ref items,
                     ..
                 } => todo!(),
-                SemExprData::MethodFnCall {
+                SemExprData::MethodRitcheCall {
                     self_argument,
                     ref dispatch,
                     ref template_arguments,
@@ -103,13 +103,6 @@ impl SemExprIdx {
                         visitor,
                     );
                 }
-                SemExprData::MethodGnCall {
-                    self_argument,
-                    ref method_dynamic_dispatch,
-                    ref template_arguments,
-                    ref ritchie_parameter_argument_matches,
-                    ..
-                } => todo!(),
                 SemExprData::TemplateInstantiation {
                     template,
                     ref template_arguments,

@@ -3,7 +3,7 @@ pub mod assoc_static_var;
 pub mod assoc_ty;
 pub mod binary_opr;
 pub mod index;
-pub mod method;
+pub mod method_ritchie;
 
 use super::*;
 

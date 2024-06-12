@@ -11,7 +11,7 @@ impl<'a> SemExprBuilder<'a> {
         SemExprIdx,
         SemaBinaryOpr,
         SemExprIdx,
-        SemExprDataResult<SemaBinaryOprDynamicDispatch>,
+        SemExprDataResult<SemaBinaryOprInstanceDispatch>,
         SemExprTypeResult<FlyTerm>,
     ) {
         let lopd_syn_expr_idx = lopd;
@@ -77,7 +77,7 @@ impl<'a> SemExprBuilder<'a> {
             lopd,
             SemaBinaryOpr::Closed(opr),
             ropd,
-            Ok(SemaBinaryOprDynamicDispatch::builtin()),
+            Ok(SemaBinaryOprInstanceDispatch::builtin()),
             ty_result,
         )
     }

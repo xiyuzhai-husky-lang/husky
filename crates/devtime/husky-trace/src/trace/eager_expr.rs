@@ -180,7 +180,7 @@ impl EagerExprTraceData {
                 subtraces
             }
             HirEagerExprData::MethodRitchieCall { path, .. } => {
-                let SemExprData::MethodFnCall {
+                let SemExprData::MethodRitcheCall {
                     ref ritchie_parameter_argument_matches,
                     ..
                 } = sem_expr_idx.data(caller_sem_expr_region_data.sem_expr_arena())

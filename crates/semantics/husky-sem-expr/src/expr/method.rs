@@ -1,5 +1,5 @@
 use super::*;
-use husky_fly_term::{dispatch::HasFlyMethodDispatch, signature::MethodFlySignature};
+use dispatch::method::{HasFlyMethodDispatch, MethodFlySignature};
 use husky_regional_token::IdentRegionalToken;
 
 impl<'a> SemExprBuilder<'a> {
@@ -43,7 +43,7 @@ impl<'a> SemExprBuilder<'a> {
             Err(e) => return (Err(e), Err(todo!())),
         };
         match method_dynamic_dispatch.signature() {
-            MethodFlySignature::MethodFn(signature) => {
+            MethodFlySignature::TypeMethodRitchie(signature) => {
                 let return_ty = signature.return_ty();
                 let ritchie_parameter_argument_matches = match self.calc_ritchie_arguments_ty(
                     expr_idx,
@@ -54,7 +54,7 @@ impl<'a> SemExprBuilder<'a> {
                     Err(_) => todo!(),
                 };
                 (
-                    Ok(SemExprData::MethodFnCall {
+                    Ok(SemExprData::MethodRitcheCall {
                         self_argument: self_argument_sem_expr_idx,
                         self_contract: signature.self_value_parameter.contract,
                         dot_regional_token_idx,
@@ -68,7 +68,7 @@ impl<'a> SemExprBuilder<'a> {
                     Ok(return_ty),
                 )
             }
-            MethodFlySignature::MethodGn => todo!(),
+            MethodFlySignature::TraitForTypeMethodRitchie(_) => todo!("do the same thing"),
         }
     }
 }

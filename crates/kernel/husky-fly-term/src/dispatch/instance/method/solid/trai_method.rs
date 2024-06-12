@@ -8,7 +8,7 @@ impl HasFlyTraitMethodDispatch for SolTerm {
         ident_token: IdentRegionalToken,
         trai_item_records: AvailableTraitItemsWithGivenIdent,
         indirections: FlyIndirections,
-    ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
+    ) -> FlyTermMaybeResult<MethodFlyInstanceDispatch> {
         match self.data(engine) {
             SolidTermData::TypeOntology {
                 path,

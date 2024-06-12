@@ -3,23 +3,29 @@ mod hollow;
 mod solid;
 
 use super::*;
-use assoc_item::trai_for_ty_item::method::TraitForTypeMethodFlySignature;
+use assoc_item::{
+    trai_for_ty_item::method_ritchie::TraitForTypeMethodRitchieFlySignature,
+    ty_item::method_ritchie::TypeMethodRitchieFlySignature,
+};
 use husky_coword::Ident;
 use husky_entity_tree::helpers::AvailableTraitItemsWithGivenIdent;
 use husky_eth_signature::{error::EthSignatureResult, signature::package::PackageEthSignatureData};
 use husky_regional_token::IdentRegionalToken;
 
-pub type FlyMethodDynamicDispatch = FlyInstanceDispatch<MethodFlySignature>;
+pub type MethodFlyInstanceDispatch = FlyInstanceDispatch<MethodFlySignature>;
 
 #[enum_class::from_variants]
+#[derive(Debug, PartialEq, Eq)]
 pub enum MethodFlySignature {
-    TraitForTypeMethod(TraitForTypeMethodFlySignature),
+    TypeMethodRitchie(TypeMethodRitchieFlySignature),
+    TraitForTypeMethodRitchie(TraitForTypeMethodRitchieFlySignature),
 }
 
 impl IsInstanceItemFlySignature for MethodFlySignature {
     fn expr_ty(&self, self_value_final_place: FlyQuary) -> FlyTermResult<FlyTerm> {
         match self {
-            MethodFlySignature::TraitForTypeMethod(_) => todo!(),
+            MethodFlySignature::TypeMethodRitchie(_) => todo!(),
+            MethodFlySignature::TraitForTypeMethodRitchie(_) => todo!(),
         }
     }
 }
@@ -31,7 +37,7 @@ pub trait HasFlyTraitMethodDispatch: Copy {
         expr_idx: SynExprIdx,
         ident_regional_token: IdentRegionalToken,
         indirections: FlyIndirections,
-    ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
+    ) -> FlyTermMaybeResult<MethodFlyInstanceDispatch> {
         self.trai_method_dispatch_aux(
             engine,
             expr_idx,
@@ -50,7 +56,7 @@ pub trait HasFlyTraitMethodDispatch: Copy {
         ident_token: IdentRegionalToken,
         trai_item_records: AvailableTraitItemsWithGivenIdent,
         indirections: FlyIndirections,
-    ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch>;
+    ) -> FlyTermMaybeResult<MethodFlyInstanceDispatch>;
 }
 
 pub trait HasFlyTypeMethodDispatch: Copy {
@@ -60,7 +66,7 @@ pub trait HasFlyTypeMethodDispatch: Copy {
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
         indirections: FlyIndirections,
-    ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch>;
+    ) -> FlyTermMaybeResult<MethodFlyInstanceDispatch>;
 }
 
 /// dispatch orders are
@@ -76,7 +82,7 @@ pub trait HasFlyMethodDispatch: HasFlyTypeMethodDispatch + HasFlyTraitMethodDisp
         engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
-    ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
+    ) -> FlyTermMaybeResult<MethodFlyInstanceDispatch> {
         let initial_place = self.initial_place();
         if let Some(dispatch) = self
             .ty_method_dispatch(
@@ -107,7 +113,7 @@ impl HasFlyTypeMethodDispatch for FlyTerm {
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
         indirections: FlyIndirections,
-    ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
+    ) -> FlyTermMaybeResult<MethodFlyInstanceDispatch> {
         match self.base_resolved(engine) {
             FlyTermBase::Eth(ty_term) => {
                 ty_term.ty_method_dispatch(engine, expr_idx, ident_token, indirections)
@@ -131,7 +137,7 @@ impl HasFlyTraitMethodDispatch for FlyTerm {
         ident_token: IdentRegionalToken,
         trai_item_records: AvailableTraitItemsWithGivenIdent,
         indirections: FlyIndirections,
-    ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
+    ) -> FlyTermMaybeResult<MethodFlyInstanceDispatch> {
         match self.base_resolved(engine) {
             FlyTermBase::Eth(ty_term) => ty_term.trai_method_dispatch_aux(
                 engine,
@@ -161,6 +167,12 @@ impl HasFlyTraitMethodDispatch for FlyTerm {
 
 impl HasFlyMethodDispatch for FlyTerm {
     fn initial_place(self) -> FlyQuary {
+        self.initial_place()
+    }
+}
+
+impl FlyTerm {
+    pub(crate) fn initial_place(self) -> FlyQuary {
         // ad hoc
         self.quary().unwrap_or(FlyQuary::Transient)
     }

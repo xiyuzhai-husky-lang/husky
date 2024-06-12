@@ -4,8 +4,8 @@ use husky_eth_signature::{
     context::{EthSignatureBuilderContext, EthSignatureBuilderContextItd},
     error::EthSignatureResult,
     signature::{
-        assoc_item::ty_item::memo_field::HasTypeMemoizedFieldEtherealSignature,
-        major_item::ty::HasPropsFieldEtherealSignature, package::PackageEthSignatureData,
+        assoc_item::ty_item::memo_field::HasTypeMemoizedFieldEthSignature,
+        major_item::ty::HasPropsFieldEthSignature, package::PackageEthSignatureData,
     },
 };
 use husky_eth_term::term::application::{EthApplication, TermFunctionReduced};
@@ -16,7 +16,7 @@ pub(super) fn ethereal_ty_field_dispatch<'db>(
     ident: Ident,
     indirections: FlyIndirections,
     ctx: &EthSignatureBuilderContext,
-) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
+) -> FlyTermMaybeResult<FlyFieldInstanceDispatch> {
     // divide into cases for memoization
     match ty_term {
         EthTerm::ItemPath(ItemPathTerm::TypeOntology(ty_path)) => {
@@ -35,7 +35,7 @@ pub(crate) fn ethereal_ty_ontology_path_ty_field_dispatch<'db>(
     ident: Ident,
     indirections: FlyIndirections,
     ctx: &EthSignatureBuilderContext,
-) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
+) -> FlyTermMaybeResult<FlyFieldInstanceDispatch> {
     ethereal_ty_field_dispatch_aux(db, ty_path, &[], ident, indirections, ctx)
 }
 
@@ -45,7 +45,7 @@ pub(crate) fn ethereal_term_application_ty_field_dispatch<'db>(
     ident: Ident,
     indirections: FlyIndirections,
     ctx: &EthSignatureBuilderContext,
-) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
+) -> FlyTermMaybeResult<FlyFieldInstanceDispatch> {
     let application_expansion = ty_term.application_expansion(db);
     match application_expansion.function() {
         TermFunctionReduced::TypeOntology(ty_path) => ethereal_ty_field_dispatch_aux(
@@ -68,7 +68,7 @@ fn ethereal_ty_field_dispatch_aux<'db>(
     ident: Ident,
     mut indirections: FlyIndirections,
     ctx: &EthSignatureBuilderContext,
-) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
+) -> FlyTermMaybeResult<FlyFieldInstanceDispatch> {
     match ty_path.refine(db) {
         Left(PreludeTypePath::Indirection(prelude_indirection_ty_path)) => {
             match prelude_indirection_ty_path {
@@ -90,9 +90,8 @@ fn ethereal_ty_field_dispatch_aux<'db>(
         .props_field_ethereal_signature(db, arguments, ident)
         .into_result_option()?
     {
-        return JustOk(FlyFieldDyanmicDispatch {
+        return JustOk(FlyFieldInstanceDispatch {
             indirections,
-            ty_path,
             signature: regular_field_ethereal_signature.into(),
         });
     };
@@ -101,9 +100,8 @@ fn ethereal_ty_field_dispatch_aux<'db>(
         .ty_memo_field_ethereal_signature(arguments, ident, ctx, db)
         .into_result_option()?
     {
-        return JustOk(FlyFieldDyanmicDispatch {
+        return JustOk(FlyFieldInstanceDispatch {
             indirections,
-            ty_path,
             signature: memo_field_ethereal_signature.into(),
         });
     }

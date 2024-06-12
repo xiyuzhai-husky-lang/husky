@@ -44,11 +44,11 @@ impl TraitForTypeMethodRitchieEthTemplate {
         self,
         impl_block_signature_builder: EthTraitForTypeImplBlockSignatureBuilderItd,
         db: &::salsa::Db,
-    ) -> TraitForTypeMethodRitchieEtherealSignatureBuilder {
+    ) -> TraitForTypeMethodRitchieEthSignatureBuilder {
         let instantiation_builder = impl_block_signature_builder
             .instantiation_builder(db)
             .merge_with_item_template_parameters(self.template_parameters(db));
-        TraitForTypeMethodRitchieEtherealSignatureBuilder::new(
+        TraitForTypeMethodRitchieEthSignatureBuilder::new(
             db,
             self,
             instantiation_builder,
@@ -58,24 +58,21 @@ impl TraitForTypeMethodRitchieEthTemplate {
 }
 
 #[salsa::interned]
-pub struct TraitForTypeMethodRitchieEtherealSignatureBuilder {
+pub struct TraitForTypeMethodRitchieEthSignatureBuilder {
     pub template: TraitForTypeMethodRitchieEthTemplate,
     #[return_ref]
     pub instantiation_builder: EthInstantiationBuilder,
     pub context_itd: EthSignatureBuilderContextItd,
 }
 
-impl TraitForTypeMethodRitchieEtherealSignatureBuilder {
+impl TraitForTypeMethodRitchieEthSignatureBuilder {
     pub fn context(self, db: &::salsa::Db) -> &EthSignatureBuilderContext {
         self.context_itd(db).context(db)
     }
 }
 
-impl TraitForTypeMethodRitchieEtherealSignatureBuilder {
-    pub fn try_finish(
-        self,
-        db: &::salsa::Db,
-    ) -> Option<&TraitForTypeMethodRitchieEtherealSignature> {
+impl TraitForTypeMethodRitchieEthSignatureBuilder {
+    pub fn try_finish(self, db: &::salsa::Db) -> Option<&TraitForTypeMethodRitchieEthSignature> {
         trai_for_ty_method_ritchie_ethereal_signature_signature_builder_try_into_signature(db, self)
             .as_ref()
     }
@@ -84,15 +81,15 @@ impl TraitForTypeMethodRitchieEtherealSignatureBuilder {
 #[salsa::tracked(return_ref)]
 fn trai_for_ty_method_ritchie_ethereal_signature_signature_builder_try_into_signature(
     db: &::salsa::Db,
-    signature_builder: TraitForTypeMethodRitchieEtherealSignatureBuilder,
-) -> Option<TraitForTypeMethodRitchieEtherealSignature> {
+    signature_builder: TraitForTypeMethodRitchieEthSignatureBuilder,
+) -> Option<TraitForTypeMethodRitchieEthSignature> {
     // todo: deal with dependent type
     let instantiation = signature_builder
         .instantiation_builder(db)
         .try_into_instantiation()?;
     let template = signature_builder.template(db);
     let ctx = signature_builder.context(db);
-    Some(TraitForTypeMethodRitchieEtherealSignature {
+    Some(TraitForTypeMethodRitchieEthSignature {
         path: template.path(db),
         self_value_parameter: template
             .self_value_parameter(db)
@@ -111,7 +108,7 @@ fn trai_for_ty_method_ritchie_ethereal_signature_signature_builder_try_into_sign
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct TraitForTypeMethodRitchieEtherealSignature {
+pub struct TraitForTypeMethodRitchieEthSignature {
     pub path: TraitForTypeItemPath,
     pub instantiation: EthInstantiation,
     pub self_value_parameter: EthRitchieSimpleParameter,
@@ -119,7 +116,7 @@ pub struct TraitForTypeMethodRitchieEtherealSignature {
     pub return_ty: EthTerm,
 }
 
-impl TraitForTypeMethodRitchieEtherealSignature {
+impl TraitForTypeMethodRitchieEthSignature {
     pub fn parenate_parameters(&self) -> &[EtherealRitchieParameter] {
         &self.parenate_parameters
     }

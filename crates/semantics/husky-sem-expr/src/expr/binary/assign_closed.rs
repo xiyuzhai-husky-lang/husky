@@ -13,7 +13,7 @@ impl<'a> SemExprBuilder<'a> {
         SemExprIdx,
         SemaBinaryOpr,
         SemExprIdx,
-        SemExprDataResult<SemaBinaryOprDynamicDispatch>,
+        SemExprDataResult<SemaBinaryOprInstanceDispatch>,
         SemExprTypeResult<FlyTerm>,
     ) {
         // let expr_eval_lifetime = self
@@ -87,7 +87,7 @@ impl<'a> SemExprBuilder<'a> {
             lopd_sem_expr_idx,
             SemaBinaryOpr::AssignClosed(opr),
             ropd_sem_expr_idx,
-            Ok(SemaBinaryOprDynamicDispatch::builtin()),
+            Ok(SemaBinaryOprInstanceDispatch::builtin()),
             Ok(self.term_menu().unit_ty_ontology().into()),
         )
     }

@@ -12,7 +12,7 @@ pub enum EthSignatureError {
     #[error("DerivedFromDeclarative")]
     DerivedFromDecSignature(DecSignatureError),
     #[error("NoSuchItem")]
-    NoSuchItemInTraitForTypeImplBlockEtherealSignatureBuilder {
+    NoSuchItemInTraitForTypeImplBlockEthSignatureBuilder {
         signature_builder: EthTraitForTypeImplBlockSignatureBuilderItd,
         ident: Ident,
     },

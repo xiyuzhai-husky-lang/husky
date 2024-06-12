@@ -1,5 +1,5 @@
 use super::*;
-use assoc_item::trai_for_ty_item::method::method_ritchie::TraitForTypeMethodRitchieFlySignature;
+use assoc_item::trai_for_ty_item::method_ritchie::TraitForTypeMethodRitchieFlySignature;
 use husky_entity_path::path::major_item::{
     trai::TraitPath,
     ty::{PreludeIndirectionTypePath, PreludeTypePath},
@@ -7,7 +7,7 @@ use husky_entity_path::path::major_item::{
 use husky_eth_signature::{
     helpers::trai_for_ty::trai_path_for_ty_term_impl_block_eth_signature_builders,
     signature::{
-        assoc_item::trai_for_ty_item::TraitForTypeItemEtherealSignatureBuilder,
+        assoc_item::trai_for_ty_item::TraitForTypeItemEthSignatureBuilder,
         impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilderItd,
     },
 };
@@ -22,7 +22,7 @@ impl HasFlyTraitMethodDispatch for EthTerm {
         ident_token: IdentRegionalToken,
         trai_item_records: AvailableTraitItemsWithGivenIdent,
         mut indirections: FlyIndirections,
-    ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
+    ) -> FlyTermMaybeResult<MethodFlyInstanceDispatch> {
         let db = engine.db();
         let application_expansion = self.application_expansion(db);
         let arguments = application_expansion.arguments(db);
@@ -80,10 +80,9 @@ impl HasFlyTraitMethodDispatch for EthTerm {
                     1 => {
                         let impl_block_signature_builder = matches[0];
                         // todo: check scope
-                        let TraitForTypeItemEtherealSignatureBuilder::Method(
-                            method_signature_builder,
-                        ) = impl_block_signature_builder
-                            .assoc_item_eth_template(db, ident_token.ident())?
+                        let TraitForTypeItemEthSignatureBuilder::Method(method_signature_builder) =
+                            impl_block_signature_builder
+                                .assoc_item_eth_template(db, ident_token.ident())?
                         else {
                             todo!()
                         };

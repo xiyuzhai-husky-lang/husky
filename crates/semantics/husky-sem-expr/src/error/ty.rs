@@ -168,8 +168,8 @@ pub enum DerivedSemExprTypeError {
     UnableToInferArgumentTermForDependentType,
     #[error("UnableToInferReturnTypeForUnveiling")]
     UnableToInferReturnTypeForUnveiling,
-    #[error("EtherealSignature")]
-    EtherealSignature(#[from] EthSignatureError),
+    #[error("EthSignature")]
+    EthSignature(#[from] EthSignatureError),
     #[error("UnveilerError")]
     UnveilerError,
     #[error("UnableToInferUnwrapOperand")]

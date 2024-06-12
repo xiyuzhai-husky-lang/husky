@@ -6,7 +6,7 @@ use self::ethereal::*;
 use super::*;
 use assoc_item::trai_for_ty_item::index::FlyIndexSignature;
 
-pub type FlyIndexDynamicDispatch = FlyInstanceDispatch<FlyIndexSignature>;
+pub type FlyIndexInstanceDispatch = FlyInstanceDispatch<FlyIndexSignature>;
 
 impl FlyTerm {
     pub fn dispatch_index(
@@ -14,7 +14,7 @@ impl FlyTerm {
         engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         index_ty: FlyTerm,
-    ) -> FlyTermMaybeResult<FlyIndexDynamicDispatch> {
+    ) -> FlyTermMaybeResult<FlyIndexInstanceDispatch> {
         self.dispatch_index_aux(
             engine,
             expr_idx,
@@ -29,7 +29,7 @@ impl FlyTerm {
         expr_idx: SynExprIdx,
         index_ty: FlyTerm,
         indirections: FlyIndirections,
-    ) -> FlyTermMaybeResult<FlyIndexDynamicDispatch> {
+    ) -> FlyTermMaybeResult<FlyIndexInstanceDispatch> {
         match self.base_resolved(engine) {
             FlyTermBase::Eth(owner_ty) => {
                 ethereal_owner_ty_index_dispatch(engine, expr_idx, owner_ty, index_ty, indirections)

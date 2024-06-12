@@ -6,7 +6,7 @@ impl SolTerm {
         engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         index_ty: FlyTerm,
-    ) -> FlyTermMaybeResult<FlyIndexDynamicDispatch> {
+    ) -> FlyTermMaybeResult<FlyIndexInstanceDispatch> {
         self.disambiguate_index_aux(engine, expr_idx, index_ty, FlyIndirections::new(todo!()))
     }
 
@@ -16,7 +16,7 @@ impl SolTerm {
         expr_idx: SynExprIdx,
         index_ty: FlyTerm,
         indirections: FlyIndirections,
-    ) -> FlyTermMaybeResult<FlyIndexDynamicDispatch> {
+    ) -> FlyTermMaybeResult<FlyIndexInstanceDispatch> {
         let db = engine.db();
         match self.data(engine) {
             SolidTermData::TypeOntology {

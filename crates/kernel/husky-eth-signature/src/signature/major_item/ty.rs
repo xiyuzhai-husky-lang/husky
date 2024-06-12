@@ -116,38 +116,38 @@ fn ty_eth_template(db: &::salsa::Db, path: TypePath) -> EthSignatureResult<TypeE
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
-pub enum PropsFieldEtherealSignature {
-    PropsStruct(PropsStructFieldEtherealSignature),
+pub enum PropsFieldEthSignature {
+    PropsStruct(PropsStructFieldEthSignature),
 }
 
-pub trait HasPropsFieldEtherealSignature: Copy {
+pub trait HasPropsFieldEthSignature: Copy {
     fn props_field_ethereal_signature(
         self,
         db: &::salsa::Db,
         arguments: &[EthTerm],
         ident: Ident,
-    ) -> EthSignatureMaybeResult<PropsFieldEtherealSignature>;
+    ) -> EthSignatureMaybeResult<PropsFieldEthSignature>;
 }
 
-impl HasPropsFieldEtherealSignature for TypePath {
+impl HasPropsFieldEthSignature for TypePath {
     fn props_field_ethereal_signature(
         self,
         db: &::salsa::Db,
         arguments: &[EthTerm],
         ident: Ident,
-    ) -> EthSignatureMaybeResult<PropsFieldEtherealSignature> {
+    ) -> EthSignatureMaybeResult<PropsFieldEthSignature> {
         self.eth_template(db)?
             .props_field_ethereal_signature(db, arguments, ident)
     }
 }
 
-impl HasPropsFieldEtherealSignature for TypeEthTemplate {
+impl HasPropsFieldEthSignature for TypeEthTemplate {
     fn props_field_ethereal_signature(
         self,
         db: &::salsa::Db,
         arguments: &[EthTerm],
         ident: Ident,
-    ) -> EthSignatureMaybeResult<PropsFieldEtherealSignature> {
+    ) -> EthSignatureMaybeResult<PropsFieldEthSignature> {
         match self {
             TypeEthTemplate::Enum(_)
             | TypeEthTemplate::Inductive(_)
@@ -163,10 +163,10 @@ impl HasPropsFieldEtherealSignature for TypeEthTemplate {
     }
 }
 
-impl PropsFieldEtherealSignature {
+impl PropsFieldEthSignature {
     pub fn ty(self) -> EthTerm {
         match self {
-            PropsFieldEtherealSignature::PropsStruct(signature) => signature.ty(),
+            PropsFieldEthSignature::PropsStruct(signature) => signature.ty(),
         }
     }
 }
