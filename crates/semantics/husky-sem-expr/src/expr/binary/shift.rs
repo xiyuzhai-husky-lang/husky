@@ -11,7 +11,7 @@ impl<'a> SemExprBuilder<'a> {
         SemExprIdx,
         SemaBinaryOpr,
         SemExprIdx,
-        SemExprDataResult<SemaBinaryOprDynamicDispatch>,
+        SemExprDataResult<SemaBinaryOprInstanceDispatch>,
         SemExprTypeResult<FlyTerm>,
     ) {
         // todo: don't use resolved
@@ -48,7 +48,7 @@ impl<'a> SemExprBuilder<'a> {
                     lopd_sem_expr_idx,
                     SemaBinaryOpr::Shift(opr),
                     ropd_sem_expr_idx,
-                    Ok(SemaBinaryOprDynamicDispatch::builtin()),
+                    Ok(SemaBinaryOprInstanceDispatch::builtin()),
                     Ok(lopd_ty),
                 )
             }

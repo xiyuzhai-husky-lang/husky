@@ -27,6 +27,10 @@ pub(crate) use self::suffix::*;
 pub use self::template_argument::*;
 
 use crate::{obelisks::closure_parameter::ClosureParameterObelisk, *};
+use dispatch::{
+    field::FlyFieldInstanceDispatch, index::FlyIndexInstanceDispatch,
+    method::MethodFlyInstanceDispatch,
+};
 use husky_coword::{Ident, IdentMap};
 use husky_entity_path::path::{
     assoc_item::trai_for_ty_item::TraitForTypeItemPath,
@@ -36,18 +40,15 @@ use husky_entity_path::path::{
     },
     PrincipalEntityPath,
 };
-use husky_eth_signature::signature::assoc_item::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeEtherealSignature;
+use husky_eth_signature::signature::assoc_item::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeEthSignature;
 use husky_eth_term::term::{
     application::EthApplication, symbolic_variable::EthSymbolicVariable,
     trai_for_ty_item::EthTypeAsTraitItem, EthTerm,
 };
 use husky_fly_term::{
-    dispatch::{
-        instance::binary_opr::SemaBinaryOprDynamicDispatch, FlyFieldDyanmicDispatch,
-        FlyIndexDynamicDispatch, FlyMethodDynamicDispatch, StaticDispatch,
-    },
+    dispatch::{instance::binary_opr::SemaBinaryOprInstanceDispatch, StaticDispatch},
     instantiation::FlyInstantiation,
-    signature::binary_opr::SemaBinaryOprFlySignature,
+    signature::assoc_item::trai_for_ty_item::binary_opr::SemaBinaryOprFlySignature,
 };
 use husky_opr::*;
 use husky_regional_token::{
@@ -141,7 +142,7 @@ pub enum SemExprData {
         // todo: coercion?
         lopd: SemExprIdx,
         opr: SemaBinaryOpr,
-        dispatch: SemaBinaryOprDynamicDispatch,
+        dispatch: SemaBinaryOprInstanceDispatch,
         opr_regional_token_idx: RegionalTokenIdx,
         ropd: SemExprIdx,
     },
@@ -166,7 +167,7 @@ pub enum SemExprData {
     Unveil {
         opd: SemExprIdx,
         opr_regional_token_idx: RegionalTokenIdx,
-        unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature,
+        unveil_output_ty_signature: TraitForTypeAssocTypeEthSignature,
         unveil_assoc_fn_path: TraitForTypeItemPath,
         return_ty: EthTerm,
     },
@@ -205,7 +206,7 @@ pub enum SemExprData {
         self_ty: FlyTerm,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
-        dispatch: FlyFieldDyanmicDispatch,
+        dispatch: FlyFieldInstanceDispatch,
     },
     MethodApplication {
         self_argument: SemExprIdx,
@@ -216,23 +217,13 @@ pub enum SemExprData {
         items: SmallVec<[SemaCommaListItem; 4]>,
         rpar_regional_token_idx: RegionalTokenIdx,
     },
-    MethodFnCall {
+    MethodRitcheCall {
         self_argument: SemExprIdx,
         self_contract: Contract,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
-        // todo: change to FlyMethodFnDynamicDispatch
-        dispatch: FlyMethodDynamicDispatch,
-        template_arguments: Option<SemaTemplateArgumentList>,
-        lpar_regional_token_idx: RegionalTokenIdx,
-        ritchie_parameter_argument_matches: RitchieArgumentes,
-        rpar_regional_token_idx: RegionalTokenIdx,
-    },
-    MethodGnCall {
-        self_argument: SemExprIdx,
-        dot_regional_token_idx: RegionalTokenIdx,
-        ident_token: IdentRegionalToken,
-        method_dynamic_dispatch: FlyMethodDynamicDispatch,
+        // todo: change to FlyMethodFnInstanceDispatch
+        dispatch: MethodFlyInstanceDispatch,
         template_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
         ritchie_parameter_argument_matches: RitchieArgumentes,
@@ -266,7 +257,7 @@ pub enum SemExprData {
         lbox_regional_token_idx: RegionalTokenIdx,
         index_sem_list_items: SmallVec<[SemaCommaListItem; 2]>,
         rbox_regional_token_idx: RegionalTokenIdx,
-        index_dynamic_dispatch: FlyIndexDynamicDispatch,
+        index_dynamic_dispatch: FlyIndexInstanceDispatch,
     },
     CompositionWithList {
         owner: SemExprIdx,
@@ -1504,24 +1495,27 @@ impl<'a> SemExprBuilder<'a> {
                 ident_regional_token_idx,
                 ref static_dispatch,
             } => match *static_dispatch {
-                StaticDispatch::AssocRitchie(_) => todo!(),
-                StaticDispatch::AssocGn => todo!(),
-                StaticDispatch::TypeAsTrait {
-                    trai,
-                    trai_item_path,
-                    ..
-                } => {
-                    let ty = self.calc_expr_term(parent_expr_idx).expect(
-                        "should be guaranteed to be okay by the fact that static dispatch is calculated",
-                    );
-                    Ok(FlyTerm::new_ty_as_trai_item(
-                        self,
-                        ty,
-                        trai,
-                        ident,
-                        trai_item_path,
-                    ))
-                }
+                StaticDispatch::TypeItem { ref signature } => todo!(),
+                StaticDispatch::TraitItem { ref signature } => todo!(),
+                StaticDispatch::TraitForTypeItem { ref signature } => todo!(),
+                // StaticDispatch::AssocRitchie(_) => todo!(),
+                // StaticDispatch::AssocGn => todo!(),
+                // StaticDispatch::TypeAsTrait {
+                //     trai,
+                //     trai_item_path,
+                //     ..
+                // } => {
+                //     let ty = self.calc_expr_term(parent_expr_idx).expect(
+                //         "should be guaranteed to be okay by the fact that static dispatch is calculated",
+                //     );
+                //     Ok(FlyTerm::new_ty_as_trai_item(
+                //         self,
+                //         ty,
+                //         trai,
+                //         ident,
+                //         trai_item_path,
+                //     ))
+                // }
             },
             SemExprData::InheritedSynSymbol {
                 ident,
@@ -1586,8 +1580,7 @@ impl<'a> SemExprBuilder<'a> {
             SemExprData::FunctionRitchieCall { .. } => todo!(),
             SemExprData::Field { .. } => todo!(),
             SemExprData::MethodApplication { .. } => todo!(),
-            SemExprData::MethodFnCall { .. } => todo!(),
-            SemExprData::MethodGnCall { .. } => todo!(),
+            SemExprData::MethodRitcheCall { .. } => todo!(),
             SemExprData::TemplateInstantiation { .. } => todo!(),
             SemExprData::Delimitered {
                 lpar_regional_token_idx,

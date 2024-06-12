@@ -1,13 +1,13 @@
 use super::*;
 use crate::signature::assoc_item::trai_for_ty_item::binary_opr::SemaBinaryOprFlySignature;
 
-pub type SemaBinaryOprDynamicDispatch = FlyInstanceDispatch<SemaBinaryOprFlySignature>;
+pub type SemaBinaryOprInstanceDispatch = FlyInstanceDispatch<SemaBinaryOprFlySignature>;
 
-impl SemaBinaryOprDynamicDispatch {
+impl SemaBinaryOprInstanceDispatch {
     // ad hoc
     #[deprecated]
     pub fn builtin() -> Self {
-        SemaBinaryOprDynamicDispatch::new(
+        SemaBinaryOprInstanceDispatch::new(
             FlyIndirections::new(FlyQuary::Transient),
             SemaBinaryOprFlySignature::Builtin,
         )

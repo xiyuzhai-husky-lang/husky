@@ -3,6 +3,7 @@ mod num_index;
 mod regular_index;
 
 use super::*;
+use assoc_item::trai_for_ty_item::index::ethereal_owner_ty_index_signature;
 use husky_entity_path::path::major_item::ty::{PreludeIndirectionTypePath, PreludeTypePath};
 use husky_eth_term::term::application::TermFunctionReduced;
 
@@ -12,7 +13,7 @@ pub(super) fn ethereal_owner_ty_index_dispatch(
     owner_ty: EthTerm,
     index_ty: FlyTerm,
     indirections: FlyIndirections,
-) -> FlyTermMaybeResult<FlyIndexDynamicDispatch> {
+) -> FlyTermMaybeResult<FlyIndexInstanceDispatch> {
     ethereal_owner_ty_index_dispatch_aux(engine, expr_idx, owner_ty, index_ty, indirections)
 }
 
@@ -22,7 +23,7 @@ pub(super) fn ethereal_owner_ty_index_dispatch_aux(
     owner_ty: EthTerm,
     index_ty: FlyTerm,
     mut indirections: FlyIndirections,
-) -> FlyTermMaybeResult<FlyIndexDynamicDispatch> {
+) -> FlyTermMaybeResult<FlyIndexInstanceDispatch> {
     let db = engine.db();
     let owner_ty_application_expansion = owner_ty.application_expansion(db);
     let TermFunctionReduced::TypeOntology(ty_path) = owner_ty_application_expansion.function()
@@ -42,7 +43,7 @@ pub(super) fn ethereal_owner_ty_index_dispatch_aux(
     )
     .into_result_option()?
     {
-        return JustOk(FlyIndexDynamicDispatch::new(indirections, index_signature));
+        return JustOk(FlyIndexInstanceDispatch::new(indirections, index_signature));
     };
     // indirections
     match refined_ty_path {

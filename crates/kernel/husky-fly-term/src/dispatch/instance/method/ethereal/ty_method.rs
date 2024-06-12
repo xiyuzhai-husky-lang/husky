@@ -1,4 +1,5 @@
 use super::*;
+use assoc_item::ty_item::method_ritchie::ty_method_fly_signature;
 use husky_entity_path::path::major_item::ty::{
     PreludeIndirectionTypePath, PreludeTypePath, TypePath,
 };
@@ -12,7 +13,7 @@ impl HasFlyTypeMethodDispatch for EthTerm {
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
         indirections: FlyIndirections,
-    ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
+    ) -> FlyTermMaybeResult<MethodFlyInstanceDispatch> {
         // todo: check scope
         match self {
             EthTerm::ItemPath(ItemPathTerm::TypeOntology(ty_path)) => {
@@ -45,7 +46,7 @@ fn ethereal_ty_ontology_path_ty_method_dispatch<'db>(
     ident_token: IdentRegionalToken,
     indirections: FlyIndirections,
     context_itd: EthSignatureBuilderContextItd,
-) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
+) -> FlyTermMaybeResult<MethodFlyInstanceDispatch> {
     ethereal_ty_method_dispatch_aux(
         engine,
         expr_idx,
@@ -64,7 +65,7 @@ fn ethereal_term_application_ty_method_dispatch<'db>(
     ident_token: IdentRegionalToken,
     indirections: FlyIndirections,
     context_itd: EthSignatureBuilderContextItd,
-) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
+) -> FlyTermMaybeResult<MethodFlyInstanceDispatch> {
     let application_expansion = ty_term.application_expansion(engine.db());
     match application_expansion.function() {
         TermFunctionReduced::TypeOntology(ty_path) => ethereal_ty_method_dispatch_aux(
@@ -89,7 +90,7 @@ fn ethereal_ty_method_dispatch_aux<'db>(
     ident_token: IdentRegionalToken,
     mut indirections: FlyIndirections,
     context_itd: EthSignatureBuilderContextItd,
-) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
+) -> FlyTermMaybeResult<MethodFlyInstanceDispatch> {
     match ty_path.refine(engine.db()) {
         Left(PreludeTypePath::Indirection(prelude_indirection_ty_path)) => {
             match prelude_indirection_ty_path {

@@ -8,14 +8,14 @@ use thiserror::Error;
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 pub enum FlyTermError {
     #[error("ethereal signature")]
-    EtherealSignature(EthSignatureError),
+    EthSignature(EthSignatureError),
     #[error("ethereal term")]
     EthTerm(EthTermError),
 }
 
 impl From<EthSignatureError> for FlyTermError {
     fn from(e: EthSignatureError) -> Self {
-        FlyTermError::EtherealSignature(e)
+        FlyTermError::EthSignature(e)
     }
 }
 

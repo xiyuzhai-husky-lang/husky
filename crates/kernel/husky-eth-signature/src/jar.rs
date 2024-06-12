@@ -35,11 +35,11 @@ pub struct EthSignatureJar(
     crate::signature::assoc_item::trai_for_ty_item::assoc_ritchie::TraitForTypeAssocRitchieEthTemplate,
     crate::signature::assoc_item::trai_for_ty_item::assoc_val::TraitForTypeAssocValEthTemplate,
     crate::signature::assoc_item::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeEthTemplate,
-    crate::signature::assoc_item::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeEtherealSignatureBuilder,
+    crate::signature::assoc_item::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeEthSignatureBuilder,
     // trai_for_ty_item_eth_template,
     crate::signature::assoc_item::trai_for_ty_item::assoc_ty::trai_for_ty_assoc_ty_ethereal_signature_signature_builder_try_into_signature,
     crate::signature::assoc_item::trai_for_ty_item::method_ritchie::TraitForTypeMethodRitchieEthTemplate,
-    crate::signature::assoc_item::trai_for_ty_item::method_ritchie::TraitForTypeMethodRitchieEtherealSignatureBuilder,
+    crate::signature::assoc_item::trai_for_ty_item::method_ritchie::TraitForTypeMethodRitchieEthSignatureBuilder,
     crate::signature::assoc_item::trai_for_ty_item::method_ritchie::trai_for_ty_method_ritchie_ethereal_signature_signature_builder_try_into_signature,
     // trai
     crate::signature::major_item::trai::TraitEthTemplate,

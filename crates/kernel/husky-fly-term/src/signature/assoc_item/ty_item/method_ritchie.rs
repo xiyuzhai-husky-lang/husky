@@ -3,23 +3,21 @@ use husky_entity_path::path::{assoc_item::AssocItemPath, major_item::ty::TypePat
 use husky_eth_signature::{
     context::EthSignatureBuilderContextItd,
     signature::{
-        assoc_item::{
-            trai_for_ty_item::method_ritchie::TraitForTypeMethodRitchieEtherealSignature,
-            ty_item::{
-                method_curry::TypeMethodCurryEthTemplate,
-                method_ritchie::TypeMethodRitchieEthTemplate, HasTypeItemTemplates,
-                TypeItemEthTemplates,
-            },
+        assoc_item::ty_item::{
+            method_curry::TypeMethodCurryEthTemplate,
+            method_ritchie::{TypeMethodRitchieEthSignature, TypeMethodRitchieEthTemplate},
+            HasTypeItemTemplates, TypeItemEthTemplates,
         },
         HasEthTemplate,
     },
 };
 use husky_eth_term::term::symbolic_variable::EthTermSymbolIndexImpl;
 use husky_regional_token::IdentRegionalToken;
+use quary::FlyQuary;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct TraitForTypeMethodRitchieFlySignature {
+pub struct TypeMethodRitchieFlySignature {
     pub path: AssocItemPath,
     pub self_value_parameter: FlyRitchieSimpleParameter,
     pub parenate_parameters: SmallVec<[FlyRitchieParameter; 4]>,
@@ -27,20 +25,17 @@ pub struct TraitForTypeMethodRitchieFlySignature {
     pub instantiation: FlyInstantiation,
 }
 
-impl IsInstanceItemFlySignature for TraitForTypeMethodRitchieFlySignature {
+impl IsInstanceItemFlySignature for TypeMethodRitchieFlySignature {
     fn expr_ty(&self, self_value_final_place: FlyQuary) -> FlyTermResult<FlyTerm> {
         todo!()
     }
 }
 
-impl TraitForTypeMethodRitchieFlySignature {
-    pub(crate) fn from_eth(
-        self_place: FlyQuary,
-        eth_sig: &TraitForTypeMethodRitchieEtherealSignature,
-    ) -> Self {
+impl TypeMethodRitchieFlySignature {
+    pub(crate) fn from_eth(self_place: FlyQuary, eth_sig: &TypeMethodRitchieEthSignature) -> Self {
         Self {
             path: eth_sig.path().into(),
-            self_value_parameter: eth_sig.self_value_parameter.into(),
+            self_value_parameter: eth_sig.self_value_parameter().into(),
             parenate_parameters: eth_sig
                 .parenate_parameters()
                 .iter()
@@ -59,7 +54,7 @@ impl TraitForTypeMethodRitchieFlySignature {
     }
 }
 
-impl TraitForTypeMethodRitchieFlySignature {
+impl TypeMethodRitchieFlySignature {
     pub fn nonself_parameter_contracted_tys(&self) -> &[FlyRitchieParameter] {
         &self.parenate_parameters
     }
@@ -73,9 +68,6 @@ impl TraitForTypeMethodRitchieFlySignature {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
-pub struct MethodFunctionFlySignature {}
-
 pub(crate) fn ty_method_fly_signature<'db, Term: Copy + Into<FlyTerm>>(
     engine: &mut impl FlyTermEngineMut,
     expr_idx: SynExprIdx,
@@ -85,7 +77,7 @@ pub(crate) fn ty_method_fly_signature<'db, Term: Copy + Into<FlyTerm>>(
     ident_token: IdentRegionalToken,
     self_place: FlyQuary,
     context_itd: EthSignatureBuilderContextItd,
-) -> FlyTermMaybeResult<TraitForTypeMethodRitchieFlySignature> {
+) -> FlyTermMaybeResult<TypeMethodRitchieFlySignature> {
     let ident = ident_token.ident();
     match ty_path.ty_item_eth_templates(engine.db(), ident)? {
         TypeItemEthTemplates::MethodFn(templates) => {
@@ -130,7 +122,7 @@ fn ty_method_ritchie_fly_signature<'db, Term: Copy + Into<FlyTerm>>(
     method_template_arguments: &[FlyTerm],
     self_place: FlyQuary,
     context_itd: EthSignatureBuilderContextItd,
-) -> FlyTermMaybeResult<TraitForTypeMethodRitchieFlySignature> {
+) -> FlyTermMaybeResult<TypeMethodRitchieFlySignature> {
     let db = engine.db();
     let self_ty_application_expansion = template.self_ty(db).application_expansion(db);
     if self_ty_application_expansion.arguments(db).len() != ty_template_arguments.len() {
@@ -196,7 +188,7 @@ fn ty_method_ritchie_fly_signature<'db, Term: Copy + Into<FlyTerm>>(
         todo!()
     }
     let instantiation = instantiation_builder.finish(db);
-    JustOk(TraitForTypeMethodRitchieFlySignature {
+    JustOk(TypeMethodRitchieFlySignature {
         path: template.path(db).into(),
         self_value_parameter: template.self_value_parameter(db).instantiate(
             engine,
@@ -220,6 +212,6 @@ fn ty_method_curry_fly_signature<Term: Copy + Into<FlyTerm>>(
     template: &TypeMethodCurryEthTemplate,
     ty_template_arguments: &[Term],
     method_template_arguments: &[FlyTerm],
-) -> FlyTermMaybeResult<TraitForTypeMethodRitchieFlySignature> {
+) -> FlyTermMaybeResult<TypeMethodRitchieFlySignature> {
     todo!()
 }

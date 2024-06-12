@@ -10,14 +10,14 @@ use husky_coword::Ident;
 use husky_entity_path::path::major_item::{trai::TraitPath, ty::TypePath};
 use husky_eth_signature::signature::package::PackageEthSignatureData;
 
-pub type FlyFieldDyanmicDispatch = FlyInstanceDispatch<FieldFlySignature>;
+pub type FlyFieldInstanceDispatch = FlyInstanceDispatch<FieldFlySignature>;
 
 use super::*;
 use crate::quary::FlyQuary;
 use husky_entity_path::path::assoc_item::AssocItemPath;
 use husky_eth_signature::signature::{
-    assoc_item::ty_item::memo_field::TypeMemoizedFieldEtherealSignature,
-    major_item::ty::PropsFieldEtherealSignature,
+    assoc_item::ty_item::memo_field::TypeMemoizedFieldEthSignature,
+    major_item::ty::PropsFieldEthSignature,
 };
 
 #[salsa::derive_debug_with_db]
@@ -48,18 +48,18 @@ impl IsInstanceItemFlySignature for FieldFlySignature {
     }
 }
 
-impl From<PropsFieldEtherealSignature> for FieldFlySignature {
-    fn from(signature: PropsFieldEtherealSignature) -> Self {
+impl From<PropsFieldEthSignature> for FieldFlySignature {
+    fn from(signature: PropsFieldEthSignature) -> Self {
         match signature {
-            PropsFieldEtherealSignature::PropsStruct(signature) => FieldFlySignature::PropsStruct {
+            PropsFieldEthSignature::PropsStruct(signature) => FieldFlySignature::PropsStruct {
                 ty: signature.ty().into(),
             },
         }
     }
 }
 
-impl From<TypeMemoizedFieldEtherealSignature> for FieldFlySignature {
-    fn from(signature: TypeMemoizedFieldEtherealSignature) -> Self {
+impl From<TypeMemoizedFieldEthSignature> for FieldFlySignature {
+    fn from(signature: TypeMemoizedFieldEthSignature) -> Self {
         FieldFlySignature::Memoized {
             // ad hoc
             ty: signature.return_ty().into(),
@@ -79,7 +79,7 @@ impl FlyTerm {
         engine: &mut impl FlyTermEngineMut,
         ident: Ident,
         available_traits: &[TraitPath],
-    ) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
+    ) -> FlyTermMaybeResult<FlyFieldInstanceDispatch> {
         self.field_dispatch_aux(
             engine,
             ident,
@@ -94,7 +94,7 @@ impl FlyTerm {
         ident: Ident,
         available_traits: &[TraitPath],
         indirections: FlyIndirections,
-    ) -> FlyTermMaybeResult<FlyFieldDyanmicDispatch> {
+    ) -> FlyTermMaybeResult<FlyFieldInstanceDispatch> {
         match self.base_resolved(engine) {
             FlyTermBase::Eth(term) => {
                 ethereal_ty_field_dispatch(engine.db(), term, ident, indirections, engine.context())

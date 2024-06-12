@@ -1,4 +1,5 @@
 pub mod assoc_ritchie;
+pub mod method_ritchie;
 
 use super::*;
 

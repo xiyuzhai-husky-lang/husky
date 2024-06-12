@@ -7,7 +7,7 @@ impl HasFlyTypeMethodDispatch for HolTerm {
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
         indirections: FlyIndirections,
-    ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
+    ) -> FlyTermMaybeResult<MethodFlyInstanceDispatch> {
         match self.fly_base_ty_data(engine.db(), engine.fly_terms()) {
             FlyBaseTypeData::TypeOntology {
                 ty_path,

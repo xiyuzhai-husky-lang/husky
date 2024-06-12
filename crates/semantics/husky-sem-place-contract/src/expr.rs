@@ -1,5 +1,5 @@
 use crate::{engine::PlaceContractEngine, site::SemPlaceContractSite};
-use husky_fly_term::{signature::FlyFieldSignature, ExpectationOutcome, FlyCoercion};
+use husky_fly_term::{dispatch::field::FieldFlySignature, ExpectationOutcome, FlyCoercion};
 #[allow(unused_imports)]
 use husky_sem_expr::emit_note_on_sem_expr_codespan;
 use husky_sem_expr::{SemExprData, SemExprIdx, SemaRitchieArgument};
@@ -129,15 +129,15 @@ impl<'a> PlaceContractEngine<'a> {
                 ident_token,
                 ref dispatch,
             } => match dispatch.signature() {
-                FlyFieldSignature::PropsStruct { .. } => {
+                FieldFlySignature::PropsStruct { .. } => {
                     self.infer_expr(owner, contract, site.clone())
                 }
-                FlyFieldSignature::Memoized { .. } => {
+                FieldFlySignature::Memoized { .. } => {
                     self.infer_expr(owner, Contract::Leash, Default::default())
                 }
             },
             SemExprData::MethodApplication { .. } => (),
-            SemExprData::MethodFnCall {
+            SemExprData::MethodRitcheCall {
                 self_argument: self_argument_sem_expr_idx,
                 self_contract,
                 ref ritchie_parameter_argument_matches,
@@ -146,16 +146,6 @@ impl<'a> PlaceContractEngine<'a> {
                 self.infer_expr(self_argument_sem_expr_idx, self_contract, site.clone());
                 self.infer_ritchie_parameter_argument_matches(ritchie_parameter_argument_matches)
             }
-            SemExprData::MethodGnCall {
-                self_argument: self_argument_sem_expr_idx,
-                dot_regional_token_idx,
-                ident_token,
-                ref method_dynamic_dispatch,
-                ref template_arguments,
-                lpar_regional_token_idx,
-                ref ritchie_parameter_argument_matches,
-                rpar_regional_token_idx,
-            } => todo!(),
             SemExprData::TemplateInstantiation {
                 template,
                 ref template_arguments,

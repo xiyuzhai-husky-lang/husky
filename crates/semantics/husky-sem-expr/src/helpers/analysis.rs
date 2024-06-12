@@ -46,23 +46,24 @@ pub fn sem_expr_region_requires_lazy(db: &::salsa::Db, sem_expr_region: SemExprR
         },
     }
     for sem_expr_entry in sem_expr_region_data.sem_expr_arena().iter() {
-        match sem_expr_entry.data() {
-            SemExprData::PrincipalEntityPath {
-                path: PrincipalEntityPath::MajorItem(MajorItemPath::Form(path)),
-                ..
-            } => match path.kind(db) {
-                MajorFormKind::Ritchie(ritchie_item_kind) if ritchie_item_kind.is_lazy() => {
-                    return true
-                }
-                _ => (),
-            },
-            SemExprData::MajorItemPathAssocItem {
-                static_dispatch: StaticDispatch::AssocGn,
-                ..
-            }
-            | SemExprData::MethodGnCall { .. } => return true,
-            _ => (),
-        }
+        todo!("outdated; use form kind!");
+        // match sem_expr_entry.data() {
+        //     SemExprData::PrincipalEntityPath {
+        //         path: PrincipalEntityPath::MajorItem(MajorItemPath::Form(path)),
+        //         ..
+        //     } => match path.kind(db) {
+        //         MajorFormKind::Ritchie(ritchie_item_kind) if ritchie_item_kind.is_lazy() => {
+        //             return true
+        //         }
+        //         _ => (),
+        //     },
+        //     SemExprData::MajorItemPathAssocItem {
+        //         static_dispatch: StaticDispatch::AssocGn,
+        //         ..
+        //     }
+        //     | SemExprData::MethodGnCall { .. } => return true,
+        //     _ => (),
+        // }
     }
     false
 }

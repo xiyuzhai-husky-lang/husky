@@ -12,7 +12,7 @@ use husky_entity_path::path::{
     ty_variant::TypeVariantPath,
     PrincipalEntityPath,
 };
-use husky_fly_term::signature::{FlyFieldSignature, MethodFlySignature};
+use husky_fly_term::dispatch::{field::FieldFlySignature, method::MethodFlySignature};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
     indirections::HirIndirections, instantiation::HirInstantiation,
@@ -328,13 +328,13 @@ impl ToHirLazy for SemExprIdx {
                 ref dispatch,
                 ..
             } => match *dispatch.signature() {
-                FlyFieldSignature::PropsStruct { ty: _ } => HirLazyExprData::PropsStructField {
+                FieldFlySignature::PropsStruct { ty: _ } => HirLazyExprData::PropsStructField {
                     owner: owner.to_hir_lazy(builder),
                     owner_base_ty: HirType::from_fly(owner_ty, builder.db(), builder.fly_terms())
                         .unwrap(),
                     ident: ident_token.ident(),
                 },
-                FlyFieldSignature::Memoized {
+                FieldFlySignature::Memoized {
                     ty: _,
                     path,
                     ref instantiation,
@@ -365,33 +365,31 @@ impl ToHirLazy for SemExprIdx {
             } => {
                 todo!()
             }
-            SemExprData::MethodFnCall {
+            SemExprData::MethodRitcheCall {
                 self_argument: self_argument_sem_expr_idx,
                 ident_token,
                 ref dispatch,
                 ref ritchie_parameter_argument_matches,
                 ..
             } => {
-                let MethodFlySignature::MethodFn(signature) = dispatch.signature() else {
-                    unreachable!()
-                };
-                HirLazyExprData::MethodRitchieCall {
-                    self_argument: self_argument_sem_expr_idx.to_hir_lazy(builder),
-                    ident: ident_token.ident(),
-                    path: signature.path(),
-                    item_groups: builder
-                        .new_call_list_item_groups(ritchie_parameter_argument_matches),
-                    instantiation: HirInstantiation::from_fly(
-                        signature.instantiation(),
-                        &place_contract_site,
-                        builder.db(),
-                        builder.fly_terms(),
-                    ),
-                    indirections: HirIndirections::from_fly(dispatch.indirections()),
-                }
-            }
-            SemExprData::MethodGnCall { .. } => {
                 todo!()
+                // let MethodFlySignature::MethodFn(signature) = dispatch.signature() else {
+                //     unreachable!()
+                // };
+                // HirLazyExprData::MethodRitchieCall {
+                //     self_argument: self_argument_sem_expr_idx.to_hir_lazy(builder),
+                //     ident: ident_token.ident(),
+                //     path: signature.path(),
+                //     item_groups: builder
+                //         .new_call_list_item_groups(ritchie_parameter_argument_matches),
+                //     instantiation: HirInstantiation::from_fly(
+                //         signature.instantiation(),
+                //         &place_contract_site,
+                //         builder.db(),
+                //         builder.fly_terms(),
+                //     ),
+                //     indirections: HirIndirections::from_fly(dispatch.indirections()),
+                // }
             }
             SemExprData::TemplateInstantiation {
                 template: _,

@@ -50,7 +50,7 @@ impl TraitForTypeItemEthTemplate {
         self,
         db: &::salsa::Db,
         impl_block_signature_builder: EthTraitForTypeImplBlockSignatureBuilderItd,
-    ) -> TraitForTypeItemEtherealSignatureBuilder {
+    ) -> TraitForTypeItemEthSignatureBuilder {
         match self {
             TraitForTypeItemEthTemplate::AssocType(item_template) => item_template
                 .inherit_instantiation_builder(impl_block_signature_builder, db)
@@ -66,9 +66,9 @@ impl TraitForTypeItemEthTemplate {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[enum_class::from_variants]
-pub enum TraitForTypeItemEtherealSignatureBuilder {
-    AssocType(TraitForTypeAssocTypeEtherealSignatureBuilder),
-    Method(TraitForTypeMethodRitchieEtherealSignatureBuilder),
+pub enum TraitForTypeItemEthSignatureBuilder {
+    AssocType(TraitForTypeAssocTypeEthSignatureBuilder),
+    Method(TraitForTypeMethodRitchieEthSignatureBuilder),
 }
 
 impl HasEthTemplate for TraitForTypeItemPath {
