@@ -4,8 +4,9 @@ mod solid;
 
 use self::ethereal::*;
 use super::*;
+use assoc_item::trai_for_ty_item::index::FlyIndexSignature;
 
-pub type FlyIndexDynamicDispatch = FlyDynamicDispatch<FlyIndexSignature>;
+pub type FlyIndexDynamicDispatch = FlyInstanceDispatch<FlyIndexSignature>;
 
 impl FlyTerm {
     pub fn dispatch_index(

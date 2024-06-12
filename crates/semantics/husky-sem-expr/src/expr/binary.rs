@@ -6,7 +6,7 @@ mod pure_closed;
 mod shift;
 
 use husky_fly_term::{
-    dispatch::dynamic_dispatch::binary_opr::SemaBinaryOprDynamicDispatch,
+    dispatch::instance::binary_opr::SemaBinaryOprDynamicDispatch,
     signature::binary_opr::SemaBinaryOprFlySignature,
 };
 use husky_sem_opr::binary::SemaBinaryOpr;

@@ -1,7 +1,7 @@
 use super::*;
-use crate::signature::binary_opr::SemaBinaryOprFlySignature;
+use crate::signature::assoc_item::trai_for_ty_item::binary_opr::SemaBinaryOprFlySignature;
 
-pub type SemaBinaryOprDynamicDispatch = FlyDynamicDispatch<SemaBinaryOprFlySignature>;
+pub type SemaBinaryOprDynamicDispatch = FlyInstanceDispatch<SemaBinaryOprFlySignature>;
 
 impl SemaBinaryOprDynamicDispatch {
     // ad hoc

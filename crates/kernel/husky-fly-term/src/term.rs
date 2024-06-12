@@ -10,9 +10,9 @@ mod utils;
 
 pub use self::hole::*;
 pub use self::hvar::*;
-use self::quary::FlyQuary;
 pub use self::ritchie::*;
 pub use self::symbol_ty::*;
+use crate::quary::FlyQuary;
 
 use crate::*;
 use husky_eth_term::term::{

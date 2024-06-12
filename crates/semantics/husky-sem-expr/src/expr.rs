@@ -43,7 +43,7 @@ use husky_eth_term::term::{
 };
 use husky_fly_term::{
     dispatch::{
-        dynamic_dispatch::binary_opr::SemaBinaryOprDynamicDispatch, FlyFieldDyanmicDispatch,
+        instance::binary_opr::SemaBinaryOprDynamicDispatch, FlyFieldDyanmicDispatch,
         FlyIndexDynamicDispatch, FlyMethodDynamicDispatch, StaticDispatch,
     },
     instantiation::FlyInstantiation,

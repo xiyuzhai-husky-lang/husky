@@ -4,8 +4,8 @@ use husky_entity_path::path::major_item::ty::{PreludeNumTypePath, PreludeTypePat
 
 pub(crate) use self::ethereal::*;
 
-use self::quary::FlyQuary;
 use super::*;
+use crate::quary::FlyQuary;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -15,7 +15,7 @@ pub enum FlyIndexSignature {
     Index { element_ty: FlyTerm },
 }
 
-impl MemberSignature for FlyIndexSignature {
+impl IsInstanceItemFlySignature for FlyIndexSignature {
     fn expr_ty(&self, self_value_final_place: FlyQuary) -> FlyTermResult<FlyTerm> {
         match self {
             FlyIndexSignature::Int { element_ty } => {

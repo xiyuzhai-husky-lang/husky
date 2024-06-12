@@ -3,7 +3,11 @@ mod hollow;
 mod solid;
 
 use super::*;
-use assoc_static_var::AssocStaticVarFlySignature;
+use assoc_item::{
+    trai_for_ty_item::TraitForTypeItemFlySignature,
+    trai_item::TraitItemFlySignature,
+    ty_item::{assoc_ritchie::TypeAssocRitchieFlySignature, TypeItemFlySignature},
+};
 use husky_coword::Ident;
 use husky_entity_path::path::major_item::trai::TraitPath;
 use husky_entity_tree::node::HasAssocItemPaths;
@@ -18,18 +22,28 @@ use husky_eth_term::term::application::TermFunctionReduced;
 use vec_like::VecMapGetEntry;
 
 #[derive(Debug, PartialEq, Eq)]
-#[enum_class::from_variants]
 pub enum StaticDispatch {
-    AssocRitchie(AssocRitchieFlySignature),
-    AssocStaticVar(AssocStaticVarFlySignature),
+    TypeItem {
+        signature: TypeItemFlySignature,
+    },
+    TraitItem {
+        signature: TraitItemFlySignature,
+    },
+    TraitForTypeItem {
+        signature: TraitForTypeItemFlySignature,
+    },
 }
+pub trait IsOntologyItemFlySignature {}
 
+// AssocRitchie(TypeAssocRitchieFlySignature),
+// AssocStaticVar(AssocStaticVarFlySignature),
 impl StaticDispatch {
     pub fn ty_result(&self, engine: &mut impl FlyTermEngineMut) -> FlyTermResult<FlyTerm> {
         let db = engine.db();
         match self {
-            StaticDispatch::AssocRitchie(ref signature) => Ok(signature.ty()),
-            StaticDispatch::AssocStaticVar(ref signature) => Ok(signature.ty()),
+            StaticDispatch::TypeItem { signature } => Ok(signature.ty()),
+            StaticDispatch::TraitItem { signature } => todo!(),
+            StaticDispatch::TraitForTypeItem { signature } => todo!(),
         }
     }
 }
@@ -59,7 +73,7 @@ impl FlyTerm {
                             .iter()
                             .copied()
                             .filter_map(|template| {
-                                AssocRitchieFlySignature::from_ty_assoc_ritchie(
+                                TypeAssocRitchieFlySignature::from_ty_assoc_ritchie(
                                     engine,
                                     syn_expr_idx,
                                     template,
@@ -93,7 +107,7 @@ impl FlyTerm {
                                         ExpectSubtypeOrEqual::new(dst_ty_argument),
                                     );
                                 }
-                                return JustOk(signature.into());
+                                return JustOk(StaticDispatch::TypeItem { signature: todo!() });
                             }
                             _ => todo!(),
                         }
