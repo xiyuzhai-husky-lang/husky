@@ -6,7 +6,7 @@ use husky_eth_signature::signature::{
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct AssocRitchieFlySignature {
+pub struct TypeAssocRitchieFlySignature {
     path: AssocItemPath,
     parenate_parameters: SmallVec<[FlyRitchieParameter; 4]>,
     return_ty: FlyTerm,
@@ -15,7 +15,7 @@ pub struct AssocRitchieFlySignature {
     self_ty: FlyTerm,
 }
 
-impl AssocRitchieFlySignature {
+impl TypeAssocRitchieFlySignature {
     pub fn parenate_parameter_contracted_tys(&self) -> &[FlyRitchieParameter] {
         &self.parenate_parameters
     }
@@ -36,14 +36,14 @@ impl AssocRitchieFlySignature {
         self.self_ty
     }
 }
-impl AssocRitchieFlySignature {
+impl TypeAssocRitchieFlySignature {
     pub(crate) fn from_ty_assoc_ritchie<Term: Copy + Into<FlyTerm>>(
         engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         template: TypeAssocRitchieEthTemplate,
         ty_template_arguments: &[Term],
         assoc_ritchie_template_arguments: &[FlyTerm],
-    ) -> FlyTermMaybeResult<AssocRitchieFlySignature> {
+    ) -> FlyTermMaybeResult<TypeAssocRitchieFlySignature> {
         let db = engine.db();
         let self_ty_application_expansion = template.self_ty(db).application_expansion(db);
         if self_ty_application_expansion.arguments(db).len() != ty_template_arguments.len() {
@@ -74,7 +74,7 @@ impl AssocRitchieFlySignature {
             instantiation_builder.try_add_rule(src.symbol().into(), dst.into())
         })?;
         let instantiation = instantiation_builder.finish(db);
-        JustOk(AssocRitchieFlySignature {
+        JustOk(TypeAssocRitchieFlySignature {
             path: template.path(db).into(),
             parenate_parameters: template
                 .parenate_parameters(db)

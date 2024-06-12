@@ -3,12 +3,26 @@ mod hollow;
 mod solid;
 
 use super::*;
+use assoc_item::trai_for_ty_item::method::TraitForTypeMethodFlySignature;
 use husky_coword::Ident;
 use husky_entity_tree::helpers::AvailableTraitItemsWithGivenIdent;
 use husky_eth_signature::{error::EthSignatureResult, signature::package::PackageEthSignatureData};
 use husky_regional_token::IdentRegionalToken;
 
-pub type FlyMethodDynamicDispatch = FlyDynamicDispatch<MethodFlySignature>;
+pub type FlyMethodDynamicDispatch = FlyInstanceDispatch<MethodFlySignature>;
+
+#[enum_class::from_variants]
+pub enum MethodFlySignature {
+    TraitForTypeMethod(TraitForTypeMethodFlySignature),
+}
+
+impl IsInstanceItemFlySignature for MethodFlySignature {
+    fn expr_ty(&self, self_value_final_place: FlyQuary) -> FlyTermResult<FlyTerm> {
+        match self {
+            MethodFlySignature::TraitForTypeMethod(_) => todo!(),
+        }
+    }
+}
 
 pub trait HasFlyTraitMethodDispatch: Copy {
     fn trai_method_dispatch(

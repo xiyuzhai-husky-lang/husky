@@ -1,29 +1,30 @@
 pub mod binary_opr;
-mod field;
-mod index;
-mod method;
-mod utils;
+pub mod field;
+pub mod index;
+pub mod method;
+// mod utils;
 
-pub use self::field::*;
-pub use self::index::*;
-pub use self::method::*;
+// pub use self::field::*;
+// pub use self::index::*;
+// pub use self::method::*;
 
-use self::quary::FlyQuary;
 use super::*;
+use crate::quary::FlyQuary;
+use path::major_item::ty::TypePath;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct FlyDynamicDispatch<S: MemberSignature> {
+pub struct FlyInstanceDispatch<S: IsInstanceItemFlySignature> {
     indirections: FlyIndirections,
     signature: S,
 }
 
 /// members means dynamic associated items, i.e. those accessed through an instance
-pub trait MemberSignature {
+pub trait IsInstanceItemFlySignature {
     fn expr_ty(&self, self_value_final_place: FlyQuary) -> FlyTermResult<FlyTerm>;
 }
 
-impl<S: MemberSignature> FlyDynamicDispatch<S> {
+impl<S: IsInstanceItemFlySignature> FlyInstanceDispatch<S> {
     pub fn new(indirections: FlyIndirections, signature: S) -> Self {
         Self {
             indirections,

@@ -1,9 +1,9 @@
 // provides support for determining expression type
 
-pub mod dynamic_dispatch;
-pub mod static_dispatch;
+pub mod instance;
+pub mod ontology;
 
-pub use self::dynamic_dispatch::*;
-pub use self::static_dispatch::*;
+pub use self::instance::*;
+pub use self::ontology::*;
 
 use crate::*;

@@ -1,5 +1,5 @@
 use super::*;
-use crate::method_ritchie::MethodRitchieFlySignature;
+use assoc_item::trai_for_ty_item::method::method_ritchie::TraitForTypeMethodRitchieFlySignature;
 use husky_entity_path::path::major_item::{
     trai::TraitPath,
     ty::{PreludeIndirectionTypePath, PreludeTypePath},
@@ -88,8 +88,8 @@ impl HasFlyTraitMethodDispatch for EthTerm {
                             todo!()
                         };
                         match method_signature_builder.try_finish(db) {
-                            Some(eth_sig) => JustOk(FlyDynamicDispatch {
-                                signature: MethodRitchieFlySignature::from_eth(
+                            Some(eth_sig) => JustOk(FlyInstanceDispatch {
+                                signature: TraitForTypeMethodRitchieFlySignature::from_eth(
                                     indirections.final_place(),
                                     eth_sig,
                                 )

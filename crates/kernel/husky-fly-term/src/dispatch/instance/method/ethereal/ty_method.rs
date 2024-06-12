@@ -1,11 +1,9 @@
+use super::*;
 use husky_entity_path::path::major_item::ty::{
     PreludeIndirectionTypePath, PreludeTypePath, TypePath,
 };
 use husky_eth_signature::context::EthSignatureBuilderContextItd;
 use husky_eth_term::term::application::{EthApplication, TermFunctionReduced};
-
-use super::*;
-use crate::signature::method::method_ritchie::ty_method_fly_signature;
 
 impl HasFlyTypeMethodDispatch for EthTerm {
     fn ty_method_dispatch(
@@ -127,7 +125,7 @@ fn ethereal_ty_method_dispatch_aux<'db>(
     )
     .into_result_option()?
     {
-        return JustOk(FlyDynamicDispatch {
+        return JustOk(FlyInstanceDispatch {
             indirections,
             signature: signature.into(),
         });
