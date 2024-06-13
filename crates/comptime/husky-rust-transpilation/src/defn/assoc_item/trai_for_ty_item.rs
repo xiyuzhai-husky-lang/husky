@@ -94,7 +94,7 @@ impl TranspileToRustWith for TraitForTypeMethodRitchieHirDefn {
             return;
         };
         builder.keyword(RustKeyword::Fn);
-        let path_ident = self.path(db).ident(db).unwrap();
+        let path_ident = self.path(db).ident(db);
         path_ident.transpile_to_rust(builder);
         let hir_decl = self.hir_decl(db);
         builder.with_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db), |builder| {

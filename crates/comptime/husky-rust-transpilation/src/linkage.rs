@@ -350,7 +350,7 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinInstantiation) {
         )
         .unwrap()
         .linkage_instantiate(lin_instantiation, db);
-        let ident = path.ident(db).unwrap();
+        let ident = path.ident(db);
         builder.delimited(RustDelimiter::Angle, |builder| {
             match self_ty {
                 LinType::PathLeading(self_ty) => match self_ty.ty_path(db).refine(db) {
