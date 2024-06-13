@@ -85,14 +85,16 @@ fn is_lazy(sem_expr_region: husky_sem_expr::SemExprRegion, db: &salsa::Db) -> bo
             ItemPath::AssocItem(path) => match path {
                 AssocItemPath::TypeItem(path) => match path.item_kind(db) {
                     TypeItemKind::AssocRitchie(ritchie_item_kind)
-                    | TypeItemKind::MethodRitchie(ritchie_item_kind) => ritchie_item_kind.is_lazy(),
+                    | TypeItemKind::MethodRitchie(ritchie_item_kind) => {
+                        ritchie_item_kind.requires_lazy_to_use()
+                    }
                     TypeItemKind::AssocVal => sem_expr_region_requires_lazy(db, sem_expr_region),
                     _ => false,
                 },
                 AssocItemPath::TraitItem(path) => match path.item_kind(db) {
                     TraitItemKind::AssocRitchie(ritchie_item_kind)
                     | TraitItemKind::MethodRitchie(ritchie_item_kind) => {
-                        ritchie_item_kind.is_lazy()
+                        ritchie_item_kind.requires_lazy_to_use()
                     }
                     TraitItemKind::AssocVal => sem_expr_region_requires_lazy(db, sem_expr_region),
                     _ => false,
@@ -100,7 +102,7 @@ fn is_lazy(sem_expr_region: husky_sem_expr::SemExprRegion, db: &salsa::Db) -> bo
                 AssocItemPath::TraitForTypeItem(path) => match path.item_kind(db) {
                     TraitItemKind::AssocRitchie(ritchie_item_kind)
                     | TraitItemKind::MethodRitchie(ritchie_item_kind) => {
-                        ritchie_item_kind.is_lazy()
+                        ritchie_item_kind.requires_lazy_to_use()
                     }
                     TraitItemKind::AssocVal => sem_expr_region_requires_lazy(db, sem_expr_region),
                     _ => false,

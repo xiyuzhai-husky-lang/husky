@@ -25,19 +25,20 @@ impl<'a> SemExprBuilder<'a> {
         match outcome {
             ExpectSortOrTraitOutcome::Sort => todo!(),
             ExpectSortOrTraitOutcome::Trait => {
-                let (static_dispatch_result, ty_result) = self.calc_ty_as_trai_item_ty(
+                let (ontology_dispatch_result, ty_result) = self.calc_ty_as_trai_item_ty(
                     syn_expr_idx,
                     ty_term,
                     target_term,
                     ident,
                     ident_regional_token_idx,
                 );
-                let data_result =
-                    static_dispatch_result.map(|static_dispatch| SemExprData::TypeAsTraitItem {
+                let data_result = ontology_dispatch_result.map(|ontology_dispatch| {
+                    SemExprData::TypeAsTraitItem {
                         ty,
                         trai: target,
-                        static_dispatch,
-                    });
+                        ontology_dispatch,
+                    }
+                });
                 (data_result, ty_result)
             }
         }
@@ -51,13 +52,13 @@ impl<'a> SemExprBuilder<'a> {
         ident: Ident,
         ident_regional_token_idx: RegionalTokenIdx,
     ) -> (
-        SemExprDataResult<StaticDispatch>,
+        SemExprDataResult<OntologyDispatch>,
         SemExprTypeResult<FlyTerm>,
     ) {
-        match ty.static_dispatch_as_trai(trai, self, syn_expr_idx, ident) {
-            JustOk(static_dispatch) => {
-                let ty_result = static_dispatch.ty_result(self).map_err(Into::into);
-                (Ok(static_dispatch), ty_result)
+        match ty.ontology_dispatch_as_trai(trai, self, syn_expr_idx, ident) {
+            JustOk(ontology_dispatch) => {
+                let ty_result = ontology_dispatch.ty_result(self).map_err(Into::into);
+                (Ok(ontology_dispatch), ty_result)
             }
             JustErr(_) => todo!(),
             Nothing => todo!(),

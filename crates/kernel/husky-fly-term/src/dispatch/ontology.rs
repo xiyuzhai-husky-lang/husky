@@ -22,7 +22,7 @@ use husky_eth_term::term::application::TermFunctionReduced;
 use vec_like::VecMapGetEntry;
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum StaticDispatch {
+pub enum OntologyDispatch {
     TypeItem {
         signature: TypeItemFlySignature,
     },
@@ -33,29 +33,37 @@ pub enum StaticDispatch {
         signature: TraitForTypeItemFlySignature,
     },
 }
-pub trait IsOntologyItemFlySignature {}
+impl OntologyDispatch {
+    pub fn requires_lazy_to_use(&self) -> bool {
+        match self {
+            OntologyDispatch::TypeItem { signature } => todo!(),
+            OntologyDispatch::TraitItem { signature } => todo!(),
+            OntologyDispatch::TraitForTypeItem { signature } => todo!(),
+        }
+    }
+}
 
 // AssocRitchie(TypeAssocRitchieFlySignature),
 // AssocStaticVar(AssocStaticVarFlySignature),
-impl StaticDispatch {
+impl OntologyDispatch {
     pub fn ty_result(&self, engine: &mut impl FlyTermEngineMut) -> FlyTermResult<FlyTerm> {
         let db = engine.db();
         match self {
-            StaticDispatch::TypeItem { signature } => Ok(signature.ty()),
-            StaticDispatch::TraitItem { signature } => todo!(),
-            StaticDispatch::TraitForTypeItem { signature } => todo!(),
+            OntologyDispatch::TypeItem { signature } => Ok(signature.ty()),
+            OntologyDispatch::TraitItem { signature } => todo!(),
+            OntologyDispatch::TraitForTypeItem { signature } => todo!(),
         }
     }
 }
 
 impl FlyTerm {
-    pub fn static_dispatch(
+    pub fn ontology_dispatch(
         self,
         engine: &mut impl FlyTermEngineMut,
         syn_expr_idx: SynExprIdx,
         ident: Ident,
         all_available_traits: &[()],
-    ) -> FlyTermMaybeResult<StaticDispatch> {
+    ) -> FlyTermMaybeResult<OntologyDispatch> {
         // todo: optimize for ethereal etc.
         let db = engine.db();
         match self.data(engine) {
@@ -107,7 +115,7 @@ impl FlyTerm {
                                         ExpectSubtypeOrEqual::new(dst_ty_argument),
                                     );
                                 }
-                                return JustOk(StaticDispatch::TypeItem { signature: todo!() });
+                                return JustOk(OntologyDispatch::TypeItem { signature: todo!() });
                             }
                             _ => todo!(),
                         }
@@ -168,13 +176,13 @@ impl FlyTerm {
             FlyTermData::MajorTypeVar(_) => todo!(),
         }
     }
-    pub fn static_dispatch_as_trai(
+    pub fn ontology_dispatch_as_trai(
         self,
         trai: Self,
         engine: &mut impl FlyTermEngineMut,
         syn_expr_idx: SynExprIdx,
         ident: Ident,
-    ) -> FlyTermMaybeResult<StaticDispatch> {
+    ) -> FlyTermMaybeResult<OntologyDispatch> {
         let db = engine.db();
         match self.data(engine) {
             FlyTermData::Literal(_) => todo!(),

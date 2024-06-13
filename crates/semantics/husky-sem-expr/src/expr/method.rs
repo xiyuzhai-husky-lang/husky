@@ -54,12 +54,12 @@ impl<'a> SemExprBuilder<'a> {
                     Err(_) => todo!(),
                 };
                 (
-                    Ok(SemExprData::MethodRitcheCall {
+                    Ok(SemExprData::MethodRitchieCall {
                         self_argument: self_argument_sem_expr_idx,
                         self_contract: signature.self_value_parameter.contract,
                         dot_regional_token_idx,
                         ident_token,
-                        dispatch: method_dynamic_dispatch,
+                        instance_dispatch: method_dynamic_dispatch,
                         template_arguments: template_arguments.map(|_| todo!()),
                         lpar_regional_token_idx,
                         ritchie_parameter_argument_matches,

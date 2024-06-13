@@ -79,11 +79,11 @@ use {}::{{*, ugly::*}};
         ModulePathData::Script { .. } => unreachable!(),
     });
     for item_path in module_item_paths(db, module_path) {
-        match item_path.item_kind(db) {
+        match item_path.entity_kind(db) {
             EntityKind::MajorItem {
                 module_item_kind: MajorItemKind::Form(MajorFormKind::Ritchie(ritchie_item_kind)),
                 ..
-            } if ritchie_item_kind.is_lazy() => continue,
+            } if ritchie_item_kind.requires_lazy_to_use() => continue,
             _ => (),
         };
         if let Some(hir_defn) = item_path.hir_defn(db) {
