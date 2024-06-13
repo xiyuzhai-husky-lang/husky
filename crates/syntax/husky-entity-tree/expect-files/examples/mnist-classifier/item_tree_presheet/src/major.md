@@ -7,7 +7,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::major::connected_components`, `Val`, (0)),
+                            MajorFormSynNodePath(`mnist_classifier::major::connected_components`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 19,
@@ -31,7 +31,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::major::connected_components`, `Val`, (0)),
+                        MajorFormSynNodePath(`mnist_classifier::major::connected_components`, `Val`, (0)),
                     ),
                 ),
                 ident: `connected_components`,
@@ -41,7 +41,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::major::major_connected_component`, `Val`, (0)),
+                            MajorFormSynNodePath(`mnist_classifier::major::major_connected_component`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 20,
@@ -65,7 +65,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::major::major_connected_component`, `Val`, (0)),
+                        MajorFormSynNodePath(`mnist_classifier::major::major_connected_component`, `Val`, (0)),
                     ),
                 ),
                 ident: `major_connected_component`,
@@ -75,7 +75,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`, (0)),
+                            MajorFormSynNodePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 21,
@@ -99,7 +99,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`, (0)),
+                        MajorFormSynNodePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`, (0)),
                     ),
                 ),
                 ident: `ignored_connected_components_row_span_sum_sum`,
@@ -109,7 +109,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::major::major_raw_contours`, `Val`, (0)),
+                            MajorFormSynNodePath(`mnist_classifier::major::major_raw_contours`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 22,
@@ -133,7 +133,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::major::major_raw_contours`, `Val`, (0)),
+                        MajorFormSynNodePath(`mnist_classifier::major::major_raw_contours`, `Val`, (0)),
                     ),
                 ),
                 ident: `major_raw_contours`,
@@ -143,7 +143,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::major::major_raw_contour`, `Val`, (0)),
+                            MajorFormSynNodePath(`mnist_classifier::major::major_raw_contour`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 23,
@@ -167,7 +167,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::major::major_raw_contour`, `Val`, (0)),
+                        MajorFormSynNodePath(`mnist_classifier::major::major_raw_contour`, `Val`, (0)),
                     ),
                 ),
                 ident: `major_raw_contour`,
@@ -177,7 +177,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`, (0)),
+                            MajorFormSynNodePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 24,
@@ -201,7 +201,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`, (0)),
+                        MajorFormSynNodePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`, (0)),
                     ),
                 ),
                 ident: `major_line_segment_sketch`,
@@ -211,7 +211,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::major::major_concave_components`, `Val`, (0)),
+                            MajorFormSynNodePath(`mnist_classifier::major::major_concave_components`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 25,
@@ -235,7 +235,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::major::major_concave_components`, `Val`, (0)),
+                        MajorFormSynNodePath(`mnist_classifier::major::major_concave_components`, `Val`, (0)),
                     ),
                 ),
                 ident: `major_concave_components`,

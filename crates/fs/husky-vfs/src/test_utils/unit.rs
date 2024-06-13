@@ -1,8 +1,24 @@
 use super::*;
 use crate::jar::VfsDb;
 
-pub trait IsVfsTestUnit: Copy {
-    fn collect_from_package_path(db: &::salsa::Db, package_path: PackagePath) -> Vec<Self>;
+pub(crate) fn collect_units_from_package_path<U: IsVfsTestUnit>(
+    db: &::salsa::Db,
+    package_path: PackagePath,
+) -> Vec<U> {
+    let units = U::collect_from_package_path_aux(db, package_path).collect::<Vec<_>>();
+    for i in 0..units.len() {
+        for j in (i + 1)..units.len() {
+            assert_ne!(units[i], units[j])
+        }
+    }
+    units
+}
+
+pub trait IsVfsTestUnit: Copy + std::fmt::Debug + salsa::DebugWithDb + Eq {
+    fn collect_from_package_path_aux(
+        db: &::salsa::Db,
+        package_path: PackagePath,
+    ) -> impl Iterator<Item = Self>;
     fn determine_expect_file_path(
         self,
         db: &::salsa::Db,
@@ -17,12 +33,16 @@ pub trait IsVfsTestUnit: Copy {
         package_adversarials_dir: &Path,
         config: &VfsTestConfig,
     ) -> Option<PathBuf>;
+    #[deprecated(note = "use downcast instead")]
     fn vfs_test_unit_downcast_as_module_path(self) -> Option<ModulePath>;
 }
 
 impl IsVfsTestUnit for PackagePath {
-    fn collect_from_package_path(_db: &::salsa::Db, package_path: PackagePath) -> Vec<Self> {
-        vec![package_path]
+    fn collect_from_package_path_aux(
+        _db: &::salsa::Db,
+        package_path: PackagePath,
+    ) -> impl Iterator<Item = Self> {
+        [package_path].into_iter()
     }
 
     fn determine_expect_file_path(
@@ -52,11 +72,15 @@ impl IsVfsTestUnit for PackagePath {
 }
 
 impl IsVfsTestUnit for CratePath {
-    fn collect_from_package_path(db: &::salsa::Db, package_path: PackagePath) -> Vec<Self> {
+    fn collect_from_package_path_aux(
+        db: &::salsa::Db,
+        package_path: PackagePath,
+    ) -> impl Iterator<Item = Self> {
         package_path
             .crate_paths(db)
             .expect("no vfs error in testing")
-            .to_vec()
+            .iter()
+            .copied()
     }
 
     fn determine_expect_file_path(
@@ -97,8 +121,11 @@ impl IsVfsTestUnit for CratePath {
 }
 
 impl IsVfsTestUnit for ModulePath {
-    fn collect_from_package_path(db: &::salsa::Db, package_path: PackagePath) -> Vec<Self> {
-        db.collect_probable_modules(package_path)
+    fn collect_from_package_path_aux(
+        db: &::salsa::Db,
+        package_path: PackagePath,
+    ) -> impl Iterator<Item = Self> {
+        db.collect_probable_modules(package_path).into_iter()
     }
 
     fn determine_expect_file_path(
@@ -122,8 +149,11 @@ impl IsVfsTestUnit for ModulePath {
         Some(
             self.relative_stem(db)
                 .to_logical_path(package_adversarials_dir.join(config.test_name()))
-                .with_extension(adversarial_kind.as_str())
-                .with_extension(config.adversarial_extension()),
+                .with_extension(&format!(
+                    "{}.{}",
+                    adversarial_kind.as_str(),
+                    config.adversarial_extension()
+                )),
         )
     }
 

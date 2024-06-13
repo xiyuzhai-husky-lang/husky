@@ -64,7 +64,7 @@
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -315,7 +315,7 @@
                         path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                    MajorFormSynNodePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -1334,7 +1334,7 @@
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -1585,7 +1585,7 @@
                         path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                    MajorFormSynNodePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -2604,7 +2604,7 @@
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -2941,7 +2941,7 @@
                         path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                                    MajorFormSynNodePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -5601,7 +5601,7 @@
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -6017,7 +6017,7 @@
                         path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                                    MajorFormSynNodePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -8923,7 +8923,7 @@
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -9194,7 +9194,7 @@
                         path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                                    MajorFormSynNodePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),

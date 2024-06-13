@@ -28,7 +28,7 @@ impl<'a> SemExprBuilder<'a> {
             Ok(field_dispatch) => field_dispatch,
             Err(e) => return (Err(e), todo!()),
         };
-        let expr_ty = field_dispatch.expr_ty();
+        let expr_ty_result = field_dispatch.expr_ty_result();
         (
             Ok(SemExprData::Field {
                 self_argument: owner_sem_expr_idx,
@@ -37,7 +37,7 @@ impl<'a> SemExprBuilder<'a> {
                 ident_token,
                 dispatch: field_dispatch,
             }),
-            Ok(expr_ty),
+            expr_ty_result.map_err(Into::into),
         )
     }
 }

@@ -67,11 +67,11 @@ impl TupleFieldEthTemplate {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct TupleStructFieldEtherealSignature {
+pub struct TupleStructFieldEthSignature {
     ty: EthTerm,
 }
 
-impl TupleStructFieldEtherealSignature {
+impl TupleStructFieldEthSignature {
     pub fn ty(&self) -> EthTerm {
         self.ty
     }

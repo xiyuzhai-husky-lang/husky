@@ -22,7 +22,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`, (0)),
                                             ),
                                         ),
                                     ),

@@ -12,6 +12,9 @@ workspace = true
 [dependencies.malamute]
 workspace = true
 
+[dependencies.ml-task]
+workspace = true
+
 [lib]
 plugin = false
 proc-macro = false

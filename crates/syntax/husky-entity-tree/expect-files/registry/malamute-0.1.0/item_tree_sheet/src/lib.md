@@ -187,7 +187,7 @@ EntityTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`malamute::narrow_down`, `Ritchie(
+                            MajorFormSynNodePath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`, (0)),
                         ),
@@ -209,7 +209,7 @@ EntityTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`malamute::narrow_down`, `Ritchie(
+                        MajorFormSynNodePath(`malamute::narrow_down`, `Ritchie(
                             Gn,
                         )`, (0)),
                     ),

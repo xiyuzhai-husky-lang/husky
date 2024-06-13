@@ -68,6 +68,30 @@ pub enum EntityKind {
     Script,
 }
 
+impl EntityKind {
+    pub fn requires_lazy_to_use(self) -> bool {
+        match self {
+            EntityKind::Module => false,
+            EntityKind::MajorItem {
+                module_item_kind, ..
+            } => match module_item_kind {
+                MajorItemKind::Type(_) => false,
+                MajorItemKind::Form(_) => todo!(),
+                MajorItemKind::Trait => false,
+            },
+            EntityKind::AssocItem { assoc_item_kind } => match assoc_item_kind {
+                AssocItemKind::TypeItem(ty_item_kind) => ty_item_kind.requires_lazy_to_use(),
+                AssocItemKind::TraitItem(_) => todo!(),
+                AssocItemKind::TraitForTypeItem(_) => todo!(),
+            },
+            EntityKind::TypeVariant => todo!(),
+            EntityKind::ImplBlock => todo!(),
+            EntityKind::Attr => todo!(),
+            EntityKind::Script => todo!(),
+        }
+    }
+}
+
 #[cfg(feature = "protocol_support")]
 impl EntityKind {
     pub fn class(self) -> EntityClass {
@@ -131,6 +155,24 @@ pub enum TypeItemKind {
     AssocCompterm,
     MemoizedField,
     MethodRitchie(RitchieItemKind),
+}
+
+impl TypeItemKind {
+    pub fn requires_lazy_to_use(self) -> bool {
+        match self {
+            TypeItemKind::AssocVal => false,
+            TypeItemKind::AssocRitchie(ritchie_item_kind)
+            | TypeItemKind::MethodRitchie(ritchie_item_kind) => {
+                ritchie_item_kind.requires_lazy_to_use()
+            }
+            TypeItemKind::AssocType => false,
+            TypeItemKind::AssocConceptual => false,
+            TypeItemKind::AssocStaticMut => false,
+            TypeItemKind::AssocStaticVar => false,
+            TypeItemKind::AssocCompterm => false,
+            TypeItemKind::MemoizedField => false,
+        }
+    }
 }
 
 #[cfg(feature = "protocol_support")]

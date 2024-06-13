@@ -21,6 +21,9 @@ Ok(
                 TomlExpr::Boolean(
                     false,
                 ),
+                TomlExpr::String(
+                    "0.1.0",
+                ),
             ],
         },
         section_sheet: TomlSectionSheet {
@@ -132,6 +135,33 @@ Ok(
                             },
                         ],
                     },
+                    TomlSection {
+                        title: TomlSectionTitle(
+                            [
+                                Coword(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
+                            ],
+                        ),
+                        kind: TomlSectionKind::Normal,
+                        entries: [
+                            TomlSectionEntry {
+                                line_group_idx: TomlLineGroupIdx(
+                                    10,
+                                ),
+                                key: Coword(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                                value: Some(
+                                    6,
+                                ),
+                            },
+                        ],
+                    },
                 ],
             },
             errors: [],
@@ -202,6 +232,22 @@ Ok(
                     5,
                 ),
             ),
+            TomlLineGroup::SectionTitle {
+                title: [
+                    Coword(
+                        "dependencies",
+                    ),
+                ],
+                kind: TomlSectionKind::Normal,
+            },
+            TomlLineGroup::KeyValue(
+                Coword(
+                    "ml-task",
+                ),
+                Some(
+                    6,
+                ),
+            ),
         ],
         table: TomlTable {
             data: {
@@ -218,6 +264,13 @@ Ok(
                     },
                 ): Section(
                     1,
+                ),
+                Coword(
+                    Id {
+                        value: 14,
+                    },
+                ): Section(
+                    2,
                 ),
             },
         },

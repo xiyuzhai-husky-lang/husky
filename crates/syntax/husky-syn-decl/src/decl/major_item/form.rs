@@ -18,7 +18,7 @@ use self::{
 use super::*;
 use husky_entity_kind::MajorFormKind;
 use husky_entity_path::path::major_item::form::MajorFormPath;
-use husky_entity_tree::node::major_item::form::FormSynNodePath;
+use husky_entity_tree::node::major_item::form::MajorFormSynNodePath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
@@ -59,7 +59,7 @@ impl FormSynNodeDecl {
     }
 }
 
-impl HasSynNodeDecl for FormSynNodePath {
+impl HasSynNodeDecl for MajorFormSynNodePath {
     type NodeDecl = FormSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a ::salsa::Db) -> Self::NodeDecl {
@@ -70,13 +70,13 @@ impl HasSynNodeDecl for FormSynNodePath {
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn form_syn_node_decl(
     db: &::salsa::Db,
-    syn_node_path: FormSynNodePath,
+    syn_node_path: MajorFormSynNodePath,
 ) -> FormSynNodeDecl {
     ItemSynNodeDeclParser::new(db, syn_node_path.into()).parse_form_syn_node_decl(syn_node_path)
 }
 
 impl<'a> ItemSynNodeDeclParser<'a> {
-    fn parse_form_syn_node_decl(&self, syn_node_path: FormSynNodePath) -> FormSynNodeDecl {
+    fn parse_form_syn_node_decl(&self, syn_node_path: MajorFormSynNodePath) -> FormSynNodeDecl {
         match syn_node_path.form_kind(self.db()) {
             MajorFormKind::Val => self.parse_val_syn_node_decl(syn_node_path).into(),
             MajorFormKind::Ritchie(ritchie_item_kind) => self

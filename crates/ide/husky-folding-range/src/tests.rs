@@ -11,6 +11,7 @@ use husky_token::TokenJar;
     husky_entity_path::jar::EntityPathJar,
     husky_term_prelude::jar::TermPreludeJar,
     husky_token_data::jar::TokenDataJar,
+    husky_text::jar::TextJar,
     TokenJar,
     husky_ast::jar::AstJar,
     Jar,

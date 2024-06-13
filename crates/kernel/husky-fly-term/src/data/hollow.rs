@@ -107,7 +107,7 @@ impl HolTerm {
             },
             HolTermData::Hole {
                 fill: Some(fill), ..
-            } => fill.data_inner(db, fly_terms),
+            } => fill.data2(db, fly_terms),
             HolTermData::Hole {
                 hole_kind,
                 fill: None,

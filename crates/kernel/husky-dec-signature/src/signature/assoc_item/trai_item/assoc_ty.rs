@@ -7,7 +7,6 @@ pub struct TraitAssocTypeDecTemplate {
     pub path: TraitItemPath,
     #[return_ref]
     pub template_parameters: DecTemplateParameters,
-    pub ty_term: Option<DecTerm>,
 }
 
 impl TraitAssocTypeDecTemplate {
@@ -24,15 +23,10 @@ impl TraitAssocTypeDecTemplate {
             dec_term_region,
             dec_term_menu,
         );
-        let ty_term = match decl.ty_term(db) {
-            Some(ty_term) => Some(dec_term_region.expr_term(ty_term)?),
-            None => None,
-        };
         Ok(TraitAssocTypeDecTemplate::new(
             db,
             path,
             template_parameters,
-            ty_term,
         ))
     }
 }

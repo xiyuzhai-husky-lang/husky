@@ -1,16 +1,29 @@
+use super::region::sem_expr_region_from_region_path;
+use super::*;
 use crate::{SemExprData, SemExprIdx, SemExprRegionData, SemStmtIdx, SemStmtIdxRange};
+use husky_entity_path::region::RegionPath;
+use husky_entity_tree::{node::ItemSynNodePath, region_path::SynNodeRegionPath};
+use husky_text::{HasText, Text};
 
-pub trait VisitSemExpr<'db> {
+pub trait VisitSemExpr<'db>: Sized {
     fn db(&self) -> &'db ::salsa::Db;
     fn sem_expr_region_data(&self) -> &'db SemExprRegionData;
     fn visit_expr(&mut self, expr: SemExprIdx, f: impl FnOnce(&mut Self));
     fn visit_expr_inner(&mut self, expr: SemExprIdx);
     fn visit_stmts(&mut self, stmts: SemStmtIdxRange, f: impl FnOnce(&mut Self));
-    fn visit_stmt(&mut self, stmt: SemStmtIdx, f: impl FnOnce(&mut Self));
+    fn visit_stmt(&mut self, stmt: SemStmtIdx);
+    /// final
+    fn visit_all(&mut self, f: impl Fn(SynExprRootKind) -> bool) {
+        for (expr, root_kind) in self.sem_expr_region_data().sem_expr_roots() {
+            if f(root_kind) {
+                expr.simulate(self)
+            }
+        }
+    }
 }
 
 impl SemExprIdx {
-    pub fn simulate<'db>(self, visitor: &mut impl VisitSemExpr<'db>) {
+    fn simulate<'db>(self, visitor: &mut impl VisitSemExpr<'db>) {
         visitor.visit_expr(self, |visitor| {
             let sem_expr_region_data = visitor.sem_expr_region_data();
             let sem_expr_arena_ref = sem_expr_region_data.sem_expr_arena();
@@ -25,6 +38,10 @@ impl SemExprIdx {
                 | SemExprData::FrameVarDecl { .. }
                 | SemExprData::SelfType(_)
                 | SemExprData::SelfValue(_) => (),
+                SemExprData::TypeAsTraitItem { ty, trai, .. } => {
+                    ty.simulate(visitor);
+                    trai.simulate(visitor);
+                }
                 SemExprData::Binary { lopd, ropd, .. } => {
                     lopd.simulate(visitor);
                     ropd.simulate(visitor);
@@ -49,12 +66,28 @@ impl SemExprIdx {
                     ref template_arguments,
                     ref ritchie_parameter_argument_matches,
                     ..
-                } => todo!(),
+                } => {
+                    function.simulate(visitor);
+                    if let Some(_) = template_arguments {
+                        todo!()
+                    }
+                    simulate_ritchie_parameter_argument_matches(
+                        ritchie_parameter_argument_matches,
+                        visitor,
+                    );
+                }
                 SemExprData::Ritchie {
                     ref parameter_ty_items,
                     return_ty,
                     ..
-                } => todo!(),
+                } => {
+                    for item in parameter_ty_items {
+                        item.sem_expr_idx.simulate(visitor);
+                    }
+                    if let Some(return_ty) = return_ty {
+                        return_ty.simulate(visitor);
+                    }
+                }
                 SemExprData::Field {
                     self_argument,
                     ref dispatch,
@@ -66,20 +99,22 @@ impl SemExprIdx {
                     ref items,
                     ..
                 } => todo!(),
-                SemExprData::MethodFnCall {
+                SemExprData::MethodRitchieCall {
                     self_argument,
-                    ref dispatch,
+                    instance_dispatch: ref dispatch,
                     ref template_arguments,
                     ref ritchie_parameter_argument_matches,
                     ..
-                } => todo!(),
-                SemExprData::MethodGnCall {
-                    self_argument,
-                    ref method_dynamic_dispatch,
-                    ref template_arguments,
-                    ref ritchie_parameter_argument_matches,
-                    ..
-                } => todo!(),
+                } => {
+                    self_argument.simulate(visitor);
+                    if let Some(template_arguments) = template_arguments {
+                        todo!()
+                    }
+                    simulate_ritchie_parameter_argument_matches(
+                        ritchie_parameter_argument_matches,
+                        visitor,
+                    );
+                }
                 SemExprData::TemplateInstantiation {
                     template,
                     ref template_arguments,
@@ -102,19 +137,18 @@ impl SemExprIdx {
                     owner, ref items, ..
                 } => todo!(),
                 SemExprData::NewList { ref items, .. } => todo!(),
-                SemExprData::BoxColonList {
-                    lbox_regional_token_idx,
-                    colon_regional_token_idx,
-                    ref items,
-                    rbox_regional_token_idx,
-                } => todo!(),
-                SemExprData::VecFunctor { .. } => todo!(),
-                SemExprData::ArrayFunctor {
-                    lbox_regional_token_idx,
-                    ref items,
-                    rbox_regional_token_idx,
-                } => todo!(),
-                SemExprData::Block { stmts } => todo!(),
+                SemExprData::BoxColonList { ref items, .. } => {
+                    for item in items {
+                        item.sem_expr_idx.simulate(visitor);
+                    }
+                }
+                SemExprData::VecFunctor { .. } => (),
+                SemExprData::ArrayFunctor { ref items, .. } => {
+                    for item in items {
+                        item.sem_expr_idx.simulate(visitor);
+                    }
+                }
+                SemExprData::Block { stmts } => stmts.simulate(visitor),
                 SemExprData::EmptyHtmlTag {
                     empty_html_bra_idx,
                     function_ident,
@@ -137,4 +171,114 @@ impl SemExprIdx {
             visitor.visit_expr_inner(self)
         });
     }
+}
+
+fn simulate_ritchie_parameter_argument_matches<'db>(
+    ritchie_parameter_argument_matches: &SmallVec<[SemaRitchieArgument; 4]>,
+    visitor: &mut impl VisitSemExpr<'db>,
+) {
+    for m in ritchie_parameter_argument_matches {
+        match m {
+            SemaRitchieArgument::Simple(_, arg) => {
+                arg.argument_sem_expr_idx().simulate(visitor);
+            }
+            SemaRitchieArgument::Variadic(_, items) => {
+                for item in items {
+                    item.argument_expr_idx().simulate(visitor);
+                }
+            }
+            SemaRitchieArgument::Keyed(_, arg) => match arg {
+                Some(arg) => arg.argument_expr_idx().simulate(visitor),
+                // ad hoc
+                None => (),
+            },
+        }
+    }
+}
+
+impl SemStmtIdxRange {
+    fn simulate<'db>(self, visitor: &mut impl VisitSemExpr<'db>) {
+        visitor.visit_stmts(self, |visitor| {
+            for stmt in self {
+                stmt.simulate(visitor)
+            }
+        })
+    }
+}
+
+impl SemStmtIdx {
+    fn simulate<'db>(self, visitor: &mut impl VisitSemExpr<'db>) {
+        visitor.visit_stmt(self)
+    }
+}
+
+#[test]
+fn visit_sem_expr_works() {
+    struct SemExprVisitor<'db> {
+        db: &'db ::salsa::Db,
+        text: Text<'db>,
+        sem_expr_region_data: &'db SemExprRegionData,
+        visits: Vec<String>,
+    }
+
+    impl<'db> SemExprVisitor<'db> {
+        fn new(region_path: RegionPath, db: &'db ::salsa::Db) -> Option<Self> {
+            let module_path = region_path.module_path(db);
+            let text = module_path.text(db);
+            Some(Self {
+                db,
+                text,
+                sem_expr_region_data: sem_expr_region_from_region_path(region_path, db)?.data(db),
+                visits: vec![],
+            })
+        }
+    }
+
+    impl<'db> VisitSemExpr<'db> for SemExprVisitor<'db> {
+        fn db(&self) -> &'db salsa::Db {
+            self.db
+        }
+
+        fn sem_expr_region_data(&self) -> &'db SemExprRegionData {
+            self.sem_expr_region_data
+        }
+
+        fn visit_expr(&mut self, expr: SemExprIdx, f: impl FnOnce(&mut Self)) {
+            f(self)
+        }
+
+        fn visit_expr_inner(&mut self, expr: SemExprIdx) {
+            ()
+        }
+
+        fn visit_stmts(&mut self, stmts: SemStmtIdxRange, f: impl FnOnce(&mut Self)) {
+            f(self)
+        }
+
+        fn visit_stmt(&mut self, stmt: SemStmtIdx) {
+            ()
+        }
+    }
+
+    impl<'db> SemExprVisitor<'db> {
+        fn finish(self) -> Vec<String> {
+            self.visits
+        }
+    }
+
+    DB::ast_rich_test_debug(
+        |db, syn_node_region_path: SynNodeRegionPath| match syn_node_region_path.region_path(db) {
+            Some(region_path) => {
+                let mut visitor = SemExprVisitor::new(region_path, db)?;
+                visitor.visit_all(|_| true);
+                Some(visitor.finish())
+            }
+            None => None,
+        },
+        &AstTestConfig::new(
+            "visit_sem_expr",
+            FileExtensionConfig::Markdown,
+            TestDomainsConfig::SEMANTICS,
+        ),
+    )
 }

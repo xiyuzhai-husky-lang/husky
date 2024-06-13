@@ -39,3 +39,39 @@ impl TypeMethodRitchieEthTemplate {
         ))
     }
 }
+
+pub struct TypeMethodRitchieEthSignature {
+    path: TypeItemPath,
+    self_ty: EthTerm,
+    self_value_parameter: EthRitchieSimpleParameter,
+    parenate_parameters: EtherealParenateParameters,
+    return_ty: EthTerm,
+    instantiation: EthInstantiation,
+}
+
+/// # getters
+impl TypeMethodRitchieEthSignature {
+    pub fn path(&self) -> TypeItemPath {
+        self.path
+    }
+
+    pub fn self_ty(&self) -> EthTerm {
+        self.self_ty
+    }
+
+    pub fn self_value_parameter(&self) -> EthRitchieSimpleParameter {
+        self.self_value_parameter
+    }
+
+    pub fn parenate_parameters(&self) -> &EtherealParenateParameters {
+        &self.parenate_parameters
+    }
+
+    pub fn return_ty(&self) -> EthTerm {
+        self.return_ty
+    }
+
+    pub fn instantiation(&self) -> &EthInstantiation {
+        &self.instantiation
+    }
+}

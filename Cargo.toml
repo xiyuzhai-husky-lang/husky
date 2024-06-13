@@ -372,3 +372,4 @@ husky-core = { path = "library/core" }
 # registry
 ad-hoc-task-dependency = { path = "registry/ad-hoc-task-dependency" }
 malamute = { path = "registry/malamute-0.1.0" }
+ml-task = { path = "registry/ml-task-0.1.0" }

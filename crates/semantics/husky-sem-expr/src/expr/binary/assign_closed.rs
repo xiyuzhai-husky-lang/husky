@@ -13,7 +13,7 @@ impl<'a> SemExprBuilder<'a> {
         SemExprIdx,
         SemaBinaryOpr,
         SemExprIdx,
-        SemExprDataResult<SemaBinaryOprDynamicDispatch>,
+        SemExprDataResult<SemaBinaryOprInstanceDispatch>,
         SemExprTypeResult<FlyTerm>,
     ) {
         // let expr_eval_lifetime = self
@@ -66,7 +66,7 @@ impl<'a> SemExprBuilder<'a> {
                         ty_ethereal_term,
                     } => todo!(),
                     FlyBaseTypeData::Hole(_, _) => lopd_ty, // ad hoc
-                    FlyBaseTypeData::Category(_) => todo!(),
+                    FlyBaseTypeData::Sort(_) => todo!(),
                     FlyBaseTypeData::Ritchie {
                         ritchie_kind,
                         parameter_contracted_tys,
@@ -87,7 +87,7 @@ impl<'a> SemExprBuilder<'a> {
             lopd_sem_expr_idx,
             SemaBinaryOpr::AssignClosed(opr),
             ropd_sem_expr_idx,
-            Ok(SemaBinaryOprDynamicDispatch::builtin()),
+            Ok(SemaBinaryOprInstanceDispatch::builtin()),
             Ok(self.term_menu().unit_ty_ontology().into()),
         )
     }

@@ -1,4 +1,4 @@
-pub mod assoc_item;
+mod assoc_item;
 pub mod binary;
 pub mod box_list;
 pub mod closure;
@@ -16,6 +16,7 @@ pub mod principal_entity_path;
 pub mod ritchie_call_arguments_ty;
 pub mod suffix;
 pub mod template_argument;
+mod ty_as_target_item;
 pub mod utils;
 pub mod variable;
 
@@ -26,6 +27,10 @@ pub(crate) use self::suffix::*;
 pub use self::template_argument::*;
 
 use crate::{obelisks::closure_parameter::ClosureParameterObelisk, *};
+use dispatch::{
+    field::FlyFieldInstanceDispatch, index::FlyIndexInstanceDispatch,
+    method::MethodFlyInstanceDispatch,
+};
 use husky_coword::{Ident, IdentMap};
 use husky_entity_path::path::{
     assoc_item::trai_for_ty_item::TraitForTypeItemPath,
@@ -35,18 +40,15 @@ use husky_entity_path::path::{
     },
     PrincipalEntityPath,
 };
-use husky_eth_signature::signature::assoc_item::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeEtherealSignature;
+use husky_eth_signature::signature::assoc_item::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeEthSignature;
 use husky_eth_term::term::{
     application::EthApplication, symbolic_variable::EthSymbolicVariable,
     trai_for_ty_item::EthTypeAsTraitItem, EthTerm,
 };
 use husky_fly_term::{
-    dispatch::{
-        dynamic_dispatch::binary_opr::SemaBinaryOprDynamicDispatch, FlyFieldDyanmicDispatch,
-        FlyIndexDynamicDispatch, FlyMethodDynamicDispatch, StaticDispatch,
-    },
+    dispatch::{instance::binary_opr::SemaBinaryOprInstanceDispatch, OntologyDispatch},
     instantiation::FlyInstantiation,
-    signature::binary_opr::SemaBinaryOprFlySignature,
+    signature::assoc_item::trai_for_ty_item::binary_opr::SemaBinaryOprFlySignature,
 };
 use husky_opr::*;
 use husky_regional_token::{
@@ -73,6 +75,7 @@ use husky_token_data::{
     BoolLiteralTokenData, FloatLiteralTokenData, IntegerLikeLiteralTokenData, LiteralTokenData,
     TokenData,
 };
+use husky_wild_utils::{arb_mut, arb_ref};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use smallvec::SmallVec;
 use std::ops::Index;
@@ -102,14 +105,25 @@ pub enum SemExprData {
         parent_path: MajorItemPath,
         colon_colon_regional_token: ColonColonRegionalToken,
         ident_token: IdentRegionalToken,
-        static_dispatch: StaticDispatch,
+        ontology_dispatch: OntologyDispatch,
+    },
+    TypeAsTraitItem {
+        lpar_regional_token_idx: RegionalTokenIdx,
+        ty: SemExprIdx,
+        as_region_token_idx: RegionalTokenIdx,
+        trai: SemExprIdx,
+        rpar_regional_token_idx: RegionalTokenIdx,
+        colon_colon_regional_token_idx: RegionalTokenIdx,
+        ident: Ident,
+        ident_regional_token_idx: RegionalTokenIdx,
+        ontology_dispatch: OntologyDispatch,
     },
     AssocItem {
         parent_expr_idx: SemExprIdx,
         colon_colon_regional_token_idx: RegionalTokenIdx,
         ident: Ident,
         ident_regional_token_idx: RegionalTokenIdx,
-        static_dispatch: StaticDispatch,
+        ontology_dispatch: OntologyDispatch,
     },
     InheritedSynSymbol {
         ident: Ident,
@@ -135,7 +149,7 @@ pub enum SemExprData {
         // todo: coercion?
         lopd: SemExprIdx,
         opr: SemaBinaryOpr,
-        dispatch: SemaBinaryOprDynamicDispatch,
+        dispatch: SemaBinaryOprInstanceDispatch,
         opr_regional_token_idx: RegionalTokenIdx,
         ropd: SemExprIdx,
     },
@@ -160,7 +174,7 @@ pub enum SemExprData {
     Unveil {
         opd: SemExprIdx,
         opr_regional_token_idx: RegionalTokenIdx,
-        unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature,
+        unveil_output_ty_signature: TraitForTypeAssocTypeEthSignature,
         unveil_assoc_fn_path: TraitForTypeItemPath,
         return_ty: EthTerm,
     },
@@ -199,7 +213,7 @@ pub enum SemExprData {
         self_ty: FlyTerm,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
-        dispatch: FlyFieldDyanmicDispatch,
+        dispatch: FlyFieldInstanceDispatch,
     },
     MethodApplication {
         self_argument: SemExprIdx,
@@ -210,23 +224,12 @@ pub enum SemExprData {
         items: SmallVec<[SemaCommaListItem; 4]>,
         rpar_regional_token_idx: RegionalTokenIdx,
     },
-    MethodFnCall {
+    MethodRitchieCall {
         self_argument: SemExprIdx,
         self_contract: Contract,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
-        // todo: change to FlyMethodFnDynamicDispatch
-        dispatch: FlyMethodDynamicDispatch,
-        template_arguments: Option<SemaTemplateArgumentList>,
-        lpar_regional_token_idx: RegionalTokenIdx,
-        ritchie_parameter_argument_matches: RitchieArgumentes,
-        rpar_regional_token_idx: RegionalTokenIdx,
-    },
-    MethodGnCall {
-        self_argument: SemExprIdx,
-        dot_regional_token_idx: RegionalTokenIdx,
-        ident_token: IdentRegionalToken,
-        method_dynamic_dispatch: FlyMethodDynamicDispatch,
+        instance_dispatch: MethodFlyInstanceDispatch,
         template_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
         ritchie_parameter_argument_matches: RitchieArgumentes,
@@ -260,7 +263,7 @@ pub enum SemExprData {
         lbox_regional_token_idx: RegionalTokenIdx,
         index_sem_list_items: SmallVec<[SemaCommaListItem; 2]>,
         rbox_regional_token_idx: RegionalTokenIdx,
-        index_dynamic_dispatch: FlyIndexDynamicDispatch,
+        index_dynamic_dispatch: FlyIndexInstanceDispatch,
     },
     CompositionWithList {
         owner: SemExprIdx,
@@ -483,6 +486,13 @@ impl SemExprIdx {
         arena[self].ty().unwrap()
     }
 
+    pub(crate) fn immediate_ty_result<'a>(
+        self,
+        arena: &'a SemExprArena,
+    ) -> &'a SemExprTypeResult<FlyTerm> {
+        &arena[self].immediate_ty_result
+    }
+
     /// outside crate wouldn't need to access this
     ///
     /// for downstream crates, it's assumed that there are no semantic errors otherwise the analysis stops at semantic
@@ -568,6 +578,11 @@ impl<'a> SemExprBuilder<'a> {
                     self.infer_expr_term(sem_expr_idx);
                     sem_expr_idx
                 }
+                SynExprRootKind::DefaultConstExclude => {
+                    let sem_expr_idx = self.build_sem_expr(root.syn_expr_idx(), ExpectAnyOriginal);
+                    self.infer_expr_term(sem_expr_idx);
+                    sem_expr_idx
+                }
                 SynExprRootKind::BlockExpr
                 | SynExprRootKind::ValExpr
                 | SynExprRootKind::StaticExpr => match self.return_ty() {
@@ -596,7 +611,6 @@ impl<'a> SemExprBuilder<'a> {
                 | SynExprRootKind::EvalExpr => continue,
                 SynExprRootKind::Snippet => todo!(),
                 SynExprRootKind::Effect => todo!(),
-                SynExprRootKind::DefaultConstExclude => todo!(),
             };
             self.sem_expr_roots
                 .insert_new((root.syn_expr_idx(), (sem_expr_idx, root.kind())))
@@ -694,7 +708,9 @@ impl<'a> SemExprBuilder<'a> {
         expr_ty_expectation: E,
     ) -> SemExprIdx {
         let ty = match expr_ty_expectation.final_destination(self) {
-            FinalDestination::Sort => self.eth_term_menu().ty0().into(),
+            FinalDestination::Sort | FinalDestination::SortOrTrait => {
+                self.eth_term_menu().ty0().into()
+            }
             FinalDestination::TypeOntology => self.eth_term_menu().unit_ty_ontology(),
             FinalDestination::AnyOriginal => todo!(),
             FinalDestination::AnyDerived => todo!(),
@@ -763,19 +779,39 @@ impl<'a> SemExprBuilder<'a> {
                 colon_colon_regional_token,
                 ident_token,
             } => {
-                let (static_dispatch_result, ty_result) =
+                let (ontology_dispatch_result, ty_result) =
                     self.calc_major_item_path_assoc_item_ty(syn_expr_idx, parent_path, ident_token);
-                let data_result = static_dispatch_result.map(|static_dispatch| {
+                let data_result = ontology_dispatch_result.map(|ontology_dispatch| {
                     SemExprData::MajorItemPathAssocItem {
                         parent_expr_idx,
                         parent_path,
                         colon_colon_regional_token,
                         ident_token,
-                        static_dispatch,
+                        ontology_dispatch,
                     }
                 });
                 (data_result, ty_result)
             }
+            SynExprData::TypeAsTargetItem {
+                lpar_regional_token_idx,
+                ty,
+                as_region_token_idx,
+                target,
+                rpar_regional_token_idx,
+                colon_colon_regional_token_idx,
+                ident,
+                ident_regional_token_idx,
+            } => self.calc_ty_as_target_item_ty(
+                syn_expr_idx,
+                lpar_regional_token_idx,
+                ty,
+                as_region_token_idx,
+                target,
+                rpar_regional_token_idx,
+                colon_colon_regional_token_idx,
+                ident,
+                ident_regional_token_idx,
+            ),
             SynExprData::AssocItem {
                 parent_expr_idx,
                 colon_colon_regional_token_idx,
@@ -783,7 +819,7 @@ impl<'a> SemExprBuilder<'a> {
                 ident_regional_token_idx,
             } => {
                 let parent_expr_idx = self.build_sem_expr(parent_expr_idx, ExpectAnyOriginal);
-                let (static_dispatch_result, ty_result) = self.calc_assoc_item_ty(
+                let (ontology_dispatch_result, ty_result) = self.calc_assoc_item_ty(
                     syn_expr_idx,
                     parent_expr_idx,
                     colon_colon_regional_token_idx,
@@ -791,12 +827,12 @@ impl<'a> SemExprBuilder<'a> {
                     ident_regional_token_idx,
                 );
                 let data_result =
-                    static_dispatch_result.map(|static_dispatch| SemExprData::AssocItem {
+                    ontology_dispatch_result.map(|ontology_dispatch| SemExprData::AssocItem {
                         parent_expr_idx,
                         colon_colon_regional_token_idx,
                         ident,
                         ident_regional_token_idx,
-                        static_dispatch,
+                        ontology_dispatch,
                     });
                 (data_result, ty_result)
             }
@@ -1052,7 +1088,9 @@ impl<'a> SemExprBuilder<'a> {
                     rpar_regional_token_idx,
                 }),
                 match expr_ty_expectation.final_destination(self) {
-                    FinalDestination::Sort => Ok(self.term_menu().ty0().into()),
+                    FinalDestination::Sort | FinalDestination::SortOrTrait => {
+                        Ok(self.term_menu().ty0().into())
+                    }
                     FinalDestination::TypeOntology
                     | FinalDestination::AnyOriginal
                     | FinalDestination::AnyDerived => {
@@ -1118,46 +1156,48 @@ impl<'a> SemExprBuilder<'a> {
                     }
                     TypePathDisambiguation::InstanceConstructor => {
                         let element_ty: FlyTerm = match expr_ty_expectation.destination() {
-                            FlyTermDestination::Specific(ty_pattern) => match ty_pattern
-                                .data_inner(self.db(), self.fly_term_region().terms())
-                            {
-                                FlyTermData::Literal(_) => todo!(),
-                                FlyTermData::TypeOntology {
-                                    refined_ty_path,
-                                    ty_arguments,
-                                    ..
-                                } => match refined_ty_path {
-                                    Left(PreludeTypePath::List) => {
-                                        assert_eq!(ty_arguments.len(), 1);
-                                        ty_arguments[0]
-                                    }
-                                    Left(PreludeTypePath::Container(_)) => {
-                                        assert_eq!(ty_arguments.len(), 1);
-                                        ty_arguments[0]
-                                    }
-                                    _ => todo!(),
-                                },
-                                FlyTermData::Curry {
-                                    toolchain,
-                                    curry_kind,
-                                    variance,
-                                    parameter_hvar,
-                                    parameter_ty,
-                                    return_ty,
-                                    ty_ethereal_term,
-                                } => todo!(),
-                                FlyTermData::Hole(_, _) => todo!(),
-                                FlyTermData::Sort(_) => todo!(),
-                                FlyTermData::Ritchie {
-                                    ritchie_kind,
-                                    parameter_contracted_tys,
-                                    return_ty,
-                                    ..
-                                } => todo!(),
-                                FlyTermData::SymbolicVariable { .. } => todo!(),
-                                FlyTermData::LambdaVariable { .. } => todo!(),
-                                FlyTermData::TypeVariant { path } => todo!(),
-                            },
+                            FlyTermDestination::Specific(ty_pattern) => {
+                                match ty_pattern.data2(self.db(), self.fly_term_region().terms()) {
+                                    FlyTermData::Literal(_) => todo!(),
+                                    FlyTermData::TypeOntology {
+                                        refined_ty_path,
+                                        ty_arguments,
+                                        ..
+                                    } => match refined_ty_path {
+                                        Left(PreludeTypePath::List) => {
+                                            assert_eq!(ty_arguments.len(), 1);
+                                            ty_arguments[0]
+                                        }
+                                        Left(PreludeTypePath::Container(_)) => {
+                                            assert_eq!(ty_arguments.len(), 1);
+                                            ty_arguments[0]
+                                        }
+                                        _ => todo!(),
+                                    },
+                                    FlyTermData::Curry {
+                                        toolchain,
+                                        curry_kind,
+                                        variance,
+                                        parameter_hvar,
+                                        parameter_ty,
+                                        return_ty,
+                                        ty_ethereal_term,
+                                    } => todo!(),
+                                    FlyTermData::Hole(_, _) => todo!(),
+                                    FlyTermData::Sort(_) => todo!(),
+                                    FlyTermData::Ritchie {
+                                        ritchie_kind,
+                                        parameter_contracted_tys,
+                                        return_ty,
+                                        ..
+                                    } => todo!(),
+                                    FlyTermData::SymbolicVariable { .. } => todo!(),
+                                    FlyTermData::LambdaVariable { .. } => todo!(),
+                                    FlyTermData::TypeVariant { path } => todo!(),
+                                    FlyTermData::MajorTypeVar(_) => todo!(),
+                                    FlyTermData::Trait { .. } => todo!(),
+                                }
+                            }
                             FlyTermDestination::AnyOriginal => {
                                 self.new_hole(syn_expr_idx, HoleKind::AnyOriginal).into()
                             }
@@ -1458,33 +1498,23 @@ impl<'a> SemExprBuilder<'a> {
                 parent_path,
                 colon_colon_regional_token,
                 ident_token,
-                ref static_dispatch,
+                ref ontology_dispatch,
             } => todo!(),
-            SemExprData::AssocItem {
-                parent_expr_idx,
-                colon_colon_regional_token_idx,
-                ident,
-                ident_regional_token_idx,
-                ref static_dispatch,
-            } => match *static_dispatch {
-                StaticDispatch::AssocRitchie(_) => todo!(),
-                StaticDispatch::AssocGn => todo!(),
-                StaticDispatch::TypeAsTrait {
-                    trai,
-                    trai_item_path,
-                } => {
-                    let ty = self.calc_expr_term(parent_expr_idx).expect(
-                        "should be guaranteed to be okay by the fact that static dispatch is calculated",
-                    );
-                    Ok(FlyTerm::new_ty_as_trai_item(
-                        self,
-                        ty,
-                        trai,
-                        ident,
-                        trai_item_path,
-                    ))
-                }
-            },
+            SemExprData::TypeAsTraitItem {
+                ref ontology_dispatch,
+                ..
+            }
+            | SemExprData::AssocItem {
+                ref ontology_dispatch,
+                ..
+            } => {
+                // the `unsafe` is due to Rust currently don't have view type
+                // item_term_result wouldn't change ontology_dispatch, so the reference is valid
+                // of course, we can circumvent this by utilizing struct field tricks, but what's the point
+                unsafe { arb_ref(ontology_dispatch) }
+                    .item_term_result(self)
+                    .map_err(Into::into)
+            }
             SemExprData::InheritedSynSymbol {
                 ident,
                 regional_token_idx,
@@ -1548,8 +1578,7 @@ impl<'a> SemExprBuilder<'a> {
             SemExprData::FunctionRitchieCall { .. } => todo!(),
             SemExprData::Field { .. } => todo!(),
             SemExprData::MethodApplication { .. } => todo!(),
-            SemExprData::MethodFnCall { .. } => todo!(),
-            SemExprData::MethodGnCall { .. } => todo!(),
+            SemExprData::MethodRitchieCall { .. } => todo!(),
             SemExprData::TemplateInstantiation { .. } => todo!(),
             SemExprData::Delimitered {
                 lpar_regional_token_idx,

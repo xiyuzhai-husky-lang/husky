@@ -11,7 +11,7 @@ pub fn ty_variant_path_declarative_ty(
     path: TypeVariantPath,
 ) -> DeclarativeTypeResult<DecTerm> {
     // todo: GADT
-    let _declarative_term_menu = db.dec_term_menu(path.toolchain(db)).unwrap();
+    let _dec_term_menu = db.dec_term_menu(path.toolchain(db)).unwrap();
     let tmpl = match path.dec_template(db) {
         Ok(tmpl) => tmpl,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),

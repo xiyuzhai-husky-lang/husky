@@ -169,6 +169,7 @@ impl PreludeTypePath {
     pub const LIFETIME: Self = PreludeTypePath::Lifetime;
     pub const PLACE: Self = PreludeTypePath::Place;
     pub const UNIVERSE: Self = PreludeTypePath::Universe;
+    pub const TRAIT: Self = PreludeTypePath::Trait;
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

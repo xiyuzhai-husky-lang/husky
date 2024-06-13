@@ -7,7 +7,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`, (0)),
+                            MajorFormSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             ModulePath(`mnist_classifier::digits::eight`),
@@ -33,7 +33,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`, (0)),
+                        MajorFormSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`, (0)),
                     ),
                 ),
                 ident: `upper_mouth_match`,
@@ -45,7 +45,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`, (0)),
+                            MajorFormSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             ModulePath(`mnist_classifier::digits`),
@@ -71,7 +71,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`, (0)),
+                        MajorFormSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`, (0)),
                     ),
                 ),
                 ident: `is_eight`,
@@ -83,7 +83,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
+                            MajorFormSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -113,7 +113,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
+                        MajorFormSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),

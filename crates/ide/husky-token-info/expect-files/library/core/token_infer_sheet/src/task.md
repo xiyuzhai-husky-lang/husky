@@ -145,7 +145,7 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                FormSynNodePath(`core::task::Task`, `TypeVar`, (0)),
+                                MajorFormSynNodePath(`core::task::Task`, `TypeVar`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
@@ -166,7 +166,7 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                FormSynNodePath(`core::task::TASK`, `StaticVar`, (0)),
+                                MajorFormSynNodePath(`core::task::TASK`, `StaticVar`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {

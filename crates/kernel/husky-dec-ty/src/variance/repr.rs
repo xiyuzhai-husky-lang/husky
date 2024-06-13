@@ -34,7 +34,7 @@ pub(crate) fn item_variance_reprs(
     db: &::salsa::Db,
     path: ItemPath,
 ) -> VarianceResultRef<&[VarianceRepr]> {
-    let _declarative_term_menu = db.dec_term_menu(path.toolchain(db)).unwrap();
+    let _dec_term_menu = db.dec_term_menu(path.toolchain(db)).unwrap();
     match path {
         ItemPath::Submodule(_, _) => todo!(),
         ItemPath::MajorItem(path) => match path {
@@ -62,7 +62,7 @@ pub(crate) fn ty_template_parameter_variance_reprs(
     db: &::salsa::Db,
     path: TypePath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
-    let _declarative_term_menu = db.dec_term_menu(path.toolchain(db)).unwrap();
+    let _dec_term_menu = db.dec_term_menu(path.toolchain(db)).unwrap();
     let signature = match path.dec_template(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
@@ -106,7 +106,7 @@ pub(crate) fn trai_item_variance_reprs(
     db: &::salsa::Db,
     path: TraitPath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
-    let _declarative_term_menu = db.dec_term_menu(path.toolchain(db)).unwrap();
+    let _dec_term_menu = db.dec_term_menu(path.toolchain(db)).unwrap();
     let signature = match path.dec_template(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),

@@ -17,6 +17,7 @@ use husky_toml_ast::TomlAstJar;
     husky_entity_path::jar::EntityPathJar,
     TermPreludeJar,
     husky_token_data::jar::TokenDataJar,
+    husky_text::jar::TextJar,
     TokenJar,
     husky_ast::jar::AstJar,
     husky_entity_tree::jar::EntityTreeJar,

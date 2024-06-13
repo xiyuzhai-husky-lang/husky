@@ -27,7 +27,7 @@ impl DepsAttrHirDecl {
                     EthTerm::SymbolicVariable(_) => todo!(),
                     EthTerm::LambdaVariable(_) => todo!(),
                     EthTerm::ItemPath(path) => path,
-                    EthTerm::Category(_) => todo!(),
+                    EthTerm::Sort(_) => todo!(),
                     EthTerm::Universe(_) => todo!(),
                     EthTerm::Curry(_) => todo!(),
                     EthTerm::Ritchie(_) => todo!(),

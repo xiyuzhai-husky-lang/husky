@@ -649,16 +649,47 @@ where
         let Some(IncompleteSynExprData::Binary {
             lopd,
             punctuation: SynBinaryOpr::ScopeResolution,
-            punctuation_regional_token_idx,
+            punctuation_regional_token_idx: colon_colon_regional_token_idx,
         }) = self.take_last_incomplete_expr()
         else {
             unreachable!("this is called only when there is an incomplete binary expression")
         };
+        match lopd {
+            SynExprData::Delimitered {
+                lpar_regional_token_idx,
+                item,
+                rpar_regional_token_idx,
+            } => match self.syn_expr_arena()[item] {
+                SynExprData::Binary {
+                    lopd: ty,
+                    opr: SynBinaryOpr::As,
+                    opr_regional_token_idx: as_region_token_idx,
+                    ropd: trai,
+                } => {
+                    self.push_top_syn_expr(
+                        SynExprData::TypeAsTargetItem {
+                            lpar_regional_token_idx,
+                            ty,
+                            as_region_token_idx,
+                            target: trai,
+                            rpar_regional_token_idx,
+                            colon_colon_regional_token_idx,
+                            ident,
+                            ident_regional_token_idx,
+                        }
+                        .into(),
+                    );
+                    return;
+                }
+                _ => (),
+            },
+            _ => (),
+        }
         let parent_expr_idx = self.context_mut().alloc_expr(lopd);
         self.push_top_syn_expr(
             SynExprData::AssocItem {
                 parent_expr_idx,
-                colon_colon_regional_token_idx: punctuation_regional_token_idx,
+                colon_colon_regional_token_idx,
                 ident,
                 ident_regional_token_idx,
             }

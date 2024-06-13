@@ -22,7 +22,7 @@ maybe-result.workspace = true
 # fs
 husky-vfs.workspace = true
 # lex
-husky-text-protocol.workspace = true
+husky-text.workspace = true
 husky-token-data.workspace = true
 husky-token.workspace = true
 # todo: make this optional and add feature tokra
@@ -32,6 +32,8 @@ husky-coword.workspace = true
 husky-entity-path.workspace = true
 husky-entity-kind.workspace = true
 husky-scope.workspace = true
+# protocols
+husky-text-protocol.workspace = true
 # syntax
 husky-ast.workspace = true
 husky-opr.workspace = true
@@ -59,7 +61,6 @@ husky-term-prelude = { path = "../../kernel/husky-term-prelude", features = [
 ] }
 # syntax
 husky-ast = { workspace = true, features = ["test_utils"] }
-# semantics
 husky-entity-tree = { path = ".", features = ["test_utils"] }
 # toml
 husky-corgi-config-ast.workspace = true

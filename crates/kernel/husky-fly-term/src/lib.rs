@@ -5,7 +5,7 @@ mod data;
 pub mod dispatch;
 mod engine;
 mod error;
-mod expectation;
+pub mod expectation;
 pub mod instantiation;
 pub mod jar;
 mod progress;

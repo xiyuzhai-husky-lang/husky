@@ -62,7 +62,7 @@ impl HirTemplateArgument {
                 ItemPathTerm::TypeInstance(_) => todo!(),
                 ItemPathTerm::TypeVariant(path) => HirTemplateArgument::Constant(path.into()),
             },
-            EthTerm::Category(_) => todo!(),
+            EthTerm::Sort(_) => todo!(),
             EthTerm::Universe(_) => todo!(),
             EthTerm::Curry(_) => todo!(),
             EthTerm::Ritchie(term) => HirType::Ritchie(HirRitchieType::from_eth(term, db)).into(),
@@ -81,7 +81,7 @@ impl HirTemplateArgument {
             FlyTermBase::Sol(_) => todo!(),
             FlyTermBase::Hol(t) => {
                 use husky_print_utils::p;
-                p!(t, term.show(db, terms));
+                p!(t, term.show2(db, terms));
                 todo!()
             }
             FlyTermBase::Place => todo!(),

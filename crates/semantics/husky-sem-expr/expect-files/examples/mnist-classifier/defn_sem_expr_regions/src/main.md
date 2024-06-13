@@ -80,13 +80,13 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unveil {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         0,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEthSignature {
                                         path: TraitForTypeItemPath(
                                             `<malamute::Class as core::ops::Unveil(0)>::Output`,
                                             TraitItemKind::AssocType,
@@ -203,13 +203,13 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unveil {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         2,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEthSignature {
                                         path: TraitForTypeItemPath(
                                             `<malamute::Class as core::ops::Unveil(0)>::Output`,
                                             TraitItemKind::AssocType,
@@ -326,13 +326,13 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unveil {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         4,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         6,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEthSignature {
                                         path: TraitForTypeItemPath(
                                             `<malamute::Class as core::ops::Unveil(0)>::Output`,
                                             TraitItemKind::AssocType,
@@ -449,13 +449,13 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unveil {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         6,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         8,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEthSignature {
                                         path: TraitForTypeItemPath(
                                             `<malamute::Class as core::ops::Unveil(0)>::Output`,
                                             TraitItemKind::AssocType,
@@ -572,13 +572,13 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unveil {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         8,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEthSignature {
                                         path: TraitForTypeItemPath(
                                             `<malamute::Class as core::ops::Unveil(0)>::Output`,
                                             TraitItemKind::AssocType,
@@ -695,13 +695,13 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unveil {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         10,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         12,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEthSignature {
                                         path: TraitForTypeItemPath(
                                             `<malamute::Class as core::ops::Unveil(0)>::Output`,
                                             TraitItemKind::AssocType,
@@ -818,13 +818,13 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unveil {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         12,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         14,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEthSignature {
                                         path: TraitForTypeItemPath(
                                             `<malamute::Class as core::ops::Unveil(0)>::Output`,
                                             TraitItemKind::AssocType,
@@ -941,13 +941,13 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unveil {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         14,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         16,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEthSignature {
                                         path: TraitForTypeItemPath(
                                             `<malamute::Class as core::ops::Unveil(0)>::Output`,
                                             TraitItemKind::AssocType,
@@ -1064,13 +1064,13 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Unveil {
-                                    opd_sem_expr_idx: SemExprIdx(
+                                    opd: SemExprIdx(
                                         16,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         18,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEthSignature {
                                         path: TraitForTypeItemPath(
                                             `<malamute::Class as core::ops::Unveil(0)>::Output`,
                                             TraitItemKind::AssocType,

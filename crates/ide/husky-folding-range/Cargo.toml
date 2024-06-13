@@ -26,6 +26,7 @@ husky-entity-path.workspace = true
 husky-coword.workspace = true
 husky-term-prelude.workspace = true
 # lex
+husky-text.workspace = true
 husky-token-data.workspace = true
 # syntax
 husky-ast = { workspace = true, features = ["test_utils"] }

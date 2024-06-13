@@ -66,6 +66,8 @@ impl<'a> SemExprBuilder<'a> {
                     FlyTermData::SymbolicVariable { .. } => todo!(),
                     FlyTermData::LambdaVariable { .. } => todo!(),
                     FlyTermData::TypeVariant { path } => todo!(),
+                    FlyTermData::MajorTypeVar(_) => todo!(),
+                    FlyTermData::Trait { .. } => todo!(),
                 }
             }
             SynPrefixOpr::Not => {
@@ -77,7 +79,7 @@ impl<'a> SemExprBuilder<'a> {
                 )
             }
             SynPrefixOpr::Tilde => match final_destination {
-                FinalDestination::Sort => {
+                FinalDestination::Sort | FinalDestination::SortOrTrait => {
                     let (opd_sem_expr_idx, ty_result) = self.calc_function_application_expr_ty_aux(
                         expr_idx,
                         Variance::Covariant,

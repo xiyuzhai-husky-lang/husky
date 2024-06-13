@@ -3,7 +3,7 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Form(
-                FormSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`, (0)),
+                MajorFormSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`, (0)),
             ),
         ),
         Some(
@@ -18,7 +18,7 @@
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -100,7 +100,7 @@
                         path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`, (0)),
+                                    MajorFormSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`, (0)),
                                 ),
                             ),
                         ),
@@ -296,7 +296,7 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Form(
-                FormSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`, (0)),
+                MajorFormSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`, (0)),
             ),
         ),
         Some(
@@ -311,7 +311,7 @@
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -482,7 +482,7 @@
                         path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`, (0)),
+                                    MajorFormSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`, (0)),
                                 ),
                             ),
                         ),
@@ -1121,7 +1121,7 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Form(
-                FormSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
+                MajorFormSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                     Fn,
                 )`, (0)),
             ),
@@ -1138,7 +1138,7 @@
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -1324,7 +1324,7 @@
                         path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
+                                    MajorFormSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),

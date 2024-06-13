@@ -33,11 +33,13 @@ impl RitchieItemKind {
         }
     }
 
-    pub fn is_lazy(self) -> bool {
+    pub fn requires_lazy_to_use(self) -> bool {
         match self {
-            RitchieItemKind::Fn | RitchieItemKind::Pn | RitchieItemKind::Tn => false,
-            RitchieItemKind::Gn
+            RitchieItemKind::Fn
             | RitchieItemKind::Vn
+            | RitchieItemKind::Pn
+            | RitchieItemKind::Tn => false,
+            RitchieItemKind::Gn
             | RitchieItemKind::Qn
             | RitchieItemKind::Bn
             | RitchieItemKind::Sn => true,

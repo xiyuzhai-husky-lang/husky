@@ -79,33 +79,22 @@ pub(crate) fn rust_transpilation_packages(
 ) -> Vec<RustTranspilationPackage> {
     match target_path.data(db) {
         LinktimeTargetPathData::Package(package_path) => {
-            let mut packages = vec![
-                RustTranspilationPackage {
-                    target_path,
-                    package_path,
-                    kind: RustTranspilationPackageKind::Source,
-                },
-                RustTranspilationPackage {
-                    target_path,
-                    package_path,
-                    kind: RustTranspilationPackageKind::Linkages,
-                },
-            ];
+            let mut packages = vec![];
             packages.extend(
                 package_path
-                    .dependencies(db)
+                    .full_dependencies(db)
                     .expect("no error at this stage")
                     .iter()
-                    .flat_map(|dep| {
+                    .flat_map(|&dep_package_path| {
                         [
                             RustTranspilationPackage {
                                 target_path,
-                                package_path: dep.package_path(),
+                                package_path: dep_package_path,
                                 kind: RustTranspilationPackageKind::Source,
                             },
                             RustTranspilationPackage {
                                 target_path,
-                                package_path: dep.package_path(),
+                                package_path: dep_package_path,
                                 kind: RustTranspilationPackageKind::Linkages,
                             },
                         ]
@@ -197,7 +186,7 @@ fn module_relative_path_for_transpilation(
 ) -> RelativePathBuf {
     match module_path.data(db) {
         ModulePathData::Root(crate_path) => match crate_path.kind(db) {
-            CrateKind::Lib | CrateKind::Main => RelativePathBuf::from_path("lib.rs").unwrap(),
+            CrateKind::Lib | CrateKind::Main => RelativePathBuf::from_path("src/lib.rs").unwrap(),
             CrateKind::Requirements | CrateKind::Task => todo!(),
             CrateKind::Bin(_) => todo!(),
             CrateKind::IntegratedTest(_) => todo!(),

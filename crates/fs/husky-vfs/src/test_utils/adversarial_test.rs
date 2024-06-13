@@ -61,7 +61,12 @@ The conflicting path is `{adversarial_path:?}`"#,
             old_usage.debug(db),
         )
     }
-    let module = unit.vfs_test_unit_downcast_as_module_path().unwrap();
+    let Some(module) = unit.vfs_test_unit_downcast_as_module_path() else {
+        // ad hoc, what to do here?
+        // for things like item syn node path, adversarial attack might make the entity tree change
+        // we might want something that avoids changing the entity tree
+        return;
+    };
     let manager = VfsAdversarialManager::new(module, adversarial_path);
     manager.run(db, &|db| {
         f(db, unit);

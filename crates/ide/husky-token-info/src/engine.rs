@@ -274,12 +274,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 sem_expr_idx,
                 TokenInfoData::Method,
             ),
-            SemExprData::MethodFnCall { ident_token, .. } => self.add(
-                ident_token.regional_token_idx(),
-                sem_expr_idx,
-                TokenInfoData::Method,
-            ),
-            SemExprData::MethodGnCall { ident_token, .. } => self.add(
+            SemExprData::MethodRitchieCall { ident_token, .. } => self.add(
                 ident_token.regional_token_idx(),
                 sem_expr_idx,
                 TokenInfoData::Method,
@@ -324,6 +319,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             | SemExprData::Be { .. } => (),
             SemExprData::FunctionApplication { .. } => (),
             SemExprData::MajorItemPathAssocItem { .. } => (),
+            SemExprData::TypeAsTraitItem { .. } => (),
             SemExprData::AssocItem { .. } => (),
             SemExprData::Index {
                 owner: _,

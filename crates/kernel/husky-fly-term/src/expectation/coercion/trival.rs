@@ -1,5 +1,5 @@
-use self::quary::FlyQuary;
 use super::*;
+use crate::quary::FlyQuary;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TrivialFlyCoercion {
