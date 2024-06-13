@@ -50,6 +50,10 @@ impl TraitForTypeItemPath {
         self.data(db).impl_block
     }
 
+    pub fn ident(self, db: &::salsa::Db) -> Ident {
+        self.data(db).ident
+    }
+
     pub fn item_kind(self, db: &::salsa::Db) -> TraitItemKind {
         self.data(db).item_kind
     }

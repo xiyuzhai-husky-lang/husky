@@ -1,6 +1,9 @@
 use super::*;
 use crate::node::impl_block::trai_for_ty_impl_block::TraitForTypeImplBlockSynNodePath;
-use husky_entity_path::path::assoc_item::trai_for_ty_item::TraitForTypeItemPath;
+use husky_entity_path::path::{
+    assoc_item::trai_for_ty_item::TraitForTypeItemPath, impl_block::TypeSketch,
+    major_item::trai::TraitPath,
+};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -50,6 +53,29 @@ impl TraitForTypeItemSynNodePath {
             ItemPath::AssocItem(AssocItemPath::TraitForTypeItem(path)) => path,
             _ => unreachable!(),
         })
+    }
+
+    pub fn ident(self, db: &::salsa::Db) -> Ident {
+        self.data(db)
+            .disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .ident(db)
+    }
+
+    pub fn trai_path(self, db: &::salsa::Db) -> TraitPath {
+        self.data(db)
+            .disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .impl_block(db)
+            .trai_path(db)
+    }
+
+    pub fn ty_sketch(self, db: &::salsa::Db) -> TypeSketch {
+        self.data(db)
+            .disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .impl_block(db)
+            .ty_sketch(db)
     }
 }
 

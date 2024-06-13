@@ -43,6 +43,14 @@ impl TypeItemPath {
         self.data(db).impl_block
     }
 
+    pub fn ident(self, db: &::salsa::Db) -> Ident {
+        self.data(db).ident
+    }
+
+    pub fn ty_path(self, db: &::salsa::Db) -> TypePath {
+        self.data(db).impl_block.ty_path(db)
+    }
+
     pub fn item_kind(self, db: &::salsa::Db) -> TypeItemKind {
         self.data(db).item_kind
     }

@@ -62,6 +62,13 @@ impl TraitItemSynNodePath {
     pub fn item_kind(self, db: &::salsa::Db) -> TraitItemKind {
         self.data(db).item_kind(db)
     }
+
+    pub fn ident(self, db: &::salsa::Db) -> Ident {
+        self.data(db)
+            .disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .ident(db)
+    }
 }
 
 impl TraitItemSynNodePathData {

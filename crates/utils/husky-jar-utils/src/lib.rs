@@ -25,10 +25,8 @@ impl PackageSummary {
     fn new(summary: Summary, dev_paths: &HuskyLangDevPaths) -> Self {
         let url = summary.source_id().url().to_string();
         let dev_root = dev_paths.dev_root();
-        p!(url);
         assert!(url.starts_with("file://"));
         let path: PathBuf = url.trim_start_matches("file://").into();
-        p!(path);
         assert!(path.exists());
         let relative_path = diff_paths(path, dev_root)
             .unwrap()
@@ -144,7 +142,6 @@ impl<'a> JarTreeBuilder<'a> {
         if self.dependencies_table.contains_key(&summary.name) {
             return;
         }
-        println!("building {}", &summary.name);
         let mut dependencies: BTreeSet<String> = Default::default();
         for dep in &summary.dependencies {
             if dep != &summary.name {
