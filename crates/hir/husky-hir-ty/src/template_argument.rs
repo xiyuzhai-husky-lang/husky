@@ -81,7 +81,7 @@ impl HirTemplateArgument {
             FlyTermBase::Sol(_) => todo!(),
             FlyTermBase::Hol(t) => {
                 use husky_print_utils::p;
-                p!(t, term.show(db, terms));
+                p!(t, term.show2(db, terms));
                 todo!()
             }
             FlyTermBase::Place => todo!(),

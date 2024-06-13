@@ -154,20 +154,12 @@ impl FlyTerm {
                     0 => todo!(),
                     1 => {
                         let trai = symbolic_variable_obvious_trais[0];
-                        let TermFunctionReduced::Trait(trai_path) =
-                            trai.application_expansion(db).function()
-                        else {
-                            unreachable!()
-                        };
-                        let Some(&(_, trai_item_path)) =
-                            trai_path.assoc_item_paths(db).get_entry(ident)
-                        else {
-                            todo!()
-                        };
                         JustOk(OntologyDispatch::TraitItem {
-                            signature: TraitItemFlySignature::from_path(
-                                trai_item_path,
+                            signature: TraitItemFlySignature::from_as_trai(
                                 self,
+                                trai,
+                                ident,
+                                syn_expr_idx,
                                 engine,
                             )?,
                         })
@@ -228,7 +220,15 @@ impl FlyTerm {
                 else {
                     todo!()
                 };
-                JustOk(todo!())
+                JustOk(OntologyDispatch::TraitItem {
+                    signature: TraitItemFlySignature::from_as_trai(
+                        self,
+                        trai,
+                        ident,
+                        syn_expr_idx,
+                        engine,
+                    )?,
+                })
             }
         }
     }

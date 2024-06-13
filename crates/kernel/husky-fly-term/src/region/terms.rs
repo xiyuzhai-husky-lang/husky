@@ -71,8 +71,8 @@ impl FlyTerms {
         hole_source: HoleSource,
         parameter_hvar: FlyHvar,
     ) -> HolTerm {
-        let hole_kind = match parameter_hvar.data_inner(db, self) {
-            FlyTermData::LambdaVariable { ty, .. } => match ty.data_inner(db, self) {
+        let hole_kind = match parameter_hvar.data2(db, self) {
+            FlyTermData::LambdaVariable { ty, .. } => match ty.data2(db, self) {
                 FlyTermData::TypeOntology {
                     ty_path: path,
                     refined_ty_path: refined_path,
@@ -113,7 +113,7 @@ impl FlyTerms {
             //     FlyTermBase::Place => todo!(),
             // },
             _ => {
-                p!(parameter_hvar.data_inner(db, self).debug(db));
+                p!(parameter_hvar.data2(db, self).debug(db));
                 unreachable!()
             }
         };

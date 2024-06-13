@@ -1142,48 +1142,48 @@ impl<'a> SemExprBuilder<'a> {
                     }
                     TypePathDisambiguation::InstanceConstructor => {
                         let element_ty: FlyTerm = match expr_ty_expectation.destination() {
-                            FlyTermDestination::Specific(ty_pattern) => match ty_pattern
-                                .data_inner(self.db(), self.fly_term_region().terms())
-                            {
-                                FlyTermData::Literal(_) => todo!(),
-                                FlyTermData::TypeOntology {
-                                    refined_ty_path,
-                                    ty_arguments,
-                                    ..
-                                } => match refined_ty_path {
-                                    Left(PreludeTypePath::List) => {
-                                        assert_eq!(ty_arguments.len(), 1);
-                                        ty_arguments[0]
-                                    }
-                                    Left(PreludeTypePath::Container(_)) => {
-                                        assert_eq!(ty_arguments.len(), 1);
-                                        ty_arguments[0]
-                                    }
-                                    _ => todo!(),
-                                },
-                                FlyTermData::Curry {
-                                    toolchain,
-                                    curry_kind,
-                                    variance,
-                                    parameter_hvar,
-                                    parameter_ty,
-                                    return_ty,
-                                    ty_ethereal_term,
-                                } => todo!(),
-                                FlyTermData::Hole(_, _) => todo!(),
-                                FlyTermData::Sort(_) => todo!(),
-                                FlyTermData::Ritchie {
-                                    ritchie_kind,
-                                    parameter_contracted_tys,
-                                    return_ty,
-                                    ..
-                                } => todo!(),
-                                FlyTermData::SymbolicVariable { .. } => todo!(),
-                                FlyTermData::LambdaVariable { .. } => todo!(),
-                                FlyTermData::TypeVariant { path } => todo!(),
-                                FlyTermData::MajorTypeVar(_) => todo!(),
-                                FlyTermData::Trait { .. } => todo!(),
-                            },
+                            FlyTermDestination::Specific(ty_pattern) => {
+                                match ty_pattern.data2(self.db(), self.fly_term_region().terms()) {
+                                    FlyTermData::Literal(_) => todo!(),
+                                    FlyTermData::TypeOntology {
+                                        refined_ty_path,
+                                        ty_arguments,
+                                        ..
+                                    } => match refined_ty_path {
+                                        Left(PreludeTypePath::List) => {
+                                            assert_eq!(ty_arguments.len(), 1);
+                                            ty_arguments[0]
+                                        }
+                                        Left(PreludeTypePath::Container(_)) => {
+                                            assert_eq!(ty_arguments.len(), 1);
+                                            ty_arguments[0]
+                                        }
+                                        _ => todo!(),
+                                    },
+                                    FlyTermData::Curry {
+                                        toolchain,
+                                        curry_kind,
+                                        variance,
+                                        parameter_hvar,
+                                        parameter_ty,
+                                        return_ty,
+                                        ty_ethereal_term,
+                                    } => todo!(),
+                                    FlyTermData::Hole(_, _) => todo!(),
+                                    FlyTermData::Sort(_) => todo!(),
+                                    FlyTermData::Ritchie {
+                                        ritchie_kind,
+                                        parameter_contracted_tys,
+                                        return_ty,
+                                        ..
+                                    } => todo!(),
+                                    FlyTermData::SymbolicVariable { .. } => todo!(),
+                                    FlyTermData::LambdaVariable { .. } => todo!(),
+                                    FlyTermData::TypeVariant { path } => todo!(),
+                                    FlyTermData::MajorTypeVar(_) => todo!(),
+                                    FlyTermData::Trait { .. } => todo!(),
+                                }
+                            }
                             FlyTermDestination::AnyOriginal => {
                                 self.new_hole(syn_expr_idx, HoleKind::AnyOriginal).into()
                             }
@@ -1497,7 +1497,16 @@ impl<'a> SemExprBuilder<'a> {
                 OntologyDispatch::TypeItem { ref signature } => todo!(),
                 OntologyDispatch::TraitItem { ref signature, .. } => {
                     use husky_print_utils::p;
-                    todo!()
+                    let self_ty = signature.self_ty();
+                    let trai = signature.trai();
+                    let trai_item_path = signature.path();
+                    Ok(FlyTerm::new_ty_as_trai_item(
+                        self,
+                        self_ty,
+                        trai,
+                        ident,
+                        trai_item_path,
+                    ))
                 }
                 OntologyDispatch::TraitForTypeItem { ref signature } => todo!(),
                 // StaticDispatch::AssocRitchie(_) => todo!(),

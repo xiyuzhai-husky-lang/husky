@@ -15,7 +15,7 @@ impl EthTerm {
             EthTerm::Ritchie(term) => ethereal_term_ritchie_toolchain(db, term),
             EthTerm::Abstraction(_) => todo!(),
             EthTerm::Application(term) => ethereal_term_application_toolchain(db, term),
-            EthTerm::TypeAsTraitItem(_) => todo!(),
+            EthTerm::TypeAsTraitItem(term) => Some(term.trai_item_path(db).toolchain(db)),
             EthTerm::TraitConstraint(_) => todo!(),
         }
     }

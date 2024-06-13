@@ -189,19 +189,19 @@ fn prelude_trai_path(db: &::salsa::Db, path: TraitPath) -> Option<PreludeTraitPa
 #[salsa::derive_debug_with_db]
 #[salsa::deref_id]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct CustomTraitPath(TraitPath);
+pub struct OtherTraitPath(TraitPath);
 
-impl From<CustomTraitPath> for TraitPath {
-    fn from(path: CustomTraitPath) -> Self {
+impl From<OtherTraitPath> for TraitPath {
+    fn from(path: OtherTraitPath) -> Self {
         path.0
     }
 }
 
 impl TraitPath {
-    pub fn refine(self, db: &::salsa::Db) -> Either<PreludeTraitPath, CustomTraitPath> {
+    pub fn refine(self, db: &::salsa::Db) -> Either<PreludeTraitPath, OtherTraitPath> {
         match self.prelude_trai_path(db) {
             Some(path) => Left(path),
-            None => Right(CustomTraitPath(self)),
+            None => Right(OtherTraitPath(self)),
         }
     }
 }

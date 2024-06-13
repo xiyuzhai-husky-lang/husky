@@ -53,6 +53,17 @@ impl TraitItemEthTemplate {
             TraitItemEthTemplate::MethodCurry(_) => todo!(),
         }
     }
+    pub fn template_parameters(self, db: &::salsa::Db) -> &[EthTemplateParameter] {
+        match self {
+            TraitItemEthTemplate::AssocRitchie(slf) => slf.template_parameters(db),
+            TraitItemEthTemplate::AssocVal(slf) => slf.template_parameters(db),
+            TraitItemEthTemplate::AssocType(slf) => slf.template_parameters(db),
+            TraitItemEthTemplate::AssocStaticMut(slf) => slf.template_parameters(db),
+            TraitItemEthTemplate::AssocStaticVar(slf) => slf.template_parameters(db),
+            TraitItemEthTemplate::MethodRitchie(slf) => slf.template_parameters(db),
+            TraitItemEthTemplate::MethodCurry(slf) => slf.template_parameters(db),
+        }
+    }
 }
 
 impl HasEthTemplate for TraitItemPath {
