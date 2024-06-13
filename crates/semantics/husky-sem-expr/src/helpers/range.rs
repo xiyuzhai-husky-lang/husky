@@ -365,7 +365,7 @@ impl<'a> SemExprRangeCalculator<'a> {
                 colon_colon_regional_token_idx,
                 ident,
                 ident_regional_token_idx,
-                static_dispatch,
+                ontology_dispatch,
             } => todo!(),
             SemExprData::Be {
                 src,
@@ -413,7 +413,7 @@ impl<'a> SemExprRangeCalculator<'a> {
                 rpar_regional_token_idx,
                 ..
             } => todo!(),
-            SemExprData::MethodRitcheCall {
+            SemExprData::MethodRitchieCall {
                 self_argument: self_argument_sem_expr_idx,
                 rpar_regional_token_idx,
                 ..

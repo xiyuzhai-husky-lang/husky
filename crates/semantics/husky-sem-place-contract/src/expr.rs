@@ -137,7 +137,7 @@ impl<'a> PlaceContractEngine<'a> {
                 }
             },
             SemExprData::MethodApplication { .. } => (),
-            SemExprData::MethodRitcheCall {
+            SemExprData::MethodRitchieCall {
                 self_argument: self_argument_sem_expr_idx,
                 self_contract,
                 ref ritchie_parameter_argument_matches,

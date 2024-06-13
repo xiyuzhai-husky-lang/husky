@@ -43,8 +43,13 @@ impl FieldFlySignature {
 }
 
 impl IsInstanceItemFlySignature for FieldFlySignature {
-    fn expr_ty(&self, self_value_final_place: FlyQuary) -> FlyTermResult<FlyTerm> {
-        todo!()
+    fn expr_ty(&self, self_value_final_quary: FlyQuary) -> FlyTermResult<FlyTerm> {
+        // ad hoc
+        // todo: consider field mutability
+        Ok(match *self {
+            FieldFlySignature::PropsStruct { ty } => ty.with_quary(self_value_final_quary),
+            FieldFlySignature::Memoized { ty, .. } => ty.with_quary(self_value_final_quary),
+        })
     }
 }
 

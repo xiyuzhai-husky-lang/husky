@@ -14,6 +14,19 @@ use husky_regional_token::IdentRegionalToken;
 
 pub type MethodFlyInstanceDispatch = FlyInstanceDispatch<MethodFlySignature>;
 
+impl MethodFlyInstanceDispatch {
+    pub fn requires_lazy_to_use(&self, db: &::salsa::Db) -> bool {
+        match self.signature {
+            MethodFlySignature::TypeMethodRitchie(ref signature) => {
+                signature.path.entity_kind(db).requires_lazy_to_use()
+            }
+            MethodFlySignature::TraitForTypeMethodRitchie(ref signature) => {
+                signature.path.entity_kind(db).requires_lazy_to_use()
+            }
+        }
+    }
+}
+
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq)]
 pub enum MethodFlySignature {

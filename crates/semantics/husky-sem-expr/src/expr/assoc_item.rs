@@ -10,7 +10,7 @@ impl<'a> SemExprBuilder<'a> {
         parent_path: MajorItemPath,
         ident_token: IdentRegionalToken,
     ) -> (
-        SemExprDataResult<StaticDispatch>,
+        SemExprDataResult<OntologyDispatch>,
         SemExprTypeResult<FlyTerm>,
     ) {
         let parent_term: FlyTerm = match parent_path {
@@ -38,7 +38,7 @@ impl<'a> SemExprBuilder<'a> {
         ident: Ident,
         ident_regional_token_idx: RegionalTokenIdx,
     ) -> (
-        SemExprDataResult<StaticDispatch>,
+        SemExprDataResult<OntologyDispatch>,
         SemExprTypeResult<FlyTerm>,
     ) {
         let Some(parent_term) = self.infer_expr_term(parent_expr) else {
@@ -62,14 +62,14 @@ impl<'a> SemExprBuilder<'a> {
         ident: Ident,
         ident_regional_token_idx: RegionalTokenIdx,
     ) -> (
-        Result<StaticDispatch, SemExprDataError>,
+        Result<OntologyDispatch, SemExprDataError>,
         Result<FlyTerm, SemExprTypeError>,
     ) {
         let db = self.db();
-        match parent_term.static_dispatch(self, expr_idx, ident, /*ad hoc */ &[]) {
-            JustOk(static_dispatch) => {
-                let ty_result = static_dispatch.ty_result(self).map_err(Into::into);
-                (Ok(static_dispatch), ty_result)
+        match parent_term.ontology_dispatch(self, expr_idx, ident, /*ad hoc */ &[]) {
+            JustOk(ontology_dispatch) => {
+                let ty_result = ontology_dispatch.ty_result(self).map_err(Into::into);
+                (Ok(ontology_dispatch), ty_result)
             }
             JustErr(_) => todo!(),
             Nothing => todo!(),

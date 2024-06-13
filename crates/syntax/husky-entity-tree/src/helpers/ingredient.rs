@@ -41,7 +41,7 @@ impl IngredientPath {
     }
 
     fn is_ingredient(path: ItemPath, db: &::salsa::Db) -> bool {
-        match path.item_kind(db) {
+        match path.entity_kind(db) {
             EntityKind::Module => false,
             EntityKind::MajorItem {
                 module_item_kind,

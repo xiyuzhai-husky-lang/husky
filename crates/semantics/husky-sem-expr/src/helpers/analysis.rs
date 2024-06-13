@@ -3,7 +3,7 @@ use husky_entity_path::{
     path::{major_item::MajorItemPath, ItemPath, PrincipalEntityPath},
     region::RegionPath,
 };
-use husky_fly_term::dispatch::StaticDispatch;
+use husky_fly_term::dispatch::OntologyDispatch;
 
 use super::*;
 
@@ -46,24 +46,35 @@ pub fn sem_expr_region_requires_lazy(db: &::salsa::Db, sem_expr_region: SemExprR
         },
     }
     for sem_expr_entry in sem_expr_region_data.sem_expr_arena().iter() {
-        todo!("outdated; use form kind!");
-        // match sem_expr_entry.data() {
-        //     SemExprData::PrincipalEntityPath {
-        //         path: PrincipalEntityPath::MajorItem(MajorItemPath::Form(path)),
-        //         ..
-        //     } => match path.kind(db) {
-        //         MajorFormKind::Ritchie(ritchie_item_kind) if ritchie_item_kind.is_lazy() => {
-        //             return true
-        //         }
-        //         _ => (),
-        //     },
-        //     SemExprData::MajorItemPathAssocItem {
-        //         static_dispatch: StaticDispatch::AssocGn,
-        //         ..
-        //     }
-        //     | SemExprData::MethodGnCall { .. } => return true,
-        //     _ => (),
-        // }
+        match sem_expr_entry.data() {
+            SemExprData::PrincipalEntityPath {
+                path: PrincipalEntityPath::MajorItem(MajorItemPath::Form(path)),
+                ..
+            } => match path.kind(db) {
+                MajorFormKind::Ritchie(ritchie_item_kind)
+                    if ritchie_item_kind.requires_lazy_to_use() =>
+                {
+                    return true
+                }
+                _ => (),
+            },
+            SemExprData::MajorItemPathAssocItem {
+                ontology_dispatch, ..
+            } => {
+                if ontology_dispatch.requires_lazy_to_use() {
+                    return true;
+                }
+            }
+            SemExprData::MethodRitchieCall {
+                instance_dispatch, ..
+            } => {
+                if instance_dispatch.requires_lazy_to_use(db) {
+                    return true;
+                }
+            }
+            _ => (),
+        }
     }
     false
 }
+//

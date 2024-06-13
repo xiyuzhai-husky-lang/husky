@@ -46,7 +46,7 @@ use husky_eth_term::term::{
     trai_for_ty_item::EthTypeAsTraitItem, EthTerm,
 };
 use husky_fly_term::{
-    dispatch::{instance::binary_opr::SemaBinaryOprInstanceDispatch, StaticDispatch},
+    dispatch::{instance::binary_opr::SemaBinaryOprInstanceDispatch, OntologyDispatch},
     instantiation::FlyInstantiation,
     signature::assoc_item::trai_for_ty_item::binary_opr::SemaBinaryOprFlySignature,
 };
@@ -104,19 +104,19 @@ pub enum SemExprData {
         parent_path: MajorItemPath,
         colon_colon_regional_token: ColonColonRegionalToken,
         ident_token: IdentRegionalToken,
-        static_dispatch: StaticDispatch,
+        ontology_dispatch: OntologyDispatch,
     },
     TypeAsTraitItem {
         ty: SemExprIdx,
         trai: SemExprIdx,
-        static_dispatch: StaticDispatch,
+        ontology_dispatch: OntologyDispatch,
     },
     AssocItem {
         parent_expr_idx: SemExprIdx,
         colon_colon_regional_token_idx: RegionalTokenIdx,
         ident: Ident,
         ident_regional_token_idx: RegionalTokenIdx,
-        static_dispatch: StaticDispatch,
+        ontology_dispatch: OntologyDispatch,
     },
     InheritedSynSymbol {
         ident: Ident,
@@ -217,13 +217,12 @@ pub enum SemExprData {
         items: SmallVec<[SemaCommaListItem; 4]>,
         rpar_regional_token_idx: RegionalTokenIdx,
     },
-    MethodRitcheCall {
+    MethodRitchieCall {
         self_argument: SemExprIdx,
         self_contract: Contract,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
-        // todo: change to FlyMethodFnInstanceDispatch
-        dispatch: MethodFlyInstanceDispatch,
+        instance_dispatch: MethodFlyInstanceDispatch,
         template_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
         ritchie_parameter_argument_matches: RitchieArgumentes,
@@ -773,15 +772,15 @@ impl<'a> SemExprBuilder<'a> {
                 colon_colon_regional_token,
                 ident_token,
             } => {
-                let (static_dispatch_result, ty_result) =
+                let (ontology_dispatch_result, ty_result) =
                     self.calc_major_item_path_assoc_item_ty(syn_expr_idx, parent_path, ident_token);
-                let data_result = static_dispatch_result.map(|static_dispatch| {
+                let data_result = ontology_dispatch_result.map(|ontology_dispatch| {
                     SemExprData::MajorItemPathAssocItem {
                         parent_expr_idx,
                         parent_path,
                         colon_colon_regional_token,
                         ident_token,
-                        static_dispatch,
+                        ontology_dispatch,
                     }
                 });
                 (data_result, ty_result)
@@ -806,7 +805,7 @@ impl<'a> SemExprBuilder<'a> {
                 ident_regional_token_idx,
             } => {
                 let parent_expr_idx = self.build_sem_expr(parent_expr_idx, ExpectAnyOriginal);
-                let (static_dispatch_result, ty_result) = self.calc_assoc_item_ty(
+                let (ontology_dispatch_result, ty_result) = self.calc_assoc_item_ty(
                     syn_expr_idx,
                     parent_expr_idx,
                     colon_colon_regional_token_idx,
@@ -814,12 +813,12 @@ impl<'a> SemExprBuilder<'a> {
                     ident_regional_token_idx,
                 );
                 let data_result =
-                    static_dispatch_result.map(|static_dispatch| SemExprData::AssocItem {
+                    ontology_dispatch_result.map(|ontology_dispatch| SemExprData::AssocItem {
                         parent_expr_idx,
                         colon_colon_regional_token_idx,
                         ident,
                         ident_regional_token_idx,
-                        static_dispatch,
+                        ontology_dispatch,
                     });
                 (data_result, ty_result)
             }
@@ -1485,7 +1484,7 @@ impl<'a> SemExprBuilder<'a> {
                 parent_path,
                 colon_colon_regional_token,
                 ident_token,
-                ref static_dispatch,
+                ref ontology_dispatch,
             } => todo!(),
             SemExprData::TypeAsTraitItem { .. } => todo!(),
             SemExprData::AssocItem {
@@ -1493,11 +1492,11 @@ impl<'a> SemExprBuilder<'a> {
                 colon_colon_regional_token_idx,
                 ident,
                 ident_regional_token_idx,
-                ref static_dispatch,
-            } => match *static_dispatch {
-                StaticDispatch::TypeItem { ref signature } => todo!(),
-                StaticDispatch::TraitItem { ref signature } => todo!(),
-                StaticDispatch::TraitForTypeItem { ref signature } => todo!(),
+                ref ontology_dispatch,
+            } => match *ontology_dispatch {
+                OntologyDispatch::TypeItem { ref signature } => todo!(),
+                OntologyDispatch::TraitItem { ref signature } => todo!(),
+                OntologyDispatch::TraitForTypeItem { ref signature } => todo!(),
                 // StaticDispatch::AssocRitchie(_) => todo!(),
                 // StaticDispatch::AssocGn => todo!(),
                 // StaticDispatch::TypeAsTrait {
@@ -1580,7 +1579,7 @@ impl<'a> SemExprBuilder<'a> {
             SemExprData::FunctionRitchieCall { .. } => todo!(),
             SemExprData::Field { .. } => todo!(),
             SemExprData::MethodApplication { .. } => todo!(),
-            SemExprData::MethodRitcheCall { .. } => todo!(),
+            SemExprData::MethodRitchieCall { .. } => todo!(),
             SemExprData::TemplateInstantiation { .. } => todo!(),
             SemExprData::Delimitered {
                 lpar_regional_token_idx,

@@ -324,7 +324,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
             match path {
                 JavPath::Form(path) => match path.kind(db) {
                     MajorFormKind::Ritchie(ritchie_item_kind) => {
-                        match ritchie_item_kind.is_lazy() {
+                        match ritchie_item_kind.requires_lazy_to_use() {
                             true => {
                                 let Some(hir_defn) = path.hir_defn(db) else {
                                     unreachable!()
@@ -446,7 +446,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                 JavPath::TraitForTypeItem(path) => match path.item_kind(db) {
                     TraitItemKind::MemoizedField => todo!(),
                     TraitItemKind::MethodRitchie(ritchie_item_kind) => {
-                        match ritchie_item_kind.is_lazy() {
+                        match ritchie_item_kind.requires_lazy_to_use() {
                             true => {
                                 todo!()
                             }
@@ -492,7 +492,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                                     })
                                     .collect()
                             }
-                            _ => match ritchie_item_kind.is_lazy() {
+                            _ => match ritchie_item_kind.requires_lazy_to_use() {
                                 true => todo!(),
                                 false => build(
                                     instantiation,
