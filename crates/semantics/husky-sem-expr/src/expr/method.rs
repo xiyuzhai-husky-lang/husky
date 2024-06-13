@@ -68,7 +68,31 @@ impl<'a> SemExprBuilder<'a> {
                     Ok(return_ty),
                 )
             }
-            MethodFlySignature::TraitForTypeMethodRitchie(_) => todo!("do the same thing"),
+            MethodFlySignature::TraitForTypeMethodRitchie(signature) => {
+                let return_ty = signature.return_ty();
+                let ritchie_parameter_argument_matches = match self.calc_ritchie_arguments_ty(
+                    expr_idx,
+                    signature.nonself_parameter_contracted_tys(),
+                    list_items.iter().copied().map(Into::into),
+                ) {
+                    Ok(ritchie_parameter_argument_matches) => ritchie_parameter_argument_matches,
+                    Err(_) => todo!(),
+                };
+                (
+                    Ok(SemExprData::MethodRitchieCall {
+                        self_argument: self_argument_sem_expr_idx,
+                        self_contract: signature.self_value_parameter.contract,
+                        dot_regional_token_idx,
+                        ident_token,
+                        instance_dispatch: method_dynamic_dispatch,
+                        template_arguments: template_arguments.map(|_| todo!()),
+                        lpar_regional_token_idx,
+                        ritchie_parameter_argument_matches,
+                        rpar_regional_token_idx,
+                    }),
+                    Ok(return_ty),
+                )
+            }
         }
     }
 }

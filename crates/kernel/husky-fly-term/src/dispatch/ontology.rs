@@ -11,12 +11,8 @@ use assoc_item::{
 use husky_coword::Ident;
 use husky_entity_path::path::major_item::trai::TraitPath;
 use husky_entity_tree::node::HasAssocItemPaths;
-use husky_eth_signature::signature::{
-    assoc_item::{
-        trai_item::TraitItemEthTemplate,
-        ty_item::{HasTypeItemTemplates, TypeItemEthTemplates},
-    },
-    HasEthTemplate,
+use husky_eth_signature::signature::assoc_item::ty_item::{
+    HasTypeItemTemplates, TypeItemEthTemplates,
 };
 use husky_eth_term::term::application::TermFunctionReduced;
 use vec_like::VecMapGetEntry;
@@ -37,7 +33,7 @@ impl OntologyDispatch {
     pub fn requires_lazy_to_use(&self) -> bool {
         match self {
             OntologyDispatch::TypeItem { signature } => todo!(),
-            OntologyDispatch::TraitItem { signature } => todo!(),
+            OntologyDispatch::TraitItem { signature, .. } => todo!(),
             OntologyDispatch::TraitForTypeItem { signature } => todo!(),
         }
     }
@@ -50,7 +46,7 @@ impl OntologyDispatch {
         let db = engine.db();
         match self {
             OntologyDispatch::TypeItem { signature } => Ok(signature.ty()),
-            OntologyDispatch::TraitItem { signature } => todo!(),
+            OntologyDispatch::TraitItem { signature, .. } => Ok(signature.item_ty()),
             OntologyDispatch::TraitForTypeItem { signature } => todo!(),
         }
     }
@@ -115,7 +111,9 @@ impl FlyTerm {
                                         ExpectSubtypeOrEqual::new(dst_ty_argument),
                                     );
                                 }
-                                return JustOk(OntologyDispatch::TypeItem { signature: todo!() });
+                                return JustOk(OntologyDispatch::TypeItem {
+                                    signature: signature.into(),
+                                });
                             }
                             _ => todo!(),
                         }
@@ -166,7 +164,13 @@ impl FlyTerm {
                         else {
                             todo!()
                         };
-                        todo!()
+                        JustOk(OntologyDispatch::TraitItem {
+                            signature: TraitItemFlySignature::from_path(
+                                trai_item_path,
+                                self,
+                                engine,
+                            )?,
+                        })
                     }
                     _ => todo!(),
                 }

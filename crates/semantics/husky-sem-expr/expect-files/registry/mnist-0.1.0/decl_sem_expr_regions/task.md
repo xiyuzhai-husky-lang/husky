@@ -227,95 +227,97 @@
                                             14,
                                         ),
                                     },
-                                    static_dispatch: AssocRitchie(
-                                        AssocRitchieFlySignature {
-                                            path: TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 182,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                            parenate_parameters: [],
-                                            return_ty: FlyTerm {
-                                                place: None,
-                                                base: Eth(
-                                                    ItemPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 16,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            },
-                                            ty: FlyTerm {
-                                                place: None,
-                                                base: Eth(
-                                                    Ritchie(
-                                                        EthRitchie(
+                                    ontology_dispatch: TypeItem {
+                                        signature: AssocRitchie(
+                                            TypeAssocRitchieFlySignature {
+                                                path: TypeItem(
+                                                    TypeItemPath(
+                                                        ItemPathId(
                                                             Id {
-                                                                value: 1,
+                                                                value: 182,
                                                             },
                                                         ),
                                                     ),
                                                 ),
-                                            },
-                                            instantiation: FlyInstantiation {
-                                                path: AssocItem(
-                                                    TypeItem(
-                                                        TypeItemPath(
-                                                            ItemPathId(
+                                                parenate_parameters: [],
+                                                return_ty: FlyTerm {
+                                                    place: None,
+                                                    base: Eth(
+                                                        ItemPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 16,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                ty: FlyTerm {
+                                                    place: None,
+                                                    base: Eth(
+                                                        Ritchie(
+                                                            EthRitchie(
                                                                 Id {
-                                                                    value: 182,
+                                                                    value: 1,
                                                                 },
                                                             ),
                                                         ),
                                                     ),
-                                                ),
-                                                task_ty: Some(
-                                                    ItemPath(
-                                                        TypeOntology(
-                                                            TypePath(
+                                                },
+                                                instantiation: FlyInstantiation {
+                                                    path: AssocItem(
+                                                        TypeItem(
+                                                            TypeItemPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 16,
+                                                                        value: 182,
                                                                     },
                                                                 ),
                                                             ),
                                                         ),
                                                     ),
-                                                ),
-                                                env: AssocRitchie,
-                                                symbol_map: [],
-                                                separator: Some(
-                                                    0,
-                                                ),
-                                            },
-                                            self_ty: FlyTerm {
-                                                place: None,
-                                                base: Eth(
-                                                    ItemPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 16,
-                                                                    },
+                                                    task_ty: Some(
+                                                        ItemPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 16,
+                                                                        },
+                                                                    ),
                                                                 ),
                                                             ),
                                                         ),
                                                     ),
-                                                ),
+                                                    env: AssocRitchie,
+                                                    symbol_map: [],
+                                                    separator: Some(
+                                                        0,
+                                                    ),
+                                                },
+                                                self_ty: FlyTerm {
+                                                    place: None,
+                                                    base: Eth(
+                                                        ItemPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 16,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
                                             },
-                                        },
-                                    ),
+                                        ),
+                                    },
                                 },
                             ),
                             immediate_ty_result: Ok(

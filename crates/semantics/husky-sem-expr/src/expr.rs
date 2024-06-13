@@ -1495,7 +1495,10 @@ impl<'a> SemExprBuilder<'a> {
                 ref ontology_dispatch,
             } => match *ontology_dispatch {
                 OntologyDispatch::TypeItem { ref signature } => todo!(),
-                OntologyDispatch::TraitItem { ref signature } => todo!(),
+                OntologyDispatch::TraitItem { ref signature, .. } => {
+                    use husky_print_utils::p;
+                    todo!()
+                }
                 OntologyDispatch::TraitForTypeItem { ref signature } => todo!(),
                 // StaticDispatch::AssocRitchie(_) => todo!(),
                 // StaticDispatch::AssocGn => todo!(),

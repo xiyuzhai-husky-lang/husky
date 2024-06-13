@@ -86,7 +86,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEthSignature {
                                         path: TraitForTypeItemPath(
                                             `<malamute::Class as core::ops::Unveil(0)>::Output`,
                                             TraitItemKind::AssocType,
@@ -209,7 +209,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEthSignature {
                                         path: TraitForTypeItemPath(
                                             `<malamute::Class as core::ops::Unveil(0)>::Output`,
                                             TraitItemKind::AssocType,
@@ -332,7 +332,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         6,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEthSignature {
                                         path: TraitForTypeItemPath(
                                             `<malamute::Class as core::ops::Unveil(0)>::Output`,
                                             TraitItemKind::AssocType,
@@ -455,7 +455,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         8,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEthSignature {
                                         path: TraitForTypeItemPath(
                                             `<malamute::Class as core::ops::Unveil(0)>::Output`,
                                             TraitItemKind::AssocType,
@@ -578,7 +578,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEthSignature {
                                         path: TraitForTypeItemPath(
                                             `<malamute::Class as core::ops::Unveil(0)>::Output`,
                                             TraitItemKind::AssocType,
@@ -701,7 +701,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         12,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEthSignature {
                                         path: TraitForTypeItemPath(
                                             `<malamute::Class as core::ops::Unveil(0)>::Output`,
                                             TraitItemKind::AssocType,
@@ -824,7 +824,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         14,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEthSignature {
                                         path: TraitForTypeItemPath(
                                             `<malamute::Class as core::ops::Unveil(0)>::Output`,
                                             TraitItemKind::AssocType,
@@ -947,7 +947,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         16,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEthSignature {
                                         path: TraitForTypeItemPath(
                                             `<malamute::Class as core::ops::Unveil(0)>::Output`,
                                             TraitItemKind::AssocType,
@@ -1070,7 +1070,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         18,
                                     ),
-                                    unveil_output_ty_signature: TraitForTypeAssocTypeEtherealSignature {
+                                    unveil_output_ty_signature: TraitForTypeAssocTypeEthSignature {
                                         path: TraitForTypeItemPath(
                                             `<malamute::Class as core::ops::Unveil(0)>::Output`,
                                             TraitItemKind::AssocType,

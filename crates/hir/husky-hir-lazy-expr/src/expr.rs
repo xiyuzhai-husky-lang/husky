@@ -368,28 +368,25 @@ impl ToHirLazy for SemExprIdx {
             SemExprData::MethodRitchieCall {
                 self_argument: self_argument_sem_expr_idx,
                 ident_token,
-                instance_dispatch: ref dispatch,
+                ref instance_dispatch,
                 ref ritchie_parameter_argument_matches,
                 ..
             } => {
-                todo!()
-                // let MethodFlySignature::MethodFn(signature) = dispatch.signature() else {
-                //     unreachable!()
-                // };
-                // HirLazyExprData::MethodRitchieCall {
-                //     self_argument: self_argument_sem_expr_idx.to_hir_lazy(builder),
-                //     ident: ident_token.ident(),
-                //     path: signature.path(),
-                //     item_groups: builder
-                //         .new_call_list_item_groups(ritchie_parameter_argument_matches),
-                //     instantiation: HirInstantiation::from_fly(
-                //         signature.instantiation(),
-                //         &place_contract_site,
-                //         builder.db(),
-                //         builder.fly_terms(),
-                //     ),
-                //     indirections: HirIndirections::from_fly(dispatch.indirections()),
-                // }
+                let signature = instance_dispatch.signature();
+                HirLazyExprData::MethodRitchieCall {
+                    self_argument: self_argument_sem_expr_idx.to_hir_lazy(builder),
+                    ident: ident_token.ident(),
+                    path: signature.path(),
+                    item_groups: builder
+                        .new_call_list_item_groups(ritchie_parameter_argument_matches),
+                    instantiation: HirInstantiation::from_fly(
+                        signature.instantiation(),
+                        &place_contract_site,
+                        builder.db(),
+                        builder.fly_terms(),
+                    ),
+                    indirections: HirIndirections::from_fly(instance_dispatch.indirections()),
+                }
             }
             SemExprData::TemplateInstantiation {
                 template: _,
