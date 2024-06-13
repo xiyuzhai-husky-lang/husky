@@ -2,6 +2,7 @@ use husky_eth_term::term::{
     application::{EthApplication, TermFunctionReduced},
     ritchie::EthRitchie,
 };
+use path::major_item::trai::{OtherTraitPath, PreludeTraitPath};
 
 use super::*;
 
@@ -22,6 +23,7 @@ pub(super) fn ethereal_term_data<'a>(db: &'a ::salsa::Db, term: EthTerm) -> FlyT
                 trai_path,
                 trai_arguments: &[],
                 trai_ethereal_term: Some(term),
+                refined_trai_path: trai_path.refine(db),
             },
             ItemPathTerm::TypeOntology(ty_path) => FlyTermData::TypeOntology {
                 ty_path,
@@ -102,6 +104,12 @@ pub(crate) enum TermApplicationFlyData {
         arguments: SmallVec<[FlyTerm; 2]>,
         ty_ethereal_term: EthTerm,
     },
+    Trait {
+        trai_path: TraitPath,
+        refined_trai_path: Either<PreludeTraitPath, OtherTraitPath>,
+        arguments: SmallVec<[FlyTerm; 2]>,
+        trai_ethereal_term: EthTerm,
+    },
 }
 
 /// can't directly return FlyTermData<'_> because of lifetime
@@ -123,7 +131,17 @@ pub(crate) fn term_application_fly_data(
                 .collect(),
             ty_ethereal_term: term.into(),
         },
-        TermFunctionReduced::Trait(_) => todo!(),
+        TermFunctionReduced::Trait(trai_path) => TermApplicationFlyData::Trait {
+            trai_path,
+            refined_trai_path: trai_path.refine(db),
+            arguments: expansion
+                .arguments(db)
+                .iter()
+                .copied()
+                .map(Into::into)
+                .collect(),
+            trai_ethereal_term: term.into(),
+        },
         TermFunctionReduced::TypeVar(_) => todo!(),
         TermFunctionReduced::Other(_) => todo!(),
     }
@@ -131,34 +149,46 @@ pub(crate) fn term_application_fly_data(
 
 impl TermApplicationFlyData {
     fn as_ref<'a>(&'a self) -> FlyTermData<'a> {
-        match self {
+        match *self {
             TermApplicationFlyData::TypeOntology {
                 path,
                 refined_path,
-                arguments,
+                ref arguments,
                 ty_ethereal_term,
             } => FlyTermData::TypeOntology {
-                ty_path: *path,
-                refined_ty_path: *refined_path,
+                ty_path: path,
+                refined_ty_path: refined_path,
                 ty_arguments: arguments,
-                ty_ethereal_term: Some(*ty_ethereal_term),
+                ty_ethereal_term: Some(ty_ethereal_term),
+            },
+            TermApplicationFlyData::Trait {
+                trai_path: path,
+                refined_trai_path: refined_path,
+                ref arguments,
+                trai_ethereal_term,
+            } => FlyTermData::Trait {
+                trai_path: path,
+                refined_trai_path: refined_path,
+                trai_arguments: arguments,
+                trai_ethereal_term: Some(trai_ethereal_term),
             },
         }
     }
 
     fn as_ref2<'a>(&'a self) -> FlyBaseTypeData<'a> {
-        match self {
+        match *self {
             TermApplicationFlyData::TypeOntology {
                 path,
                 refined_path,
-                arguments,
+                ref arguments,
                 ty_ethereal_term,
             } => FlyBaseTypeData::TypeOntology {
-                ty_path: *path,
-                refined_ty_path: *refined_path,
+                ty_path: path,
+                refined_ty_path: refined_path,
                 ty_arguments: arguments,
-                ty_ethereal_term: Some(*ty_ethereal_term),
+                ty_ethereal_term: Some(ty_ethereal_term),
             },
+            TermApplicationFlyData::Trait { .. } => todo!(),
         }
     }
 }

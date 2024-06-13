@@ -60,7 +60,11 @@ impl<'a> SemExprBuilder<'a> {
                 let ty_result = ontology_dispatch.ty_result(self).map_err(Into::into);
                 (Ok(ontology_dispatch), ty_result)
             }
-            JustErr(_) => todo!(),
+            JustErr(e) => {
+                use husky_print_utils::p;
+                p!(e);
+                todo!()
+            }
             Nothing => todo!(),
         }
     }

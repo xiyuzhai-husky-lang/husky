@@ -300,25 +300,31 @@ pub(crate) fn ethereal_term_from_dec_term_wrapper(
     wrapper: DecWrapper,
 ) -> EthTermResult<EthTerm> {
     let inner_ty = EthTerm::ty_from_dec(db, wrapper.inner_ty(db))?;
-    match inner_ty.application_expansion(db).function() {
-        TermFunctionReduced::TypeOntology(ty_path) => match ty_path.refine(db) {
-            Left(PreludeTypePath::Num(_)) | Left(PreludeTypePath::Indirection(_)) => Ok(inner_ty),
-            _ => {
-                let Some(toolchain) = inner_ty.toolchain(db) else {
-                    todo!()
-                };
-                let leash_ty_ontology = db.ethereal_term_menu(toolchain).leash_ty_ontology();
-                Ok(EthApplication::new_reduced(
-                    db,
-                    leash_ty_ontology,
-                    inner_ty,
-                    0,
-                ))
+    match wrapper.kind(db) {
+        DecTermWrapperKind::ValType | DecTermWrapperKind::VarType => {
+            match inner_ty.application_expansion(db).function() {
+                TermFunctionReduced::TypeOntology(ty_path) => match ty_path.refine(db) {
+                    Left(PreludeTypePath::Num(_)) | Left(PreludeTypePath::Indirection(_)) => {
+                        return Ok(inner_ty)
+                    }
+                    _ => (),
+                },
+                TermFunctionReduced::Trait(_) => todo!(),
+                TermFunctionReduced::TypeVar(_) => todo!(),
+                // ad hoc, todo: check more
+                TermFunctionReduced::Other(_) => (),
             }
-        },
-        TermFunctionReduced::Trait(_) => todo!(),
-        TermFunctionReduced::TypeVar(_) => todo!(),
-        TermFunctionReduced::Other(_) => todo!(),
+            let Some(toolchain) = inner_ty.toolchain(db) else {
+                todo!()
+            };
+            let leash_ty_ontology = db.ethereal_term_menu(toolchain).leash_ty_ontology();
+            Ok(EthApplication::new_reduced(
+                db,
+                leash_ty_ontology,
+                inner_ty,
+                0,
+            ))
+        }
     }
 }
 

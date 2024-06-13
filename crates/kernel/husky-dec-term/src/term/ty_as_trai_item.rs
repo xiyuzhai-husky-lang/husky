@@ -1,8 +1,9 @@
 use super::*;
+use husky_entity_path::path::assoc_item::trai_item::TraitItemPath;
 
 #[salsa::interned]
 pub struct DecTypeAsTraitItem {
-    pub ty: DecTerm,
+    pub self_ty: DecTerm,
     pub trai: DecTerm,
     pub ident: Ident,
 }
@@ -24,14 +25,14 @@ impl DecTermRewriteCopy for DecTypeAsTraitItem {
     where
         Self: Copy,
     {
-        let old_ty = self.ty(db);
-        let ty = old_ty.substitute_copy(db, substitution);
+        let old_self_ty = self.self_ty(db);
+        let self_ty = old_self_ty.substitute_copy(db, substitution);
         let old_trai = self.trai(db);
         let trai = old_trai.substitute_copy(db, substitution);
-        if old_ty == ty && old_trai == trai {
+        if old_self_ty == self_ty && old_trai == trai {
             return self;
         }
         let ident = self.ident(db);
-        Self::new(db, ty, trai, ident)
+        Self::new(db, self_ty, trai, ident)
     }
 }

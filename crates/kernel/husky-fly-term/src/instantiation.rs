@@ -17,7 +17,7 @@ use husky_eth_term::{
 };
 use path::major_item::form::PreludeMajorFormPath;
 use salsa::fmt::WithFmtContext;
-use vec_like::SmallVecPairMap;
+use vec_like::{SmallVecMap, SmallVecPairMap};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -64,13 +64,14 @@ pub enum FlyTermSymbolResolution {
 pub enum FlyInstantiationEnvironment {
     TypeOntologyConstructor,
     AssocRitchie,
+    AssocType,
     MethodFn { self_place: FlyQuary },
     MemoizedField,
 }
 
 impl FlyInstantiation {
     pub fn from_template_parameters<'db>(
-        path: impl Into<PrincipalItemPath>,
+        path: impl Into<ItemPath>,
         env: FlyInstantiationEnvironment,
         syn_expr_idx: SynExprIdx,
         template_parameters1: &[EthTemplateParameter],
@@ -83,7 +84,7 @@ impl FlyInstantiation {
             .is_some()
             .then_some(template_parameters1.len().try_into().unwrap());
         Self {
-            path: path.into().into(),
+            path: path.into(),
             task_ty: context_itd.context(db).task_ty(),
             env,
             symbol_map: template_parameters1
@@ -105,6 +106,66 @@ impl FlyInstantiation {
                     )
                 })
                 .collect(),
+            separator,
+        }
+    }
+
+    pub fn new_trai_item_instantiation_with_determined_trai<'db>(
+        path: impl Into<AssocItemPath>,
+        env: FlyInstantiationEnvironment,
+        syn_expr_idx: SynExprIdx,
+        self_ty: FlyTerm,
+        template_parameters1: &[EthTemplateParameter],
+        determined_trai_arguments: SmallVec<[FlyTerm; 2]>,
+        template_parameters2: &[EthTemplateParameter],
+        terms: &mut FlyTerms,
+        context_itd: EthSignatureBuilderContextItd,
+        db: &'db ::salsa::Db,
+    ) -> Self {
+        let separator = Some(template_parameters1.len().try_into().unwrap());
+        let mut symbol_map: SmallVecMap<(EthSymbolicVariable, FlyTermSymbolResolution), 4> =
+            Default::default();
+        // template_parameters1 contains one more parameter, self type
+        debug_assert_eq!(
+            template_parameters1.len(),
+            determined_trai_arguments.len() + 1
+        );
+        symbol_map
+            .extend(
+                template_parameters1
+                    .iter()
+                    .zip(determined_trai_arguments.into_iter().chain([self_ty]))
+                    .map(|(param, determined_trai_argument)| {
+                        let symbol = param.symbol();
+                        (
+                            symbol,
+                            FlyTermSymbolResolution::Explicit(determined_trai_argument),
+                        )
+                    }),
+            )
+            .expect("it should be guaranteed that the keys are unique");
+        symbol_map
+            .extend(template_parameters2.iter().map(|param| {
+                let symbol = param.symbol();
+                (
+                    symbol,
+                    FlyTermSymbolResolution::Explicit(
+                        terms
+                            .new_hole_from_template_parameter_symbol(
+                                syn_expr_idx.into(),
+                                symbol,
+                                db,
+                            )
+                            .into(),
+                    ),
+                )
+            }))
+            .expect("it should be guaranteed that the keys are unique");
+        Self {
+            path: path.into().into(),
+            task_ty: context_itd.context(db).task_ty(),
+            env,
+            symbol_map,
             separator,
         }
     }
@@ -244,6 +305,7 @@ impl FlyTermInstantiationBuilder {
                                 }
                                 FlyInstantiationEnvironment::MemoizedField => todo!(),
                                 FlyInstantiationEnvironment::TypeOntologyConstructor => todo!(),
+                                FlyInstantiationEnvironment::AssocType => todo!(),
                             }),
                             _ => None,
                         },

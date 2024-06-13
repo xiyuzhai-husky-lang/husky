@@ -9,3 +9,11 @@ pub struct TraitMemoizedFieldEthTemplate {
     pub impl_block: TypeImplBlockEthTemplate,
     pub return_ty: EthTerm,
 }
+
+/// # getters
+impl TraitMemoizedFieldEthTemplate {
+    #[inline(always)]
+    pub fn template_parameters(self, db: &::salsa::Db) -> &[EthTemplateParameter] {
+        &[]
+    }
+}
