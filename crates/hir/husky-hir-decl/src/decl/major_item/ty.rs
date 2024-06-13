@@ -14,7 +14,7 @@ pub use self::unit_struct::*;
 
 use super::*;
 use husky_entity_path::path::major_item::ty::TypePath;
-use husky_eth_signature::signature::major_item::ty::props_struct::PropsStructFieldEtherealSignature;
+use husky_eth_signature::signature::major_item::ty::props_struct::PropsStructFieldEthSignature;
 use husky_syn_decl::decl::major_item::ty::TypeSynDecl;
 
 #[salsa::derive_debug_with_db]
@@ -97,6 +97,6 @@ fn ty_hir_decl(db: &::salsa::Db, path: TypePath) -> Option<TypeHirDecl> {
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
-pub enum PropsFieldEtherealSignature {
-    PropsStruct(PropsStructFieldEtherealSignature),
+pub enum PropsFieldEthSignature {
+    PropsStruct(PropsStructFieldEthSignature),
 }

@@ -12,6 +12,7 @@ use salsa::DebugWithDb;
     husky_entity_path::jar::EntityPathJar,
     husky_term_prelude::jar::TermPreludeJar,
     husky_token_data::jar::TokenDataJar,
+    husky_text::jar::TextJar,
     husky_token::jar::TokenJar,
     husky_ast::jar::AstJar,
     husky_entity_tree::jar::EntityTreeJar,

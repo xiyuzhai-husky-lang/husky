@@ -1,5 +1,5 @@
 [workspace]
-members = ["malamute/linkages"]
+members = ["malamute/linkages", "ml-task/linkages"]
 resolver = "2"
 
 [workspace.dependencies.ad-hoc-task-dependency]
@@ -13,3 +13,9 @@ path = ".."
 
 [workspace.dependencies.malamute-linkages]
 path = "malamute/linkages"
+
+[workspace.dependencies.ml-task]
+path = "../../ml-task-0.1.0"
+
+[workspace.dependencies.ml-task-linkages]
+path = "ml-task/linkages"

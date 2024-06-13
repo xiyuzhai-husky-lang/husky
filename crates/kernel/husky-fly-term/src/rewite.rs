@@ -34,7 +34,7 @@ impl FlyTermSubstitution {
         idx: FlyTermExpectationIdx,
         mut template_parameter_substitutions: ImplicitParameterSubstitutions,
     ) -> (FlyTerm, ImplicitParameterSubstitutions) {
-        match expectee.data_inner(db, terms) {
+        match expectee.data2(db, terms) {
             FlyTermData::Curry {
                 toolchain,
                 curry_kind: CurryKind::Implicit,
@@ -103,7 +103,7 @@ impl FlyTerm {
         substitution_rules: &[FlyTermSubstitution],
     ) -> FlyTerm {
         assert!(substitution_rules.len() > 0);
-        match self.data_inner(db, terms) {
+        match self.data2(db, terms) {
             FlyTermData::Literal(_) => todo!(),
             FlyTermData::TypeOntology {
                 ty_path: path,
@@ -118,6 +118,7 @@ impl FlyTerm {
                     .collect();
                 FlyTerm::new_ty_ontology(db, terms, path, refined_ty_path, arguments)
             }
+            FlyTermData::Trait { .. } => todo!(),
             FlyTermData::Curry {
                 toolchain,
                 curry_kind,
@@ -176,6 +177,7 @@ impl FlyTerm {
                 .find_map(|rule| (*rule.hvar == self).then_some(rule.substitute))
                 .unwrap_or(self),
             FlyTermData::TypeVariant { path } => todo!(),
+            FlyTermData::MajorTypeVar(_) => todo!(),
         }
     }
 }

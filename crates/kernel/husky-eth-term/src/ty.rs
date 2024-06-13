@@ -143,7 +143,7 @@ impl EthTerm {
                     RawType::Declarative(ty_variant_path_declarative_ty(db, path)?)
                 }
             },
-            EthTerm::Category(slf) => RawType::Declarative(slf.ty()?.into()),
+            EthTerm::Sort(slf) => RawType::Declarative(slf.ty()?.into()),
             EthTerm::Universe(_) => RawType::Prelude(PreludeTypePath::UNIVERSE),
             EthTerm::Curry(slf) => slf.raw_ty(db),
             EthTerm::Ritchie(_) => DecTerm::Category(Sort::new(1.into())).into(),

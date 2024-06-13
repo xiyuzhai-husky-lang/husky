@@ -359,12 +359,13 @@ impl<'a> SemExprRangeCalculator<'a> {
                     ident_token.regional_token_idx(),
                 ))
             }
+            SemExprData::TypeAsTraitItem { .. } => todo!(),
             SemExprData::AssocItem {
                 parent_expr_idx,
                 colon_colon_regional_token_idx,
                 ident,
                 ident_regional_token_idx,
-                static_dispatch,
+                ontology_dispatch,
             } => todo!(),
             SemExprData::Be {
                 src,
@@ -412,14 +413,13 @@ impl<'a> SemExprRangeCalculator<'a> {
                 rpar_regional_token_idx,
                 ..
             } => todo!(),
-            SemExprData::MethodFnCall {
+            SemExprData::MethodRitchieCall {
                 self_argument: self_argument_sem_expr_idx,
                 rpar_regional_token_idx,
                 ..
             } => self[self_argument_sem_expr_idx].to(RegionalTokenIdxRangeEnd::new_after(
                 *rpar_regional_token_idx,
             )),
-            SemExprData::MethodGnCall { .. } => todo!(),
             SemExprData::Field {
                 self_argument: owner_sem_expr_idx,
                 ident_token,

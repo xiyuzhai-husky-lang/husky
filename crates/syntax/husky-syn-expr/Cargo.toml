@@ -52,6 +52,7 @@ husky-corgi-config.workspace = true
 # kernel
 husky-coword.workspace = true
 # lex
+husky-text.workspace = true
 husky-toml-token.workspace = true
 # syntax
 husky-ast = { workspace = true, features = ["test_utils"] }

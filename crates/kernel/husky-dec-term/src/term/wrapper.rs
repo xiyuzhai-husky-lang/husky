@@ -11,12 +11,17 @@ pub struct DecWrapper {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum DecTermWrapperKind {
-    ValReturnType,
+    ValType,
+    VarType,
 }
 
 impl DecTerm {
-    pub fn leashed_ty(self, db: &::salsa::Db) -> Self {
-        DecWrapper::new(db, DecTermWrapperKind::ValReturnType, self).into()
+    pub fn val_ty(self, db: &::salsa::Db) -> Self {
+        DecWrapper::new(db, DecTermWrapperKind::ValType, self).into()
+    }
+
+    pub fn var_ty(self, db: &::salsa::Db) -> Self {
+        DecWrapper::new(db, DecTermWrapperKind::VarType, self).into()
     }
 }
 
@@ -29,7 +34,8 @@ impl DecWrapper {
         ctx: &DecSymbolicVariableNameMap,
     ) -> std::fmt::Result {
         match self.kind(db) {
-            DecTermWrapperKind::ValReturnType => f.write_str("{val_type} ")?,
+            DecTermWrapperKind::ValType => f.write_str("{val_type} ")?,
+            DecTermWrapperKind::VarType => f.write_str("{var_type} ")?,
         }
         self.inner_ty(db).display_fmt_with_db_and_ctx(f, db, ctx)
     }

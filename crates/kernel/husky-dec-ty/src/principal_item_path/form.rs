@@ -65,15 +65,15 @@ pub(crate) fn ritchie_path_declarative_ty(
 pub(crate) fn val_path_declarative_ty(
     db: &::salsa::Db,
     signature: MajorValDecTemplate,
-    _declarative_term_menu: &DecTermMenu,
+    _dec_term_menu: &DecTermMenu,
 ) -> DeclarativeTypeResult<DecTerm> {
-    Ok(signature.return_ty(db).leashed_ty(db))
+    Ok(signature.return_ty(db).val_ty(db))
 }
 
 pub(crate) fn compterm_path_declarative_ty(
     db: &::salsa::Db,
     signature: MajorComptermDecTemplate,
-    _declarative_term_menu: &DecTermMenu,
+    _dec_term_menu: &DecTermMenu,
 ) -> DeclarativeTypeResult<DecTerm> {
-    Ok(signature.return_ty(db).leashed_ty(db))
+    Ok(signature.return_ty(db).val_ty(db))
 }

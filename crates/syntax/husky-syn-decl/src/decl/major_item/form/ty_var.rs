@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked]
 pub struct TypeVarSynNodeDecl {
     #[id]
-    pub syn_node_path: FormSynNodePath,
+    pub syn_node_path: MajorFormSynNodePath,
     // todo: trais
     #[return_ref]
     pub eq_token: SynNodeDeclResult<Option<EqRegionalToken>>,
@@ -21,7 +21,7 @@ impl TypeVarSynNodeDecl {
 impl<'a> ItemSynNodeDeclParser<'a> {
     pub(super) fn parse_ty_var_syn_node_decl(
         &self,
-        syn_node_path: FormSynNodePath,
+        syn_node_path: MajorFormSynNodePath,
     ) -> TypeVarSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::False, AllowSelfValue::False, None);
         let eq_token = parser.try_parse_option().map_err(Into::into);

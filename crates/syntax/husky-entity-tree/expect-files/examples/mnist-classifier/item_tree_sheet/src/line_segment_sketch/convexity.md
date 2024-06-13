@@ -7,7 +7,7 @@ EntityTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                            MajorFormSynNodePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -35,7 +35,7 @@ EntityTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                        MajorFormSynNodePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),

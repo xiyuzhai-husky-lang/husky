@@ -22,6 +22,7 @@ impl DecTerm {
             DecTerm::Abstraction(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
             DecTerm::Application(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
             DecTerm::ApplicationOrRitchieCall(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
+            DecTerm::TypeAsTrait(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
             DecTerm::TypeAsTraitItem(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
             DecTerm::TraitConstraint(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
             DecTerm::LeashOrBitNot(_) => f.write_str("~"),

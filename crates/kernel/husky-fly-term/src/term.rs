@@ -10,9 +10,9 @@ mod utils;
 
 pub use self::hole::*;
 pub use self::hvar::*;
-use self::quary::FlyQuary;
 pub use self::ritchie::*;
 pub use self::symbol_ty::*;
+use crate::quary::FlyQuary;
 
 use crate::*;
 use husky_eth_term::term::{
@@ -179,9 +179,12 @@ impl FlyTerm {
         }
     }
 
-    #[inline(never)]
-    pub fn show(self, db: &::salsa::Db, terms: &FlyTerms) -> String {
-        self.data_inner(db, terms).show(db, terms)
+    pub fn show(self, engine: &impl FlyTermEngine) -> String {
+        self.show2(engine.db(), engine.fly_terms())
+    }
+
+    pub fn show2(self, db: &::salsa::Db, terms: &FlyTerms) -> String {
+        self.data2(db, terms).show(db, terms)
     }
 
     pub(crate) fn base(&self) -> FlyTermBase {

@@ -3,7 +3,7 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Form(
-                FormSynNodePath(`semantics_basics::some_neural_network`, `Ritchie(
+                MajorFormSynNodePath(`semantics_basics::some_neural_network`, `Ritchie(
                     Gn,
                 )`, (0)),
             ),
@@ -20,7 +20,7 @@
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`semantics_basics::some_neural_network`, `Ritchie(
+                                                MajorFormSynNodePath(`semantics_basics::some_neural_network`, `Ritchie(
                                                     Gn,
                                                 )`, (0)),
                                             ),
@@ -248,7 +248,7 @@
                         path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`semantics_basics::some_neural_network`, `Ritchie(
+                                    MajorFormSynNodePath(`semantics_basics::some_neural_network`, `Ritchie(
                                         Gn,
                                     )`, (0)),
                                 ),

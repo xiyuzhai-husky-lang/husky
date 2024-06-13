@@ -732,7 +732,7 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Form(
-                    FormSynNodePath(`malamute::narrow_down`, `Ritchie(
+                    MajorFormSynNodePath(`malamute::narrow_down`, `Ritchie(
                         Gn,
                     )`, (0)),
                 ),
@@ -741,7 +741,7 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
-                            syn_node_path: FormSynNodePath(`malamute::narrow_down`, `Ritchie(
+                            syn_node_path: MajorFormSynNodePath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`, (0)),
                             ritchie_item_kind: RitchieItemKind::Gn,
@@ -950,7 +950,7 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`malamute::narrow_down`, `Ritchie(
+                                                MajorFormSynNodePath(`malamute::narrow_down`, `Ritchie(
                                                     Gn,
                                                 )`, (0)),
                                             ),

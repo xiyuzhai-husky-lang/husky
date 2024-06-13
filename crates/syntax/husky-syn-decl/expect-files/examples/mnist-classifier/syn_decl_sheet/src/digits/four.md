@@ -22,7 +22,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::four::left_components`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist_classifier::digits::four::left_components`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -155,7 +155,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -363,7 +363,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -467,7 +467,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::four::components_max_heights`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist_classifier::digits::four::components_max_heights`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -571,7 +571,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::four::is_four`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist_classifier::digits::four::is_four`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -793,7 +793,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -1030,7 +1030,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),

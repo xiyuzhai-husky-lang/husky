@@ -62,13 +62,13 @@ pub(crate) fn trai_item_syn_dec_template(
             TraitAssocTypeDecTemplate::from_decl(db, path, decl).map(Into::into)
         }
         TraitItemSynDecl::AssocVal(decl) => {
-            TraitAssocValDecTemplate::from_decl(db, decl).map(Into::into)
+            TraitAssocValDecTemplate::from_decl(path, decl, db).map(Into::into)
         }
         TraitItemSynDecl::AssocStaticMut(decl) => {
             TraitAssocStaticMutDecTemplate::from_decl(db, decl).map(Into::into)
         }
         TraitItemSynDecl::AssocStaticVar(decl) => {
-            TraitAssocStaticVarDecTemplate::from_decl(db, decl).map(Into::into)
+            TraitAssocStaticVarDecTemplate::from_decl(path, decl, db).map(Into::into)
         }
     }
 }

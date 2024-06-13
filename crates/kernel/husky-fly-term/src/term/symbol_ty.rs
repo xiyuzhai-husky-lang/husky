@@ -127,7 +127,7 @@ impl SymbolType {
                         place: engine.issue_new_place_idx(place_data).into(),
                     },
                     Some(false) => {
-                        p!(ty.show(engine.db(), engine.fly_terms()));
+                        p!(ty.show2(engine.db(), engine.fly_terms()));
                         todo!()
                     }
                     None => todo!(),
@@ -153,12 +153,13 @@ pub enum FlyLifetime {
 
 impl FlyLifetime {
     pub(crate) fn from_term(term: FlyTerm, db: &::salsa::Db, terms: &mut FlyTerms) -> Self {
-        match term.data_inner(db, terms) {
+        match term.data2(db, terms) {
             FlyTermData::Literal(lit) => match lit {
                 Literal::StaticLifetime => FlyLifetime::StaticLifetime,
                 _ => todo!(),
             },
             FlyTermData::TypeOntology { .. } => todo!(),
+            FlyTermData::Trait { .. } => todo!(),
             FlyTermData::Curry { .. } => todo!(),
             FlyTermData::Hole(_, _) => todo!(),
             FlyTermData::Sort(_) => todo!(),
@@ -166,6 +167,7 @@ impl FlyLifetime {
             FlyTermData::SymbolicVariable { .. } => todo!(),
             FlyTermData::LambdaVariable { .. } => todo!(),
             FlyTermData::TypeVariant { .. } => todo!(),
+            FlyTermData::MajorTypeVar(_) => todo!(),
         }
     }
 }

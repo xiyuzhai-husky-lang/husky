@@ -4,7 +4,7 @@ use either::*;
 #[salsa::tracked]
 pub struct MajorStaticMutSynNodeDecl {
     #[id]
-    pub syn_node_path: FormSynNodePath,
+    pub syn_node_path: MajorFormSynNodePath,
     #[return_ref]
     pub colon_token: SynNodeDeclResult<ColonRegionalToken>,
     #[return_ref]
@@ -29,7 +29,7 @@ impl MajorStaticMutSynNodeDecl {
 impl<'a> ItemSynNodeDeclParser<'a> {
     pub(super) fn parse_static_mut_syn_node_decl(
         &self,
-        syn_node_path: FormSynNodePath,
+        syn_node_path: MajorFormSynNodePath,
     ) -> MajorStaticMutSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::False, AllowSelfValue::False, None);
         let colon_token = parser

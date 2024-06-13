@@ -21,6 +21,7 @@ use husky_vfs::jar::VfsJar;
     husky_vfs::jar::VfsJar,
     CowordJar,
     husky_token_data::jar::TokenDataJar,
+    husky_text::jar::TextJar,
     TokenJar,
     husky_ast::jar::AstJar,
     EntityTreeJar,

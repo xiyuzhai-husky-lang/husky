@@ -1,7 +1,7 @@
-use self::signature::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeEtherealSignatureBuilder;
+use self::signature::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeEthSignatureBuilder;
 
 use super::*;
-use assoc_item::trai_for_ty_item::TraitForTypeItemEtherealSignatureBuilder;
+use assoc_item::trai_for_ty_item::TraitForTypeItemEthSignatureBuilder;
 use husky_dec_signature::signature::{
     impl_block::trai_for_ty_impl_block::{DeclarativeSelfType, TraitForTypeImplBlockDecTemplate},
     HasDecTemplate,
@@ -173,14 +173,11 @@ impl TraitForTypeImplBlockEthTemplate {
 }
 
 impl EthTraitForTypeImplBlockSignatureBuilderItd {
-    pub fn try_into_signature(
-        self,
-        db: &::salsa::Db,
-    ) -> Option<TraitForTypeImplBlockEtherealSignature> {
+    pub fn try_into_signature(self, db: &::salsa::Db) -> Option<TraitForTypeImplBlockEthSignature> {
         let instantiation = &self.instantiation_builder(db).try_into_instantiation()?;
         let ctx = self.context_itd(db).context(db);
         let template = self.template(db);
-        Some(TraitForTypeImplBlockEtherealSignature {
+        Some(TraitForTypeImplBlockEthSignature {
             path: template.path(db),
             trai: template.trai(db).instantiate(instantiation, ctx, db),
             self_ty: template.self_ty(db).instantiate(instantiation, ctx, db),
@@ -207,7 +204,7 @@ impl EthTraitForTypeImplBlockSignatureBuilderItd {
     pub fn assoc_output_template(
         self,
         db: &::salsa::Db,
-    ) -> EthSignatureResult<TraitForTypeAssocTypeEtherealSignatureBuilder> {
+    ) -> EthSignatureResult<TraitForTypeAssocTypeEthSignatureBuilder> {
         trai_for_ty_impl_block_with_ty_instantiated_assoc_output_ethereal_signature_builder(
             db, self,
         )
@@ -217,7 +214,7 @@ impl EthTraitForTypeImplBlockSignatureBuilderItd {
         self,
         db: &::salsa::Db,
         ident: Ident,
-    ) -> EthSignatureResult<TraitForTypeItemEtherealSignatureBuilder> {
+    ) -> EthSignatureResult<TraitForTypeItemEthSignatureBuilder> {
         trai_for_ty_impl_block_with_ty_instantiated_item_eth_template(db, self, ident)
     }
 }
@@ -226,13 +223,13 @@ impl EthTraitForTypeImplBlockSignatureBuilderItd {
 fn trai_for_ty_impl_block_with_ty_instantiated_assoc_output_ethereal_signature_builder(
     db: &::salsa::Db,
     template: EthTraitForTypeImplBlockSignatureBuilderItd,
-) -> EthSignatureResult<TraitForTypeAssocTypeEtherealSignatureBuilder> {
+) -> EthSignatureResult<TraitForTypeAssocTypeEthSignatureBuilder> {
     match trai_for_ty_impl_block_with_ty_instantiated_item_eth_template(
         db,
         template,
         coword_menu(db).camel_case_output_ident(),
     )? {
-        TraitForTypeItemEtherealSignatureBuilder::AssocType(item_template) => Ok(item_template),
+        TraitForTypeItemEthSignatureBuilder::AssocType(item_template) => Ok(item_template),
         _ => unreachable!(),
     }
 }
@@ -242,14 +239,14 @@ fn trai_for_ty_impl_block_with_ty_instantiated_item_eth_template(
     db: &::salsa::Db,
     signature_builder: EthTraitForTypeImplBlockSignatureBuilderItd,
     ident: Ident,
-) -> EthSignatureResult<TraitForTypeItemEtherealSignatureBuilder> {
+) -> EthSignatureResult<TraitForTypeItemEthSignatureBuilder> {
     let item_path = signature_builder
         .template(db)
         .path(db)
         .assoc_item_paths(db)
         .get_entry(ident)
         .ok_or(
-            EthSignatureError::NoSuchItemInTraitForTypeImplBlockEtherealSignatureBuilder {
+            EthSignatureError::NoSuchItemInTraitForTypeImplBlockEthSignatureBuilder {
                 signature_builder,
                 ident,
             },
@@ -260,13 +257,13 @@ fn trai_for_ty_impl_block_with_ty_instantiated_item_eth_template(
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct TraitForTypeImplBlockEtherealSignature {
+pub struct TraitForTypeImplBlockEthSignature {
     path: TraitForTypeImplBlockPath,
     trai: EthTerm,
     self_ty: EthTerm,
 }
 
-impl TraitForTypeImplBlockEtherealSignature {
+impl TraitForTypeImplBlockEthSignature {
     pub fn path(&self) -> TraitForTypeImplBlockPath {
         self.path
     }

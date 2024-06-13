@@ -19,6 +19,7 @@ use husky_syn_expr::{
 use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr};
 use husky_vfs::toolchain::Toolchain;
 use salsa::DebugWithDb;
+use ty_as_trai::DecTypeAsTrait;
 
 pub(super) struct DecTermEngine<'a> {
     db: &'a ::salsa::Db,
@@ -414,6 +415,16 @@ impl<'a> DecTermEngine<'a> {
                 colon_colon_regional_token,
                 ident_token,
             } => todo!(),
+            SynExprData::TypeAsTargetItem {
+                ty,
+                target: trai,
+                ident,
+                ..
+            } => {
+                let ty = self.infer_new_expr_term(ty)?;
+                let trai = self.infer_new_expr_term(trai)?;
+                Ok(DecTypeAsTraitItem::new(db, ty, trai, ident).into())
+            }
             SynExprData::AssocItem {
                 parent_expr_idx,
                 colon_colon_regional_token_idx,
@@ -445,6 +456,12 @@ impl<'a> DecTermEngine<'a> {
                     DecTerm::Abstraction(_) => todo!(),
                     DecTerm::Application(_) => todo!(),
                     DecTerm::ApplicationOrRitchieCall(_) => todo!(),
+                    DecTerm::TypeAsTrait(parent) => {
+                        Ok(
+                            DecTypeAsTraitItem::new(db, parent.parent(db), parent.trai(db), ident)
+                                .into(),
+                        )
+                    }
                     DecTerm::TypeAsTraitItem(_) => todo!(),
                     DecTerm::TraitConstraint(_) => todo!(),
                     DecTerm::LeashOrBitNot(_) => todo!(),
@@ -512,6 +529,7 @@ impl<'a> DecTermEngine<'a> {
                     )
                     .into()),
                     SynBinaryOpr::As => todo!(),
+                    // Ok(DecTypeAsTrait::new(db, lopd, ropd).into()),
                     SynBinaryOpr::Ins => todo!(),
                     SynBinaryOpr::In => todo!(),
                 }

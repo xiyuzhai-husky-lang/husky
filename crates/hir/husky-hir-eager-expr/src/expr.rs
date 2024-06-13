@@ -16,8 +16,8 @@ use husky_entity_path::path::{
 };
 use husky_eth_term::term::EthTerm;
 use husky_fly_term::{
-    dispatch::StaticDispatch,
-    signature::{FlyFieldSignature, MethodFlySignature},
+    dispatch::{field::FieldFlySignature, method::MethodFlySignature, OntologyDispatch},
+    signature::assoc_item::ty_item::TypeItemFlySignature,
 };
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
@@ -202,21 +202,29 @@ impl ToHirEager for SemExprIdx {
                 HirEagerExprData::PrincipalEntityPath(path)
             }
             SemExprData::MajorItemPathAssocItem {
-                ref static_dispatch,
+                ref ontology_dispatch,
+                ..
+            }
+            | SemExprData::TypeAsTraitItem {
+                ref ontology_dispatch,
                 ..
             }
             | SemExprData::AssocItem {
-                ref static_dispatch,
+                ref ontology_dispatch,
                 ..
-            } => match static_dispatch {
-                StaticDispatch::AssocRitchie(signature) => HirEagerExprData::AssocRitchie {
-                    assoc_item_path: signature.path(),
-                },
-                StaticDispatch::AssocGn => unreachable!(),
-                StaticDispatch::TypeAsTrait {
-                    trai,
-                    trai_item_path,
-                } => todo!(),
+            } => match ontology_dispatch {
+                OntologyDispatch::TypeItem { signature } => todo!(),
+                OntologyDispatch::TraitItem { signature, .. } => todo!(),
+                OntologyDispatch::TraitForTypeItem { signature } => todo!(),
+                // StaticDispatch::AssocRitchie(signature) => HirEagerExprData::AssocRitchie {
+                //     assoc_item_path: signature.path(),
+                // },
+                // StaticDispatch::AssocGn => unreachable!(),
+                // StaticDispatch::TypeAsTrait {
+                //     trai,
+                //     trai_item_path,
+                //     ..
+                // } => todo!(),
             },
             SemExprData::InheritedSynSymbol {
                 inherited_syn_symbol_idx,
@@ -382,26 +390,33 @@ impl ToHirEager for SemExprIdx {
                         }
                     },
                     SemExprData::MajorItemPathAssocItem {
-                        ref static_dispatch,
+                        ref ontology_dispatch,
                         ..
-                    } => match static_dispatch {
-                        StaticDispatch::AssocRitchie(signature) => {
-                            HirEagerExprData::AssocFunctionRitchieCall {
-                                path: signature.path(),
-                                instantiation: HirInstantiation::from_fly(
-                                    signature.instantiation(),
-                                    &place_contract_site,
-                                    db,
-                                    builder.fly_terms(),
-                                ),
-                                arguments: item_groups,
+                    } => match ontology_dispatch {
+                        OntologyDispatch::TypeItem { signature } => match signature {
+                            TypeItemFlySignature::AssocRitchie(signature) => {
+                                HirEagerExprData::AssocFunctionRitchieCall {
+                                    path: signature.path(),
+                                    instantiation: HirInstantiation::from_fly(
+                                        signature.instantiation(),
+                                        &place_contract_site,
+                                        db,
+                                        builder.fly_terms(),
+                                    ),
+                                    arguments: item_groups,
+                                }
                             }
-                        }
-                        StaticDispatch::AssocGn => unreachable!(),
-                        StaticDispatch::TypeAsTrait {
-                            trai,
-                            trai_item_path,
-                        } => todo!(),
+                        },
+                        OntologyDispatch::TraitItem { signature, .. } => todo!(),
+                        OntologyDispatch::TraitForTypeItem { signature } => todo!(),
+                        // StaticDispatch::AssocRitchie(signature) => {
+                        // }
+                        // StaticDispatch::AssocGn => unreachable!(),
+                        // StaticDispatch::TypeAsTrait {
+                        //     trai,
+                        //     trai_item_path,
+                        //     ..
+                        // } => todo!(),
                     },
                     _ => todo!(),
                 }
@@ -414,13 +429,13 @@ impl ToHirEager for SemExprIdx {
                 ref dispatch,
                 ..
             } => match *dispatch.signature() {
-                FlyFieldSignature::PropsStruct { ty } => HirEagerExprData::PropsStructField {
+                FieldFlySignature::PropsStruct { ty } => HirEagerExprData::PropsStructField {
                     self_argument: self_argument.to_hir_eager(builder),
                     self_ty: HirType::from_fly(self_ty, builder.db(), builder.fly_terms()).unwrap(),
                     ident: ident_token.ident(),
                     field_ty: HirType::from_fly(ty, builder.db(), builder.fly_terms()).unwrap(),
                 },
-                FlyFieldSignature::Memoized {
+                FieldFlySignature::Memoized {
                     ty: _,
                     path,
                     ref instantiation,
@@ -442,18 +457,15 @@ impl ToHirEager for SemExprIdx {
                 }
             },
             SemExprData::MethodApplication { .. } => todo!(),
-            SemExprData::MethodFnCall {
+            SemExprData::MethodRitchieCall {
                 self_argument: self_argument_sem_expr_idx,
                 self_contract,
                 ident_token,
-                ref dispatch,
-
+                ref instance_dispatch,
                 ref ritchie_parameter_argument_matches,
                 ..
             } => {
-                let MethodFlySignature::MethodFn(signature) = dispatch.signature() else {
-                    unreachable!()
-                };
+                let signature = instance_dispatch.signature();
                 HirEagerExprData::MethodRitchieCall {
                     self_argument: self_argument_sem_expr_idx.to_hir_eager(builder),
                     self_contract: HirContract::from_contract(self_contract),
@@ -467,9 +479,6 @@ impl ToHirEager for SemExprIdx {
                     ),
                     arguments: builder.new_call_list_arguments(ritchie_parameter_argument_matches),
                 }
-            }
-            SemExprData::MethodGnCall { .. } => {
-                todo!()
             }
             SemExprData::TemplateInstantiation { .. } => todo!(),
             SemExprData::At { .. } => todo!(),

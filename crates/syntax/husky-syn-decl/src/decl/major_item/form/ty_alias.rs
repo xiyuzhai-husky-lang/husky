@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked]
 pub struct TypeAliasSynNodeDecl {
     #[id]
-    pub syn_node_path: FormSynNodePath,
+    pub syn_node_path: MajorFormSynNodePath,
     #[return_ref]
     pub template_parameter_obelisk_list:
         SynNodeDeclResult<Option<SynTemplateParameterSyndicateList>>,
@@ -22,7 +22,7 @@ impl TypeAliasSynNodeDecl {
 impl<'a> ItemSynNodeDeclParser<'a> {
     pub(super) fn parse_ty_alias_syn_node_decl(
         &self,
-        syn_node_path: FormSynNodePath,
+        syn_node_path: MajorFormSynNodePath,
     ) -> TypeAliasSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::False, AllowSelfValue::False, None);
         let template_parameter_decl_list = parser.try_parse_option();

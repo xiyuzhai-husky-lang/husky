@@ -26,11 +26,11 @@ impl TraitForTypeAssocTypeEthTemplate {
         self,
         impl_block_signature_builder: EthTraitForTypeImplBlockSignatureBuilderItd,
         db: &::salsa::Db,
-    ) -> TraitForTypeAssocTypeEtherealSignatureBuilder {
+    ) -> TraitForTypeAssocTypeEthSignatureBuilder {
         let instantiation_builder = impl_block_signature_builder
             .instantiation_builder(db)
             .merge_with_item_template_parameters(self.template_parameters(db));
-        TraitForTypeAssocTypeEtherealSignatureBuilder::new(
+        TraitForTypeAssocTypeEthSignatureBuilder::new(
             db,
             self,
             instantiation_builder,
@@ -40,18 +40,15 @@ impl TraitForTypeAssocTypeEthTemplate {
 }
 
 #[salsa::interned(constructor = pub(super) new)]
-pub struct TraitForTypeAssocTypeEtherealSignatureBuilder {
+pub struct TraitForTypeAssocTypeEthSignatureBuilder {
     pub template: TraitForTypeAssocTypeEthTemplate,
     #[return_ref]
     pub instantiation_builder: EthInstantiationBuilder,
     pub context_itd: EthSignatureBuilderContextItd,
 }
 
-impl TraitForTypeAssocTypeEtherealSignatureBuilder {
-    pub fn try_into_signature(
-        self,
-        db: &::salsa::Db,
-    ) -> Option<TraitForTypeAssocTypeEtherealSignature> {
+impl TraitForTypeAssocTypeEthSignatureBuilder {
+    pub fn try_into_signature(self, db: &::salsa::Db) -> Option<TraitForTypeAssocTypeEthSignature> {
         trai_for_ty_assoc_ty_ethereal_signature_signature_builder_try_into_signature(db, self)
     }
 
@@ -63,13 +60,13 @@ impl TraitForTypeAssocTypeEtherealSignatureBuilder {
 #[salsa::tracked]
 fn trai_for_ty_assoc_ty_ethereal_signature_signature_builder_try_into_signature(
     db: &::salsa::Db,
-    signature_builder: TraitForTypeAssocTypeEtherealSignatureBuilder,
-) -> Option<TraitForTypeAssocTypeEtherealSignature> {
+    signature_builder: TraitForTypeAssocTypeEthSignatureBuilder,
+) -> Option<TraitForTypeAssocTypeEthSignature> {
     let instantiation = signature_builder
         .instantiation_builder(db)
         .try_into_instantiation()?;
     let template = signature_builder.template(db);
-    Some(TraitForTypeAssocTypeEtherealSignature {
+    Some(TraitForTypeAssocTypeEthSignature {
         path: template.path(db),
         ty_term: template.assoc_ty(db).instantiate(
             &instantiation,
@@ -82,13 +79,13 @@ fn trai_for_ty_assoc_ty_ethereal_signature_signature_builder_try_into_signature(
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct TraitForTypeAssocTypeEtherealSignature {
+pub struct TraitForTypeAssocTypeEthSignature {
     path: TraitForTypeItemPath,
     instantiation: EthInstantiation,
     ty_term: EthTerm,
 }
 
-impl TraitForTypeAssocTypeEtherealSignature {
+impl TraitForTypeAssocTypeEthSignature {
     pub fn path(&self) -> TraitForTypeItemPath {
         self.path
     }

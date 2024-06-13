@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked]
 pub struct MajorValSynNodeDecl {
     #[id]
-    pub syn_node_path: FormSynNodePath,
+    pub syn_node_path: MajorFormSynNodePath,
     #[return_ref]
     pub colon_token: SynNodeDeclResult<ColonRegionalToken>,
     #[return_ref]
@@ -23,7 +23,7 @@ impl MajorValSynNodeDecl {
 impl<'a> ItemSynNodeDeclParser<'a> {
     pub(super) fn parse_val_syn_node_decl(
         &self,
-        syn_node_path: FormSynNodePath,
+        syn_node_path: MajorFormSynNodePath,
     ) -> MajorValSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::False, AllowSelfValue::False, None);
         let colon_token =

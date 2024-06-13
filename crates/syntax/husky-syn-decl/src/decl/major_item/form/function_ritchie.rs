@@ -6,7 +6,7 @@ use salsa::DebugWithDb;
 #[salsa::tracked]
 pub struct MajorFunctionRitchieSynNodeDecl {
     #[id]
-    pub syn_node_path: FormSynNodePath,
+    pub syn_node_path: MajorFormSynNodePath,
     /// it can be derived equally from syn_node_path
     pub ritchie_item_kind: RitchieItemKind,
     #[return_ref]
@@ -46,7 +46,7 @@ impl MajorFunctionRitchieSynNodeDecl {
 impl<'a> ItemSynNodeDeclParser<'a> {
     pub(super) fn parse_ritchie_syn_node_decl(
         &self,
-        syn_node_path: FormSynNodePath,
+        syn_node_path: MajorFormSynNodePath,
         ritchie_item_kind: RitchieItemKind,
     ) -> MajorFunctionRitchieSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::False, AllowSelfValue::False, None);

@@ -262,6 +262,13 @@ impl<'a> SynExprRangeCalculator<'a> {
                     ident_token.regional_token_idx(),
                 ))
             }
+            SynExprData::TypeAsTargetItem {
+                lpar_regional_token_idx,
+                ident_regional_token_idx,
+                ..
+            } => {
+                RegionalTokenIdxRange::new_closed(lpar_regional_token_idx, ident_regional_token_idx)
+            }
             SynExprData::AssocItem {
                 parent_expr_idx,
                 ident_regional_token_idx,

@@ -64,6 +64,7 @@ fn calc_dec_symbolic_variables(
             application_dec_symbolic_variables(db, declarative_term)
         }
         DecTerm::ApplicationOrRitchieCall(_declarative_ty) => todo!(),
+        DecTerm::TypeAsTrait(_) => todo!(),
         DecTerm::TypeAsTraitItem(_) => todo!(),
         DecTerm::TraitConstraint(_) => todo!(),
         DecTerm::LeashOrBitNot(_) => todo!(),

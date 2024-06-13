@@ -33,7 +33,7 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                FormSynNodePath(`mnist_classifier::digits::two::two_match`, `Val`, (0)),
+                                MajorFormSynNodePath(`mnist_classifier::digits::two::two_match`, `Val`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
@@ -209,7 +209,7 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                FormSynNodePath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
+                                MajorFormSynNodePath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),
@@ -411,7 +411,7 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                FormSynNodePath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
+                                MajorFormSynNodePath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),
@@ -613,7 +613,7 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                FormSynNodePath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
+                                MajorFormSynNodePath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),
@@ -819,7 +819,7 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                FormSynNodePath(`mnist_classifier::digits::two::is_two`, `Val`, (0)),
+                                MajorFormSynNodePath(`mnist_classifier::digits::two::is_two`, `Val`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {

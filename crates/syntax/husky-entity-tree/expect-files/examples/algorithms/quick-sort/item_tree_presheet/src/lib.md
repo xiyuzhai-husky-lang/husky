@@ -7,7 +7,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`quick_sort::quick_sort`, `Ritchie(
+                            MajorFormSynNodePath(`quick_sort::quick_sort`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -35,7 +35,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`quick_sort::quick_sort`, `Ritchie(
+                        MajorFormSynNodePath(`quick_sort::quick_sort`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -47,7 +47,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                            MajorFormSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -77,7 +77,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                        MajorFormSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -91,7 +91,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`quick_sort::partition`, `Ritchie(
+                            MajorFormSynNodePath(`quick_sort::partition`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -121,7 +121,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`quick_sort::partition`, `Ritchie(
+                        MajorFormSynNodePath(`quick_sort::partition`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -135,7 +135,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                            MajorFormSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -165,7 +165,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                        MajorFormSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -179,7 +179,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                            MajorFormSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -209,7 +209,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                        MajorFormSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),

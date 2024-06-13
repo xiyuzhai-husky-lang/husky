@@ -7,7 +7,7 @@ EntityTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`, (0)),
+                            MajorFormSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             ModulePath(`mnist_classifier::digits::seven`),
@@ -33,7 +33,7 @@ EntityTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`, (0)),
+                        MajorFormSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`, (0)),
                     ),
                 ),
                 ident: `simple_seven_match`,
@@ -45,7 +45,7 @@ EntityTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
+                            MajorFormSynNodePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -75,7 +75,7 @@ EntityTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
+                        MajorFormSynNodePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -89,7 +89,7 @@ EntityTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`, (0)),
+                            MajorFormSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             ModulePath(`mnist_classifier::digits::seven`),
@@ -115,7 +115,7 @@ EntityTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`, (0)),
+                        MajorFormSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`, (0)),
                     ),
                 ),
                 ident: `special_seven_match`,
@@ -127,7 +127,7 @@ EntityTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
+                            MajorFormSynNodePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -157,7 +157,7 @@ EntityTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
+                        MajorFormSynNodePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -171,7 +171,7 @@ EntityTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
+                            MajorFormSynNodePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -201,7 +201,7 @@ EntityTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
+                        MajorFormSynNodePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -215,7 +215,7 @@ EntityTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`, (0)),
+                            MajorFormSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             ModulePath(`mnist_classifier::digits`),
@@ -241,7 +241,7 @@ EntityTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`, (0)),
+                        MajorFormSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`, (0)),
                     ),
                 ),
                 ident: `is_seven`,

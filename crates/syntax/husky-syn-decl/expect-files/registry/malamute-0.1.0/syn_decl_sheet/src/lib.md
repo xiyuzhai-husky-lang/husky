@@ -726,7 +726,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`malamute::narrow_down`, `Ritchie(
+                                                MajorFormSynNodePath(`malamute::narrow_down`, `Ritchie(
                                                     Gn,
                                                 )`, (0)),
                                             ),

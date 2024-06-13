@@ -3,7 +3,7 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Form(
-                FormSynNodePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`, (0)),
+                MajorFormSynNodePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`, (0)),
             ),
         ),
         Some(
@@ -18,7 +18,7 @@
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -100,7 +100,7 @@
                         path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`, (0)),
+                                    MajorFormSynNodePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`, (0)),
                                 ),
                             ),
                         ),
@@ -370,7 +370,7 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Form(
-                FormSynNodePath(`mnist_classifier::digits::one::is_one`, `Val`, (0)),
+                MajorFormSynNodePath(`mnist_classifier::digits::one::is_one`, `Val`, (0)),
             ),
         ),
         Some(
@@ -385,7 +385,7 @@
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::one::is_one`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist_classifier::digits::one::is_one`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -556,7 +556,7 @@
                         path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`mnist_classifier::digits::one::is_one`, `Val`, (0)),
+                                    MajorFormSynNodePath(`mnist_classifier::digits::one::is_one`, `Val`, (0)),
                                 ),
                             ),
                         ),
@@ -6269,7 +6269,7 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Form(
-                FormSynNodePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+                MajorFormSynNodePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
                     Fn,
                 )`, (0)),
             ),
@@ -6286,7 +6286,7 @@
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -6472,7 +6472,7 @@
                         path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+                                    MajorFormSynNodePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -6751,7 +6751,7 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Form(
-                FormSynNodePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+                MajorFormSynNodePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
                     Fn,
                 )`, (0)),
             ),
@@ -6768,7 +6768,7 @@
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -6954,7 +6954,7 @@
                         path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+                                    MajorFormSynNodePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -7260,7 +7260,7 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Form(
-                FormSynNodePath(`mnist_classifier::digits::one::hat`, `Ritchie(
+                MajorFormSynNodePath(`mnist_classifier::digits::one::hat`, `Ritchie(
                     Fn,
                 )`, (0)),
             ),
@@ -7277,7 +7277,7 @@
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::one::hat`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::digits::one::hat`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -7463,7 +7463,7 @@
                         path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`mnist_classifier::digits::one::hat`, `Ritchie(
+                                    MajorFormSynNodePath(`mnist_classifier::digits::one::hat`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),

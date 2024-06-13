@@ -45,7 +45,7 @@ Some(
                                 ),
                                 excludes: [
                                     LibCrateSynDeclDefaultConstExclude {
-                                        expr: 5,
+                                        expr: 3,
                                     },
                                 ],
                                 commas: [],
@@ -75,16 +75,6 @@ Some(
                     ),
                     expr_arena: Arena {
                         data: [
-                            SynExprData::Err(
-                                SynExprError::Original(
-                                    OriginalSynExprError::UnrecognizedIdent {
-                                        regional_token_idx: RegionalTokenIdx(
-                                            7,
-                                        ),
-                                        ident: `ml_task`,
-                                    },
-                                ),
-                            ),
                             SynExprData::PrincipalEntityPath {
                                 path_expr_idx: 0,
                                 opt_path: Some(
@@ -95,35 +85,36 @@ Some(
                                     ),
                                 ),
                             },
-                            SynExprData::AssocItem {
-                                parent_expr_idx: 0,
-                                colon_colon_regional_token_idx: RegionalTokenIdx(
-                                    8,
-                                ),
-                                ident: `IsMlTask`,
-                                ident_regional_token_idx: RegionalTokenIdx(
-                                    9,
+                            SynExprData::PrincipalEntityPath {
+                                path_expr_idx: 2,
+                                opt_path: Some(
+                                    PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Trait(
+                                            TraitPath(`ml_task::IsMlTask`),
+                                        ),
+                                    ),
                                 ),
                             },
                             SynExprData::Binary {
-                                lopd: 1,
+                                lopd: 0,
                                 opr: SynBinaryOpr::As,
                                 opr_regional_token_idx: RegionalTokenIdx(
                                     6,
                                 ),
-                                ropd: 2,
+                                ropd: 1,
                             },
-                            SynExprData::Delimitered {
+                            SynExprData::TypeAsTargetItem {
                                 lpar_regional_token_idx: RegionalTokenIdx(
                                     4,
                                 ),
-                                item: 3,
+                                ty: 0,
+                                as_region_token_idx: RegionalTokenIdx(
+                                    6,
+                                ),
+                                target: 1,
                                 rpar_regional_token_idx: RegionalTokenIdx(
                                     10,
                                 ),
-                            },
-                            SynExprData::AssocItem {
-                                parent_expr_idx: 4,
                                 colon_colon_regional_token_idx: RegionalTokenIdx(
                                     11,
                                 ),
@@ -148,6 +139,42 @@ Some(
                                 principal_entity_path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
                                         FormPath(`core::task::Task`, `TypeVar`),
+                                    ),
+                                ),
+                            },
+                            SynPrincipalEntityPathExpr::Root {
+                                path_name_token: PathNameRegionalToken::Ident(
+                                    IdentRegionalToken {
+                                        ident: `ml_task`,
+                                        regional_token_idx: RegionalTokenIdx(
+                                            7,
+                                        ),
+                                    },
+                                ),
+                                principal_entity_path: PrincipalEntityPath::Module(
+                                    ModulePath(`ml_task`),
+                                ),
+                            },
+                            SynPrincipalEntityPathExpr::Subitem {
+                                parent: 1,
+                                colon_colon_token: ColonColonRegionalToken(
+                                    RegionalTokenIdx(
+                                        8,
+                                    ),
+                                ),
+                                ident_token: Ok(
+                                    IdentRegionalToken {
+                                        ident: `IsMlTask`,
+                                        regional_token_idx: RegionalTokenIdx(
+                                            9,
+                                        ),
+                                    },
+                                ),
+                                path: Ok(
+                                    PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Trait(
+                                            TraitPath(`ml_task::IsMlTask`),
+                                        ),
                                     ),
                                 ),
                             },
@@ -186,7 +213,7 @@ Some(
                     expr_roots: [
                         SynExprRoot {
                             kind: SynExprRootKind::DefaultConstExclude,
-                            syn_expr_idx: 5,
+                            syn_expr_idx: 3,
                         },
                     ],
                     has_self_lifetime: false,

@@ -2,7 +2,7 @@ use super::*;
 
 impl FlyTerm {
     pub(crate) fn curry_destination(self, db: &::salsa::Db, terms: &FlyTerms) -> FlyTerm {
-        match self.data_inner(db, terms) {
+        match self.data2(db, terms) {
             FlyTermData::TypeOntology { .. }
             | FlyTermData::Hole(_, _)
             | FlyTermData::Sort(_)
@@ -11,6 +11,8 @@ impl FlyTerm {
             | FlyTermData::LambdaVariable { .. } => self,
             FlyTermData::Curry { return_ty, .. } => return_ty.curry_destination(db, terms),
             FlyTermData::Literal(_) | FlyTermData::TypeVariant { .. } => unreachable!(),
+            FlyTermData::MajorTypeVar(_) => todo!(),
+            FlyTermData::Trait { .. } => todo!(),
         }
     }
 
@@ -25,8 +27,9 @@ impl FlyTerm {
         db: &::salsa::Db,
         fly_terms: &FlyTerms,
     ) -> FinalDestination {
-        match self.data_inner(db, fly_terms) {
+        match self.data2(db, fly_terms) {
             FlyTermData::TypeOntology { .. } => FinalDestination::TypeOntology,
+            FlyTermData::Trait { .. } => todo!(),
             FlyTermData::Curry { return_ty, .. } => {
                 return_ty.final_destination_inner(db, fly_terms)
             }
@@ -43,6 +46,7 @@ impl FlyTerm {
                 FinalDestination::AnyOriginal
             }
             FlyTermData::Literal(_) | FlyTermData::TypeVariant { .. } => unreachable!(),
+            FlyTermData::MajorTypeVar(_) => todo!(),
         }
     }
 
@@ -55,7 +59,7 @@ impl FlyTerm {
     }
 
     pub fn curry_parameter_count_inner(self, db: &::salsa::Db, fly_terms: &FlyTerms) -> i8 {
-        match self.data_inner(db, fly_terms) {
+        match self.data2(db, fly_terms) {
             FlyTermData::Literal(_) => todo!(),
             FlyTermData::TypeOntology {
                 ty_path: path,
@@ -84,6 +88,8 @@ impl FlyTerm {
             } => 0,
             FlyTermData::SymbolicVariable { .. } | FlyTermData::LambdaVariable { .. } => 0,
             FlyTermData::TypeVariant { path } => todo!(),
+            FlyTermData::MajorTypeVar(_) => todo!(),
+            FlyTermData::Trait { .. } => todo!(),
         }
     }
 }

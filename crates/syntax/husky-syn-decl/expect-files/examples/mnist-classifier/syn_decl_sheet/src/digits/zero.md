@@ -22,7 +22,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::zero::open_one_match`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist_classifier::digits::zero::open_one_match`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -155,7 +155,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -363,7 +363,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::zero::is_zero`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist_classifier::digits::zero::is_zero`, `Val`, (0)),
                                             ),
                                         ),
                                     ),

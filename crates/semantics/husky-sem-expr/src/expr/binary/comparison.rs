@@ -10,7 +10,7 @@ impl<'a> SemExprBuilder<'a> {
         SemExprIdx,
         SemaBinaryOpr,
         SemExprIdx,
-        SemExprDataResult<SemaBinaryOprDynamicDispatch>,
+        SemExprDataResult<SemaBinaryOprInstanceDispatch>,
         SemExprTypeResult<FlyTerm>,
     ) {
         let (lopd_sem_expr_idx, lopd_ty) = self.build_sem_expr_with_ty(lopd, ExpectAnyOriginal);
@@ -24,7 +24,7 @@ impl<'a> SemExprBuilder<'a> {
             lopd_sem_expr_idx,
             SemaBinaryOpr::Comparison(opr),
             ropd_sem_expr_idx,
-            Ok(SemaBinaryOprDynamicDispatch::builtin()),
+            Ok(SemaBinaryOprInstanceDispatch::builtin()),
             Ok(self.term_menu().bool_ty_ontology().into()),
         )
     }

@@ -59,7 +59,7 @@ pub struct SynDeclJar(
     crate::decl::major_item::trai::trai_syn_node_decl,
     crate::decl::major_item::trai::TraitSynDecl,
     crate::decl::major_item::trai::trai_syn_decl,
-    // - form
+    // - major form
     crate::decl::major_item::form::form_syn_node_decl,
     crate::decl::major_item::form::form_syn_decl,
     crate::decl::major_item::form::val::MajorValSynNodeDecl,
@@ -132,12 +132,16 @@ pub struct SynDeclJar(
     crate::decl::assoc_item::trai_for_ty_item::trai_for_ty_item_syn_node_decl,
     crate::decl::assoc_item::trai_for_ty_item::assoc_ritchie::TraitForTypeAssocRitchieSynNodeDecl,
     crate::decl::assoc_item::trai_for_ty_item::assoc_ritchie::TraitForTypeAssocRitchieSynDecl,
-    crate::decl::assoc_item::trai_for_ty_item::method_ritchie::TraitForTypeMethodRitchieSynNodeDecl,
-    crate::decl::assoc_item::trai_for_ty_item::method_ritchie::TraitForTypeMethodRitchieSynDecl,
+    crate::decl::assoc_item::trai_for_ty_item::assoc_static_mut::TraitForTypeAssocStaticMutSynNodeDecl,
+    crate::decl::assoc_item::trai_for_ty_item::assoc_static_mut::TraitForTypeAssocStaticMutSynDecl,
+    crate::decl::assoc_item::trai_for_ty_item::assoc_static_var::TraitForTypeAssocStaticVarSynNodeDecl,
+    crate::decl::assoc_item::trai_for_ty_item::assoc_static_var::TraitForTypeAssocStaticVarSynDecl,
     crate::decl::assoc_item::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeSynNodeDecl,
     crate::decl::assoc_item::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeSynDecl,
     crate::decl::assoc_item::trai_for_ty_item::assoc_val::TraitForTypeAssocValSynNodeDecl,
     crate::decl::assoc_item::trai_for_ty_item::assoc_val::TraitForTypeAssocValSynDecl,
+    crate::decl::assoc_item::trai_for_ty_item::method_ritchie::TraitForTypeMethodRitchieSynNodeDecl,
+    crate::decl::assoc_item::trai_for_ty_item::method_ritchie::TraitForTypeMethodRitchieSynDecl,
     // -- ill formed item
     crate::decl::assoc_item::ill_formed_item::IllFormedItemSynNodeDecl,
     // attr

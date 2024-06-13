@@ -26,7 +26,7 @@ impl StructureTypeEthTemplate {
         //             dec_template,
         //         )
         //     })
-        //     .collect::<EtherealSignatureResult<_>>()?;
+        //     .collect::<EthSignatureResult<_>>()?;
         Ok(Self::new(db, path, template_parameters /* fields */))
     }
 }

@@ -95,7 +95,7 @@
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -346,7 +346,7 @@
                         path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                    MajorFormSynNodePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -540,7 +540,7 @@
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -791,7 +791,7 @@
                         path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
+                                    MajorFormSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -956,7 +956,7 @@
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -1207,7 +1207,7 @@
                         path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
+                                    MajorFormSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -1401,7 +1401,7 @@
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -1731,7 +1731,7 @@
                         path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
+                                    MajorFormSynNodePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -3741,7 +3741,7 @@
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -3992,7 +3992,7 @@
                         path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
+                                    MajorFormSynNodePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -4717,7 +4717,7 @@
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -5126,7 +5126,7 @@
                         path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
+                                    MajorFormSynNodePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -8271,7 +8271,7 @@
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -8456,7 +8456,7 @@
                         path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
+                                    MajorFormSynNodePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -9166,7 +9166,7 @@
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -9358,7 +9358,7 @@
                         path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                                    MajorFormSynNodePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),

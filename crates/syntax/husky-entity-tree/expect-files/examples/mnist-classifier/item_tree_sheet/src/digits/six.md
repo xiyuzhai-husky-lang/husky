@@ -7,7 +7,7 @@ EntityTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::digits::six::six_match`, `Val`, (0)),
+                            MajorFormSynNodePath(`mnist_classifier::digits::six::six_match`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             ModulePath(`mnist_classifier::digits::six`),
@@ -33,7 +33,7 @@ EntityTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::digits::six::six_match`, `Val`, (0)),
+                        MajorFormSynNodePath(`mnist_classifier::digits::six::six_match`, `Val`, (0)),
                     ),
                 ),
                 ident: `six_match`,
@@ -45,7 +45,7 @@ EntityTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`, (0)),
+                            MajorFormSynNodePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             ModulePath(`mnist_classifier::digits::six`),
@@ -71,7 +71,7 @@ EntityTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`, (0)),
+                        MajorFormSynNodePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`, (0)),
                     ),
                 ),
                 ident: `six_match_refined1`,
@@ -83,7 +83,7 @@ EntityTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::digits::six::is_six`, `Val`, (0)),
+                            MajorFormSynNodePath(`mnist_classifier::digits::six::is_six`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             ModulePath(`mnist_classifier::digits`),
@@ -109,7 +109,7 @@ EntityTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::digits::six::is_six`, `Val`, (0)),
+                        MajorFormSynNodePath(`mnist_classifier::digits::six::is_six`, `Val`, (0)),
                     ),
                 ),
                 ident: `is_six`,
@@ -121,7 +121,7 @@ EntityTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                            MajorFormSynNodePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -151,7 +151,7 @@ EntityTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                        MajorFormSynNodePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -165,7 +165,7 @@ EntityTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
+                            MajorFormSynNodePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -195,7 +195,7 @@ EntityTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
+                        MajorFormSynNodePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),

@@ -14,13 +14,13 @@ pub struct PropsStructEthTemplate {
     pub instance_constructor_ritchie_ty: EthRitchie,
 }
 
-impl HasPropsFieldEtherealSignature for PropsStructEthTemplate {
+impl HasPropsFieldEthSignature for PropsStructEthTemplate {
     fn props_field_ethereal_signature(
         self,
         db: &::salsa::Db,
         arguments: &[EthTerm],
         ident: Ident,
-    ) -> EthSignatureMaybeResult<PropsFieldEtherealSignature> {
+    ) -> EthSignatureMaybeResult<PropsFieldEthSignature> {
         let field = self
             .fields(db)
             .iter()
@@ -87,13 +87,13 @@ impl PropsFieldEthTemplate {
         self,
         template_parameters: &EthTemplateParameters,
         arguments: &[EthTerm],
-    ) -> PropsStructFieldEtherealSignature {
+    ) -> PropsStructFieldEthSignature {
         if template_parameters.data().len() != arguments.len() {
             todo!()
         }
 
         if template_parameters.data().len() == 0 {
-            return PropsStructFieldEtherealSignature {
+            return PropsStructFieldEthSignature {
                 ident: self.ident,
                 ty: self.ty,
             };
@@ -112,12 +112,12 @@ impl PropsFieldEthTemplate {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct PropsStructFieldEtherealSignature {
+pub struct PropsStructFieldEthSignature {
     ident: Ident,
     ty: EthTerm,
 }
 
-impl PropsStructFieldEtherealSignature {
+impl PropsStructFieldEthSignature {
     pub fn ident(&self) -> Ident {
         self.ident
     }

@@ -97,7 +97,7 @@ impl Diagnose for OriginalSemExprDataError {
                 format!(
                     "Type Error: no field named {} in {}",
                     ident_token.ident().data(ctx.db()),
-                    owner_ty.show(ctx.db(), ctx.fly_term_region().terms())
+                    owner_ty.show2(ctx.db(), ctx.fly_term_region().terms())
                 )
             }
             OriginalSemExprDataError::NoSuchMethod {
@@ -107,7 +107,7 @@ impl Diagnose for OriginalSemExprDataError {
                 format!(
                     "Type Error: no method named `{}` for type `{}`",
                     ident_token.ident().data(ctx.db()),
-                    self_expr_ty.show(ctx.db(), ctx.fly_term_region().terms()) // ad hoc
+                    self_expr_ty.show2(ctx.db(), ctx.fly_term_region().terms()) // ad hoc
                 )
             }
             OriginalSemExprDataError::ExpectedIndices => {
@@ -116,7 +116,7 @@ impl Diagnose for OriginalSemExprDataError {
             OriginalSemExprDataError::CannotIndexIntoType { self_expr_ty } => {
                 format!(
                     "Type Error: cannot index into type `{}`",
-                    self_expr_ty.show(ctx.db(), ctx.fly_term_region().terms())
+                    self_expr_ty.show2(ctx.db(), ctx.fly_term_region().terms())
                 )
             }
             OriginalSemExprDataError::RitchieParameterArgumentMismatch {
@@ -267,8 +267,8 @@ impl Diagnose for (ExpectationSource, &'_ OriginalFlyTermExpectationError) {
                 expectee_path,
             } => format!(
                 "Type Error: type path mismatch in seeing `{}` as a subtype of `{}`, expected `{}`, but got `{}` instead",
-                expectee.show(ctx.db(), ctx.fly_term_region().terms()),
-                expected.show(ctx.db(), ctx.fly_term_region().terms()),
+                expectee.show2(ctx.db(), ctx.fly_term_region().terms()),
+                expected.show2(ctx.db(), ctx.fly_term_region().terms()),
                 expected_path.display(ctx.db()),
                 expectee_path.display(ctx.db())
             ),
@@ -284,15 +284,15 @@ impl Diagnose for (ExpectationSource, &'_ OriginalFlyTermExpectationError) {
             OriginalFlyTermExpectationError::ExpectedCoercion {  expectee, expected, contract } => {
                 format!(
                     "Term Error: expected coercion from `{}` to `{}` under contract `{}`",
-                    expectee.show(ctx.db(), ctx.fly_term_region().terms()),
-                    expected.show(ctx.db(), ctx.fly_term_region().terms()),
+                    expectee.show2(ctx.db(), ctx.fly_term_region().terms()),
+                    expected.show2(ctx.db(), ctx.fly_term_region().terms()),
                     contract.as_str(),
                 )
             }
             OriginalFlyTermExpectationError::TypePathMismatchForCoercion { contract, ty_expected, expectee, expected_path, expectee_path } => format!(
                 "Type Error: type path mismatch in coersing `{}` into `{}` of contract `{}`, expected `{}`, but got `{}` instead",
-                expectee.show(ctx.db(), ctx.fly_term_region().terms()),
-                ty_expected.show(ctx.db(), ctx.fly_term_region().terms()),
+                expectee.show2(ctx.db(), ctx.fly_term_region().terms()),
+                ty_expected.show2(ctx.db(), ctx.fly_term_region().terms()),
                 contract.as_str(),
                 expected_path.display(ctx.db()),
                 expectee_path.display(ctx.db())

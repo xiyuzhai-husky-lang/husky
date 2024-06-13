@@ -21,6 +21,10 @@ use husky_eth_term::term::{
 };
 use husky_term_prelude::{literal::Literal, ritchie::RitchieKind};
 use husky_vfs::toolchain::Toolchain;
+use path::major_item::{
+    form::MajorFormPath,
+    trai::{OtherTraitPath, PreludeTraitPath, TraitPath},
+};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
@@ -32,6 +36,13 @@ pub enum FlyTermData<'a> {
         ty_arguments: &'a [FlyTerm],
         ty_ethereal_term: Option<EthTerm>,
     },
+    Trait {
+        trai_path: TraitPath,
+        refined_trai_path: Either<PreludeTraitPath, OtherTraitPath>,
+        trai_arguments: &'a [FlyTerm],
+        trai_ethereal_term: Option<EthTerm>,
+    },
+    MajorTypeVar(MajorFormPath),
     Curry {
         toolchain: Toolchain,
         curry_kind: CurryKind,
@@ -80,11 +91,12 @@ impl<'a> FlyTermData<'a> {
                     let mut s = String::default();
                     write!(s, "{}", ty_path.ident(db).data(db)).unwrap();
                     for ty_argument in ty_arguments.iter() {
-                        write!(s, " {}", ty_argument.show(db, terms)).unwrap();
+                        write!(s, " {}", ty_argument.show2(db, terms)).unwrap();
                     }
                     s
                 }
             },
+            FlyTermData::Trait { .. } => todo!(),
             FlyTermData::Curry {
                 toolchain,
                 curry_kind,
@@ -97,15 +109,15 @@ impl<'a> FlyTermData<'a> {
                 if let Some(parameter_hvar) = parameter_hvar {
                     format!(
                         "<{}: {}> -> {}",
-                        parameter_hvar.show(db, terms),
-                        parameter_ty.show(db, terms),
-                        return_ty.show(db, terms)
+                        parameter_hvar.show2(db, terms),
+                        parameter_ty.show2(db, terms),
+                        return_ty.show2(db, terms)
                     )
                 } else {
                     format!(
                         "{} -> {}",
-                        parameter_ty.show(db, terms),
-                        return_ty.show(db, terms)
+                        parameter_ty.show2(db, terms),
+                        return_ty.show2(db, terms)
                     )
                 }
             }
@@ -122,18 +134,19 @@ impl<'a> FlyTermData<'a> {
                 return_ty,
             } => match ritchie_kind {
                 RitchieKind::Type(ritchi_ty_kind) => {
-                    format!("{}(...) -> {}", ritchi_ty_kind, return_ty.show(db, terms))
+                    format!("{}(...) -> {}", ritchi_ty_kind, return_ty.show2(db, terms))
                 }
                 RitchieKind::Trait(_) => todo!(),
             },
             FlyTermData::SymbolicVariable {
                 symbolic_variable: term,
                 ty,
-            } => format!("symbol({})", ty.show(db, terms)),
+            } => format!("symbol({})", ty.show2(db, terms)),
             FlyTermData::LambdaVariable { ty, index: idx } => {
-                format!("hvar({idx}, {})", ty.show(db, terms))
+                format!("hvar({idx}, {})", ty.show2(db, terms))
             }
             FlyTermData::TypeVariant { path } => format!("{:?}", path.debug(db)),
+            FlyTermData::MajorTypeVar(_) => todo!(),
         }
     }
 }
@@ -156,7 +169,7 @@ pub enum FlyBaseTypeData<'a> {
         ty_ethereal_term: Option<EthCurry>,
     },
     Hole(HoleKind, Hole),
-    Category(Sort),
+    Sort(Sort),
     Ritchie {
         ritchie_kind: RitchieKind,
         parameter_contracted_tys: &'a [FlyRitchieParameter],
@@ -175,10 +188,10 @@ impl FlyTerm {
     where
         'b: 'a,
     {
-        self.data_inner(engine.db(), engine.fly_terms())
+        self.data2(engine.db(), engine.fly_terms())
     }
 
-    pub fn data_inner<'a>(self, db: &'a ::salsa::Db, terms: &'a FlyTerms) -> FlyTermData<'a> {
+    pub fn data2<'a>(self, db: &'a ::salsa::Db, terms: &'a FlyTerms) -> FlyTermData<'a> {
         match self.base_resolved_inner(terms) {
             FlyTermBase::Eth(term) => ethereal_term_data(db, term),
             FlyTermBase::Sol(term) => term.data_inner(terms.sol_terms()).into(),
@@ -245,7 +258,7 @@ impl FlyTerm {
                 HoleKind::ImplicitType => todo!(),
                 HoleKind::AnyOriginal | HoleKind::AnyDerived => todo!(),
             },
-            FlyBaseTypeData::Category(_) => Ok(None),
+            FlyBaseTypeData::Sort(_) => Ok(None),
             FlyBaseTypeData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,

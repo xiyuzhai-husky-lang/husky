@@ -30,7 +30,7 @@ pub(crate) fn item_variance_crate_dependencies(
     db: &::salsa::Db,
     variance_path: VariancePath,
 ) -> VarianceResultRef<&[VariancePath]> {
-    let _declarative_term_menu = db
+    let _dec_term_menu = db
         .dec_term_menu(variance_path.path.toolchain(db))
         .as_ref()
         .unwrap();
@@ -68,7 +68,7 @@ pub(crate) fn declarative_ty_item_variance_crate_dependencies(
     path: TypePath,
     _idx: u8,
 ) -> VarianceResult<VecSet<VariancePath>> {
-    let _declarative_term_menu = db.dec_term_menu(path.toolchain(db)).unwrap();
+    let _dec_term_menu = db.dec_term_menu(path.toolchain(db)).unwrap();
     let signature = match path.dec_template(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),

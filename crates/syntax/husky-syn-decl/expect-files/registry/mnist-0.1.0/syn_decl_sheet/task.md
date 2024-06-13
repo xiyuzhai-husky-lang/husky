@@ -21,7 +21,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist::Task`, `TypeVar`, (0)),
+                                                MajorFormSynNodePath(`mnist::Task`, `TypeVar`, (0)),
                                             ),
                                         ),
                                     ),
@@ -127,7 +127,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist::TASK`, `StaticVar`, (0)),
+                                                MajorFormSynNodePath(`mnist::TASK`, `StaticVar`, (0)),
                                             ),
                                         ),
                                     ),

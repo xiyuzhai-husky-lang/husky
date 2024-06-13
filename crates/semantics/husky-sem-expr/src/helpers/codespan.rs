@@ -75,16 +75,16 @@ pub fn emit_note_on_sem_expr_codespan(
     emitter.emit_to_stderr();
 }
 
-struct SemExprCodespanEmitter<'a> {
-    db: &'a ::salsa::Db,
-    sem_expr_region_data: &'a SemExprRegionData,
-    sem_expr_range_region_data: &'a SemExprRangeRegionData,
-    ranged_token_sheet: &'a RangedTokenSheet,
-    text: Text<'a>,
+struct SemExprCodespanEmitter<'db> {
+    db: &'db ::salsa::Db,
+    sem_expr_region_data: &'db SemExprRegionData,
+    sem_expr_range_region_data: &'db SemExprRangeRegionData,
+    ranged_token_sheet: &'db RangedTokenSheet,
+    text: Text<'db>,
     region_path: RegionPath,
     module_path: ModulePath,
     regional_token_idx_base: RegionalTokenIdxBase,
-    files: SimpleFiles<String, &'a str>,
+    files: SimpleFiles<String, &'db str>,
     file_id: usize,
     // ad hoc, just to keep rustc from barking
     diagnostic: Option<Diagnostic<usize>>,

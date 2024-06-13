@@ -1,10 +1,12 @@
 use super::*;
 use husky_coword::Ident;
 use husky_entity_path::path::assoc_item::trai_item::TraitItemPath;
+use husky_entity_tree::node::HasAssocItemPaths;
+use vec_like::VecMapGetEntry;
 
 #[salsa::interned]
 pub struct EthTypeAsTraitItem {
-    pub parent: EthTerm,
+    pub self_ty: EthTerm,
     pub trai: EthTerm,
     pub ident: Ident,
     pub trai_item_path: TraitItemPath,
@@ -20,11 +22,26 @@ fn term_as_trai_subitem_size_works() {
 
 impl EthTypeAsTraitItem {
     pub(crate) fn from_dec(
-        _db: &::salsa::Db,
-        _valid_term: DecTypeAsTraitItem,
+        db: &::salsa::Db,
+        dec_ty_as_trai_item: DecTypeAsTraitItem,
         _term_ty_expectation: TypeFinalDestinationExpectation,
     ) -> EthTermResult<Self> {
-        todo!()
+        let self_ty = EthTerm::ty_from_dec(db, dec_ty_as_trai_item.self_ty(db))?;
+        let trai = EthTerm::from_dec(
+            db,
+            dec_ty_as_trai_item.trai(db),
+            // ad hoc, todo: change to TypeFinalDestinationExpectation:Trait
+            TypeFinalDestinationExpectation::Any,
+        )?;
+        let ident = dec_ty_as_trai_item.ident(db);
+        let TermFunctionReduced::Trait(trai_path) = trai.application_expansion(db).function()
+        else {
+            todo!()
+        };
+        let Some(&(_, trai_item_path)) = trai_path.assoc_item_paths(db).get_entry(ident) else {
+            todo!()
+        };
+        Ok(Self::new(db, self_ty, trai, ident, trai_item_path))
     }
 
     #[inline(never)]
@@ -47,12 +64,12 @@ impl EthTypeAsTraitItem {
 
 #[salsa::tracked]
 fn reduce_eth_ty_as_trai_item(db: &::salsa::Db, term: EthTypeAsTraitItem) -> EthTerm {
-    match term.parent(db) {
+    match term.self_ty(db) {
         EthTerm::Literal(_) => todo!(),
         EthTerm::SymbolicVariable(_) => term.into(),
         EthTerm::LambdaVariable(_) => todo!(),
         EthTerm::ItemPath(_) => todo!(),
-        EthTerm::Category(_) => todo!(),
+        EthTerm::Sort(_) => todo!(),
         EthTerm::Universe(_) => todo!(),
         EthTerm::Curry(_) => todo!(),
         EthTerm::Ritchie(_) => todo!(),
@@ -92,7 +109,7 @@ impl EthInstantiate for EthTypeAsTraitItem {
         ctx: &impl IsEthInstantiationContext,
         db: &::salsa::Db,
     ) -> Self::Output {
-        let parent = self.parent(db).instantiate(instantiation, ctx, db);
+        let parent = self.self_ty(db).instantiate(instantiation, ctx, db);
         let trai = self.trai(db).instantiate(instantiation, ctx, db);
         let ident = self.ident(db);
         let trai_item_path = self.trai_item_path(db);

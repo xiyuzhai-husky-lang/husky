@@ -37,7 +37,7 @@ pub enum EthTerm {
     /// the name `hvar` is to be distinguishable from runtime variable
     LambdaVariable(EthLambdaVariable),
     ItemPath(ItemPathTerm),
-    Category(Sort),
+    Sort(Sort),
     Universe(Universe),
     /// X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
     Curry(EthCurry),
@@ -139,6 +139,10 @@ impl EthTerm {
                     ty_expectation,
                 )?
             }
+            DecTerm::TypeAsTrait(declarative_term) => {
+                todo!()
+                // EthTypeAsTraitItem::from_dec(db, declarative_term, ty_expectation)?.into()
+            }
             DecTerm::TypeAsTraitItem(declarative_term) => {
                 EthTypeAsTraitItem::from_dec(db, declarative_term, ty_expectation)?.into()
             }
@@ -180,7 +184,7 @@ impl EthTerm {
             .into(),
             EthTerm::LambdaVariable(slf) => slf.into_declarative(db).into(),
             EthTerm::ItemPath(slf) => slf.into(),
-            EthTerm::Category(slf) => DecTerm::Category(slf),
+            EthTerm::Sort(slf) => DecTerm::Category(slf),
             EthTerm::Universe(slf) => slf.into(),
             EthTerm::Curry(slf) => DecCurry::new(
                 db,
@@ -212,7 +216,7 @@ impl EthTerm {
                 | ItemPathTerm::TypeInstance(_)
                 | ItemPathTerm::TypeVariant(_),
             )
-            | EthTerm::Category(_)
+            | EthTerm::Sort(_)
             | EthTerm::Universe(_) => self,
             EthTerm::ItemPath(ItemPathTerm::Form(_)) => todo!(),
             EthTerm::Curry(_) => self,
@@ -296,25 +300,31 @@ pub(crate) fn ethereal_term_from_dec_term_wrapper(
     wrapper: DecWrapper,
 ) -> EthTermResult<EthTerm> {
     let inner_ty = EthTerm::ty_from_dec(db, wrapper.inner_ty(db))?;
-    match inner_ty.application_expansion(db).function() {
-        TermFunctionReduced::TypeOntology(ty_path) => match ty_path.refine(db) {
-            Left(PreludeTypePath::Num(_)) | Left(PreludeTypePath::Indirection(_)) => Ok(inner_ty),
-            _ => {
-                let Some(toolchain) = inner_ty.toolchain(db) else {
-                    todo!()
-                };
-                let leash_ty_ontology = db.ethereal_term_menu(toolchain).leash_ty_ontology();
-                Ok(EthApplication::new_reduced(
-                    db,
-                    leash_ty_ontology,
-                    inner_ty,
-                    0,
-                ))
+    match wrapper.kind(db) {
+        DecTermWrapperKind::ValType | DecTermWrapperKind::VarType => {
+            match inner_ty.application_expansion(db).function() {
+                TermFunctionReduced::TypeOntology(ty_path) => match ty_path.refine(db) {
+                    Left(PreludeTypePath::Num(_)) | Left(PreludeTypePath::Indirection(_)) => {
+                        return Ok(inner_ty)
+                    }
+                    _ => (),
+                },
+                TermFunctionReduced::Trait(_) => todo!(),
+                TermFunctionReduced::TypeVar(_) => todo!(),
+                // ad hoc, todo: check more
+                TermFunctionReduced::Other(_) => (),
             }
-        },
-        TermFunctionReduced::Trait(_) => todo!(),
-        TermFunctionReduced::TypeVar(_) => todo!(),
-        TermFunctionReduced::Other(_) => todo!(),
+            let Some(toolchain) = inner_ty.toolchain(db) else {
+                todo!()
+            };
+            let leash_ty_ontology = db.ethereal_term_menu(toolchain).leash_ty_ontology();
+            Ok(EthApplication::new_reduced(
+                db,
+                leash_ty_ontology,
+                inner_ty,
+                0,
+            ))
+        }
     }
 }
 
@@ -350,7 +360,7 @@ impl salsa::DisplayWithDb for EthTerm {
             EthTerm::SymbolicVariable(term) => term.display_fmt_with_db(f, db),
             EthTerm::LambdaVariable(term) => term.display_fmt_with_db(f, db),
             EthTerm::ItemPath(term) => term.display_fmt_with_db(f, db),
-            EthTerm::Category(term) => f.write_str(&term.to_string()),
+            EthTerm::Sort(term) => f.write_str(&term.to_string()),
             EthTerm::Universe(term) => f.write_str(&term.to_string()),
             EthTerm::Curry(term) => term.display_fmt_with_db(f, db),
             EthTerm::Ritchie(term) => term.display_fmt_with_db(f, db),
@@ -369,7 +379,7 @@ impl EthTerm {
         match self {
             EthTerm::Literal(_)
             | EthTerm::ItemPath(_)
-            | EthTerm::Category(_)
+            | EthTerm::Sort(_)
             | EthTerm::Universe(_) => self,
             EthTerm::SymbolicVariable(_symbol) => todo!(),
             EthTerm::LambdaVariable(slf) => slf.substitute(substitution, db),
@@ -405,7 +415,7 @@ impl EthInstantiate for EthTerm {
         match self {
             EthTerm::Literal(_)
             | EthTerm::ItemPath(_)
-            | EthTerm::Category(_)
+            | EthTerm::Sort(_)
             | EthTerm::Universe(_) => self,
             EthTerm::SymbolicVariable(slf) => slf.instantiate(instantiation, ctx, db),
             EthTerm::LambdaVariable(slf) => slf.instantiate(instantiation, ctx, db).into(),

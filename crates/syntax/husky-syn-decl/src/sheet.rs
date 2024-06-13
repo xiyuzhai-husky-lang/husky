@@ -93,6 +93,7 @@ impl HasSynDeclSheet for ModulePath {
     }
 }
 
+#[deprecated(note = "include trait item")]
 // only useful for testing purposes
 #[salsa::tracked(jar = SynDeclJar)]
 pub fn syn_decl_sheet(db: &::salsa::Db, path: ModulePath) -> SynDeclSheet {

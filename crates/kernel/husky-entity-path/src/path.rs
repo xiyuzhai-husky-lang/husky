@@ -49,7 +49,7 @@ impl ItemPathId {
         self.data(db).ident(db)
     }
 
-    pub fn item_kind(self, db: &::salsa::Db) -> EntityKind {
+    pub fn entity_kind(self, db: &::salsa::Db) -> EntityKind {
         self.data(db).entity_kind(db)
     }
 }
@@ -171,8 +171,8 @@ impl EntityPath {
     pub fn item_kind(self, db: &::salsa::Db) -> EntityKind {
         match self {
             EntityPath::Module(_path) => EntityKind::Module,
-            EntityPath::MajorItem(path) => path.item_kind(db),
-            EntityPath::AssocItem(path) => path.item_kind(db),
+            EntityPath::MajorItem(path) => path.entity_kind(db),
+            EntityPath::AssocItem(path) => path.entity_kind(db),
             EntityPath::TypeVariant(_, _) => EntityKind::TypeVariant,
             EntityPath::ImplBlock(_) => EntityKind::ImplBlock,
             EntityPath::Attr(_, _) => todo!(),
@@ -375,7 +375,7 @@ impl PrincipalEntityPath {
     pub fn item_kind(self, db: &::salsa::Db) -> EntityKind {
         match self {
             PrincipalEntityPath::Module(_path) => EntityKind::Module,
-            PrincipalEntityPath::MajorItem(path) => path.item_kind(db),
+            PrincipalEntityPath::MajorItem(path) => path.entity_kind(db),
             PrincipalEntityPath::TypeVariant(_) => EntityKind::TypeVariant,
         }
     }

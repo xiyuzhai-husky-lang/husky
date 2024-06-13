@@ -45,5 +45,18 @@ impl<'a> ItemSynNodeDeclParser<'a> {
 pub struct TraitAssocValSynDecl {
     #[id]
     pub path: TraitItemPath,
+    pub return_ty: ReturnTypeBeforeEqSyndicate,
     pub syn_expr_region: SynExprRegion,
+}
+
+impl TraitAssocValSynDecl {
+    pub(super) fn from_node(
+        db: &::salsa::Db,
+        path: TraitItemPath,
+        syn_node_decl: TraitAssocValSynNodeDecl,
+    ) -> SynDeclResult<Self> {
+        let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
+        let syn_expr_region = syn_node_decl.syn_expr_region(db);
+        Ok(Self::new(db, path, return_ty, syn_expr_region))
+    }
 }
