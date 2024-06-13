@@ -249,7 +249,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::MethodFnCall {
+                                SemExprData::MethodRitchieCall {
                                     self_argument: SemExprIdx(
                                         5,
                                     ),
@@ -263,7 +263,7 @@
                                             17,
                                         ),
                                     },
-                                    dispatch: FlyDynamicDispatch {
+                                    instance_dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 place: Idx(
@@ -277,45 +277,67 @@
                                                 place_idx: None,
                                             },
                                         },
-                                        signature: MethodFlySignature::MethodFn(
-                                            MethodFnFlySignature {
-                                                path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(
-                                                        `core::slice::CyclicSlice(0)::first`,
-                                                        TypeItemKind::MethodRitchie(
-                                                            RitchieItemKind::Fn,
-                                                        ),
+                                        signature: TypeMethodRitchie(
+                                            TypeMethodRitchieFlySignature {
+                                                path: TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 388,
+                                                        },
                                                     ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Eth(
-                                                            EthTerm(`CyclicSlice Point2d`),
+                                                        base: Eth(
+                                                            Application(
+                                                                EthApplication(
+                                                                    Id {
+                                                                        value: 31,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Eth(
-                                                        EthTerm(`Option Leash Point2d`),
+                                                    base: Eth(
+                                                        Application(
+                                                            EthApplication(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::AssocItem(
-                                                        AssocItemPath::TypeItem(
+                                                    path: AssocItem(
+                                                        TypeItem(
                                                             TypeItemPath(
-                                                                `core::slice::CyclicSlice(0)::first`,
-                                                                TypeItemKind::MethodRitchie(
-                                                                    RitchieItemKind::Fn,
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 388,
+                                                                    },
                                                                 ),
                                                             ),
                                                         ),
                                                     ),
                                                     task_ty: Some(
-                                                        EthTerm(`MnistTask`),
+                                                        ItemPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 290,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
@@ -324,12 +346,26 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbolicVariable(`E`),
-                                                            FlyTermSymbolResolution::Explicit(
+                                                            EthSymbolicVariable(
+                                                                Id {
+                                                                    value: 2,
+                                                                },
+                                                            ),
+                                                            Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: FlyTermBase::Eth(
-                                                                        EthTerm(`Point2d`),
+                                                                    base: Eth(
+                                                                        ItemPath(
+                                                                            TypeOntology(
+                                                                                TypePath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 30,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            ),
+                                                                        ),
                                                                     ),
                                                                 },
                                                             ),
@@ -405,7 +441,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::MethodFnCall {
+                                SemExprData::MethodRitchieCall {
                                     self_argument: SemExprIdx(
                                         7,
                                     ),
@@ -419,7 +455,7 @@
                                             22,
                                         ),
                                     },
-                                    dispatch: FlyDynamicDispatch {
+                                    instance_dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Transient,
                                             indirections: [
@@ -429,13 +465,14 @@
                                                 place_idx: None,
                                             },
                                         },
-                                        signature: MethodFlySignature::MethodFn(
-                                            MethodFnFlySignature {
-                                                path: AssocItemPath::TraitForTypeItem(
+                                        signature: TraitForTypeMethodRitchie(
+                                            TraitForTypeMethodRitchieFlySignature {
+                                                path: TraitForTypeItem(
                                                     TraitForTypeItemPath(
-                                                        `<#derive _ as core::clone::Clone(0)>::clone`,
-                                                        TraitItemKind::MethodRitchie(
-                                                            RitchieItemKind::Fn,
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 391,
+                                                            },
                                                         ),
                                                     ),
                                                 ),
@@ -443,26 +480,62 @@
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Eth(
-                                                            EthTerm(`Point2d`),
+                                                        base: Eth(
+                                                            ItemPath(
+                                                                TypeOntology(
+                                                                    TypePath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 30,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            ),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Eth(
-                                                        EthTerm(`Point2d`),
+                                                    base: Eth(
+                                                        ItemPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 30,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::ImplBlock(
-                                                        ImplBlockPath::TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlockPath(`#derive _ as core::clone::Clone(0)`),
+                                                    path: ImplBlock(
+                                                        TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 223,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     task_ty: Some(
-                                                        EthTerm(`MnistTask`),
+                                                        ItemPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 290,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
@@ -471,12 +544,26 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbolicVariable(`Self`),
-                                                            FlyTermSymbolResolution::Explicit(
+                                                            EthSymbolicVariable(
+                                                                Id {
+                                                                    value: 3,
+                                                                },
+                                                            ),
+                                                            Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: FlyTermBase::Eth(
-                                                                        EthTerm(`Point2d`),
+                                                                    base: Eth(
+                                                                        ItemPath(
+                                                                            TypeOntology(
+                                                                                TypePath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 30,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            ),
+                                                                        ),
                                                                     ),
                                                                 },
                                                             ),
@@ -604,7 +691,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::MethodFnCall {
+                                SemExprData::MethodRitchieCall {
                                     self_argument: SemExprIdx(
                                         10,
                                     ),
@@ -618,7 +705,7 @@
                                             32,
                                         ),
                                     },
-                                    dispatch: FlyDynamicDispatch {
+                                    instance_dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 place: Idx(
@@ -632,45 +719,67 @@
                                                 place_idx: None,
                                             },
                                         },
-                                        signature: MethodFlySignature::MethodFn(
-                                            MethodFnFlySignature {
-                                                path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(
-                                                        `core::slice::CyclicSlice(0)::last`,
-                                                        TypeItemKind::MethodRitchie(
-                                                            RitchieItemKind::Fn,
-                                                        ),
+                                        signature: TypeMethodRitchie(
+                                            TypeMethodRitchieFlySignature {
+                                                path: TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 389,
+                                                        },
                                                     ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Eth(
-                                                            EthTerm(`CyclicSlice Point2d`),
+                                                        base: Eth(
+                                                            Application(
+                                                                EthApplication(
+                                                                    Id {
+                                                                        value: 31,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Eth(
-                                                        EthTerm(`Option Leash Point2d`),
+                                                    base: Eth(
+                                                        Application(
+                                                            EthApplication(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::AssocItem(
-                                                        AssocItemPath::TypeItem(
+                                                    path: AssocItem(
+                                                        TypeItem(
                                                             TypeItemPath(
-                                                                `core::slice::CyclicSlice(0)::last`,
-                                                                TypeItemKind::MethodRitchie(
-                                                                    RitchieItemKind::Fn,
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 389,
+                                                                    },
                                                                 ),
                                                             ),
                                                         ),
                                                     ),
                                                     task_ty: Some(
-                                                        EthTerm(`MnistTask`),
+                                                        ItemPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 290,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
@@ -679,12 +788,26 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbolicVariable(`E`),
-                                                            FlyTermSymbolResolution::Explicit(
+                                                            EthSymbolicVariable(
+                                                                Id {
+                                                                    value: 2,
+                                                                },
+                                                            ),
+                                                            Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: FlyTermBase::Eth(
-                                                                        EthTerm(`Point2d`),
+                                                                    base: Eth(
+                                                                        ItemPath(
+                                                                            TypeOntology(
+                                                                                TypePath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 30,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            ),
+                                                                        ),
                                                                     ),
                                                                 },
                                                             ),
@@ -760,7 +883,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::MethodFnCall {
+                                SemExprData::MethodRitchieCall {
                                     self_argument: SemExprIdx(
                                         12,
                                     ),
@@ -774,7 +897,7 @@
                                             37,
                                         ),
                                     },
-                                    dispatch: FlyDynamicDispatch {
+                                    instance_dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Transient,
                                             indirections: [
@@ -784,13 +907,14 @@
                                                 place_idx: None,
                                             },
                                         },
-                                        signature: MethodFlySignature::MethodFn(
-                                            MethodFnFlySignature {
-                                                path: AssocItemPath::TraitForTypeItem(
+                                        signature: TraitForTypeMethodRitchie(
+                                            TraitForTypeMethodRitchieFlySignature {
+                                                path: TraitForTypeItem(
                                                     TraitForTypeItemPath(
-                                                        `<#derive _ as core::clone::Clone(0)>::clone`,
-                                                        TraitItemKind::MethodRitchie(
-                                                            RitchieItemKind::Fn,
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 391,
+                                                            },
                                                         ),
                                                     ),
                                                 ),
@@ -798,26 +922,62 @@
                                                     contract: Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: FlyTermBase::Eth(
-                                                            EthTerm(`Point2d`),
+                                                        base: Eth(
+                                                            ItemPath(
+                                                                TypeOntology(
+                                                                    TypePath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 30,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            ),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: FlyTermBase::Eth(
-                                                        EthTerm(`Point2d`),
+                                                    base: Eth(
+                                                        ItemPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 30,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath::ImplBlock(
-                                                        ImplBlockPath::TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlockPath(`#derive _ as core::clone::Clone(0)`),
+                                                    path: ImplBlock(
+                                                        TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 223,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     task_ty: Some(
-                                                        EthTerm(`MnistTask`),
+                                                        ItemPath(
+                                                            TypeOntology(
+                                                                TypePath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 290,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
@@ -826,12 +986,26 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbolicVariable(`Self`),
-                                                            FlyTermSymbolResolution::Explicit(
+                                                            EthSymbolicVariable(
+                                                                Id {
+                                                                    value: 3,
+                                                                },
+                                                            ),
+                                                            Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: FlyTermBase::Eth(
-                                                                        EthTerm(`Point2d`),
+                                                                    base: Eth(
+                                                                        ItemPath(
+                                                                            TypeOntology(
+                                                                                TypePath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 30,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            ),
+                                                                        ),
                                                                     ),
                                                                 },
                                                             ),

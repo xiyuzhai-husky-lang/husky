@@ -11,6 +11,7 @@ use husky_coword::Ident;
 use husky_entity_tree::helpers::AvailableTraitItemsWithGivenIdent;
 use husky_eth_signature::{error::EthSignatureResult, signature::package::PackageEthSignatureData};
 use husky_regional_token::IdentRegionalToken;
+use path::assoc_item::AssocItemPath;
 
 pub type MethodFlyInstanceDispatch = FlyInstanceDispatch<MethodFlySignature>;
 
@@ -32,6 +33,22 @@ impl MethodFlyInstanceDispatch {
 pub enum MethodFlySignature {
     TypeMethodRitchie(TypeMethodRitchieFlySignature),
     TraitForTypeMethodRitchie(TraitForTypeMethodRitchieFlySignature),
+}
+
+impl MethodFlySignature {
+    pub fn path(&self) -> AssocItemPath {
+        match self {
+            MethodFlySignature::TypeMethodRitchie(slf) => slf.path().into(),
+            MethodFlySignature::TraitForTypeMethodRitchie(slf) => slf.path().into(),
+        }
+    }
+
+    pub fn instantiation(&self) -> &FlyInstantiation {
+        match self {
+            MethodFlySignature::TypeMethodRitchie(slf) => slf.instantiation(),
+            MethodFlySignature::TraitForTypeMethodRitchie(slf) => slf.instantiation(),
+        }
+    }
 }
 
 impl IsInstanceItemFlySignature for MethodFlySignature {

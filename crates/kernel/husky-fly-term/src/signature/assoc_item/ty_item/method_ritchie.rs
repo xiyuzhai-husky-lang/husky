@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_path::path::{assoc_item::AssocItemPath, major_item::ty::TypePath};
+use husky_entity_path::path::major_item::ty::TypePath;
 use husky_eth_signature::{
     context::EthSignatureBuilderContextItd,
     signature::{
@@ -13,12 +13,13 @@ use husky_eth_signature::{
 };
 use husky_eth_term::term::symbolic_variable::EthTermSymbolIndexImpl;
 use husky_regional_token::IdentRegionalToken;
+use path::assoc_item::ty_item::TypeItemPath;
 use quary::FlyQuary;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct TypeMethodRitchieFlySignature {
-    pub path: AssocItemPath,
+    pub path: TypeItemPath,
     pub self_value_parameter: FlyRitchieSimpleParameter,
     pub parenate_parameters: SmallVec<[FlyRitchieParameter; 4]>,
     pub return_ty: FlyTerm,
@@ -34,7 +35,7 @@ impl IsInstanceItemFlySignature for TypeMethodRitchieFlySignature {
 impl TypeMethodRitchieFlySignature {
     pub(crate) fn from_eth(self_place: FlyQuary, eth_sig: &TypeMethodRitchieEthSignature) -> Self {
         Self {
-            path: eth_sig.path().into(),
+            path: eth_sig.path(),
             self_value_parameter: eth_sig.self_value_parameter().into(),
             parenate_parameters: eth_sig
                 .parenate_parameters()
@@ -63,7 +64,7 @@ impl TypeMethodRitchieFlySignature {
         self.return_ty
     }
 
-    pub fn path(&self) -> AssocItemPath {
+    pub fn path(&self) -> TypeItemPath {
         self.path
     }
 }

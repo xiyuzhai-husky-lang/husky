@@ -15,8 +15,9 @@ use husky_entity_path::path::{
     PrincipalEntityPath,
 };
 use husky_eth_term::term::EthTerm;
-use husky_fly_term::dispatch::{
-    field::FieldFlySignature, method::MethodFlySignature, OntologyDispatch,
+use husky_fly_term::{
+    dispatch::{field::FieldFlySignature, method::MethodFlySignature, OntologyDispatch},
+    signature::assoc_item::ty_item::TypeItemFlySignature,
 };
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
@@ -213,7 +214,7 @@ impl ToHirEager for SemExprIdx {
                 ..
             } => match ontology_dispatch {
                 OntologyDispatch::TypeItem { signature } => todo!(),
-                OntologyDispatch::TraitItem { signature } => todo!(),
+                OntologyDispatch::TraitItem { signature, .. } => todo!(),
                 OntologyDispatch::TraitForTypeItem { signature } => todo!(),
                 // StaticDispatch::AssocRitchie(signature) => HirEagerExprData::AssocRitchie {
                 //     assoc_item_path: signature.path(),
@@ -392,20 +393,23 @@ impl ToHirEager for SemExprIdx {
                         ref ontology_dispatch,
                         ..
                     } => match ontology_dispatch {
-                        OntologyDispatch::TypeItem { signature } => todo!(),
-                        OntologyDispatch::TraitItem { signature } => todo!(),
+                        OntologyDispatch::TypeItem { signature } => match signature {
+                            TypeItemFlySignature::AssocRitchie(signature) => {
+                                HirEagerExprData::AssocFunctionRitchieCall {
+                                    path: signature.path(),
+                                    instantiation: HirInstantiation::from_fly(
+                                        signature.instantiation(),
+                                        &place_contract_site,
+                                        db,
+                                        builder.fly_terms(),
+                                    ),
+                                    arguments: item_groups,
+                                }
+                            }
+                        },
+                        OntologyDispatch::TraitItem { signature, .. } => todo!(),
                         OntologyDispatch::TraitForTypeItem { signature } => todo!(),
                         // StaticDispatch::AssocRitchie(signature) => {
-                        //     HirEagerExprData::AssocFunctionRitchieCall {
-                        //         path: signature.path(),
-                        //         instantiation: HirInstantiation::from_fly(
-                        //             signature.instantiation(),
-                        //             &place_contract_site,
-                        //             db,
-                        //             builder.fly_terms(),
-                        //         ),
-                        //         arguments: item_groups,
-                        //     }
                         // }
                         // StaticDispatch::AssocGn => unreachable!(),
                         // StaticDispatch::TypeAsTrait {
@@ -457,28 +461,24 @@ impl ToHirEager for SemExprIdx {
                 self_argument: self_argument_sem_expr_idx,
                 self_contract,
                 ident_token,
-                instance_dispatch: ref dispatch,
-
+                ref instance_dispatch,
                 ref ritchie_parameter_argument_matches,
                 ..
             } => {
-                todo!()
-                // let MethodFlySignature::MethodFn(signature) = dispatch.signature() else {
-                //     unreachable!()
-                // };
-                // HirEagerExprData::MethodRitchieCall {
-                //     self_argument: self_argument_sem_expr_idx.to_hir_eager(builder),
-                //     self_contract: HirContract::from_contract(self_contract),
-                //     ident: ident_token.ident(),
-                //     path: signature.path(),
-                //     instantiation: HirInstantiation::from_fly(
-                //         signature.instantiation(),
-                //         &place_contract_site,
-                //         builder.db(),
-                //         builder.fly_terms(),
-                //     ),
-                //     arguments: builder.new_call_list_arguments(ritchie_parameter_argument_matches),
-                // }
+                let signature = instance_dispatch.signature();
+                HirEagerExprData::MethodRitchieCall {
+                    self_argument: self_argument_sem_expr_idx.to_hir_eager(builder),
+                    self_contract: HirContract::from_contract(self_contract),
+                    ident: ident_token.ident(),
+                    path: signature.path(),
+                    instantiation: HirInstantiation::from_fly(
+                        signature.instantiation(),
+                        &place_contract_site,
+                        builder.db(),
+                        builder.fly_terms(),
+                    ),
+                    arguments: builder.new_call_list_arguments(ritchie_parameter_argument_matches),
+                }
             }
             SemExprData::TemplateInstantiation { .. } => todo!(),
             SemExprData::At { .. } => todo!(),
