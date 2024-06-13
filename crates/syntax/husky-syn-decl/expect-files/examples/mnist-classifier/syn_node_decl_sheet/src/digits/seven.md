@@ -4,14 +4,14 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Form(
-                    FormSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`, (0)),
+                    MajorFormSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::Val(
                         MajorValSynNodeDecl {
-                            syn_node_path: FormSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`, (0)),
+                            syn_node_path: MajorFormSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`, (0)),
                             colon_token: Ok(
                                 ColonRegionalToken(
                                     RegionalTokenIdx(
@@ -38,7 +38,7 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -124,7 +124,7 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Form(
-                    FormSynNodePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
+                    MajorFormSynNodePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
                         Fn,
                     )`, (0)),
                 ),
@@ -133,7 +133,7 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
-                            syn_node_path: FormSynNodePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
+                            syn_node_path: MajorFormSynNodePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
                                 Fn,
                             )`, (0)),
                             ritchie_item_kind: RitchieItemKind::Fn,
@@ -210,7 +210,7 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -400,14 +400,14 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Form(
-                    FormSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`, (0)),
+                    MajorFormSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::Val(
                         MajorValSynNodeDecl {
-                            syn_node_path: FormSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`, (0)),
+                            syn_node_path: MajorFormSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`, (0)),
                             colon_token: Ok(
                                 ColonRegionalToken(
                                     RegionalTokenIdx(
@@ -434,7 +434,7 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -520,7 +520,7 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Form(
-                    FormSynNodePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
+                    MajorFormSynNodePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
                         Fn,
                     )`, (0)),
                 ),
@@ -529,7 +529,7 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
-                            syn_node_path: FormSynNodePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
+                            syn_node_path: MajorFormSynNodePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
                                 Fn,
                             )`, (0)),
                             ritchie_item_kind: RitchieItemKind::Fn,
@@ -606,7 +606,7 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -796,7 +796,7 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Form(
-                    FormSynNodePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
+                    MajorFormSynNodePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
                         Fn,
                     )`, (0)),
                 ),
@@ -805,7 +805,7 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
-                            syn_node_path: FormSynNodePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
+                            syn_node_path: MajorFormSynNodePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
                                 Fn,
                             )`, (0)),
                             ritchie_item_kind: RitchieItemKind::Fn,
@@ -882,7 +882,7 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -1072,14 +1072,14 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Form(
-                    FormSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`, (0)),
+                    MajorFormSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::Val(
                         MajorValSynNodeDecl {
-                            syn_node_path: FormSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`, (0)),
+                            syn_node_path: MajorFormSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`, (0)),
                             colon_token: Ok(
                                 ColonRegionalToken(
                                     RegionalTokenIdx(
@@ -1106,7 +1106,7 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`, (0)),
                                             ),
                                         ),
                                     ),

@@ -38,7 +38,10 @@ impl SemExprIdx {
                 | SemExprData::FrameVarDecl { .. }
                 | SemExprData::SelfType(_)
                 | SemExprData::SelfValue(_) => (),
-                SemExprData::TypeAsTraitItem { .. } => todo!(),
+                SemExprData::TypeAsTraitItem { ty, trai, .. } => {
+                    ty.simulate(visitor);
+                    trai.simulate(visitor);
+                }
                 SemExprData::Binary { lopd, ropd, .. } => {
                     lopd.simulate(visitor);
                     ropd.simulate(visitor);
@@ -63,7 +66,16 @@ impl SemExprIdx {
                     ref template_arguments,
                     ref ritchie_parameter_argument_matches,
                     ..
-                } => todo!(),
+                } => {
+                    function.simulate(visitor);
+                    if let Some(_) = template_arguments {
+                        todo!()
+                    }
+                    simulate_ritchie_parameter_argument_matches(
+                        ritchie_parameter_argument_matches,
+                        visitor,
+                    );
+                }
                 SemExprData::Ritchie {
                     ref parameter_ty_items,
                     return_ty,

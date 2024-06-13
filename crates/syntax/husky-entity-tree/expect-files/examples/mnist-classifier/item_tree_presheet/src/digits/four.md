@@ -7,7 +7,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::digits::four::left_components`, `Val`, (0)),
+                            MajorFormSynNodePath(`mnist_classifier::digits::four::left_components`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             ModulePath(`mnist_classifier::digits::four`),
@@ -33,7 +33,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::digits::four::left_components`, `Val`, (0)),
+                        MajorFormSynNodePath(`mnist_classifier::digits::four::left_components`, `Val`, (0)),
                     ),
                 ),
                 ident: `left_components`,
@@ -45,7 +45,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
+                            MajorFormSynNodePath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -75,7 +75,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
+                        MajorFormSynNodePath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -89,7 +89,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`, (0)),
+                            MajorFormSynNodePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             ModulePath(`mnist_classifier::digits::four`),
@@ -115,7 +115,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`, (0)),
+                        MajorFormSynNodePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`, (0)),
                     ),
                 ),
                 ident: `components_max_downwards`,
@@ -127,7 +127,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::digits::four::components_max_heights`, `Val`, (0)),
+                            MajorFormSynNodePath(`mnist_classifier::digits::four::components_max_heights`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             ModulePath(`mnist_classifier::digits::four`),
@@ -153,7 +153,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::digits::four::components_max_heights`, `Val`, (0)),
+                        MajorFormSynNodePath(`mnist_classifier::digits::four::components_max_heights`, `Val`, (0)),
                     ),
                 ),
                 ident: `components_max_heights`,
@@ -165,7 +165,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::digits::four::is_four`, `Val`, (0)),
+                            MajorFormSynNodePath(`mnist_classifier::digits::four::is_four`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             ModulePath(`mnist_classifier::digits::four`),
@@ -191,7 +191,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::digits::four::is_four`, `Val`, (0)),
+                        MajorFormSynNodePath(`mnist_classifier::digits::four::is_four`, `Val`, (0)),
                     ),
                 ),
                 ident: `is_four`,
@@ -203,7 +203,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
+                            MajorFormSynNodePath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -233,7 +233,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
+                        MajorFormSynNodePath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -247,7 +247,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
+                            MajorFormSynNodePath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -277,7 +277,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
+                        MajorFormSynNodePath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),

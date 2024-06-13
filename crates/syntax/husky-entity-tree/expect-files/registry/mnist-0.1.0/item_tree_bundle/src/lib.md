@@ -220,7 +220,7 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`mnist::input`, `Val`, (0)),
+                                    MajorFormSynNodePath(`mnist::input`, `Val`, (0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 27,
@@ -238,7 +238,7 @@ EntityTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                FormSynNodePath(`mnist::input`, `Val`, (0)),
+                                MajorFormSynNodePath(`mnist::input`, `Val`, (0)),
                             ),
                         ),
                         ident: `input`,

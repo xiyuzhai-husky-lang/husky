@@ -415,8 +415,11 @@ impl<'a> DecTermEngine<'a> {
                 colon_colon_regional_token,
                 ident_token,
             } => todo!(),
-            SynExprData::TypeAsTraitItem {
-                ty, trai, ident, ..
+            SynExprData::TypeAsTargetItem {
+                ty,
+                target: trai,
+                ident,
+                ..
             } => {
                 let ty = self.infer_new_expr_term(ty)?;
                 let trai = self.infer_new_expr_term(trai)?;

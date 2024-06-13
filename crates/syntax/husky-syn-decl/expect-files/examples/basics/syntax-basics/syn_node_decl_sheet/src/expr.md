@@ -4,7 +4,7 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Form(
-                    FormSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
+                    MajorFormSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
                         Fn,
                     )`, (0)),
                 ),
@@ -13,7 +13,7 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
-                            syn_node_path: FormSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
+                            syn_node_path: MajorFormSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
                                 Fn,
                             )`, (0)),
                             ritchie_item_kind: RitchieItemKind::Fn,
@@ -59,7 +59,7 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
+                                                MajorFormSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -115,7 +115,7 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Form(
-                    FormSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                    MajorFormSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
                         Fn,
                     )`, (0)),
                 ),
@@ -124,7 +124,7 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
-                            syn_node_path: FormSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                            syn_node_path: MajorFormSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
                                 Fn,
                             )`, (0)),
                             ritchie_item_kind: RitchieItemKind::Fn,
@@ -170,7 +170,7 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                                                MajorFormSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -226,7 +226,7 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Form(
-                    FormSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                    MajorFormSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
                         Fn,
                     )`, (0)),
                 ),
@@ -235,7 +235,7 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
-                            syn_node_path: FormSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                            syn_node_path: MajorFormSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
                                 Fn,
                             )`, (0)),
                             ritchie_item_kind: RitchieItemKind::Fn,
@@ -281,7 +281,7 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                                                MajorFormSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),

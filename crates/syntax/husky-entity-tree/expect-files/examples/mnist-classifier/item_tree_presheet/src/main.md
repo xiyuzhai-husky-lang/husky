@@ -336,7 +336,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
+                            MajorFormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             ModulePath(`mnist_classifier`),
@@ -362,7 +362,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
+                        MajorFormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                     ),
                 ),
                 ident: `main`,

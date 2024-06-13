@@ -492,7 +492,7 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                FormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
+                                MajorFormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {

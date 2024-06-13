@@ -11,7 +11,7 @@ pub enum TypeItemFlySignature {
 }
 
 impl TypeItemFlySignature {
-    pub fn ty(&self) -> FlyTerm {
+    pub fn item_ty(&self) -> FlyTerm {
         match self {
             TypeItemFlySignature::AssocRitchie(slf) => slf.ty(),
         }

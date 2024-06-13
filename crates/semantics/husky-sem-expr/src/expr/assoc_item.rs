@@ -68,7 +68,7 @@ impl<'a> SemExprBuilder<'a> {
         let db = self.db();
         match parent_term.ontology_dispatch(self, expr_idx, ident, /*ad hoc */ &[]) {
             JustOk(ontology_dispatch) => {
-                let ty_result = ontology_dispatch.ty_result(self).map_err(Into::into);
+                let ty_result = ontology_dispatch.item_ty_result(self).map_err(Into::into);
                 (Ok(ontology_dispatch), ty_result)
             }
             JustErr(_) => todo!(),

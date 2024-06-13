@@ -24,11 +24,11 @@ pub enum SynExprData {
         colon_colon_regional_token: ColonColonRegionalToken,
         ident_token: IdentRegionalToken,
     },
-    TypeAsTraitItem {
+    TypeAsTargetItem {
         lpar_regional_token_idx: RegionalTokenIdx,
         ty: SynExprIdx,
         as_region_token_idx: RegionalTokenIdx,
-        trai: SynExprIdx,
+        target: SynExprIdx,
         rpar_regional_token_idx: RegionalTokenIdx,
         colon_colon_regional_token_idx: RegionalTokenIdx,
         ident: Ident,

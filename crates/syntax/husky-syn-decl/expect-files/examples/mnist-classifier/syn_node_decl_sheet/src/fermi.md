@@ -380,7 +380,7 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Form(
-                    FormSynNodePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                    MajorFormSynNodePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                         Fn,
                     )`, (0)),
                 ),
@@ -389,7 +389,7 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
-                            syn_node_path: FormSynNodePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            syn_node_path: MajorFormSynNodePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`, (0)),
                             ritchie_item_kind: RitchieItemKind::Fn,
@@ -492,7 +492,7 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),

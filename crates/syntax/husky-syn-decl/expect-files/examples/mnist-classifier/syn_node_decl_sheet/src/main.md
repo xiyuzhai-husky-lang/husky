@@ -235,14 +235,14 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Form(
-                    FormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
+                    MajorFormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::Val(
                         MajorValSynNodeDecl {
-                            syn_node_path: FormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
+                            syn_node_path: MajorFormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                             colon_token: Ok(
                                 ColonRegionalToken(
                                     RegionalTokenIdx(
@@ -269,7 +269,7 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                                             ),
                                         ),
                                     ),

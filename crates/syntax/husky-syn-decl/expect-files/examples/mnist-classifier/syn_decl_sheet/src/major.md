@@ -22,7 +22,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::major::connected_components`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist_classifier::major::connected_components`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -139,7 +139,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::major::major_connected_component`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist_classifier::major::major_connected_component`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -250,7 +250,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -354,7 +354,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::major::major_raw_contours`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist_classifier::major::major_raw_contours`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -478,7 +478,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::major::major_raw_contour`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist_classifier::major::major_raw_contour`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -589,7 +589,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -700,7 +700,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::major::major_concave_components`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist_classifier::major::major_concave_components`, `Val`, (0)),
                                             ),
                                         ),
                                     ),

@@ -7,7 +7,7 @@ EntityTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
+                            MajorFormSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -37,7 +37,7 @@ EntityTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
+                        MajorFormSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -51,7 +51,7 @@ EntityTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                            MajorFormSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -81,7 +81,7 @@ EntityTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                        MajorFormSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -95,7 +95,7 @@ EntityTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                            MajorFormSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -125,7 +125,7 @@ EntityTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                        MajorFormSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
