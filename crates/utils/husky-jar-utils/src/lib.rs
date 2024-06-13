@@ -1,15 +1,16 @@
-use std::collections::{BTreeMap, BTreeSet};
-
 use cargo::core::Summary;
 use husky_cargo_utils::metadata::workspace_package_summaries;
-use husky_path_utils::HuskyLangDevPaths;
-use serde::Serialize;
+use husky_path_utils::{HuskyLangDevPaths, PathBuf};
+use husky_print_utils::p;
+use pathdiff::diff_paths;
+use serde::{de::IntoDeserializer, Serialize};
+use std::collections::{BTreeMap, BTreeSet};
 
 pub fn husky_lang_packages() -> Vec<PackageSummary> {
     let dev_paths = HuskyLangDevPaths::new();
     workspace_package_summaries(dev_paths.dev_root())
         .into_iter()
-        .map(Into::into)
+        .map(|summary| PackageSummary::new(summary, &dev_paths))
         .collect()
 }
 
@@ -20,12 +21,20 @@ pub struct PackageSummary {
     dependencies: Vec<String>,
 }
 
-impl From<Summary> for PackageSummary {
-    fn from(summary: Summary) -> Self {
+impl PackageSummary {
+    fn new(summary: Summary, dev_paths: &HuskyLangDevPaths) -> Self {
         let url = summary.source_id().url().to_string();
-        let url_splits: Vec<&str> = url.split("/husky/").collect();
-        assert_eq!(url_splits.len(), 2);
-        let relative_path = url_splits[1].to_string();
+        let dev_root = dev_paths.dev_root();
+        p!(url);
+        assert!(url.starts_with("file://"));
+        let path: PathBuf = url.trim_start_matches("file://").into();
+        p!(path);
+        assert!(path.exists());
+        let relative_path = diff_paths(path, dev_root)
+            .unwrap()
+            .to_str()
+            .unwrap()
+            .to_string();
         Self {
             name: summary.name().to_string(),
             relative_path,
