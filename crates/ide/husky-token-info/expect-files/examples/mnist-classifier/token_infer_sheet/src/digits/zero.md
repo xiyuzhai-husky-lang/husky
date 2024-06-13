@@ -33,7 +33,7 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                FormSynNodePath(`mnist_classifier::digits::zero::open_one_match`, `Val`, (0)),
+                                MajorFormSynNodePath(`mnist_classifier::digits::zero::open_one_match`, `Val`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
@@ -161,7 +161,7 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                FormSynNodePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
+                                MajorFormSynNodePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),
@@ -328,7 +328,7 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                FormSynNodePath(`mnist_classifier::digits::zero::is_zero`, `Val`, (0)),
+                                MajorFormSynNodePath(`mnist_classifier::digits::zero::is_zero`, `Val`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {

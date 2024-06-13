@@ -129,7 +129,7 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Form(
-                FormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
+                MajorFormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
             ),
         ),
         Some(
@@ -144,7 +144,7 @@
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -255,7 +255,7 @@
                         path: SynNodeRegionPath::ItemDefn(
                             ItemSynNodePath::MajorItem(
                                 MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
+                                    MajorFormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                                 ),
                             ),
                         ),

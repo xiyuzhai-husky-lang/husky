@@ -667,11 +667,11 @@ where
                     ropd: trai,
                 } => {
                     self.push_top_syn_expr(
-                        SynExprData::TypeAsTraitItem {
+                        SynExprData::TypeAsTargetItem {
                             lpar_regional_token_idx,
                             ty,
                             as_region_token_idx,
-                            trai,
+                            target: trai,
                             rpar_regional_token_idx,
                             colon_colon_regional_token_idx,
                             ident,

@@ -102,7 +102,7 @@ Ok(
                                     ),
                                     ropd: 1,
                                 },
-                                SynExprData::TypeAsTraitItem {
+                                SynExprData::TypeAsTargetItem {
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
@@ -110,7 +110,7 @@ Ok(
                                     as_region_token_idx: RegionalTokenIdx(
                                         6,
                                     ),
-                                    trai: 1,
+                                    target: 1,
                                     rpar_regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),

@@ -7,7 +7,7 @@ EntityTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist::Task`, `TypeVar`, (0)),
+                            MajorFormSynNodePath(`mnist::Task`, `TypeVar`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 1,
@@ -25,7 +25,7 @@ EntityTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist::Task`, `TypeVar`, (0)),
+                        MajorFormSynNodePath(`mnist::Task`, `TypeVar`, (0)),
                     ),
                 ),
                 ident: `Task`,
@@ -35,7 +35,7 @@ EntityTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist::TASK`, `StaticVar`, (0)),
+                            MajorFormSynNodePath(`mnist::TASK`, `StaticVar`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 2,
@@ -53,7 +53,7 @@ EntityTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist::TASK`, `StaticVar`, (0)),
+                        MajorFormSynNodePath(`mnist::TASK`, `StaticVar`, (0)),
                     ),
                 ),
                 ident: `TASK`,

@@ -42,12 +42,51 @@ impl OntologyDispatch {
 // AssocRitchie(TypeAssocRitchieFlySignature),
 // AssocStaticVar(AssocStaticVarFlySignature),
 impl OntologyDispatch {
-    pub fn ty_result(&self, engine: &mut impl FlyTermEngineMut) -> FlyTermResult<FlyTerm> {
+    pub fn item_ty_result(&self, engine: &mut impl FlyTermEngineMut) -> FlyTermResult<FlyTerm> {
         let db = engine.db();
         match self {
-            OntologyDispatch::TypeItem { signature } => Ok(signature.ty()),
+            OntologyDispatch::TypeItem { signature } => Ok(signature.item_ty()),
             OntologyDispatch::TraitItem { signature, .. } => Ok(signature.item_ty()),
             OntologyDispatch::TraitForTypeItem { signature } => todo!(),
+        }
+    }
+
+    pub fn item_term_result(&self, engine: &mut impl FlyTermEngineMut) -> FlyTermResult<FlyTerm> {
+        let db = engine.db();
+        match *self {
+            OntologyDispatch::TypeItem { ref signature } => todo!(),
+            OntologyDispatch::TraitItem { ref signature, .. } => {
+                let self_ty = signature.self_ty();
+                let trai = signature.trai();
+                let trai_item_path = signature.path();
+                let ident = trai_item_path.ident(db);
+                Ok(FlyTerm::new_ty_as_trai_item(
+                    engine,
+                    self_ty,
+                    trai,
+                    ident,
+                    trai_item_path,
+                ))
+            }
+            OntologyDispatch::TraitForTypeItem { ref signature } => todo!(),
+            // StaticDispatch::AssocRitchie(_) => todo!(),
+            // StaticDispatch::AssocGn => todo!(),
+            // StaticDispatch::TypeAsTrait {
+            //     trai,
+            //     trai_item_path,
+            //     ..
+            // } => {
+            //     let ty = self.calc_expr_term(parent_expr_idx).expect(
+            //         "should be guaranteed to be okay by the fact that static dispatch is calculated",
+            //     );
+            //     Ok(FlyTerm::new_ty_as_trai_item(
+            //         self,
+            //         ty,
+            //         trai,
+            //         ident,
+            //         trai_item_path,
+            //     ))
+            // }
         }
     }
 }

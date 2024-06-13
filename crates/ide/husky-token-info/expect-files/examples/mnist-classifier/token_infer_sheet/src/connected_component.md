@@ -386,7 +386,7 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                FormSynNodePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                MajorFormSynNodePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),
@@ -3895,7 +3895,7 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                FormSynNodePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                MajorFormSynNodePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),
@@ -4378,7 +4378,7 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                FormSynNodePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                                MajorFormSynNodePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),

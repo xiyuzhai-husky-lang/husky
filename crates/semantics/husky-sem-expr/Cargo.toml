@@ -47,6 +47,7 @@ husky-syn-opr.workspace = true
 # utils
 husky-io-utils.workspace = true
 husky-print-utils.workspace = true
+husky-wild-utils.workspace = true
 
 [dev-dependencies]
 # kernel

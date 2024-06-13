@@ -8,8 +8,12 @@ impl<'a> SemExprBuilder<'a> {
     pub(super) fn calc_ty_as_target_item_ty(
         &mut self,
         syn_expr_idx: SynExprIdx,
+        lpar_regional_token_idx: RegionalTokenIdx,
         ty: SynExprIdx,
+        as_region_token_idx: RegionalTokenIdx,
         target: SynExprIdx,
+        rpar_regional_token_idx: RegionalTokenIdx,
+        colon_colon_regional_token_idx: RegionalTokenIdx,
         ident: Ident,
         ident_regional_token_idx: RegionalTokenIdx,
     ) -> (SemExprDataResult<SemExprData>, SemExprTypeResult<FlyTerm>) {
@@ -37,6 +41,12 @@ impl<'a> SemExprBuilder<'a> {
                         ty,
                         trai: target,
                         ontology_dispatch,
+                        lpar_regional_token_idx,
+                        as_region_token_idx,
+                        rpar_regional_token_idx,
+                        colon_colon_regional_token_idx,
+                        ident,
+                        ident_regional_token_idx,
                     }
                 });
                 (data_result, ty_result)
@@ -57,7 +67,7 @@ impl<'a> SemExprBuilder<'a> {
     ) {
         match ty.ontology_dispatch_as_trai(trai, self, syn_expr_idx, ident) {
             JustOk(ontology_dispatch) => {
-                let ty_result = ontology_dispatch.ty_result(self).map_err(Into::into);
+                let ty_result = ontology_dispatch.item_ty_result(self).map_err(Into::into);
                 (Ok(ontology_dispatch), ty_result)
             }
             JustErr(e) => {

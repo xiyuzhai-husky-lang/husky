@@ -73,11 +73,11 @@ impl SynExprData {
                 colon_colon_regional_token: _,
                 ident_token: _,
             } => todo!(),
-            SynExprData::TypeAsTraitItem {
+            SynExprData::TypeAsTargetItem {
                 lpar_regional_token_idx,
                 ty,
                 as_region_token_idx,
-                trai,
+                target: trai,
                 rpar_regional_token_idx,
                 colon_colon_regional_token_idx,
                 ident,

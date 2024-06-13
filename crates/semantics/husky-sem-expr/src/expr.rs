@@ -75,6 +75,7 @@ use husky_token_data::{
     BoolLiteralTokenData, FloatLiteralTokenData, IntegerLikeLiteralTokenData, LiteralTokenData,
     TokenData,
 };
+use husky_wild_utils::{arb_mut, arb_ref};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use smallvec::SmallVec;
 use std::ops::Index;
@@ -107,8 +108,14 @@ pub enum SemExprData {
         ontology_dispatch: OntologyDispatch,
     },
     TypeAsTraitItem {
+        lpar_regional_token_idx: RegionalTokenIdx,
         ty: SemExprIdx,
+        as_region_token_idx: RegionalTokenIdx,
         trai: SemExprIdx,
+        rpar_regional_token_idx: RegionalTokenIdx,
+        colon_colon_regional_token_idx: RegionalTokenIdx,
+        ident: Ident,
+        ident_regional_token_idx: RegionalTokenIdx,
         ontology_dispatch: OntologyDispatch,
     },
     AssocItem {
@@ -785,16 +792,23 @@ impl<'a> SemExprBuilder<'a> {
                 });
                 (data_result, ty_result)
             }
-            SynExprData::TypeAsTraitItem {
+            SynExprData::TypeAsTargetItem {
+                lpar_regional_token_idx,
                 ty,
-                trai,
+                as_region_token_idx,
+                target,
+                rpar_regional_token_idx,
+                colon_colon_regional_token_idx,
                 ident,
                 ident_regional_token_idx,
-                ..
             } => self.calc_ty_as_target_item_ty(
                 syn_expr_idx,
+                lpar_regional_token_idx,
                 ty,
-                trai,
+                as_region_token_idx,
+                target,
+                rpar_regional_token_idx,
+                colon_colon_regional_token_idx,
                 ident,
                 ident_regional_token_idx,
             ),
@@ -1486,48 +1500,21 @@ impl<'a> SemExprBuilder<'a> {
                 ident_token,
                 ref ontology_dispatch,
             } => todo!(),
-            SemExprData::TypeAsTraitItem { .. } => todo!(),
-            SemExprData::AssocItem {
-                parent_expr_idx,
-                colon_colon_regional_token_idx,
-                ident,
-                ident_regional_token_idx,
+            SemExprData::TypeAsTraitItem {
                 ref ontology_dispatch,
-            } => match *ontology_dispatch {
-                OntologyDispatch::TypeItem { ref signature } => todo!(),
-                OntologyDispatch::TraitItem { ref signature, .. } => {
-                    use husky_print_utils::p;
-                    let self_ty = signature.self_ty();
-                    let trai = signature.trai();
-                    let trai_item_path = signature.path();
-                    Ok(FlyTerm::new_ty_as_trai_item(
-                        self,
-                        self_ty,
-                        trai,
-                        ident,
-                        trai_item_path,
-                    ))
-                }
-                OntologyDispatch::TraitForTypeItem { ref signature } => todo!(),
-                // StaticDispatch::AssocRitchie(_) => todo!(),
-                // StaticDispatch::AssocGn => todo!(),
-                // StaticDispatch::TypeAsTrait {
-                //     trai,
-                //     trai_item_path,
-                //     ..
-                // } => {
-                //     let ty = self.calc_expr_term(parent_expr_idx).expect(
-                //         "should be guaranteed to be okay by the fact that static dispatch is calculated",
-                //     );
-                //     Ok(FlyTerm::new_ty_as_trai_item(
-                //         self,
-                //         ty,
-                //         trai,
-                //         ident,
-                //         trai_item_path,
-                //     ))
-                // }
-            },
+                ..
+            }
+            | SemExprData::AssocItem {
+                ref ontology_dispatch,
+                ..
+            } => {
+                // the `unsafe` is due to Rust currently don't have view type
+                // item_term_result wouldn't change ontology_dispatch, so the reference is valid
+                // of course, we can circumvent this by utilizing struct field tricks, but what's the point
+                unsafe { arb_ref(ontology_dispatch) }
+                    .item_term_result(self)
+                    .map_err(Into::into)
+            }
             SemExprData::InheritedSynSymbol {
                 ident,
                 regional_token_idx,

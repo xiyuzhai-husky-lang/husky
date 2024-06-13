@@ -279,7 +279,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist::input`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist::input`, `Val`, (0)),
                                             ),
                                         ),
                                     ),

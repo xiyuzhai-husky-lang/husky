@@ -385,7 +385,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),

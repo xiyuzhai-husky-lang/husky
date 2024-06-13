@@ -7,7 +7,7 @@ EntityTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`semantics_basics::some_neural_network`, `Ritchie(
+                            MajorFormSynNodePath(`semantics_basics::some_neural_network`, `Ritchie(
                                 Gn,
                             )`, (0)),
                         ),
@@ -37,7 +37,7 @@ EntityTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`semantics_basics::some_neural_network`, `Ritchie(
+                        MajorFormSynNodePath(`semantics_basics::some_neural_network`, `Ritchie(
                             Gn,
                         )`, (0)),
                     ),

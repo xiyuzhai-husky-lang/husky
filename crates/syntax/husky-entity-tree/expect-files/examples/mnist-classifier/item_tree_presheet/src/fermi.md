@@ -61,7 +61,7 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            MajorFormSynNodePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -89,7 +89,7 @@ EntityTreePresheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        FormSynNodePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                        MajorFormSynNodePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),

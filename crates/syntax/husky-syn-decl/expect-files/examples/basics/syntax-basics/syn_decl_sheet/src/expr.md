@@ -26,7 +26,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
+                                                MajorFormSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -104,7 +104,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                                                MajorFormSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -182,7 +182,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                                                MajorFormSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),

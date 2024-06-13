@@ -4,7 +4,7 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Form(
-                    FormSynNodePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                    MajorFormSynNodePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                         Fn,
                     )`, (0)),
                 ),
@@ -13,7 +13,7 @@ SynNodeDeclSheet {
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
-                            syn_node_path: FormSynNodePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                            syn_node_path: MajorFormSynNodePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                                 Fn,
                             )`, (0)),
                             ritchie_item_kind: RitchieItemKind::Fn,
@@ -116,7 +116,7 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                                                MajorFormSynNodePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),

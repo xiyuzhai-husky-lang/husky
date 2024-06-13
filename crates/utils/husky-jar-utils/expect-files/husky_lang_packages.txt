@@ -1535,6 +1535,7 @@
             "husky-token",
             "husky-token-data",
             "husky-vfs",
+            "husky-wild-utils",
             "idx-arena",
             "maybe-result",
             "original-error",
