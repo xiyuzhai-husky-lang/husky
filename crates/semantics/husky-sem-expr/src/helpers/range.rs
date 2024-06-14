@@ -359,14 +359,20 @@ impl<'a> SemExprRangeCalculator<'a> {
                     ident_token.regional_token_idx(),
                 ))
             }
-            SemExprData::TypeAsTraitItem { .. } => todo!(),
-            SemExprData::AssocItem {
-                parent_expr_idx,
-                colon_colon_regional_token_idx,
-                ident,
+            &SemExprData::TypeAsTraitItem {
+                lpar_regional_token_idx,
                 ident_regional_token_idx,
-                ontology_dispatch,
-            } => todo!(),
+                ..
+            } => {
+                RegionalTokenIdxRange::new_closed(lpar_regional_token_idx, ident_regional_token_idx)
+            }
+            &SemExprData::AssocItem {
+                parent_expr_idx,
+                ident_regional_token_idx,
+                ..
+            } => self[parent_expr_idx].to(RegionalTokenIdxRangeEnd::new_after(
+                ident_regional_token_idx,
+            )),
             SemExprData::Be {
                 src,
                 be_regional_token_idx,

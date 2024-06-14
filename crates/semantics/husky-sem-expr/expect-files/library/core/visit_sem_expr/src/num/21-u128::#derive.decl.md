@@ -1,5 +1,11 @@
 ```rust
 Some(
-    [],
+    [
+        "Debug",
+        "PartialEq",
+        "Eq",
+        "Clone",
+        "Copy",
+    ],
 )
 ```

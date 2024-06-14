@@ -1,5 +1,12 @@
 ```rust
 Some(
-    [],
+    [
+        "RawContour",
+        "~RawContour",
+        "f32",
+        "[",
+        "LineSegmentStroke",
+        "[]LineSegmentStroke",
+    ],
 )
 ```

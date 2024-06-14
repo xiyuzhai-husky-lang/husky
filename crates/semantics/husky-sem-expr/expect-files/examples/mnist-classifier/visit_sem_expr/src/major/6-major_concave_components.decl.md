@@ -1,5 +1,10 @@
 ```rust
 Some(
-    [],
+    [
+        "[",
+        "ConcaveComponent",
+        "[]ConcaveComponent",
+        "~[]ConcaveComponent",
+    ],
 )
 ```

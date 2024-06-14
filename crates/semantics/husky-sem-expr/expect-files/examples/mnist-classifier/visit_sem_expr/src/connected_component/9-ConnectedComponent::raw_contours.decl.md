@@ -1,5 +1,9 @@
 ```rust
 Some(
-    [],
+    [
+        "[",
+        "RawContour",
+        "[]RawContour",
+    ],
 )
 ```

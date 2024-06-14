@@ -1,5 +1,11 @@
 ```rust
 Some(
-    [],
+    [
+        "r32",
+        "r32",
+        "i32",
+        "Direction",
+        "Direction",
+    ],
 )
 ```

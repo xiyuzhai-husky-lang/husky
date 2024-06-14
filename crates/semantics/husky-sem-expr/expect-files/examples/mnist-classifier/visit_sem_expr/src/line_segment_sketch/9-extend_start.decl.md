@@ -1,5 +1,12 @@
 ```rust
 Some(
-    [],
+    [
+        "RawContour",
+        "~RawContour",
+        "i32",
+        "i32",
+        "f32",
+        "i32",
+    ],
 )
 ```
