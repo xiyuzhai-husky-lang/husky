@@ -4323,6 +4323,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-cybertron"
+version = "0.1.0"
+
+[[package]]
+name = "husky-cybertron-macros"
+version = "0.1.0"
+
+[[package]]
 name = "husky-cybertron-prototype"
 version = "0.1.0"
 dependencies = [

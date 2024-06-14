@@ -35,7 +35,7 @@ members = [
     "registry/*",
     "playground/learn-rusqlite",
     "playground/goodstein-rs"
-]
+, "crates/cybertron/husky-cybertron", "crates/cybertron/husky-cybertron-macros"]
 resolver = "2"
 
 [workspace.package]
