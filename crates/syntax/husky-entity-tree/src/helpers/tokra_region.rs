@@ -64,7 +64,7 @@ pub trait HasRegionalTokenIdxBase {
 impl HasRegionalTokenIdxBase for RegionPath {
     fn regional_token_idx_base(self, db: &salsa::Db) -> Option<RegionalTokenIdxBase> {
         match self {
-            RegionPath::CrateDecl(_) => todo!(),
+            RegionPath::CrateDecl(slf) => slf.decl_regional_token_idx_base(db),
             RegionPath::ItemDecl(slf) => {
                 Some(slf.syn_node_path(db).decl_regional_token_idx_base(db))
             }

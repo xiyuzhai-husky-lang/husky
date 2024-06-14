@@ -1,5 +1,10 @@
 ```rust
 Some(
-    [],
+    [
+        "RawContour",
+        "~RawContour",
+        "f32",
+        "?f32",
+    ],
 )
 ```

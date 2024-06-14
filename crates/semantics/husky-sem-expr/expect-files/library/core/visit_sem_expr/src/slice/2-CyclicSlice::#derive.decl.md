@@ -1,5 +1,8 @@
 ```rust
 Some(
-    [],
+    [
+        "Debug",
+        "Visualize",
+    ],
 )
 ```

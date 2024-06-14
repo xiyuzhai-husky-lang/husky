@@ -1,5 +1,11 @@
 ```rust
 Some(
-    [],
+    [
+        "LineSegmentSketch",
+        "~LineSegmentSketch",
+        "[",
+        "ConcaveComponent",
+        "[]ConcaveComponent",
+    ],
 )
 ```

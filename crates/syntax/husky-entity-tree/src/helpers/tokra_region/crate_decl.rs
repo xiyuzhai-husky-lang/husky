@@ -68,11 +68,20 @@ impl CrateDeclTokraRegion {
 
 pub trait HasCrateDeclTokraRegion {
     fn decl_tokra_region(self, db: &::salsa::Db) -> Option<CrateDeclTokraRegion>;
+    fn decl_regional_token_idx_base(self, db: &::salsa::Db) -> Option<RegionalTokenIdxBase>;
 }
 
 impl HasCrateDeclTokraRegion for CratePath {
     fn decl_tokra_region(self, db: &::salsa::Db) -> Option<CrateDeclTokraRegion> {
         Some(crate_decl_tokra_region(db, self)?.0)
+    }
+
+    fn decl_regional_token_idx_base(self, db: &salsa::Db) -> Option<RegionalTokenIdxBase> {
+        Some(
+            crate_decl_tokra_region(db, self)?
+                .1
+                .regional_token_idx_base(db),
+        )
     }
 }
 

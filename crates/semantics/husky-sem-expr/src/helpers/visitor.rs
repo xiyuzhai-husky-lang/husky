@@ -2,8 +2,14 @@ use super::region::sem_expr_region_from_region_path;
 use super::*;
 use crate::{SemExprData, SemExprIdx, SemExprRegionData, SemStmtIdx, SemStmtIdxRange};
 use husky_entity_path::region::RegionPath;
-use husky_entity_tree::{node::ItemSynNodePath, region_path::SynNodeRegionPath};
+use husky_entity_tree::{
+    helpers::tokra_region::HasRegionalTokenIdxBase, node::ItemSynNodePath,
+    region_path::SynNodeRegionPath,
+};
+use husky_regional_token::RegionalTokenIdxBase;
 use husky_text::{HasText, Text};
+use husky_token::RangedTokenSheet;
+use range::{sem_expr_range_region, SemExprRangeRegionData};
 
 pub trait VisitSemExpr<'db>: Sized {
     fn db(&self) -> &'db ::salsa::Db;
@@ -218,17 +224,28 @@ fn visit_sem_expr_works() {
         db: &'db ::salsa::Db,
         text: Text<'db>,
         sem_expr_region_data: &'db SemExprRegionData,
-        visits: Vec<String>,
+        sem_expr_range_region_data: &'db SemExprRangeRegionData,
+        ranged_token_sheet: &'db RangedTokenSheet,
+        base: Option<RegionalTokenIdxBase>,
+        visits: Vec<&'db str>,
     }
 
     impl<'db> SemExprVisitor<'db> {
         fn new(region_path: RegionPath, db: &'db ::salsa::Db) -> Option<Self> {
+            use husky_token::TokenDb;
             let module_path = region_path.module_path(db);
             let text = module_path.text(db);
+            let sem_expr_region = sem_expr_region_from_region_path(region_path, db)?;
+            let sem_expr_range_region_data = sem_expr_range_region(db, sem_expr_region).data(db);
+            let sem_expr_region_data = sem_expr_region.data(db);
+            let ranged_token_sheet = db.ranged_token_sheet(module_path);
             Some(Self {
                 db,
                 text,
-                sem_expr_region_data: sem_expr_region_from_region_path(region_path, db)?.data(db),
+                ranged_token_sheet,
+                sem_expr_region_data,
+                sem_expr_range_region_data,
+                base: sem_expr_region_data.path().regional_token_idx_base(db),
                 visits: vec![],
             })
         }
@@ -248,7 +265,10 @@ fn visit_sem_expr_works() {
         }
 
         fn visit_expr_inner(&mut self, expr: SemExprIdx) {
-            ()
+            let token_idx_range =
+                self.sem_expr_range_region_data[expr].token_idx_range(self.base.unwrap());
+            let text_range = self.ranged_token_sheet.tokens_text_range(token_idx_range);
+            self.visits.push(self.text.text_within(text_range));
         }
 
         fn visit_stmts(&mut self, stmts: SemStmtIdxRange, f: impl FnOnce(&mut Self)) {
@@ -256,12 +276,15 @@ fn visit_sem_expr_works() {
         }
 
         fn visit_stmt(&mut self, stmt: SemStmtIdx) {
-            ()
+            let token_idx_range =
+                self.sem_expr_range_region_data[stmt].token_idx_range(self.base.unwrap());
+            let text_range = self.ranged_token_sheet.tokens_text_range(token_idx_range);
+            self.visits.push(self.text.text_within(text_range));
         }
     }
 
     impl<'db> SemExprVisitor<'db> {
-        fn finish(self) -> Vec<String> {
+        fn finish(self) -> Vec<&'db str> {
             self.visits
         }
     }

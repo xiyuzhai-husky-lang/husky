@@ -1,5 +1,7 @@
 ```rust
 Some(
-    [],
+    [
+        "ConnectedComponentDistribution",
+    ],
 )
 ```

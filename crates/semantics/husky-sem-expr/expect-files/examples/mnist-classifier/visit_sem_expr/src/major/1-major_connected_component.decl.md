@@ -1,5 +1,8 @@
 ```rust
 Some(
-    [],
+    [
+        "ConnectedComponent",
+        "~ConnectedComponent",
+    ],
 )
 ```

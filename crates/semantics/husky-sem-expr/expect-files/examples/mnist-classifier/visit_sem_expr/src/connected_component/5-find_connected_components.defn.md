@@ -1,5 +1,11 @@
 ```rust
 Some(
-    [],
+    [
+        "let mut result: []ConnectedComponent = []",
+        "let mut unsearched = img.clone()",
+        "for j < 30:\n        while unsearched[j]:\n            let a = unsearched[j]\n            let shift = a.ctz()\n            let mut mask = BinaryImage28::new_zeros()\n            mask[j] = horizontal_extend(a, 1r32 << shift)\n            let mut flag = false\n            while !flag:\n                flag = true\n                let mut i = j\n                forext i < 30 - 1:\n                    let old_row = mask[i + 1]\n                    let new_row = old_row | horizontal_extend(img[i + 1], mask[i])\n                    if !new_row:\n                        break\n                    if old_row != new_row :\n                        flag = false\n                        mask[i + 1] = new_row\n                forext i >= j:\n                    let old_row = mask[i]\n                    let new_row = old_row | horizontal_extend(img[i], mask[i + 1])\n                    if old_row != new_row:\n                        flag = false\n                        mask[i] = new_row\n            for j <= k < 30:\n                unsearched[k] &= (~mask[k])\n            result.push(ConnectedComponent(mask))",
+        "return result",
+        "let mut result: []ConnectedComponent = []\n    let mut unsearched = img.clone()\n    for j < 30:\n        while unsearched[j]:\n            let a = unsearched[j]\n            let shift = a.ctz()\n            let mut mask = BinaryImage28::new_zeros()\n            mask[j] = horizontal_extend(a, 1r32 << shift)\n            let mut flag = false\n            while !flag:\n                flag = true\n                let mut i = j\n                forext i < 30 - 1:\n                    let old_row = mask[i + 1]\n                    let new_row = old_row | horizontal_extend(img[i + 1], mask[i])\n                    if !new_row:\n                        break\n                    if old_row != new_row :\n                        flag = false\n                        mask[i + 1] = new_row\n                forext i >= j:\n                    let old_row = mask[i]\n                    let new_row = old_row | horizontal_extend(img[i], mask[i + 1])\n                    if old_row != new_row:\n                        flag = false\n                        mask[i] = new_row\n            for j <= k < 30:\n                unsearched[k] &= (~mask[k])\n            result.push(ConnectedComponent(mask))\n    return result",
+    ],
 )
 ```

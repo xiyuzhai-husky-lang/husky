@@ -1,5 +1,12 @@
 ```rust
 Some(
-    [],
+    [
+        "let L = line_segment_sketch.strokes.ilen()",
+        "let current_displacement = line_segment_sketch.strokes[index%L].displacement()",
+        "let previous_displacement = line_segment_sketch.strokes[(index-1)%L].displacement()",
+        "let is_rotation_counterclockwise_result \n            = previous_displacement.rotation_direction_to(current_displacement)",
+        "if is_rotation_counterclockwise_result == 0:\n        let mut previous_raw_cross = -999999.0\n        let previous_interval = line_segment_sketch.strokes[(index-1)%L].points\n        for previous_interval.start() <= i1 < previous_interval.end():\n            let displacement = line_segment_sketch.contour.displacement(previous_interval.start(), i1)\n            previous_raw_cross = previous_raw_cross.max(current_displacement.cross(displacement))\n        // current\n        let mut current_raw_cross = -999999.0\n        let current_interval = line_segment_sketch.strokes[index%L].points\n        for current_interval.start() <= i2 < current_interval.end():\n            let displacement = line_segment_sketch.contour.displacement(previous_interval.start(), i2)\n            current_raw_cross = current_raw_cross.max(current_displacement.cross(displacement))\n        return current_raw_cross < previous_raw_cross\n    else:\n        return is_rotation_counterclockwise_result > 0",
+        "let L = line_segment_sketch.strokes.ilen()\n    let current_displacement = line_segment_sketch.strokes[index%L].displacement()\n    let previous_displacement = line_segment_sketch.strokes[(index-1)%L].displacement()\n    let is_rotation_counterclockwise_result \n            = previous_displacement.rotation_direction_to(current_displacement)\n    if is_rotation_counterclockwise_result == 0:\n        let mut previous_raw_cross = -999999.0\n        let previous_interval = line_segment_sketch.strokes[(index-1)%L].points\n        for previous_interval.start() <= i1 < previous_interval.end():\n            let displacement = line_segment_sketch.contour.displacement(previous_interval.start(), i1)\n            previous_raw_cross = previous_raw_cross.max(current_displacement.cross(displacement))\n        // current\n        let mut current_raw_cross = -999999.0\n        let current_interval = line_segment_sketch.strokes[index%L].points\n        for current_interval.start() <= i2 < current_interval.end():\n            let displacement = line_segment_sketch.contour.displacement(previous_interval.start(), i2)\n            current_raw_cross = current_raw_cross.max(current_displacement.cross(displacement))\n        return current_raw_cross < previous_raw_cross\n    else:\n        return is_rotation_counterclockwise_result > 0",
+    ],
 )
 ```
