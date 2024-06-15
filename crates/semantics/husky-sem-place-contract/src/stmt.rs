@@ -1,5 +1,5 @@
 use crate::{engine::PlaceContractEngine, site::SemPlaceContractSite};
-use husky_sem_expr::{stmt::condition::SemaCondition, SemStmtData, SemStmtIdx, SemStmtIdxRange};
+use husky_sem_expr::{stmt::condition::SemCondition, SemStmtData, SemStmtIdx, SemStmtIdxRange};
 use husky_term_prelude::Contract;
 
 impl<'a> PlaceContractEngine<'a> {
@@ -113,10 +113,10 @@ impl<'a> PlaceContractEngine<'a> {
         }
     }
 
-    fn infer_condition(&mut self, condition: SemaCondition) {
+    fn infer_condition(&mut self, condition: SemCondition) {
         let expr = match condition {
-            SemaCondition::Be { src, .. } => src,
-            SemaCondition::Other { sem_expr_idx, .. } => sem_expr_idx,
+            SemCondition::Be { src, .. } => src,
+            SemCondition::Other { sem_expr_idx, .. } => sem_expr_idx,
         };
         self.infer_expr(expr, Contract::Pure, Default::default())
     }

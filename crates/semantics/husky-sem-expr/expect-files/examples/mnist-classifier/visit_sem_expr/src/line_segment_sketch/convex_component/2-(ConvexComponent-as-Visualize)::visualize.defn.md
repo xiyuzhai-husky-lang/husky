@@ -1,6 +1,9 @@
 ```rust
 Some(
     [
+        "self",
+        "self.line_segments",
+        "self.line_segments.visualize()",
         "self.line_segments.visualize()",
         "self.line_segments.visualize()",
     ],

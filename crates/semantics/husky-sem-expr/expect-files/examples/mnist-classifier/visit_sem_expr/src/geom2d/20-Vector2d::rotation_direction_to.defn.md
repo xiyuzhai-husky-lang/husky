@@ -1,6 +1,10 @@
 ```rust
 Some(
     [
+        "self",
+        "other",
+        "self.cross(other)",
+        "self.cross(other).sgnx()",
         "self.cross(other).sgnx()",
         "self.cross(other).sgnx()",
     ],

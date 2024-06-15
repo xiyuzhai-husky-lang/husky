@@ -1,6 +1,11 @@
 ```rust
 Some(
     [
+        "self",
+        "self.strokes",
+        "self.strokes.last()",
+        "self.strokes.last()!",
+        "self.strokes.last()!.displacement()",
         "self.strokes.last()!.displacement()",
         "self.strokes.last()!.displacement()",
     ],

@@ -5,14 +5,14 @@ use husky_regional_token::{
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct SemaIfBranch {
+pub struct SemIfBranch {
     pub if_token: IfRegionalToken,
-    pub condition: SemaCondition,
+    pub condition: SemCondition,
     pub eol_colon_token: EolColonRegionalToken,
     pub stmts: SemStmtIdxRange,
 }
 
-impl SemaIfBranch {
+impl SemIfBranch {
     pub fn eol_colon_token(&self) -> EolColonRegionalToken {
         self.eol_colon_token
     }
@@ -31,8 +31,8 @@ impl<'a> SemExprBuilder<'a> {
         &mut self,
         syn_if_branch: &'a SynIfBranch,
         merger: &mut BranchTypeMerger<Expectation>,
-    ) -> SynExprResultRef<'a, SemaIfBranch> {
-        Ok(SemaIfBranch {
+    ) -> SynExprResultRef<'a, SemIfBranch> {
+        Ok(SemIfBranch {
             if_token: syn_if_branch.if_token,
             condition: self.build_sem_condition(*syn_if_branch.condition.as_ref()?),
             eol_colon_token: *syn_if_branch.eol_colon.as_ref()?,
@@ -42,14 +42,14 @@ impl<'a> SemExprBuilder<'a> {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct SemaElifBranch {
+pub struct SemElifBranch {
     pub elif_token: ElifRegionalToken,
-    pub condition: SemaCondition,
+    pub condition: SemCondition,
     pub eol_colon_token: EolColonRegionalToken,
     pub stmts: SemStmtIdxRange,
 }
 
-impl SemaElifBranch {
+impl SemElifBranch {
     pub fn eol_colon_token(&self) -> EolColonRegionalToken {
         self.eol_colon_token
     }
@@ -68,8 +68,8 @@ impl<'a> SemExprBuilder<'a> {
         &mut self,
         syn_elif_branch: &'a SynElifBranch,
         merger: &mut BranchTypeMerger<Expectation>,
-    ) -> SynExprResultRef<'a, SemaElifBranch> {
-        Ok(SemaElifBranch {
+    ) -> SynExprResultRef<'a, SemElifBranch> {
+        Ok(SemElifBranch {
             elif_token: syn_elif_branch.elif_token,
             condition: self.build_sem_condition(*syn_elif_branch.condition.as_ref()?),
             eol_colon_token: *syn_elif_branch.eol_colon.as_ref()?,
@@ -79,13 +79,13 @@ impl<'a> SemExprBuilder<'a> {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct SemaElseBranch {
+pub struct SemElseBranch {
     pub else_regional_token: ElseRegionalToken,
     pub eol_colon_regional_token: EolColonRegionalToken,
     pub stmts: SemStmtIdxRange,
 }
 
-impl SemaElseBranch {
+impl SemElseBranch {
     pub fn stmts(&self) -> SemStmtIdxRange {
         self.stmts
     }
@@ -145,8 +145,8 @@ impl<'a> SemExprBuilder<'a> {
         &mut self,
         syn_else_branch: &'a SynElseBranch,
         merger: &mut BranchTypeMerger<Expectation>,
-    ) -> SynExprResultRef<'a, SemaElseBranch> {
-        Ok(SemaElseBranch {
+    ) -> SynExprResultRef<'a, SemElseBranch> {
+        Ok(SemElseBranch {
             else_regional_token: syn_else_branch.else_token,
             eol_colon_regional_token: *syn_else_branch.eol_colon_token.as_ref()?,
             stmts: self.build_sem_branch(syn_else_branch.stmts, merger),

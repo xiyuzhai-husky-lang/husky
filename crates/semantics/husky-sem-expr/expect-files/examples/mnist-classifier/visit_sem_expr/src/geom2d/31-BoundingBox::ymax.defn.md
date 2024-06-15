@@ -1,6 +1,9 @@
 ```rust
 Some(
     [
+        "self",
+        "self.yrange",
+        "self.yrange.max",
         "self.yrange.max",
         "self.yrange.max",
     ],

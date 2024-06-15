@@ -3130,6 +3130,27 @@
         dependencies: [],
     },
     PackageSummary {
+        name: "husky-cybertron",
+        relative_path: "crates/cybertron/husky-cybertron",
+        dependencies: [
+            "husky-cybertron-macros",
+        ],
+    },
+    PackageSummary {
+        name: "husky-cybertron-macros",
+        relative_path: "crates/cybertron/husky-cybertron-macros",
+        dependencies: [
+            "husky-proc-macro-utils",
+            "quote",
+            "syn",
+        ],
+    },
+    PackageSummary {
+        name: "husky-cybertron-ast",
+        relative_path: "crates/cybertron/husky-cybertron-ast",
+        dependencies: [],
+    },
+    PackageSummary {
         name: "cargo-clean-repo",
         relative_path: "crates/devtools/cargo-clean-repo",
         dependencies: [
@@ -3383,6 +3404,7 @@
         name: "husky-cybertron-prototype",
         relative_path: "crates/prototypes/husky-cybertron-prototype",
         dependencies: [
+            "husky-text-protocol",
             "shifted-unsigned-int",
         ],
     },

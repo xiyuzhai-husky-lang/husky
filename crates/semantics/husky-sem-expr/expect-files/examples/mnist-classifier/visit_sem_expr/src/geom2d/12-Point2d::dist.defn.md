@@ -1,6 +1,10 @@
 ```rust
 Some(
     [
+        "self",
+        "other",
+        "self.to(other)",
+        "self.to(other).norm()",
         "self.to(other).norm()",
         "self.to(other).norm()",
     ],

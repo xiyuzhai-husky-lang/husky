@@ -1,5 +1,5 @@
 use super::*;
-use husky_sem_expr::stmt::if_else_stmt::{SemaElifBranch, SemaElseBranch, SemaIfBranch};
+use husky_sem_expr::stmt::if_else_stmt::{SemElifBranch, SemElseBranch, SemIfBranch};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirLazyIfBranch {
@@ -7,7 +7,7 @@ pub struct HirLazyIfBranch {
     pub stmts: HirLazyStmtIdxRange,
 }
 
-impl ToHirLazy for SemaIfBranch {
+impl ToHirLazy for SemIfBranch {
     type Output = HirLazyIfBranch;
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
@@ -24,7 +24,7 @@ pub struct HirLazyElifBranch {
     pub stmts: HirLazyStmtIdxRange,
 }
 
-impl ToHirLazy for SemaElifBranch {
+impl ToHirLazy for SemElifBranch {
     type Output = HirLazyElifBranch;
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
@@ -46,7 +46,7 @@ impl HirLazyElseBranch {
     }
 }
 
-impl ToHirLazy for SemaElseBranch {
+impl ToHirLazy for SemElseBranch {
     type Output = HirLazyElseBranch;
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {

@@ -38,11 +38,11 @@ pub enum SemStmtData {
     },
     Require {
         require_token: RequireRegionalToken,
-        condition: SemaCondition,
+        condition: SemCondition,
     },
     Assert {
         assert_token: AssertRegionalToken,
-        condition: SemaCondition,
+        condition: SemCondition,
     },
     Break {
         break_token: BreakRegionalToken,
@@ -74,21 +74,21 @@ pub enum SemStmtData {
     },
     While {
         while_token: WhileRegionalToken,
-        condition: SemaCondition,
+        condition: SemCondition,
         eol_colon: EolRegionalToken,
         stmts: SemStmtIdxRange,
     },
     DoWhile {
         do_token: DoRegionalToken,
         while_token: WhileRegionalToken,
-        condition: SemaCondition,
+        condition: SemCondition,
         eol_colon: EolRegionalToken,
         stmts: SemStmtIdxRange,
     },
     IfElse {
-        if_branch: SemaIfBranch,
-        elif_branches: Vec<SemaElifBranch>,
-        else_branch: Option<SemaElseBranch>,
+        if_branch: SemIfBranch,
+        elif_branches: Vec<SemElifBranch>,
+        else_branch: Option<SemElseBranch>,
     },
     Match {
         match_token: MatchRegionalToken,
@@ -553,7 +553,7 @@ impl<'a> SemExprBuilder<'a> {
         }
     }
 
-    pub(crate) fn build_sem_condition(&mut self, syn_expr_idx: SynExprIdx) -> SemaCondition {
+    pub(crate) fn build_sem_condition(&mut self, syn_expr_idx: SynExprIdx) -> SemCondition {
         let (sem_expr_idx, outcome) =
             self.build_sem_expr_with_outcome(syn_expr_idx, ExpectConditionType);
         match *sem_expr_idx.data(self.sem_expr_arena().arena_ref()) {
@@ -561,12 +561,12 @@ impl<'a> SemExprBuilder<'a> {
                 src,
                 be_regional_token_idx,
                 target,
-            } => SemaCondition::Be {
+            } => SemCondition::Be {
                 src,
                 be_regional_token_idx,
                 target,
             },
-            _ => SemaCondition::Other {
+            _ => SemCondition::Other {
                 sem_expr_idx,
                 conversion: match outcome {
                     Some(ExpectConditionTypeOutcome { conversion }) => conversion,
