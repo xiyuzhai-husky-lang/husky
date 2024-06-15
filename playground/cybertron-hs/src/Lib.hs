@@ -61,6 +61,6 @@ allocExpr (ExprArenaEntry{normal, extra}, Just expr) =
     Nothing -> ExprArenaEntry {normal=Just expr, extra}
 allocExpr (entry, Nothing) = entry
 
-attention:: ([v]-> o) -> [k-> Bool] -> [k] -> [v]-> [o]
+attention:: ([(Float, v)]-> o) -> [k-> Float] -> [k] -> [v]-> [o]
 attention f qs ks vs =
-  map (\q -> f ([v| (k,v)<- (zip ks vs), q k]) ) qs
+  map (\q -> f $ zip (map q ks) vs) qs
