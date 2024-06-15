@@ -22,3 +22,17 @@ def floatAttention
   (ks: List K)
   (vs: List V): List O :=
   qs.map (fun q => f $ (ks.zip vs).map (fun (k,v) => (q k, v)))
+
+
+#eval (
+  let xs : List Char := "acc".toList
+  let qs : List ((Nat × Char) -> Float) := xs.enum.map
+    fun (i, x) =>
+      fun (j, y) =>
+        (-((Float.ofNat i) - (Float.ofNat j)).abs).exp * (if x==y && i != j then 1. else 0.)
+  let ks := xs.enum
+  let vs := xs
+  let f := fun weighted_values =>
+    List.foldl (fun (w0, v0) => fun (w, v) => if w0 < w then (w, v) else (w0, v0)) (0.0001, '#') weighted_values
+  floatAttention f qs ks vs
+)
