@@ -1,0 +1,3 @@
+(library
+ (name cybertron_ocaml)
+ (public_name cybertron_ocaml.hello))
