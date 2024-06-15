@@ -1,0 +1,17 @@
+```rust
+Some(
+    [
+        "self",
+        "self.cc",
+        "self.cc.raw_contours",
+        "0",
+        "self.cc.raw_contours[0]",
+        "self.cc.raw_contours[0].bounding_box",
+        "self",
+        "self.bounding_box",
+        "self.cc.raw_contours[0].bounding_box.relative_bounding_box(self.bounding_box)",
+        "self.cc.raw_contours[0].bounding_box.relative_bounding_box(self.bounding_box)",
+        "self.cc.raw_contours[0].bounding_box.relative_bounding_box(self.bounding_box)",
+    ],
+)
+```

@@ -1,6 +1,6 @@
 use husky_sem_expr::{
     match_stmt::SemaCaseBranch,
-    stmt::if_else_stmt::{SemaElifBranch, SemaElseBranch, SemaIfBranch},
+    stmt::if_else_stmt::{SemElifBranch, SemElseBranch, SemIfBranch},
 };
 
 use super::*;
@@ -11,7 +11,7 @@ pub struct HirEagerIfBranch {
     pub stmts: HirEagerStmtIdxRange,
 }
 
-impl ToHirEager for SemaIfBranch {
+impl ToHirEager for SemIfBranch {
     type Output = HirEagerIfBranch;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
@@ -28,7 +28,7 @@ pub struct HirEagerElifBranch {
     pub stmts: HirEagerStmtIdxRange,
 }
 
-impl ToHirEager for SemaElifBranch {
+impl ToHirEager for SemElifBranch {
     type Output = HirEagerElifBranch;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
@@ -44,7 +44,7 @@ pub struct HirEagerElseBranch {
     pub stmts: HirEagerStmtIdxRange,
 }
 
-impl ToHirEager for SemaElseBranch {
+impl ToHirEager for SemElseBranch {
     type Output = HirEagerElseBranch;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {

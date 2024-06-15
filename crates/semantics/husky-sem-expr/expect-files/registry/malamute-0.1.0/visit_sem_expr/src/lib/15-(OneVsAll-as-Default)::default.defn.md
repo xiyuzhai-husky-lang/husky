@@ -1,0 +1,9 @@
+```rust
+Some(
+    [
+        "OneVsAll::No",
+        "OneVsAll::No",
+        "OneVsAll::No",
+    ],
+)
+```

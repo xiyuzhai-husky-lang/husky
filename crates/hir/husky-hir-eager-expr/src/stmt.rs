@@ -9,7 +9,7 @@ use crate::{coercion::HirEagerCoercion, *};
 use husky_expr::stmt::ConditionConversion;
 use husky_fly_term::ExpectationOutcome;
 use husky_hir_ty::ritchie::HirContract;
-use husky_sem_expr::{stmt::condition::SemaCondition, SemStmtData, SemStmtIdx, SemStmtIdxRange};
+use husky_sem_expr::{stmt::condition::SemCondition, SemStmtData, SemStmtIdx, SemStmtIdxRange};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum HirEagerStmtData {
@@ -211,13 +211,13 @@ pub enum HirEagerCondition {
     },
 }
 
-impl ToHirEager for SemaCondition {
+impl ToHirEager for SemCondition {
     // ad hoc
     type Output = HirEagerCondition;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         match *self {
-            SemaCondition::Be {
+            SemCondition::Be {
                 src,
                 be_regional_token_idx: _,
                 target,
@@ -225,7 +225,7 @@ impl ToHirEager for SemaCondition {
                 opd: src.to_hir_eager(builder),
                 pattern: target.to_hir_eager(builder),
             },
-            SemaCondition::Other {
+            SemCondition::Other {
                 sem_expr_idx,
                 conversion,
             } => HirEagerCondition::Other {

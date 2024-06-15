@@ -33,6 +33,12 @@ impl SubmoduleSynNodePath {
             _ => unreachable!(),
         }
     }
+    pub fn ident(self, db: &::salsa::Db) -> Ident {
+        self.data(db)
+            .disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .ident(db)
+    }
 
     pub fn unambiguous_item_path(self, db: &::salsa::Db) -> Option<SubmoduleItemPath> {
         self.data(db).unambiguous_item_path()
