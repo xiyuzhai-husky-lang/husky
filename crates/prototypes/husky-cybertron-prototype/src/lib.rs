@@ -1,3 +1,5 @@
+pub mod parser;
+
 use shifted_unsigned_int::ShiftedU32;
 use std::{
     collections::HashMap,
