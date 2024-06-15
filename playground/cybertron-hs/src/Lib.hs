@@ -5,6 +5,10 @@ someFunc = do
   putStrLn $ show $ map_simple [2, 3]
   putStrLn $ show $ initial_parse [LiteralToken $ Int 1, LiteralToken $ Int 2]
   putStrLn $ show $ newExprArena [LiteralToken $ Int 1, LiteralToken $ Int 2]
+  let xs = [1,2,3]::[Int]
+  putStrLn  $ show $ boolAttention (\xs' -> length xs') (map (==) xs) xs xs
+  let ys = [1,2,2]::[Int]
+  putStrLn  $ show $ boolAttention (\ys' -> length ys') (map (==) ys) ys ys
   putStrLn "someFunc"
 
 map_simple :: [Int] -> [Int]
@@ -55,12 +59,16 @@ allocExprs (ExprArena arena) new_exprs =
   undefined
 
 allocExpr:: (ExprArenaEntry, Maybe Expr) -> ExprArenaEntry
-allocExpr (ExprArenaEntry{normal, extra}, Just expr) =
+allocExpr (ExprArenaEntry normal extra, Just expr) =
   case normal of
     Just _ -> undefined
-    Nothing -> ExprArenaEntry {normal=Just expr, extra}
+    Nothing -> ExprArenaEntry (Just expr) extra
 allocExpr (entry, Nothing) = entry
 
-attention:: ([(Float, v)]-> o) -> [k-> Float] -> [k] -> [v]-> [o]
-attention f qs ks vs =
+floatAttention:: ([(Float, v)]-> o) -> [k-> Float] -> [k] -> [v]-> [o]
+floatAttention f qs ks vs =
   map (\q -> f $ zip (map q ks) vs) qs
+
+boolAttention:: ([v]-> o) -> [k-> Bool] -> [k] -> [v]-> [o]
+boolAttention f qs ks vs =
+  map (\q -> f [v| (k,v)<- zip ks vs, q k]) qs
