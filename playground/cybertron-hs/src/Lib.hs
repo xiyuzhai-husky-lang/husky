@@ -48,3 +48,19 @@ newExprArena tokens = map (\_ -> ExprArenaEntry { normal = Nothing, extra = Noth
 getExpr:: ExprArena -> ExprIdx -> Maybe Expr
 getExpr (ExprArena arena) (Normal idx) = normal $ arena!!idx
 getExpr (ExprArena arena) (Extra idx) = extra $ arena!!idx
+
+allocExprs:: ExprArena -> [Maybe Expr] -> (ExprArena, [Maybe ExprIdx])
+allocExprs (ExprArena arena) new_exprs =
+  let new_arena = map allocExpr (zip arena new_exprs) in
+  undefined
+
+allocExpr:: (ExprArenaEntry, Maybe Expr) -> ExprArenaEntry
+allocExpr (ExprArenaEntry{normal, extra}, Just expr) =
+  case normal of
+    Just _ -> undefined
+    Nothing -> ExprArenaEntry {normal=Just expr, extra}
+allocExpr (entry, Nothing) = entry
+
+attention:: ([v]-> o) -> [k-> Bool] -> [k] -> [v]-> [o]
+attention f qs ks vs =
+  map (\q -> f ([v| (k,v)<- (zip ks vs), q k]) ) qs
