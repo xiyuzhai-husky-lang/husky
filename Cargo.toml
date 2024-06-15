@@ -35,8 +35,8 @@ members = [
     "library/core",
     "registry/*",
     "playground/learn-rusqlite",
-    "playground/goodstein-rs"
-, "crates/cybertron/husky-cybertron", "crates/cybertron/husky-cybertron-macros"]
+    "playground/goodstein-rs",
+]
 resolver = "2"
 
 [workspace.package]
@@ -48,7 +48,7 @@ homepage = "todo"
 repository = "https://github.com/xiyuzhai-husky-lang/husky"
 readme = "README.md"
 license = "MIT"
-categories= ["compilers"]
+categories = ["compilers"]
 keywords = ["husky"]
 
 [workspace.lints.clippy]
@@ -226,8 +226,8 @@ with-db = { path = "crates/abstractions/with-db" }
 husky-dev-comptime = { path = "crates/comptime/husky-dev-comptime" }
 husky-rust-transpilation = { path = "crates/comptime/husky-rust-transpilation" }
 # cybertron
-husky-cybertron = {path = "crates/cybertron/husky-cybertron"}
-husky-cybertron-macros = {path = "crates/cybertron/husky-cybertron-macros"}
+husky-cybertron = { path = "crates/cybertron/husky-cybertron" }
+husky-cybertron-macros = { path = "crates/cybertron/husky-cybertron-macros" }
 # fs
 husky-corgi-config = { path = "crates/fs/husky-corgi-config" }
 husky-manifest = { path = "crates/fs/husky-manifest" }

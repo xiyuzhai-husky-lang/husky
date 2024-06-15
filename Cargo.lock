@@ -4346,6 +4346,7 @@ dependencies = [
 name = "husky-cybertron-prototype"
 version = "0.1.0"
 dependencies = [
+ "husky-text-protocol",
  "shifted-unsigned-int",
 ]
 
