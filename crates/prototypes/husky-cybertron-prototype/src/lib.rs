@@ -1,5 +1,8 @@
-pub mod parser;
+pub mod basic;
+pub mod foundation;
+pub mod utils;
 
+use self::foundation::*;
 use shifted_unsigned_int::ShiftedU32;
 use std::{
     collections::HashMap,

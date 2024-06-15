@@ -13,6 +13,8 @@ keywords.workspace = true
 
 [dependencies]
 shifted-unsigned-int.workspace = true
+# protocols
+husky-text-protocol.workspace = true
 
 [lints]
 workspace = true
