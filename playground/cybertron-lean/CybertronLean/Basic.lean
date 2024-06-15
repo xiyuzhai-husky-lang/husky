@@ -1,3 +1,5 @@
+import CybertronLean.Lexer
+
 def hello := "world"
 
 def boolAttention
