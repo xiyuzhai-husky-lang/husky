@@ -1,4 +1,4 @@
-use self::condition::SemaCondition;
+use self::condition::SemCondition;
 
 use super::*;
 use husky_print_utils::p;
@@ -491,6 +491,17 @@ impl<'a> SemExprRangeCalculator<'a> {
                 RegionalTokenIdxRangeEnd::new_after(*rbox_regional_token_idx),
             ),
             SemExprData::Block { stmts } => self.calc_block_range(*stmts),
+            &SemExprData::NestedBlock {
+                lcurl_regional_token_idx,
+                stmts,
+                rcurl_regional_token,
+            } => {
+                let _ = self.calc_block_range(stmts);
+                RegionalTokenIdxRange::new_closed(
+                    lcurl_regional_token_idx,
+                    rcurl_regional_token.regional_token_idx(),
+                )
+            }
             SemExprData::EmptyHtmlTag {
                 empty_html_bra_idx,
                 empty_html_ket,
@@ -536,14 +547,6 @@ impl<'a> SemExprRangeCalculator<'a> {
             } => {
                 RegionalTokenIdxRange::new_closed(lbox_regional_token_idx, lbox_regional_token_idx)
             }
-            &SemExprData::NestedBlock {
-                lcurl_regional_token_idx,
-                stmts,
-                rcurl_regional_token,
-            } => RegionalTokenIdxRange::new_closed(
-                lcurl_regional_token_idx,
-                rcurl_regional_token.regional_token_idx(),
-            ),
             SemExprData::VecFunctor {
                 lbox_regional_token_idx,
                 rbox_regional_token_idx,
@@ -703,9 +706,25 @@ impl<'a> SemExprRangeCalculator<'a> {
                     .unwrap_or(if_branch_end);
                 RegionalTokenIdxRange::new(start, end)
             }
-            SemStmtData::Match { match_token, .. } => {
-                // ad hoc
-                RegionalTokenIdxRange::new_single(match_token.regional_token_idx())
+            SemStmtData::Match {
+                match_token,
+                case_branches,
+                ..
+            } => {
+                let mut last_case_branch_range = None;
+                for case_branch in case_branches {
+                    last_case_branch_range = Some(self.calc_block_range(case_branch.stmts));
+                }
+                match last_case_branch_range {
+                    Some(last_case_branch_range) => RegionalTokenIdxRange::new(
+                        match_token.regional_token_idx(),
+                        last_case_branch_range.end(),
+                    ),
+                    _ => {
+                        // ad hoc, todo: consider with keyword
+                        RegionalTokenIdxRange::new_single(match_token.regional_token_idx())
+                    }
+                }
             }
             SemStmtData::Assert {
                 assert_token,
@@ -718,12 +737,12 @@ impl<'a> SemExprRangeCalculator<'a> {
         }
     }
 
-    fn calc_condition_end(&self, condition: SemaCondition) -> RegionalTokenIdxRangeEnd {
+    fn calc_condition_end(&self, condition: SemCondition) -> RegionalTokenIdxRangeEnd {
         match condition {
-            SemaCondition::Be { target, .. } => {
+            SemCondition::Be { target, .. } => {
                 self[target.syn_pattern_root().syn_pattern_idx()].end()
             }
-            SemaCondition::Other {
+            SemCondition::Other {
                 sem_expr_idx,
                 conversion,
             } => self[sem_expr_idx].end(),

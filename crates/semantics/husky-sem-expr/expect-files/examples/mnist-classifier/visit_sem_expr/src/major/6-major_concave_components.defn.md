@@ -1,6 +1,8 @@
 ```rust
 Some(
     [
+        "major_line_segment_sketch",
+        "major_line_segment_sketch.concave_components",
         "major_line_segment_sketch.concave_components",
         "major_line_segment_sketch.concave_components",
     ],

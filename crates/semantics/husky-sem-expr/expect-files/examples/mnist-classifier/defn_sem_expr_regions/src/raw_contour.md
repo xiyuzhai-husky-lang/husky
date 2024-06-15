@@ -36475,7 +36475,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::IfElse {
-                                    if_branch: SemaIfBranch {
+                                    if_branch: SemIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 265,
@@ -36499,7 +36499,7 @@
                                         ),
                                     },
                                     elif_branches: [
-                                        SemaElifBranch {
+                                        SemElifBranch {
                                             elif_token: ElifRegionalToken {
                                                 regional_token_idx: RegionalTokenIdx(
                                                     321,
@@ -36522,7 +36522,7 @@
                                                 ),
                                             ),
                                         },
-                                        SemaElifBranch {
+                                        SemElifBranch {
                                             elif_token: ElifRegionalToken {
                                                 regional_token_idx: RegionalTokenIdx(
                                                     356,
@@ -36547,7 +36547,7 @@
                                         },
                                     ],
                                     else_branch: Some(
-                                        SemaElseBranch {
+                                        SemElseBranch {
                                             else_regional_token: ElseRegionalToken {
                                                 regional_token_idx: RegionalTokenIdx(
                                                     397,
@@ -37034,7 +37034,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::IfElse {
-                                    if_branch: SemaIfBranch {
+                                    if_branch: SemIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 262,
@@ -37234,7 +37234,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::IfElse {
-                                    if_branch: SemaIfBranch {
+                                    if_branch: SemIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 497,
@@ -37947,7 +37947,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::IfElse {
-                                    if_branch: SemaIfBranch {
+                                    if_branch: SemIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 505,

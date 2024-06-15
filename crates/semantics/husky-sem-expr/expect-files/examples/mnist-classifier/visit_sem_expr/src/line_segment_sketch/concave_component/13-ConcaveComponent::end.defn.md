@@ -1,6 +1,12 @@
 ```rust
 Some(
     [
+        "self",
+        "self.strokes",
+        "self.strokes.last()",
+        "self.strokes.last()!",
+        "self.strokes.last()!.end",
+        "self.strokes.last()!.end.clone()",
         "self.strokes.last()!.end.clone()",
         "self.strokes.last()!.end.clone()",
     ],

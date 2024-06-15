@@ -1,6 +1,11 @@
 ```rust
 Some(
     [
+        "self",
+        "self.start",
+        "self",
+        "self.end",
+        "self.start.to(self.end)",
         "self.start.to(self.end)",
         "self.start.to(self.end)",
     ],

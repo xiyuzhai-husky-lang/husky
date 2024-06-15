@@ -1,9 +1,10 @@
 use super::*;
+use helpers::range::SemExprRangeRegionData;
 use husky_expr::stmt::ConditionConversion;
-use husky_regional_token::RegionalTokenIdx;
+use husky_regional_token::{RegionalTokenIdx, RegionalTokenIdxRange};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum SemaCondition {
+pub enum SemCondition {
     /// `be` condition with syntactically correct pattern.
     /// This requires special handling for many cases.
     Be {
@@ -17,4 +18,18 @@ pub enum SemaCondition {
         sem_expr_idx: SemExprIdx,
         conversion: ConditionConversion,
     },
+}
+
+impl SemCondition {
+    pub fn regional_token_idx_range(
+        self,
+        sem_expr_range_region_data: &SemExprRangeRegionData,
+        syn_expr_range_region: &SynExprRangeRegion,
+    ) -> RegionalTokenIdxRange {
+        match self {
+            SemCondition::Be { src, target, .. } => sem_expr_range_region_data[src]
+                .join(syn_expr_range_region[target.syn_pattern_root().syn_pattern_idx()]),
+            SemCondition::Other { sem_expr_idx, .. } => sem_expr_range_region_data[sem_expr_idx],
+        }
+    }
 }

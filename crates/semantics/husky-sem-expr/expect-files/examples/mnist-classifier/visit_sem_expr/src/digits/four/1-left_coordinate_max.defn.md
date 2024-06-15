@@ -1,6 +1,9 @@
 ```rust
 Some(
     [
+        "cc",
+        "cc.relative_bounding_box",
+        "cc.relative_bounding_box.xmax()",
         "cc.relative_bounding_box.xmax()",
         "cc.relative_bounding_box.xmax()",
     ],

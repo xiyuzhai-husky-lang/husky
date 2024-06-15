@@ -18120,7 +18120,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::IfElse {
-                                    if_branch: SemaIfBranch {
+                                    if_branch: SemIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 169,
@@ -18159,7 +18159,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::IfElse {
-                                    if_branch: SemaIfBranch {
+                                    if_branch: SemIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 182,
@@ -18237,7 +18237,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::IfElse {
-                                    if_branch: SemaIfBranch {
+                                    if_branch: SemIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 130,
@@ -18261,7 +18261,7 @@
                                         ),
                                     },
                                     elif_branches: [
-                                        SemaElifBranch {
+                                        SemElifBranch {
                                             elif_token: ElifRegionalToken {
                                                 regional_token_idx: RegionalTokenIdx(
                                                     138,
@@ -18300,7 +18300,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::IfElse {
-                                    if_branch: SemaIfBranch {
+                                    if_branch: SemIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 146,
@@ -18590,7 +18590,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::IfElse {
-                                    if_branch: SemaIfBranch {
+                                    if_branch: SemIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 63,
@@ -32179,7 +32179,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::IfElse {
-                                    if_branch: SemaIfBranch {
+                                    if_branch: SemIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 165,
@@ -32218,7 +32218,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::IfElse {
-                                    if_branch: SemaIfBranch {
+                                    if_branch: SemIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 178,
@@ -32276,7 +32276,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::IfElse {
-                                    if_branch: SemaIfBranch {
+                                    if_branch: SemIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 201,
@@ -32441,7 +32441,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::IfElse {
-                                    if_branch: SemaIfBranch {
+                                    if_branch: SemIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 126,
@@ -32465,7 +32465,7 @@
                                         ),
                                     },
                                     elif_branches: [
-                                        SemaElifBranch {
+                                        SemElifBranch {
                                             elif_token: ElifRegionalToken {
                                                 regional_token_idx: RegionalTokenIdx(
                                                     134,
@@ -32504,7 +32504,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::IfElse {
-                                    if_branch: SemaIfBranch {
+                                    if_branch: SemIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 142,
@@ -32543,7 +32543,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::IfElse {
-                                    if_branch: SemaIfBranch {
+                                    if_branch: SemIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 191,
@@ -32568,7 +32568,7 @@
                                     },
                                     elif_branches: [],
                                     else_branch: Some(
-                                        SemaElseBranch {
+                                        SemElseBranch {
                                             else_regional_token: ElseRegionalToken {
                                                 regional_token_idx: RegionalTokenIdx(
                                                     230,
@@ -32824,7 +32824,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::IfElse {
-                                    if_branch: SemaIfBranch {
+                                    if_branch: SemIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 59,
@@ -33017,7 +33017,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::IfElse {
-                                    if_branch: SemaIfBranch {
+                                    if_branch: SemIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 233,
@@ -33042,7 +33042,7 @@
                                     },
                                     elif_branches: [],
                                     else_branch: Some(
-                                        SemaElseBranch {
+                                        SemElseBranch {
                                             else_regional_token: ElseRegionalToken {
                                                 regional_token_idx: RegionalTokenIdx(
                                                     240,
@@ -54331,7 +54331,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::IfElse {
-                                    if_branch: SemaIfBranch {
+                                    if_branch: SemIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 95,
@@ -54594,7 +54594,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::IfElse {
-                                    if_branch: SemaIfBranch {
+                                    if_branch: SemIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 235,
@@ -54730,7 +54730,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::IfElse {
-                                    if_branch: SemaIfBranch {
+                                    if_branch: SemIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 188,
@@ -54755,7 +54755,7 @@
                                     },
                                     elif_branches: [],
                                     else_branch: Some(
-                                        SemaElseBranch {
+                                        SemElseBranch {
                                             else_regional_token: ElseRegionalToken {
                                                 regional_token_idx: RegionalTokenIdx(
                                                     313,
@@ -54923,7 +54923,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::IfElse {
-                                    if_branch: SemaIfBranch {
+                                    if_branch: SemIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 65,
@@ -54962,7 +54962,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::IfElse {
-                                    if_branch: SemaIfBranch {
+                                    if_branch: SemIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 159,
@@ -55455,7 +55455,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::IfElse {
-                                    if_branch: SemaIfBranch {
+                                    if_branch: SemIfBranch {
                                         if_token: IfRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 374,
