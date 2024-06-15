@@ -5,7 +5,7 @@ pub use self::branch_stmt::*;
 use crate::*;
 use husky_expr::stmt::ConditionConversion;
 use husky_hir_ty::HirType;
-use husky_sem_expr::{stmt::condition::SemaCondition, SemStmtData, SemStmtIdx, SemStmtIdxRange};
+use husky_sem_expr::{stmt::condition::SemCondition, SemStmtData, SemStmtIdx, SemStmtIdxRange};
 use idx_arena::ArenaRef;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
@@ -143,13 +143,13 @@ pub enum HirLazyCondition {
     },
 }
 
-impl ToHirLazy for SemaCondition {
+impl ToHirLazy for SemCondition {
     // ad hoc
     type Output = HirLazyCondition;
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
         match *self {
-            SemaCondition::Be {
+            SemCondition::Be {
                 src,
                 be_regional_token_idx: _,
                 target,
@@ -157,7 +157,7 @@ impl ToHirLazy for SemaCondition {
                 src: src.to_hir_lazy(builder),
                 pattern: target.to_hir_lazy(builder),
             },
-            SemaCondition::Other {
+            SemCondition::Other {
                 sem_expr_idx,
                 conversion,
             } => HirLazyCondition::Other {

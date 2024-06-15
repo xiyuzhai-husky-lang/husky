@@ -30,7 +30,10 @@ impl TypeVariantSynNodePath {
             }),
         ))
     }
+}
 
+/// # getters
+impl TypeVariantSynNodePath {
     pub fn unambiguous_item_path(self, db: &::salsa::Db) -> Option<TypeVariantPath> {
         Some(match self.0.unambiguous_item_path(db)? {
             ItemPath::TypeVariant(_, path) => path,
@@ -43,6 +46,20 @@ impl TypeVariantSynNodePath {
             ItemSynNodePathData::TypeVariant(data) => data,
             _ => unreachable!(),
         }
+    }
+
+    pub fn parent(self, db: &::salsa::Db) -> TypePath {
+        self.data(db)
+            .disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .parent_ty_path(db)
+    }
+
+    pub fn ident(self, db: &::salsa::Db) -> Ident {
+        self.data(db)
+            .disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .ident(db)
     }
 
     pub(crate) fn syn_node<'a>(self, db: &'a ::salsa::Db) -> &'a TypeVariantSynNode {

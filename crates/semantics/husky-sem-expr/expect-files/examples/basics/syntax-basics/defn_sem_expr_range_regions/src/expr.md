@@ -60,6 +60,18 @@
                     RegionalTokenIdxRange {
                         start: RegionalTokenIdxRangeStart(
                             RegionalTokenIdx(
+                                5,
+                            ),
+                        ),
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                6,
+                            ),
+                        ),
+                    },
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
                                 1,
                             ),
                         ),
@@ -361,6 +373,18 @@
             ],
             stmt_ranges: SemStmtMap(
                 [
+                    RegionalTokenIdxRange {
+                        start: RegionalTokenIdxRangeStart(
+                            RegionalTokenIdx(
+                                10,
+                            ),
+                        ),
+                        end: RegionalTokenIdxRangeEnd(
+                            RegionalTokenIdx(
+                                13,
+                            ),
+                        ),
+                    },
                     RegionalTokenIdxRange {
                         start: RegionalTokenIdxRangeStart(
                             RegionalTokenIdx(

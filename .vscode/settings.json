@@ -2,10 +2,7 @@
     "files.watcherExclude": {
         "**/target": true
     },
-    "cSpell.words": [
-        "defns",
-        "morphism",
-        "trai"
-    ],
-    "rust-analyzer.showUnlinkedFileNotification": false
+    "cSpell.words": ["defns", "morphism", "trai"],
+    "rust-analyzer.showUnlinkedFileNotification": false,
+    "editor.formatOnSave": true
 }

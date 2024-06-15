@@ -53,6 +53,20 @@ impl TypeItemSynNodePath {
         }
     }
 
+    pub fn ident(self, db: &::salsa::Db) -> Ident {
+        self.data(db)
+            .disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .ident(db)
+    }
+
+    pub fn ty_path(self, db: &::salsa::Db) -> TypePath {
+        self.data(db)
+            .disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .ty_path(db)
+    }
+
     pub fn path(self, db: &::salsa::Db) -> Option<TypeItemPath> {
         Some(match self.0.unambiguous_item_path(db)? {
             ItemPath::AssocItem(AssocItemPath::TypeItem(path)) => path,

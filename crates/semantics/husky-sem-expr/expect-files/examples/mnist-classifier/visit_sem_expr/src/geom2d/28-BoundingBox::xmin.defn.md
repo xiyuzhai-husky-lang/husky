@@ -1,0 +1,11 @@
+```rust
+Some(
+    [
+        "self",
+        "self.xrange",
+        "self.xrange.min",
+        "self.xrange.min",
+        "self.xrange.min",
+    ],
+)
+```

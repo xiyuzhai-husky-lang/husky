@@ -1,0 +1,11 @@
+```rust
+Some(
+    [
+        "RawContour",
+        "~RawContour",
+        "[",
+        "LineSegmentStroke",
+        "[]LineSegmentStroke",
+    ],
+)
+```

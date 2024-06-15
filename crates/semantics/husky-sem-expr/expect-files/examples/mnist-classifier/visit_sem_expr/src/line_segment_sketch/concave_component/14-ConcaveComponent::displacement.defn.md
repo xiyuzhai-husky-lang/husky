@@ -1,0 +1,11 @@
+```rust
+Some(
+    [
+        "self",
+        "self.line_segment()",
+        "self.line_segment().displacement()",
+        "self.line_segment().displacement()",
+        "self.line_segment().displacement()",
+    ],
+)
+```

@@ -1,7 +1,9 @@
 use crate::{
-    helpers::paths::module_item_syn_node_paths, node::ItemSynNodePath,
+    helpers::paths::module_item_syn_node_paths,
+    node::{assoc_item::AssocItemSynNodePath, impl_block::ImplBlockSynNodePath, ItemSynNodePath},
     region_path::SynNodeRegionPath,
 };
+use husky_entity_path::path::impl_block::TypeSketch;
 use husky_path_utils::{Path, PathBuf};
 use husky_vfs::{
     path::{crate_path::CratePath, module_path::ModulePath},
@@ -62,7 +64,72 @@ impl ItemSynNodePath {
             .position(|&path| path == self)
             .unwrap();
         // ad hoc
-        dir.join(format!("item-{index}"))
+        dir.join(format!("{index}-{}", self.stem_inner(db)))
+    }
+
+    fn stem_inner(self, db: &::salsa::Db) -> String {
+        match self {
+            ItemSynNodePath::Submodule(_, slf) => slf.ident(db).data(db).to_string(),
+            ItemSynNodePath::MajorItem(slf) => slf.ident(db).data(db).to_string(),
+            ItemSynNodePath::TypeVariant(_, slf) => {
+                format!(
+                    "{}::{}",
+                    slf.parent(db).ident(db).data(db),
+                    slf.ident(db).data(db)
+                )
+            }
+            ItemSynNodePath::ImplBlock(slf) => match slf {
+                ImplBlockSynNodePath::TypeImplBlock(slf) => {
+                    format!("impl-{}", slf.ty_path(db).ident(db).data(db))
+                }
+                ImplBlockSynNodePath::TraitForTypeImplBlock(slf) => format!(
+                    "impl-{}-for-{}",
+                    slf.trai_path(db).ident(db).data(db),
+                    match slf.ty_sketch(db) {
+                        TypeSketch::DeriveAny => "_",
+                        TypeSketch::Path(ty_path) => ty_path.ident(db).data(db),
+                    }
+                ),
+                ImplBlockSynNodePath::IllFormedImplBlock(_) => todo!(),
+            },
+            ItemSynNodePath::AssocItem(slf) => match slf {
+                AssocItemSynNodePath::TypeItem(slf) => {
+                    format!(
+                        "{}::{}",
+                        slf.ty_path(db).ident(db).data(db),
+                        slf.ident(db).data(db)
+                    )
+                }
+                AssocItemSynNodePath::TraitItem(slf) => {
+                    format!(
+                        "{}::{}",
+                        slf.parent_trai_syn_node_path(db).ident(db).data(db),
+                        slf.ident(db).data(db)
+                    )
+                }
+                AssocItemSynNodePath::TraitForTypeItem(slf) => {
+                    format!(
+                        "({}-as-{})::{}",
+                        match slf.ty_sketch(db) {
+                            TypeSketch::DeriveAny => "_",
+                            TypeSketch::Path(ty_path) => ty_path.ident(db).data(db),
+                        },
+                        slf.trai_path(db).ident(db).data(db),
+                        slf.ident(db).data(db)
+                    )
+                }
+
+                AssocItemSynNodePath::IllFormedItem(_) => todo!(),
+            },
+            ItemSynNodePath::Attr(_, slf) => {
+                format!(
+                    "{}::#{}",
+                    slf.parent_syn_node_path(db).stem_inner(db),
+                    slf.ident(db).data(db)
+                )
+            }
+            ItemSynNodePath::Script(_, _) => todo!(),
+        }
     }
 }
 
