@@ -95,7 +95,7 @@ pub enum SemStmtData {
         match_opd: SemExprIdx,
         match_contract: Contract,
         eol_with_token: EolWithRegionalToken,
-        case_branches: Vec<SemaCaseBranch>,
+        case_branches: Vec<SemCaseBranch>,
     },
     Narrate {
         narrate_token: husky_regional_token::NarrateRegionalToken,
