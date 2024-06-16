@@ -709,9 +709,11 @@ impl<'a> SemExprRangeCalculator<'a> {
             SemStmtData::Match {
                 match_token,
                 case_branches,
+                eol_with_token,
                 ..
             } => {
                 let mut last_case_branch_range = None;
+                // todo: make this logic clearer
                 for case_branch in case_branches {
                     last_case_branch_range = Some(self.calc_block_range(case_branch.stmts));
                 }
@@ -720,10 +722,10 @@ impl<'a> SemExprRangeCalculator<'a> {
                         match_token.regional_token_idx(),
                         last_case_branch_range.end(),
                     ),
-                    _ => {
-                        // ad hoc, todo: consider with keyword
-                        RegionalTokenIdxRange::new_single(match_token.regional_token_idx())
-                    }
+                    _ => RegionalTokenIdxRange::new_closed(
+                        match_token.regional_token_idx(),
+                        eol_with_token.regional_token_idx(),
+                    ),
                 }
             }
             SemStmtData::Assert {
