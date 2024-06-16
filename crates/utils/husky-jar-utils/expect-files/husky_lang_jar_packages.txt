@@ -561,6 +561,10 @@
         dependencies: [],
     },
     JarPackageSummary {
+        name: "husky-inlay-hints",
+        dependencies: [],
+    },
+    JarPackageSummary {
         name: "husky-semantic-token",
         dependencies: [
             "husky-entity-tree",

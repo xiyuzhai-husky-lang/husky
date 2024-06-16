@@ -461,6 +461,7 @@
     "husky-vfs"
   ],
   "husky-ide-fmt": [],
+  "husky-inlay-hints": [],
   "husky-javelin": [
     "husky-ast",
     "husky-corgi-config",

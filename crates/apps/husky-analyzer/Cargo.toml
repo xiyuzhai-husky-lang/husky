@@ -32,6 +32,7 @@ husky-vfs = { workspace = true, features = ["lsp_support"] }
 husky-diagnostics.workspace = true
 husky-hover.workspace = true
 husky-folding-range.workspace = true
+husky-inlay-hints = { workspace = true, features = ["lsp_support"] }
 husky-semantic-token.workspace = true
 husky-token-info.workspace = true
 husky-ide-fmt.workspace = true

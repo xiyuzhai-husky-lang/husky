@@ -1,0 +1,31 @@
+[package]
+name = "husky-inlay-hints"
+version.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[dependencies]
+thiserror.workspace = true
+lsp-types = { workspace = true, optional = true }
+# abstraction
+is.workspace = true
+salsa.workspace = true
+# fs
+husky-vfs.workspace = true
+# protocols
+husky-text-protocol.workspace = true
+
+[dev-dependencies]
+
+[lints]
+workspace = true
+
+[features]
+lsp_support = ["dep:lsp-types"]

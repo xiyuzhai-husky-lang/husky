@@ -3,12 +3,13 @@ use lsp_types::{
     CallHierarchyServerCapability, CodeLensOptions, CompletionOptions, DeclarationCapability,
     DocumentOnTypeFormattingOptions, FileOperationFilter, FileOperationPattern,
     FileOperationPatternKind, FileOperationRegistrationOptions, FoldingRangeProviderCapability,
-    HoverProviderCapability, ImplementationProviderCapability, OneOf, RenameOptions, SaveOptions,
+    HoverProviderCapability, ImplementationProviderCapability, InlayHintOptions,
+    InlayHintRegistrationOptions, InlayHintServerCapabilities, OneOf, RenameOptions, SaveOptions,
     SelectionRangeProviderCapability, SemanticTokensFullOptions, SemanticTokensLegend,
-    SemanticTokensOptions, ServerCapabilities, SignatureHelpOptions, TextDocumentSyncCapability,
-    TextDocumentSyncKind, TextDocumentSyncOptions, TypeDefinitionProviderCapability,
-    WorkDoneProgressOptions, WorkspaceFileOperationsServerCapabilities,
-    WorkspaceServerCapabilities,
+    SemanticTokensOptions, ServerCapabilities, SignatureHelpOptions, StaticRegistrationOptions,
+    TextDocumentRegistrationOptions, TextDocumentSyncCapability, TextDocumentSyncKind,
+    TextDocumentSyncOptions, TypeDefinitionProviderCapability, WorkDoneProgressOptions,
+    WorkspaceFileOperationsServerCapabilities, WorkspaceServerCapabilities,
 };
 use serde_json::json;
 
@@ -127,7 +128,20 @@ pub fn get_server_capabilities() -> ServerCapabilities {
             },
             "workspaceSymbolEntityRouteKindFiltering": true,
         })),
-        inlay_hint_provider: None,
+        inlay_hint_provider: Some(OneOf::Right(
+            InlayHintServerCapabilities::RegistrationOptions(InlayHintRegistrationOptions {
+                inlay_hint_options: InlayHintOptions {
+                    work_done_progress_options: WorkDoneProgressOptions {
+                        work_done_progress: None,
+                    },
+                    resolve_provider: None,
+                },
+                text_document_registration_options: TextDocumentRegistrationOptions {
+                    document_selector: None,
+                },
+                static_registration_options: StaticRegistrationOptions { id: None },
+            }),
+        )),
         position_encoding: None,
         inline_value_provider: None,
         diagnostic_provider: None,

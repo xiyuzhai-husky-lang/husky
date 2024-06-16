@@ -443,6 +443,7 @@
             "husky-folding-range",
             "husky-hover",
             "husky-ide-fmt",
+            "husky-inlay-hints",
             "husky-manifest",
             "husky-manifest-ast",
             "husky-path-utils",
@@ -1762,6 +1763,13 @@
     PackageSummary {
         name: "husky-ide-fmt",
         relative_path: "crates/ide/husky-ide-fmt",
+        dependencies: [
+            "salsa",
+        ],
+    },
+    PackageSummary {
+        name: "husky-inlay-hints",
+        relative_path: "crates/ide/husky-inlay-hints",
         dependencies: [
             "salsa",
         ],
