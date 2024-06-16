@@ -248,13 +248,6 @@ pub struct InlayHintsParams {
     pub range: Range,
 }
 
-#[derive(Debug, PartialEq, Eq, Deserialize, Serialize)]
-pub enum InlayKind {
-    TypeHint,
-    ParameterHint,
-    ChainingHint,
-}
-
 pub enum Ssr {}
 
 impl Request for Ssr {
