@@ -5247,6 +5247,7 @@ dependencies = [
  "is",
  "lsp-types 0.95.0",
  "salsa",
+ "serde_json",
  "thiserror",
 ]
 

@@ -55,7 +55,15 @@ pub struct InlayHintLocation {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct Command;
+pub struct Command {
+    /// Title of the command, like `save`.
+    pub title: String,
+    /// The identifier of the actual command handler.
+    pub command: String,
+    /// Arguments that the command handler should be
+    /// invoked with.
+    pub arguments: Option<Vec<serde_json::Value>>,
+}
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum InlayHintKind {
