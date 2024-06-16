@@ -382,6 +382,12 @@ pub struct EolWithRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
 
+impl EolWithRegionalToken {
+    pub fn regional_token_idx(self) -> RegionalTokenIdx {
+        self.regional_token_idx
+    }
+}
+
 impl<'a, Context> parsec::TryParseOptionFromStream<Context> for EolWithRegionalToken
 where
     Context: RegionalTokenStreamParser<'a>,
