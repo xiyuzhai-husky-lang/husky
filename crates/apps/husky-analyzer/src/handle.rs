@@ -1,11 +1,13 @@
 mod semantic_tokens;
 
+use convert::to_proto;
+use husky_inlay_hints::inlay_hints::HasInlayHints;
 pub(crate) use semantic_tokens::*;
 
-use crate::{convert::from_lsp_types, *};
+use crate::{convert::from_proto, *};
 use crate::{
     db::AnalyzerDBSnapshot,
-    lsp_ext::{InlayHint, InlayHintsParams, WorkspaceSymbolParams},
+    lsp_ext::{InlayHintsParams, WorkspaceSymbolParams},
 };
 use husky_folding_range::FoldingRangeDb;
 use husky_hover::{HoverDb, HoverResult};
@@ -15,8 +17,8 @@ use husky_vfs::jar::VfsDb;
 use lsp_types::{
     CallHierarchyIncomingCall, CallHierarchyIncomingCallsParams, CallHierarchyItem,
     CallHierarchyOutgoingCall, CallHierarchyOutgoingCallsParams, CallHierarchyPrepareParams,
-    CodeLens, CompletionItem, DocumentFormattingParams, FoldingRange, FoldingRangeParams, Location,
-    Position, PrepareRenameResponse, RenameParams, SemanticTokensDeltaParams,
+    CodeLens, CompletionItem, DocumentFormattingParams, FoldingRange, FoldingRangeParams,
+    InlayHint, Location, Position, PrepareRenameResponse, RenameParams, SemanticTokensDeltaParams,
     SemanticTokensFullDeltaResult, SemanticTokensParams, SemanticTokensRangeParams,
     SemanticTokensRangeResult, SemanticTokensResult, SymbolInformation, WorkspaceEdit,
 };
@@ -133,7 +135,7 @@ pub(crate) fn handle_folding_range(
     snapshot: AnalyzerDBSnapshot,
     params: FoldingRangeParams,
 ) -> Result<Option<Vec<FoldingRange>>> {
-    let path = from_lsp_types::path_from_url(&params.text_document.uri)?;
+    let path = from_proto::path_from_url(&params.text_document.uri)?;
     let module = snapshot.resolve_module_path_and_update_live_packages(&path)?;
     Ok(Some(snapshot.folding_ranges(module).to_vec()))
 }
@@ -150,7 +152,7 @@ pub(crate) fn handle_hover(
     snapshot: AnalyzerDBSnapshot,
     params: lsp_ext::HoverParams,
 ) -> Result<Option<HoverResult>> {
-    let path = from_lsp_types::path_from_url(&params.text_document.uri)?;
+    let path = from_proto::path_from_url(&params.text_document.uri)?;
     let module_path = snapshot.resolve_module_path_and_update_live_packages(&path)?;
     let position = match params.position {
         lsp_ext::PositionOrRange::Position(position) => position,
@@ -248,10 +250,23 @@ pub(crate) fn handle_ssr(
 }
 
 pub(crate) fn handle_inlay_hints(
+    snapshot: AnalyzerDBSnapshot,
+    params: InlayHintsParams,
+) -> Result<Option<Vec<lsp_types::InlayHint>>> {
+    let _p = tracing::info_span!("handle_inlay_hints").entered();
+    let document_uri = &params.text_document.uri;
+    let (module_path, range) =
+        from_proto::module_path_and_range(&snapshot, document_uri, params.range)?;
+    module_path
+        .lsp_inlay_hints(&snapshot, Some(range))
+        .map_err(Into::into)
+}
+
+pub(crate) fn handle_inlay_hints_resolve(
     _snapshot: AnalyzerDBSnapshot,
-    _params: InlayHintsParams,
-) -> Result<Vec<InlayHint>> {
-    msg_once!("todo handle inlay hints");
+    mut original_hint: InlayHint,
+) -> Result<InlayHint> {
+    msg_once!("todo handle inlay hints resolve");
     todo!()
 }
 

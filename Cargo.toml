@@ -248,9 +248,10 @@ husky-hir-ty = { path = "crates/hir/husky-hir-ty" }
 husky-diagnostics = { path = "crates/ide/husky-diagnostics" }
 husky-hover = { path = "crates/ide/husky-hover" }
 husky-folding-range = { path = "crates/ide/husky-folding-range" }
+husky-ide-fmt = { path = "crates/ide/husky-ide-fmt" }
+husky-inlay-hints = { path = "crates/ide/husky-inlay-hints" }
 husky-semantic-token = { path = "crates/ide/husky-semantic-token" }
 husky-token-info = { path = "crates/ide/husky-token-info" }
-husky-ide-fmt = { path = "crates/ide/husky-ide-fmt" }
 rustc_span = { path = "crates/ide/rustc_span" }
 # kernel
 husky-coword = { path = "crates/kernel/husky-coword" }

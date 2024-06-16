@@ -74,6 +74,7 @@
         "husky-token-info",
     },
     "husky-ide-fmt": {},
+    "husky-inlay-hints": {},
     "husky-javelin": {
         "husky-hir-defn",
     },

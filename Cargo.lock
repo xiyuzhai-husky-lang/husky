@@ -4051,6 +4051,7 @@ dependencies = [
  "husky-folding-range",
  "husky-hover",
  "husky-ide-fmt",
+ "husky-inlay-hints",
  "husky-manifest",
  "husky-manifest-ast",
  "husky-path-utils",
@@ -5235,6 +5236,18 @@ version = "0.1.0"
 dependencies = [
  "husky-ide-fmt",
  "salsa",
+]
+
+[[package]]
+name = "husky-inlay-hints"
+version = "0.1.0"
+dependencies = [
+ "husky-text-protocol",
+ "husky-vfs",
+ "is",
+ "lsp-types 0.95.0",
+ "salsa",
+ "thiserror",
 ]
 
 [[package]]

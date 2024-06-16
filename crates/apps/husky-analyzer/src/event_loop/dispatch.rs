@@ -1,7 +1,7 @@
 mod dispatcher;
 
 use crate::{
-    convert::from_lsp_types,
+    convert::from_proto,
     event_loop::dispatch::dispatcher::{NotificationDispatcher, RequestDispatcher},
     server::{Server, TaskSet},
     *,
@@ -42,7 +42,8 @@ fn dispatch_lsp_request(
         .on_sync::<lsp_types::request::SelectionRangeRequest>(handle_selection_range)?
         .on_sync::<lsp_ext::MatchingBrace>(handle_matching_brace)?
         .on::<lsp_ext::ParentModule>(handle_parent_module)
-        .on::<lsp_ext::InlayHints>(handle_inlay_hints)
+        .on::<lsp_ext::InlayHintRequest>(handle_inlay_hints)
+        .on::<lsp_ext::InlayHintResolveRequest>(handle_inlay_hints_resolve)
         .on::<lsp_ext::CodeActionRequest>(handle_code_action)
         .on::<lsp_ext::CodeActionResolveRequest>(handle_code_action_resolve)
         .on::<lsp_ext::HoverRequest>(handle_hover)
@@ -104,7 +105,7 @@ fn handle_lsp_notification(
             Ok(TaskSet::Nothing)
         })?
         .on_sync::<lsp_types::notification::DidOpenTextDocument>(|server, params| {
-            if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
+            if let Ok(path) = from_proto::path_from_url(&params.text_document.uri) {
                 match set_live_file(&mut server.db, &path, params.text_document.text) {
                     Ok(_) => (),
                     Err(e) => {
@@ -118,7 +119,7 @@ fn handle_lsp_notification(
             Ok(TaskSet::SendUpdates)
         })?
         .on_sync::<lsp_types::notification::DidChangeTextDocument>(|server, params| {
-            if let Ok(path) = from_lsp_types::path_from_url(&params.text_document.uri) {
+            if let Ok(path) = from_proto::path_from_url(&params.text_document.uri) {
                 // eprintln!("apply live file changes for path {:?}", path);
                 let changes = params
                     .content_changes
@@ -134,7 +135,7 @@ fn handle_lsp_notification(
             Ok(TaskSet::SendUpdates)
         })?
         .on_sync::<lsp_types::notification::DidSaveTextDocument>(|_server, params| {
-            if let Ok(_path) = from_lsp_types::path_from_url(&params.text_document.uri) {
+            if let Ok(_path) = from_proto::path_from_url(&params.text_document.uri) {
                 if let Some(_text) = params.text {
                     todo!()
                 }

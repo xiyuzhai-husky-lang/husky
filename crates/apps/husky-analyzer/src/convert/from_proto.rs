@@ -1,3 +1,6 @@
+use husky_text_protocol::range::TextRange;
+use husky_vfs::path::module_path::ModulePath;
+
 use crate::*;
 
 use std::{error::Error, fmt::Display, path::PathBuf};
@@ -34,4 +37,12 @@ impl LspExt for PathBuf {
     fn into_lsp(self) -> Self::LspType {
         todo!()
     }
+}
+
+pub(crate) fn module_path_and_range(
+    db: &::salsa::Db,
+    document_uri: &lsp_types::Url,
+    range: lsp_types::Range,
+) -> Result<(ModulePath, TextRange)> {
+    todo!()
 }

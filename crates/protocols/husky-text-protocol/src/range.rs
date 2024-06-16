@@ -69,7 +69,7 @@ impl TextRange {
         ((line, 0)..(line, 4)).into()
     }
 
-    pub fn new(range: std::ops::Range<(u32, u32)>) -> Self {
+    pub fn from_u32(range: std::ops::Range<(u32, u32)>) -> Self {
         range.into()
     }
 
