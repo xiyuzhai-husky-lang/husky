@@ -14,19 +14,20 @@ def lexAux
   (c: Char)
   (cs: List Char): List Token :=
     if c.isAlpha || c=='_'
-    then lexIdent c cs
+    then lexIdentAux [c] cs
     else if c.isDigit
     then Token.Number::[]
     else Token.Error::[]
+termination_by cs.length
 
-def lexIdent(c: Char): List Char -> List Token := lexIdentAux [c]
-
-def lexIdentAux(partialWord: List Char): List Char -> List Token
-| [] => [Token.Ident ⟨partialWord⟩]
-| c::cs =>
-  if c.isAlphanum || c=='_'
-  then lexIdentAux (partialWord.append [c]) cs
-  else lexAux c cs
+def lexIdentAux(partialWord: List Char)(cs: List Char): List Token :=
+  match cs with
+  | [] => [Token.Ident ⟨partialWord⟩]
+  | c::cs =>
+    if c.isAlphanum || c=='_'
+    then lexIdentAux (partialWord.append [c]) cs
+    else lexAux c cs
+termination_by cs.length
 end
 
 #eval lex "a"
