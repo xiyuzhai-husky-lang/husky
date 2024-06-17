@@ -51,10 +51,10 @@ fn parse_expr_works() {
                     path: SynNodeRegionPath::ItemDefn(
                         ItemSynNodePath::Chunk(
                             Room32,
-                            ScriptSynNodePath(
+                            ChunkSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Chunk(
-                                        ScriptSynNodePathData {
+                                        ChunkSynNodePathData {
                                             chunk: Chunk {
                                                 source: Snippet {
                                                     toolchain: Toolchain(
@@ -145,10 +145,10 @@ fn parse_expr_works() {
                     path: SynNodeRegionPath::ItemDefn(
                         ItemSynNodePath::Chunk(
                             Room32,
-                            ScriptSynNodePath(
+                            ChunkSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Chunk(
-                                        ScriptSynNodePathData {
+                                        ChunkSynNodePathData {
                                             chunk: Chunk {
                                                 source: Snippet {
                                                     toolchain: Toolchain(
@@ -246,10 +246,10 @@ fn parse_expr_works() {
                     path: SynNodeRegionPath::ItemDefn(
                         ItemSynNodePath::Chunk(
                             Room32,
-                            ScriptSynNodePath(
+                            ChunkSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Chunk(
-                                        ScriptSynNodePathData {
+                                        ChunkSynNodePathData {
                                             chunk: Chunk {
                                                 source: Snippet {
                                                     toolchain: Toolchain(
@@ -340,10 +340,10 @@ fn parse_expr_works() {
                     path: SynNodeRegionPath::ItemDefn(
                         ItemSynNodePath::Chunk(
                             Room32,
-                            ScriptSynNodePath(
+                            ChunkSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Chunk(
-                                        ScriptSynNodePathData {
+                                        ChunkSynNodePathData {
                                             chunk: Chunk {
                                                 source: Snippet {
                                                     toolchain: Toolchain(
@@ -434,10 +434,10 @@ fn parse_expr_works() {
                     path: SynNodeRegionPath::ItemDefn(
                         ItemSynNodePath::Chunk(
                             Room32,
-                            ScriptSynNodePath(
+                            ChunkSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Chunk(
-                                        ScriptSynNodePathData {
+                                        ChunkSynNodePathData {
                                             chunk: Chunk {
                                                 source: Snippet {
                                                     toolchain: Toolchain(
@@ -525,10 +525,10 @@ fn parse_expr_works() {
                     path: SynNodeRegionPath::ItemDefn(
                         ItemSynNodePath::Chunk(
                             Room32,
-                            ScriptSynNodePath(
+                            ChunkSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Chunk(
-                                        ScriptSynNodePathData {
+                                        ChunkSynNodePathData {
                                             chunk: Chunk {
                                                 source: Snippet {
                                                     toolchain: Toolchain(
@@ -639,10 +639,10 @@ fn parse_expr_works() {
                     path: SynNodeRegionPath::ItemDefn(
                         ItemSynNodePath::Chunk(
                             Room32,
-                            ScriptSynNodePath(
+                            ChunkSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Chunk(
-                                        ScriptSynNodePathData {
+                                        ChunkSynNodePathData {
                                             chunk: Chunk {
                                                 source: Snippet {
                                                     toolchain: Toolchain(
@@ -746,10 +746,10 @@ fn parse_expr_works() {
                     path: SynNodeRegionPath::ItemDefn(
                         ItemSynNodePath::Chunk(
                             Room32,
-                            ScriptSynNodePath(
+                            ChunkSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Chunk(
-                                        ScriptSynNodePathData {
+                                        ChunkSynNodePathData {
                                             chunk: Chunk {
                                                 source: Snippet {
                                                     toolchain: Toolchain(
@@ -868,10 +868,10 @@ fn parse_expr_works() {
                     path: SynNodeRegionPath::ItemDefn(
                         ItemSynNodePath::Chunk(
                             Room32,
-                            ScriptSynNodePath(
+                            ChunkSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Chunk(
-                                        ScriptSynNodePathData {
+                                        ChunkSynNodePathData {
                                             chunk: Chunk {
                                                 source: Snippet {
                                                     toolchain: Toolchain(
@@ -994,10 +994,10 @@ fn parse_expr_works() {
                     path: SynNodeRegionPath::ItemDefn(
                         ItemSynNodePath::Chunk(
                             Room32,
-                            ScriptSynNodePath(
+                            ChunkSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Chunk(
-                                        ScriptSynNodePathData {
+                                        ChunkSynNodePathData {
                                             chunk: Chunk {
                                                 source: Snippet {
                                                     toolchain: Toolchain(
@@ -1100,10 +1100,10 @@ fn parse_expr_works() {
                     path: SynNodeRegionPath::ItemDefn(
                         ItemSynNodePath::Chunk(
                             Room32,
-                            ScriptSynNodePath(
+                            ChunkSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Chunk(
-                                        ScriptSynNodePathData {
+                                        ChunkSynNodePathData {
                                             chunk: Chunk {
                                                 source: Snippet {
                                                     toolchain: Toolchain(
@@ -1219,10 +1219,10 @@ fn parse_application_expr_works() {
                     path: SynNodeRegionPath::ItemDefn(
                         ItemSynNodePath::Chunk(
                             Room32,
-                            ScriptSynNodePath(
+                            ChunkSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Chunk(
-                                        ScriptSynNodePathData {
+                                        ChunkSynNodePathData {
                                             chunk: Chunk {
                                                 source: Snippet {
                                                     toolchain: Toolchain(

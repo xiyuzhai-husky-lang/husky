@@ -210,7 +210,17 @@ impl<'a> ItemDefnTokraRegionBuilder<'a> {
         let root_body = match opt_ast_idx {
             Some(ast_idx) => match ast_sheet[ast_idx] {
                 AstData::Identifiable { block, .. } => block.children()?,
-                _ => unreachable!(),
+                AstData::TypeVariant { .. } | AstData::Attr { .. } | AstData::ImplBlock { .. } => {
+                    return None
+                }
+                ref ast => {
+                    use salsa::DebugWithDb;
+                    unreachable!(
+                        "id unambiguous item path = {:?}, ast = {:?}",
+                        id.unambiguous_item_path(db).debug(db),
+                        ast
+                    )
+                }
             },
             None => match id.data(db) {
                 ItemSynNodePathData::Chunk(_) => ast_sheet.top_level_asts(),
@@ -247,7 +257,11 @@ impl<'a> ItemDefnTokraRegionBuilder<'a> {
                     _ => None,
                 })
         else {
-            unreachable!("should be guaranteed by a checker associated with trait `IsAstChildren` in `husky-ast` so that this is not reachable")
+            // use husky_print_utils::p;
+            // use salsa::DebugWithDb;
+            // p!(id.unambiguous_item_path(db).debug(db));
+            // unreachable!("should be guaranteed by a checker associated with trait `IsAstChildren` in `husky-ast` so that this is not reachable");
+            return None;
         };
         let regional_token_verse_idx_base =
             RegionalTokenVerseIdxBase::from_token_verse_idx(first_token_verse_idx);

@@ -4,7 +4,7 @@ use husky_entity_path::{path::ItemPath, region::RegionPath};
 use husky_entity_tree::helpers::{paths::module_item_paths, tokra_region::HasRegionalTokenIdxBase};
 use husky_regional_token::RegionalTokenIdxBase;
 use husky_text::Text;
-use husky_token::sheet::RangedTokenSheet;
+use husky_token::{sheet::RangedTokenSheet, TokenDb};
 use husky_vfs::path::{crate_path::CratePath, module_path::ModulePathData};
 use item_decl::item_decl_inlay_hints;
 use item_defn::item_defn_inlay_hints;
@@ -40,14 +40,20 @@ impl HasLspInlayHints for ModulePath {
 
 #[test]
 fn module_lsp_inlay_hints_works() {
-    // DB
+    DB::ast_rich_test_debug(
+        |db, module_path: ModulePath| module_path.lsp_inlay_hints(db, None),
+        &AstTestConfig::new(
+            "module_lsp_inlay_hints",
+            FileExtensionConfig::Markdown,
+            TestDomainsConfig::IDE,
+        ),
+    )
 }
 
 struct LspInlayHintBuilder<'db> {
     db: &'db ::salsa::Db,
     text_range: Option<TextRange>,
     base: Option<RegionalTokenIdxBase>,
-    text: Text<'db>,
     token_range_sheet_data: &'db RangedTokenSheet,
     lsp_inlay_hints: Vec<lsp_types::InlayHint>,
 }
@@ -57,10 +63,9 @@ impl<'db> LspInlayHintBuilder<'db> {
         Self {
             db,
             text_range: range,
-            base: todo!(),
-            text: todo!(),
-            token_range_sheet_data: todo!(),
-            lsp_inlay_hints: todo!(),
+            base: None,
+            token_range_sheet_data: db.ranged_token_sheet(module_path),
+            lsp_inlay_hints: vec![],
         }
     }
 }
