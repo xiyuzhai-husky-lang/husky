@@ -106,15 +106,22 @@
   "husky-rust-transpilation": [
     "husky-linkage"
   ],
-  "husky-sem-deps": [],
   "husky-sem-expr": [
     "husky-fly-term",
     "husky-syn-defn"
   ],
+  "husky-sem-item-path-deps": [
+    "husky-sem-expr"
+  ],
   "husky-sem-place-contract": [
     "husky-sem-expr"
   ],
-  "husky-sem-var-deps": [],
+  "husky-sem-static-mut-deps": [
+    "husky-sem-item-path-deps"
+  ],
+  "husky-sem-static-var-deps": [
+    "husky-sem-static-mut-deps"
+  ],
   "husky-semantic-token": [
     "husky-token-info"
   ],
