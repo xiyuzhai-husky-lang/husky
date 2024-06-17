@@ -2,6 +2,7 @@ use crate::*;
 
 use husky_vfs::{chunk::Chunk, path::module_path::ModulePath};
 
+#[deprecated(note = "create a trait HasTokenSheet")]
 pub trait TokenDb {
     fn ranged_token_sheet(&self, module_path: ModulePath) -> &RangedTokenSheet;
     fn token_sheet_data(&self, module_path: ModulePath) -> &TokenSheetData;

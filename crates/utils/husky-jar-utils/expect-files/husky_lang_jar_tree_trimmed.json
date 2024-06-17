@@ -75,7 +75,7 @@
   ],
   "husky-ide-fmt": [],
   "husky-inlay-hints": [
-    "husky-entity-tree"
+    "husky-sem-place-contract"
   ],
   "husky-javelin": [
     "husky-hir-defn"
