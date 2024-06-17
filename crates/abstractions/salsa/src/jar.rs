@@ -170,8 +170,10 @@ pub enum JarIndex {
     NamAstJar,
     // semantics
     SemExprJar,
+    SemItemPathDepsJar,
     SemPlaceContractJar,
-    SemVarDepsJar,
+    SemStaticVarDepsJar,
+    SemStaticMutDepsJar,
     // super
     SuperNodeJar,
     // syntax

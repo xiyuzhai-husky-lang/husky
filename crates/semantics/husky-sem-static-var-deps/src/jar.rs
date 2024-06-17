@@ -1,2 +1,2 @@
 #[salsa::jar]
-pub struct SemVarDepsJar();
+pub struct SemStaticVarDepsJar();
