@@ -15,13 +15,22 @@ keywords.workspace = true
 thiserror.workspace = true
 lsp-types = { workspace = true, optional = true }
 serde_json.workspace = true
+sealed.workspace = true
 # abstraction
 is.workspace = true
 salsa.workspace = true
 # fs
 husky-vfs.workspace = true
+# kernel
+husky-entity-path.workspace = true
+# lex
+husky-regional-token.workspace = true
+husky-token = { workspace = true, optional = true }
+husky-text = { workspace = true, optional = true }
 # protocols
 husky-text-protocol.workspace = true
+# syntax
+husky-entity-tree = { workspace = true, optional = true }
 
 [dev-dependencies]
 
@@ -29,4 +38,10 @@ husky-text-protocol.workspace = true
 workspace = true
 
 [features]
-lsp_support = ["dep:lsp-types"]
+lsp_support = [
+    "dep:lsp-types",
+    "dep:husky-text",
+    "dep:husky-token",
+    "dep:husky-entity-tree",
+    "husky-text-protocol/lsp_support"
+]

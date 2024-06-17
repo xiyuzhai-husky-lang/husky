@@ -130,7 +130,7 @@ impl<E> TranspileToRustWith<E> for ModulePath {
                 builder.punctuation(RustPunctuation::ColonColon);
                 ident.transpile_to_rust(builder)
             }
-            ModulePathData::Script { .. } => unreachable!(),
+            ModulePathData::Chunk { .. } => unreachable!(),
         }
     }
 }

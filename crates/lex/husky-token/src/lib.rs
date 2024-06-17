@@ -4,7 +4,7 @@ mod helpers;
 pub mod indent;
 pub mod jar;
 mod lex;
-mod sheet;
+pub mod sheet;
 mod snippet;
 mod stream;
 #[cfg(feature = "test_utils")]

@@ -195,7 +195,7 @@ fn module_relative_path_for_transpilation(
         ModulePathData::Child { .. } => module_path
             .relative_dir_for_submodules(db)
             .with_extension("rs"),
-        ModulePathData::Script { .. } => unreachable!(),
+        ModulePathData::Chunk { .. } => unreachable!(),
     }
 }
 

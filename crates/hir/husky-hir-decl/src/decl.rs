@@ -36,7 +36,7 @@ impl HasHirDecl for ItemPath {
             ItemPath::TypeVariant(_, path) => path.hir_decl(db)?.into(),
             ItemPath::ImplBlock(path) => path.hir_decl(db)?.into(),
             ItemPath::Attr(_, path) => path.hir_decl(db)?.into(),
-            ItemPath::Script(_, _) => todo!(),
+            ItemPath::Chunk(_, _) => todo!(),
         })
     }
 }

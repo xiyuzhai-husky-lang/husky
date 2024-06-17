@@ -167,8 +167,10 @@ impl<'a> CrateDeclTokraRegionBuilder<'a> {
         let token_idx_range: TokenIdxRange =
             ast_token_idx_range_sheet[start].join(ast_token_idx_range_sheet[root_body.end() - 1]);
         let tokens_data = token_sheet_data[token_idx_range].to_vec();
-        let regional_token_idx_base =
-            RegionalTokenIdxBase::new(token_sheet_data.token_verse_start(first_token_verse_idx));
+        let regional_token_idx_base = RegionalTokenIdxBase::new(
+            token_sheet_data.token_verse_start(first_token_verse_idx),
+            &tokens_data,
+        );
         Some(Self {
             db,
             ast_sheet,

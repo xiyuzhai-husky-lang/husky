@@ -124,7 +124,7 @@ impl From<EntityClass> for TokenClass {
             EntityClass::Formal => TokenClass::DefEntity,
             EntityClass::AssocDef => TokenClass::DefEntity,
             EntityClass::Compterm => TokenClass::TermicEntity,
-            EntityClass::Script => unreachable!(),
+            EntityClass::Chunk => unreachable!(),
             EntityClass::StaticMut => TokenClass::StaticMutEntity,
             EntityClass::StaticVar => TokenClass::StaticVarEntity,
         }
