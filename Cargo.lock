@@ -6132,6 +6132,10 @@ version = "0.1.0"
 [[package]]
 name = "husky-sem-item-path-deps"
 version = "0.1.0"
+dependencies = [
+ "husky-sem-expr",
+ "salsa",
+]
 
 [[package]]
 name = "husky-sem-opr"
@@ -6179,11 +6183,18 @@ dependencies = [
 [[package]]
 name = "husky-sem-static-mut-deps"
 version = "0.1.0"
+dependencies = [
+ "husky-sem-expr",
+ "husky-sem-item-path-deps",
+ "salsa",
+]
 
 [[package]]
 name = "husky-sem-static-var-deps"
 version = "0.1.0"
 dependencies = [
+ "husky-sem-expr",
+ "husky-sem-item-path-deps",
  "husky-sem-static-mut-deps",
  "salsa",
 ]

@@ -12,6 +12,11 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+# abstractions
+salsa.workspace = true
+# semantics
+husky-sem-item-path-deps.workspace = true
+husky-sem-expr.workspace = true
 
 [lints]
 workspace = true
