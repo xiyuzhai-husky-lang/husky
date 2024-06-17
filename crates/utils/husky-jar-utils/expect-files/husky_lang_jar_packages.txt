@@ -562,7 +562,13 @@
     },
     JarPackageSummary {
         name: "husky-inlay-hints",
-        dependencies: [],
+        dependencies: [
+            "husky-entity-path",
+            "husky-entity-tree",
+            "husky-text",
+            "husky-token",
+            "husky-vfs",
+        ],
     },
     JarPackageSummary {
         name: "husky-semantic-token",

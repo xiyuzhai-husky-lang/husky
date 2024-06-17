@@ -5244,6 +5244,7 @@ version = "0.1.0"
 dependencies = [
  "husky-entity-path",
  "husky-entity-tree",
+ "husky-inlay-hints",
  "husky-regional-token",
  "husky-text",
  "husky-text-protocol",

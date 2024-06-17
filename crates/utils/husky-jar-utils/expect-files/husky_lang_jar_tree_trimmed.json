@@ -74,7 +74,9 @@
     "husky-token-info"
   ],
   "husky-ide-fmt": [],
-  "husky-inlay-hints": [],
+  "husky-inlay-hints": [
+    "husky-entity-tree"
+  ],
   "husky-javelin": [
     "husky-hir-defn"
   ],

@@ -25,7 +25,7 @@ impl HasLspInlayHints for ModulePath {
         db: &salsa::Db,
         range: Option<TextRange>,
     ) -> InlayHintResult<Option<Vec<lsp_types::InlayHint>>> {
-        let mut builder = LspInlayHintBuilder::new(self, db);
+        let mut builder = LspInlayHintBuilder::new(self, range, db);
         match self.data(db) {
             ModulePathData::Root(crate_path) => builder.add_crate_decl(crate_path),
             ModulePathData::Child { parent, ident } => (),
@@ -38,8 +38,14 @@ impl HasLspInlayHints for ModulePath {
     }
 }
 
+#[test]
+fn module_lsp_inlay_hints_works() {
+    // DB
+}
+
 struct LspInlayHintBuilder<'db> {
     db: &'db ::salsa::Db,
+    text_range: Option<TextRange>,
     base: Option<RegionalTokenIdxBase>,
     text: Text<'db>,
     token_range_sheet_data: &'db RangedTokenSheet,
@@ -47,9 +53,10 @@ struct LspInlayHintBuilder<'db> {
 }
 
 impl<'db> LspInlayHintBuilder<'db> {
-    fn new(module_path: ModulePath, db: &'db ::salsa::Db) -> Self {
+    fn new(module_path: ModulePath, range: Option<TextRange>, db: &'db ::salsa::Db) -> Self {
         Self {
             db,
+            text_range: range,
             base: todo!(),
             text: todo!(),
             token_range_sheet_data: todo!(),
@@ -69,21 +76,49 @@ impl<'db> LspInlayHintBuilder<'db> {
 impl<'db> LspInlayHintBuilder<'db> {
     fn add_crate_decl(&mut self, crate_path: CratePath) {
         let db = self.db;
-        self.base = RegionPath::CrateDecl(crate_path).regional_token_idx_base(db);
-        self.add(crate_decl_inlay_hints(db, crate_path));
+        self.add_inlay_hints_in_region(
+            RegionPath::CrateDecl(crate_path).regional_token_idx_base(db),
+            crate_decl_inlay_hints(db, crate_path),
+        );
     }
 
     fn add_item_decl_and_defn(&mut self, item_path: ItemPath) {
         let db = self.db;
         debug_assert!(self.base.is_none());
-        self.base = RegionPath::ItemDecl(item_path).regional_token_idx_base(db);
-        self.add(item_decl_inlay_hints(db, *item_path));
-        self.base = RegionPath::ItemDefn(item_path).regional_token_idx_base(db);
-        self.add(item_defn_inlay_hints(db, *item_path));
+        self.add_inlay_hints_in_region(
+            RegionPath::ItemDecl(item_path).regional_token_idx_base(db),
+            item_decl_inlay_hints(db, *item_path),
+        );
+        self.add_inlay_hints_in_region(
+            RegionPath::ItemDefn(item_path).regional_token_idx_base(db),
+            item_decl_inlay_hints(db, *item_path),
+        );
     }
 
-    fn add(&mut self, inlay_hints: &'db [InlayHint]) {
-        todo!()
+    fn add_inlay_hints_in_region(
+        &mut self,
+        base: Option<RegionalTokenIdxBase>,
+        inlay_hints: &'db [InlayHint],
+    ) {
+        let Some(base) = base else { return };
+        if let Some(text_range) = self.text_range {
+            if !self
+                .token_range_sheet_data
+                .tokens_text_range(base.token_idx_range())
+                .intersects(text_range)
+            {
+                return;
+            }
+        }
+        self.add_inlay_hints(inlay_hints)
+    }
+
+    fn add_inlay_hints(&mut self, inlay_hints: &'db [InlayHint]) {
+        for inlay_hint in inlay_hints {
+            if let Some(lsp_inlay_hint) = inlay_hint.lsp(self) {
+                self.lsp_inlay_hints.push(lsp_inlay_hint)
+            }
+        }
     }
 
     fn finish(self) -> Vec<lsp_types::InlayHint> {
@@ -92,13 +127,18 @@ impl<'db> LspInlayHintBuilder<'db> {
 }
 
 impl InlayHint {
-    fn lsp(&self, builder: &LspInlayHintBuilder) -> lsp_types::InlayHint {
-        lsp_types::InlayHint {
-            position: builder
-                .token_range_sheet_data
-                .token_text_range(self.position.token_idx(builder.base()))
-                .start
-                .into(),
+    fn lsp(&self, builder: &LspInlayHintBuilder) -> Option<lsp_types::InlayHint> {
+        let text_position = builder
+            .token_range_sheet_data
+            .token_text_range(self.position.token_idx(builder.base()))
+            .start;
+        if let Some(text_range) = builder.text_range {
+            if !(text_range.start < text_position && text_position < text_range.end) {
+                return None;
+            }
+        }
+        Some(lsp_types::InlayHint {
+            position: text_position.into(),
             label: self.label.lsp(),
             kind: self.kind.into(),
             text_edits: None,
@@ -106,7 +146,7 @@ impl InlayHint {
             padding_left: None,
             padding_right: None,
             data: None,
-        }
+        })
     }
 }
 

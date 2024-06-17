@@ -461,7 +461,23 @@
     "husky-vfs"
   ],
   "husky-ide-fmt": [],
-  "husky-inlay-hints": [],
+  "husky-inlay-hints": [
+    "husky-ast",
+    "husky-corgi-config",
+    "husky-corgi-config-ast",
+    "husky-coword",
+    "husky-entity-path",
+    "husky-entity-tree",
+    "husky-manifest",
+    "husky-manifest-ast",
+    "husky-term-prelude",
+    "husky-text",
+    "husky-token",
+    "husky-token-data",
+    "husky-toml-ast",
+    "husky-toml-token",
+    "husky-vfs"
+  ],
   "husky-javelin": [
     "husky-ast",
     "husky-corgi-config",
