@@ -4,7 +4,7 @@ use crate::{
 };
 use husky_token_data::{Punctuation, TokenData};
 #[cfg(test)]
-use husky_vfs::script::Script;
+use husky_vfs::chunk::Chunk;
 
 #[derive(Debug, Clone)]
 pub struct TokenStream<'a> {
@@ -148,7 +148,7 @@ fn next_indexed_works() {
 
     let db = DB::default();
     let db = &*db;
-    let token_sheet_data = db.snippet_token_sheet_data(Script::new_dev_snippet(
+    let token_sheet_data = db.chunk_token_sheet_data(Chunk::new_dev_snippet(
         "What does a rusty can of spray-on rust remover smell like?\n Irony.",
         db,
     ));

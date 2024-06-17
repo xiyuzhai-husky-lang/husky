@@ -46,6 +46,9 @@ impl TextRange {
     pub fn closed_end(&self) -> TextPosition {
         self.end.to_left(1)
     }
+    pub fn intersects(self, other: Self) -> bool {
+        self.start < other.end && other.start < self.end
+    }
 }
 
 impl std::fmt::Display for TextRange {
@@ -69,7 +72,7 @@ impl TextRange {
         ((line, 0)..(line, 4)).into()
     }
 
-    pub fn new(range: std::ops::Range<(u32, u32)>) -> Self {
+    pub fn from_u32(range: std::ops::Range<(u32, u32)>) -> Self {
         range.into()
     }
 

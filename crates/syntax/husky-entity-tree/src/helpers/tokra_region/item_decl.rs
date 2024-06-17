@@ -109,7 +109,7 @@ fn build_item_decl_tokra_region(
     };
     let tokens = token_sheet_data[token_verse_idx].to_vec();
     let regional_token_idx_base =
-        RegionalTokenIdxBase::new(token_sheet_data.token_verse_start(token_verse_idx));
+        RegionalTokenIdxBase::new(token_sheet_data.token_verse_start(token_verse_idx), &tokens);
     let saved_regional_stream_state = saved_regional_stream_state.map(|token_stream_state| {
         RegionalTokenStreamState::from_token_stream_state(
             token_stream_state,

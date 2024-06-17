@@ -85,7 +85,7 @@ impl IngredientPath {
             EntityKind::TypeVariant => false,
             EntityKind::ImplBlock => false,
             EntityKind::Attr => false,
-            EntityKind::Script => todo!(),
+            EntityKind::Chunk => todo!(),
         }
     }
 

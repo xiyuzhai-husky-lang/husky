@@ -3,7 +3,7 @@ use husky_regional_token::{HeavyArrowRegionalToken, VerticalRegionalToken};
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct SemaCaseBranch {
+pub struct SemCaseBranch {
     pub vertical_token: VerticalRegionalToken,
     pub case_pattern_sem_obelisk: CaseVariableObelisk,
     pub heavy_arrow_token: HeavyArrowRegionalToken,
@@ -70,14 +70,14 @@ impl<'a> SemExprBuilder<'a> {
         syn_case_branch: &'a SynCaseBranch,
         match_target_ty: FlyTerm,
         merger: &mut BranchTypeMerger<Expectation>,
-    ) -> SynExprResultRef<'a, SemaCaseBranch> {
+    ) -> SynExprResultRef<'a, SemCaseBranch> {
         let case_pattern_sem_obelisk = self.build_case_pattern_sem_obelisk(
             syn_case_branch.case_pattern_syn_obelisk.as_ref()?,
             match_target_ty,
         );
         let heavy_arrow_token = *syn_case_branch.heavy_arrow_token.as_ref()?;
         let stmts = self.build_sem_branch(*syn_case_branch.stmts.as_ref()?, merger);
-        Ok(SemaCaseBranch {
+        Ok(SemCaseBranch {
             vertical_token: syn_case_branch.vertical_token,
             case_pattern_sem_obelisk,
             heavy_arrow_token,

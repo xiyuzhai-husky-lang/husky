@@ -3,6 +3,9 @@
         "husky-text",
         "husky-token",
     },
+    "husky-code-lens": {
+        "husky-sem-place-contract",
+    },
     "husky-completion": {
         "husky-syn-expr",
     },
@@ -74,6 +77,9 @@
         "husky-token-info",
     },
     "husky-ide-fmt": {},
+    "husky-inlay-hints": {
+        "husky-sem-place-contract",
+    },
     "husky-javelin": {
         "husky-hir-defn",
     },
@@ -100,15 +106,22 @@
     "husky-rust-transpilation": {
         "husky-linkage",
     },
-    "husky-sem-deps": {},
     "husky-sem-expr": {
         "husky-fly-term",
         "husky-syn-defn",
     },
+    "husky-sem-item-path-deps": {
+        "husky-sem-expr",
+    },
     "husky-sem-place-contract": {
         "husky-sem-expr",
     },
-    "husky-sem-var-deps": {},
+    "husky-sem-static-mut-deps": {
+        "husky-sem-item-path-deps",
+    },
+    "husky-sem-static-var-deps": {
+        "husky-sem-static-mut-deps",
+    },
     "husky-semantic-token": {
         "husky-token-info",
     },

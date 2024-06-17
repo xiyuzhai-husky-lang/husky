@@ -69,7 +69,7 @@ impl HasRegionalTokenIdxBase for RegionPath {
                 Some(slf.syn_node_path(db).decl_regional_token_idx_base(db))
             }
             RegionPath::ItemDefn(slf) => slf.syn_node_path(db).defn_regional_token_idx_base(db),
-            RegionPath::Script(_) => Some(RegionalTokenIdxBase::new_snippet()),
+            RegionPath::Chunk(slf) => Some(RegionalTokenIdxBase::new_chunk(slf, db)),
         }
     }
 }

@@ -144,7 +144,7 @@ where
                                     EntityKind::TypeVariant => todo!(),
                                     EntityKind::ImplBlock => todo!(),
                                     EntityKind::Attr => todo!(),
-                                    EntityKind::Script => todo!(),
+                                    EntityKind::Chunk => todo!(),
                                 }
                             }
                             _ => DisambiguatedTokenData::SynBinaryOpr(

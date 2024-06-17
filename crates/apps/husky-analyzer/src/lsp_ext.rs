@@ -1,9 +1,10 @@
 //! husky-lang-server extensions to the LSP.
+// todo: many of the `METHOD` are wrong
 
 use std::{collections::HashMap, path::PathBuf};
 
 use husky_hover::HoverResult;
-use lsp_types::request::Request;
+use lsp_types::{request::Request, InlayHint};
 use lsp_types::{
     CodeActionKind, PartialResultParams, Position, Range, TextDocumentIdentifier,
     WorkDoneProgressParams,
@@ -213,32 +214,38 @@ pub struct TestInfo {
     pub runnable: Runnable,
 }
 
-pub enum InlayHints {}
+pub enum InlayHintRequest {}
 
-impl Request for InlayHints {
+impl Request for InlayHintRequest {
     type Params = InlayHintsParams;
-    type Result = Vec<InlayHint>;
-    const METHOD: &'static str = "husky-lang-server/inlayHints";
+    type Result = Option<Vec<InlayHint>>;
+    const METHOD: &'static str = "textDocument/inlayHint";
+}
+
+/// The `inlayHint/resolve` request is sent from the client to the server to resolve additional
+/// information for a given inlay hint. This is usually used to compute the tooltip, location or
+/// command properties of a inlay hint’s label part to avoid its unnecessary computation during the
+/// `textDocument/inlayHint` request.
+pub enum InlayHintResolveRequest {}
+
+impl Request for InlayHintResolveRequest {
+    type Params = InlayHint;
+    type Result = InlayHint;
+    // todo: is this correct?
+    const METHOD: &'static str = "inlayHint/resolve";
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(rename_all = "camelCase")]
 pub struct InlayHintsParams {
+    #[serde(flatten)]
+    pub work_done_progress_params: WorkDoneProgressParams,
+
+    /// The text document.
     pub text_document: TextDocumentIdentifier,
-}
 
-#[derive(Debug, PartialEq, Eq, Deserialize, Serialize)]
-pub enum InlayKind {
-    TypeHint,
-    ParameterHint,
-    ChainingHint,
-}
-
-#[derive(Debug, Deserialize, Serialize)]
-pub struct InlayHint {
+    /// The visible document range for which inlay hints should be computed.
     pub range: Range,
-    pub kind: InlayKind,
-    pub label: String,
 }
 
 pub enum Ssr {}

@@ -6,7 +6,6 @@ pub struct FermiMatchResult {
 }
 
 impl FermiMatchResult:
-    // todo: change this to func
     memo norm: f32 =
         let mut norm: f32 = 0.0
         for i < self.others.ilen():

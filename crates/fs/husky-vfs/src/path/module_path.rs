@@ -1,7 +1,7 @@
 pub mod ancestry;
 pub mod relative_path;
 
-use crate::script::Script;
+use crate::chunk::Chunk;
 
 use super::*;
 pub use ancestry::*;
@@ -19,26 +19,26 @@ pub struct ModulePath {
 #[salsa::as_id]
 #[salsa::deref_id]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct ScriptModulePath {
+pub struct ChunkModulePath {
     module_path: ModulePath,
 }
 
-impl ScriptModulePath {
+impl ChunkModulePath {
     pub fn module_path(self) -> ModulePath {
         self.module_path
     }
 
-    pub fn new(script: Script, db: &::salsa::Db) -> Self {
+    pub fn new(chunk: Chunk, db: &::salsa::Db) -> Self {
         Self {
-            module_path: ModulePath::new_inner(db, ModulePathData::Script { script }),
+            module_path: ModulePath::new_inner(db, ModulePathData::Chunk { chunk }),
         }
     }
 
-    pub fn script(self, db: &::salsa::Db) -> Script {
-        let ModulePathData::Script { script } = self.module_path.data(db) else {
+    pub fn chunk(self, db: &::salsa::Db) -> Chunk {
+        let ModulePathData::Chunk { chunk } = self.module_path.data(db) else {
             unreachable!()
         };
-        script
+        chunk
     }
 }
 
@@ -57,13 +57,13 @@ impl ModulePath {
         match self.data(db) {
             ModulePathData::Root(_) => true,
             ModulePathData::Child { .. } => false,
-            ModulePathData::Script { .. } => false,
+            ModulePathData::Chunk { .. } => false,
         }
     }
 
     pub fn root_module_path(self, db: &::salsa::Db) -> Self {
         match self.data(db) {
-            ModulePathData::Root(_) | ModulePathData::Script { .. } => self,
+            ModulePathData::Root(_) | ModulePathData::Chunk { .. } => self,
             ModulePathData::Child { .. } => self.module_ancestry(db).root_module_path(),
         }
     }
@@ -125,7 +125,7 @@ impl ModulePath {
         match self.data(db) {
             ModulePathData::Root(_) => None,
             ModulePathData::Child { parent, .. } => Some(parent),
-            ModulePathData::Script { .. } => None,
+            ModulePathData::Chunk { .. } => None,
         }
     }
 
@@ -164,7 +164,7 @@ impl ModulePath {
         match self.data(db) {
             ModulePathData::Root(crate_path) => crate_path.package_ident(db),
             ModulePathData::Child { ident, .. } => ident,
-            ModulePathData::Script { script: snippet } => Ident::from_ref(db, "snippet").unwrap(),
+            ModulePathData::Chunk { chunk: snippet } => Ident::from_ref(db, "snippet").unwrap(),
         }
     }
 
@@ -178,7 +178,7 @@ impl ModulePath {
                 .unwrap(),
             None => match self.data(db) {
                 ModulePathData::Root(_) | ModulePathData::Child { .. } => unreachable!(),
-                ModulePathData::Script { script } => script.data(db),
+                ModulePathData::Chunk { chunk: chunk } => chunk.data(db),
             },
         }
     }
@@ -240,7 +240,7 @@ fn module_path_partial_ord_works() {
 pub enum ModulePathData {
     Root(CratePath),
     Child { parent: ModulePath, ident: Ident },
-    Script { script: Script },
+    Chunk { chunk: Chunk },
 }
 
 impl ModulePath {
@@ -268,7 +268,7 @@ impl ModulePath {
                 f.write_str("::")?;
                 f.write_str(ident.data(db))
             }
-            ModulePathData::Script { script: snippet } => {
+            ModulePathData::Chunk { chunk: snippet } => {
                 f.write_fmt(format_args!("{}", snippet.as_id().as_u32()))
             }
         }
