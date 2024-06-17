@@ -4035,6 +4035,7 @@ dependencies = [
  "dashmap",
  "husky-ast",
  "husky-check-utils",
+ "husky-code-lens",
  "husky-corgi-config",
  "husky-corgi-config-ast",
  "husky-coword",
@@ -4224,6 +4225,48 @@ dependencies = [
  "ecolor",
  "enum-index",
  "husky-token-protocol",
+]
+
+[[package]]
+name = "husky-code-lens"
+version = "0.1.0"
+dependencies = [
+ "husky-ast",
+ "husky-code-lens",
+ "husky-corgi-config",
+ "husky-corgi-config-ast",
+ "husky-coword",
+ "husky-dec-signature",
+ "husky-dec-term",
+ "husky-dec-ty",
+ "husky-entity-path",
+ "husky-entity-tree",
+ "husky-eth-signature",
+ "husky-eth-term",
+ "husky-fly-term",
+ "husky-manifest",
+ "husky-manifest-ast",
+ "husky-place",
+ "husky-regional-token",
+ "husky-sem-expr",
+ "husky-sem-place-contract",
+ "husky-syn-decl",
+ "husky-syn-defn",
+ "husky-syn-expr",
+ "husky-term-prelude",
+ "husky-text",
+ "husky-text-protocol",
+ "husky-token",
+ "husky-token-data",
+ "husky-toml-ast",
+ "husky-toml-token",
+ "husky-vfs",
+ "is",
+ "lsp-types 0.95.0",
+ "salsa",
+ "sealed",
+ "serde_json",
+ "thiserror",
 ]
 
 [[package]]
