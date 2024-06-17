@@ -33,6 +33,7 @@ count-todo:
 update-jar-tree:
 	UPDATE_EXPECT=1 cargo test -p husky-jar-utils
 	cargo test -p husky-jar-utils
+	cargo check
 
 update-expect: update-jar-tree
 	scripts/update_expect.sh

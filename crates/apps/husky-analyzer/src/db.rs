@@ -42,6 +42,7 @@ use salsa::snapshot::SnapshotClone;
     husky_semantic_token::SemanticTokenJar,
     husky_hover::HoverJar,
     husky_ide_fmt::jar::IdeFmtJar,
+    husky_inlay_hints::jar::InlayHintsJar,
     husky_diagnostics::DiagnosticsJar,
 )]
 pub struct AnalyzerDb;

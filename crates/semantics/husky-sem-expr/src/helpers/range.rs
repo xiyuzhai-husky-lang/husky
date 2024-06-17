@@ -709,21 +709,28 @@ impl<'a> SemExprRangeCalculator<'a> {
             SemStmtData::Match {
                 match_token,
                 case_branches,
+                eol_with_token,
                 ..
             } => {
-                let mut last_case_branch_range = None;
-                for case_branch in case_branches {
-                    last_case_branch_range = Some(self.calc_block_range(case_branch.stmts));
+                let mut case_branch_rev_iter = case_branches.iter().rev();
+                let last_case_branch_range_end =
+                    if let Some(last_case_branch) = case_branch_rev_iter.next() {
+                        Some(self.calc_block_range(last_case_branch.stmts).end())
+                    } else {
+                        None
+                    };
+                for case_branch in case_branch_rev_iter {
+                    let _ = self.calc_block_range(case_branch.stmts);
                 }
-                match last_case_branch_range {
-                    Some(last_case_branch_range) => RegionalTokenIdxRange::new(
+                match last_case_branch_range_end {
+                    Some(last_case_branch_range_end) => RegionalTokenIdxRange::new(
                         match_token.regional_token_idx(),
-                        last_case_branch_range.end(),
+                        last_case_branch_range_end,
                     ),
-                    _ => {
-                        // ad hoc, todo: consider with keyword
-                        RegionalTokenIdxRange::new_single(match_token.regional_token_idx())
-                    }
+                    _ => RegionalTokenIdxRange::new_closed(
+                        match_token.regional_token_idx(),
+                        eol_with_token.regional_token_idx(),
+                    ),
                 }
             }
             SemStmtData::Assert {

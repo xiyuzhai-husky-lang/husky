@@ -1,5 +1,5 @@
 use husky_sem_expr::{
-    match_stmt::SemaCaseBranch,
+    match_stmt::SemCaseBranch,
     stmt::if_else_stmt::{SemElifBranch, SemElseBranch, SemIfBranch},
 };
 
@@ -60,7 +60,7 @@ pub struct HirEagerCaseBranch {
     pub stmts: HirEagerStmtIdxRange,
 }
 
-impl ToHirEager for SemaCaseBranch {
+impl ToHirEager for SemCaseBranch {
     type Output = HirEagerCaseBranch;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {

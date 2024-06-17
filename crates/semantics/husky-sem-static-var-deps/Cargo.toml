@@ -1,0 +1,23 @@
+[package]
+name = "husky-sem-static-var-deps"
+version.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[dependencies]
+# abstractions
+salsa.workspace = true
+# semantics
+husky-sem-expr.workspace = true
+husky-sem-item-path-deps.workspace = true
+husky-sem-static-mut-deps.workspace = true
+
+[lints]
+workspace = true

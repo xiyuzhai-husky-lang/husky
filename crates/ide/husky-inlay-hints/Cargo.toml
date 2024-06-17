@@ -1,0 +1,84 @@
+[package]
+name = "husky-inlay-hints"
+version.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[dependencies]
+thiserror.workspace = true
+lsp-types = { workspace = true, optional = true }
+serde_json.workspace = true
+sealed.workspace = true
+# abstraction
+is.workspace = true
+salsa.workspace = true
+# fs
+husky-vfs.workspace = true
+# kernel
+husky-entity-path.workspace = true
+# lex
+husky-regional-token.workspace = true
+husky-token = { workspace = true, optional = true }
+husky-text = { workspace = true, optional = true }
+# protocols
+husky-text-protocol.workspace = true
+# syntax
+husky-entity-tree = { workspace = true, optional = true }
+
+[dev-dependencies]
+# fs
+husky-corgi-config.workspace = true
+husky-vfs = { workspace = true, features = ["test_utils"] }
+# ide
+husky-inlay-hints = { path = ".", features = ["lsp_support"] }
+# kernel
+husky-coword.workspace = true
+husky-entity-path.workspace = true
+husky-term-prelude.workspace = true
+husky-dec-term.workspace = true
+husky-dec-ty.workspace = true
+husky-eth-term.workspace = true
+husky-eth-signature.workspace = true
+husky-fly-term.workspace = true
+husky-place.workspace = true
+# lex
+husky-text.workspace = true
+husky-token-data = { path = "../../lex/husky-token-data", features = [
+    "protocol_support"
+] }
+husky-token.workspace = true
+# semantics
+husky-manifest.workspace = true
+husky-dec-signature.workspace = true
+husky-sem-expr.workspace = true
+husky-sem-place-contract.workspace = true
+# syntax
+husky-entity-tree.workspace = true
+husky-syn-expr.workspace = true
+husky-syn-decl.workspace = true
+husky-syn-defn.workspace = true
+husky-ast = { workspace = true, features = ["test_utils"] }
+husky-toml-ast.workspace = true
+husky-manifest-ast.workspace = true
+husky-corgi-config-ast.workspace = true
+# toml
+husky-toml-token.workspace = true
+
+[lints]
+workspace = true
+
+[features]
+lsp_support = [
+    "dep:lsp-types",
+    "dep:husky-text",
+    "dep:husky-token",
+    "dep:husky-entity-tree",
+    "husky-text-protocol/lsp_support"
+]

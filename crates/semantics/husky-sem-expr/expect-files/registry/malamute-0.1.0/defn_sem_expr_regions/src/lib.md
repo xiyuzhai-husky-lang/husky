@@ -1244,7 +1244,7 @@
                                         ),
                                     },
                                     case_branches: [
-                                        SemaCaseBranch {
+                                        SemCaseBranch {
                                             vertical_token: VerticalRegionalToken(
                                                 RegionalTokenIdx(
                                                     4,
@@ -1269,7 +1269,7 @@
                                                 ),
                                             ),
                                         },
-                                        SemaCaseBranch {
+                                        SemCaseBranch {
                                             vertical_token: VerticalRegionalToken(
                                                 RegionalTokenIdx(
                                                     24,
@@ -3297,7 +3297,7 @@
                                         ),
                                     },
                                     case_branches: [
-                                        SemaCaseBranch {
+                                        SemCaseBranch {
                                             vertical_token: VerticalRegionalToken(
                                                 RegionalTokenIdx(
                                                     4,
@@ -3322,7 +3322,7 @@
                                                 ),
                                             ),
                                         },
-                                        SemaCaseBranch {
+                                        SemCaseBranch {
                                             vertical_token: VerticalRegionalToken(
                                                 RegionalTokenIdx(
                                                     21,
@@ -3347,7 +3347,7 @@
                                                 ),
                                             ),
                                         },
-                                        SemaCaseBranch {
+                                        SemCaseBranch {
                                             vertical_token: VerticalRegionalToken(
                                                 RegionalTokenIdx(
                                                     38,

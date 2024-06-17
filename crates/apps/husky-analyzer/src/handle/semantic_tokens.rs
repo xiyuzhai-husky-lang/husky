@@ -44,7 +44,7 @@ pub(crate) fn handle_semantic_tokens_range(
     params: SemanticTokensRangeParams,
 ) -> Result<Option<SemanticTokensRangeResult>> {
     // ad hoc
-    let path = from_lsp_types::path_from_url(&params.text_document.uri)?;
+    let path = from_proto::path_from_url(&params.text_document.uri)?;
     let module_path = snapshot.resolve_module_path_and_update_live_packages(&path)?;
     let _semantic_tokens_ext =
         snapshot.semantic_tokens_ext(module_path, Some(params.range.into()))?;
@@ -64,7 +64,7 @@ fn semantic_tokens(
     fn new_result_id() -> u32 {
         SEMANTIC_TOKENS_RESULT_ID_NEXT.fetch_add(1, Ordering::SeqCst)
     }
-    let path = from_lsp_types::path_from_url(uri)?;
+    let path = from_proto::path_from_url(uri)?;
     let module_path = snapshot.resolve_module_path_and_update_live_packages(&path)?;
     let semantic_tokens = SemanticTokens {
         result_id: Some(new_result_id().to_string()),

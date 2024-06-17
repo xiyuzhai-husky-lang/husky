@@ -245,12 +245,14 @@ husky-hir-opr = { path = "crates/hir/husky-hir-opr" }
 husky-hir-prelude = { path = "crates/hir/husky-hir-prelude" }
 husky-hir-ty = { path = "crates/hir/husky-hir-ty" }
 # ide
+husky-code-lens = { path = "crates/ide/husky-code-lens" }
 husky-diagnostics = { path = "crates/ide/husky-diagnostics" }
 husky-hover = { path = "crates/ide/husky-hover" }
 husky-folding-range = { path = "crates/ide/husky-folding-range" }
+husky-ide-fmt = { path = "crates/ide/husky-ide-fmt" }
+husky-inlay-hints = { path = "crates/ide/husky-inlay-hints" }
 husky-semantic-token = { path = "crates/ide/husky-semantic-token" }
 husky-token-info = { path = "crates/ide/husky-token-info" }
-husky-ide-fmt = { path = "crates/ide/husky-ide-fmt" }
 rustc_span = { path = "crates/ide/rustc_span" }
 # kernel
 husky-coword = { path = "crates/kernel/husky-coword" }
@@ -296,6 +298,9 @@ husky-dev-runtime = { path = "crates/runtime/husky-dev-runtime" }
 husky-sem-expr = { path = "crates/semantics/husky-sem-expr" }
 husky-sem-opr = { path = "crates/semantics/husky-sem-opr" }
 husky-sem-place-contract = { path = "crates/semantics/husky-sem-place-contract" }
+husky-sem-item-path-deps = { path = "crates/semantics/husky-sem-item-path-deps" }
+husky-sem-static-mut-deps = { path = "crates/semantics/husky-sem-static-mut-deps" }
+husky-sem-static-var-deps = { path = "crates/semantics/husky-sem-static-var-deps" }
 # syntax
 husky-ast = { path = "crates/syntax/husky-ast" }
 husky-crate-decl-ast = { path = "crates/syntax/husky-crate-decl-ast" }

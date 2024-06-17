@@ -19,3 +19,6 @@ impl SemanticTokenDb for ::salsa::Db {
             .map_err(|e| e.clone())?)
     }
 }
+
+#[salsa::jar]
+pub struct SemanticTokenJar(semantic_tokens, semantic_tokens_ext_without_range);

@@ -134,13 +134,15 @@ pub enum JarIndex {
     HirPreludeJar,
     HirTypeJar,
     // ide
+    CodeLensJar,
     CompletionJar,
     DiagnosticsJar,
     DocumentationJar,
     FoldingRangeJar,
     HoverJar,
-    SemanticTokenJar,
     IdeFmtJar,
+    InlayHintsJar,
+    SemanticTokenJar,
     TokenInfoJar,
     // kernel
     CowordJar,
@@ -168,8 +170,10 @@ pub enum JarIndex {
     NamAstJar,
     // semantics
     SemExprJar,
+    SemItemPathDepsJar,
     SemPlaceContractJar,
-    SemVarDepsJar,
+    SemStaticVarDepsJar,
+    SemStaticMutDepsJar,
     // super
     SuperNodeJar,
     // syntax
