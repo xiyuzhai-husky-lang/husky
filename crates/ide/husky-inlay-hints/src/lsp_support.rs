@@ -89,14 +89,13 @@ impl<'db> LspInlayHintBuilder<'db> {
 
     fn add_item_decl_and_defn(&mut self, item_path: ItemPath) {
         let db = self.db;
-        debug_assert!(self.base.is_none());
         self.add_inlay_hints_in_region(
             RegionPath::ItemDecl(item_path).regional_token_idx_base(db),
             item_decl_inlay_hints(db, *item_path),
         );
         self.add_inlay_hints_in_region(
             RegionPath::ItemDefn(item_path).regional_token_idx_base(db),
-            item_decl_inlay_hints(db, *item_path),
+            item_defn_inlay_hints(db, *item_path),
         );
     }
 
@@ -106,16 +105,24 @@ impl<'db> LspInlayHintBuilder<'db> {
         inlay_hints: &'db [InlayHint],
     ) {
         let Some(base) = base else { return };
-        if let Some(text_range) = self.text_range {
-            if !self
-                .token_range_sheet_data
-                .tokens_text_range(base.token_idx_range())
-                .intersects(text_range)
-            {
-                return;
+        self.with_base(base, |slf| {
+            if let Some(text_range) = slf.text_range {
+                if !slf
+                    .token_range_sheet_data
+                    .tokens_text_range(base.token_idx_range())
+                    .intersects(text_range)
+                {
+                    return;
+                }
             }
-        }
-        self.add_inlay_hints(inlay_hints)
+            slf.add_inlay_hints(inlay_hints);
+        });
+    }
+    fn with_base(&mut self, base: RegionalTokenIdxBase, f: impl FnOnce(&mut Self)) {
+        debug_assert!(self.base.is_none());
+        self.base = Some(base);
+        f(self);
+        self.base = None;
     }
 
     fn add_inlay_hints(&mut self, inlay_hints: &'db [InlayHint]) {
@@ -158,9 +165,9 @@ impl InlayHint {
 impl Into<Option<lsp_types::InlayHintKind>> for InlayHintKind {
     fn into(self) -> Option<lsp_types::InlayHintKind> {
         match self {
-            InlayHintKind::TypeHint => Some(lsp_types::InlayHintKind::TYPE),
-            InlayHintKind::ParameterHint => Some(lsp_types::InlayHintKind::PARAMETER),
-            InlayHintKind::ChainingHint => None,
+            InlayHintKind::TypeAnnotation => Some(lsp_types::InlayHintKind::TYPE),
+            InlayHintKind::ParameterIdent => Some(lsp_types::InlayHintKind::PARAMETER),
+            InlayHintKind::AttrInferred => None,
         }
     }
 }

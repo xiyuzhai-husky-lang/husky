@@ -74,7 +74,7 @@ pub struct Command {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum InlayHintKind {
-    TypeHint,
-    ParameterHint,
-    ChainingHint,
+    TypeAnnotation,
+    ParameterIdent,
+    AttrInferred,
 }

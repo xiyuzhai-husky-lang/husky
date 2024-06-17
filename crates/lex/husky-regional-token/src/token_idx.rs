@@ -5,6 +5,8 @@ use crate::*;
 pub struct RegionalTokenIdx(NonZeroU32);
 
 impl RegionalTokenIdx {
+    pub const START: Self = RegionalTokenIdx(unsafe { NonZeroU32::new_unchecked(1) });
+
     pub fn index(self) -> usize {
         self.0.get() as usize - 1
     }
