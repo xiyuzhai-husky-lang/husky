@@ -36,4 +36,11 @@ impl RegionalTokenIdxBase {
     pub fn len(&self) -> usize {
         self.len
     }
+
+    pub fn token_idx_range(self) -> TokenIdxRange {
+        let start = self.index_base;
+        let end = start + self.len;
+        let t = TokenIdx::from_usize_index_ext;
+        unsafe { TokenIdxRange::new(t(start), t(end)) }
+    }
 }
