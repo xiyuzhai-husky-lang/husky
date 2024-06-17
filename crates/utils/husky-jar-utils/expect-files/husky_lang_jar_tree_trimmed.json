@@ -3,6 +3,9 @@
     "husky-text",
     "husky-token"
   ],
+  "husky-code-lens": [
+    "husky-sem-place-contract"
+  ],
   "husky-completion": [
     "husky-syn-expr"
   ],

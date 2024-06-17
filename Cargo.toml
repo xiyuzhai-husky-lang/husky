@@ -245,6 +245,7 @@ husky-hir-opr = { path = "crates/hir/husky-hir-opr" }
 husky-hir-prelude = { path = "crates/hir/husky-hir-prelude" }
 husky-hir-ty = { path = "crates/hir/husky-hir-ty" }
 # ide
+husky-code-lens = { path = "crates/ide/husky-code-lens" }
 husky-diagnostics = { path = "crates/ide/husky-diagnostics" }
 husky-hover = { path = "crates/ide/husky-hover" }
 husky-folding-range = { path = "crates/ide/husky-folding-range" }

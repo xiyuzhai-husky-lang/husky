@@ -134,6 +134,7 @@ pub enum JarIndex {
     HirPreludeJar,
     HirTypeJar,
     // ide
+    CodeLensJar,
     CompletionJar,
     DiagnosticsJar,
     DocumentationJar,

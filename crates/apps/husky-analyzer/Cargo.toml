@@ -29,6 +29,7 @@ vec-like.workspace = true
 # fs
 husky-vfs = { workspace = true, features = ["lsp_support"] }
 # ide
+husky-code-lens = { workspace = true, features = ["lsp_support"] }
 husky-diagnostics.workspace = true
 husky-hover.workspace = true
 husky-folding-range.workspace = true
