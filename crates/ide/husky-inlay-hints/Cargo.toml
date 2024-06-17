@@ -33,6 +33,7 @@ husky-text-protocol.workspace = true
 husky-entity-tree = { workspace = true, optional = true }
 
 [dev-dependencies]
+husky-inlay-hints = { path = ".", features = ["lsp_support"] }
 
 [lints]
 workspace = true

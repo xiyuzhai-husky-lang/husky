@@ -46,6 +46,9 @@ impl TextRange {
     pub fn closed_end(&self) -> TextPosition {
         self.end.to_left(1)
     }
+    pub fn intersects(self, other: Self) -> bool {
+        self.start < other.end && other.start < self.end
+    }
 }
 
 impl std::fmt::Display for TextRange {
