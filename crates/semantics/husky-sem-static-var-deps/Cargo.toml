@@ -1,5 +1,5 @@
 [package]
-name = "husky-sem-expr-deps"
+name = "husky-sem-static-var-deps"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -12,6 +12,10 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+# abstractions
+salsa.workspace = true
+# semantics
+husky-sem-static-mut-deps.workspace = true
 
 [lints]
 workspace = true
