@@ -128,7 +128,7 @@ impl ItemSynNodePath {
                     slf.ident(db).data(db)
                 )
             }
-            ItemSynNodePath::Script(_, _) => todo!(),
+            ItemSynNodePath::Chunk(_, _) => todo!(),
         }
     }
 }

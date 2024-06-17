@@ -213,7 +213,7 @@ impl<'a> ItemDefnTokraRegionBuilder<'a> {
                 _ => unreachable!(),
             },
             None => match id.data(db) {
-                ItemSynNodePathData::Script(_) => ast_sheet.top_level_asts(),
+                ItemSynNodePathData::Chunk(_) => ast_sheet.top_level_asts(),
                 ItemSynNodePathData::Submodule(_)
                 | ItemSynNodePathData::MajorItem(_)
                 | ItemSynNodePathData::TypeVariant(_)
@@ -256,8 +256,10 @@ impl<'a> ItemDefnTokraRegionBuilder<'a> {
         let token_idx_range: TokenIdxRange = ast_token_idx_range_sheet[first_ast_idx]
             .join(ast_token_idx_range_sheet[root_body.end() - 1]);
         let tokens_data = token_sheet_data[token_idx_range].to_vec();
-        let regional_token_idx_base =
-            RegionalTokenIdxBase::new(token_sheet_data.token_verse_start(first_token_verse_idx));
+        let regional_token_idx_base = RegionalTokenIdxBase::new(
+            token_sheet_data.token_verse_start(first_token_verse_idx),
+            &tokens_data,
+        );
         Some(Self {
             db,
             ast_sheet,

@@ -1,7 +1,7 @@
 mod semantic_tokens;
 
 use convert::to_proto;
-use husky_inlay_hints::inlay_hints::HasInlayHints;
+use husky_inlay_hints::lsp_support::HasLspInlayHints;
 pub(crate) use semantic_tokens::*;
 
 use crate::{convert::from_proto, *};

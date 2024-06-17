@@ -1,12 +1,19 @@
+pub(crate) mod crate_decl;
+pub(crate) mod item_decl;
+pub(crate) mod item_defn;
+
 use crate::*;
+use husky_entity_path::path::{ItemPath, ItemPathId};
+use husky_regional_token::RegionalTokenIdx;
 use husky_text_protocol::range::TextRange;
 use husky_vfs::path::module_path::ModulePath;
 use is::Is;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct InlayHint {
-    label: InlayHintLabel,
-    kind: InlayHintKind,
+    pub position: RegionalTokenIdx,
+    pub label: InlayHintLabel,
+    pub kind: InlayHintKind,
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -70,63 +77,4 @@ pub enum InlayHintKind {
     TypeHint,
     ParameterHint,
     ChainingHint,
-}
-
-#[cfg(feature = "lsp_support")]
-impl InlayHint {
-    fn to_proto(&self) -> lsp_types::InlayHint {
-        lsp_types::InlayHint {
-            position: todo!(),
-            label: todo!(),
-            kind: self.kind.into(),
-            text_edits: None,
-            tooltip: None,
-            padding_left: None,
-            padding_right: None,
-            data: None,
-        }
-    }
-}
-
-#[cfg(feature = "lsp_support")]
-impl Into<Option<lsp_types::InlayHintKind>> for InlayHintKind {
-    fn into(self) -> Option<lsp_types::InlayHintKind> {
-        match self {
-            InlayHintKind::TypeHint => Some(lsp_types::InlayHintKind::TYPE),
-            InlayHintKind::ParameterHint => Some(lsp_types::InlayHintKind::PARAMETER),
-            InlayHintKind::ChainingHint => None,
-        }
-    }
-}
-
-// todo: make this sealed
-pub trait HasInlayHints: Is<ModulePath> + Copy {
-    fn inlay_hints(
-        self,
-        db: &::salsa::Db,
-        range: Option<TextRange>,
-    ) -> InlayHintResult<Vec<InlayHint>>;
-
-    fn lsp_inlay_hints(
-        self,
-        db: &::salsa::Db,
-        range: Option<TextRange>,
-    ) -> InlayHintResult<Option<Vec<lsp_types::InlayHint>>> {
-        Ok(Some(
-            self.inlay_hints(db, range)?
-                .into_iter()
-                .map(|inlay_hint| inlay_hint.to_proto())
-                .collect::<Vec<_>>(),
-        ))
-    }
-}
-
-impl HasInlayHints for ModulePath {
-    fn inlay_hints(
-        self,
-        db: &salsa::Db,
-        range: Option<TextRange>,
-    ) -> InlayHintResult<Vec<InlayHint>> {
-        todo!()
-    }
 }

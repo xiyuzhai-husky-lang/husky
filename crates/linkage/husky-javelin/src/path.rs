@@ -96,7 +96,7 @@ impl JavPath {
             }
             ItemPath::ImplBlock(_) => None,
             ItemPath::Attr(_, _) => None,
-            ItemPath::Script(_, _) => todo!(),
+            ItemPath::Chunk(_, _) => todo!(),
         }
     }
 

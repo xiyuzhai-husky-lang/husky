@@ -66,7 +66,7 @@ pub fn hir_expr_region_with_source_map(
 fn is_lazy(sem_expr_region: husky_sem_expr::SemExprRegion, db: &salsa::Db) -> bool {
     match sem_expr_region.path(db) {
         RegionPath::CrateDecl(_) => todo!(),
-        RegionPath::Script(_) =>
+        RegionPath::Chunk(_) =>
         /* ad hoc */
         {
             false

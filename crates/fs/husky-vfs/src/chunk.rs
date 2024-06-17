@@ -1,7 +1,8 @@
+//! the term `chunk` is borrowed from lua
 use crate::*;
 
 #[salsa::input]
-pub struct Script {
+pub struct Chunk {
     pub source: ScriptSource,
     #[return_ref]
     pub data: String,
@@ -10,10 +11,10 @@ pub struct Script {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum ScriptSource {
     Snippet { toolchain: Toolchain },
-    Child { parent: Script },
+    Child { parent: Chunk },
 }
 
-impl Script {
+impl Chunk {
     #[cfg(feature = "test_utils")]
     pub fn new_dev_snippet(data: impl Into<String>, db: &::salsa::Db) -> Self {
         let toolchain = db.dev_toolchain().unwrap();
@@ -21,17 +22,17 @@ impl Script {
     }
 
     pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
-        script_toolchain(db, self)
+        chunk_toolchain(db, self)
     }
 
-    pub fn module_path(self, db: &::salsa::Db) -> ScriptModulePath {
-        ScriptModulePath::new(self, db)
+    pub fn module_path(self, db: &::salsa::Db) -> ChunkModulePath {
+        ChunkModulePath::new(self, db)
     }
 }
 
 #[salsa::tracked]
-fn script_toolchain(db: &::salsa::Db, script: Script) -> Toolchain {
-    match script.source(db) {
+fn chunk_toolchain(db: &::salsa::Db, chunk: Chunk) -> Toolchain {
+    match chunk.source(db) {
         ScriptSource::Snippet { toolchain } => toolchain,
         ScriptSource::Child { parent } => parent.toolchain(db),
     }

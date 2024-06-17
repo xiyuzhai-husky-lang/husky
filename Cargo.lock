@@ -5242,11 +5242,17 @@ dependencies = [
 name = "husky-inlay-hints"
 version = "0.1.0"
 dependencies = [
+ "husky-entity-path",
+ "husky-entity-tree",
+ "husky-regional-token",
+ "husky-text",
  "husky-text-protocol",
+ "husky-token",
  "husky-vfs",
  "is",
  "lsp-types 0.95.0",
  "salsa",
+ "sealed",
  "serde_json",
  "thiserror",
 ]

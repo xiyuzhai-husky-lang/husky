@@ -1,11 +1,11 @@
 use crate::*;
 
-use husky_vfs::{path::module_path::ModulePath, script::Script};
+use husky_vfs::{chunk::Chunk, path::module_path::ModulePath};
 
 pub trait TokenDb {
     fn ranged_token_sheet(&self, module_path: ModulePath) -> &RangedTokenSheet;
     fn token_sheet_data(&self, module_path: ModulePath) -> &TokenSheetData;
-    fn snippet_token_sheet_data(&self, snippet: Script) -> &TokenSheetData;
+    fn chunk_token_sheet_data(&self, chunk: Chunk) -> &TokenSheetData;
 }
 
 impl TokenDb for ::salsa::Db {
@@ -17,8 +17,8 @@ impl TokenDb for ::salsa::Db {
         ranged_token_sheet(self, module_path)
     }
 
-    fn snippet_token_sheet_data(&self, snippet: Script) -> &TokenSheetData {
-        tokenize_snippet(self, snippet).token_sheet().data(self)
+    fn chunk_token_sheet_data(&self, chunk: Chunk) -> &TokenSheetData {
+        tokenize_snippet(self, chunk).token_sheet().data(self)
     }
 }
 

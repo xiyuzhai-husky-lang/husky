@@ -195,7 +195,7 @@ impl VfsDb for Db {
                             "main" | "lib" => match parent.data(db) {
                                 ModulePathData::Root(_) => false,
                                 ModulePathData::Child { .. } => true,
-                                ModulePathData::Script { .. } => unreachable!(),
+                                ModulePathData::Chunk { .. } => unreachable!(),
                             },
                             _ => true,
                         };
@@ -302,8 +302,8 @@ pub struct VfsJar(
     crate::toolchain::Toolchain,
     crate::toolchain::PublishedToolchain,
     crate::toolchain::published_toolchain_library_path,
-    crate::script::Script,
-    crate::script::script_toolchain,
+    crate::chunk::Chunk,
+    crate::chunk::chunk_toolchain,
 );
 
 impl salsa::storage::IngredientsFor for VfsCache {
