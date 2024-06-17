@@ -11,9 +11,14 @@ use is::Is;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct InlayHint {
-    pub position: RegionalTokenIdx,
+    pub position: InlayHintPosition,
     pub label: InlayHintLabel,
     pub kind: InlayHintKind,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum InlayHintPosition {
+    EndOfRegionSpaced,
 }
 
 #[derive(Debug, PartialEq, Eq)]

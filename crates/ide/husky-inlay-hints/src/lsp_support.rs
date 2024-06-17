@@ -140,10 +140,13 @@ impl<'db> LspInlayHintBuilder<'db> {
 
 impl InlayHint {
     fn lsp(&self, builder: &LspInlayHintBuilder) -> Option<lsp_types::InlayHint> {
-        let text_position = builder
-            .token_range_sheet_data
-            .token_text_range(self.position.token_idx(builder.base()))
-            .start;
+        let text_position = match self.position {
+            InlayHintPosition::EndOfRegionSpaced => builder
+                .token_range_sheet_data
+                .tokens_text_range(builder.base().token_idx_range())
+                .end
+                .to_right(1),
+        };
         if let Some(text_range) = builder.text_range {
             if !(text_range.start < text_position && text_position < text_range.end) {
                 return None;
@@ -155,7 +158,7 @@ impl InlayHint {
             kind: self.kind.into(),
             text_edits: None,
             tooltip: None,
-            padding_left: None,
+            padding_left: Some(true),
             padding_right: None,
             data: None,
         })
