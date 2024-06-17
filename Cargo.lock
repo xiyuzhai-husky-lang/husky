@@ -6074,10 +6074,6 @@ name = "husky-screen-utils"
 version = "0.1.0"
 
 [[package]]
-name = "husky-sem-deps"
-version = "0.1.0"
-
-[[package]]
 name = "husky-sem-expr"
 version = "0.1.0"
 dependencies = [
@@ -6130,11 +6126,11 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-sem-expr-deps"
+name = "husky-sem-fmt"
 version = "0.1.0"
 
 [[package]]
-name = "husky-sem-fmt"
+name = "husky-sem-item-path-deps"
 version = "0.1.0"
 
 [[package]]
@@ -6181,9 +6177,14 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-sem-var-deps"
+name = "husky-sem-static-mut-deps"
+version = "0.1.0"
+
+[[package]]
+name = "husky-sem-static-var-deps"
 version = "0.1.0"
 dependencies = [
+ "husky-sem-static-mut-deps",
  "salsa",
 ]
 

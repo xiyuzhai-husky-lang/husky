@@ -1,5 +1,5 @@
 [package]
-name = "husky-sem-deps"
+name = "husky-sem-static-mut-deps"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
