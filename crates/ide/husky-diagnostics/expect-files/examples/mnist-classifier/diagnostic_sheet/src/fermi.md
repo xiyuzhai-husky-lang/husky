@@ -20,7 +20,7 @@ DiagnosticSheet {
             Diagnostic {
                 message: "place error cannot convert to const",
                 severity: Error,
-                range: [30:19, 30:49),
+                range: [29:19, 29:49),
             },
         ],
     },
