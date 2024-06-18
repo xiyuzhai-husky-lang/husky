@@ -58,6 +58,19 @@ impl IsInstanceItemFlySignature for MethodFlySignature {
             MethodFlySignature::TraitForTypeMethodRitchie(_) => todo!(),
         }
     }
+
+    type Path = AssocItemPath;
+
+    fn path(&self) -> Option<Self::Path> {
+        Some(match self {
+            MethodFlySignature::TypeMethodRitchie(slf) => slf.path.into(),
+            MethodFlySignature::TraitForTypeMethodRitchie(_) => todo!(),
+        })
+    }
+
+    fn instantiation(&self) -> Option<&FlyInstantiation> {
+        todo!()
+    }
 }
 
 pub trait HasFlyTraitMethodDispatch: Copy {

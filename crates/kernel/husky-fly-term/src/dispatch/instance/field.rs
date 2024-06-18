@@ -51,6 +51,18 @@ impl IsInstanceItemFlySignature for FieldFlySignature {
             FieldFlySignature::Memoized { ty, .. } => ty.with_quary(self_value_final_quary),
         })
     }
+
+    type Path = TypePath;
+
+    fn path(&self) -> Option<Self::Path> {
+        // ad hoc
+        None
+    }
+
+    fn instantiation(&self) -> Option<&FlyInstantiation> {
+        // ad hoc
+        None
+    }
 }
 
 impl From<PropsFieldEthSignature> for FieldFlySignature {

@@ -16,7 +16,7 @@ use quary::FlyQuary;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct TraitForTypeMethodRitchieFlySignature {
-    pub path: AssocItemPath,
+    pub path: TraitForTypeItemPath,
     pub self_value_parameter: FlyRitchieSimpleParameter,
     pub parenate_parameters: SmallVec<[FlyRitchieParameter; 4]>,
     pub return_ty: FlyTerm,
@@ -26,6 +26,16 @@ pub struct TraitForTypeMethodRitchieFlySignature {
 impl IsInstanceItemFlySignature for TraitForTypeMethodRitchieFlySignature {
     fn expr_ty(&self, self_value_final_place: FlyQuary) -> FlyTermResult<FlyTerm> {
         todo!()
+    }
+
+    type Path = TraitForTypeItemPath;
+
+    fn path(&self) -> Option<Self::Path> {
+        Some(self.path)
+    }
+
+    fn instantiation(&self) -> Option<&FlyInstantiation> {
+        Some(&self.instantiation)
     }
 }
 
@@ -64,7 +74,7 @@ impl TraitForTypeMethodRitchieFlySignature {
         self.return_ty
     }
 
-    pub fn path(&self) -> AssocItemPath {
+    pub fn path(&self) -> TraitForTypeItemPath {
         self.path
     }
 }

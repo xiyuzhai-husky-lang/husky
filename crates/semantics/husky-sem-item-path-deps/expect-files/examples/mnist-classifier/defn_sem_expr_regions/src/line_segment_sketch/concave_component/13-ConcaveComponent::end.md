@@ -1,0 +1,33 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath::MajorItem(
+                MajorItemPath::Type(
+                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                ),
+            ),
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
+                    TypeItemPath(
+                        `core::slice::CyclicSlice(0)::last`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
+                ),
+            ),
+            ItemPath::AssocItem(
+                AssocItemPath::TraitForTypeItem(
+                    TraitForTypeItemPath(
+                        `<#derive _ as core::clone::Clone(0)>::clone`,
+                        TraitItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
+                ),
+            ),
+        ],
+    ),
+)
+```
