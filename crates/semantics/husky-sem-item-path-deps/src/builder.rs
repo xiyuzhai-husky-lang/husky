@@ -11,15 +11,17 @@ use vec_like::VecSet;
 
 pub(crate) struct SemItemPathDepsBuilder<'db> {
     db: &'db ::salsa::Db,
-    item_paths: VecSet<ItemPath>,
+    item_path: ItemPath,
+    item_path_deps: VecSet<ItemPath>,
 }
 
 /// # constructor
 impl<'db> SemItemPathDepsBuilder<'db> {
-    pub(crate) fn new(db: &'db ::salsa::Db) -> Self {
+    pub(crate) fn new(db: &'db ::salsa::Db, item_path: ItemPath) -> Self {
         Self {
             db,
-            item_paths: Default::default(),
+            item_path,
+            item_path_deps: Default::default(),
         }
     }
 }
@@ -181,7 +183,10 @@ impl<'db> SemItemPathDepsBuilder<'db> {
     }
 
     fn add_item_path(&mut self, path: impl Into<ItemPath>) {
-        self.item_paths.insert(path.into());
+        let path = path.into();
+        if path != self.item_path {
+            self.item_path_deps.insert(path);
+        }
     }
 
     fn add_instantiation(&mut self, instantiation: &FlyInstantiation) {
@@ -190,6 +195,6 @@ impl<'db> SemItemPathDepsBuilder<'db> {
     }
 
     pub(crate) fn finish(self) -> VecSet<ItemPath> {
-        self.item_paths
+        self.item_path_deps
     }
 }
