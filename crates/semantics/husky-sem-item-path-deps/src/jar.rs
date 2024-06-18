@@ -1,2 +1,5 @@
 #[salsa::jar]
-pub struct SemItemPathDepsJar {}
+pub struct SemItemPathDepsJar(
+    crate::item_path_deps::item_item_path_deps,
+    crate::item_path_deps::item_item_path_deps_cropped,
+);

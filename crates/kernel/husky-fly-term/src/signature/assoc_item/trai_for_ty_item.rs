@@ -15,4 +15,15 @@ impl TraitForTypeItemFlySignature {
     pub fn ty(&self) -> FlyTerm {
         todo!()
     }
+
+    pub fn path(&self) -> TraitForTypeItemPath {
+        match self {
+            _ => todo!(),
+        }
+    }
+    pub fn instantiation(&self) -> &FlyInstantiation {
+        match self {
+            _ => todo!(),
+        }
+    }
 }

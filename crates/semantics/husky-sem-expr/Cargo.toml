@@ -50,10 +50,11 @@ husky-print-utils.workspace = true
 husky-wild-utils.workspace = true
 
 [dev-dependencies]
-# kernel
-# infer
+# fs
 husky-manifest.workspace = true
 husky-corgi-config.workspace = true
+# kernel
+husky-dec-term.workspace = true
 # lex
 husky-toml-token.workspace = true
 husky-token.workspace = true
@@ -63,8 +64,7 @@ husky-toml-ast.workspace = true
 husky-manifest-ast.workspace = true
 husky-entity-tree = { workspace = true, features = ["test_utils"] }
 husky-corgi-config-ast.workspace = true
-# kernel
-husky-dec-term.workspace = true
+# semantics
 husky-sem-expr = { path = ".", features = ["test_utils"] }
 
 [features]
