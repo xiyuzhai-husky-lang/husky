@@ -396,7 +396,7 @@ impl ToHirEager for SemExprIdx {
                         OntologyDispatch::TypeItem { signature } => match signature {
                             TypeItemFlySignature::AssocRitchie(signature) => {
                                 HirEagerExprData::AssocFunctionRitchieCall {
-                                    path: signature.path(),
+                                    path: signature.path().into(),
                                     instantiation: HirInstantiation::from_fly(
                                         signature.instantiation(),
                                         &place_contract_site,

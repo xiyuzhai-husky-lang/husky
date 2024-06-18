@@ -1,0 +1,80 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath::MajorItem(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                ),
+            ),
+            ItemPath::MajorItem(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                ),
+            ),
+            ItemPath::MajorItem(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                ),
+            ),
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
+                    TypeItemPath(
+                        `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
+                ),
+            ),
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
+                    TypeItemPath(
+                        `mnist_classifier::geom2d::Vector2d(0)::norm`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
+                ),
+            ),
+            ItemPath::MajorItem(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                        Fn,
+                    )`),
+                ),
+            ),
+            ItemPath::MajorItem(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                ),
+            ),
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
+                    TypeItemPath(
+                        `mnist_classifier::geom2d::BoundingBox(0)::ymax`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
+                ),
+            ),
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
+                    TypeItemPath(
+                        `mnist_classifier::geom2d::BoundingBox(0)::ymin`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
+                ),
+            ),
+            ItemPath::MajorItem(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                ),
+            ),
+        ],
+    ),
+)
+```

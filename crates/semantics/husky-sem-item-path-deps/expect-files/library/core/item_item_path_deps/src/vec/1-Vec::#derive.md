@@ -1,0 +1,23 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath::MajorItem(
+                MajorItemPath::Trait(
+                    TraitPath(`core::fmt::Debug`),
+                ),
+            ),
+            ItemPath::MajorItem(
+                MajorItemPath::Trait(
+                    TraitPath(`core::clone::Clone`),
+                ),
+            ),
+            ItemPath::MajorItem(
+                MajorItemPath::Trait(
+                    TraitPath(`core::visual::Visualize`),
+                ),
+            ),
+        ],
+    ),
+)
+```

@@ -230,13 +230,11 @@
                                     ontology_dispatch: TypeItem {
                                         signature: AssocRitchie(
                                             TypeAssocRitchieFlySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 182,
-                                                            },
-                                                        ),
+                                                path: TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 182,
+                                                        },
                                                     ),
                                                 ),
                                                 parenate_parameters: [],

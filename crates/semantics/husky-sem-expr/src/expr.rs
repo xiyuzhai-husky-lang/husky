@@ -93,6 +93,9 @@ pub enum SemExprData {
         lpar_regional_token_idx: RegionalTokenIdx,
         rpar_regional_token_idx: RegionalTokenIdx,
     },
+    #[deprecated(
+        note = "module path shouldn't be allowed here, try change path to PrincipalItemPath"
+    )]
     PrincipalEntityPath {
         path_expr_idx: SynPrincipalEntityPathSynExprIdx,
         path: PrincipalEntityPath,

@@ -7,7 +7,7 @@ use husky_eth_signature::signature::{
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct TypeAssocRitchieFlySignature {
-    path: AssocItemPath,
+    path: TypeItemPath,
     parenate_parameters: SmallVec<[FlyRitchieParameter; 4]>,
     return_ty: FlyTerm,
     ty: FlyTerm,
@@ -24,7 +24,7 @@ impl TypeAssocRitchieFlySignature {
         self.ty
     }
 
-    pub fn path(&self) -> AssocItemPath {
+    pub fn path(&self) -> TypeItemPath {
         self.path
     }
 

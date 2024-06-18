@@ -6363,13 +6363,11 @@
                                         },
                                         signature: TraitForTypeMethodRitchie(
                                             TraitForTypeMethodRitchieFlySignature {
-                                                path: TraitForTypeItem(
-                                                    TraitForTypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 344,
-                                                            },
-                                                        ),
+                                                path: TraitForTypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 344,
+                                                        },
                                                     ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
@@ -7159,13 +7157,11 @@
                                     ontology_dispatch: TypeItem {
                                         signature: AssocRitchie(
                                             TypeAssocRitchieFlySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 342,
-                                                            },
-                                                        ),
+                                                path: TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 342,
+                                                        },
                                                     ),
                                                 ),
                                                 parenate_parameters: [],
@@ -19481,13 +19477,11 @@
                                         },
                                         signature: TraitForTypeMethodRitchie(
                                             TraitForTypeMethodRitchieFlySignature {
-                                                path: TraitForTypeItem(
-                                                    TraitForTypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 361,
-                                                            },
-                                                        ),
+                                                path: TraitForTypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 361,
+                                                        },
                                                     ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
