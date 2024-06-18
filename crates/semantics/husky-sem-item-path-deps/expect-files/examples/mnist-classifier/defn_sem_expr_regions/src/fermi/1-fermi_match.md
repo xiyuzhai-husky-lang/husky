@@ -1,0 +1,63 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath::MajorItem(
+                MajorItemPath::Type(
+                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                ),
+            ),
+            ItemPath::MajorItem(
+                MajorItemPath::Type(
+                    TypePath(`core::num::f32`, `Extern`),
+                ),
+            ),
+            ItemPath::MajorItem(
+                MajorItemPath::Type(
+                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                ),
+            ),
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
+                    TypeItemPath(
+                        `core::vec::Vec(0)::collect_leashes`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
+                ),
+            ),
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
+                    TypeItemPath(
+                        `core::vec::Vec(0)::ilen`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
+                ),
+            ),
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
+                    TypeItemPath(
+                        `core::vec::Vec(0)::pop_with_largest_opt_f32`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
+                ),
+            ),
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
+                    TypeItemPath(
+                        `core::vec::Vec(0)::push`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
+                ),
+            ),
+        ],
+    ),
+)
+```

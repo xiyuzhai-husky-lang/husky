@@ -71,23 +71,30 @@ impl<'db> SemItemPathDepsBuilder<'db> {
                 ref ontology_dispatch,
                 ..
             } => {
-                ontology_dispatch.instantiation();
-                todo!()
+                self.add_item_path(ontology_dispatch.path());
+                self.add_instantiation(ontology_dispatch.instantiation());
             }
             SemExprData::TypeAsTraitItem {
                 ref ontology_dispatch,
                 ..
-            } => todo!(),
+            } => {
+                self.add_item_path(ontology_dispatch.path());
+                self.add_instantiation(ontology_dispatch.instantiation());
+            }
             SemExprData::AssocItem {
                 ref ontology_dispatch,
                 ..
-            } => todo!(),
+            } => {
+                self.add_item_path(ontology_dispatch.path());
+                self.add_instantiation(ontology_dispatch.instantiation());
+            }
             SemExprData::InheritedSynSymbol { .. } => (),
             SemExprData::CurrentSynSymbol { .. } => (),
             SemExprData::FrameVarDecl { .. } => (),
             SemExprData::SelfType(_) => (),
             SemExprData::SelfValue(_) => (),
-            SemExprData::Binary { ref dispatch, .. } => todo!(),
+            // ad hoc
+            SemExprData::Binary { ref dispatch, .. } => (),
             SemExprData::Be { .. } => (),
             // ad hoc
             SemExprData::Prefix { .. } => (),
@@ -96,13 +103,14 @@ impl<'db> SemItemPathDepsBuilder<'db> {
             SemExprData::Unveil {
                 unveil_assoc_fn_path,
                 ..
-            } => todo!(),
+            } => self.add_item_path(unveil_assoc_fn_path),
             // ad hoc
             SemExprData::Unwrap { .. } => (),
             SemExprData::FunctionApplication { function, argument } => (),
             SemExprData::FunctionRitchieCall { .. } => (),
             SemExprData::Ritchie { .. } => (),
-            SemExprData::Field { ref dispatch, .. } => todo!(),
+            // ad hoc
+            SemExprData::Field { ref dispatch, .. } => (),
             SemExprData::MethodApplication {
                 self_argument,
                 dot_regional_token_idx,
@@ -116,7 +124,13 @@ impl<'db> SemItemPathDepsBuilder<'db> {
                 ref instance_dispatch,
                 ref template_arguments,
                 ..
-            } => todo!(),
+            } => {
+                if let Some(template_arguments) = template_arguments {
+                    todo!()
+                }
+                self.add_item_path(instance_dispatch.signature().path());
+                self.add_instantiation(instance_dispatch.signature().instantiation());
+            }
             SemExprData::TemplateInstantiation {
                 template,
                 ref template_arguments,
@@ -124,12 +138,13 @@ impl<'db> SemItemPathDepsBuilder<'db> {
             SemExprData::At { .. } => (),
             SemExprData::Delimitered { .. } => (),
             SemExprData::NewTuple { .. } => (),
+            // ad hoc
             SemExprData::Index {
                 owner,
                 ref index_sem_list_items,
                 ref index_dynamic_dispatch,
                 ..
-            } => todo!(),
+            } => (),
             SemExprData::CompositionWithList { .. } => (),
             SemExprData::NewList { .. } => (),
             SemExprData::BoxColonList { .. } => (),

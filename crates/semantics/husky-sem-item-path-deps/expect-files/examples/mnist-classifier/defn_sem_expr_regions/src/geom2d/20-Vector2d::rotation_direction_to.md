@@ -1,0 +1,38 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath::MajorItem(
+                MajorItemPath::Type(
+                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                ),
+            ),
+            ItemPath::MajorItem(
+                MajorItemPath::Type(
+                    TypePath(`core::num::i32`, `Extern`),
+                ),
+            ),
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
+                    TypeItemPath(
+                        `mnist_classifier::geom2d::Vector2d(0)::cross`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
+                ),
+            ),
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
+                    TypeItemPath(
+                        `core::num::f32(0)::sgnx`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
+                ),
+            ),
+        ],
+    ),
+)
+```

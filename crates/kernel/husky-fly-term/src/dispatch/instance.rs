@@ -2,15 +2,10 @@ pub mod binary_opr;
 pub mod field;
 pub mod index;
 pub mod method;
-// mod utils;
-
-// pub use self::field::*;
-// pub use self::index::*;
-// pub use self::method::*;
 
 use super::*;
 use crate::quary::FlyQuary;
-use path::major_item::ty::TypePath;
+use path::{major_item::ty::TypePath, ItemPath};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
@@ -21,7 +16,17 @@ pub struct FlyInstanceDispatch<S: IsInstanceItemFlySignature> {
 
 /// members means dynamic associated items, i.e. those accessed through an instance
 pub trait IsInstanceItemFlySignature {
+    /// todo: this might not be needed?
+    type Path: Into<ItemPath>;
+
     fn expr_ty(&self, self_value_final_place: FlyQuary) -> FlyTermResult<FlyTerm>;
+
+    /// todo: this might not be needed?
+    /// might be none if the signature is builtin and we avoid unnecessary calculation
+    fn path(&self) -> Option<Self::Path>;
+    /// todo: this might not be needed?
+    /// might be none if the signature is builtin and we avoid unnecessary heap allocation
+    fn instantiation(&self) -> Option<&FlyInstantiation>;
 }
 
 impl<S: IsInstanceItemFlySignature> FlyInstanceDispatch<S> {

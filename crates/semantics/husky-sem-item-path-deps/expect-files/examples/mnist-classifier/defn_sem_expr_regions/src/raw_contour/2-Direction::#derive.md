@@ -1,0 +1,28 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath::MajorItem(
+                MajorItemPath::Trait(
+                    TraitPath(`core::clone::Clone`),
+                ),
+            ),
+            ItemPath::MajorItem(
+                MajorItemPath::Trait(
+                    TraitPath(`core::marker::Copy`),
+                ),
+            ),
+            ItemPath::MajorItem(
+                MajorItemPath::Trait(
+                    TraitPath(`core::cmp::PartialEq`),
+                ),
+            ),
+            ItemPath::MajorItem(
+                MajorItemPath::Trait(
+                    TraitPath(`core::cmp::Eq`),
+                ),
+            ),
+        ],
+    ),
+)
+```
