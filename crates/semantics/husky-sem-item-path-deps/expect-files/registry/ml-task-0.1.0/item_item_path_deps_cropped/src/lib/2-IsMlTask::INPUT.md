@@ -1,0 +1,16 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath::AssocItem(
+                AssocItemPath::TraitItem(
+                    TraitItemPath(
+                        `ml_task::IsMlTask::Input`,
+                        TraitItemKind::AssocType,
+                    ),
+                ),
+            ),
+        ],
+    ),
+)
+```
