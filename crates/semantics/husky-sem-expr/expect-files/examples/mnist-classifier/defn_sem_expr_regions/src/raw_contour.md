@@ -18857,13 +18857,11 @@
                                     ontology_dispatch: TypeItem {
                                         signature: AssocRitchie(
                                             TypeAssocRitchieFlySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 439,
-                                                            },
-                                                        ),
+                                                path: TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 439,
+                                                        },
                                                     ),
                                                 ),
                                                 parenate_parameters: [],
@@ -26747,13 +26745,11 @@
                                     ontology_dispatch: TypeItem {
                                         signature: AssocRitchie(
                                             TypeAssocRitchieFlySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 420,
-                                                            },
-                                                        ),
+                                                path: TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 420,
+                                                        },
                                                     ),
                                                 ),
                                                 parenate_parameters: [
@@ -28489,13 +28485,11 @@
                                     ontology_dispatch: TypeItem {
                                         signature: AssocRitchie(
                                             TypeAssocRitchieFlySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 420,
-                                                            },
-                                                        ),
+                                                path: TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 420,
+                                                        },
                                                     ),
                                                 ),
                                                 parenate_parameters: [
@@ -30166,13 +30160,11 @@
                                     ontology_dispatch: TypeItem {
                                         signature: AssocRitchie(
                                             TypeAssocRitchieFlySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 420,
-                                                            },
-                                                        ),
+                                                path: TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 420,
+                                                        },
                                                     ),
                                                 ),
                                                 parenate_parameters: [
@@ -30972,13 +30964,11 @@
                                     ontology_dispatch: TypeItem {
                                         signature: AssocRitchie(
                                             TypeAssocRitchieFlySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 420,
-                                                            },
-                                                        ),
+                                                path: TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 420,
+                                                        },
                                                     ),
                                                 ),
                                                 parenate_parameters: [
@@ -54128,13 +54118,11 @@
                                     ontology_dispatch: TypeItem {
                                         signature: AssocRitchie(
                                             TypeAssocRitchieFlySignature {
-                                                path: TypeItem(
-                                                    TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 413,
-                                                            },
-                                                        ),
+                                                path: TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 413,
+                                                        },
                                                     ),
                                                 ),
                                                 parenate_parameters: [
