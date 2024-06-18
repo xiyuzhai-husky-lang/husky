@@ -15,6 +15,7 @@ use husky_eth_signature::signature::assoc_item::ty_item::{
     HasTypeItemTemplates, TypeItemEthTemplates,
 };
 use husky_eth_term::term::application::TermFunctionReduced;
+use path::assoc_item::AssocItemPath;
 use vec_like::VecMapGetEntry;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -87,6 +88,21 @@ impl OntologyDispatch {
             //         trai_item_path,
             //     ))
             // }
+        }
+    }
+
+    pub fn path(&self) -> AssocItemPath {
+        match self {
+            OntologyDispatch::TypeItem { signature } => signature.path().into(),
+            OntologyDispatch::TraitItem { signature } => signature.path().into(),
+            OntologyDispatch::TraitForTypeItem { signature } => signature.path().into(),
+        }
+    }
+    pub fn instantiation(&self) -> &FlyInstantiation {
+        match self {
+            OntologyDispatch::TypeItem { signature } => signature.instantiation(),
+            OntologyDispatch::TraitItem { signature } => signature.instantiation(),
+            OntologyDispatch::TraitForTypeItem { signature } => signature.instantiation(),
         }
     }
 }

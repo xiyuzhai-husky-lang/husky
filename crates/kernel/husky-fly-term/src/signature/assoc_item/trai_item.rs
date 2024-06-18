@@ -122,4 +122,11 @@ impl TraitItemFlySignature {
             TraitItemFlySignature::StaticVar { item_ty, .. } => item_ty,
         }
     }
+
+    pub fn instantiation(&self) -> &FlyInstantiation {
+        match self {
+            TraitItemFlySignature::AssocType { instantiation, .. } => instantiation,
+            TraitItemFlySignature::StaticVar { instantiation, .. } => instantiation,
+        }
+    }
 }
