@@ -1,0 +1,28 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
+                    TypeItemPath(
+                        `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
+                ),
+            ),
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
+                    TypeItemPath(
+                        `mnist_classifier::geom2d::Vector2d(0)::angle_to`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
+                ),
+            ),
+        ],
+    ),
+)
+```

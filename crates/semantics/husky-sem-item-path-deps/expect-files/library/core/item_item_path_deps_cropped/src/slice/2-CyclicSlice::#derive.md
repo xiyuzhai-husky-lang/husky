@@ -1,0 +1,18 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath::MajorItem(
+                MajorItemPath::Trait(
+                    TraitPath(`core::fmt::Debug`),
+                ),
+            ),
+            ItemPath::MajorItem(
+                MajorItemPath::Trait(
+                    TraitPath(`core::visual::Visualize`),
+                ),
+            ),
+        ],
+    ),
+)
+```

@@ -25,6 +25,16 @@ impl IsInstanceItemFlySignature for FlyIndexSignature {
             FlyIndexSignature::Index { element_ty } => todo!(),
         }
     }
+
+    type Path = TraitForTypeItemPath;
+
+    fn path(&self) -> Option<Self::Path> {
+        todo!()
+    }
+
+    fn instantiation(&self) -> Option<&FlyInstantiation> {
+        todo!()
+    }
 }
 
 // to: better name

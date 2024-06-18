@@ -1,0 +1,18 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath::MajorItem(
+                MajorItemPath::Type(
+                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                ),
+            ),
+            ItemPath::MajorItem(
+                MajorItemPath::Type(
+                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                ),
+            ),
+        ],
+    ),
+)
+```

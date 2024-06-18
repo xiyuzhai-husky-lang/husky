@@ -1,0 +1,23 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath::MajorItem(
+                MajorItemPath::Type(
+                    TypePath(`core::num::f32`, `Extern`),
+                ),
+            ),
+            ItemPath::AssocItem(
+                AssocItemPath::TypeItem(
+                    TypeItemPath(
+                        `core::raw_bits::r32(0)::span`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
+                ),
+            ),
+        ],
+    ),
+)
+```

@@ -30,6 +30,16 @@ impl IsInstanceItemFlySignature for TypeMethodRitchieFlySignature {
     fn expr_ty(&self, self_value_final_place: FlyQuary) -> FlyTermResult<FlyTerm> {
         todo!()
     }
+
+    type Path = TypeItemPath;
+
+    fn path(&self) -> Option<Self::Path> {
+        todo!()
+    }
+
+    fn instantiation(&self) -> Option<&FlyInstantiation> {
+        todo!()
+    }
 }
 
 impl TypeMethodRitchieFlySignature {

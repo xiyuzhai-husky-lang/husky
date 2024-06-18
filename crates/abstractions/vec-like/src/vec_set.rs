@@ -185,4 +185,13 @@ impl<K> VecSet<K> {
             }
         }
     }
+
+    pub fn filter(&self, f: impl Fn(K) -> bool) -> Self
+    where
+        K: Copy,
+    {
+        Self {
+            data: self.data.iter().copied().filter(|&k| f(k)).collect(),
+        }
+    }
 }

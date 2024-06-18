@@ -109,6 +109,12 @@ pub struct SemStmtEntry {
     ty_result: SemExprTypeResult<FlyTerm>,
 }
 
+impl SemStmtEntry {
+    pub fn data_result(&self) -> SemExprDataResultRef<&SemStmtData> {
+        self.data_result.as_ref()
+    }
+}
+
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Default)]
 pub(crate) struct SemStmtBatch {
@@ -147,6 +153,18 @@ pub struct SemStmtArenaRef<'a>(ArenaRef<'a, SemStmtEntry>);
 impl<'a> SemStmtArenaRef<'a> {
     pub fn len(self) -> usize {
         self.0.len()
+    }
+
+    #[inline]
+    pub fn indexed_iter(self) -> impl Iterator<Item = (SemStmtIdx, &'a SemStmtEntry)> {
+        self.0
+            .indexed_iter()
+            .map(|(idx, entry)| (SemStmtIdx(idx), entry))
+    }
+
+    #[inline]
+    pub fn iter(self) -> impl Iterator<Item = &'a SemStmtEntry> + 'a {
+        self.0.iter()
     }
 }
 

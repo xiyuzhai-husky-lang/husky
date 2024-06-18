@@ -467,13 +467,11 @@
                                         },
                                         signature: TraitForTypeMethodRitchie(
                                             TraitForTypeMethodRitchieFlySignature {
-                                                path: TraitForTypeItem(
-                                                    TraitForTypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 391,
-                                                            },
-                                                        ),
+                                                path: TraitForTypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 391,
+                                                        },
                                                     ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
@@ -909,13 +907,11 @@
                                         },
                                         signature: TraitForTypeMethodRitchie(
                                             TraitForTypeMethodRitchieFlySignature {
-                                                path: TraitForTypeItem(
-                                                    TraitForTypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 391,
-                                                            },
-                                                        ),
+                                                path: TraitForTypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 391,
+                                                        },
                                                     ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
