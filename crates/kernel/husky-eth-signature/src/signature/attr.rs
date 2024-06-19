@@ -45,5 +45,7 @@ fn attr_eth_template(db: &::salsa::Db, path: AttrItemPath) -> EthSignatureResult
         AttrDecTemplate::Task(dec_template) => {
             TaskAttrEthTemplate::from_dec(db, path, dec_template).map(Into::into)
         }
+        AttrDecTemplate::Projection(_) => todo!(),
+        AttrDecTemplate::Singleton(_) => todo!(),
     }
 }

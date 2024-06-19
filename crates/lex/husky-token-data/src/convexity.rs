@@ -34,6 +34,7 @@ impl TokenData {
                 WordOpr::And => Convexity::Concave,
                 WordOpr::Or => Convexity::Concave,
                 WordOpr::As => Convexity::Concave,
+                WordOpr::Of => Convexity::Concave,
                 WordOpr::Be => Convexity::Concave,
             },
             TokenData::Literal(_) => Convexity::Convex,
