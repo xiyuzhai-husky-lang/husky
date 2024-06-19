@@ -532,6 +532,7 @@ impl<'a> DecTermEngine<'a> {
                     // Ok(DecTypeAsTrait::new(db, lopd, ropd).into()),
                     SynBinaryOpr::Ins => todo!(),
                     SynBinaryOpr::In => todo!(),
+                    SynBinaryOpr::Of => todo!(),
                 }
             }
             SynExprData::Be { .. } => todo!(),

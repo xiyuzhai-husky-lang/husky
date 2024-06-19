@@ -9,7 +9,7 @@ use husky_fly_term::{
     dispatch::instance::binary_opr::SemaBinaryOprInstanceDispatch,
     signature::assoc_item::trai_for_ty_item::binary_opr::SemaBinaryOprFlySignature,
 };
-use husky_sem_opr::binary::SemaBinaryOpr;
+use husky_sem_opr::binary::SemBinaryOpr;
 use husky_syn_opr::SynBinaryOpr;
 use sort_or_trai::ExpectSortOrTrait;
 
@@ -29,7 +29,7 @@ impl<'a> SemExprBuilder<'a> {
         ropd: SynExprIdx,
     ) -> (
         SemExprIdx,
-        SemaBinaryOpr,
+        SemBinaryOpr,
         SemExprIdx,
         SemExprDataResult<SemaBinaryOprInstanceDispatch>,
         SemExprTypeResult<FlyTerm>,
@@ -57,6 +57,7 @@ impl<'a> SemExprBuilder<'a> {
             SynBinaryOpr::As => self.calc_as_expr_ty(lopd, ropd),
             SynBinaryOpr::Ins => self.calc_ins_sem_expr(lopd, ropd),
             SynBinaryOpr::In => todo!(),
+            SynBinaryOpr::Of => todo!(),
         }
     }
 
@@ -67,7 +68,7 @@ impl<'a> SemExprBuilder<'a> {
         ropd: SynExprIdx,
     ) -> (
         SemExprIdx,
-        SemaBinaryOpr,
+        SemBinaryOpr,
         SemExprIdx,
         SemExprDataResult<SemaBinaryOprInstanceDispatch>,
         SemExprTypeResult<FlyTerm>,
@@ -77,7 +78,7 @@ impl<'a> SemExprBuilder<'a> {
         let ropd_sem_expr_idx = self.build_sem_expr(ropd, self.expect_argument_ty_bool());
         (
             lopd_sem_expr_idx,
-            SemaBinaryOpr::ShortCircuitLogic(opr),
+            SemBinaryOpr::ShortCircuitLogic(opr),
             ropd_sem_expr_idx,
             Ok(SemaBinaryOprInstanceDispatch::builtin()),
             Ok(self.term_menu().bool_ty_ontology().into()),
@@ -90,7 +91,7 @@ impl<'a> SemExprBuilder<'a> {
         ropd: SynExprIdx,
     ) -> (
         SemExprIdx,
-        SemaBinaryOpr,
+        SemBinaryOpr,
         SemExprIdx,
         SemExprDataResult<SemaBinaryOprInstanceDispatch>,
         SemExprTypeResult<FlyTerm>,
@@ -100,7 +101,7 @@ impl<'a> SemExprBuilder<'a> {
             let lopd_sem_expr_idx = self.build_sem_expr(lopd, ExpectAnyDerived);
             return (
                 lopd_sem_expr_idx,
-                SemaBinaryOpr::Ins,
+                SemBinaryOpr::Ins,
                 ropd_sem_expr_idx,
                 todo!(),
                 Err(DerivedSemExprTypeError::BinaryOperationRightOperandTypeNotInferred.into()),
@@ -124,7 +125,7 @@ impl<'a> SemExprBuilder<'a> {
         // }
         (
             lopd_sem_expr_idx,
-            SemaBinaryOpr::Ins,
+            SemBinaryOpr::Ins,
             ropd_sem_expr_idx,
             todo!(),
             Ok(self.term_menu().prop().into()),
@@ -137,7 +138,7 @@ impl<'a> SemExprBuilder<'a> {
         ropd: SynExprIdx,
     ) -> (
         SemExprIdx,
-        SemaBinaryOpr,
+        SemBinaryOpr,
         SemExprIdx,
         SemExprDataResult<SemaBinaryOprInstanceDispatch>,
         SemExprTypeResult<FlyTerm>,
@@ -178,7 +179,7 @@ impl<'a> SemExprBuilder<'a> {
                     let lopd_sem_expr_idx = self.build_sem_expr(lopd, ExpectAnyDerived);
                     return (
                         lopd_sem_expr_idx,
-                        SemaBinaryOpr::As,
+                        SemBinaryOpr::As,
                         ropd_sem_expr_idx,
                         todo!(),
                         Err(
@@ -190,7 +191,7 @@ impl<'a> SemExprBuilder<'a> {
                 let lopd_sem_expr_idx = self.build_sem_expr(lopd, ExpectCasting::new(ropd_term));
                 (
                     lopd_sem_expr_idx,
-                    SemaBinaryOpr::As,
+                    SemBinaryOpr::As,
                     ropd_sem_expr_idx,
                     Ok(SemaBinaryOprInstanceDispatch::builtin()),
                     Ok(ropd_term),
@@ -212,7 +213,7 @@ impl<'a> SemExprBuilder<'a> {
         ropd: SynExprIdx,
     ) -> (
         SemExprIdx,
-        SemaBinaryOpr,
+        SemBinaryOpr,
         SemExprIdx,
         SemExprDataResult<SemaBinaryOprInstanceDispatch>,
         SemExprTypeResult<FlyTerm>,
@@ -223,7 +224,7 @@ impl<'a> SemExprBuilder<'a> {
         let Some(lopd_universe) = lopd_universe else {
             return (
                 lopd_sem_expr_idx,
-                SemaBinaryOpr::CurryType,
+                SemBinaryOpr::CurryType,
                 todo!(),
                 todo!(),
                 Err(DerivedSemExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into()),
@@ -234,7 +235,7 @@ impl<'a> SemExprBuilder<'a> {
         let Some(ropd_universe) = ropd_universe else {
             return (
                 lopd_sem_expr_idx,
-                SemaBinaryOpr::CurryType,
+                SemBinaryOpr::CurryType,
                 ropd_sem_expr_idx,
                 todo!(),
                 Err(DerivedSemExprTypeError::BinaryOperationRightOperandTypeNotInferred.into()),
@@ -252,7 +253,7 @@ impl<'a> SemExprBuilder<'a> {
         ropd: SynExprIdx,
     ) -> (
         SemExprIdx,
-        SemaBinaryOpr,
+        SemBinaryOpr,
         SemExprIdx,
         SemExprDataResult<SemaBinaryOprInstanceDispatch>,
         SemExprTypeResult<FlyTerm>,

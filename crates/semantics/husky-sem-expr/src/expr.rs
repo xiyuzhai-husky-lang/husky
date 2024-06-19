@@ -56,7 +56,7 @@ use husky_regional_token::{
     LightArrowRegionalToken, LparRegionalToken, NestedRcurlRegionalToken, PlaceLabelRegionalToken,
     RegionalTokenIdx, RvertRegionalToken,
 };
-use husky_sem_opr::{binary::SemaBinaryOpr, prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
+use husky_sem_opr::{binary::SemBinaryOpr, prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::entity_path;
 use husky_syn_expr::entity_path::SynPrincipalEntityPathSynExprIdx;
 use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr, SynSuffixOpr};
@@ -151,7 +151,7 @@ pub enum SemExprData {
     Binary {
         // todo: coercion?
         lopd: SemExprIdx,
-        opr: SemaBinaryOpr,
+        opr: SemBinaryOpr,
         dispatch: SemaBinaryOprInstanceDispatch,
         opr_regional_token_idx: RegionalTokenIdx,
         ropd: SemExprIdx,
