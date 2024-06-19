@@ -25,7 +25,8 @@ pub enum Precedence {
     Closure = 20,
     Method = 12,
     Assign = 11,
-    List = 1,
+    List = 5,
+    Of = 4,
     None = 0,
 }
 

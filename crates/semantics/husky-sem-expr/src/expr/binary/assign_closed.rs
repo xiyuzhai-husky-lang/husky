@@ -11,7 +11,7 @@ impl<'a> SemExprBuilder<'a> {
         ropd: SynExprIdx,
     ) -> (
         SemExprIdx,
-        SemaBinaryOpr,
+        SemBinaryOpr,
         SemExprIdx,
         SemExprDataResult<SemaBinaryOprInstanceDispatch>,
         SemExprTypeResult<FlyTerm>,
@@ -85,7 +85,7 @@ impl<'a> SemExprBuilder<'a> {
         };
         (
             lopd_sem_expr_idx,
-            SemaBinaryOpr::AssignClosed(opr),
+            SemBinaryOpr::AssignClosed(opr),
             ropd_sem_expr_idx,
             Ok(SemaBinaryOprInstanceDispatch::builtin()),
             Ok(self.term_menu().unit_ty_ontology().into()),
