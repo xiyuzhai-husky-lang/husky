@@ -1,3 +1,4 @@
+pub mod builder;
 mod jar;
 #[cfg(test)]
 mod tests;
