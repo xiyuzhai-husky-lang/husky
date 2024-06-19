@@ -314,6 +314,9 @@ where
                 WordOpr::As => {
                     DisambiguatedTokenData::SynBinaryOpr(regional_token_idx, SynBinaryOpr::As)
                 }
+                WordOpr::Of => {
+                    DisambiguatedTokenData::SynBinaryOpr(regional_token_idx, SynBinaryOpr::Of)
+                }
                 WordOpr::Be => DisambiguatedTokenData::Be(regional_token_idx),
             },
             TokenData::Literal(literal) => {
