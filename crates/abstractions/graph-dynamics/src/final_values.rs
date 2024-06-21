@@ -1,6 +1,7 @@
 use crate::{
-    context::{IsGraphDynamicsContext, IsGraphDynamicsScheme, IsGraphScheme},
+    context::{IsGraphDynamicsContext, IsGraphDynamicsScheme},
     cycle_group::{CycleGroup, CycleGroupMap},
+    deps::IsGraphDepsScheme,
 };
 use propagate::{IsGraph, Propagate, PropagationResult};
 
@@ -9,7 +10,7 @@ pub(crate) fn calc_cycle_group_final_values<'db, C: IsGraphDynamicsContext<'db>>
     cycle_group: &'db CycleGroup<C::Scheme>,
 ) -> PropagationResult<CycleGroupMap<C::Scheme>>
 where
-    [(); <C::Scheme as IsGraphScheme>::CYCLE_GROUP_N]:,
+    [(); <C::Scheme as IsGraphDepsScheme>::CYCLE_GROUP_N]:,
 {
     let local_graph = LocalGraph::new(ctx, cycle_group);
     Ok(local_graph

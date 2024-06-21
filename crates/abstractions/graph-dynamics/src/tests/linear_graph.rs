@@ -1,8 +1,6 @@
-use propagate::{PropagationResult, PropagationResultRef};
-
-use crate::{context::IsGraphScheme, full_deps_cropped::IsGraphContext};
-
 use super::*;
+use crate::deps::{IsGraphDepsContext, IsGraphDepsScheme};
+use propagate::{PropagationResult, PropagationResultRef};
 
 #[derive(Clone, Copy)]
 pub(crate) struct LinearGraphContext<'db> {
@@ -19,7 +17,7 @@ pub struct LinearGraphNode {
 
 pub struct LinearGraphScheme;
 
-impl<'db> IsGraphScheme for LinearGraphScheme {
+impl<'db> IsGraphDepsScheme for LinearGraphScheme {
     type Node = LinearGraphNode;
     const CYCLE_GROUP_N: usize = 2;
     type CycleGroupItd = LinearGraphCycleGroupItd;
@@ -30,7 +28,7 @@ impl<'db> IsGraphDynamicsScheme for LinearGraphScheme {
     const MAX_ITERATION: usize = 1000;
 }
 
-impl<'db> IsGraphContext<'db> for LinearGraphContext<'db> {
+impl<'db> IsGraphDepsContext<'db> for LinearGraphContext<'db> {
     type Scheme = LinearGraphScheme;
 
     fn deps_cropped(self, node: LinearGraphNode) -> impl IntoIterator<Item = LinearGraphNode> {
@@ -49,7 +47,7 @@ impl<'db> IsGraphContext<'db> for LinearGraphContext<'db> {
 
     fn cycle_group_itd(self, node: LinearGraphNode) -> LinearGraphCycleGroupItd
     where
-        [(); <Self::Scheme as IsGraphScheme>::CYCLE_GROUP_N]:,
+        [(); <Self::Scheme as IsGraphDepsScheme>::CYCLE_GROUP_N]:,
     {
         linear_graph_cycle_group_itd(self.db, node)
     }
@@ -59,15 +57,15 @@ impl<'db> IsGraphDynamicsContext<'db> for LinearGraphContext<'db> {
     type Scheme = LinearGraphScheme;
 
     fn deps_cropped(self, node: LinearGraphNode) -> impl IntoIterator<Item = LinearGraphNode> {
-        <Self as IsGraphContext<'db>>::deps_cropped(self, node)
+        <Self as IsGraphDepsContext<'db>>::deps_cropped(self, node)
     }
 
     fn full_deps_cropped(self, node: LinearGraphNode) -> &'db [LinearGraphNode] {
-        <Self as IsGraphContext<'db>>::full_deps_cropped(self, node)
+        <Self as IsGraphDepsContext<'db>>::full_deps_cropped(self, node)
     }
 
     fn cycle_group_itd(self, node: LinearGraphNode) -> LinearGraphCycleGroupItd {
-        <Self as IsGraphContext<'db>>::cycle_group_itd(self, node)
+        <Self as IsGraphDepsContext<'db>>::cycle_group_itd(self, node)
     }
 
     fn initial_value(self, node: LinearGraphNode) -> usize {
@@ -80,7 +78,7 @@ impl<'db> IsGraphDynamicsContext<'db> for LinearGraphContext<'db> {
         query: impl Fn(LinearGraphNode) -> &'a usize,
     ) -> usize {
         // in our case, deps is equal to deps_cropped
-        *IsGraphContext::deps_cropped(self, node)
+        *IsGraphDepsContext::deps_cropped(self, node)
             .into_iter()
             .map(&query)
             .chain([query(node)])

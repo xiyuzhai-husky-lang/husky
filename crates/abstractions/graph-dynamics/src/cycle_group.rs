@@ -1,17 +1,17 @@
 use crate::{
-    context::{IsGraphDynamicsContext, IsGraphDynamicsScheme, IsGraphScheme},
-    full_deps_cropped::IsGraphContext,
+    context::{IsGraphDynamicsContext, IsGraphDynamicsScheme},
+    deps::{IsGraphDepsContext, IsGraphDepsScheme},
 };
 use vec_like::{ordered_small_vec_map::OrderedSmallVecMap, OrderedSmallVecSet};
 
-pub struct CycleGroup<S: IsGraphScheme>
+pub struct CycleGroup<S: IsGraphDepsScheme>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
     nodes: OrderedSmallVecSet<S::Node, { S::CYCLE_GROUP_N }>,
 }
 
-impl<S: IsGraphScheme> std::ops::Deref for CycleGroup<S>
+impl<S: IsGraphDepsScheme> std::ops::Deref for CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
@@ -22,7 +22,7 @@ where
     }
 }
 
-impl<S: IsGraphScheme> std::fmt::Debug for CycleGroup<S>
+impl<S: IsGraphDepsScheme> std::fmt::Debug for CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: std::fmt::Debug,
@@ -34,7 +34,7 @@ where
     }
 }
 
-impl<S: IsGraphScheme> PartialEq for CycleGroup<S>
+impl<S: IsGraphDepsScheme> PartialEq for CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: PartialEq,
@@ -44,14 +44,14 @@ where
     }
 }
 
-impl<S: IsGraphScheme> Eq for CycleGroup<S>
+impl<S: IsGraphDepsScheme> Eq for CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: Eq,
 {
 }
 
-impl<S: IsGraphScheme> Clone for CycleGroup<S>
+impl<S: IsGraphDepsScheme> Clone for CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: Clone,
@@ -63,7 +63,7 @@ where
     }
 }
 
-impl<S: IsGraphScheme> std::hash::Hash for CycleGroup<S>
+impl<S: IsGraphDepsScheme> std::hash::Hash for CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: std::hash::Hash,
@@ -74,11 +74,11 @@ where
 }
 
 /// # constructor
-impl<'a, S: IsGraphScheme> CycleGroup<S>
+impl<'a, S: IsGraphDepsScheme> CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
-    pub(crate) fn calc<'db, C: IsGraphContext<'db, Scheme = S>>(
+    pub(crate) fn calc<'db, C: IsGraphDepsContext<'db, Scheme = S>>(
         ctx: C,
         node: S::Node,
     ) -> CycleGroup<S> {
@@ -94,7 +94,7 @@ where
 
 /// # getters
 
-impl<'a, S: IsGraphScheme> CycleGroup<S>
+impl<'a, S: IsGraphDepsScheme> CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
