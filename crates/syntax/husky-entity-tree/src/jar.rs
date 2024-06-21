@@ -111,4 +111,6 @@ pub struct EntityTreeJar(
     crate::helpers::tokra_region::item_defn::item_defn_tokra_region_with_source_map,
     crate::helpers::ingredient::crate_ingredient_paths,
     crate::helpers::ingredient::item_path_ingredient_index,
+    crate::utils::item_syn_node_path_stem_inner,
+    crate::utils::item_syn_node_path_stem_index,
 );
