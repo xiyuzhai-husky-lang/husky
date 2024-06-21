@@ -1,23 +1,23 @@
 use crate::{
-    context::{IsGraphRecursionContext, IsGraphRecursionScheme},
+    context::{IsGraphDynamicsContext, IsGraphDynamicsScheme, IsGraphScheme},
     cycle_group::{CycleGroup, CycleGroupMap},
 };
 use propagate::{IsGraph, Propagate, PropagationResult};
 
-pub(crate) fn calc_cycle_group_final_values<'db, C: IsGraphRecursionContext<'db>>(
+pub(crate) fn calc_cycle_group_final_values<'db, C: IsGraphDynamicsContext<'db>>(
     ctx: C,
     cycle_group: &'db CycleGroup<C::Scheme>,
 ) -> PropagationResult<CycleGroupMap<C::Scheme>>
 where
-    [(); <C::Scheme as IsGraphRecursionScheme>::CYCLE_GROUP_N]:,
+    [(); <C::Scheme as IsGraphScheme>::CYCLE_GROUP_N]:,
 {
     let local_graph = LocalGraph::new(ctx, cycle_group);
     Ok(local_graph
-        .propagate(<C::Scheme as IsGraphRecursionScheme>::MAX_ITERATION)?
+        .propagate(<C::Scheme as IsGraphDynamicsScheme>::MAX_ITERATION)?
         .finish())
 }
 
-struct LocalGraph<'db, C: IsGraphRecursionContext<'db>>
+struct LocalGraph<'db, C: IsGraphDynamicsContext<'db>>
 where
     [(); <C::Scheme>::CYCLE_GROUP_N]:,
 {
@@ -26,7 +26,7 @@ where
     deps: Vec<Vec<usize>>,
 }
 
-impl<'db, C: IsGraphRecursionContext<'db>> std::fmt::Debug for LocalGraph<'db, C>
+impl<'db, C: IsGraphDynamicsContext<'db>> std::fmt::Debug for LocalGraph<'db, C>
 where
     [(); <C::Scheme>::CYCLE_GROUP_N]:,
 {
@@ -45,7 +45,7 @@ where
     }
 }
 
-impl<'db, C: IsGraphRecursionContext<'db>> LocalGraph<'db, C>
+impl<'db, C: IsGraphDynamicsContext<'db>> LocalGraph<'db, C>
 where
     [(); <C::Scheme>::CYCLE_GROUP_N]:,
 {
@@ -70,7 +70,7 @@ where
     }
 }
 
-impl<'db, C: IsGraphRecursionContext<'db>> LocalGraph<'db, C>
+impl<'db, C: IsGraphDynamicsContext<'db>> LocalGraph<'db, C>
 where
     [(); <C::Scheme>::CYCLE_GROUP_N]:,
 {
@@ -79,11 +79,11 @@ where
     }
 }
 
-impl<'db, C: IsGraphRecursionContext<'db>> IsGraph for LocalGraph<'db, C>
+impl<'db, C: IsGraphDynamicsContext<'db>> IsGraph for LocalGraph<'db, C>
 where
     [(); <C::Scheme>::CYCLE_GROUP_N]:,
 {
-    type Value = <C::Scheme as IsGraphRecursionScheme>::Value;
+    type Value = <C::Scheme as IsGraphDynamicsScheme>::Value;
 
     fn len(&self) -> usize {
         self.map.len()

@@ -1,14 +1,17 @@
-use crate::context::{IsGraphRecursionContext, IsGraphRecursionScheme};
+use crate::{
+    context::{IsGraphDynamicsContext, IsGraphDynamicsScheme, IsGraphScheme},
+    full_deps_cropped::IsGraphContext,
+};
 use vec_like::{ordered_small_vec_map::OrderedSmallVecMap, OrderedSmallVecSet};
 
-pub struct CycleGroup<S: IsGraphRecursionScheme>
+pub struct CycleGroup<S: IsGraphScheme>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
     nodes: OrderedSmallVecSet<S::Node, { S::CYCLE_GROUP_N }>,
 }
 
-impl<S: IsGraphRecursionScheme> std::ops::Deref for CycleGroup<S>
+impl<S: IsGraphScheme> std::ops::Deref for CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
@@ -19,7 +22,7 @@ where
     }
 }
 
-impl<S: IsGraphRecursionScheme> std::fmt::Debug for CycleGroup<S>
+impl<S: IsGraphScheme> std::fmt::Debug for CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: std::fmt::Debug,
@@ -31,7 +34,7 @@ where
     }
 }
 
-impl<S: IsGraphRecursionScheme> PartialEq for CycleGroup<S>
+impl<S: IsGraphScheme> PartialEq for CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: PartialEq,
@@ -41,14 +44,14 @@ where
     }
 }
 
-impl<S: IsGraphRecursionScheme> Eq for CycleGroup<S>
+impl<S: IsGraphScheme> Eq for CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: Eq,
 {
 }
 
-impl<S: IsGraphRecursionScheme> Clone for CycleGroup<S>
+impl<S: IsGraphScheme> Clone for CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: Clone,
@@ -60,7 +63,7 @@ where
     }
 }
 
-impl<S: IsGraphRecursionScheme> std::hash::Hash for CycleGroup<S>
+impl<S: IsGraphScheme> std::hash::Hash for CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: std::hash::Hash,
@@ -71,11 +74,11 @@ where
 }
 
 /// # constructor
-impl<'a, S: IsGraphRecursionScheme> CycleGroup<S>
+impl<'a, S: IsGraphScheme> CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
-    pub(crate) fn calc<'db, C: IsGraphRecursionContext<'db, Scheme = S>>(
+    pub(crate) fn calc<'db, C: IsGraphContext<'db, Scheme = S>>(
         ctx: C,
         node: S::Node,
     ) -> CycleGroup<S> {
@@ -91,7 +94,7 @@ where
 
 /// # getters
 
-impl<'a, S: IsGraphRecursionScheme> CycleGroup<S>
+impl<'a, S: IsGraphScheme> CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
@@ -100,14 +103,14 @@ where
     }
 }
 
-pub struct CycleGroupMap<S: IsGraphRecursionScheme>
+pub struct CycleGroupMap<S: IsGraphDynamicsScheme>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
     map: OrderedSmallVecMap<(S::Node, S::Value), { S::CYCLE_GROUP_N }>,
 }
 
-impl<S: IsGraphRecursionScheme> std::ops::Deref for CycleGroupMap<S>
+impl<S: IsGraphDynamicsScheme> std::ops::Deref for CycleGroupMap<S>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
@@ -118,7 +121,7 @@ where
     }
 }
 
-impl<S: IsGraphRecursionScheme> std::fmt::Debug for CycleGroupMap<S>
+impl<S: IsGraphDynamicsScheme> std::fmt::Debug for CycleGroupMap<S>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: std::fmt::Debug,
@@ -131,7 +134,7 @@ where
     }
 }
 
-impl<S: IsGraphRecursionScheme> PartialEq for CycleGroupMap<S>
+impl<S: IsGraphDynamicsScheme> PartialEq for CycleGroupMap<S>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: PartialEq,
@@ -142,7 +145,7 @@ where
     }
 }
 
-impl<S: IsGraphRecursionScheme> Eq for CycleGroupMap<S>
+impl<S: IsGraphDynamicsScheme> Eq for CycleGroupMap<S>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: Eq,
@@ -150,11 +153,11 @@ where
 {
 }
 
-impl<S: IsGraphRecursionScheme> CycleGroupMap<S>
+impl<S: IsGraphDynamicsScheme> CycleGroupMap<S>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
-    pub(crate) fn new<'db, C: IsGraphRecursionContext<'db, Scheme = S>>(
+    pub(crate) fn new<'db, C: IsGraphDynamicsContext<'db, Scheme = S>>(
         ctx: C,
         cycle_group: &'db CycleGroup<S>,
     ) -> Self {
@@ -171,7 +174,7 @@ where
     }
 }
 
-impl<S: IsGraphRecursionScheme> CycleGroupMap<S>
+impl<S: IsGraphDynamicsScheme> CycleGroupMap<S>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
@@ -180,7 +183,7 @@ where
     }
 }
 
-impl<S: IsGraphRecursionScheme> std::ops::Index<S::Node> for CycleGroupMap<S>
+impl<S: IsGraphDynamicsScheme> std::ops::Index<S::Node> for CycleGroupMap<S>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
@@ -191,7 +194,7 @@ where
     }
 }
 
-impl<S: IsGraphRecursionScheme> std::ops::IndexMut<S::Node> for CycleGroupMap<S>
+impl<S: IsGraphDynamicsScheme> std::ops::IndexMut<S::Node> for CycleGroupMap<S>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
