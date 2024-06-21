@@ -1,6 +1,6 @@
 mod linear_graph;
 
-use crate::context::{IsGraphRecursionContext, IsGraphRecursionScheme};
+use crate::context::{IsGraphDynamicsContext, IsGraphDynamicsScheme};
 use crate::cycle_group::{CycleGroup, CycleGroupMap};
 
 #[salsa::jar]
