@@ -47,7 +47,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(`core::vec::Vec::@derive(0)`),
+                                AttrItemPath(`core::vec::Vec::#derive(0)`),
                             ),
                         },
                     ),

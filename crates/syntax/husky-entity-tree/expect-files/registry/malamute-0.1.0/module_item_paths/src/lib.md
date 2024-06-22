@@ -1,15 +1,15 @@
 ```rust
 [
     ItemPath(`malamute::Class`),
-    ItemPath(`malamute::Class::@derive(0)`),
+    ItemPath(`malamute::Class::#derive(0)`),
     ItemPath(`malamute::Class::Known`),
     ItemPath(`malamute::Class::Unknown`),
     ItemPath(`malamute::OneVsAll`),
-    ItemPath(`malamute::OneVsAll::@derive(0)`),
+    ItemPath(`malamute::OneVsAll::#derive(0)`),
     ItemPath(`malamute::OneVsAll::Yes`),
     ItemPath(`malamute::OneVsAll::No`),
     ItemPath(`malamute::OneVsAllResult`),
-    ItemPath(`malamute::OneVsAllResult::@derive(0)`),
+    ItemPath(`malamute::OneVsAllResult::#derive(0)`),
     ItemPath(`malamute::OneVsAllResult::ConfidentYes`),
     ItemPath(`malamute::OneVsAllResult::ConfidentNo`),
     ItemPath(`malamute::OneVsAllResult::Unconfident`),

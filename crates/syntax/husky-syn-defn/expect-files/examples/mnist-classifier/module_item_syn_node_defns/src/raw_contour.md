@@ -68,7 +68,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(`mnist_classifier::raw_contour::Direction::@derive(0)`),
+                                AttrItemPath(`mnist_classifier::raw_contour::Direction::#derive(0)`),
                             ),
                         },
                     ),

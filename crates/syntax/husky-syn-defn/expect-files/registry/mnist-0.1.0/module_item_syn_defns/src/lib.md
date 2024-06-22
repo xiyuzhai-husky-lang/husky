@@ -53,7 +53,7 @@
         None,
     ),
     (
-        ItemPath(`mnist::BinaryImage28::@derive(0)`),
+        ItemPath(`mnist::BinaryImage28::#derive(0)`),
         None,
     ),
     (

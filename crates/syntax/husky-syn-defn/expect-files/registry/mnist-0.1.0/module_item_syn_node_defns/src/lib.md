@@ -466,7 +466,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(`mnist::BinaryImage28::@derive(0)`),
+                                AttrItemPath(`mnist::BinaryImage28::#derive(0)`),
                             ),
                         },
                     ),

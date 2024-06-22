@@ -27,7 +27,7 @@
         ),
     ),
     (
-        ItemPath(`mnist_classifier::raw_contour::Direction::@derive(0)`),
+        ItemPath(`mnist_classifier::raw_contour::Direction::#derive(0)`),
         None,
     ),
     (

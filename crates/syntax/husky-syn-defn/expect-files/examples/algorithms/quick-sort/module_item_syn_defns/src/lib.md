@@ -3767,7 +3767,7 @@
         ),
     ),
     (
-        ItemPath(`quick_sort::quick_sort_works_for_integers::@test(0)`),
+        ItemPath(`quick_sort::quick_sort_works_for_integers::#test(0)`),
         None,
     ),
     (
@@ -4108,7 +4108,7 @@
         ),
     ),
     (
-        ItemPath(`quick_sort::quick_sort_works_for_strs::@test(0)`),
+        ItemPath(`quick_sort::quick_sort_works_for_strs::#test(0)`),
         None,
     ),
 ]

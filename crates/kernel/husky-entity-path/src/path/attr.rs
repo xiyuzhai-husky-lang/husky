@@ -48,7 +48,7 @@ impl AttrItemPathData {
     fn show_aux(self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
         use salsa::DisplayWithDb;
         self.parent_item_path.display_fmt_with_db(f, db)?;
-        f.write_str("::@")?;
+        f.write_str("::#")?;
         f.write_str(self.ident.data(db))?;
         f.write_fmt(format_args!("({})", self.disambiguator))
     }

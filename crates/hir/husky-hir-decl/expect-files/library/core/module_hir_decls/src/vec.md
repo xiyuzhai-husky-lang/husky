@@ -76,7 +76,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(`core::vec::Vec::@derive(0)`),
+                path: AttrItemPath(`core::vec::Vec::#derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -93,7 +93,7 @@
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath(`core::vec::Vec::@derive(0)`),
+                        ItemPath(`core::vec::Vec::#derive(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],

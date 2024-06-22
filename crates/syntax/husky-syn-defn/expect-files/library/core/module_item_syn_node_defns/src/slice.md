@@ -68,7 +68,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(`core::slice::CyclicSlice::@derive(0)`),
+                                AttrItemPath(`core::slice::CyclicSlice::#derive(0)`),
                             ),
                         },
                     ),

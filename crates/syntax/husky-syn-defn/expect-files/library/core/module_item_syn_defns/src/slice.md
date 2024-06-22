@@ -9,7 +9,7 @@
         None,
     ),
     (
-        ItemPath(`core::slice::CyclicSlice::@derive(0)`),
+        ItemPath(`core::slice::CyclicSlice::#derive(0)`),
         None,
     ),
     (

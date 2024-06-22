@@ -3,7 +3,7 @@ Some(
     SemItemPathCyclceGroupItd {
         cycle_group: CycleGroup {
             nodes: [
-                ItemPath(`core::slice::CyclicSlice::@derive(0)`),
+                ItemPath(`core::slice::CyclicSlice::#derive(0)`),
             ],
         },
     },

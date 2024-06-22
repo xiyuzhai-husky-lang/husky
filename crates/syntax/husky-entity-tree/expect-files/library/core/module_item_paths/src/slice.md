@@ -2,7 +2,7 @@
 [
     ItemPath(`core::slice::Slice`),
     ItemPath(`core::slice::CyclicSlice`),
-    ItemPath(`core::slice::CyclicSlice::@derive(0)`),
+    ItemPath(`core::slice::CyclicSlice::#derive(0)`),
     ItemPath(`core::slice::Slice(0)`),
     ItemPath(`core::slice::Slice(0)::len`),
     ItemPath(`core::slice::Slice(0)::swap`),

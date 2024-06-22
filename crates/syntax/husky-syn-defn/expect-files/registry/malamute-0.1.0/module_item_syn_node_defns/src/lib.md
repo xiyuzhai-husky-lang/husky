@@ -47,7 +47,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(`malamute::Class::@derive(0)`),
+                                AttrItemPath(`malamute::Class::#derive(0)`),
                             ),
                         },
                     ),
@@ -179,7 +179,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(`malamute::OneVsAll::@derive(0)`),
+                                AttrItemPath(`malamute::OneVsAll::#derive(0)`),
                             ),
                         },
                     ),
@@ -311,7 +311,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(`malamute::OneVsAllResult::@derive(0)`),
+                                AttrItemPath(`malamute::OneVsAllResult::#derive(0)`),
                             ),
                         },
                     ),

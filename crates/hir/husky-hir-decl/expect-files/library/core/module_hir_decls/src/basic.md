@@ -40,7 +40,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(`core::basic::bool::@derive(0)`),
+                path: AttrItemPath(`core::basic::bool::#derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -65,7 +65,7 @@
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath(`core::basic::bool::@derive(0)`),
+                        ItemPath(`core::basic::bool::#derive(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -131,7 +131,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(`core::basic::never::@derive(0)`),
+                path: AttrItemPath(`core::basic::never::#derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -156,7 +156,7 @@
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath(`core::basic::never::@derive(0)`),
+                        ItemPath(`core::basic::never::#derive(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -222,7 +222,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(`core::basic::unit::@derive(0)`),
+                path: AttrItemPath(`core::basic::unit::#derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -247,7 +247,7 @@
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath(`core::basic::unit::@derive(0)`),
+                        ItemPath(`core::basic::unit::#derive(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],

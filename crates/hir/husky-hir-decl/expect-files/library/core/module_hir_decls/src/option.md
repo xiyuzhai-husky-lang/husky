@@ -72,7 +72,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(`core::option::Option::@derive(0)`),
+                path: AttrItemPath(`core::option::Option::#derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -97,7 +97,7 @@
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath(`core::option::Option::@derive(0)`),
+                        ItemPath(`core::option::Option::#derive(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],

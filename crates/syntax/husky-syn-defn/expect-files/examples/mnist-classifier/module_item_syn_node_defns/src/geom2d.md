@@ -47,7 +47,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(`mnist_classifier::geom2d::Point2d::@derive(0)`),
+                                AttrItemPath(`mnist_classifier::geom2d::Point2d::#derive(0)`),
                             ),
                         },
                     ),

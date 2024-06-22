@@ -2,7 +2,7 @@
 [
     ItemPath(`mnist_classifier::raw_contour::RawContour`),
     ItemPath(`mnist_classifier::raw_contour::Direction`),
-    ItemPath(`mnist_classifier::raw_contour::Direction::@derive(0)`),
+    ItemPath(`mnist_classifier::raw_contour::Direction::#derive(0)`),
     ItemPath(`mnist_classifier::raw_contour::Direction::Up`),
     ItemPath(`mnist_classifier::raw_contour::Direction::Left`),
     ItemPath(`mnist_classifier::raw_contour::Direction::Down`),

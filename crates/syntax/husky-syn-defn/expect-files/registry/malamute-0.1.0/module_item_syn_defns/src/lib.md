@@ -5,7 +5,7 @@
         None,
     ),
     (
-        ItemPath(`malamute::Class::@derive(0)`),
+        ItemPath(`malamute::Class::#derive(0)`),
         None,
     ),
     (
@@ -21,7 +21,7 @@
         None,
     ),
     (
-        ItemPath(`malamute::OneVsAll::@derive(0)`),
+        ItemPath(`malamute::OneVsAll::#derive(0)`),
         None,
     ),
     (
@@ -37,7 +37,7 @@
         None,
     ),
     (
-        ItemPath(`malamute::OneVsAllResult::@derive(0)`),
+        ItemPath(`malamute::OneVsAllResult::#derive(0)`),
         None,
     ),
     (

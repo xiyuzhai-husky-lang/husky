@@ -1,7 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath(`core::slice::CyclicSlice::@derive(0)`),
+        ItemPath(`core::slice::CyclicSlice::#derive(0)`),
         ItemPath(`core::fmt::Debug`),
         ItemPath(`core::visual::Visualize`),
     ],
