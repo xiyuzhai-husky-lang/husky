@@ -103,29 +103,29 @@ where
     }
 }
 
-pub struct CycleGroupMap<S: IsGraphDynamicsScheme>
+pub struct CycleGroupMap<S: IsGraphDepsScheme, V>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
-    map: OrderedSmallVecMap<(S::Node, S::Value), { S::CYCLE_GROUP_N }>,
+    map: OrderedSmallVecMap<(S::Node, V), { S::CYCLE_GROUP_N }>,
 }
 
-impl<S: IsGraphDynamicsScheme> std::ops::Deref for CycleGroupMap<S>
+impl<S: IsGraphDepsScheme, V> std::ops::Deref for CycleGroupMap<S, V>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
-    type Target = OrderedSmallVecMap<(S::Node, S::Value), { S::CYCLE_GROUP_N }>;
+    type Target = OrderedSmallVecMap<(S::Node, V), { S::CYCLE_GROUP_N }>;
 
     fn deref(&self) -> &Self::Target {
         &self.map
     }
 }
 
-impl<S: IsGraphDynamicsScheme> std::fmt::Debug for CycleGroupMap<S>
+impl<S: IsGraphDepsScheme, V> std::fmt::Debug for CycleGroupMap<S, V>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: std::fmt::Debug,
-    S::Value: std::fmt::Debug,
+    V: std::fmt::Debug,
 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("CycleGroupMap")
@@ -134,30 +134,37 @@ where
     }
 }
 
-impl<S: IsGraphDynamicsScheme> PartialEq for CycleGroupMap<S>
+impl<S: IsGraphDepsScheme, V> PartialEq for CycleGroupMap<S, V>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: PartialEq,
-    S::Value: PartialEq,
+    V: PartialEq,
 {
     fn eq(&self, other: &Self) -> bool {
         self.map == other.map
     }
 }
 
-impl<S: IsGraphDynamicsScheme> Eq for CycleGroupMap<S>
+impl<S: IsGraphDepsScheme, V> Eq for CycleGroupMap<S, V>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: Eq,
-    S::Value: Eq,
+    V: Eq,
 {
 }
 
-impl<S: IsGraphDynamicsScheme> CycleGroupMap<S>
+impl<S: IsGraphDepsScheme, V> CycleGroupMap<S, V>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
-    pub(crate) fn new<'db, C: IsGraphDynamicsContext<'db, Scheme = S>>(
+    pub(crate) fn new<
+        'db,
+        C: IsGraphDynamicsContext<
+            'db,
+            DepsScheme = S,
+            DynamicsScheme: IsGraphDynamicsScheme<Value = V>,
+        >,
+    >(
         ctx: C,
         cycle_group: &'db CycleGroup<S>,
     ) -> Self {
@@ -167,34 +174,34 @@ where
                 .map_collect(|node| ctx.initial_value(node)),
         }
     }
-    pub(crate) fn new_one_element_map(node: S::Node, value: S::Value) -> Self {
+    pub(crate) fn new_one_element_map(node: S::Node, value: V) -> Self {
         Self {
             map: OrderedSmallVecMap::new_one_element_map((node, value)),
         }
     }
 }
 
-impl<S: IsGraphDynamicsScheme> CycleGroupMap<S>
+impl<S: IsGraphDepsScheme, V> CycleGroupMap<S, V>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
-    pub(crate) unsafe fn entries_mut(&mut self) -> &mut [(S::Node, S::Value)] {
+    pub(crate) unsafe fn entries_mut(&mut self) -> &mut [(S::Node, V)] {
         self.map.entries_mut()
     }
 }
 
-impl<S: IsGraphDynamicsScheme> std::ops::Index<S::Node> for CycleGroupMap<S>
+impl<S: IsGraphDepsScheme, V> std::ops::Index<S::Node> for CycleGroupMap<S, V>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
-    type Output = S::Value;
+    type Output = V;
 
     fn index(&self, index: S::Node) -> &Self::Output {
         &self.map[index].1
     }
 }
 
-impl<S: IsGraphDynamicsScheme> std::ops::IndexMut<S::Node> for CycleGroupMap<S>
+impl<S: IsGraphDepsScheme, V> std::ops::IndexMut<S::Node> for CycleGroupMap<S, V>
 where
     [(); S::CYCLE_GROUP_N]:,
 {

@@ -12,46 +12,52 @@ pub trait IsGraphDynamicsScheme: IsGraphDepsScheme + 'static {
 }
 
 pub trait IsGraphDynamicsContext<'db>: Copy {
-    type Scheme: IsGraphDynamicsScheme;
+    type DepsScheme: IsGraphDynamicsScheme;
+    type DynamicsScheme: IsGraphDynamicsScheme;
     /// crop deps that definitely are not going to form a cycle
-    fn deps_cropped(self, node: Node<Self::Scheme>)
-        -> impl IntoIterator<Item = Node<Self::Scheme>>;
+    fn deps_cropped(
+        self,
+        node: Node<Self::DepsScheme>,
+    ) -> impl IntoIterator<Item = Node<Self::DepsScheme>>;
     /// cached version
-    fn full_deps_cropped(self, node: Node<Self::Scheme>) -> &'db [Node<Self::Scheme>];
+    fn full_deps_cropped(self, node: Node<Self::DepsScheme>) -> &'db [Node<Self::DepsScheme>];
 
     /// cached version
-    fn cycle_group_itd(self, node: Node<Self::Scheme>) -> CycleGroupItd<Self::Scheme>
+    fn cycle_group_itd(self, node: Node<Self::DepsScheme>) -> CycleGroupItd<Self::DepsScheme>
     where
-        [(); <Self::Scheme as IsGraphDepsScheme>::CYCLE_GROUP_N]:;
-    fn initial_value(self, node: Node<Self::Scheme>) -> Value<Self::Scheme>;
+        [(); <Self::DepsScheme as IsGraphDepsScheme>::CYCLE_GROUP_N]:;
+    fn initial_value(self, node: Node<Self::DepsScheme>) -> Value<Self::DynamicsScheme>;
     fn updated_value<'a>(
         self,
-        node: Node<Self::Scheme>,
-        query: impl Fn(Node<Self::Scheme>) -> &'a Value<Self::Scheme>,
-    ) -> Value<Self::Scheme>
+        node: Node<Self::DepsScheme>,
+        query: impl Fn(Node<Self::DepsScheme>) -> &'a Value<Self::DynamicsScheme>,
+    ) -> Value<Self::DynamicsScheme>
     where
-        [(); <Self::Scheme as IsGraphDepsScheme>::CYCLE_GROUP_N]:;
+        [(); <Self::DepsScheme as IsGraphDepsScheme>::CYCLE_GROUP_N]:;
     /// final
     fn calc_cycle_group_final_values(
         self,
-        cycle_group: &'db CycleGroup<Self::Scheme>,
-    ) -> PropagationResult<CycleGroupMap<Self::Scheme>>
+        cycle_group: &'db CycleGroup<Self::DepsScheme>,
+    ) -> PropagationResult<CycleGroupMap<Self::DepsScheme, Value<Self::DynamicsScheme>>>
     where
-        [(); <Self::Scheme as IsGraphDepsScheme>::CYCLE_GROUP_N]:,
+        [(); <Self::DepsScheme as IsGraphDepsScheme>::CYCLE_GROUP_N]:,
     {
         calc_cycle_group_final_values(self, cycle_group)
     }
     /// cached version
     fn cycle_group_values(
         self,
-        cycle_group_itd: CycleGroupItd<Self::Scheme>,
-    ) -> PropagationResultRef<'db, &'db CycleGroupMap<Self::Scheme>>
+        cycle_group_itd: CycleGroupItd<Self::DepsScheme>,
+    ) -> PropagationResultRef<'db, &'db CycleGroupMap<Self::DepsScheme, Value<Self::DynamicsScheme>>>
     where
-        [(); <Self::Scheme as IsGraphDepsScheme>::CYCLE_GROUP_N]:;
+        [(); <Self::DepsScheme as IsGraphDepsScheme>::CYCLE_GROUP_N]:;
     /// go through interned cycle group
-    fn value(self, node: Node<Self::Scheme>) -> PropagationResultRef<'db, &'db Value<Self::Scheme>>
+    fn value(
+        self,
+        node: Node<Self::DepsScheme>,
+    ) -> PropagationResultRef<'db, &'db Value<Self::DynamicsScheme>>
     where
-        [(); <Self::Scheme as IsGraphDepsScheme>::CYCLE_GROUP_N]:,
+        [(); <Self::DepsScheme as IsGraphDepsScheme>::CYCLE_GROUP_N]:,
     {
         Ok(&self.cycle_group_values(self.cycle_group_itd(node))?[node])
     }
