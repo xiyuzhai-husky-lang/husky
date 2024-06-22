@@ -3805,7 +3805,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(`quick_sort::quick_sort_works_for_integers::@test(0)`),
+                                AttrItemPath(`quick_sort::quick_sort_works_for_integers::#test(0)`),
                             ),
                         },
                     ),
@@ -4172,7 +4172,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(`quick_sort::quick_sort_works_for_strs::@test(0)`),
+                                AttrItemPath(`quick_sort::quick_sort_works_for_strs::#test(0)`),
                             ),
                         },
                     ),

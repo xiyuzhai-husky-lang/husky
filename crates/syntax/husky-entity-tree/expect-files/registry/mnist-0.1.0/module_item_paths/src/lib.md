@@ -13,7 +13,7 @@
     ItemPath(`mnist::MnistLabel::Eight`),
     ItemPath(`mnist::MnistLabel::Nine`),
     ItemPath(`mnist::BinaryImage28`),
-    ItemPath(`mnist::BinaryImage28::@derive(0)`),
+    ItemPath(`mnist::BinaryImage28::#derive(0)`),
     ItemPath(`mnist::BinaryGrid28`),
     ItemPath(`mnist::input`),
     ItemPath(`mnist::BinaryImage28 as core::visual::Visualize(0)`),

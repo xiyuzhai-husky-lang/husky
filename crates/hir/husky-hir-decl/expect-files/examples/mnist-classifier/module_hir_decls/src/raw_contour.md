@@ -134,7 +134,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(`mnist_classifier::raw_contour::Direction::@derive(0)`),
+                path: AttrItemPath(`mnist_classifier::raw_contour::Direction::#derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::clone::Clone`),
@@ -155,7 +155,7 @@
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath(`mnist_classifier::raw_contour::Direction::@derive(0)`),
+                        ItemPath(`mnist_classifier::raw_contour::Direction::#derive(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],

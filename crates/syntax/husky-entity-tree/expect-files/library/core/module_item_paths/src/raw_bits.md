@@ -1,7 +1,7 @@
 ```rust
 [
     ItemPath(`core::raw_bits::r32`),
-    ItemPath(`core::raw_bits::r32::@derive(0)`),
+    ItemPath(`core::raw_bits::r32::#derive(0)`),
     ItemPath(`core::raw_bits::r32(0)`),
     ItemPath(`core::raw_bits::r32(0)::last_bits`),
     ItemPath(`core::raw_bits::r32(0)::ctz`),

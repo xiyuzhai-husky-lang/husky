@@ -5,7 +5,7 @@
         None,
     ),
     (
-        ItemPath(`core::raw_bits::r32::@derive(0)`),
+        ItemPath(`core::raw_bits::r32::#derive(0)`),
         None,
     ),
     (

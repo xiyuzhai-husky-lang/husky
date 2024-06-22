@@ -72,7 +72,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(`malamute::Class::@derive(0)`),
+                path: AttrItemPath(`malamute::Class::#derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -89,7 +89,7 @@
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath(`malamute::Class::@derive(0)`),
+                        ItemPath(`malamute::Class::#derive(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -292,7 +292,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(`malamute::OneVsAll::@derive(0)`),
+                path: AttrItemPath(`malamute::OneVsAll::#derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -309,7 +309,7 @@
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath(`malamute::OneVsAll::@derive(0)`),
+                        ItemPath(`malamute::OneVsAll::#derive(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -451,7 +451,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(`malamute::OneVsAllResult::@derive(0)`),
+                path: AttrItemPath(`malamute::OneVsAllResult::#derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -468,7 +468,7 @@
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath(`malamute::OneVsAllResult::@derive(0)`),
+                        ItemPath(`malamute::OneVsAllResult::#derive(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],

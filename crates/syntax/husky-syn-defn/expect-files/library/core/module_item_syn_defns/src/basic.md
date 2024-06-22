@@ -5,7 +5,7 @@
         None,
     ),
     (
-        ItemPath(`core::basic::bool::@derive(0)`),
+        ItemPath(`core::basic::bool::#derive(0)`),
         None,
     ),
     (
@@ -13,7 +13,7 @@
         None,
     ),
     (
-        ItemPath(`core::basic::never::@derive(0)`),
+        ItemPath(`core::basic::never::#derive(0)`),
         None,
     ),
     (
@@ -21,7 +21,7 @@
         None,
     ),
     (
-        ItemPath(`core::basic::unit::@derive(0)`),
+        ItemPath(`core::basic::unit::#derive(0)`),
         None,
     ),
     (

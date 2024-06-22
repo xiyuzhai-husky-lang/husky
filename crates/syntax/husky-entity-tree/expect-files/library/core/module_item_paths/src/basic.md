@@ -1,11 +1,11 @@
 ```rust
 [
     ItemPath(`core::basic::bool`),
-    ItemPath(`core::basic::bool::@derive(0)`),
+    ItemPath(`core::basic::bool::#derive(0)`),
     ItemPath(`core::basic::never`),
-    ItemPath(`core::basic::never::@derive(0)`),
+    ItemPath(`core::basic::never::#derive(0)`),
     ItemPath(`core::basic::unit`),
-    ItemPath(`core::basic::unit::@derive(0)`),
+    ItemPath(`core::basic::unit::#derive(0)`),
     ItemPath(`core::basic::Trait`),
     ItemPath(`core::basic::Module`),
     ItemPath(`core::basic::Lifetime`),

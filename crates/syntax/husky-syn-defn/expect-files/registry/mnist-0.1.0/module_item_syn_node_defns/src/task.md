@@ -47,7 +47,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(`mnist::task::MnistTask::@task(0)`),
+                                AttrItemPath(`mnist::task::MnistTask::#task(0)`),
                             ),
                         },
                     ),

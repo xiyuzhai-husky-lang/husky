@@ -1,7 +1,7 @@
 ```rust
 [
     ItemPath(`core::vec::Vec`),
-    ItemPath(`core::vec::Vec::@derive(0)`),
+    ItemPath(`core::vec::Vec::#derive(0)`),
     ItemPath(`core::vec::Vec(0)`),
     ItemPath(`core::vec::Vec(0)::ilen`),
     ItemPath(`core::vec::Vec(0)::push`),

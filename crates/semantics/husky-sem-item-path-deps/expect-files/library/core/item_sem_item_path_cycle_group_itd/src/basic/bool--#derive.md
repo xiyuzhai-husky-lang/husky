@@ -3,7 +3,7 @@ Some(
     SemItemPathCyclceGroupItd {
         cycle_group: CycleGroup {
             nodes: [
-                ItemPath(`core::basic::bool::@derive(0)`),
+                ItemPath(`core::basic::bool::#derive(0)`),
             ],
         },
     },

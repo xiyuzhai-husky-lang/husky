@@ -4,8 +4,8 @@
     ItemPath(`quick_sort::quick_sort_aux`),
     ItemPath(`quick_sort::partition`),
     ItemPath(`quick_sort::quick_sort_works_for_integers`),
-    ItemPath(`quick_sort::quick_sort_works_for_integers::@test(0)`),
+    ItemPath(`quick_sort::quick_sort_works_for_integers::#test(0)`),
     ItemPath(`quick_sort::quick_sort_works_for_strs`),
-    ItemPath(`quick_sort::quick_sort_works_for_strs::@test(0)`),
+    ItemPath(`quick_sort::quick_sort_works_for_strs::#test(0)`),
 ]
 ```

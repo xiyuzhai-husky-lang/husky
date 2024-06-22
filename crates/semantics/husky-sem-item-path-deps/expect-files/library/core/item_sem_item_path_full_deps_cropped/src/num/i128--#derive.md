@@ -1,7 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath(`core::num::i128::@derive(0)`),
+        ItemPath(`core::num::i128::#derive(0)`),
         ItemPath(`core::fmt::Debug`),
         ItemPath(`core::cmp::PartialEq`),
         ItemPath(`core::cmp::Eq`),

@@ -5,7 +5,7 @@
         None,
     ),
     (
-        ItemPath(`core::num::i8::@derive(0)`),
+        ItemPath(`core::num::i8::#derive(0)`),
         None,
     ),
     (
@@ -13,7 +13,7 @@
         None,
     ),
     (
-        ItemPath(`core::num::i16::@derive(0)`),
+        ItemPath(`core::num::i16::#derive(0)`),
         None,
     ),
     (
@@ -21,7 +21,7 @@
         None,
     ),
     (
-        ItemPath(`core::num::i32::@derive(0)`),
+        ItemPath(`core::num::i32::#derive(0)`),
         None,
     ),
     (
@@ -29,7 +29,7 @@
         None,
     ),
     (
-        ItemPath(`core::num::i64::@derive(0)`),
+        ItemPath(`core::num::i64::#derive(0)`),
         None,
     ),
     (
@@ -37,7 +37,7 @@
         None,
     ),
     (
-        ItemPath(`core::num::i128::@derive(0)`),
+        ItemPath(`core::num::i128::#derive(0)`),
         None,
     ),
     (
@@ -45,7 +45,7 @@
         None,
     ),
     (
-        ItemPath(`core::num::isize::@derive(0)`),
+        ItemPath(`core::num::isize::#derive(0)`),
         None,
     ),
     (
@@ -53,7 +53,7 @@
         None,
     ),
     (
-        ItemPath(`core::num::u8::@derive(0)`),
+        ItemPath(`core::num::u8::#derive(0)`),
         None,
     ),
     (
@@ -61,7 +61,7 @@
         None,
     ),
     (
-        ItemPath(`core::num::u16::@derive(0)`),
+        ItemPath(`core::num::u16::#derive(0)`),
         None,
     ),
     (
@@ -69,7 +69,7 @@
         None,
     ),
     (
-        ItemPath(`core::num::u32::@derive(0)`),
+        ItemPath(`core::num::u32::#derive(0)`),
         None,
     ),
     (
@@ -77,7 +77,7 @@
         None,
     ),
     (
-        ItemPath(`core::num::u64::@derive(0)`),
+        ItemPath(`core::num::u64::#derive(0)`),
         None,
     ),
     (
@@ -85,7 +85,7 @@
         None,
     ),
     (
-        ItemPath(`core::num::u128::@derive(0)`),
+        ItemPath(`core::num::u128::#derive(0)`),
         None,
     ),
     (
@@ -93,7 +93,7 @@
         None,
     ),
     (
-        ItemPath(`core::num::usize::@derive(0)`),
+        ItemPath(`core::num::usize::#derive(0)`),
         None,
     ),
     (
@@ -101,7 +101,7 @@
         None,
     ),
     (
-        ItemPath(`core::num::f32::@derive(0)`),
+        ItemPath(`core::num::f32::#derive(0)`),
         None,
     ),
     (
@@ -109,7 +109,7 @@
         None,
     ),
     (
-        ItemPath(`core::num::f64::@derive(0)`),
+        ItemPath(`core::num::f64::#derive(0)`),
         None,
     ),
     (
@@ -329,7 +329,7 @@
         None,
     ),
     (
-        ItemPath(`core::num::f32(0)::abs::@backprop(0)`),
+        ItemPath(`core::num::f32(0)::abs::#backprop(0)`),
         None,
     ),
     (
@@ -337,7 +337,7 @@
         None,
     ),
     (
-        ItemPath(`core::num::f32(0)::sqrt::@backprop(0)`),
+        ItemPath(`core::num::f32(0)::sqrt::#backprop(0)`),
         None,
     ),
     (
@@ -345,7 +345,7 @@
         None,
     ),
     (
-        ItemPath(`core::num::f32(0)::max::@backprop(0)`),
+        ItemPath(`core::num::f32(0)::max::#backprop(0)`),
         None,
     ),
     (
@@ -353,7 +353,7 @@
         None,
     ),
     (
-        ItemPath(`core::num::f32(0)::min::@backprop(0)`),
+        ItemPath(`core::num::f32(0)::min::#backprop(0)`),
         None,
     ),
     (
@@ -365,7 +365,7 @@
         None,
     ),
     (
-        ItemPath(`core::num::f32(0)::cos::@backprop(0)`),
+        ItemPath(`core::num::f32(0)::cos::#backprop(0)`),
         None,
     ),
     (
@@ -373,7 +373,7 @@
         None,
     ),
     (
-        ItemPath(`core::num::f32(0)::sin::@backprop(0)`),
+        ItemPath(`core::num::f32(0)::sin::#backprop(0)`),
         None,
     ),
     (
@@ -389,7 +389,7 @@
         None,
     ),
     (
-        ItemPath(`<core::num::f32 as core::ops::Add(0)>::add::@backprop(0)`),
+        ItemPath(`<core::num::f32 as core::ops::Add(0)>::add::#backprop(0)`),
         None,
     ),
     (

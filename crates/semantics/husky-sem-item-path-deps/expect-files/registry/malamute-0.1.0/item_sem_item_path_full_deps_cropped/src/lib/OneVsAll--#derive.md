@@ -1,7 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath(`malamute::OneVsAll::@derive(0)`),
+        ItemPath(`malamute::OneVsAll::#derive(0)`),
         ItemPath(`core::fmt::Debug`),
         ItemPath(`core::clone::Clone`),
         ItemPath(`core::marker::Copy`),

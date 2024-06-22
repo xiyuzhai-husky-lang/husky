@@ -47,7 +47,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(`core::option::Option::@derive(0)`),
+                                AttrItemPath(`core::option::Option::#derive(0)`),
                             ),
                         },
                     ),
