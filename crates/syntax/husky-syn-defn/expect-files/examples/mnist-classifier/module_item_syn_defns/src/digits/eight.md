@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::eight::upper_mouth_match`),
         Some(
             ItemSynDefn {
                 body: 5,
@@ -294,11 +290,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::eight::is_eight`),
         Some(
             ItemSynDefn {
                 body: 20,
@@ -1119,13 +1111,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::eight::big_mouth`),
         Some(
             ItemSynDefn {
                 body: 21,

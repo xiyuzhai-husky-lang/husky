@@ -3,13 +3,7 @@ Some(
     SemItemPathCyclceGroupItd {
         cycle_group: CycleGroup {
             nodes: [
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::three::downarc`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::three::downarc`),
             ],
         },
     },

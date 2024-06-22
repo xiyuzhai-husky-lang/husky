@@ -1,18 +1,11 @@
 ```rust
 [
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist::task),
-        ),
+        ItemPath(`mnist::task`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist::MnistLabel`, `Enum`),
-            ),
-        ),
+        ItemPath(`mnist::MnistLabel`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -25,16 +18,7 @@
         ),
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 3,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist::MnistLabel::Zero`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -43,16 +27,7 @@
         ),
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 4,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist::MnistLabel::One`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -61,16 +36,7 @@
         ),
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 5,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist::MnistLabel::Two`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -79,16 +45,7 @@
         ),
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 6,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist::MnistLabel::Three`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -97,16 +54,7 @@
         ),
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 7,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist::MnistLabel::Four`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -115,16 +63,7 @@
         ),
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 8,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist::MnistLabel::Five`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -133,16 +72,7 @@
         ),
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 9,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist::MnistLabel::Six`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -151,16 +81,7 @@
         ),
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 10,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist::MnistLabel::Seven`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -169,16 +90,7 @@
         ),
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 11,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist::MnistLabel::Eight`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -187,16 +99,7 @@
         ),
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 12,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist::MnistLabel::Nine`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -205,11 +108,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist::BinaryImage28`, `Extern`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryImage28`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -222,18 +121,11 @@
         ),
     ),
     (
-        ItemPath::Attr(
-            Room32,
-            AttrItemPath(`mnist::BinaryImage28::@derive(0)`),
-        ),
+        ItemPath(`mnist::BinaryImage28::@derive(0)`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist::BinaryGrid28`, `Extern`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryGrid28`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -246,11 +138,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist::input`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist::input`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -259,11 +147,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`mnist::BinaryImage28 as core::visual::Visualize(0)`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryImage28 as core::visual::Visualize(0)`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -276,16 +160,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -298,11 +173,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist::BinaryImage28(0)`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryImage28(0)`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -315,16 +186,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist::BinaryImage28(0)::new_zeros`,
-                    TypeItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist::BinaryImage28(0)::new_zeros`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -337,11 +199,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`mnist::BinaryImage28 as core::ops::IntIndex(0)`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryImage28 as core::ops::IntIndex(0)`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -354,14 +212,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -374,11 +225,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`mnist::BinaryGrid28 as core::visual::Visualize(0)`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryGrid28 as core::visual::Visualize(0)`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -391,16 +238,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -413,11 +251,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist::BinaryGrid28(0)`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryGrid28(0)`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -430,16 +264,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist::BinaryGrid28(0)::new_zeros`,
-                    TypeItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist::BinaryGrid28(0)::new_zeros`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -452,11 +277,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`mnist::BinaryGrid28 as core::ops::IntIndex(0)`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryGrid28 as core::ops::IntIndex(0)`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -469,14 +290,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(

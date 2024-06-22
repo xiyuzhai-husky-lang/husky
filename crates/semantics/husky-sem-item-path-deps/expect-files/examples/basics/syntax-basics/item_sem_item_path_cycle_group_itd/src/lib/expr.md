@@ -3,10 +3,7 @@ Some(
     SemItemPathCyclceGroupItd {
         cycle_group: CycleGroup {
             nodes: [
-                ItemPath::Submodule(
-                    Room32,
-                    SubmoduleItemPath(`syntax_basics::expr),
-                ),
+                ItemPath(`syntax_basics::expr`),
             ],
         },
     },

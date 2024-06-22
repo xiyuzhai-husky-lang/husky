@@ -2,11 +2,7 @@
 SynDeclSheet {
     decls: [
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::Add`),
-                ),
-            ),
+            ItemPath(`core::ops::Add`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -126,11 +122,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::AddAssign`),
-                ),
-            ),
+            ItemPath(`core::ops::AddAssign`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -250,11 +242,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::BitAnd`),
-                ),
-            ),
+            ItemPath(`core::ops::BitAnd`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -374,11 +362,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::BitAndAssign`),
-                ),
-            ),
+            ItemPath(`core::ops::BitAndAssign`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -498,11 +482,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::BitOr`),
-                ),
-            ),
+            ItemPath(`core::ops::BitOr`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -622,11 +602,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::BitOrAssign`),
-                ),
-            ),
+            ItemPath(`core::ops::BitOrAssign`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -746,11 +722,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::BitXor`),
-                ),
-            ),
+            ItemPath(`core::ops::BitXor`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -870,11 +842,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::BitXorAssign`),
-                ),
-            ),
+            ItemPath(`core::ops::BitXorAssign`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -994,11 +962,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::Div`),
-                ),
-            ),
+            ItemPath(`core::ops::Div`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -1118,11 +1082,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::DivAssign`),
-                ),
-            ),
+            ItemPath(`core::ops::DivAssign`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -1242,11 +1202,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::IntIndex`),
-                ),
-            ),
+            ItemPath(`core::ops::IntIndex`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -1322,11 +1278,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::Mul`),
-                ),
-            ),
+            ItemPath(`core::ops::Mul`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -1446,11 +1398,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::MulAssign`),
-                ),
-            ),
+            ItemPath(`core::ops::MulAssign`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -1570,11 +1518,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::Neg`),
-                ),
-            ),
+            ItemPath(`core::ops::Neg`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -1650,11 +1594,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::Not`),
-                ),
-            ),
+            ItemPath(`core::ops::Not`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -1730,11 +1670,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::Sub`),
-                ),
-            ),
+            ItemPath(`core::ops::Sub`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -1854,11 +1790,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::Unveil`),
-                ),
-            ),
+            ItemPath(`core::ops::Unveil`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -1978,11 +1910,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::ops::ControlFlow`, `Enum`),
-                ),
-            ),
+            ItemPath(`core::ops::ControlFlow`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Enum(

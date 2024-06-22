@@ -2,140 +2,23 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`malamute::OneVsAll`, `Enum`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist::MnistLabel`, `Enum`),
-                ),
-            ),
-            ItemPath::TypeVariant(
-                Room32,
-                TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 278,
-                        },
-                    ),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`malamute::narrow_down`, `Ritchie(
-                        Gn,
-                    )`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
-                        TraitItemKind::AssocRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
-                ),
-            ),
-            ItemPath::TypeVariant(
-                Room32,
-                TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 265,
-                        },
-                    ),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::num::f32(0)::abs`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::slice::CyclicSlice(0)::end`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::slice::CyclicSlice(0)::start`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Vector2d(0)::norm`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`malamute::OneVsAll`),
+            ItemPath(`mnist::MnistLabel`),
+            ItemPath(`mnist::MnistLabel::One`),
+            ItemPath(`malamute::narrow_down`),
+            ItemPath(`mnist_classifier::major::major_connected_component`),
+            ItemPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`),
+            ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`),
+            ItemPath(`mnist_classifier::fermi::fermi_match`),
+            ItemPath(`mnist_classifier::major::major_concave_components`),
+            ItemPath(`malamute::OneVsAll::Yes`),
+            ItemPath(`mnist_classifier::digits::one::one_fermi_match`),
+            ItemPath(`core::num::f32(0)::abs`),
+            ItemPath(`core::slice::CyclicSlice(0)::end`),
+            ItemPath(`core::slice::CyclicSlice(0)::start`),
+            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
+            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
         ],
     ),
 )

@@ -3,11 +3,7 @@ Some(
     SemItemPathCyclceGroupItd {
         cycle_group: CycleGroup {
             nodes: [
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::ops::ControlFlow`, `Enum`),
-                    ),
-                ),
+                ItemPath(`core::ops::ControlFlow`),
             ],
         },
     },

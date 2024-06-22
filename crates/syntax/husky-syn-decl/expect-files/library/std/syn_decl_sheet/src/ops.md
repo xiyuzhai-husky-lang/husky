@@ -2,11 +2,7 @@
 SynDeclSheet {
     decls: [
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`std::ops::Add`),
-                ),
-            ),
+            ItemPath(`std::ops::Add`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {

@@ -1,10 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist_classifier::digits::nine),
-        ),
+        ItemPath(`mnist_classifier::digits::nine`),
     ],
 )
 ```

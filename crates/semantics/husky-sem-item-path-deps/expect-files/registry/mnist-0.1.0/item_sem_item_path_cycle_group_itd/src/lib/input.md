@@ -3,11 +3,7 @@ Some(
     SemItemPathCyclceGroupItd {
         cycle_group: CycleGroup {
             nodes: [
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist::input`, `Val`),
-                    ),
-                ),
+                ItemPath(`mnist::input`),
             ],
         },
     },

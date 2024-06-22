@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::nine::nine_match`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -29,11 +25,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::nine::nine_match_refine`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -57,11 +49,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::nine::is_nine`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -81,13 +69,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::nine::downmost`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -127,13 +109,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::nine::big_cc`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(

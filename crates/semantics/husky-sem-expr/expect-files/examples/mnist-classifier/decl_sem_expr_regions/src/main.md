@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::main`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::main`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::main`, `Val`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::main`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],

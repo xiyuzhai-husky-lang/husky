@@ -66,6 +66,16 @@ impl salsa::DebugWithDb for AttrItemPath {
     }
 }
 
+impl salsa::DisplayWithDb for AttrItemPath {
+    fn display_fmt_with_db(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &salsa::Db,
+    ) -> std::fmt::Result {
+        self.data(db).show_aux(f, db)
+    }
+}
+
 #[derive(Debug)]
 pub struct AttrRegistry {
     parent_item_path: Option<ItemPath>,

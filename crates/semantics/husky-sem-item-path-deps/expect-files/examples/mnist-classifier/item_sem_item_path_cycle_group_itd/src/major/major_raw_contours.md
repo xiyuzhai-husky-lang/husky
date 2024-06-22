@@ -3,11 +3,7 @@ Some(
     SemItemPathCyclceGroupItd {
         cycle_group: CycleGroup {
             nodes: [
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::major::major_raw_contours`),
             ],
         },
     },

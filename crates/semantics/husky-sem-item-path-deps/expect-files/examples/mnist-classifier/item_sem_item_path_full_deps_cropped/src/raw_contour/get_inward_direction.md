@@ -1,75 +1,15 @@
 ```rust
 Some(
     [
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::raw_bits::r32`, `Extern`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::num::i32`, `Extern`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 18,
-                    },
-                ),
-            ),
-        ),
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 17,
-                    },
-                ),
-            ),
-        ),
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 19,
-                    },
-                ),
-            ),
-        ),
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 20,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::get_inward_direction`),
+        ItemPath(`core::raw_bits::r32`),
+        ItemPath(`core::num::i32`),
+        ItemPath(`mnist_classifier::raw_contour::Direction`),
+        ItemPath(`mnist_classifier::raw_contour::get_pixel_pair`),
+        ItemPath(`mnist_classifier::raw_contour::Direction::Left`),
+        ItemPath(`mnist_classifier::raw_contour::Direction::Up`),
+        ItemPath(`mnist_classifier::raw_contour::Direction::Down`),
+        ItemPath(`mnist_classifier::raw_contour::Direction::Right`),
     ],
 )
 ```

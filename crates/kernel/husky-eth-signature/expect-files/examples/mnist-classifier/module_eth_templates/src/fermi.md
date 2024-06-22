@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::fermi::FermiMatchResult`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Type(
@@ -54,13 +50,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::fermi::fermi_match`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Form(
@@ -101,11 +91,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
         Ok(
             ItemEthTemplate::ImplBlock(
                 ImplBlockEthTemplate::TypeImpl(
@@ -121,14 +107,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
@@ -144,14 +123,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`),
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
@@ -167,14 +139,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`),
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(

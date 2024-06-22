@@ -1,175 +1,32 @@
 ```rust
 Some(
     [
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::slice::CyclicSlice`, `Extern`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-            ),
-        ),
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::slice::CyclicSlice(0)::first`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<#derive _ as core::clone::Clone(0)>::clone`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::slice::CyclicSlice(0)::last`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::num::f32`, `Extern`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::major::connected_components`, `Val`),
-            ),
-        ),
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::vec::Vec(0)::ilen`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist::BinaryImage28`, `Extern`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist::input`, `Val`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::num::i32`, `Extern`),
-            ),
-        ),
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::raw_bits::r32(0)::ctz`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist::BinaryImage28(0)::new_zeros`,
-                    TypeItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::vec::Vec(0)::push`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::raw_bits::r32`, `Extern`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::major::major_concave_components`),
+        ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+        ItemPath(`mnist_classifier::major::major_line_segment_sketch`),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+        ItemPath(`core::slice::CyclicSlice`),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+        ItemPath(`mnist_classifier::major::major_raw_contour`),
+        ItemPath(`mnist_classifier::raw_contour::RawContour`),
+        ItemPath(`mnist_classifier::geom2d::Point2d`),
+        ItemPath(`core::slice::CyclicSlice(0)::first`),
+        ItemPath(`<#derive _ as core::clone::Clone(0)>::clone`),
+        ItemPath(`core::slice::CyclicSlice(0)::last`),
+        ItemPath(`mnist_classifier::major::major_connected_component`),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent`),
+        ItemPath(`core::num::f32`),
+        ItemPath(`mnist_classifier::major::connected_components`),
+        ItemPath(`core::vec::Vec(0)::ilen`),
+        ItemPath(`mnist::BinaryImage28`),
+        ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+        ItemPath(`mnist::input`),
+        ItemPath(`core::num::i32`),
+        ItemPath(`core::raw_bits::r32(0)::ctz`),
+        ItemPath(`mnist::BinaryImage28(0)::new_zeros`),
+        ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
+        ItemPath(`core::vec::Vec(0)::push`),
+        ItemPath(`core::raw_bits::r32`),
     ],
 )
 ```

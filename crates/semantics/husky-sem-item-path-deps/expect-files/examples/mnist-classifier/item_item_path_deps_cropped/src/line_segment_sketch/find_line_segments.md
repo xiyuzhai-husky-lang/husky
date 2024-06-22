@@ -2,80 +2,15 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`,
-                        TypeItemKind::AssocRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Vector2d(0)::cross`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Vector2d(0)::dot`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Point2d(0)::to`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::raw_contour::RawContour`),
+            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+            ItemPath(`mnist_classifier::line_segment_sketch::extend_end`),
+            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`),
+            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::cross`),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::dot`),
+            ItemPath(`mnist_classifier::line_segment_sketch::extend_start`),
+            ItemPath(`mnist_classifier::geom2d::Point2d(0)::to`),
         ],
     ),
 )

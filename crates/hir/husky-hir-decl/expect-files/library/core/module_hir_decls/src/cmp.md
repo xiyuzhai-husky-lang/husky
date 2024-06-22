@@ -9,11 +9,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::cmp::PartialEq`),
-                            ),
-                        ),
+                        ItemPath(`core::cmp::PartialEq`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -48,11 +44,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::cmp::Eq`),
-                            ),
-                        ),
+                        ItemPath(`core::cmp::Eq`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -87,11 +79,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::cmp::PartialOrd`),
-                            ),
-                        ),
+                        ItemPath(`core::cmp::PartialOrd`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -126,11 +114,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::cmp::Ord`),
-                            ),
-                        ),
+                        ItemPath(`core::cmp::Ord`),
                     ),
                     expr_arena: Arena {
                         data: [],

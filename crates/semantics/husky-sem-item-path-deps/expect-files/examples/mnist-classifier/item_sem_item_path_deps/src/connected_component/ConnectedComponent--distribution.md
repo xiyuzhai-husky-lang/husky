@@ -2,21 +2,8 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::raw_bits::r32(0)::co`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
+            ItemPath(`core::raw_bits::r32(0)::co`),
         ],
     ),
 )

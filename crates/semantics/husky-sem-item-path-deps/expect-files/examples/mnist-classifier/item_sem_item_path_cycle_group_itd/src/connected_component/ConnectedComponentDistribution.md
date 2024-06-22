@@ -3,11 +3,7 @@ Some(
     SemItemPathCyclceGroupItd {
         cycle_group: CycleGroup {
             nodes: [
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
             ],
         },
     },

@@ -1,10 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist_classifier::connected_component),
-        ),
+        ItemPath(`mnist_classifier::connected_component`),
     ],
 )
 ```

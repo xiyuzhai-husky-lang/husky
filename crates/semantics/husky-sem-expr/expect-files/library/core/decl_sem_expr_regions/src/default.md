@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::default::Default`),
-                ),
-            ),
+            ItemPath(`core::default::Default`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::default::Default`),
-                    ),
-                ),
+                ItemPath(`core::default::Default`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],

@@ -1,16 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::vec::Vec(0)::collect_leashes`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::vec::Vec(0)::collect_leashes`),
     ],
 )
 ```

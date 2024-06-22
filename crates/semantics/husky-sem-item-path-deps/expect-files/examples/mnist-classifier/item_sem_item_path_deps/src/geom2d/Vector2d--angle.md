@@ -2,56 +2,12 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::bool`, `Extern`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::num::f32`, `Extern`),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Vector2d(0)::norm`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::num::f32(0)::min`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::num::f32(0)::sgnx`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::num::f32(0)::acos`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`core::basic::bool`),
+            ItemPath(`core::num::f32`),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
+            ItemPath(`core::num::f32(0)::min`),
+            ItemPath(`core::num::f32(0)::sgnx`),
+            ItemPath(`core::num::f32(0)::acos`),
         ],
     ),
 )

@@ -1,11 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::task::IsTask`),
-            ),
-        ),
+        ItemPath(`core::task::IsTask`),
     ],
 )
 ```

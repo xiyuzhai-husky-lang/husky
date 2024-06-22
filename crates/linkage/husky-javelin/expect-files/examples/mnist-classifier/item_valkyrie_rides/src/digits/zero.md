@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::zero::open_one_match`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -67,13 +63,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::zero::almost_closed`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -86,11 +76,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::zero::is_zero`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,

@@ -1,10 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist_classifier::raw_contour),
-        ),
+        ItemPath(`mnist_classifier::raw_contour`),
     ],
 )
 ```

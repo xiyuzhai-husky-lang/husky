@@ -2,21 +2,9 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::fmt::Debug`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::clone::Clone`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::visual::Visualize`),
-                ),
-            ),
+            ItemPath(`core::fmt::Debug`),
+            ItemPath(`core::clone::Clone`),
+            ItemPath(`core::visual::Visualize`),
         ],
     ),
 )

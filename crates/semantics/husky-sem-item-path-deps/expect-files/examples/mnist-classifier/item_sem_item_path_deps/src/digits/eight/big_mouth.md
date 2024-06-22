@@ -2,36 +2,10 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::num::f32`, `Extern`),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::slice::CyclicSlice(0)::first`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+            ItemPath(`core::num::f32`),
+            ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`),
+            ItemPath(`core::slice::CyclicSlice(0)::first`),
         ],
     ),
 )

@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::cmp::PartialEq`),
-                ),
-            ),
+            ItemPath(`core::cmp::PartialEq`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::cmp::PartialEq`),
-                    ),
-                ),
+                ItemPath(`core::cmp::PartialEq`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -68,19 +60,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::cmp::Eq`),
-                ),
-            ),
+            ItemPath(`core::cmp::Eq`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::cmp::Eq`),
-                    ),
-                ),
+                ItemPath(`core::cmp::Eq`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -134,19 +118,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::cmp::PartialOrd`),
-                ),
-            ),
+            ItemPath(`core::cmp::PartialOrd`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::cmp::PartialOrd`),
-                    ),
-                ),
+                ItemPath(`core::cmp::PartialOrd`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -200,19 +176,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::cmp::Ord`),
-                ),
-            ),
+            ItemPath(`core::cmp::Ord`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::cmp::Ord`),
-                    ),
-                ),
+                ItemPath(`core::cmp::Ord`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],

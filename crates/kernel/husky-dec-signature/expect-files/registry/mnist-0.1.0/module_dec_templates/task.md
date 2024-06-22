@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist::Task`, `TypeVar`),
-            ),
-        ),
+        ItemPath(`mnist::Task`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -31,11 +27,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist::TASK`, `StaticVar`),
-            ),
-        ),
+        ItemPath(`mnist::TASK`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(

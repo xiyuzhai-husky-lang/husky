@@ -2,23 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`syntax_basics::expr::nested`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`syntax_basics::expr::nested`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`syntax_basics::expr::nested`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`syntax_basics::expr::nested`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -438,23 +426,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`syntax_basics::expr::closure_inline`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`syntax_basics::expr::closure_inline`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -1221,23 +1197,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`syntax_basics::expr::closure_nested`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`syntax_basics::expr::closure_nested`),
             ),
             place_registry: PlaceRegistry {
                 infos: [

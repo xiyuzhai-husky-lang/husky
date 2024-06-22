@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::vec::Vec`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::vec::Vec`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::vec::Vec`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::vec::Vec`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -86,19 +78,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(`core::vec::Vec(0)`),
-                ),
-            ),
+            ItemPath(`core::vec::Vec(0)`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::ImplBlock(
-                    ImplBlockPath::TypeImplBlock(
-                        TypeImplBlockPath(`core::vec::Vec(0)`),
-                    ),
-                ),
+                ItemPath(`core::vec::Vec(0)`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -439,29 +423,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::vec::Vec(0)::ilen`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`core::vec::Vec(0)::ilen`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `core::vec::Vec(0)::ilen`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`core::vec::Vec(0)::ilen`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -625,29 +591,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::vec::Vec(0)::push`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`core::vec::Vec(0)::push`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `core::vec::Vec(0)::push`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`core::vec::Vec(0)::push`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -840,29 +788,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::vec::Vec(0)::first`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`core::vec::Vec(0)::first`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `core::vec::Vec(0)::first`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`core::vec::Vec(0)::first`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -1360,29 +1290,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::vec::Vec(0)::last`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`core::vec::Vec(0)::last`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `core::vec::Vec(0)::last`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`core::vec::Vec(0)::last`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -1880,29 +1792,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::vec::Vec(0)::pop`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`core::vec::Vec(0)::pop`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `core::vec::Vec(0)::pop`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`core::vec::Vec(0)::pop`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -2240,29 +2134,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::vec::Vec(0)::collect_leashes`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`core::vec::Vec(0)::collect_leashes`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `core::vec::Vec(0)::collect_leashes`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`core::vec::Vec(0)::collect_leashes`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -2669,29 +2545,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::vec::Vec(0)::cyclic_slice_leashed`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`core::vec::Vec(0)::cyclic_slice_leashed`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `core::vec::Vec(0)::cyclic_slice_leashed`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`core::vec::Vec(0)::cyclic_slice_leashed`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -3312,29 +3170,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::vec::Vec(0)::pop_with_largest_opt_f32`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`core::vec::Vec(0)::pop_with_largest_opt_f32`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `core::vec::Vec(0)::pop_with_largest_opt_f32`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`core::vec::Vec(0)::pop_with_largest_opt_f32`),
             ),
             place_registry: PlaceRegistry {
                 infos: [

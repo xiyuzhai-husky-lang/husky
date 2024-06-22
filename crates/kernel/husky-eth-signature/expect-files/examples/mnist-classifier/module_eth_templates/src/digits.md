@@ -1,10 +1,7 @@
 ```rust
 [
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist_classifier::digits::zero),
-        ),
+        ItemPath(`mnist_classifier::digits::zero`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`mnist_classifier::digits::zero),
@@ -12,10 +9,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist_classifier::digits::one),
-        ),
+        ItemPath(`mnist_classifier::digits::one`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`mnist_classifier::digits::one),
@@ -23,10 +17,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist_classifier::digits::six),
-        ),
+        ItemPath(`mnist_classifier::digits::six`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`mnist_classifier::digits::six),
@@ -34,10 +25,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist_classifier::digits::three),
-        ),
+        ItemPath(`mnist_classifier::digits::three`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`mnist_classifier::digits::three),
@@ -45,10 +33,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist_classifier::digits::four),
-        ),
+        ItemPath(`mnist_classifier::digits::four`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`mnist_classifier::digits::four),
@@ -56,10 +41,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist_classifier::digits::five),
-        ),
+        ItemPath(`mnist_classifier::digits::five`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`mnist_classifier::digits::five),
@@ -67,10 +49,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist_classifier::digits::seven),
-        ),
+        ItemPath(`mnist_classifier::digits::seven`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`mnist_classifier::digits::seven),
@@ -78,10 +57,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist_classifier::digits::eight),
-        ),
+        ItemPath(`mnist_classifier::digits::eight`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`mnist_classifier::digits::eight),
@@ -89,10 +65,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist_classifier::digits::nine),
-        ),
+        ItemPath(`mnist_classifier::digits::nine`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`mnist_classifier::digits::nine),
@@ -100,10 +73,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist_classifier::digits::two),
-        ),
+        ItemPath(`mnist_classifier::digits::two`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`mnist_classifier::digits::two),

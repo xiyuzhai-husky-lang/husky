@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::four::left_components`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -29,13 +25,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::four::left_coordinate_max`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -75,11 +65,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::four::components_max_downwards`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -103,11 +89,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::four::components_max_heights`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -131,11 +113,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::four::is_four`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -155,13 +133,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::four::displacement_downwards`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -201,13 +173,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::four::cc_box_heights`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(

@@ -11,11 +11,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::backend::IsBackend`),
-                                ),
-                            ),
+                            ItemPath(`core::backend::IsBackend`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -54,11 +50,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::backend::MlBackend`, `Extern`),
-                                    ),
-                                ),
+                                ItemPath(`core::backend::MlBackend`),
                             ),
                             expr_arena: Arena {
                                 data: [],

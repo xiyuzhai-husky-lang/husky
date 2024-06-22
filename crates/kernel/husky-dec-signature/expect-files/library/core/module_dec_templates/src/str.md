@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::str::str`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::str::str`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -21,11 +17,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::str::StringLiteral`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::str::StringLiteral`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(

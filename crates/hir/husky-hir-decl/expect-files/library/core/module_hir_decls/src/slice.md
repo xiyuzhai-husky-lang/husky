@@ -28,11 +28,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`core::slice::Slice`, `Extern`),
-                                ),
-                            ),
+                            ItemPath(`core::slice::Slice`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -105,11 +101,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                ),
-                            ),
+                            ItemPath(`core::slice::CyclicSlice`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -170,10 +162,7 @@
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::Attr(
-                            Room32,
-                            AttrItemPath(`core::slice::CyclicSlice::@derive(0)`),
-                        ),
+                        ItemPath(`core::slice::CyclicSlice::@derive(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -261,11 +250,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::ImplBlock(
-                            ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(`core::slice::Slice(0)`),
-                            ),
-                        ),
+                        ItemPath(`core::slice::Slice(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -342,16 +327,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `core::slice::Slice(0)::len`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`core::slice::Slice(0)::len`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -459,16 +435,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `core::slice::Slice(0)::swap`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`core::slice::Slice(0)::swap`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -593,11 +560,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::ImplBlock(
-                            ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath(`core::slice::CyclicSlice as core::ops::IntIndex(0)`),
-                            ),
-                        ),
+                        ItemPath(`core::slice::CyclicSlice as core::ops::IntIndex(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -661,14 +624,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TraitForTypeItem(
-                                    TraitForTypeItemPath(
-                                        `<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`,
-                                        TraitItemKind::AssocType,
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -755,11 +711,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::ImplBlock(
-                            ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(`core::slice::CyclicSlice(0)`),
-                            ),
-                        ),
+                        ItemPath(`core::slice::CyclicSlice(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -836,16 +788,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `core::slice::CyclicSlice(0)::ilen`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`core::slice::CyclicSlice(0)::ilen`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -930,16 +873,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `core::slice::CyclicSlice(0)::start`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`core::slice::CyclicSlice(0)::start`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1024,16 +958,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `core::slice::CyclicSlice(0)::end`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`core::slice::CyclicSlice(0)::end`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1140,16 +1065,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `core::slice::CyclicSlice(0)::first`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`core::slice::CyclicSlice(0)::first`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1256,16 +1172,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `core::slice::CyclicSlice(0)::last`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`core::slice::CyclicSlice(0)::last`),
                         ),
                         expr_arena: Arena {
                             data: [],

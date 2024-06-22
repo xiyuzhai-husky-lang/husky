@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -100,13 +96,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -146,11 +136,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)`),
         Ok(
             ItemDecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
@@ -188,16 +174,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)>::visualize`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)>::visualize`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
@@ -252,11 +229,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)`),
         Ok(
             ItemDecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
@@ -281,14 +254,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -332,14 +298,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -383,14 +342,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -434,14 +386,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -485,14 +430,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -536,14 +474,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -587,16 +518,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -673,16 +595,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -759,16 +672,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -845,16 +749,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -931,16 +826,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -1017,16 +903,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(

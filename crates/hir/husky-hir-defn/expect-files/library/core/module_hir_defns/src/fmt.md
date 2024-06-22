@@ -11,11 +11,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::fmt::Debug`),
-                                ),
-                            ),
+                            ItemPath(`core::fmt::Debug`),
                         ),
                         expr_arena: Arena {
                             data: [],

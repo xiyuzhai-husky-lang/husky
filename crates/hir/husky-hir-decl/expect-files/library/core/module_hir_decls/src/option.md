@@ -26,11 +26,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`core::option::Option`, `Enum`),
-                                ),
-                            ),
+                            ItemPath(`core::option::Option`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -101,10 +97,7 @@
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::Attr(
-                            Room32,
-                            AttrItemPath(`core::option::Option::@derive(0)`),
-                        ),
+                        ItemPath(`core::option::Option::@derive(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -171,16 +164,7 @@
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::TypeVariant(
-                            Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 87,
-                                    },
-                                ),
-                            ),
-                        ),
+                        ItemPath(`core::option::Option::Some`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -234,16 +218,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::TypeVariant(
-                            Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 88,
-                                    },
-                                ),
-                            ),
-                        ),
+                        ItemPath(`core::option::Option::None`),
                     ),
                     expr_arena: Arena {
                         data: [],

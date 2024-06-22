@@ -16,11 +16,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::digits::six::six_match`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -78,11 +74,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::digits::six::six_match_refined1`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -140,11 +132,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::digits::six::is_six`),
                             ),
                             expr_arena: Arena {
                                 data: [],

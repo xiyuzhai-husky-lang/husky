@@ -2,11 +2,7 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::visual::Visualize`),
-                ),
-            ),
+            ItemPath(`core::visual::Visualize`),
         ],
     ),
 )

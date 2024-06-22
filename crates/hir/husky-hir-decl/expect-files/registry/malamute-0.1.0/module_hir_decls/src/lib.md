@@ -26,11 +26,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`malamute::Class`, `Enum`),
-                                ),
-                            ),
+                            ItemPath(`malamute::Class`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -93,10 +89,7 @@
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::Attr(
-                            Room32,
-                            AttrItemPath(`malamute::Class::@derive(0)`),
-                        ),
+                        ItemPath(`malamute::Class::@derive(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -163,16 +156,7 @@
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::TypeVariant(
-                            Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
-                            ),
-                        ),
+                        ItemPath(`malamute::Class::Known`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -226,16 +210,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::TypeVariant(
-                            Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 3,
-                                    },
-                                ),
-                            ),
-                        ),
+                        ItemPath(`malamute::Class::Unknown`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -287,11 +262,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                ),
-                            ),
+                            ItemPath(`malamute::OneVsAll`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -338,10 +309,7 @@
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::Attr(
-                            Room32,
-                            AttrItemPath(`malamute::OneVsAll::@derive(0)`),
-                        ),
+                        ItemPath(`malamute::OneVsAll::@derive(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -379,16 +347,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::TypeVariant(
-                            Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
-                            ),
-                        ),
+                        ItemPath(`malamute::OneVsAll::Yes`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -426,16 +385,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::TypeVariant(
-                            Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 6,
-                                    },
-                                ),
-                            ),
-                        ),
+                        ItemPath(`malamute::OneVsAll::No`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -471,11 +421,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`malamute::OneVsAllResult`, `Enum`),
-                                ),
-                            ),
+                            ItemPath(`malamute::OneVsAllResult`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -522,10 +468,7 @@
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::Attr(
-                            Room32,
-                            AttrItemPath(`malamute::OneVsAllResult::@derive(0)`),
-                        ),
+                        ItemPath(`malamute::OneVsAllResult::@derive(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -563,16 +506,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::TypeVariant(
-                            Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
-                            ),
-                        ),
+                        ItemPath(`malamute::OneVsAllResult::ConfidentYes`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -610,16 +544,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::TypeVariant(
-                            Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 9,
-                                    },
-                                ),
-                            ),
-                        ),
+                        ItemPath(`malamute::OneVsAllResult::ConfidentNo`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -657,16 +582,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::TypeVariant(
-                            Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 10,
-                                    },
-                                ),
-                            ),
-                        ),
+                        ItemPath(`malamute::OneVsAllResult::Unconfident`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -822,11 +738,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::ImplBlock(
-                            ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath(`malamute::OneVsAll as core::default::Default(0)`),
-                            ),
-                        ),
+                        ItemPath(`malamute::OneVsAll as core::default::Default(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -877,16 +789,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TraitForTypeItem(
-                                    TraitForTypeItemPath(
-                                        `<malamute::OneVsAll as core::default::Default(0)>::default`,
-                                        TraitItemKind::AssocRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1011,11 +914,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::ImplBlock(
-                            ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
-                            ),
-                        ),
+                        ItemPath(`malamute::Class as core::ops::Unveil(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -1102,14 +1001,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TraitForTypeItem(
-                                    TraitForTypeItemPath(
-                                        `<malamute::Class as core::ops::Unveil(0)>::Output`,
-                                        TraitItemKind::AssocType,
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1245,16 +1137,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TraitForTypeItem(
-                                    TraitForTypeItemPath(
-                                        `<malamute::Class as core::ops::Unveil(0)>::unveil`,
-                                        TraitItemKind::AssocRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1373,11 +1256,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::ImplBlock(
-                            ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
-                            ),
-                        ),
+                        ItemPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -1423,14 +1302,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TraitForTypeItem(
-                                    TraitForTypeItemPath(
-                                        `<malamute::OneVsAll as core::ops::Unveil(0)>::Output`,
-                                        TraitItemKind::AssocType,
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1513,16 +1385,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TraitForTypeItem(
-                                    TraitForTypeItemPath(
-                                        `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
-                                        TraitItemKind::AssocRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`),
                         ),
                         expr_arena: Arena {
                             data: [],

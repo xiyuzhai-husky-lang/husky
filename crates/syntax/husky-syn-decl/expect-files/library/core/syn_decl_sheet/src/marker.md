@@ -2,11 +2,7 @@
 SynDeclSheet {
     decls: [
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::marker::Copy`),
-                ),
-            ),
+            ItemPath(`core::marker::Copy`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -82,11 +78,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::marker::Sized`),
-                ),
-            ),
+            ItemPath(`core::marker::Sized`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -162,11 +154,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath(`#derive _ as core::marker::Copy(0)`),
-                ),
-            ),
+            ItemPath(`#derive _ as core::marker::Copy(0)`),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {

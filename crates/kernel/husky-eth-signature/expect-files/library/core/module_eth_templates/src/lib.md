@@ -1,10 +1,7 @@
 ```rust
 [
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::array),
-        ),
+        ItemPath(`core::array`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`core::array),
@@ -12,10 +9,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::backend),
-        ),
+        ItemPath(`core::backend`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`core::backend),
@@ -23,10 +17,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::basic),
-        ),
+        ItemPath(`core::basic`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`core::basic),
@@ -34,10 +25,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::clone),
-        ),
+        ItemPath(`core::clone`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`core::clone),
@@ -45,10 +33,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::cmp),
-        ),
+        ItemPath(`core::cmp`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`core::cmp),
@@ -56,10 +41,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::default),
-        ),
+        ItemPath(`core::default`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`core::default),
@@ -67,10 +49,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::frontend),
-        ),
+        ItemPath(`core::frontend`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`core::frontend),
@@ -78,10 +57,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::fmt),
-        ),
+        ItemPath(`core::fmt`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`core::fmt),
@@ -89,10 +65,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::logic),
-        ),
+        ItemPath(`core::logic`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`core::logic),
@@ -100,10 +73,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::marker),
-        ),
+        ItemPath(`core::marker`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`core::marker),
@@ -111,10 +81,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::mem),
-        ),
+        ItemPath(`core::mem`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`core::mem),
@@ -122,10 +89,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::num),
-        ),
+        ItemPath(`core::num`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`core::num),
@@ -133,10 +97,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::ops),
-        ),
+        ItemPath(`core::ops`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`core::ops),
@@ -144,10 +105,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::option),
-        ),
+        ItemPath(`core::option`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`core::option),
@@ -155,10 +113,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::prelude),
-        ),
+        ItemPath(`core::prelude`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`core::prelude),
@@ -166,10 +121,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::raw_bits),
-        ),
+        ItemPath(`core::raw_bits`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`core::raw_bits),
@@ -177,10 +129,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::result),
-        ),
+        ItemPath(`core::result`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`core::result),
@@ -188,10 +137,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::task),
-        ),
+        ItemPath(`core::task`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`core::task),
@@ -199,10 +145,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::vec),
-        ),
+        ItemPath(`core::vec`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`core::vec),
@@ -210,10 +153,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::slice),
-        ),
+        ItemPath(`core::slice`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`core::slice),
@@ -221,10 +161,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::str),
-        ),
+        ItemPath(`core::str`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`core::str),
@@ -232,10 +169,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::visual),
-        ),
+        ItemPath(`core::visual`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`core::visual),

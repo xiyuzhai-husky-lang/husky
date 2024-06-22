@@ -2,11 +2,7 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::clone::Clone`),
-                ),
-            ),
+            ItemPath(`core::clone::Clone`),
         ],
     ),
 )

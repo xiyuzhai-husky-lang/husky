@@ -1,11 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::cmp::PartialEq`),
-            ),
-        ),
+        ItemPath(`core::cmp::PartialEq`),
     ],
 )
 ```

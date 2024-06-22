@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::clone::Clone`),
-            ),
-        ),
+        ItemPath(`core::clone::Clone`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(
@@ -26,11 +22,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`#derive _ as core::clone::Clone(0)`),
-            ),
-        ),
+        ItemPath(`#derive _ as core::clone::Clone(0)`),
         Ok(
             ItemEthTemplate::ImplBlock(
                 ImplBlockEthTemplate::TraitForTypeImpl(
@@ -59,16 +51,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<#derive _ as core::clone::Clone(0)>::clone`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<#derive _ as core::clone::Clone(0)>::clone`),
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(

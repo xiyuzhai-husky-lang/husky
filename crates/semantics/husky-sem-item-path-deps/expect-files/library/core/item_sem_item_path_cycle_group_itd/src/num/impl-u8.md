@@ -3,11 +3,7 @@ Some(
     SemItemPathCyclceGroupItd {
         cycle_group: CycleGroup {
             nodes: [
-                ItemPath::ImplBlock(
-                    ImplBlockPath::TypeImplBlock(
-                        TypeImplBlockPath(`core::num::u8(0)`),
-                    ),
-                ),
+                ItemPath(`core::num::u8(0)`),
             ],
         },
     },

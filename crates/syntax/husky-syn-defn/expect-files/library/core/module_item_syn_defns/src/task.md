@@ -1,49 +1,23 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::task::IsTask`),
-            ),
-        ),
+        ItemPath(`core::task::IsTask`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::task::IsTask::Backend`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`core::task::IsTask::Backend`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::task::IsTask::Frontend`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`core::task::IsTask::Frontend`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`core::task::Task`, `TypeVar`),
-            ),
-        ),
+        ItemPath(`core::task::Task`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`core::task::TASK`, `StaticVar`),
-            ),
-        ),
+        ItemPath(`core::task::TASK`),
         None,
     ),
 ]

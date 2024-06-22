@@ -1,21 +1,8 @@
 ```rust
 Some(
     [
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 11,
-                    },
-                ),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::num::i32`, `Extern`),
-            ),
-        ),
+        ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithOneField`),
+        ItemPath(`core::num::i32`),
     ],
 )
 ```

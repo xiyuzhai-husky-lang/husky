@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::raw_bits::r32`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::raw_bits::r32`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::raw_bits::r32`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::raw_bits::r32`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -68,19 +60,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(`core::raw_bits::r32(0)`),
-                ),
-            ),
+            ItemPath(`core::raw_bits::r32(0)`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::ImplBlock(
-                    ImplBlockPath::TypeImplBlock(
-                        TypeImplBlockPath(`core::raw_bits::r32(0)`),
-                    ),
-                ),
+                ItemPath(`core::raw_bits::r32(0)`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -224,29 +208,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::raw_bits::r32(0)::last_bits`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`core::raw_bits::r32(0)::last_bits`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `core::raw_bits::r32(0)::last_bits`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`core::raw_bits::r32(0)::last_bits`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -499,29 +465,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::raw_bits::r32(0)::ctz`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`core::raw_bits::r32(0)::ctz`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `core::raw_bits::r32(0)::ctz`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`core::raw_bits::r32(0)::ctz`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -667,29 +615,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::raw_bits::r32(0)::co`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`core::raw_bits::r32(0)::co`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `core::raw_bits::r32(0)::co`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`core::raw_bits::r32(0)::co`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -835,29 +765,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::raw_bits::r32(0)::span`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`core::raw_bits::r32(0)::span`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `core::raw_bits::r32(0)::span`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`core::raw_bits::r32(0)::span`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -1003,29 +915,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::raw_bits::r32(0)::right_mass`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`core::raw_bits::r32(0)::right_mass`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `core::raw_bits::r32(0)::right_mass`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`core::raw_bits::r32(0)::right_mass`),
             ),
             place_registry: PlaceRegistry {
                 infos: [

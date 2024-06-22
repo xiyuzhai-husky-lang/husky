@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::frontend::IsFrontend`),
-                ),
-            ),
+            ItemPath(`core::frontend::IsFrontend`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::frontend::IsFrontend`),
-                    ),
-                ),
+                ItemPath(`core::frontend::IsFrontend`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -68,19 +60,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::frontend::Cv2dFrontend`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::frontend::Cv2dFrontend`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::frontend::Cv2dFrontend`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::frontend::Cv2dFrontend`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -134,19 +118,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::frontend::Cv3dFrontend`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::frontend::Cv3dFrontend`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::frontend::Cv3dFrontend`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::frontend::Cv3dFrontend`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -200,19 +176,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::frontend::NlpFrontend`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::frontend::NlpFrontend`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::frontend::NlpFrontend`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::frontend::NlpFrontend`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -266,19 +234,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::frontend::Rl2dFrontend`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::frontend::Rl2dFrontend`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::frontend::Rl2dFrontend`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::frontend::Rl2dFrontend`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],

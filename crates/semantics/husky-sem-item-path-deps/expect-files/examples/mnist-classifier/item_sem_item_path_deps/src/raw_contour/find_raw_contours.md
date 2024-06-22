@@ -2,109 +2,19 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist::BinaryGrid28(0)::new_zeros`,
-                        TypeItemKind::AssocRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::raw_bits::r32(0)::ctz`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::vec::Vec(0)::last`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Point2d(0)::from_i_shift28`,
-                        TypeItemKind::AssocRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::vec::Vec(0)::push`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::vec::Vec(0)::pop`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::connected_component::ConnectedComponent`),
+            ItemPath(`mnist_classifier::raw_contour::RawContour`),
+            ItemPath(`mnist::BinaryGrid28(0)::new_zeros`),
+            ItemPath(`mnist_classifier::geom2d::Point2d`),
+            ItemPath(`core::raw_bits::r32(0)::ctz`),
+            ItemPath(`mnist_classifier::raw_contour::get_inward_direction`),
+            ItemPath(`mnist_classifier::raw_contour::get_outward_direction`),
+            ItemPath(`mnist_classifier::raw_contour::get_angle_change`),
+            ItemPath(`core::vec::Vec(0)::last`),
+            ItemPath(`mnist_classifier::raw_contour::get_concave_middle_point`),
+            ItemPath(`mnist_classifier::geom2d::Point2d(0)::from_i_shift28`),
+            ItemPath(`core::vec::Vec(0)::push`),
+            ItemPath(`core::vec::Vec(0)::pop`),
         ],
     ),
 )

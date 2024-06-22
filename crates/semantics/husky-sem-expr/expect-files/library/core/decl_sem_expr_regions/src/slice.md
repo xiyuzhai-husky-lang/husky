@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::slice::Slice`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::slice::Slice`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::slice::Slice`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::slice::Slice`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -86,19 +78,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::slice::CyclicSlice`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::slice::CyclicSlice`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::slice::CyclicSlice`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::slice::CyclicSlice`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -170,19 +154,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(`core::slice::Slice(0)`),
-                ),
-            ),
+            ItemPath(`core::slice::Slice(0)`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::ImplBlock(
-                    ImplBlockPath::TypeImplBlock(
-                        TypeImplBlockPath(`core::slice::Slice(0)`),
-                    ),
-                ),
+                ItemPath(`core::slice::Slice(0)`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -523,29 +499,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::slice::Slice(0)::len`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`core::slice::Slice(0)::len`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `core::slice::Slice(0)::len`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`core::slice::Slice(0)::len`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -709,29 +667,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::slice::Slice(0)::swap`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`core::slice::Slice(0)::swap`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `core::slice::Slice(0)::swap`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`core::slice::Slice(0)::swap`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -1021,19 +961,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath(`core::slice::CyclicSlice as core::ops::IntIndex(0)`),
-                ),
-            ),
+            ItemPath(`core::slice::CyclicSlice as core::ops::IntIndex(0)`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::ImplBlock(
-                    ImplBlockPath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(`core::slice::CyclicSlice as core::ops::IntIndex(0)`),
-                    ),
-                ),
+                ItemPath(`core::slice::CyclicSlice as core::ops::IntIndex(0)`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -1454,25 +1386,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`,
-                        TraitItemKind::AssocType,
-                    ),
-                ),
-            ),
+            ItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            `<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`,
-                            TraitItemKind::AssocType,
-                        ),
-                    ),
-                ),
+                ItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -1642,19 +1560,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(`core::slice::CyclicSlice(0)`),
-                ),
-            ),
+            ItemPath(`core::slice::CyclicSlice(0)`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::ImplBlock(
-                    ImplBlockPath::TypeImplBlock(
-                        TypeImplBlockPath(`core::slice::CyclicSlice(0)`),
-                    ),
-                ),
+                ItemPath(`core::slice::CyclicSlice(0)`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -1995,29 +1905,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::slice::CyclicSlice(0)::ilen`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`core::slice::CyclicSlice(0)::ilen`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `core::slice::CyclicSlice(0)::ilen`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`core::slice::CyclicSlice(0)::ilen`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -2181,29 +2073,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::slice::CyclicSlice(0)::start`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`core::slice::CyclicSlice(0)::start`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `core::slice::CyclicSlice(0)::start`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`core::slice::CyclicSlice(0)::start`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -2367,29 +2241,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::slice::CyclicSlice(0)::end`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`core::slice::CyclicSlice(0)::end`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `core::slice::CyclicSlice(0)::end`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`core::slice::CyclicSlice(0)::end`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -2553,29 +2409,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::slice::CyclicSlice(0)::first`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`core::slice::CyclicSlice(0)::first`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `core::slice::CyclicSlice(0)::first`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`core::slice::CyclicSlice(0)::first`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -2895,29 +2733,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::slice::CyclicSlice(0)::last`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`core::slice::CyclicSlice(0)::last`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `core::slice::CyclicSlice(0)::last`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`core::slice::CyclicSlice(0)::last`),
             ),
             place_registry: PlaceRegistry {
                 infos: [

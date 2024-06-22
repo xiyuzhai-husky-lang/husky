@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -178,11 +174,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::EffHoles`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -254,13 +246,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::hole_tmpl`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -300,11 +286,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -384,13 +366,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -454,13 +430,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::find_connected_components`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -504,11 +474,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)`),
         Ok(
             ItemDecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
@@ -546,16 +512,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)>::visualize`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)>::visualize`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
@@ -610,11 +567,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
         Ok(
             ItemDecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
@@ -639,14 +592,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -686,14 +632,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -737,14 +676,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -788,14 +720,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -839,14 +764,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -890,14 +808,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::connected_component::ConnectedComponent(0)::distribution`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -941,14 +852,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -992,14 +896,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -1043,16 +940,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -1146,16 +1034,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(

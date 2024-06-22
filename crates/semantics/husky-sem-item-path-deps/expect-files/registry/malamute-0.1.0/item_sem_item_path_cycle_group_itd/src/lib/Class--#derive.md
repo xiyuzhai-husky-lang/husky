@@ -3,10 +3,7 @@ Some(
     SemItemPathCyclceGroupItd {
         cycle_group: CycleGroup {
             nodes: [
-                ItemPath::Attr(
-                    Room32,
-                    AttrItemPath(`malamute::Class::@derive(0)`),
-                ),
+                ItemPath(`malamute::Class::@derive(0)`),
             ],
         },
     },

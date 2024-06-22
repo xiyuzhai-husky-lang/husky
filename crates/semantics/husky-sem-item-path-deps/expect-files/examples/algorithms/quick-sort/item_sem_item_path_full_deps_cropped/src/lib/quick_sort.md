@@ -1,62 +1,14 @@
 ```rust
 Some(
     [
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`quick_sort::quick_sort`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::cmp::Ord`),
-            ),
-        ),
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::slice::Slice(0)::len`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::num::isize`, `Extern`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::num::usize`, `Extern`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`quick_sort::partition`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::slice::Slice(0)::swap`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`quick_sort::quick_sort`),
+        ItemPath(`core::cmp::Ord`),
+        ItemPath(`core::slice::Slice(0)::len`),
+        ItemPath(`quick_sort::quick_sort_aux`),
+        ItemPath(`core::num::isize`),
+        ItemPath(`core::num::usize`),
+        ItemPath(`quick_sort::partition`),
+        ItemPath(`core::slice::Slice(0)::swap`),
     ],
 )
 ```

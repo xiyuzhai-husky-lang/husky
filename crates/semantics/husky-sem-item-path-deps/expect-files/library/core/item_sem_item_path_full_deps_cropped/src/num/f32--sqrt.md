@@ -1,21 +1,8 @@
 ```rust
 Some(
     [
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::num::f32(0)::sqrt`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::num::f32`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::num::f32(0)::sqrt`),
+        ItemPath(`core::num::f32`),
     ],
 )
 ```

@@ -54,11 +54,7 @@
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::raw_contour::RawContour`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -108,11 +104,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::raw_contour::Direction`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -163,10 +155,7 @@
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::Attr(
-                            Room32,
-                            AttrItemPath(`mnist_classifier::raw_contour::Direction::@derive(0)`),
-                        ),
+                        ItemPath(`mnist_classifier::raw_contour::Direction::@derive(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -204,16 +193,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::TypeVariant(
-                            Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                            ),
-                        ),
+                        ItemPath(`mnist_classifier::raw_contour::Direction::Up`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -251,16 +231,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::TypeVariant(
-                            Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
-                            ),
-                        ),
+                        ItemPath(`mnist_classifier::raw_contour::Direction::Left`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -298,16 +269,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::TypeVariant(
-                            Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
-                        ),
+                        ItemPath(`mnist_classifier::raw_contour::Direction::Down`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -345,16 +307,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::TypeVariant(
-                            Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                            ),
-                        ),
+                        ItemPath(`mnist_classifier::raw_contour::Direction::Right`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -789,11 +742,7 @@
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::raw_contour::StreakCache`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -975,11 +924,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::ImplBlock(
-                            ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath(`mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)`),
-                            ),
-                        ),
+                        ItemPath(`mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -1040,16 +985,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TraitForTypeItem(
-                                    TraitForTypeItemPath(
-                                        `<mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)>::visualize`,
-                                        TraitItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`<mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)>::visualize`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1099,11 +1035,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::ImplBlock(
-                            ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
-                            ),
-                        ),
+                        ItemPath(`mnist_classifier::raw_contour::RawContour(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -1146,14 +1078,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
-                                        TypeItemKind::MemoizedField,
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1204,14 +1129,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
-                                        TypeItemKind::MemoizedField,
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::raw_contour::RawContour(0)::bounding_box`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1262,14 +1180,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
-                                        TypeItemKind::MemoizedField,
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1320,14 +1231,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
-                                        TypeItemKind::MemoizedField,
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::raw_contour::RawContour(0)::contour_len`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1419,16 +1323,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::raw_contour::RawContour(0)::displacement`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::raw_contour::RawContour(0)::displacement`),
                         ),
                         expr_arena: Arena {
                             data: [],

@@ -2,11 +2,7 @@
 SynDeclSheet {
     decls: [
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::eight::upper_mouth_match`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Val(
@@ -106,11 +102,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::eight::is_eight`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Val(
@@ -299,13 +291,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::eight::big_mouth`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(

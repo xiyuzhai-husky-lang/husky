@@ -3,11 +3,7 @@ Some(
     SemItemPathCyclceGroupItd {
         cycle_group: CycleGroup {
             nodes: [
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::mem::Leash`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::mem::Leash`),
             ],
         },
     },

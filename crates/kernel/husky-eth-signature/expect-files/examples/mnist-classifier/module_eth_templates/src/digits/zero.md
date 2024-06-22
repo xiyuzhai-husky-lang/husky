@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::zero::open_one_match`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Form(
@@ -20,13 +16,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::zero::almost_closed`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Form(
@@ -61,11 +51,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::zero::is_zero`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Form(

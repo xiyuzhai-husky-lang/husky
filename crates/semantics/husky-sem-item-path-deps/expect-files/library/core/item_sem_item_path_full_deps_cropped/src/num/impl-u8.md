@@ -1,16 +1,8 @@
 ```rust
 Some(
     [
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`core::num::u8(0)`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::num::u8`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::num::u8(0)`),
+        ItemPath(`core::num::u8`),
     ],
 )
 ```

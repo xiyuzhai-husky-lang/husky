@@ -2,16 +2,8 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::num::i32`, `Extern`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::slice::CyclicSlice`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::num::i32`),
+            ItemPath(`core::slice::CyclicSlice`),
         ],
     ),
 )

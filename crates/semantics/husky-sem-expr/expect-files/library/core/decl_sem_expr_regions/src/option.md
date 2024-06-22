@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::option::Option`, `Enum`),
-                ),
-            ),
+            ItemPath(`core::option::Option`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::option::Option`, `Enum`),
-                    ),
-                ),
+                ItemPath(`core::option::Option`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],

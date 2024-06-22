@@ -2,30 +2,10 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::fermi::FermiMatchResult`),
+            ItemPath(`mnist_classifier::fermi::fermi_match`),
+            ItemPath(`mnist_classifier::major::major_concave_components`),
+            ItemPath(`mnist_classifier::digits::four::cc_box_heights`),
         ],
     ),
 )

@@ -1,31 +1,9 @@
 ```rust
 Some(
     [
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::geom2d::Vector2d(0)::norm`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::num::f32`, `Extern`),
-            ),
-        ),
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::num::f32(0)::sqrt`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
+        ItemPath(`core::num::f32`),
+        ItemPath(`core::num::f32(0)::sqrt`),
     ],
 )
 ```

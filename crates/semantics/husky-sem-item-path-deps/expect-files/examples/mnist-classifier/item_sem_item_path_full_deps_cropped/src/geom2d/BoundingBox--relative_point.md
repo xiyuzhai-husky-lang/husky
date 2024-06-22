@@ -1,41 +1,11 @@
 ```rust
 Some(
     [
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::geom2d::BoundingBox(0)::relative_point`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
-            ),
-        ),
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::geom2d::ClosedRange(0)::relative_point`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::num::f32`, `Extern`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::relative_point`),
+        ItemPath(`mnist_classifier::geom2d::Point2d`),
+        ItemPath(`mnist_classifier::geom2d::RelativePoint2d`),
+        ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_point`),
+        ItemPath(`core::num::f32`),
     ],
 )
 ```

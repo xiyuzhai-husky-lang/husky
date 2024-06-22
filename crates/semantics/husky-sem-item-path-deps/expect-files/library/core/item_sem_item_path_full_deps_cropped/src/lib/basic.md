@@ -1,10 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::basic),
-        ),
+        ItemPath(`core::basic`),
     ],
 )
 ```

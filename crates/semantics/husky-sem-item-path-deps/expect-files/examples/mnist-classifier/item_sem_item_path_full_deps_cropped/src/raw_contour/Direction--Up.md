@@ -1,16 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 17,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::Direction::Up`),
     ],
 )
 ```

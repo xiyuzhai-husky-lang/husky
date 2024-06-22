@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::bool`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::basic::bool`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::basic::bool`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::basic::bool`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -68,19 +60,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::never`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::basic::never`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::basic::never`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::basic::never`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -134,19 +118,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::unit`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::basic::unit`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::basic::unit`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::basic::unit`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -200,19 +176,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::Trait`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::basic::Trait`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::basic::Trait`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::basic::Trait`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -266,19 +234,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::Module`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::basic::Module`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::basic::Module`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::basic::Module`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -332,19 +292,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::Lifetime`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::basic::Lifetime`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::basic::Lifetime`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::basic::Lifetime`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -398,19 +350,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::Place`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::basic::Place`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::basic::Place`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::basic::Place`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -464,19 +408,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::Universe`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::basic::Universe`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::basic::Universe`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::basic::Universe`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],

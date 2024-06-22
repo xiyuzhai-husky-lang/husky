@@ -1,34 +1,10 @@
 ```rust
 Some(
     [
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::connected_component::ConnectedComponent(0)::distribution`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-            ),
-        ),
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::raw_bits::r32(0)::co`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::num::i32`, `Extern`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
+        ItemPath(`core::raw_bits::r32(0)::co`),
+        ItemPath(`core::num::i32`),
     ],
 )
 ```

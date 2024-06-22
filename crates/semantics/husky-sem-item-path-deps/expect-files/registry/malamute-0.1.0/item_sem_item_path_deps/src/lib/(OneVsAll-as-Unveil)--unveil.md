@@ -2,56 +2,12 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`malamute::OneVsAllResult`, `Enum`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::ops::ControlFlow`, `Enum`),
-                ),
-            ),
-            ItemPath::TypeVariant(
-                Room32,
-                TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 112,
-                        },
-                    ),
-                ),
-            ),
-            ItemPath::TypeVariant(
-                Room32,
-                TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 5,
-                        },
-                    ),
-                ),
-            ),
-            ItemPath::TypeVariant(
-                Room32,
-                TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 6,
-                        },
-                    ),
-                ),
-            ),
-            ItemPath::TypeVariant(
-                Room32,
-                TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 111,
-                        },
-                    ),
-                ),
-            ),
+            ItemPath(`malamute::OneVsAllResult`),
+            ItemPath(`core::ops::ControlFlow`),
+            ItemPath(`core::ops::ControlFlow::Break`),
+            ItemPath(`malamute::OneVsAll::Yes`),
+            ItemPath(`malamute::OneVsAll::No`),
+            ItemPath(`core::ops::ControlFlow::Continue`),
         ],
     ),
 )

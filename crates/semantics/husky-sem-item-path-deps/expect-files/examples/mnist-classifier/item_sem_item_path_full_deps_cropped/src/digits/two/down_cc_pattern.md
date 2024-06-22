@@ -1,138 +1,25 @@
 ```rust
 Some(
     [
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::num::f32`, `Extern`),
-            ),
-        ),
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::slice::CyclicSlice`, `Extern`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-            ),
-        ),
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-            ),
-        ),
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::slice::CyclicSlice(0)::first`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<#derive _ as core::clone::Clone(0)>::clone`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::slice::CyclicSlice(0)::last`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-            ),
-        ),
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::geom2d::Point2d(0)::to`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist::BinaryImage28`, `Extern`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::two::down_cc_pattern`),
+        ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+        ItemPath(`core::num::f32`),
+        ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+        ItemPath(`core::slice::CyclicSlice`),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+        ItemPath(`mnist_classifier::geom2d::Vector2d`),
+        ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`),
+        ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`),
+        ItemPath(`mnist_classifier::raw_contour::RawContour`),
+        ItemPath(`mnist_classifier::geom2d::Point2d`),
+        ItemPath(`core::slice::CyclicSlice(0)::first`),
+        ItemPath(`<#derive _ as core::clone::Clone(0)>::clone`),
+        ItemPath(`core::slice::CyclicSlice(0)::last`),
+        ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
+        ItemPath(`mnist_classifier::geom2d::Point2d(0)::to`),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent`),
+        ItemPath(`mnist::BinaryImage28`),
     ],
 )
 ```

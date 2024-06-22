@@ -2,26 +2,10 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::clone::Clone`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::marker::Copy`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::cmp::PartialEq`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::cmp::Eq`),
-                ),
-            ),
+            ItemPath(`core::clone::Clone`),
+            ItemPath(`core::marker::Copy`),
+            ItemPath(`core::cmp::PartialEq`),
+            ItemPath(`core::cmp::Eq`),
         ],
     ),
 )

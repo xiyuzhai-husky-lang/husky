@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`ml_task::IsMlTask`),
-            ),
-        ),
+        ItemPath(`ml_task::IsMlTask`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -18,25 +14,11 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `ml_task::IsMlTask::Input`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`ml_task::IsMlTask::Input`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `ml_task::IsMlTask::INPUT`,
-                    TraitItemKind::AssocStaticVar,
-                ),
-            ),
-        ),
+        ItemPath(`ml_task::IsMlTask::INPUT`),
         None,
     ),
 ]

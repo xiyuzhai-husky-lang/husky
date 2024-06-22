@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::five::is_five`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::five::is_five`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -135,16 +127,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::TypeVariant(
-                                                Room32,
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 282,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist::MnistLabel::Five`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),

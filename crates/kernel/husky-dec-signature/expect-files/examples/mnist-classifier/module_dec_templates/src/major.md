@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::major::connected_components`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::major::connected_components`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -25,11 +21,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::major::major_connected_component`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -49,11 +41,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -77,11 +65,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::major::major_raw_contours`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -101,11 +85,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::major::major_raw_contour`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -125,11 +105,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::major::major_line_segment_sketch`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -149,11 +125,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::major::major_concave_components`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(

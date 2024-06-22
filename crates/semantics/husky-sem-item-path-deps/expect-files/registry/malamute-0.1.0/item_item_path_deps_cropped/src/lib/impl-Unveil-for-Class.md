@@ -2,16 +2,8 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`malamute::OneVsAll`, `Enum`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`malamute::Class`, `Enum`),
-                ),
-            ),
+            ItemPath(`malamute::OneVsAll`),
+            ItemPath(`malamute::Class`),
         ],
     ),
 )

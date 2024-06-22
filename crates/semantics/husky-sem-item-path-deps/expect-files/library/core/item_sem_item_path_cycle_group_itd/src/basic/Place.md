@@ -3,11 +3,7 @@ Some(
     SemItemPathCyclceGroupItd {
         cycle_group: CycleGroup {
             nodes: [
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::basic::Place`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::basic::Place`),
             ],
         },
     },

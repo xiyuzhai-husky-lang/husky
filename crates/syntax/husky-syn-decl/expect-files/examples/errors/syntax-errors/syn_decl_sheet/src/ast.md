@@ -2,11 +2,7 @@
 SynDeclSheet {
     decls: [
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`syntax_errors::ast::A`, `Struct`),
-                ),
-            ),
+            ItemPath(`syntax_errors::ast::A`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::PropsStruct(
@@ -85,11 +81,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(`syntax_errors::ast::A(0)`),
-                ),
-            ),
+            ItemPath(`syntax_errors::ast::A(0)`),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {

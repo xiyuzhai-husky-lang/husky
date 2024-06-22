@@ -1,20 +1,13 @@
 ```rust
 [
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist::task),
-        ),
+        ItemPath(`mnist::task`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist::MnistLabel`, `Enum`),
-            ),
-        ),
+        ItemPath(`mnist::MnistLabel`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -41,11 +34,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist::BinaryImage28`, `Extern`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryImage28`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -61,11 +50,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist::BinaryGrid28`, `Extern`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryGrid28`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -81,11 +66,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist::input`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist::input`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -109,11 +90,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`mnist::BinaryImage28 as core::visual::Visualize(0)`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryImage28 as core::visual::Visualize(0)`),
         Ok(
             ItemDecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
@@ -151,16 +128,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
@@ -215,11 +183,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist::BinaryImage28(0)`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryImage28(0)`),
         Ok(
             ItemDecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
@@ -244,16 +208,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist::BinaryImage28(0)::new_zeros`,
-                    TypeItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist::BinaryImage28(0)::new_zeros`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -300,11 +255,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`mnist::BinaryImage28 as core::ops::IntIndex(0)`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryImage28 as core::ops::IntIndex(0)`),
         Ok(
             ItemDecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
@@ -342,14 +293,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
@@ -380,11 +324,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`mnist::BinaryGrid28 as core::visual::Visualize(0)`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryGrid28 as core::visual::Visualize(0)`),
         Ok(
             ItemDecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
@@ -422,16 +362,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
@@ -486,11 +417,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist::BinaryGrid28(0)`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryGrid28(0)`),
         Ok(
             ItemDecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
@@ -515,16 +442,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist::BinaryGrid28(0)::new_zeros`,
-                    TypeItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist::BinaryGrid28(0)::new_zeros`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -571,11 +489,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`mnist::BinaryGrid28 as core::ops::IntIndex(0)`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryGrid28 as core::ops::IntIndex(0)`),
         Ok(
             ItemDecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
@@ -613,14 +527,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(

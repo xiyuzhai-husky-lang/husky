@@ -3,14 +3,7 @@ Some(
     SemItemPathCyclceGroupItd {
         cycle_group: CycleGroup {
             nodes: [
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`,
-                            TypeItemKind::MemoizedField,
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`),
             ],
         },
     },

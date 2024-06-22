@@ -1,16 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::default::Default::default`,
-                    TraitItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::default::Default::default`),
     ],
 )
 ```

@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::array::Array`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::array::Array`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::array::Array`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::array::Array`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],

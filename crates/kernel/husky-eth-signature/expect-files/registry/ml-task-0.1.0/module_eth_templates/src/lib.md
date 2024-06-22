@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`ml_task::IsMlTask`),
-            ),
-        ),
+        ItemPath(`ml_task::IsMlTask`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(

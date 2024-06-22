@@ -3,11 +3,7 @@ Some(
     SemItemPathCyclceGroupItd {
         cycle_group: CycleGroup {
             nodes: [
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::ops::Div`),
-                    ),
-                ),
+                ItemPath(`core::ops::Div`),
             ],
         },
     },

@@ -2,29 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -820,29 +802,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`),
             ),
             place_registry: PlaceRegistry {
                 infos: [

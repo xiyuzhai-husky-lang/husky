@@ -2,41 +2,10 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::slice::CyclicSlice(0)::first`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<#derive _ as core::clone::Clone(0)>::clone`,
-                        TraitItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::slice::CyclicSlice(0)::last`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
+            ItemPath(`core::slice::CyclicSlice(0)::first`),
+            ItemPath(`<#derive _ as core::clone::Clone(0)>::clone`),
+            ItemPath(`core::slice::CyclicSlice(0)::last`),
         ],
     ),
 )

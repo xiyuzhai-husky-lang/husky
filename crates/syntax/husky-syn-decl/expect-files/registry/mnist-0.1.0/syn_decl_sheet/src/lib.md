@@ -2,10 +2,7 @@
 SynDeclSheet {
     decls: [
         (
-            ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(`mnist::task),
-            ),
+            ItemPath(`mnist::task`),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
                     path: SubmoduleItemPath(`mnist::task),
@@ -13,11 +10,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist::MnistLabel`, `Enum`),
-                ),
-            ),
+            ItemPath(`mnist::MnistLabel`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Enum(
@@ -95,11 +88,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist::BinaryImage28`, `Extern`),
-                ),
-            ),
+            ItemPath(`mnist::BinaryImage28`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
@@ -177,11 +166,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist::BinaryGrid28`, `Extern`),
-                ),
-            ),
+            ItemPath(`mnist::BinaryGrid28`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
@@ -259,11 +244,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist::input`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist::input`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Val(
@@ -363,11 +344,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath(`mnist::BinaryImage28 as core::visual::Visualize(0)`),
-                ),
-            ),
+            ItemPath(`mnist::BinaryImage28 as core::visual::Visualize(0)`),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
@@ -509,16 +486,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`,
-                        TraitItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
@@ -770,11 +738,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(`mnist::BinaryImage28(0)`),
-                ),
-            ),
+            ItemPath(`mnist::BinaryImage28(0)`),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
@@ -882,16 +846,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist::BinaryImage28(0)::new_zeros`,
-                        TypeItemKind::AssocRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist::BinaryImage28(0)::new_zeros`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::AssocRitchie(
@@ -1091,11 +1046,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath(`mnist::BinaryImage28 as core::ops::IntIndex(0)`),
-                ),
-            ),
+            ItemPath(`mnist::BinaryImage28 as core::ops::IntIndex(0)`),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
@@ -1279,14 +1230,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`,
-                        TraitItemKind::AssocType,
-                    ),
-                ),
-            ),
+            ItemPath(`<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::AssocType(
@@ -1569,11 +1513,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath(`mnist::BinaryGrid28 as core::visual::Visualize(0)`),
-                ),
-            ),
+            ItemPath(`mnist::BinaryGrid28 as core::visual::Visualize(0)`),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
@@ -1715,16 +1655,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`,
-                        TraitItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
@@ -1976,11 +1907,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(`mnist::BinaryGrid28(0)`),
-                ),
-            ),
+            ItemPath(`mnist::BinaryGrid28(0)`),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
@@ -2088,16 +2015,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist::BinaryGrid28(0)::new_zeros`,
-                        TypeItemKind::AssocRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist::BinaryGrid28(0)::new_zeros`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::AssocRitchie(
@@ -2297,11 +2215,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath(`mnist::BinaryGrid28 as core::ops::IntIndex(0)`),
-                ),
-            ),
+            ItemPath(`mnist::BinaryGrid28 as core::ops::IntIndex(0)`),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::TraitForType(
                     TraitForTypeImplBlockSynDecl {
@@ -2485,14 +2399,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`,
-                        TraitItemKind::AssocType,
-                    ),
-                ),
-            ),
+            ItemPath(`<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::AssocType(

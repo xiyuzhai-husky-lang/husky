@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::nine::nine_match`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -67,11 +63,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::nine::nine_match_refine`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -133,11 +125,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::nine::is_nine`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -186,13 +174,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::nine::downmost`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -205,13 +187,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::nine::big_cc`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(

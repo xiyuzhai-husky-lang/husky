@@ -1,301 +1,115 @@
 ```rust
 [
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist::task),
-        ),
+        ItemPath(`mnist::task`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist::MnistLabel`, `Enum`),
-            ),
-        ),
+        ItemPath(`mnist::MnistLabel`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 3,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist::MnistLabel::Zero`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 4,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist::MnistLabel::One`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 5,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist::MnistLabel::Two`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 6,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist::MnistLabel::Three`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 7,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist::MnistLabel::Four`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 8,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist::MnistLabel::Five`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 9,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist::MnistLabel::Six`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 10,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist::MnistLabel::Seven`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 11,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist::MnistLabel::Eight`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 12,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist::MnistLabel::Nine`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist::BinaryImage28`, `Extern`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryImage28`),
         None,
     ),
     (
-        ItemPath::Attr(
-            Room32,
-            AttrItemPath(`mnist::BinaryImage28::@derive(0)`),
-        ),
+        ItemPath(`mnist::BinaryImage28::@derive(0)`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist::BinaryGrid28`, `Extern`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryGrid28`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist::input`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist::input`),
         None,
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`mnist::BinaryImage28 as core::visual::Visualize(0)`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryImage28 as core::visual::Visualize(0)`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`),
         None,
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist::BinaryImage28(0)`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryImage28(0)`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist::BinaryImage28(0)::new_zeros`,
-                    TypeItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist::BinaryImage28(0)::new_zeros`),
         None,
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`mnist::BinaryImage28 as core::ops::IntIndex(0)`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryImage28 as core::ops::IntIndex(0)`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`),
         None,
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`mnist::BinaryGrid28 as core::visual::Visualize(0)`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryGrid28 as core::visual::Visualize(0)`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`),
         None,
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist::BinaryGrid28(0)`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryGrid28(0)`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist::BinaryGrid28(0)::new_zeros`,
-                    TypeItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist::BinaryGrid28(0)::new_zeros`),
         None,
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`mnist::BinaryGrid28 as core::ops::IntIndex(0)`),
-            ),
-        ),
+        ItemPath(`mnist::BinaryGrid28 as core::ops::IntIndex(0)`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`),
         None,
     ),
 ]

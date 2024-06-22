@@ -2,11 +2,7 @@
 SynDeclSheet {
     decls: [
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Point2d`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::PropsStruct(
@@ -269,11 +265,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::RelativePoint2d`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::PropsStruct(
@@ -536,11 +528,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Vector2d`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::PropsStruct(
@@ -803,11 +791,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::ClosedRange`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::PropsStruct(
@@ -1070,11 +1054,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::BoundingBox`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::PropsStruct(
@@ -1353,11 +1333,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::PropsStruct(
@@ -1620,11 +1596,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(`mnist_classifier::geom2d::Point2d(0)`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Point2d(0)`),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
@@ -1732,16 +1704,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Point2d(0)::from_i_shift28`,
-                        TypeItemKind::AssocRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Point2d(0)::from_i_shift28`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::AssocRitchie(
@@ -2170,16 +2133,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Point2d(0)::vector`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Point2d(0)::vector`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -2401,16 +2355,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Point2d(0)::to`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Point2d(0)::to`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -2741,16 +2686,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Point2d(0)::norm`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Point2d(0)::norm`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -2972,16 +2908,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Point2d(0)::dist`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Point2d(0)::dist`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -3312,11 +3239,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(`mnist_classifier::geom2d::Vector2d(0)`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)`),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
@@ -3424,16 +3347,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Vector2d(0)::point`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::point`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -3655,16 +3569,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Vector2d(0)::to`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::to`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -3995,16 +3900,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Vector2d(0)::norm`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -4226,16 +4122,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Vector2d(0)::dot`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::dot`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -4566,16 +4453,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Vector2d(0)::cross`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::cross`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -4906,16 +4784,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Vector2d(0)::angle`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -5246,16 +5115,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -5586,16 +5446,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Vector2d(0)::angle_to`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle_to`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -6025,11 +5876,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(`mnist_classifier::geom2d::ClosedRange(0)`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::ClosedRange(0)`),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
@@ -6137,16 +5984,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::ClosedRange(0)::relative_range`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_range`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -6477,16 +6315,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::ClosedRange(0)::relative_point`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_point`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -6817,11 +6646,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(`mnist_classifier::geom2d::BoundingBox(0)`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::BoundingBox(0)`),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
@@ -6929,16 +6754,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -7269,16 +7085,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::BoundingBox(0)::relative_point`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::relative_point`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -7609,16 +7416,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::BoundingBox(0)::xmin`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::xmin`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -7840,16 +7638,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::BoundingBox(0)::xmax`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::xmax`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -8071,16 +7860,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::BoundingBox(0)::ymin`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::ymin`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -8302,16 +8082,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::BoundingBox(0)::ymax`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::ymax`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -8533,11 +8304,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)`),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
@@ -8645,16 +8412,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -8876,16 +8634,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -9107,16 +8856,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -9338,16 +9078,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(

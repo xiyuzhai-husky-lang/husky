@@ -2,11 +2,7 @@
 SynDeclSheet {
     decls: [
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist::Task`, `TypeVar`),
-                ),
-            ),
+            ItemPath(`mnist::Task`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::TypeVar(
@@ -105,11 +101,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist::TASK`, `StaticVar`),
-                ),
-            ),
+            ItemPath(`mnist::TASK`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::StaticVar(

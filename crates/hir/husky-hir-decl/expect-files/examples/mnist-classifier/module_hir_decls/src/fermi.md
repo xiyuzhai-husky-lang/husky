@@ -84,11 +84,7 @@
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::fermi::FermiMatchResult`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -274,11 +270,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::ImplBlock(
-                            ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
-                            ),
-                        ),
+                        ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -321,14 +313,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
-                                        TypeItemKind::MemoizedField,
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -379,14 +364,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
-                                        TypeItemKind::MemoizedField,
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -437,14 +415,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
-                                        TypeItemKind::MemoizedField,
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`),
                         ),
                         expr_arena: Arena {
                             data: [],

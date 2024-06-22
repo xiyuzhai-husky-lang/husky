@@ -2,23 +2,9 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist::input`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::connected_component::ConnectedComponent`),
+            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+            ItemPath(`mnist::input`),
         ],
     ),
 )

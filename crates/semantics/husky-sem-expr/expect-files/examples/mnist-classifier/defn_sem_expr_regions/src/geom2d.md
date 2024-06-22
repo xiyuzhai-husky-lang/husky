@@ -2,29 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Point2d(0)::from_i_shift28`,
-                        TypeItemKind::AssocRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Point2d(0)::from_i_shift28`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::Point2d(0)::from_i_shift28`,
-                            TypeItemKind::AssocRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::Point2d(0)::from_i_shift28`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -44,11 +26,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::geom2d::Point2d`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -1503,29 +1481,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Point2d(0)::vector`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Point2d(0)::vector`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::Point2d(0)::vector`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::Point2d(0)::vector`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -1547,11 +1507,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::geom2d::Vector2d`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -2355,29 +2311,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Point2d(0)::to`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Point2d(0)::to`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::Point2d(0)::to`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::Point2d(0)::to`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -2399,11 +2337,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::geom2d::Vector2d`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -3776,29 +3710,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Point2d(0)::norm`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Point2d(0)::norm`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::Point2d(0)::norm`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::Point2d(0)::norm`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -5214,29 +5130,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Point2d(0)::dist`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Point2d(0)::dist`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::Point2d(0)::dist`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::Point2d(0)::dist`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -5980,29 +5878,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Vector2d(0)::point`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::point`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::Vector2d(0)::point`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::Vector2d(0)::point`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -6024,11 +5904,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::geom2d::Point2d`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -6832,29 +6708,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Vector2d(0)::to`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::to`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::Vector2d(0)::to`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::Vector2d(0)::to`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -6876,11 +6734,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::geom2d::Vector2d`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -8253,29 +8107,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Vector2d(0)::norm`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::Vector2d(0)::norm`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -9691,29 +9527,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Vector2d(0)::dot`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::dot`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::Vector2d(0)::dot`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::Vector2d(0)::dot`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -10937,29 +10755,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Vector2d(0)::cross`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::cross`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::Vector2d(0)::cross`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::Vector2d(0)::cross`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -12183,29 +11983,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Vector2d(0)::angle`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::Vector2d(0)::angle`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -15580,29 +15362,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -16346,29 +16110,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::Vector2d(0)::angle_to`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle_to`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::Vector2d(0)::angle_to`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle_to`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -21477,29 +21223,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::ClosedRange(0)::relative_range`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_range`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::ClosedRange(0)::relative_range`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_range`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -22963,11 +22691,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::geom2d::ClosedRange`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -24775,29 +24499,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::ClosedRange(0)::relative_point`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_point`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::ClosedRange(0)::relative_point`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_point`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -26142,29 +25848,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -26186,11 +25874,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -27861,29 +27545,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::BoundingBox(0)::relative_point`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::relative_point`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::BoundingBox(0)::relative_point`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::relative_point`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -27905,11 +27571,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::geom2d::RelativePoint2d`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -29580,29 +29242,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::BoundingBox(0)::xmin`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::xmin`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::BoundingBox(0)::xmin`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::xmin`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -30122,29 +29766,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::BoundingBox(0)::xmax`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::xmax`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::BoundingBox(0)::xmax`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::xmax`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -30664,29 +30290,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::BoundingBox(0)::ymin`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::ymin`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::BoundingBox(0)::ymin`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::ymin`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -31206,29 +30814,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::BoundingBox(0)::ymax`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::ymax`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::BoundingBox(0)::ymax`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::ymax`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -31748,29 +31338,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -32290,29 +31862,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -32832,29 +32386,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -33374,29 +32910,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`),
             ),
             place_registry: PlaceRegistry {
                 infos: [

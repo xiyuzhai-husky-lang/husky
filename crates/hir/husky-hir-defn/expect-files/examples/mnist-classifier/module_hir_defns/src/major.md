@@ -26,11 +26,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::major::connected_components`, `Val`),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::major::connected_components`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -98,11 +94,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::major::major_connected_component`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -160,11 +152,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -242,11 +230,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::major::major_raw_contours`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -314,11 +298,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::major::major_raw_contour`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -386,11 +366,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::major::major_line_segment_sketch`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -468,11 +444,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::major::major_concave_components`),
                             ),
                             expr_arena: Arena {
                                 data: [],

@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::zero::open_one_match`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::zero::open_one_match`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -156,23 +148,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::zero::almost_closed`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::zero::almost_closed`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -570,19 +550,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::zero::is_zero`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::zero::is_zero`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -703,16 +675,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::TypeVariant(
-                                                Room32,
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 277,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist::MnistLabel::Zero`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),

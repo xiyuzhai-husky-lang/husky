@@ -3,10 +3,7 @@ Some(
     SemItemPathCyclceGroupItd {
         cycle_group: CycleGroup {
             nodes: [
-                ItemPath::Attr(
-                    Room32,
-                    AttrItemPath(`core::num::i128::@derive(0)`),
-                ),
+                ItemPath(`core::num::i128::@derive(0)`),
             ],
         },
     },

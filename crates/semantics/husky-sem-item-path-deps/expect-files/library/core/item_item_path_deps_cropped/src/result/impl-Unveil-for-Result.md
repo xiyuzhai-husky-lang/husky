@@ -2,16 +2,8 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::Unveil`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::result::Result`, `Enum`),
-                ),
-            ),
+            ItemPath(`core::ops::Unveil`),
+            ItemPath(`core::result::Result`),
         ],
     ),
 )

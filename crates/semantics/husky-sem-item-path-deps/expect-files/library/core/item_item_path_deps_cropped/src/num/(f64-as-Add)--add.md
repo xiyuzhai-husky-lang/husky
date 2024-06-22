@@ -2,11 +2,7 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::num::f64`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::num::f64`),
         ],
     ),
 )

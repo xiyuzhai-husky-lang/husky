@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -604,19 +596,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::ImplBlock(
-                    ImplBlockPath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -840,29 +824,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)>::visualize`,
-                        TraitItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`<mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)>::visualize`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            `<mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)>::visualize`,
-                            TraitItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`<mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)>::visualize`),
             ),
             place_registry: PlaceRegistry {
                 infos: [

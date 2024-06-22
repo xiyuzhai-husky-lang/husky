@@ -16,11 +16,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::digits::eight::upper_mouth_match`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -78,11 +74,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::digits::eight::is_eight`),
                             ),
                             expr_arena: Arena {
                                 data: [],
