@@ -104,13 +104,6 @@ impl<'a> SynExprContext<'a> {
         self.alloc_stmts(stmts)
     }
 
-    pub fn parse_block_expr(&mut self, body: ItemDefnAstIdxRange) -> SynExprIdx {
-        let stmts = self.parse_stmts(body);
-        let expr = self.alloc_expr(SynExprData::Block { stmts });
-        self.add_expr_root(SynExprRootKind::BlockExpr, expr);
-        expr
-    }
-
     fn parse_stmt(
         &mut self,
         ast_idx: ItemDefnAstIdx,

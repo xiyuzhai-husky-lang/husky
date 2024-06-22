@@ -3597,19 +3597,28 @@
         name: "husky-sem-static-mut-deps",
         relative_path: "crates/semantics/husky-sem-static-mut-deps",
         dependencies: [
+            "graph-dynamics",
+            "husky-entity-path",
             "husky-sem-expr",
             "husky-sem-item-path-deps",
+            "propagate",
             "salsa",
+            "vec-like",
         ],
     },
     PackageSummary {
         name: "husky-sem-static-var-deps",
         relative_path: "crates/semantics/husky-sem-static-var-deps",
         dependencies: [
+            "graph-dynamics",
+            "husky-entity-path",
             "husky-sem-expr",
             "husky-sem-item-path-deps",
             "husky-sem-static-mut-deps",
+            "husky-syn-expr",
+            "propagate",
             "salsa",
+            "vec-like",
         ],
     },
     PackageSummary {

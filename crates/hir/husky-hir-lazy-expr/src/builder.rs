@@ -142,7 +142,7 @@ impl<'a> HirLazyExprBuilder<'a> {
     pub fn build_all_then_finish(mut self) -> (HirLazyExprRegion, HirLazyExprSourceMap) {
         for (sem_expr_idx, expr_root_kind) in self.sem_expr_region_data.sem_expr_roots() {
             match expr_root_kind {
-                SynExprRootKind::BlockExpr | SynExprRootKind::ReturnExpr => {
+                SynExprRootKind::RootBody | SynExprRootKind::ReturnExpr => {
                     sem_expr_idx.to_hir_lazy(&mut self);
                 }
                 // ad hoc

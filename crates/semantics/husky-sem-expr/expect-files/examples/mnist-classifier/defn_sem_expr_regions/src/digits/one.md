@@ -483,7 +483,7 @@
                         SemExprIdx(
                             7,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -18589,7 +18589,7 @@
                         SemExprIdx(
                             248,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -32545,7 +32545,7 @@
                         SemExprIdx(
                             8,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -33828,7 +33828,7 @@
                         SemExprIdx(
                             10,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -35450,7 +35450,7 @@
                         SemExprIdx(
                             16,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],

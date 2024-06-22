@@ -1,6 +1,6 @@
 ```rust
 Some(
-    SemItemPathCyclceGroupItd {
+    SemItemPathDepsCyclceGroupItd {
         cycle_group: CycleGroup {
             nodes: [
                 ItemPath(`syntax_errors::ast::A(0)`),

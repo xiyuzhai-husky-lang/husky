@@ -277,7 +277,7 @@
                                 syn_expr_idx: 4,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 5,
                             },
                         ],
@@ -699,7 +699,7 @@
                                 syn_expr_idx: 11,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 12,
                             },
                         ],
@@ -3295,7 +3295,7 @@
                                 syn_expr_idx: 89,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 90,
                             },
                         ],

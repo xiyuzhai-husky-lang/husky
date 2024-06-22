@@ -328,7 +328,7 @@ impl<'a> DecTermEngine<'a> {
                     continue;
                 }
                 SynExprRootKind::Dep
-                | SynExprRootKind::BlockExpr
+                | SynExprRootKind::RootBody
                 | SynExprRootKind::LetStmtType
                 | SynExprRootKind::LetStmtInitialValue
                 | SynExprRootKind::HtmlArgumentExpr

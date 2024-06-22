@@ -861,7 +861,7 @@
                                 syn_expr_idx: 13,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 14,
                             },
                         ],
@@ -1265,7 +1265,7 @@
                                 syn_expr_idx: 5,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 6,
                             },
                         ],
@@ -1828,7 +1828,7 @@
                                 syn_expr_idx: 11,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 12,
                             },
                         ],
@@ -2275,7 +2275,7 @@
                                 syn_expr_idx: 12,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 13,
                             },
                         ],
@@ -2750,7 +2750,7 @@
                                 syn_expr_idx: 3,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 4,
                             },
                         ],
@@ -3172,7 +3172,7 @@
                                 syn_expr_idx: 5,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 6,
                             },
                         ],
@@ -3735,7 +3735,7 @@
                                 syn_expr_idx: 11,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 12,
                             },
                         ],
@@ -4182,7 +4182,7 @@
                                 syn_expr_idx: 12,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 13,
                             },
                         ],
@@ -4705,7 +4705,7 @@
                                 syn_expr_idx: 10,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 11,
                             },
                         ],
@@ -5228,7 +5228,7 @@
                                 syn_expr_idx: 10,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 11,
                             },
                         ],
@@ -6199,7 +6199,7 @@
                                 syn_expr_idx: 29,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 30,
                             },
                         ],
@@ -6679,7 +6679,7 @@
                                 syn_expr_idx: 3,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 4,
                             },
                         ],
@@ -8154,7 +8154,7 @@
                                 syn_expr_idx: 43,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 44,
                             },
                         ],
@@ -9163,7 +9163,7 @@
                                 syn_expr_idx: 29,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 30,
                             },
                         ],
@@ -9782,7 +9782,7 @@
                                 syn_expr_idx: 11,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 12,
                             },
                         ],
@@ -10402,7 +10402,7 @@
                                 syn_expr_idx: 11,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 12,
                             },
                         ],
@@ -10999,7 +10999,7 @@
                                 syn_expr_idx: 11,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 12,
                             },
                         ],
@@ -11348,7 +11348,7 @@
                                 syn_expr_idx: 2,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 3,
                             },
                         ],
@@ -11697,7 +11697,7 @@
                                 syn_expr_idx: 2,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 3,
                             },
                         ],
@@ -12046,7 +12046,7 @@
                                 syn_expr_idx: 2,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 3,
                             },
                         ],
@@ -12395,7 +12395,7 @@
                                 syn_expr_idx: 2,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 3,
                             },
                         ],
@@ -12762,7 +12762,7 @@
                                 syn_expr_idx: 2,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 3,
                             },
                         ],
@@ -13111,7 +13111,7 @@
                                 syn_expr_idx: 2,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 3,
                             },
                         ],
@@ -13460,7 +13460,7 @@
                                 syn_expr_idx: 2,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 3,
                             },
                         ],
@@ -13809,7 +13809,7 @@
                                 syn_expr_idx: 2,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 3,
                             },
                         ],
