@@ -1,0 +1,75 @@
+```rust
+Some(
+    [
+        ItemPath::MajorItem(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`core::raw_bits::r32`, `Extern`),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`core::num::i32`, `Extern`),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 19,
+                    },
+                ),
+            ),
+        ),
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 18,
+                    },
+                ),
+            ),
+        ),
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 20,
+                    },
+                ),
+            ),
+        ),
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 17,
+                    },
+                ),
+            ),
+        ),
+    ],
+)
+```

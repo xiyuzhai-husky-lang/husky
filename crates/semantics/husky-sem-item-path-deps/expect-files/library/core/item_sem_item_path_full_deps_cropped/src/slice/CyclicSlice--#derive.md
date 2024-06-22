@@ -1,0 +1,20 @@
+```rust
+Some(
+    [
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(`core::slice::CyclicSlice::@derive(0)`),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::fmt::Debug`),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::visual::Visualize`),
+            ),
+        ),
+    ],
+)
+```

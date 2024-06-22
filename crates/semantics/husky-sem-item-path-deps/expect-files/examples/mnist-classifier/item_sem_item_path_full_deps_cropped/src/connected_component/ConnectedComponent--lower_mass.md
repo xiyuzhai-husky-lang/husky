@@ -1,0 +1,19 @@
+```rust
+Some(
+    [
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
+                    TypeItemKind::MemoizedField,
+                ),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`core::num::f32`, `Extern`),
+            ),
+        ),
+    ],
+)
+```

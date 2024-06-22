@@ -1,1 +1,3 @@
-pub mod cycle_group;
+pub mod graph_dynamics;
+
+use crate::*;

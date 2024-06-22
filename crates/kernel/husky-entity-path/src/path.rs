@@ -22,7 +22,9 @@ use husky_vfs::{
     path::{crate_path::CratePath, module_path::ModulePath},
     toolchain::Toolchain,
 };
+use salsa::DisplayWithDb;
 
+/// doesn't support DebugWithDb by design
 #[salsa::interned(override_debug)]
 pub struct ItemPathId {
     pub data: ItemPathData,
@@ -220,7 +222,7 @@ pub enum IdentifiableEntityPath {
     TypeVariant(TypeVariantPath),
 }
 
-#[salsa::derive_debug_with_db]
+#[salsa::derive_debug_with_db] // todo: deprecated
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum ItemPath {
@@ -231,6 +233,20 @@ pub enum ItemPath {
     ImplBlock(ImplBlockPath),
     Attr(Room32, AttrItemPath),
     Chunk(Room32, ChunkItemPath),
+}
+
+// question: is this stable enough?
+impl PartialOrd for ItemPath {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        ItemPathId::partial_cmp(&**self, &**other)
+    }
+}
+
+// question: is this stable enough?
+impl Ord for ItemPath {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        ItemPathId::cmp(&**self, &**other)
+    }
 }
 
 #[test]

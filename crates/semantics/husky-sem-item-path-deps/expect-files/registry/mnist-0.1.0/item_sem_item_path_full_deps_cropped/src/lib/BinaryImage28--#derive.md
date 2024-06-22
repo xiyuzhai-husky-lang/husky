@@ -1,0 +1,20 @@
+```rust
+Some(
+    [
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(`mnist::BinaryImage28::@derive(0)`),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::fmt::Debug`),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::clone::Clone`),
+            ),
+        ),
+    ],
+)
+```
