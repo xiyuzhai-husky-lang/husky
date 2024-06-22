@@ -1,0 +1,21 @@
+```rust
+Some(
+    [
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `core::num::u16(0)::abs`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`core::num::u16`, `Extern`),
+            ),
+        ),
+    ],
+)
+```

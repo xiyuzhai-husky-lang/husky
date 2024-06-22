@@ -1,0 +1,34 @@
+```rust
+Some(
+    [
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`,
+                    TypeItemKind::MemoizedField,
+                ),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`core::num::f32`, `Extern`),
+            ),
+        ),
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `core::vec::Vec(0)::ilen`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`core::num::i32`, `Extern`),
+            ),
+        ),
+    ],
+)
+```

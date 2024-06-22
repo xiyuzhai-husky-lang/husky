@@ -1,0 +1,25 @@
+```rust
+Some(
+    [
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(`malamute::OneVsAllResult::@derive(0)`),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::fmt::Debug`),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::clone::Clone`),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::marker::Copy`),
+            ),
+        ),
+    ],
+)
+```

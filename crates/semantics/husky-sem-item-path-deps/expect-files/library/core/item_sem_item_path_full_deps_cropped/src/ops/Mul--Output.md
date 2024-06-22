@@ -1,0 +1,14 @@
+```rust
+Some(
+    [
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(
+                    `core::ops::Mul::Output`,
+                    TraitItemKind::AssocType,
+                ),
+            ),
+        ),
+    ],
+)
+```

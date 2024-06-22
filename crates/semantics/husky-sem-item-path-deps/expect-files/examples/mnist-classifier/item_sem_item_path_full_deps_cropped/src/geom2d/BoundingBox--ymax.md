@@ -1,0 +1,21 @@
+```rust
+Some(
+    [
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `mnist_classifier::geom2d::BoundingBox(0)::ymax`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`core::num::f32`, `Extern`),
+            ),
+        ),
+    ],
+)
+```

@@ -11,6 +11,30 @@ where
     nodes: OrderedSmallVecSet<S::Node, { S::CYCLE_GROUP_N }>,
 }
 
+impl<S: IsGraphDepsScheme> ::salsa::DebugWithDb for CycleGroup<S>
+where
+    [(); S::CYCLE_GROUP_N]:,
+    S::Node: ::salsa::DebugWithDb,
+{
+    fn debug_fmt_with_db(
+        &self,
+        f: &mut ::std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> ::std::fmt::Result {
+        #[allow(unused_imports)]
+        use ::salsa::debug::helper::Fallback;
+        use ::salsa::fmt::{WithFmtContext, WithFmtContextTest};
+        WithFmtContextTest(self).with_fmt_context(
+            || {
+                let mut debug_struct = &mut f.debug_struct("CycleGroup");
+                debug_struct = debug_struct.field("nodes", &self.nodes.debug(db));
+                debug_struct.finish()
+            },
+            db,
+        )
+    }
+}
+
 impl<S: IsGraphDepsScheme> std::ops::Deref for CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,

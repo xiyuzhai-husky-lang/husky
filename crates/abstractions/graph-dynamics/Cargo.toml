@@ -13,6 +13,7 @@ keywords.workspace = true
 
 [dependencies]
 propagate.workspace = true
+salsa.workspace = true
 vec-like.workspace = true
 
 [dev-dependencies]

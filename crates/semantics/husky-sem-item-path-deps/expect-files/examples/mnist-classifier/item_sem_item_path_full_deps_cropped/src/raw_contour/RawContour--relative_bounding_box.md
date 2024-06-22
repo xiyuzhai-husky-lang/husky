@@ -1,0 +1,54 @@
+```rust
+Some(
+    [
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
+                    TypeItemKind::MemoizedField,
+                ),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+            ),
+        ),
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+            ),
+        ),
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `mnist_classifier::geom2d::ClosedRange(0)::relative_range`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`core::num::f32`, `Extern`),
+            ),
+        ),
+    ],
+)
+```

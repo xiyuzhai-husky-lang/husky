@@ -1,0 +1,24 @@
+```rust
+Some(
+    [
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(
+                    `core::ops::Not::not`,
+                    TraitItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
+            ),
+        ),
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(
+                    `core::ops::Not::Output`,
+                    TraitItemKind::AssocType,
+                ),
+            ),
+        ),
+    ],
+)
+```

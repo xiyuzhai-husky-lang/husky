@@ -1,0 +1,35 @@
+```rust
+Some(
+    [
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(`core::option::Option::@derive(0)`),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::fmt::Debug`),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::cmp::PartialEq`),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::cmp::Eq`),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::clone::Clone`),
+            ),
+        ),
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::marker::Copy`),
+            ),
+        ),
+    ],
+)
+```
