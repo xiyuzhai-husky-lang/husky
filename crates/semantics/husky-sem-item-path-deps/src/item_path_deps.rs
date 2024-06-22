@@ -5,7 +5,7 @@ use husky_entity_path::{path::ItemPath, region::RegionPath};
 use vec_like::VecSet;
 
 #[salsa::tracked(return_ref)]
-pub(crate) fn item_sem_item_path_deps(
+pub fn item_sem_item_path_deps(
     db: &::salsa::Db,
     item_path_id: ItemPathId,
 ) -> SemItemPathDepsResult<VecSet<ItemPath>> {

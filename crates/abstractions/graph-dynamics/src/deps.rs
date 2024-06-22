@@ -1,6 +1,6 @@
 use crate::cycle_group::CycleGroup;
 
-pub trait IsGraphDepsScheme {
+pub trait IsGraphDepsScheme: 'static {
     type Node: Eq + Ord + Copy + 'static;
     const CYCLE_GROUP_N: usize;
     type CycleGroupItd: Copy;

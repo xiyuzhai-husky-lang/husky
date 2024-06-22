@@ -1,2 +1,2 @@
 #[salsa::jar]
-pub struct SemStaticVarDepsJar();
+pub struct SemStaticVarDepsJar(crate::region::SemStaticVarDepsRegion);

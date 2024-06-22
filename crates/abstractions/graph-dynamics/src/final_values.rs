@@ -16,7 +16,7 @@ where
 {
     let local_graph = LocalGraph::new(ctx, cycle_group);
     Ok(local_graph
-        .propagate(<C::DepsScheme as IsGraphDynamicsScheme>::MAX_ITERATION)?
+        .propagate(<C::DynamicsScheme as IsGraphDynamicsScheme>::MAX_ITERATION)?
         .finish())
 }
 

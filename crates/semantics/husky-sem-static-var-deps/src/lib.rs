@@ -1,4 +1,8 @@
+mod builder;
+mod graph_dynamics;
 pub mod jar;
+pub mod region;
+pub mod static_var_deps;
 #[cfg(test)]
 mod tests;
 
