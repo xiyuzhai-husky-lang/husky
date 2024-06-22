@@ -23,6 +23,8 @@ husky-entity-path.workspace = true
 husky-sem-expr.workspace = true
 husky-sem-item-path-deps.workspace = true
 husky-sem-static-mut-deps.workspace = true
+# syntaxj
+husky-syn-expr.workspace = true
 
 [lints]
 workspace = true

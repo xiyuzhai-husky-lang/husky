@@ -6235,6 +6235,7 @@ dependencies = [
  "husky-sem-expr",
  "husky-sem-item-path-deps",
  "husky-sem-static-mut-deps",
+ "husky-syn-expr",
  "propagate",
  "salsa",
  "vec-like",
