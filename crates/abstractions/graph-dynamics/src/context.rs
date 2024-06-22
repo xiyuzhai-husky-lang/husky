@@ -44,22 +44,22 @@ pub trait IsGraphDynamicsContext<'db>: Copy {
     {
         calc_cycle_group_final_values(self, cycle_group)
     }
-    /// cached version
-    fn cycle_group_values(
+    /// cached version of `Self::calc_cycle_group_final_values`
+    fn cycle_group_final_values(
         self,
         cycle_group_itd: CycleGroupItd<Self::DepsScheme>,
     ) -> PropagationResultRef<'db, &'db CycleGroupMap<Self::DepsScheme, Value<Self::DynamicsScheme>>>
     where
         [(); <Self::DepsScheme as IsGraphDepsScheme>::CYCLE_GROUP_N]:;
-    /// go through interned cycle group
-    fn value(
+    /// obtained through interned cycle group final values
+    fn final_value(
         self,
         node: Node<Self::DepsScheme>,
     ) -> PropagationResultRef<'db, &'db Value<Self::DynamicsScheme>>
     where
         [(); <Self::DepsScheme as IsGraphDepsScheme>::CYCLE_GROUP_N]:,
     {
-        Ok(&self.cycle_group_values(self.cycle_group_itd(node))?[node])
+        Ok(&self.cycle_group_final_values(self.cycle_group_itd(node))?[node])
     }
 }
 

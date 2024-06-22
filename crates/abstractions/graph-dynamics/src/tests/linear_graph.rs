@@ -87,7 +87,7 @@ impl<'db> IsGraphDynamicsContext<'db> for LinearGraphContext<'db> {
             .expect("impossible to be none because of chaining")
     }
 
-    fn cycle_group_values(
+    fn cycle_group_final_values(
         self,
         cycle_group_itd: LinearGraphCycleGroupItd,
     ) -> PropagationResultRef<'db, &'db CycleGroupMap<LinearGraphScheme, usize>> {
@@ -161,7 +161,7 @@ fn linear_graph_final_value_works() {
     #[track_caller]
     fn t(len: usize, id: usize, expected: usize, db: &::salsa::Db) {
         let ctx = LinearGraphContext { db, len };
-        let recursion_value = *ctx.value(LinearGraphNode::new(db, id, len)).unwrap();
+        let recursion_value = *ctx.final_value(LinearGraphNode::new(db, id, len)).unwrap();
         assert_eq!(recursion_value, expected);
     }
 
