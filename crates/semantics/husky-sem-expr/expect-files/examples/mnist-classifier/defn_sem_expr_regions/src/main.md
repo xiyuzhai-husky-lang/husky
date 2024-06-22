@@ -1456,7 +1456,7 @@
                         SemExprIdx(
                             19,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],

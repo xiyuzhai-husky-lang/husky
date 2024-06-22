@@ -7443,7 +7443,7 @@
                         SemExprIdx(
                             89,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],

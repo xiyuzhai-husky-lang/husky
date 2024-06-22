@@ -1957,7 +1957,7 @@
                         SemExprIdx(
                             23,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -4526,7 +4526,7 @@
                         SemExprIdx(
                             16,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -6650,7 +6650,7 @@
                         SemExprIdx(
                             16,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -8911,7 +8911,7 @@
                         SemExprIdx(
                             17,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],

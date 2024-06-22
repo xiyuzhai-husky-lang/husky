@@ -305,7 +305,7 @@
                                 syn_expr_idx: 0,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 1,
                             },
                         ],

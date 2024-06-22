@@ -2492,7 +2492,7 @@
                                 syn_expr_idx: 92,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 93,
                             },
                         ],

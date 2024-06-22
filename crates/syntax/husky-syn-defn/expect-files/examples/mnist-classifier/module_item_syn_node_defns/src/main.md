@@ -749,7 +749,7 @@
                                 syn_expr_idx: 18,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 19,
                             },
                         ],

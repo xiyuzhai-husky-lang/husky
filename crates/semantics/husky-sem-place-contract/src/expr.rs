@@ -240,7 +240,7 @@ fn root_contract(root_kind: SynExprRootKind) -> Option<Contract> {
         SynExprRootKind::ReturnType => None,
         SynExprRootKind::PropsStructFieldType { .. } => None,
         SynExprRootKind::TupleStructFieldType => None,
-        SynExprRootKind::BlockExpr => Some(Contract::Move),
+        SynExprRootKind::RootBody => Some(Contract::Move),
         SynExprRootKind::ReturnExpr => Some(Contract::Move),
         SynExprRootKind::StaticExpr => Some(Contract::Move),
         SynExprRootKind::Condition => todo!(),

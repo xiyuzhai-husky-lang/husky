@@ -586,7 +586,7 @@ impl<'a> SemExprBuilder<'a> {
                     self.infer_expr_term(sem_expr_idx);
                     sem_expr_idx
                 }
-                SynExprRootKind::BlockExpr
+                SynExprRootKind::RootBody
                 | SynExprRootKind::ValExpr
                 | SynExprRootKind::StaticExpr => match self.return_ty() {
                     Some(return_ty) => self.build_sem_expr(
