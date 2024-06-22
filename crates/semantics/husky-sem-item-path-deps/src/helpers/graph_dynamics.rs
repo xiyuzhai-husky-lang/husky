@@ -7,18 +7,18 @@ use ::graph_dynamics::{
 use husky_entity_path::path::{ItemPath, ItemPathId};
 
 #[salsa::interned(constructor = new)]
-pub struct SemItemPathCyclceGroupItd {
-    pub cycle_group: CycleGroup<SemItemPathGraphDepsScheme>,
+pub struct SemItemPathDepsCyclceGroupItd {
+    pub cycle_group: CycleGroup<SemItemPathDepsGraphDepsScheme>,
 }
 
-pub struct SemItemPathGraphDepsScheme;
+pub struct SemItemPathDepsGraphDepsScheme;
 
-impl IsGraphDepsScheme for SemItemPathGraphDepsScheme {
+impl IsGraphDepsScheme for SemItemPathDepsGraphDepsScheme {
     type Node = ItemPath;
 
     const CYCLE_GROUP_N: usize = 4;
 
-    type CycleGroupItd = SemItemPathCyclceGroupItd;
+    type CycleGroupItd = SemItemPathDepsCyclceGroupItd;
 }
 
 #[derive(Clone, Copy)]
@@ -27,7 +27,7 @@ struct SemItemPathGraphDepsContext<'db> {
 }
 
 impl<'db> IsGraphDepsContext<'db> for SemItemPathGraphDepsContext<'db> {
-    type Scheme = SemItemPathGraphDepsScheme;
+    type Scheme = SemItemPathDepsGraphDepsScheme;
 
     fn deps_cropped(self, node: ItemPath) -> impl IntoIterator<Item = ItemPath> {
         item_sem_item_path_deps(self.db, *node)
@@ -41,7 +41,7 @@ impl<'db> IsGraphDepsContext<'db> for SemItemPathGraphDepsContext<'db> {
         item_sem_item_path_full_deps_cropped(self.db, *node)
     }
 
-    fn cycle_group_itd(self, node: ItemPath) -> SemItemPathCyclceGroupItd {
+    fn cycle_group_itd(self, node: ItemPath) -> SemItemPathDepsCyclceGroupItd {
         item_sem_item_path_cycle_group_itd(self.db, *node)
     }
 }
@@ -74,10 +74,10 @@ fn item_sem_item_path_full_deps_cropped_works() {
 pub fn item_sem_item_path_cycle_group_itd(
     db: &::salsa::Db,
     node: ItemPathId,
-) -> SemItemPathCyclceGroupItd {
+) -> SemItemPathDepsCyclceGroupItd {
     let ctx = SemItemPathGraphDepsContext { db };
     let cycle_group = ctx.calc_cycle_group(node.item_path(db));
-    SemItemPathCyclceGroupItd::new(db, cycle_group)
+    SemItemPathDepsCyclceGroupItd::new(db, cycle_group)
 }
 
 #[test]

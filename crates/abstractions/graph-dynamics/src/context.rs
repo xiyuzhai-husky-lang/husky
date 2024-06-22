@@ -6,13 +6,13 @@ use crate::{
     final_values::calc_cycle_group_final_values,
 };
 
-pub trait IsGraphDynamicsScheme: IsGraphDepsScheme + 'static {
+pub trait IsGraphDynamicsScheme: 'static {
     type Value: Eq + std::fmt::Debug;
     const MAX_ITERATION: usize;
 }
 
 pub trait IsGraphDynamicsContext<'db>: Copy {
-    type DepsScheme: IsGraphDynamicsScheme;
+    type DepsScheme: IsGraphDepsScheme;
     type DynamicsScheme: IsGraphDynamicsScheme;
     /// crop deps that definitely are not going to form a cycle
     fn deps_cropped(

@@ -4,14 +4,14 @@ use husky_sem_expr::{
 };
 use vec_like::OrderedSmallVecSet;
 
-pub(crate) struct SemStaticMutDepsBuilder<'db> {
+pub(crate) struct SemStaticVarDepsBuilder<'db> {
     db: &'db ::salsa::Db,
     sem_expr_region_data: &'db SemExprRegionData,
     static_mut_deps_table: SemExprMap<OrderedSmallVecSet<(), 4>>,
 }
 
 /// # constructor
-impl<'db> SemStaticMutDepsBuilder<'db> {
+impl<'db> SemStaticVarDepsBuilder<'db> {
     fn new(db: &'db ::salsa::Db) -> Self {
         Self {
             db: todo!(),
@@ -22,16 +22,16 @@ impl<'db> SemStaticMutDepsBuilder<'db> {
 }
 
 /// # getters
-impl<'db> SemStaticMutDepsBuilder<'db> {}
+impl<'db> SemStaticVarDepsBuilder<'db> {}
 
 /// # actions
-impl<'db> SemStaticMutDepsBuilder<'db> {
+impl<'db> SemStaticVarDepsBuilder<'db> {
     fn finish(self) -> () {
         todo!()
     }
 }
 
-impl<'db> VisitSemExpr<'db> for SemStaticMutDepsBuilder<'db> {
+impl<'db> VisitSemExpr<'db> for SemStaticVarDepsBuilder<'db> {
     fn db(&self) -> &'db salsa::Db {
         self.db
     }
