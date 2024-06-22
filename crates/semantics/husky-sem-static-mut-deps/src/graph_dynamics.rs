@@ -53,7 +53,7 @@ impl<'db> IsGraphDynamicsContext<'db> for SemStaticMutDepsGraphDynamicsContext<'
         todo!()
     }
 
-    fn cycle_group_values(
+    fn cycle_group_final_values(
         self,
         cycle_group_itd: SemItemPathDepsCyclceGroupItd,
     ) -> PropagationResultRef<

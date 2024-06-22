@@ -106,7 +106,7 @@ where
         self.ctx.updated_value((**self.map)[idx].0, |node| {
             self.map
                 .get_value(node)
-                .unwrap_or_else(|| self.ctx.value(node).expect("todo: handle error"))
+                .unwrap_or_else(|| self.ctx.final_value(node).expect("todo: handle error"))
         })
     }
 }
