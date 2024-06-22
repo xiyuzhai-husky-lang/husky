@@ -2,16 +2,8 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::Add`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::num::isize`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::ops::Add`),
+            ItemPath(`core::num::isize`),
         ],
     ),
 )

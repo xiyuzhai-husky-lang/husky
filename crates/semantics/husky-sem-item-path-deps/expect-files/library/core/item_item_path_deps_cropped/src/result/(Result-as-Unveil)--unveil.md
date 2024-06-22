@@ -2,11 +2,7 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::result::Result`, `Enum`),
-                ),
-            ),
+            ItemPath(`core::result::Result`),
         ],
     ),
 )

@@ -1,11 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`ml_task::IsMlTask`),
-            ),
-        ),
+        ItemPath(`ml_task::IsMlTask`),
     ],
 )
 ```

@@ -2,23 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`quick_sort::quick_sort`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`quick_sort::quick_sort`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`quick_sort::quick_sort`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`quick_sort::quick_sort`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -461,23 +449,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`quick_sort::quick_sort_aux`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`quick_sort::quick_sort_aux`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -1130,23 +1106,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`quick_sort::partition`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`quick_sort::partition`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`quick_sort::partition`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`quick_sort::partition`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -1885,23 +1849,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`quick_sort::quick_sort_works_for_integers`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`quick_sort::quick_sort_works_for_integers`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -1953,23 +1905,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`quick_sort::quick_sort_works_for_strs`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`quick_sort::quick_sort_works_for_strs`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],

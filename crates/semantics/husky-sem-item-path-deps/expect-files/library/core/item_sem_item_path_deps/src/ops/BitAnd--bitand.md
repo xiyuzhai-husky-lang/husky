@@ -2,14 +2,7 @@
 Some(
     Ok(
         [
-            ItemPath::AssocItem(
-                AssocItemPath::TraitItem(
-                    TraitItemPath(
-                        `core::ops::BitAnd::Output`,
-                        TraitItemKind::AssocType,
-                    ),
-                ),
-            ),
+            ItemPath(`core::ops::BitAnd::Output`),
         ],
     ),
 )

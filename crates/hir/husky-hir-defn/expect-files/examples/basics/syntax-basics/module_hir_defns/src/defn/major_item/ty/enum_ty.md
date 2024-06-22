@@ -12,11 +12,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
-                                    ),
-                                ),
+                                ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -64,16 +60,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::TypeVariant(
-                                Room32,
-                                TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 10,
-                                        },
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::UnitVariant`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -132,16 +119,7 @@
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::TypeVariant(
-                                Room32,
-                                TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 11,
-                                        },
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithOneField`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -217,16 +195,7 @@
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::TypeVariant(
-                                Room32,
-                                TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 12,
-                                        },
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithTwoFields`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -297,16 +266,7 @@
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::TypeVariant(
-                                Room32,
-                                TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithOneField`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -373,16 +333,7 @@
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::TypeVariant(
-                                Room32,
-                                TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 14,
-                                        },
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithTwoFields`),
                         ),
                         expr_arena: Arena {
                             data: [],

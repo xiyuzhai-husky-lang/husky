@@ -2,16 +2,8 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::IntIndex`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist::BinaryGrid28`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::ops::IntIndex`),
+            ItemPath(`mnist::BinaryGrid28`),
         ],
     ),
 )

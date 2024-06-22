@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist::Task`, `TypeVar`),
-                ),
-            ),
+            ItemPath(`mnist::Task`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist::Task`, `TypeVar`),
-                    ),
-                ),
+                ItemPath(`mnist::Task`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -156,19 +148,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist::TASK`, `StaticVar`),
-                ),
-            ),
+            ItemPath(`mnist::TASK`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist::TASK`, `StaticVar`),
-                    ),
-                ),
+                ItemPath(`mnist::TASK`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],

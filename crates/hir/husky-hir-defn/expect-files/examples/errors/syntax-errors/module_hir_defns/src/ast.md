@@ -13,11 +13,7 @@
                         fields: [],
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`syntax_errors::ast::A`, `Struct`),
-                                    ),
-                                ),
+                                ItemPath(`syntax_errors::ast::A`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -62,11 +58,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::ImplBlock(
-                                ImplBlockPath::TypeImplBlock(
-                                    TypeImplBlockPath(`syntax_errors::ast::A(0)`),
-                                ),
-                            ),
+                            ItemPath(`syntax_errors::ast::A(0)`),
                         ),
                         expr_arena: Arena {
                             data: [],

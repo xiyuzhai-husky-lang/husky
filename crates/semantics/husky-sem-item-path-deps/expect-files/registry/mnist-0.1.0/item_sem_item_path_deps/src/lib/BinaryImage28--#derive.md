@@ -2,16 +2,8 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::fmt::Debug`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::clone::Clone`),
-                ),
-            ),
+            ItemPath(`core::fmt::Debug`),
+            ItemPath(`core::clone::Clone`),
         ],
     ),
 )

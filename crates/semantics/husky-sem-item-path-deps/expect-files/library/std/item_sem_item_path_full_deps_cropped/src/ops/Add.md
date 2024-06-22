@@ -1,11 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`std::ops::Add`),
-            ),
-        ),
+        ItemPath(`std::ops::Add`),
     ],
 )
 ```

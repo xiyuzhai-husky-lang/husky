@@ -1,11 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitOr`),
-            ),
-        ),
+        ItemPath(`core::ops::BitOr`),
     ],
 )
 ```

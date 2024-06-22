@@ -1,16 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 87,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`core::option::Option::Some`),
     ],
 )
 ```

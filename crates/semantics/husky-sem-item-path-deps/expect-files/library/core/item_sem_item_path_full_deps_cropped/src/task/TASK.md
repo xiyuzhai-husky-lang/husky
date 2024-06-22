@@ -1,16 +1,8 @@
 ```rust
 Some(
     [
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`core::task::TASK`, `StaticVar`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`core::task::Task`, `TypeVar`),
-            ),
-        ),
+        ItemPath(`core::task::TASK`),
+        ItemPath(`core::task::Task`),
     ],
 )
 ```

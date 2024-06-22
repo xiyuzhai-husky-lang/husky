@@ -3,16 +3,7 @@ Some(
     SemItemPathCyclceGroupItd {
         cycle_group: CycleGroup {
             nodes: [
-                ItemPath::AssocItem(
-                    AssocItemPath::TraitItem(
-                        TraitItemPath(
-                            `core::ops::Unveil::unveil`,
-                            TraitItemKind::AssocRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`core::ops::Unveil::unveil`),
             ],
         },
     },

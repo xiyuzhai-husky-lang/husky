@@ -1,16 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 10,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::UnitVariant`),
     ],
 )
 ```

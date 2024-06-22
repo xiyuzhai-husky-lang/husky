@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::bool`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::bool`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Type(
@@ -22,11 +18,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::never`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::never`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Type(
@@ -43,11 +35,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::unit`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::unit`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Type(
@@ -64,11 +52,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::Trait`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::Trait`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Type(
@@ -85,11 +69,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::Module`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::Module`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Type(
@@ -106,11 +86,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::Lifetime`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::Lifetime`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Type(
@@ -127,11 +103,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::Place`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::Place`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Type(
@@ -148,11 +120,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::Universe`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::Universe`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Type(

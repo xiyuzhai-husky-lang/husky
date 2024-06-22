@@ -1,21 +1,9 @@
 ```rust
 Some(
     [
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist_classifier::geom2d::Vector2d(0)`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::num::f32`, `Extern`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::geom2d::Vector2d(0)`),
+        ItemPath(`mnist_classifier::geom2d::Vector2d`),
+        ItemPath(`core::num::f32`),
     ],
 )
 ```

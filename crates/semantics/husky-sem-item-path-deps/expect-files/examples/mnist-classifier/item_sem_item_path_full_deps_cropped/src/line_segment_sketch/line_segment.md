@@ -1,10 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist_classifier::line_segment_sketch::line_segment),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::line_segment`),
     ],
 )
 ```

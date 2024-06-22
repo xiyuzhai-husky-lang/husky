@@ -1,35 +1,12 @@
 ```rust
 Some(
     [
-        ItemPath::Attr(
-            Room32,
-            AttrItemPath(`core::num::i8::@derive(0)`),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::fmt::Debug`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::cmp::PartialEq`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::cmp::Eq`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::clone::Clone`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::marker::Copy`),
-            ),
-        ),
+        ItemPath(`core::num::i8::@derive(0)`),
+        ItemPath(`core::fmt::Debug`),
+        ItemPath(`core::cmp::PartialEq`),
+        ItemPath(`core::cmp::Eq`),
+        ItemPath(`core::clone::Clone`),
+        ItemPath(`core::marker::Copy`),
     ],
 )
 ```

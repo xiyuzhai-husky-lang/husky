@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::str::str`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::str::str`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::str::str`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::str::str`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -68,19 +60,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::str::StringLiteral`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::str::StringLiteral`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::str::StringLiteral`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::str::StringLiteral`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],

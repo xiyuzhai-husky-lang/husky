@@ -14,11 +14,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Form(
-                                    FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::digits::zero::open_one_match`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -125,11 +121,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Form(
-                                    FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::digits::zero::is_zero`),
                         ),
                         expr_arena: Arena {
                             data: [],

@@ -2,33 +2,10 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::cmp::Ord`),
-                ),
-            ),
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `core::slice::Slice(0)::len`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::num::isize`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::cmp::Ord`),
+            ItemPath(`core::slice::Slice(0)::len`),
+            ItemPath(`quick_sort::quick_sort_aux`),
+            ItemPath(`core::num::isize`),
         ],
     ),
 )

@@ -1,21 +1,8 @@
 ```rust
 Some(
     [
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<core::num::u128 as core::ops::Add(0)>::add`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::num::u128`, `Extern`),
-            ),
-        ),
+        ItemPath(`<core::num::u128 as core::ops::Add(0)>::add`),
+        ItemPath(`core::num::u128`),
     ],
 )
 ```

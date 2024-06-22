@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::one::one_fermi_match`),
         Some(
             ItemSynDefn {
                 body: 7,
@@ -368,11 +364,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::one::is_one`),
         Some(
             ItemSynDefn {
                 body: 248,
@@ -6267,13 +6259,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::one::upmost`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::one::upmost`),
         Some(
             ItemSynDefn {
                 body: 8,
@@ -6749,13 +6735,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::one::downmost`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::one::downmost`),
         Some(
             ItemSynDefn {
                 body: 10,
@@ -7258,13 +7238,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::one::hat`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::one::hat`),
         Some(
             ItemSynDefn {
                 body: 16,

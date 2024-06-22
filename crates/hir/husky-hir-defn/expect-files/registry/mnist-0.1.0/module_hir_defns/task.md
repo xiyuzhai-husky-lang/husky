@@ -16,11 +16,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Form(
-                                        FormPath(`mnist::TASK`, `StaticVar`),
-                                    ),
-                                ),
+                                ItemPath(`mnist::TASK`),
                             ),
                             expr_arena: Arena {
                                 data: [],

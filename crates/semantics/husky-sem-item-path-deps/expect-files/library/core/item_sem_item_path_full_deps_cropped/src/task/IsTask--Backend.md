@@ -1,14 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::task::IsTask::Backend`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`core::task::IsTask::Backend`),
     ],
 )
 ```

@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::seven::simple_seven_match`),
         Some(
             ItemSynDefn {
                 body: 5,
@@ -294,13 +290,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`),
         Some(
             ItemSynDefn {
                 body: 9,
@@ -783,11 +773,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::seven::special_seven_match`),
         Some(
             ItemSynDefn {
                 body: 6,
@@ -1113,13 +1099,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::seven::leftupcc_pattern`),
         Some(
             ItemSynDefn {
                 body: 14,
@@ -1693,13 +1673,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::seven::leftdowncc_pattern`),
         Some(
             ItemSynDefn {
                 body: 19,
@@ -2428,11 +2402,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::seven::is_seven`),
         Some(
             ItemSynDefn {
                 body: 56,

@@ -1,10 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist_classifier::geom2d),
-        ),
+        ItemPath(`mnist_classifier::geom2d`),
     ],
 )
 ```

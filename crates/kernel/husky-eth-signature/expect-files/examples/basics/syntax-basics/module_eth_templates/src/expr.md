@@ -1,13 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`syntax_basics::expr::nested`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`syntax_basics::expr::nested`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Form(
@@ -35,13 +29,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`syntax_basics::expr::closure_inline`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Form(
@@ -69,13 +57,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`syntax_basics::expr::closure_nested`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Form(

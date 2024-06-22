@@ -1,16 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::BitAndAssign::bitand_assign`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::BitAndAssign::bitand_assign`),
     ],
 )
 ```

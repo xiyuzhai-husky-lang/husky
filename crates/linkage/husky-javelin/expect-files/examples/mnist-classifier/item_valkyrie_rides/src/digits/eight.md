@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::eight::upper_mouth_match`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -67,11 +63,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::eight::is_eight`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -80,13 +72,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::eight::big_mouth`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(

@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
-                ),
-            ),
+            ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
-                    ),
-                ),
+                ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],

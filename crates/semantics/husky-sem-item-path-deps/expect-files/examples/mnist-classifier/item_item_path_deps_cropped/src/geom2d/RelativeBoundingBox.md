@@ -2,11 +2,7 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::geom2d::ClosedRange`),
         ],
     ),
 )

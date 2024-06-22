@@ -12,11 +12,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::str::str`, `Extern`),
-                                    ),
-                                ),
+                                ItemPath(`core::str::str`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -56,11 +52,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::str::StringLiteral`, `Extern`),
-                                    ),
-                                ),
+                                ItemPath(`core::str::StringLiteral`),
                             ),
                             expr_arena: Arena {
                                 data: [],

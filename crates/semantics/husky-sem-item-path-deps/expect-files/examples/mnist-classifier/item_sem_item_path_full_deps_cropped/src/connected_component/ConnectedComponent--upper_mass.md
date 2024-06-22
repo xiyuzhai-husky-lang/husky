@@ -1,19 +1,8 @@
 ```rust
 Some(
     [
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::num::f32`, `Extern`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`),
+        ItemPath(`core::num::f32`),
     ],
 )
 ```

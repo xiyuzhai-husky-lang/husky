@@ -3,16 +3,7 @@ Some(
     SemItemPathCyclceGroupItd {
         cycle_group: CycleGroup {
             nodes: [
-                ItemPath::TypeVariant(
-                    Room32,
-                    TypeVariantPath(
-                        ItemPathId(
-                            Id {
-                                value: 19,
-                            },
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::raw_contour::Direction::Down`),
             ],
         },
     },

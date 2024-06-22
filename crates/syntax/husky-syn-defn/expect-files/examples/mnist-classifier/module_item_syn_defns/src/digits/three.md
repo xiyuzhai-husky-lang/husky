@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::three::three_fermi_match`),
         Some(
             ItemSynDefn {
                 body: 7,
@@ -368,11 +364,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::three::is_three`),
         Some(
             ItemSynDefn {
                 body: 65,
@@ -2396,13 +2388,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::three::uparc`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::three::uparc`),
         Some(
             ItemSynDefn {
                 body: 12,
@@ -2955,13 +2941,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::three::downarc`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::three::downarc`),
         Some(
             ItemSynDefn {
                 body: 12,
@@ -3514,13 +3494,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::three::back`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::three::back`),
         Some(
             ItemSynDefn {
                 body: 12,

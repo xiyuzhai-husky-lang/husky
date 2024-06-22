@@ -2,16 +2,8 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::fmt::Debug`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::visual::Visualize`),
-                ),
-            ),
+            ItemPath(`core::fmt::Debug`),
+            ItemPath(`core::visual::Visualize`),
         ],
     ),
 )

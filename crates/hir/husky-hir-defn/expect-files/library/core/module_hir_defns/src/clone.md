@@ -11,11 +11,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::clone::Clone`),
-                                ),
-                            ),
+                            ItemPath(`core::clone::Clone`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -59,11 +55,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::ImplBlock(
-                                ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlockPath(`#derive _ as core::clone::Clone(0)`),
-                                ),
-                            ),
+                            ItemPath(`#derive _ as core::clone::Clone(0)`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -124,16 +116,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::AssocItem(
-                                    AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            `<#derive _ as core::clone::Clone(0)>::clone`,
-                                            TraitItemKind::MethodRitchie(
-                                                RitchieItemKind::Fn,
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                                ItemPath(`<#derive _ as core::clone::Clone(0)>::clone`),
                             ),
                             expr_arena: Arena {
                                 data: [],

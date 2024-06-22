@@ -1,39 +1,23 @@
 ```rust
 [
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist_classifier::line_segment_sketch::concave_component),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::concave_component`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist_classifier::line_segment_sketch::convex_component),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::convex_component`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist_classifier::line_segment_sketch::convexity),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::convexity`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist_classifier::line_segment_sketch::line_segment),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::line_segment`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -158,11 +142,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -175,13 +155,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::go_right`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -194,13 +168,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::go_left`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -213,13 +181,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::extend_end`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -272,13 +234,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::extend_start`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -331,13 +287,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::find_line_segments`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -830,11 +780,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -847,16 +793,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -869,11 +806,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -886,16 +819,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`,
-                    TypeItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -948,16 +872,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -970,11 +885,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -987,16 +898,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -1009,11 +911,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -1026,14 +924,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -1042,14 +933,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -1098,16 +982,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`,
-                    TypeItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(

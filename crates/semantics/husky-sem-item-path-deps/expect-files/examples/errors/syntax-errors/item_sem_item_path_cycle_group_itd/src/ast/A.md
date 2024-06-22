@@ -3,11 +3,7 @@ Some(
     SemItemPathCyclceGroupItd {
         cycle_group: CycleGroup {
             nodes: [
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`syntax_errors::ast::A`, `Struct`),
-                    ),
-                ),
+                ItemPath(`syntax_errors::ast::A`),
             ],
         },
     },

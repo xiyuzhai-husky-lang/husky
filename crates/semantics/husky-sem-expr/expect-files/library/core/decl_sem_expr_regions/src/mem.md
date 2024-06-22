@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::mem::Ref`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::mem::Ref`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::mem::Ref`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::mem::Ref`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -102,19 +94,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::mem::RefMut`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::mem::RefMut`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::mem::RefMut`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::mem::RefMut`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -202,19 +186,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::mem::Leash`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::mem::Leash`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::mem::Leash`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::mem::Leash`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -286,19 +262,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::mem::At`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::mem::At`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::mem::At`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::mem::At`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -386,19 +354,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath(`core::mem::Leash as core::marker::Copy(0)`),
-                ),
-            ),
+            ItemPath(`core::mem::Leash as core::marker::Copy(0)`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::ImplBlock(
-                    ImplBlockPath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(`core::mem::Leash as core::marker::Copy(0)`),
-                    ),
-                ),
+                ItemPath(`core::mem::Leash as core::marker::Copy(0)`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],

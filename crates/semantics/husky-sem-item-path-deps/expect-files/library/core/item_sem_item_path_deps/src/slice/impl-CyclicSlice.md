@@ -2,11 +2,7 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::slice::CyclicSlice`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::slice::CyclicSlice`),
         ],
     ),
 )

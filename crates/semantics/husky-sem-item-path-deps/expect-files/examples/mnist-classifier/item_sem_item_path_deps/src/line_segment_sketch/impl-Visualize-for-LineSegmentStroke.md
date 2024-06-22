@@ -2,16 +2,8 @@
 Some(
     Ok(
         [
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::visual::Visualize`),
-                ),
-            ),
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                ),
-            ),
+            ItemPath(`core::visual::Visualize`),
+            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
         ],
     ),
 )

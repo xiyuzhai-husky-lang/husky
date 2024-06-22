@@ -1,44 +1,19 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::option::Option`, `Enum`),
-            ),
-        ),
+        ItemPath(`core::option::Option`),
         None,
     ),
     (
-        ItemPath::Attr(
-            Room32,
-            AttrItemPath(`core::option::Option::@derive(0)`),
-        ),
+        ItemPath(`core::option::Option::@derive(0)`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 87,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`core::option::Option::Some`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 88,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`core::option::Option::None`),
         None,
     ),
 ]

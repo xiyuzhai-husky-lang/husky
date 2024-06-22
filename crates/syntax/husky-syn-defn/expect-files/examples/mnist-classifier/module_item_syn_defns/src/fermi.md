@@ -1,21 +1,11 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::fermi::FermiMatchResult`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::fermi::fermi_match`),
         Some(
             ItemSynDefn {
                 body: 24,
@@ -1171,22 +1161,11 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
         Some(
             ItemSynDefn {
                 body: 17,
@@ -1891,14 +1870,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`),
         Some(
             ItemSynDefn {
                 body: 17,
@@ -2603,14 +2575,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`),
         Some(
             ItemSynDefn {
                 body: 18,

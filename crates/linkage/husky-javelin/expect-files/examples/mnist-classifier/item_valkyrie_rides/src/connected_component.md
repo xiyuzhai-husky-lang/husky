@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -18,11 +14,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::EffHoles`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -35,13 +27,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::hole_tmpl`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -54,11 +40,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -71,13 +53,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -90,13 +66,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::find_connected_components`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -197,11 +167,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -214,16 +180,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)>::visualize`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)>::visualize`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -236,11 +193,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -253,14 +206,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -269,14 +215,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -474,14 +413,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -569,14 +501,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -585,14 +510,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -601,14 +519,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::connected_component::ConnectedComponent(0)::distribution`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -617,14 +528,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -633,14 +537,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -649,16 +546,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -671,16 +559,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(

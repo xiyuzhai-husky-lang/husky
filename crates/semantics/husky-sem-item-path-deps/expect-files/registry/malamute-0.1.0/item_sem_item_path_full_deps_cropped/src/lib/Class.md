@@ -1,11 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`malamute::Class`, `Enum`),
-            ),
-        ),
+        ItemPath(`malamute::Class`),
     ],
 )
 ```

@@ -1,56 +1,12 @@
 ```rust
 Some(
     [
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<malamute::Class as core::ops::Unveil(0)>::unveil`,
-                    TraitItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`malamute::OneVsAll`, `Enum`),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::ops::ControlFlow`, `Enum`),
-            ),
-        ),
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 112,
-                    },
-                ),
-            ),
-        ),
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 2,
-                    },
-                ),
-            ),
-        ),
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 111,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
+        ItemPath(`malamute::OneVsAll`),
+        ItemPath(`core::ops::ControlFlow`),
+        ItemPath(`core::ops::ControlFlow::Break`),
+        ItemPath(`malamute::Class::Known`),
+        ItemPath(`core::ops::ControlFlow::Continue`),
     ],
 )
 ```

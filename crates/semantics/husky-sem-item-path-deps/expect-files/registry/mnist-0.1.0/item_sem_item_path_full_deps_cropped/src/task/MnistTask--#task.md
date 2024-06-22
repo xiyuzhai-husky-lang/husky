@@ -1,10 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath::Attr(
-            Room32,
-            AttrItemPath(`mnist::task::MnistTask::@task(0)`),
-        ),
+        ItemPath(`mnist::task::MnistTask::@task(0)`),
     ],
 )
 ```

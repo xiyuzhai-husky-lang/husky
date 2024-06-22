@@ -12,11 +12,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::basic::bool`, `Extern`),
-                                    ),
-                                ),
+                                ItemPath(`core::basic::bool`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -56,11 +52,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::basic::never`, `Extern`),
-                                    ),
-                                ),
+                                ItemPath(`core::basic::never`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -100,11 +92,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::basic::unit`, `Extern`),
-                                    ),
-                                ),
+                                ItemPath(`core::basic::unit`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -144,11 +132,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::basic::Trait`, `Extern`),
-                                    ),
-                                ),
+                                ItemPath(`core::basic::Trait`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -188,11 +172,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::basic::Module`, `Extern`),
-                                    ),
-                                ),
+                                ItemPath(`core::basic::Module`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -232,11 +212,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::basic::Lifetime`, `Extern`),
-                                    ),
-                                ),
+                                ItemPath(`core::basic::Lifetime`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -276,11 +252,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::basic::Place`, `Extern`),
-                                    ),
-                                ),
+                                ItemPath(`core::basic::Place`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -320,11 +292,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::basic::Universe`, `Extern`),
-                                    ),
-                                ),
+                                ItemPath(`core::basic::Universe`),
                             ),
                             expr_arena: Arena {
                                 data: [],

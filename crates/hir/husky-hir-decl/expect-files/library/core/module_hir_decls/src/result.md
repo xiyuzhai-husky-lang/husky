@@ -41,11 +41,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`core::result::Result`, `Enum`),
-                                ),
-                            ),
+                            ItemPath(`core::result::Result`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -128,16 +124,7 @@
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::TypeVariant(
-                            Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 91,
-                                    },
-                                ),
-                            ),
-                        ),
+                        ItemPath(`core::result::Result::Ok`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -219,16 +206,7 @@
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::TypeVariant(
-                            Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 92,
-                                    },
-                                ),
-                            ),
-                        ),
+                        ItemPath(`core::result::Result::Err`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -422,11 +400,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::ImplBlock(
-                            ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath(`core::result::Result as core::ops::Unveil(0)`),
-                            ),
-                        ),
+                        ItemPath(`core::result::Result as core::ops::Unveil(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -535,14 +509,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TraitForTypeItem(
-                                    TraitForTypeItemPath(
-                                        `<core::result::Result as core::ops::Unveil(0)>::Continue`,
-                                        TraitItemKind::AssocType,
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -713,16 +680,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TraitForTypeItem(
-                                    TraitForTypeItemPath(
-                                        `<core::result::Result as core::ops::Unveil(0)>::unveil`,
-                                        TraitItemKind::AssocRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`),
                         ),
                         expr_arena: Arena {
                             data: [],

@@ -3,11 +3,7 @@ Some(
     SemItemPathCyclceGroupItd {
         cycle_group: CycleGroup {
             nodes: [
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::four::components_max_heights`),
             ],
         },
     },

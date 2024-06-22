@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::task::IsTask`),
-                ),
-            ),
+            ItemPath(`core::task::IsTask`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::task::IsTask`),
-                    ),
-                ),
+                ItemPath(`core::task::IsTask`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -68,19 +60,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`core::task::Task`, `TypeVar`),
-                ),
-            ),
+            ItemPath(`core::task::Task`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`core::task::Task`, `TypeVar`),
-                    ),
-                ),
+                ItemPath(`core::task::Task`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -132,19 +116,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`core::task::TASK`, `StaticVar`),
-                ),
-            ),
+            ItemPath(`core::task::TASK`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`core::task::TASK`, `StaticVar`),
-                    ),
-                ),
+                ItemPath(`core::task::TASK`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],

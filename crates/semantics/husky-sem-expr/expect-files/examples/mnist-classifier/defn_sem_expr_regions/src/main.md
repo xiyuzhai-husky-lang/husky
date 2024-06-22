@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::main`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::main`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::main`, `Val`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::main`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -34,11 +26,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::digits::one::is_one`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -92,11 +80,7 @@
                                             TraitItemKind::AssocType,
                                         ),
                                         instantiation: EthInstantiation {
-                                            path: ItemPath::ImplBlock(
-                                                ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -157,11 +141,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::digits::six::is_six`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -215,11 +195,7 @@
                                             TraitItemKind::AssocType,
                                         ),
                                         instantiation: EthInstantiation {
-                                            path: ItemPath::ImplBlock(
-                                                ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -280,11 +256,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::digits::zero::is_zero`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -338,11 +310,7 @@
                                             TraitItemKind::AssocType,
                                         ),
                                         instantiation: EthInstantiation {
-                                            path: ItemPath::ImplBlock(
-                                                ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -403,11 +371,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::digits::seven::is_seven`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -461,11 +425,7 @@
                                             TraitItemKind::AssocType,
                                         ),
                                         instantiation: EthInstantiation {
-                                            path: ItemPath::ImplBlock(
-                                                ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -526,11 +486,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::digits::eight::is_eight`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -584,11 +540,7 @@
                                             TraitItemKind::AssocType,
                                         ),
                                         instantiation: EthInstantiation {
-                                            path: ItemPath::ImplBlock(
-                                                ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -649,11 +601,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::digits::three::is_three`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -707,11 +655,7 @@
                                             TraitItemKind::AssocType,
                                         ),
                                         instantiation: EthInstantiation {
-                                            path: ItemPath::ImplBlock(
-                                                ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -772,11 +716,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::digits::nine::is_nine`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -830,11 +770,7 @@
                                             TraitItemKind::AssocType,
                                         ),
                                         instantiation: EthInstantiation {
-                                            path: ItemPath::ImplBlock(
-                                                ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -895,11 +831,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::digits::five::is_five`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -953,11 +885,7 @@
                                             TraitItemKind::AssocType,
                                         ),
                                         instantiation: EthInstantiation {
-                                            path: ItemPath::ImplBlock(
-                                                ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -1018,11 +946,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::digits::two::is_two`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -1076,11 +1000,7 @@
                                             TraitItemKind::AssocType,
                                         ),
                                         instantiation: EthInstantiation {
-                                            path: ItemPath::ImplBlock(
-                                                ImplBlockPath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -1145,16 +1065,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::TypeVariant(
-                                                Room32,
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 263,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            path: ItemPath(`malamute::Class::Unknown`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),

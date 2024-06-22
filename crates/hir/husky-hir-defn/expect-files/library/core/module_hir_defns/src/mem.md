@@ -46,11 +46,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::mem::Ref`, `Extern`),
-                                    ),
-                                ),
+                                ItemPath(`core::mem::Ref`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -159,11 +155,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::mem::RefMut`, `Extern`),
-                                    ),
-                                ),
+                                ItemPath(`core::mem::RefMut`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -256,11 +248,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::mem::Leash`, `Extern`),
-                                    ),
-                                ),
+                                ItemPath(`core::mem::Leash`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -348,11 +336,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::mem::At`, `Extern`),
-                                    ),
-                                ),
+                                ItemPath(`core::mem::At`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -460,11 +444,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::ImplBlock(
-                                ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlockPath(`core::mem::Leash as core::marker::Copy(0)`),
-                                ),
-                            ),
+                            ItemPath(`core::mem::Leash as core::marker::Copy(0)`),
                         ),
                         expr_arena: Arena {
                             data: [],

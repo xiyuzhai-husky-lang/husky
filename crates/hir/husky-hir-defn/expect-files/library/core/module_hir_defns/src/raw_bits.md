@@ -12,11 +12,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::raw_bits::r32`, `Extern`),
-                                    ),
-                                ),
+                                ItemPath(`core::raw_bits::r32`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -61,11 +57,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::ImplBlock(
-                                ImplBlockPath::TypeImplBlock(
-                                    TypeImplBlockPath(`core::raw_bits::r32(0)`),
-                                ),
-                            ),
+                            ItemPath(`core::raw_bits::r32(0)`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -146,16 +138,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::AssocItem(
-                                    AssocItemPath::TypeItem(
-                                        TypeItemPath(
-                                            `core::raw_bits::r32(0)::last_bits`,
-                                            TypeItemKind::MethodRitchie(
-                                                RitchieItemKind::Fn,
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                                ItemPath(`core::raw_bits::r32(0)::last_bits`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -247,16 +230,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::AssocItem(
-                                    AssocItemPath::TypeItem(
-                                        TypeItemPath(
-                                            `core::raw_bits::r32(0)::ctz`,
-                                            TypeItemKind::MethodRitchie(
-                                                RitchieItemKind::Fn,
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                                ItemPath(`core::raw_bits::r32(0)::ctz`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -334,16 +308,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::AssocItem(
-                                    AssocItemPath::TypeItem(
-                                        TypeItemPath(
-                                            `core::raw_bits::r32(0)::co`,
-                                            TypeItemKind::MethodRitchie(
-                                                RitchieItemKind::Fn,
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                                ItemPath(`core::raw_bits::r32(0)::co`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -421,16 +386,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::AssocItem(
-                                    AssocItemPath::TypeItem(
-                                        TypeItemPath(
-                                            `core::raw_bits::r32(0)::span`,
-                                            TypeItemKind::MethodRitchie(
-                                                RitchieItemKind::Fn,
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                                ItemPath(`core::raw_bits::r32(0)::span`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -508,16 +464,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::AssocItem(
-                                    AssocItemPath::TypeItem(
-                                        TypeItemPath(
-                                            `core::raw_bits::r32(0)::right_mass`,
-                                            TypeItemKind::MethodRitchie(
-                                                RitchieItemKind::Fn,
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                                ItemPath(`core::raw_bits::r32(0)::right_mass`),
                             ),
                             expr_arena: Arena {
                                 data: [],

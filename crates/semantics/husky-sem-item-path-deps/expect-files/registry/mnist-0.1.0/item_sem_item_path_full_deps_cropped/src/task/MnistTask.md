@@ -1,11 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist::task::MnistTask`, `Extern`),
-            ),
-        ),
+        ItemPath(`mnist::task::MnistTask`),
     ],
 )
 ```

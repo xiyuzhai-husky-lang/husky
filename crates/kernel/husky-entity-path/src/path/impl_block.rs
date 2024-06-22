@@ -117,3 +117,16 @@ impl ImplBlockRegistry {
         new_disambiguitor
     }
 }
+
+impl ::salsa::DisplayWithDb for ImplBlockPath {
+    fn display_fmt_with_db(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &salsa::Db,
+    ) -> std::fmt::Result {
+        match self {
+            ImplBlockPath::TypeImplBlock(slf) => slf.display_fmt_with_db(f, db),
+            ImplBlockPath::TraitForTypeImplBlock(slf) => slf.display_fmt_with_db(f, db),
+        }
+    }
+}

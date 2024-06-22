@@ -59,11 +59,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Form(
-                                    FormPath(`mnist_classifier::main`, `Val`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::main`),
                         ),
                         expr_arena: Arena {
                             data: [],

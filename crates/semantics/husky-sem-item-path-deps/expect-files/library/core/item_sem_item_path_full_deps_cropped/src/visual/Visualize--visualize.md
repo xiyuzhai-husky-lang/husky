@@ -1,21 +1,8 @@
 ```rust
 Some(
     [
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::visual::Visualize::visualize`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::visual::Visual`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::visual::Visualize::visualize`),
+        ItemPath(`core::visual::Visual`),
     ],
 )
 ```

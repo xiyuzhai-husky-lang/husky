@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::seven::simple_seven_match`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::seven::simple_seven_match`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -156,23 +148,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -570,19 +550,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::seven::special_seven_match`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::seven::special_seven_match`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -724,23 +696,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::seven::leftupcc_pattern`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::seven::leftupcc_pattern`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -1138,23 +1098,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::seven::leftdowncc_pattern`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::seven::leftdowncc_pattern`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -1552,19 +1500,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::seven::is_seven`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::seven::is_seven`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -1685,16 +1625,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::TypeVariant(
-                                                Room32,
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 284,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist::MnistLabel::Seven`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),

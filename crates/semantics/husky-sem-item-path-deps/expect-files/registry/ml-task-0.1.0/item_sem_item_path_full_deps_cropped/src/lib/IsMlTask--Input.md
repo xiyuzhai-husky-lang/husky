@@ -1,14 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `ml_task::IsMlTask::Input`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`ml_task::IsMlTask::Input`),
     ],
 )
 ```

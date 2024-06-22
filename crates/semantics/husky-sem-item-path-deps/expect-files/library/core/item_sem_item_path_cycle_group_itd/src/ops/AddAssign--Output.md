@@ -3,14 +3,7 @@ Some(
     SemItemPathCyclceGroupItd {
         cycle_group: CycleGroup {
             nodes: [
-                ItemPath::AssocItem(
-                    AssocItemPath::TraitItem(
-                        TraitItemPath(
-                            `core::ops::AddAssign::Output`,
-                            TraitItemKind::AssocType,
-                        ),
-                    ),
-                ),
+                ItemPath(`core::ops::AddAssign::Output`),
             ],
         },
     },

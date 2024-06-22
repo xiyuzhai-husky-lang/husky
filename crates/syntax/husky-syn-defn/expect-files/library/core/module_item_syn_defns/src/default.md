@@ -1,24 +1,11 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::default::Default`),
-            ),
-        ),
+        ItemPath(`core::default::Default`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::default::Default::default`,
-                    TraitItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::default::Default::default`),
         None,
     ),
 ]

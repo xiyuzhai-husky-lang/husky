@@ -56,11 +56,7 @@
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -165,11 +161,7 @@
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::connected_component::EffHoles`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -292,11 +284,7 @@
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -463,11 +451,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::ImplBlock(
-                            ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)`),
-                            ),
-                        ),
+                        ItemPath(`mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -528,16 +512,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TraitForTypeItem(
-                                    TraitForTypeItemPath(
-                                        `<mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)>::visualize`,
-                                        TraitItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`<mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)>::visualize`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -587,11 +562,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::ImplBlock(
-                            ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
-                            ),
-                        ),
+                        ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -644,14 +615,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
-                                        TypeItemKind::MemoizedField,
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -702,14 +666,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
-                                        TypeItemKind::MemoizedField,
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -760,14 +717,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`,
-                                        TypeItemKind::MemoizedField,
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -818,14 +768,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`,
-                                        TypeItemKind::MemoizedField,
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -876,14 +819,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
-                                        TypeItemKind::MemoizedField,
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -934,14 +870,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::connected_component::ConnectedComponent(0)::distribution`,
-                                        TypeItemKind::MemoizedField,
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -992,14 +921,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
-                                        TypeItemKind::MemoizedField,
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1050,14 +972,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
-                                        TypeItemKind::MemoizedField,
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1138,16 +1053,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1242,16 +1148,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
                         ),
                         expr_arena: Arena {
                             data: [],

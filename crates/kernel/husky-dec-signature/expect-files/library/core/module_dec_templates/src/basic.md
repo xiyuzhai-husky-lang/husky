@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::bool`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::bool`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -21,11 +17,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::never`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::never`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -41,11 +33,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::unit`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::unit`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -61,11 +49,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::Trait`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::Trait`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -81,11 +65,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::Module`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::Module`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -101,11 +81,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::Lifetime`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::Lifetime`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -121,11 +97,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::Place`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::Place`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -141,11 +113,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::Universe`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::Universe`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(

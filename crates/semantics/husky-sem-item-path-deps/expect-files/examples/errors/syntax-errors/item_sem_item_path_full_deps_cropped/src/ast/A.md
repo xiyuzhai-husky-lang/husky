@@ -1,11 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`syntax_errors::ast::A`, `Struct`),
-            ),
-        ),
+        ItemPath(`syntax_errors::ast::A`),
     ],
 )
 ```

@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::mem::Ref`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::mem::Ref`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Type(
@@ -37,11 +33,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::mem::RefMut`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::mem::RefMut`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Type(
@@ -73,11 +65,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::mem::Leash`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::mem::Leash`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Type(
@@ -102,11 +90,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::mem::At`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::mem::At`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Type(
@@ -134,11 +118,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`core::mem::Leash as core::marker::Copy(0)`),
-            ),
-        ),
+        ItemPath(`core::mem::Leash as core::marker::Copy(0)`),
         Ok(
             ItemEthTemplate::ImplBlock(
                 ImplBlockEthTemplate::TraitForTypeImpl(

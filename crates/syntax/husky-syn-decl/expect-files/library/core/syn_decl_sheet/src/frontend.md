@@ -2,11 +2,7 @@
 SynDeclSheet {
     decls: [
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::frontend::IsFrontend`),
-                ),
-            ),
+            ItemPath(`core::frontend::IsFrontend`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -82,11 +78,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::frontend::Cv2dFrontend`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::frontend::Cv2dFrontend`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
@@ -164,11 +156,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::frontend::Cv3dFrontend`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::frontend::Cv3dFrontend`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
@@ -246,11 +234,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::frontend::NlpFrontend`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::frontend::NlpFrontend`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
@@ -328,11 +312,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::frontend::Rl2dFrontend`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::frontend::Rl2dFrontend`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(

@@ -3,14 +3,7 @@ Some(
     SemItemPathCyclceGroupItd {
         cycle_group: CycleGroup {
             nodes: [
-                ItemPath::AssocItem(
-                    AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            `<malamute::Class as core::ops::Unveil(0)>::Output`,
-                            TraitItemKind::AssocType,
-                        ),
-                    ),
-                ),
+                ItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`),
             ],
         },
     },
