@@ -54,7 +54,8 @@ impl<'db> IsGraphDepsContext<'db> for LinearGraphContext<'db> {
 }
 
 impl<'db> IsGraphDynamicsContext<'db> for LinearGraphContext<'db> {
-    type Scheme = LinearGraphScheme;
+    type DepsScheme = LinearGraphScheme;
+    type DynamicsScheme = LinearGraphScheme;
 
     fn deps_cropped(self, node: LinearGraphNode) -> impl IntoIterator<Item = LinearGraphNode> {
         <Self as IsGraphDepsContext<'db>>::deps_cropped(self, node)
@@ -89,7 +90,7 @@ impl<'db> IsGraphDynamicsContext<'db> for LinearGraphContext<'db> {
     fn cycle_group_values(
         self,
         cycle_group_itd: LinearGraphCycleGroupItd,
-    ) -> PropagationResultRef<'db, &'db CycleGroupMap<LinearGraphScheme>> {
+    ) -> PropagationResultRef<'db, &'db CycleGroupMap<LinearGraphScheme, usize>> {
         linear_graph_cycle_group_final_values(self.db, cycle_group_itd).as_ref()
     }
 }
@@ -117,7 +118,7 @@ pub struct LinearGraphCycleGroupItd {
 pub fn linear_graph_cycle_group_final_values(
     db: &::salsa::Db,
     cycle_group_itd: LinearGraphCycleGroupItd,
-) -> PropagationResult<CycleGroupMap<LinearGraphScheme>> {
+) -> PropagationResult<CycleGroupMap<LinearGraphScheme, usize>> {
     let ctx = LinearGraphContext {
         db,
         len: cycle_group_itd.len(db),

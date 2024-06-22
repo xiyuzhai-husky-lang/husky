@@ -6133,6 +6133,7 @@ version = "0.1.0"
 name = "husky-sem-item-path-deps"
 version = "0.1.0"
 dependencies = [
+ "graph-dynamics",
  "husky-ast",
  "husky-corgi-config",
  "husky-corgi-config-ast",
