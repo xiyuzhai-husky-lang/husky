@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::default::Default`),
-            ),
-        ),
+        ItemPath(`core::default::Default`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(

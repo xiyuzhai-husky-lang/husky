@@ -2,13 +2,7 @@
 SynDeclSheet {
     decls: [
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`quick_sort::quick_sort`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`quick_sort::quick_sort`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
@@ -298,13 +292,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`quick_sort::quick_sort_aux`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
@@ -792,13 +780,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`quick_sort::partition`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`quick_sort::partition`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
@@ -1319,13 +1301,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`quick_sort::quick_sort_works_for_integers`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
@@ -1397,13 +1373,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`quick_sort::quick_sort_works_for_strs`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(

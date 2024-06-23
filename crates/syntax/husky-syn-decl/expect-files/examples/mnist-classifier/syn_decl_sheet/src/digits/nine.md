@@ -2,11 +2,7 @@
 SynDeclSheet {
     decls: [
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::nine::nine_match`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Val(
@@ -106,11 +102,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::nine::nine_match_refine`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Val(
@@ -210,11 +202,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::nine::is_nine`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Val(
@@ -403,13 +391,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::nine::downmost`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
@@ -640,13 +622,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::nine::big_cc`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(

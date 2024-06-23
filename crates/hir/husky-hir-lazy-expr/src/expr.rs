@@ -19,7 +19,7 @@ use husky_hir_ty::{
     place_contract_site::HirPlaceContractSite, HirComptermTemplateVariable, HirType,
 };
 use husky_sem_expr::{SemExprData, SemExprIdx};
-use husky_sem_opr::binary::SemaBinaryOpr;
+use husky_sem_opr::binary::SemBinaryOpr;
 use husky_term_prelude::literal::Literal;
 use idx_arena::ArenaRef;
 
@@ -182,7 +182,7 @@ impl ToHirLazy for SemExprIdx {
             SemExprData::Binary {
                 lopd, opr, ropd, ..
             } => match opr {
-                SemaBinaryOpr::As => HirLazyExprData::As {
+                SemBinaryOpr::As => HirLazyExprData::As {
                     opd: lopd.to_hir_lazy(builder),
                     ty: builder.expr_term_to_hir_ty(ropd).expect("valid"),
                 },

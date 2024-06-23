@@ -2,23 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`semantics_basics::some_neural_network`, `Ritchie(
-                        Gn,
-                    )`),
-                ),
-            ),
+            ItemPath(`semantics_basics::some_neural_network`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`semantics_basics::some_neural_network`, `Ritchie(
-                            Gn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`semantics_basics::some_neural_network`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -163,7 +151,7 @@
                         SemExprIdx(
                             1,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],

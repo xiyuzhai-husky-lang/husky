@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::five::is_five`),
         Some(
             ItemSynDefn {
                 body: 1,
@@ -305,7 +301,7 @@
                                 syn_expr_idx: 0,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 1,
                             },
                         ],

@@ -1,5 +1,6 @@
 mod builder;
 pub mod error;
+pub mod helpers;
 pub mod item_path_deps;
 pub mod jar;
 #[cfg(test)]

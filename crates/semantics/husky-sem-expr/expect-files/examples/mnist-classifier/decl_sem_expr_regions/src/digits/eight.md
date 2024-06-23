@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::eight::upper_mouth_match`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::eight::upper_mouth_match`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -156,19 +148,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::eight::is_eight`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::eight::is_eight`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -289,16 +273,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::TypeVariant(
-                                                Room32,
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 285,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist::MnistLabel::Eight`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -680,23 +655,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::eight::big_mouth`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::eight::big_mouth`),
             ),
             place_registry: PlaceRegistry {
                 infos: [

@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::raw_bits::r32`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::raw_bits::r32`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -21,11 +17,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`core::raw_bits::r32(0)`),
-            ),
-        ),
+        ItemPath(`core::raw_bits::r32(0)`),
         Ok(
             ItemDecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(
@@ -50,16 +42,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::raw_bits::r32(0)::last_bits`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::raw_bits::r32(0)::last_bits`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -153,16 +136,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::raw_bits::r32(0)::ctz`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::raw_bits::r32(0)::ctz`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -239,16 +213,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::raw_bits::r32(0)::co`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::raw_bits::r32(0)::co`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -325,16 +290,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::raw_bits::r32(0)::span`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::raw_bits::r32(0)::span`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
@@ -411,16 +367,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::raw_bits::r32(0)::right_mass`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::raw_bits::r32(0)::right_mass`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(

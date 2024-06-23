@@ -6,6 +6,7 @@ pub enum WordOpr {
     And,
     Or,
     As,
+    Of,
     Be,
 }
 
@@ -23,6 +24,7 @@ impl WordOpr {
             WordOpr::And => "and",
             WordOpr::Or => "or",
             WordOpr::As => "as",
+            WordOpr::Of => "of",
             WordOpr::Be => "be",
         }
     }

@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::one::one_fermi_match`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -67,11 +63,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::one::is_one`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -288,13 +280,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::one::upmost`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::one::upmost`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -307,13 +293,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::one::downmost`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::one::downmost`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -326,13 +306,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::one::hat`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::one::hat`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(

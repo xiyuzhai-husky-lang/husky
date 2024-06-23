@@ -2,23 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::go_right`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::go_right`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -2332,11 +2320,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::geom2d::Vector2d`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -3157,7 +3141,7 @@
                         SemExprIdx(
                             52,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -5381,23 +5365,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::go_left`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::go_left`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -7711,11 +7683,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::geom2d::Vector2d`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -8536,7 +8504,7 @@
                         SemExprIdx(
                             52,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -10760,23 +10728,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::extend_end`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::extend_end`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -13183,13 +13139,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::line_segment_sketch::go_right`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -13428,13 +13378,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::line_segment_sketch::go_left`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -15513,13 +15457,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::line_segment_sketch::go_right`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -15758,13 +15696,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::line_segment_sketch::go_left`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -18850,7 +18782,7 @@
                         SemExprIdx(
                             114,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -24097,23 +24029,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::extend_start`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::extend_start`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -26718,13 +26638,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::line_segment_sketch::go_right`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -26963,13 +26877,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::line_segment_sketch::go_left`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -28682,13 +28590,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::line_segment_sketch::go_right`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -28927,13 +28829,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::line_segment_sketch::go_left`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -33081,7 +32977,7 @@
                         SemExprIdx(
                             124,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -38693,23 +38589,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::find_line_segments`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::find_line_segments`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -39489,13 +39373,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::line_segment_sketch::extend_end`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -43927,13 +43805,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::line_segment_sketch::extend_start`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -55530,7 +55402,7 @@
                         SemExprIdx(
                             194,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -64144,29 +64016,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`,
-                        TraitItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            `<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`,
-                            TraitItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -64604,7 +64458,7 @@
                         SemExprIdx(
                             5,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -64851,29 +64705,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`,
-                        TypeItemKind::AssocRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`,
-                            TypeItemKind::AssocRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -65028,11 +64864,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -65787,7 +65619,7 @@
                         SemExprIdx(
                             12,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -66397,29 +66229,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -66950,7 +66764,7 @@
                         SemExprIdx(
                             5,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -67215,29 +67029,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`,
-                        TraitItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            `<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`,
-                            TraitItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -67609,7 +67405,7 @@
                         SemExprIdx(
                             3,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -67794,25 +67590,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`,
-                        TypeItemKind::MemoizedField,
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`,
-                            TypeItemKind::MemoizedField,
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -67836,13 +67618,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -68050,7 +67826,7 @@
                         SemExprIdx(
                             3,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -68266,25 +68042,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
-                        TypeItemKind::MemoizedField,
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
-                            TypeItemKind::MemoizedField,
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -71682,11 +71444,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::geom2d::BoundingBox`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -71729,11 +71487,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::geom2d::ClosedRange`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -71970,11 +71724,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::geom2d::ClosedRange`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -72784,7 +72534,7 @@
                         SemExprIdx(
                             56,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -75464,29 +75214,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`,
-                        TypeItemKind::AssocRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`,
-                            TypeItemKind::AssocRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -75506,11 +75238,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -75600,13 +75328,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::line_segment_sketch::find_line_segments`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -76006,7 +75728,7 @@
                         SemExprIdx(
                             7,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],

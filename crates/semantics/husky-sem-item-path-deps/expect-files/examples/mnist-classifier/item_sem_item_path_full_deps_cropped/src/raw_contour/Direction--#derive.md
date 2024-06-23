@@ -1,0 +1,11 @@
+```rust
+Some(
+    [
+        ItemPath(`mnist_classifier::raw_contour::Direction::#derive(0)`),
+        ItemPath(`core::clone::Clone`),
+        ItemPath(`core::marker::Copy`),
+        ItemPath(`core::cmp::PartialEq`),
+        ItemPath(`core::cmp::Eq`),
+    ],
+)
+```

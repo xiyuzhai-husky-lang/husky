@@ -2,11 +2,7 @@
 SynDeclSheet {
     decls: [
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::zero::open_one_match`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Val(
@@ -106,13 +102,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::zero::almost_closed`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
@@ -343,11 +333,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::zero::is_zero`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Val(

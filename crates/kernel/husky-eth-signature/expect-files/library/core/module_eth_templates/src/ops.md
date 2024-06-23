@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Add`),
-            ),
-        ),
+        ItemPath(`core::ops::Add`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(
@@ -31,11 +27,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::AddAssign`),
-            ),
-        ),
+        ItemPath(`core::ops::AddAssign`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(
@@ -61,11 +53,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitAnd`),
-            ),
-        ),
+        ItemPath(`core::ops::BitAnd`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(
@@ -91,11 +79,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitAndAssign`),
-            ),
-        ),
+        ItemPath(`core::ops::BitAndAssign`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(
@@ -121,11 +105,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitOr`),
-            ),
-        ),
+        ItemPath(`core::ops::BitOr`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(
@@ -151,11 +131,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitOrAssign`),
-            ),
-        ),
+        ItemPath(`core::ops::BitOrAssign`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(
@@ -181,11 +157,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitXor`),
-            ),
-        ),
+        ItemPath(`core::ops::BitXor`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(
@@ -211,11 +183,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitXorAssign`),
-            ),
-        ),
+        ItemPath(`core::ops::BitXorAssign`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(
@@ -241,11 +209,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Div`),
-            ),
-        ),
+        ItemPath(`core::ops::Div`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(
@@ -271,11 +235,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::DivAssign`),
-            ),
-        ),
+        ItemPath(`core::ops::DivAssign`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(
@@ -301,11 +261,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::IntIndex`),
-            ),
-        ),
+        ItemPath(`core::ops::IntIndex`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(
@@ -326,11 +282,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Mul`),
-            ),
-        ),
+        ItemPath(`core::ops::Mul`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(
@@ -356,11 +308,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::MulAssign`),
-            ),
-        ),
+        ItemPath(`core::ops::MulAssign`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(
@@ -386,11 +334,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Neg`),
-            ),
-        ),
+        ItemPath(`core::ops::Neg`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(
@@ -411,11 +355,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Not`),
-            ),
-        ),
+        ItemPath(`core::ops::Not`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(
@@ -436,11 +376,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Sub`),
-            ),
-        ),
+        ItemPath(`core::ops::Sub`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(
@@ -466,11 +402,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Unveil`),
-            ),
-        ),
+        ItemPath(`core::ops::Unveil`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(
@@ -496,11 +428,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::ops::ControlFlow`, `Enum`),
-            ),
-        ),
+        ItemPath(`core::ops::ControlFlow`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Type(

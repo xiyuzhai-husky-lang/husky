@@ -1,19 +1,13 @@
 ```rust
 [
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`syntax_errors::ast),
-        ),
+        ItemPath(`syntax_errors::ast`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`syntax_errors::uses),
-        ),
+        ItemPath(`syntax_errors::uses`),
         Ok(
             ItemDecTemplate::Submodule,
         ),

@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`syntax_errors::ast::A`, `Struct`),
-            ),
-        ),
+        ItemPath(`syntax_errors::ast::A`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Type(
@@ -32,11 +28,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`syntax_errors::ast::A(0)`),
-            ),
-        ),
+        ItemPath(`syntax_errors::ast::A(0)`),
         Ok(
             ItemEthTemplate::ImplBlock(
                 ImplBlockEthTemplate::TypeImpl(

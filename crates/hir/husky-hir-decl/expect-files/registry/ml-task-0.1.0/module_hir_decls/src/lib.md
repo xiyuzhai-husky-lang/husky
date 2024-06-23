@@ -9,11 +9,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`ml_task::IsMlTask`),
-                            ),
-                        ),
+                        ItemPath(`ml_task::IsMlTask`),
                     ),
                     expr_arena: Arena {
                         data: [],

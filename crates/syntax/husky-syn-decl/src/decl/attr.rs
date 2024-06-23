@@ -3,14 +3,18 @@ pub mod backprop;
 pub mod deps;
 pub mod derive;
 pub mod marker;
+pub mod projection;
+pub mod singleton;
 pub mod task;
 pub mod test;
 
-use self::derive::*;
 use self::{
     affect::{AffectAttrSynDecl, AffectAttrSynNodeDecl},
     backprop::{BackpropAttrSynDecl, BackpropAttrSynNodeDecl},
     deps::{DepsAttrSynDecl, DepsAttrSynNodeDecl},
+    derive::{DeriveAttrSynDecl, DeriveAttrSynNodeDecl},
+    projection::{ProjectionAttrSynDecl, ProjectionAttrSynNodeDecl},
+    singleton::{SingletonAttrSynDecl, SingletonAttrSynNodeDecl},
     task::{TaskAttrSynDecl, TaskAttrSynNodeDecl},
     test::{TestAttrSynDecl, TestAttrSynNodeDecl},
 };
@@ -26,6 +30,8 @@ pub enum AttrSynNodeDecl {
     Backprop(BackpropAttrSynNodeDecl),
     Deps(DepsAttrSynNodeDecl),
     Derive(DeriveAttrSynNodeDecl),
+    Projection(ProjectionAttrSynNodeDecl),
+    Singleton(SingletonAttrSynNodeDecl),
     Task(TaskAttrSynNodeDecl),
     Test(TestAttrSynNodeDecl),
     Err,
@@ -39,6 +45,8 @@ impl AttrSynNodeDecl {
             AttrSynNodeDecl::Backprop(slf) => slf.syn_expr_region(db),
             AttrSynNodeDecl::Deps(slf) => slf.syn_expr_region(db),
             AttrSynNodeDecl::Derive(slf) => slf.syn_expr_region(db),
+            AttrSynNodeDecl::Projection(slf) => slf.syn_expr_region(db),
+            AttrSynNodeDecl::Singleton(slf) => slf.syn_expr_region(db),
             AttrSynNodeDecl::Task(slf) => slf.syn_expr_region(db),
             AttrSynNodeDecl::Test(slf) => slf.syn_expr_region(db),
             AttrSynNodeDecl::Err => return None,
@@ -51,6 +59,8 @@ impl AttrSynNodeDecl {
             AttrSynNodeDecl::Backprop(slf) => slf.errors(db),
             AttrSynNodeDecl::Deps(slf) => slf.errors(db),
             AttrSynNodeDecl::Derive(slf) => slf.errors(db),
+            AttrSynNodeDecl::Projection(slf) => slf.errors(db),
+            AttrSynNodeDecl::Singleton(slf) => slf.errors(db),
             AttrSynNodeDecl::Task(slf) => slf.errors(db),
             AttrSynNodeDecl::Test(slf) => slf.errors(db),
             AttrSynNodeDecl::Err => todo!(),
@@ -100,6 +110,8 @@ pub enum AttrSynDecl {
     Backprop(BackpropAttrSynDecl),
     Deps(DepsAttrSynDecl),
     Derive(DeriveAttrSynDecl),
+    Projection(ProjectionAttrSynDecl),
+    Singleton(SingletonAttrSynDecl),
     Task(TaskAttrSynDecl),
     Test(TestAttrSynDecl),
 }
@@ -125,6 +137,12 @@ impl AttrSynDecl {
             AttrSynNodeDecl::Derive(syn_node_decl) => {
                 DeriveAttrSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
+            AttrSynNodeDecl::Projection(syn_node_decl) => {
+                ProjectionAttrSynDecl::from_node(path, syn_node_decl, db)?.into()
+            }
+            AttrSynNodeDecl::Singleton(syn_node_decl) => {
+                SingletonAttrSynDecl::from_node(path, syn_node_decl, db)?.into()
+            }
             AttrSynNodeDecl::Task(syn_node_decl) => {
                 TaskAttrSynDecl::from_node(path, syn_node_decl, db)?.into()
             }
@@ -144,6 +162,8 @@ impl AttrSynDecl {
             AttrSynDecl::Backprop(slf) => slf.path(db),
             AttrSynDecl::Deps(slf) => slf.path(db),
             AttrSynDecl::Derive(slf) => slf.path(db),
+            AttrSynDecl::Projection(slf) => slf.path(db),
+            AttrSynDecl::Singleton(slf) => slf.path(db),
             AttrSynDecl::Task(slf) => slf.path(db),
             AttrSynDecl::Test(slf) => slf.path(db),
         }
@@ -155,6 +175,8 @@ impl AttrSynDecl {
             AttrSynDecl::Backprop(slf) => slf.syn_expr_region(db),
             AttrSynDecl::Deps(slf) => slf.syn_expr_region(db),
             AttrSynDecl::Derive(slf) => slf.syn_expr_region(db),
+            AttrSynDecl::Projection(slf) => slf.syn_expr_region(db),
+            AttrSynDecl::Singleton(slf) => slf.syn_expr_region(db),
             AttrSynDecl::Task(slf) => slf.syn_expr_region(db),
             AttrSynDecl::Test(slf) => slf.syn_expr_region(db),
         }

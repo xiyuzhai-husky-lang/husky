@@ -2,11 +2,7 @@
 SynDeclSheet {
     decls: [
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::PropsStruct(
@@ -269,11 +265,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)`),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
@@ -381,16 +373,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
@@ -612,16 +595,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(

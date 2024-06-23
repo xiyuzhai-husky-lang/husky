@@ -1,35 +1,9 @@
 ```rust
 [
-    ItemPath::MajorItem(
-        MajorItemPath::Form(
-            FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-        ),
-    ),
-    ItemPath::MajorItem(
-        MajorItemPath::Form(
-            FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
-        ),
-    ),
-    ItemPath::MajorItem(
-        MajorItemPath::Form(
-            FormPath(`mnist_classifier::digits::three::uparc`, `Ritchie(
-                Fn,
-            )`),
-        ),
-    ),
-    ItemPath::MajorItem(
-        MajorItemPath::Form(
-            FormPath(`mnist_classifier::digits::three::downarc`, `Ritchie(
-                Fn,
-            )`),
-        ),
-    ),
-    ItemPath::MajorItem(
-        MajorItemPath::Form(
-            FormPath(`mnist_classifier::digits::three::back`, `Ritchie(
-                Fn,
-            )`),
-        ),
-    ),
+    ItemPath(`mnist_classifier::digits::three::three_fermi_match`),
+    ItemPath(`mnist_classifier::digits::three::is_three`),
+    ItemPath(`mnist_classifier::digits::three::uparc`),
+    ItemPath(`mnist_classifier::digits::three::downarc`),
+    ItemPath(`mnist_classifier::digits::three::back`),
 ]
 ```

@@ -1,27 +1,7 @@
 ```rust
 [
-    ItemPath::MajorItem(
-        MajorItemPath::Trait(
-            TraitPath(`std::ops::Add`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TraitItem(
-            TraitItemPath(
-                `std::ops::Add::Output`,
-                TraitItemKind::AssocType,
-            ),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TraitItem(
-            TraitItemPath(
-                `std::ops::Add::add`,
-                TraitItemKind::MethodRitchie(
-                    RitchieItemKind::Fn,
-                ),
-            ),
-        ),
-    ),
+    ItemPath(`std::ops::Add`),
+    ItemPath(`std::ops::Add::Output`),
+    ItemPath(`std::ops::Add::add`),
 ]
 ```

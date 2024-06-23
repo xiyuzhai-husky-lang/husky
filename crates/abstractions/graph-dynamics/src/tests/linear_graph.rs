@@ -1,6 +1,6 @@
-use propagate::{PropagationResult, PropagationResultRef};
-
 use super::*;
+use crate::deps::{IsGraphDepsContext, IsGraphDepsScheme};
+use propagate::{PropagationResult, PropagationResultRef};
 
 #[derive(Clone, Copy)]
 pub(crate) struct LinearGraphContext<'db> {
@@ -17,16 +17,18 @@ pub struct LinearGraphNode {
 
 pub struct LinearGraphScheme;
 
-impl<'db> IsGraphRecursionScheme for LinearGraphScheme {
+impl<'db> IsGraphDepsScheme for LinearGraphScheme {
     type Node = LinearGraphNode;
-    type Value = usize;
     const CYCLE_GROUP_N: usize = 2;
     type CycleGroupItd = LinearGraphCycleGroupItd;
+}
 
+impl<'db> IsGraphDynamicsScheme for LinearGraphScheme {
+    type Value = usize;
     const MAX_ITERATION: usize = 1000;
 }
 
-impl<'db> IsGraphRecursionContext<'db> for LinearGraphContext<'db> {
+impl<'db> IsGraphDepsContext<'db> for LinearGraphContext<'db> {
     type Scheme = LinearGraphScheme;
 
     fn deps_cropped(self, node: LinearGraphNode) -> impl IntoIterator<Item = LinearGraphNode> {
@@ -43,8 +45,28 @@ impl<'db> IsGraphRecursionContext<'db> for LinearGraphContext<'db> {
         linear_graph_full_deps_cropped(self.db, node)
     }
 
-    fn cycle_group_itd(self, node: LinearGraphNode) -> LinearGraphCycleGroupItd {
+    fn cycle_group_itd(self, node: LinearGraphNode) -> LinearGraphCycleGroupItd
+    where
+        [(); <Self::Scheme as IsGraphDepsScheme>::CYCLE_GROUP_N]:,
+    {
         linear_graph_cycle_group_itd(self.db, node)
+    }
+}
+
+impl<'db> IsGraphDynamicsContext<'db> for LinearGraphContext<'db> {
+    type DepsScheme = LinearGraphScheme;
+    type DynamicsScheme = LinearGraphScheme;
+
+    fn deps_cropped(self, node: LinearGraphNode) -> impl IntoIterator<Item = LinearGraphNode> {
+        <Self as IsGraphDepsContext<'db>>::deps_cropped(self, node)
+    }
+
+    fn full_deps_cropped(self, node: LinearGraphNode) -> &'db [LinearGraphNode] {
+        <Self as IsGraphDepsContext<'db>>::full_deps_cropped(self, node)
+    }
+
+    fn cycle_group_itd(self, node: LinearGraphNode) -> LinearGraphCycleGroupItd {
+        <Self as IsGraphDepsContext<'db>>::cycle_group_itd(self, node)
     }
 
     fn initial_value(self, node: LinearGraphNode) -> usize {
@@ -57,8 +79,7 @@ impl<'db> IsGraphRecursionContext<'db> for LinearGraphContext<'db> {
         query: impl Fn(LinearGraphNode) -> &'a usize,
     ) -> usize {
         // in our case, deps is equal to deps_cropped
-        *self
-            .deps_cropped(node)
+        *IsGraphDepsContext::deps_cropped(self, node)
             .into_iter()
             .map(&query)
             .chain([query(node)])
@@ -66,10 +87,10 @@ impl<'db> IsGraphRecursionContext<'db> for LinearGraphContext<'db> {
             .expect("impossible to be none because of chaining")
     }
 
-    fn cycle_group_values(
+    fn cycle_group_final_values(
         self,
         cycle_group_itd: LinearGraphCycleGroupItd,
-    ) -> PropagationResultRef<'db, &'db CycleGroupMap<LinearGraphScheme>> {
+    ) -> PropagationResultRef<'db, &'db CycleGroupMap<LinearGraphScheme, usize>> {
         linear_graph_cycle_group_final_values(self.db, cycle_group_itd).as_ref()
     }
 }
@@ -97,7 +118,7 @@ pub struct LinearGraphCycleGroupItd {
 pub fn linear_graph_cycle_group_final_values(
     db: &::salsa::Db,
     cycle_group_itd: LinearGraphCycleGroupItd,
-) -> PropagationResult<CycleGroupMap<LinearGraphScheme>> {
+) -> PropagationResult<CycleGroupMap<LinearGraphScheme, usize>> {
     let ctx = LinearGraphContext {
         db,
         len: cycle_group_itd.len(db),
@@ -140,7 +161,7 @@ fn linear_graph_final_value_works() {
     #[track_caller]
     fn t(len: usize, id: usize, expected: usize, db: &::salsa::Db) {
         let ctx = LinearGraphContext { db, len };
-        let recursion_value = *ctx.value(LinearGraphNode::new(db, id, len)).unwrap();
+        let recursion_value = *ctx.final_value(LinearGraphNode::new(db, id, len)).unwrap();
         assert_eq!(recursion_value, expected);
     }
 

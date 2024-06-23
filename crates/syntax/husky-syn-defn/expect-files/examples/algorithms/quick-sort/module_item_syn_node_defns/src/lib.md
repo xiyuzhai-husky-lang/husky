@@ -584,7 +584,7 @@
                                 syn_expr_idx: 11,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 12,
                             },
                         ],
@@ -1549,7 +1549,7 @@
                                 syn_expr_idx: 21,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 22,
                             },
                         ],
@@ -3280,7 +3280,7 @@
                                 syn_expr_idx: 61,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 62,
                             },
                         ],
@@ -3773,7 +3773,7 @@
                                 syn_expr_idx: 14,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 15,
                             },
                         ],
@@ -3805,7 +3805,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(`quick_sort::quick_sort_works_for_integers::@test(0)`),
+                                AttrItemPath(`quick_sort::quick_sort_works_for_integers::#test(0)`),
                             ),
                         },
                     ),
@@ -4140,7 +4140,7 @@
                                 syn_expr_idx: 6,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 7,
                             },
                         ],
@@ -4172,7 +4172,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(`quick_sort::quick_sort_works_for_strs::@test(0)`),
+                                AttrItemPath(`quick_sort::quick_sort_works_for_strs::#test(0)`),
                             ),
                         },
                     ),

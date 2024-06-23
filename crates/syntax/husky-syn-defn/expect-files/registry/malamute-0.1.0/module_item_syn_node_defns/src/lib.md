@@ -47,7 +47,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(`malamute::Class::@derive(0)`),
+                                AttrItemPath(`malamute::Class::#derive(0)`),
                             ),
                         },
                     ),
@@ -179,7 +179,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(`malamute::OneVsAll::@derive(0)`),
+                                AttrItemPath(`malamute::OneVsAll::#derive(0)`),
                             ),
                         },
                     ),
@@ -311,7 +311,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(`malamute::OneVsAllResult::@derive(0)`),
+                                AttrItemPath(`malamute::OneVsAllResult::#derive(0)`),
                             ),
                         },
                     ),
@@ -1016,7 +1016,7 @@
                                 syn_expr_idx: 0,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 1,
                             },
                         ],
@@ -2393,7 +2393,7 @@
                                 syn_expr_idx: 8,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 9,
                             },
                         ],
@@ -4043,7 +4043,7 @@
                                 syn_expr_idx: 9,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 10,
                             },
                         ],

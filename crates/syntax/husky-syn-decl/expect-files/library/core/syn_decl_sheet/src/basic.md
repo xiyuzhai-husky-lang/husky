@@ -2,11 +2,7 @@
 SynDeclSheet {
     decls: [
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::bool`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::basic::bool`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
@@ -84,11 +80,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::never`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::basic::never`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
@@ -166,11 +158,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::unit`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::basic::unit`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
@@ -248,11 +236,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::Trait`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::basic::Trait`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
@@ -330,11 +314,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::Module`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::basic::Module`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
@@ -412,11 +392,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::Lifetime`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::basic::Lifetime`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
@@ -494,11 +470,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::Place`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::basic::Place`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(
@@ -576,11 +548,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::Universe`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::basic::Universe`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(

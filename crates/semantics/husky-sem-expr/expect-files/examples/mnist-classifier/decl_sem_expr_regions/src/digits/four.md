@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::four::left_components`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::four::left_components`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -156,23 +148,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::four::left_coordinate_max`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::four::left_coordinate_max`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -570,19 +550,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::four::components_max_downwards`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::four::components_max_downwards`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -724,19 +696,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::four::components_max_heights`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::four::components_max_heights`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -878,19 +842,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::four::is_four`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::four::is_four`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -1011,16 +967,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::TypeVariant(
-                                                Room32,
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 281,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist::MnistLabel::Four`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -1402,23 +1349,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::four::displacement_downwards`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::four::displacement_downwards`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -1816,23 +1751,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::four::cc_box_heights`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::four::cc_box_heights`),
             ),
             place_registry: PlaceRegistry {
                 infos: [

@@ -31,7 +31,7 @@ pub enum SynExprRootKind {
         ident_token: IdentRegionalToken,
     },
     TupleStructFieldType,
-    BlockExpr,
+    RootBody,
     ReturnExpr,
     Condition,
     ParenateParameterDefaultValue {

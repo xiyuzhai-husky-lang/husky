@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::marker::Copy`),
-                ),
-            ),
+            ItemPath(`core::marker::Copy`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::marker::Copy`),
-                    ),
-                ),
+                ItemPath(`core::marker::Copy`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -68,19 +60,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::marker::Sized`),
-                ),
-            ),
+            ItemPath(`core::marker::Sized`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::marker::Sized`),
-                    ),
-                ),
+                ItemPath(`core::marker::Sized`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -134,19 +118,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath(`#derive _ as core::marker::Copy(0)`),
-                ),
-            ),
+            ItemPath(`#derive _ as core::marker::Copy(0)`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::ImplBlock(
-                    ImplBlockPath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(`#derive _ as core::marker::Copy(0)`),
-                    ),
-                ),
+                ItemPath(`#derive _ as core::marker::Copy(0)`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],

@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::visual::Visualize`),
-            ),
-        ),
+        ItemPath(`core::visual::Visualize`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(
@@ -26,11 +22,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::visual::Visual`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::visual::Visual`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Type(
@@ -47,11 +39,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`#derive _ as core::visual::Visualize(0)`),
-            ),
-        ),
+        ItemPath(`#derive _ as core::visual::Visualize(0)`),
         Ok(
             ItemEthTemplate::ImplBlock(
                 ImplBlockEthTemplate::TraitForTypeImpl(
@@ -80,16 +68,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<#derive _ as core::visual::Visualize(0)>::visualize`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`),
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(

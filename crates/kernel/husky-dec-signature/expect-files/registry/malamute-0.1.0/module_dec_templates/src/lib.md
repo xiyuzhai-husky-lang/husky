@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`malamute::Class`, `Enum`),
-            ),
-        ),
+        ItemPath(`malamute::Class`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -38,11 +34,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`malamute::OneVsAll`, `Enum`),
-            ),
-        ),
+        ItemPath(`malamute::OneVsAll`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -84,11 +76,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`malamute::OneVsAllResult`, `Enum`),
-            ),
-        ),
+        ItemPath(`malamute::OneVsAllResult`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -130,13 +118,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`malamute::narrow_down`, `Ritchie(
-                    Gn,
-                )`),
-            ),
-        ),
+        ItemPath(`malamute::narrow_down`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -217,11 +199,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`malamute::OneVsAll as core::default::Default(0)`),
-            ),
-        ),
+        ItemPath(`malamute::OneVsAll as core::default::Default(0)`),
         Ok(
             ItemDecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
@@ -274,16 +252,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<malamute::OneVsAll as core::default::Default(0)>::default`,
-                    TraitItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
@@ -316,11 +285,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
-            ),
-        ),
+        ItemPath(`malamute::Class as core::ops::Unveil(0)`),
         Ok(
             ItemDecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
@@ -369,14 +334,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<malamute::Class as core::ops::Unveil(0)>::Output`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
@@ -407,16 +365,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<malamute::Class as core::ops::Unveil(0)>::unveil`,
-                    TraitItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
@@ -462,11 +411,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
-            ),
-        ),
+        ItemPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
         Ok(
             ItemDecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(
@@ -515,14 +460,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<malamute::OneVsAll as core::ops::Unveil(0)>::Output`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
@@ -553,16 +491,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
-                    TraitItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`),
         Ok(
             ItemDecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(

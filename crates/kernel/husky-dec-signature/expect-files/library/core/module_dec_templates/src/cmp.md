@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::cmp::PartialEq`),
-            ),
-        ),
+        ItemPath(`core::cmp::PartialEq`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
@@ -29,11 +25,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::cmp::Eq`),
-            ),
-        ),
+        ItemPath(`core::cmp::Eq`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
@@ -57,11 +49,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::cmp::PartialOrd`),
-            ),
-        ),
+        ItemPath(`core::cmp::PartialOrd`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
@@ -85,11 +73,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::cmp::Ord`),
-            ),
-        ),
+        ItemPath(`core::cmp::Ord`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(

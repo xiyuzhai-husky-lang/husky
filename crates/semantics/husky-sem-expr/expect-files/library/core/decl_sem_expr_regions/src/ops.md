@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::Add`),
-                ),
-            ),
+            ItemPath(`core::ops::Add`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::ops::Add`),
-                    ),
-                ),
+                ItemPath(`core::ops::Add`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -86,19 +78,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::AddAssign`),
-                ),
-            ),
+            ItemPath(`core::ops::AddAssign`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::ops::AddAssign`),
-                    ),
-                ),
+                ItemPath(`core::ops::AddAssign`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -170,19 +154,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::BitAnd`),
-                ),
-            ),
+            ItemPath(`core::ops::BitAnd`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::ops::BitAnd`),
-                    ),
-                ),
+                ItemPath(`core::ops::BitAnd`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -254,19 +230,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::BitAndAssign`),
-                ),
-            ),
+            ItemPath(`core::ops::BitAndAssign`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::ops::BitAndAssign`),
-                    ),
-                ),
+                ItemPath(`core::ops::BitAndAssign`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -338,19 +306,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::BitOr`),
-                ),
-            ),
+            ItemPath(`core::ops::BitOr`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::ops::BitOr`),
-                    ),
-                ),
+                ItemPath(`core::ops::BitOr`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -422,19 +382,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::BitOrAssign`),
-                ),
-            ),
+            ItemPath(`core::ops::BitOrAssign`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::ops::BitOrAssign`),
-                    ),
-                ),
+                ItemPath(`core::ops::BitOrAssign`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -506,19 +458,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::BitXor`),
-                ),
-            ),
+            ItemPath(`core::ops::BitXor`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::ops::BitXor`),
-                    ),
-                ),
+                ItemPath(`core::ops::BitXor`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -590,19 +534,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::BitXorAssign`),
-                ),
-            ),
+            ItemPath(`core::ops::BitXorAssign`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::ops::BitXorAssign`),
-                    ),
-                ),
+                ItemPath(`core::ops::BitXorAssign`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -674,19 +610,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::Div`),
-                ),
-            ),
+            ItemPath(`core::ops::Div`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::ops::Div`),
-                    ),
-                ),
+                ItemPath(`core::ops::Div`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -758,19 +686,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::DivAssign`),
-                ),
-            ),
+            ItemPath(`core::ops::DivAssign`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::ops::DivAssign`),
-                    ),
-                ),
+                ItemPath(`core::ops::DivAssign`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -842,19 +762,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::IntIndex`),
-                ),
-            ),
+            ItemPath(`core::ops::IntIndex`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::ops::IntIndex`),
-                    ),
-                ),
+                ItemPath(`core::ops::IntIndex`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -908,19 +820,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::Mul`),
-                ),
-            ),
+            ItemPath(`core::ops::Mul`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::ops::Mul`),
-                    ),
-                ),
+                ItemPath(`core::ops::Mul`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -992,19 +896,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::MulAssign`),
-                ),
-            ),
+            ItemPath(`core::ops::MulAssign`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::ops::MulAssign`),
-                    ),
-                ),
+                ItemPath(`core::ops::MulAssign`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -1076,19 +972,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::Neg`),
-                ),
-            ),
+            ItemPath(`core::ops::Neg`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::ops::Neg`),
-                    ),
-                ),
+                ItemPath(`core::ops::Neg`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -1142,19 +1030,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::Not`),
-                ),
-            ),
+            ItemPath(`core::ops::Not`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::ops::Not`),
-                    ),
-                ),
+                ItemPath(`core::ops::Not`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -1208,19 +1088,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::Sub`),
-                ),
-            ),
+            ItemPath(`core::ops::Sub`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::ops::Sub`),
-                    ),
-                ),
+                ItemPath(`core::ops::Sub`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -1292,19 +1164,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::Unveil`),
-                ),
-            ),
+            ItemPath(`core::ops::Unveil`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::ops::Unveil`),
-                    ),
-                ),
+                ItemPath(`core::ops::Unveil`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -1376,19 +1240,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::ops::ControlFlow`, `Enum`),
-                ),
-            ),
+            ItemPath(`core::ops::ControlFlow`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::ops::ControlFlow`, `Enum`),
-                    ),
-                ),
+                ItemPath(`core::ops::ControlFlow`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],

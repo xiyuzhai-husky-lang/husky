@@ -2,11 +2,7 @@
 SynDeclSheet {
     decls: [
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::backend::IsBackend`),
-                ),
-            ),
+            ItemPath(`core::backend::IsBackend`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -82,11 +78,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::backend::MlBackend`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::backend::MlBackend`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::Extern(

@@ -1,69 +1,27 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::result::Result`, `Enum`),
-            ),
-        ),
+        ItemPath(`core::result::Result`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 91,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`core::result::Result::Ok`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 92,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`core::result::Result::Err`),
         None,
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`core::result::Result as core::ops::Unveil(0)`),
-            ),
-        ),
+        ItemPath(`core::result::Result as core::ops::Unveil(0)`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<core::result::Result as core::ops::Unveil(0)>::Continue`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<core::result::Result as core::ops::Unveil(0)>::unveil`,
-                    TraitItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`),
         None,
     ),
 ]

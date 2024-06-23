@@ -104,3 +104,13 @@ impl salsa::DebugWithDb for TypeImplBlockPath {
         f.write_str("`)")
     }
 }
+
+impl ::salsa::DisplayWithDb for TypeImplBlockPath {
+    fn display_fmt_with_db(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &salsa::Db,
+    ) -> std::fmt::Result {
+        self.show_aux(f, db)
+    }
+}

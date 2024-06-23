@@ -9,11 +9,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::visual::Visualize`),
-                            ),
-                        ),
+                        ItemPath(`core::visual::Visualize`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -49,11 +45,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`core::visual::Visual`, `Extern`),
-                                ),
-                            ),
+                            ItemPath(`core::visual::Visual`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -96,11 +88,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::ImplBlock(
-                            ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath(`#derive _ as core::visual::Visualize(0)`),
-                            ),
-                        ),
+                        ItemPath(`#derive _ as core::visual::Visualize(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -157,16 +145,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TraitForTypeItem(
-                                    TraitForTypeItemPath(
-                                        `<#derive _ as core::visual::Visualize(0)>::visualize`,
-                                        TraitItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`),
                         ),
                         expr_arena: Arena {
                             data: [],

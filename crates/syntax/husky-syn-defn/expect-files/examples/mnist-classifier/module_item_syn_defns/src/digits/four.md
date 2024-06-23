@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::four::left_components`),
         Some(
             ItemSynDefn {
                 body: 6,
@@ -318,7 +314,7 @@
                                 syn_expr_idx: 5,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 6,
                             },
                         ],
@@ -331,13 +327,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::four::left_coordinate_max`),
         Some(
             ItemSynDefn {
                 body: 3,
@@ -646,7 +636,7 @@
                                 syn_expr_idx: 2,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 3,
                             },
                         ],
@@ -659,11 +649,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::four::components_max_downwards`),
         Some(
             ItemSynDefn {
                 body: 5,
@@ -939,7 +925,7 @@
                                 syn_expr_idx: 4,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 5,
                             },
                         ],
@@ -952,11 +938,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::four::components_max_heights`),
         Some(
             ItemSynDefn {
                 body: 5,
@@ -1232,7 +1214,7 @@
                                 syn_expr_idx: 4,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 5,
                             },
                         ],
@@ -1245,11 +1227,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::four::is_four`),
         Some(
             ItemSynDefn {
                 body: 92,
@@ -4130,7 +4108,7 @@
                                 syn_expr_idx: 91,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 92,
                             },
                         ],
@@ -4176,13 +4154,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::four::displacement_downwards`),
         Some(
             ItemSynDefn {
                 body: 8,
@@ -4640,7 +4612,7 @@
                                 syn_expr_idx: 7,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 8,
                             },
                         ],
@@ -4658,13 +4630,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::four::cc_box_heights`),
         Some(
             ItemSynDefn {
                 body: 14,
@@ -5220,7 +5186,7 @@
                                 syn_expr_idx: 13,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 14,
                             },
                         ],

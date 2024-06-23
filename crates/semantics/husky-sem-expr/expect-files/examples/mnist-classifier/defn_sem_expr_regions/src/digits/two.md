@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::two::two_match`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::two::two_match`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -36,13 +28,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -85,11 +71,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -142,13 +124,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::digits::two::left_cc_pattern`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -193,13 +169,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::digits::two::right_cc_pattern`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -244,13 +214,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::digits::two::down_cc_pattern`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -519,7 +483,7 @@
                         SemExprIdx(
                             7,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -904,23 +868,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::two::left_cc_pattern`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::two::left_cc_pattern`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -1618,7 +1570,7 @@
                         SemExprIdx(
                             8,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -2054,23 +2006,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::two::right_cc_pattern`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::two::right_cc_pattern`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -2768,7 +2708,7 @@
                         SemExprIdx(
                             8,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -3204,23 +3144,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::two::down_cc_pattern`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::two::down_cc_pattern`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -3918,7 +3846,7 @@
                         SemExprIdx(
                             8,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -4354,19 +4282,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::two::is_two`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::two::is_two`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -4455,11 +4375,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -4673,11 +4589,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -4767,14 +4679,7 @@
                                                 ),
                                             ),
                                             instantiation: FlyInstantiation {
-                                                path: ItemPath::AssocItem(
-                                                    AssocItemPath::TypeItem(
-                                                        TypeItemPath(
-                                                            `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
-                                                            TypeItemKind::MemoizedField,
-                                                        ),
-                                                    ),
-                                                ),
+                                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
@@ -5114,11 +5019,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::digits::two::two_match`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -5353,11 +5254,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::digits::two::two_match`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -5592,11 +5489,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::digits::two::two_match`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -5958,11 +5851,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -6052,14 +5941,7 @@
                                                 ),
                                             ),
                                             instantiation: FlyInstantiation {
-                                                path: ItemPath::AssocItem(
-                                                    AssocItemPath::TypeItem(
-                                                        TypeItemPath(
-                                                            `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
-                                                            TypeItemKind::MemoizedField,
-                                                        ),
-                                                    ),
-                                                ),
+                                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`),
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
@@ -6113,11 +5995,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -6207,14 +6085,7 @@
                                                 ),
                                             ),
                                             instantiation: FlyInstantiation {
-                                                path: ItemPath::AssocItem(
-                                                    AssocItemPath::TypeItem(
-                                                        TypeItemPath(
-                                                            `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
-                                                            TypeItemKind::MemoizedField,
-                                                        ),
-                                                    ),
-                                                ),
+                                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`),
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
@@ -6848,14 +6719,7 @@
                                                 ),
                                             ),
                                             instantiation: FlyInstantiation {
-                                                path: ItemPath::AssocItem(
-                                                    AssocItemPath::TypeItem(
-                                                        TypeItemPath(
-                                                            `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`,
-                                                            TypeItemKind::MemoizedField,
-                                                        ),
-                                                    ),
-                                                ),
+                                                path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`),
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
@@ -8179,14 +8043,7 @@
                                                 ),
                                             ),
                                             instantiation: FlyInstantiation {
-                                                path: ItemPath::AssocItem(
-                                                    AssocItemPath::TypeItem(
-                                                        TypeItemPath(
-                                                            `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
-                                                            TypeItemKind::MemoizedField,
-                                                        ),
-                                                    ),
-                                                ),
+                                                path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`),
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
@@ -8488,14 +8345,7 @@
                                                 ),
                                             ),
                                             instantiation: FlyInstantiation {
-                                                path: ItemPath::AssocItem(
-                                                    AssocItemPath::TypeItem(
-                                                        TypeItemPath(
-                                                            `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
-                                                            TypeItemKind::MemoizedField,
-                                                        ),
-                                                    ),
-                                                ),
+                                                path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`),
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
@@ -9052,14 +8902,7 @@
                                                 ),
                                             ),
                                             instantiation: FlyInstantiation {
-                                                path: ItemPath::AssocItem(
-                                                    AssocItemPath::TypeItem(
-                                                        TypeItemPath(
-                                                            `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
-                                                            TypeItemKind::MemoizedField,
-                                                        ),
-                                                    ),
-                                                ),
+                                                path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`),
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
@@ -9361,14 +9204,7 @@
                                                 ),
                                             ),
                                             instantiation: FlyInstantiation {
-                                                path: ItemPath::AssocItem(
-                                                    AssocItemPath::TypeItem(
-                                                        TypeItemPath(
-                                                            `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
-                                                            TypeItemKind::MemoizedField,
-                                                        ),
-                                                    ),
-                                                ),
+                                                path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`),
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
@@ -10439,14 +10275,7 @@
                                                 ),
                                             ),
                                             instantiation: FlyInstantiation {
-                                                path: ItemPath::AssocItem(
-                                                    AssocItemPath::TypeItem(
-                                                        TypeItemPath(
-                                                            `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
-                                                            TypeItemKind::MemoizedField,
-                                                        ),
-                                                    ),
-                                                ),
+                                                path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`),
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
@@ -10834,14 +10663,7 @@
                                                 ),
                                             ),
                                             instantiation: FlyInstantiation {
-                                                path: ItemPath::AssocItem(
-                                                    AssocItemPath::TypeItem(
-                                                        TypeItemPath(
-                                                            `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`,
-                                                            TypeItemKind::MemoizedField,
-                                                        ),
-                                                    ),
-                                                ),
+                                                path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`),
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
@@ -10899,16 +10721,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::TypeVariant(
-                                                Room32,
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 265,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            path: ItemPath(`malamute::OneVsAll::Yes`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -12127,7 +11940,7 @@
                         SemExprIdx(
                             109,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],

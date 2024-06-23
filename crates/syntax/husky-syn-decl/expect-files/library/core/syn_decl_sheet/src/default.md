@@ -2,11 +2,7 @@
 SynDeclSheet {
     decls: [
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::default::Default`),
-                ),
-            ),
+            ItemPath(`core::default::Default`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {

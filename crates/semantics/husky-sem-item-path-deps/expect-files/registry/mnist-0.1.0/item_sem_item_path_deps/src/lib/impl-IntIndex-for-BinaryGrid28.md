@@ -1,0 +1,10 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`core::ops::IntIndex`),
+            ItemPath(`mnist::BinaryGrid28`),
+        ],
+    ),
+)
+```

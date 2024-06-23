@@ -1,19 +1,11 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist::Task`, `TypeVar`),
-            ),
-        ),
+        ItemPath(`mnist::Task`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist::TASK`, `StaticVar`),
-            ),
-        ),
+        ItemPath(`mnist::TASK`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,

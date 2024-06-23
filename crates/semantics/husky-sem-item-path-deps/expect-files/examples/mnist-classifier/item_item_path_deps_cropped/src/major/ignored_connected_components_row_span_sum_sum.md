@@ -1,0 +1,10 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`mnist_classifier::major::connected_components`),
+            ItemPath(`mnist_classifier::major::major_connected_component`),
+        ],
+    ),
+)
+```

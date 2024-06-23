@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist::MnistLabel`, `Enum`),
-                ),
-            ),
+            ItemPath(`mnist::MnistLabel`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`mnist::MnistLabel`, `Enum`),
-                    ),
-                ),
+                ItemPath(`mnist::MnistLabel`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -68,19 +60,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist::BinaryImage28`, `Extern`),
-                ),
-            ),
+            ItemPath(`mnist::BinaryImage28`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`mnist::BinaryImage28`, `Extern`),
-                    ),
-                ),
+                ItemPath(`mnist::BinaryImage28`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -134,19 +118,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist::BinaryGrid28`, `Extern`),
-                ),
-            ),
+            ItemPath(`mnist::BinaryGrid28`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`mnist::BinaryGrid28`, `Extern`),
-                    ),
-                ),
+                ItemPath(`mnist::BinaryGrid28`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -200,19 +176,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist::input`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist::input`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist::input`, `Val`),
-                    ),
-                ),
+                ItemPath(`mnist::input`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -354,19 +322,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath(`mnist::BinaryImage28 as core::visual::Visualize(0)`),
-                ),
-            ),
+            ItemPath(`mnist::BinaryImage28 as core::visual::Visualize(0)`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::ImplBlock(
-                    ImplBlockPath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(`mnist::BinaryImage28 as core::visual::Visualize(0)`),
-                    ),
-                ),
+                ItemPath(`mnist::BinaryImage28 as core::visual::Visualize(0)`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -590,29 +550,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`,
-                        TraitItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            `<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`,
-                            TraitItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -758,19 +700,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(`mnist::BinaryImage28(0)`),
-                ),
-            ),
+            ItemPath(`mnist::BinaryImage28(0)`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::ImplBlock(
-                    ImplBlockPath::TypeImplBlock(
-                        TypeImplBlockPath(`mnist::BinaryImage28(0)`),
-                    ),
-                ),
+                ItemPath(`mnist::BinaryImage28(0)`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -914,29 +848,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist::BinaryImage28(0)::new_zeros`,
-                        TypeItemKind::AssocRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist::BinaryImage28(0)::new_zeros`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist::BinaryImage28(0)::new_zeros`,
-                            TypeItemKind::AssocRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist::BinaryImage28(0)::new_zeros`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -1075,19 +991,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath(`mnist::BinaryImage28 as core::ops::IntIndex(0)`),
-                ),
-            ),
+            ItemPath(`mnist::BinaryImage28 as core::ops::IntIndex(0)`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::ImplBlock(
-                    ImplBlockPath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(`mnist::BinaryImage28 as core::ops::IntIndex(0)`),
-                    ),
-                ),
+                ItemPath(`mnist::BinaryImage28 as core::ops::IntIndex(0)`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -1311,25 +1219,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`,
-                        TraitItemKind::AssocType,
-                    ),
-                ),
-            ),
+            ItemPath(`<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            `<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`,
-                            TraitItemKind::AssocType,
-                        ),
-                    ),
-                ),
+                ItemPath(`<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -1473,19 +1367,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath(`mnist::BinaryGrid28 as core::visual::Visualize(0)`),
-                ),
-            ),
+            ItemPath(`mnist::BinaryGrid28 as core::visual::Visualize(0)`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::ImplBlock(
-                    ImplBlockPath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(`mnist::BinaryGrid28 as core::visual::Visualize(0)`),
-                    ),
-                ),
+                ItemPath(`mnist::BinaryGrid28 as core::visual::Visualize(0)`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -1709,29 +1595,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`,
-                        TraitItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            `<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`,
-                            TraitItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -1877,19 +1745,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(`mnist::BinaryGrid28(0)`),
-                ),
-            ),
+            ItemPath(`mnist::BinaryGrid28(0)`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::ImplBlock(
-                    ImplBlockPath::TypeImplBlock(
-                        TypeImplBlockPath(`mnist::BinaryGrid28(0)`),
-                    ),
-                ),
+                ItemPath(`mnist::BinaryGrid28(0)`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -2033,29 +1893,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist::BinaryGrid28(0)::new_zeros`,
-                        TypeItemKind::AssocRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist::BinaryGrid28(0)::new_zeros`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist::BinaryGrid28(0)::new_zeros`,
-                            TypeItemKind::AssocRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist::BinaryGrid28(0)::new_zeros`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -2194,19 +2036,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath(`mnist::BinaryGrid28 as core::ops::IntIndex(0)`),
-                ),
-            ),
+            ItemPath(`mnist::BinaryGrid28 as core::ops::IntIndex(0)`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::ImplBlock(
-                    ImplBlockPath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(`mnist::BinaryGrid28 as core::ops::IntIndex(0)`),
-                    ),
-                ),
+                ItemPath(`mnist::BinaryGrid28 as core::ops::IntIndex(0)`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -2430,25 +2264,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`,
-                        TraitItemKind::AssocType,
-                    ),
-                ),
-            ),
+            ItemPath(`<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            `<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`,
-                            TraitItemKind::AssocType,
-                        ),
-                    ),
-                ),
+                ItemPath(`<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],

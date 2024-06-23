@@ -2,11 +2,7 @@
 SynDeclSheet {
     decls: [
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::cmp::PartialEq`),
-                ),
-            ),
+            ItemPath(`core::cmp::PartialEq`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -82,11 +78,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::cmp::Eq`),
-                ),
-            ),
+            ItemPath(`core::cmp::Eq`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -162,11 +154,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::cmp::PartialOrd`),
-                ),
-            ),
+            ItemPath(`core::cmp::PartialOrd`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -242,11 +230,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::cmp::Ord`),
-                ),
-            ),
+            ItemPath(`core::cmp::Ord`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {

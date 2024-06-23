@@ -1,0 +1,12 @@
+```rust
+Some(
+    [
+        ItemPath(`core::option::Option::#derive(0)`),
+        ItemPath(`core::fmt::Debug`),
+        ItemPath(`core::cmp::PartialEq`),
+        ItemPath(`core::cmp::Eq`),
+        ItemPath(`core::clone::Clone`),
+        ItemPath(`core::marker::Copy`),
+    ],
+)
+```

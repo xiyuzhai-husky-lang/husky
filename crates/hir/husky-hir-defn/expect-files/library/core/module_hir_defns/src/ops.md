@@ -27,11 +27,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::ops::Add`),
-                                ),
-                            ),
+                            ItemPath(`core::ops::Add`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -101,11 +97,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::ops::AddAssign`),
-                                ),
-                            ),
+                            ItemPath(`core::ops::AddAssign`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -175,11 +167,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::ops::BitAnd`),
-                                ),
-                            ),
+                            ItemPath(`core::ops::BitAnd`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -249,11 +237,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::ops::BitAndAssign`),
-                                ),
-                            ),
+                            ItemPath(`core::ops::BitAndAssign`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -323,11 +307,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::ops::BitOr`),
-                                ),
-                            ),
+                            ItemPath(`core::ops::BitOr`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -397,11 +377,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::ops::BitOrAssign`),
-                                ),
-                            ),
+                            ItemPath(`core::ops::BitOrAssign`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -471,11 +447,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::ops::BitXor`),
-                                ),
-                            ),
+                            ItemPath(`core::ops::BitXor`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -545,11 +517,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::ops::BitXorAssign`),
-                                ),
-                            ),
+                            ItemPath(`core::ops::BitXorAssign`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -619,11 +587,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::ops::Div`),
-                                ),
-                            ),
+                            ItemPath(`core::ops::Div`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -693,11 +657,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::ops::DivAssign`),
-                                ),
-                            ),
+                            ItemPath(`core::ops::DivAssign`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -751,11 +711,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::ops::IntIndex`),
-                                ),
-                            ),
+                            ItemPath(`core::ops::IntIndex`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -809,11 +765,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::ops::Mul`),
-                                ),
-                            ),
+                            ItemPath(`core::ops::Mul`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -883,11 +835,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::ops::MulAssign`),
-                                ),
-                            ),
+                            ItemPath(`core::ops::MulAssign`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -941,11 +889,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::ops::Neg`),
-                                ),
-                            ),
+                            ItemPath(`core::ops::Neg`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -983,11 +927,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::ops::Not`),
-                                ),
-                            ),
+                            ItemPath(`core::ops::Not`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1041,11 +981,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::ops::Sub`),
-                                ),
-                            ),
+                            ItemPath(`core::ops::Sub`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1115,11 +1051,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::ops::Unveil`),
-                                ),
-                            ),
+                            ItemPath(`core::ops::Unveil`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1205,11 +1137,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::ops::ControlFlow`, `Enum`),
-                                    ),
-                                ),
+                                ItemPath(`core::ops::ControlFlow`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -1301,16 +1229,7 @@
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::TypeVariant(
-                                Room32,
-                                TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 84,
-                                        },
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`core::ops::ControlFlow::Continue`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1401,16 +1320,7 @@
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::TypeVariant(
-                                Room32,
-                                TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 85,
-                                        },
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`core::ops::ControlFlow::Break`),
                         ),
                         expr_arena: Arena {
                             data: [],

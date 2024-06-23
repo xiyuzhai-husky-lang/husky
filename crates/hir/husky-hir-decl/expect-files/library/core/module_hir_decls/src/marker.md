@@ -9,11 +9,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::marker::Copy`),
-                            ),
-                        ),
+                        ItemPath(`core::marker::Copy`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -48,11 +44,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::marker::Sized`),
-                            ),
-                        ),
+                        ItemPath(`core::marker::Sized`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -94,11 +86,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::ImplBlock(
-                            ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath(`#derive _ as core::marker::Copy(0)`),
-                            ),
-                        ),
+                        ItemPath(`#derive _ as core::marker::Copy(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],

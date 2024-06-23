@@ -1,0 +1,11 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`core::fmt::Debug`),
+            ItemPath(`core::clone::Clone`),
+            ItemPath(`core::marker::Copy`),
+        ],
+    ),
+)
+```

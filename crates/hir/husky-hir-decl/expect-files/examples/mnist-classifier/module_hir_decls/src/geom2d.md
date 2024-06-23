@@ -34,11 +34,7 @@
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::Point2d`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -81,7 +77,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(`mnist_classifier::geom2d::Point2d::@derive(0)`),
+                path: AttrItemPath(`mnist_classifier::geom2d::Point2d::#derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -98,10 +94,7 @@
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::Attr(
-                            Room32,
-                            AttrItemPath(`mnist_classifier::geom2d::Point2d::@derive(0)`),
-                        ),
+                        ItemPath(`mnist_classifier::geom2d::Point2d::#derive(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -174,11 +167,7 @@
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::RelativePoint2d`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -252,11 +241,7 @@
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::Vector2d`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -330,11 +315,7 @@
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::ClosedRange`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -408,11 +389,7 @@
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::BoundingBox`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -486,11 +463,7 @@
                     ],
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -546,11 +519,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::ImplBlock(
-                            ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(`mnist_classifier::geom2d::Point2d(0)`),
-                            ),
-                        ),
+                        ItemPath(`mnist_classifier::geom2d::Point2d(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -624,16 +593,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::Point2d(0)::from_i_shift28`,
-                                        TypeItemKind::AssocRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::Point2d(0)::from_i_shift28`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -729,16 +689,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::Point2d(0)::vector`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::Point2d(0)::vector`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -819,16 +770,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::Point2d(0)::to`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::Point2d(0)::to`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -911,16 +853,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::Point2d(0)::norm`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::Point2d(0)::norm`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1001,16 +934,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::Point2d(0)::dist`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::Point2d(0)::dist`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1074,11 +998,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::ImplBlock(
-                            ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(`mnist_classifier::geom2d::Vector2d(0)`),
-                            ),
-                        ),
+                        ItemPath(`mnist_classifier::geom2d::Vector2d(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -1139,16 +1059,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::Vector2d(0)::point`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::point`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1229,16 +1140,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::Vector2d(0)::to`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::to`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1321,16 +1223,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::Vector2d(0)::norm`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1411,16 +1304,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::Vector2d(0)::dot`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::dot`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1515,16 +1399,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::Vector2d(0)::cross`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::cross`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1619,16 +1494,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::Vector2d(0)::angle`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1723,16 +1589,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1838,16 +1695,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::Vector2d(0)::angle_to`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle_to`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1924,11 +1772,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::ImplBlock(
-                            ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(`mnist_classifier::geom2d::ClosedRange(0)`),
-                            ),
-                        ),
+                        ItemPath(`mnist_classifier::geom2d::ClosedRange(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -2001,16 +1845,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::ClosedRange(0)::relative_range`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_range`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -2105,16 +1940,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::ClosedRange(0)::relative_point`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_point`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -2178,11 +2004,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::ImplBlock(
-                            ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(`mnist_classifier::geom2d::BoundingBox(0)`),
-                            ),
-                        ),
+                        ItemPath(`mnist_classifier::geom2d::BoundingBox(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -2255,16 +2077,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -2359,16 +2172,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::BoundingBox(0)::relative_point`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::relative_point`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -2451,16 +2255,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::BoundingBox(0)::xmin`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::xmin`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -2529,16 +2324,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::BoundingBox(0)::xmax`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::xmax`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -2607,16 +2393,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::BoundingBox(0)::ymin`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::ymin`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -2685,16 +2462,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::BoundingBox(0)::ymax`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::ymax`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -2744,11 +2512,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::ImplBlock(
-                            ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)`),
-                            ),
-                        ),
+                        ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -2809,16 +2573,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -2887,16 +2642,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -2965,16 +2711,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -3043,16 +2780,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`),
                         ),
                         expr_arena: Arena {
                             data: [],

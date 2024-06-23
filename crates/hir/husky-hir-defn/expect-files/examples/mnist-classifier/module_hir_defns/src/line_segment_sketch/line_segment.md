@@ -36,11 +36,7 @@
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -98,11 +94,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::ImplBlock(
-                                ImplBlockPath::TypeImplBlock(
-                                    TypeImplBlockPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -171,16 +163,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::AssocItem(
-                                    AssocItemPath::TypeItem(
-                                        TypeItemPath(
-                                            `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`,
-                                            TypeItemKind::MethodRitchie(
-                                                RitchieItemKind::Fn,
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -216,16 +199,7 @@
                             5,
                             HirEagerExprRegion {
                                 region_path: RegionPath::ItemDefn(
-                                    ItemPath::AssocItem(
-                                        AssocItemPath::TypeItem(
-                                            TypeItemPath(
-                                                `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`,
-                                                TypeItemKind::MethodRitchie(
-                                                    RitchieItemKind::Fn,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
+                                    ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`),
                                 ),
                                 expr_arena: Arena {
                                     data: [
@@ -530,16 +504,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::AssocItem(
-                                    AssocItemPath::TypeItem(
-                                        TypeItemPath(
-                                            `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`,
-                                            TypeItemKind::MethodRitchie(
-                                                RitchieItemKind::Fn,
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -589,16 +554,7 @@
                             31,
                             HirEagerExprRegion {
                                 region_path: RegionPath::ItemDefn(
-                                    ItemPath::AssocItem(
-                                        AssocItemPath::TypeItem(
-                                            TypeItemPath(
-                                                `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`,
-                                                TypeItemKind::MethodRitchie(
-                                                    RitchieItemKind::Fn,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
+                                    ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`),
                                 ),
                                 expr_arena: Arena {
                                     data: [

@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::backend::IsBackend`),
-            ),
-        ),
+        ItemPath(`core::backend::IsBackend`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(
@@ -26,11 +22,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::backend::MlBackend`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::backend::MlBackend`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Type(

@@ -1,0 +1,10 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`core::ops::ControlFlow`),
+            ItemPath(`core::ops::Unveil::Output`),
+        ],
+    ),
+)
+```

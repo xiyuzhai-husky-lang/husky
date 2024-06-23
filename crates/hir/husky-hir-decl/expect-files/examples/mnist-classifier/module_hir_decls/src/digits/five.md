@@ -14,11 +14,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Form(
-                                    FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::digits::five::is_five`),
                         ),
                         expr_arena: Arena {
                             data: [],

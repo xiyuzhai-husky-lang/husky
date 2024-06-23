@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`ml_task::IsMlTask`),
-                ),
-            ),
+            ItemPath(`ml_task::IsMlTask`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`ml_task::IsMlTask`),
-                    ),
-                ),
+                ItemPath(`ml_task::IsMlTask`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],

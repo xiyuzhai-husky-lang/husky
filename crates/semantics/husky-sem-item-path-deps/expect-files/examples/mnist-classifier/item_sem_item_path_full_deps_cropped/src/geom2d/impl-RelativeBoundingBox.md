@@ -1,0 +1,10 @@
+```rust
+Some(
+    [
+        ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)`),
+        ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox`),
+        ItemPath(`mnist_classifier::geom2d::ClosedRange`),
+        ItemPath(`core::num::f32`),
+    ],
+)
+```

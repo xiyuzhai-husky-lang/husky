@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -18,11 +14,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -35,16 +27,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -57,16 +40,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(

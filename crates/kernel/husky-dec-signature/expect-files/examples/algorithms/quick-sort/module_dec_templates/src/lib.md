@@ -1,13 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`quick_sort::quick_sort`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`quick_sort::quick_sort`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -61,13 +55,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`quick_sort::quick_sort_aux`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -153,13 +141,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`quick_sort::partition`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`quick_sort::partition`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -245,13 +227,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`quick_sort::quick_sort_works_for_integers`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
@@ -282,13 +258,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`quick_sort::quick_sort_works_for_strs`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(

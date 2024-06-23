@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::four::left_components`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -67,13 +63,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::four::left_coordinate_max`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -86,11 +76,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::four::components_max_downwards`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -152,11 +138,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::four::components_max_heights`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -218,11 +200,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::four::is_four`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -271,13 +249,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::four::displacement_downwards`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -290,13 +262,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::four::cc_box_heights`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(

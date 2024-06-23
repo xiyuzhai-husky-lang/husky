@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::nine::nine_match`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::nine::nine_match`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -156,19 +148,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::nine::nine_match_refine`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::nine::nine_match_refine`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -310,19 +294,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::nine::is_nine`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::nine::is_nine`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -443,16 +419,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::TypeVariant(
-                                                Room32,
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 286,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist::MnistLabel::Nine`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -834,23 +801,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::nine::downmost`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::nine::downmost`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -1248,23 +1203,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::digits::nine::big_cc`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::digits::nine::big_cc`),
             ),
             place_registry: PlaceRegistry {
                 infos: [

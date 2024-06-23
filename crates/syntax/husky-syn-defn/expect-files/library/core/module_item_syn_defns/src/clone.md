@@ -1,45 +1,19 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::clone::Clone`),
-            ),
-        ),
+        ItemPath(`core::clone::Clone`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::clone::Clone::clone`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::clone::Clone::clone`),
         None,
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`#derive _ as core::clone::Clone(0)`),
-            ),
-        ),
+        ItemPath(`#derive _ as core::clone::Clone(0)`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<#derive _ as core::clone::Clone(0)>::clone`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<#derive _ as core::clone::Clone(0)>::clone`),
         None,
     ),
 ]

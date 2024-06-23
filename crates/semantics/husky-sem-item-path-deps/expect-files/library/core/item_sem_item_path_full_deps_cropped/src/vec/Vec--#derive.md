@@ -1,0 +1,10 @@
+```rust
+Some(
+    [
+        ItemPath(`core::vec::Vec::#derive(0)`),
+        ItemPath(`core::fmt::Debug`),
+        ItemPath(`core::clone::Clone`),
+        ItemPath(`core::visual::Visualize`),
+    ],
+)
+```

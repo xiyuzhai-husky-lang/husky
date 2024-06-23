@@ -1,88 +1,47 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::bool`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::bool`),
         None,
     ),
     (
-        ItemPath::Attr(
-            Room32,
-            AttrItemPath(`core::basic::bool::@derive(0)`),
-        ),
+        ItemPath(`core::basic::bool::#derive(0)`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::never`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::never`),
         None,
     ),
     (
-        ItemPath::Attr(
-            Room32,
-            AttrItemPath(`core::basic::never::@derive(0)`),
-        ),
+        ItemPath(`core::basic::never::#derive(0)`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::unit`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::unit`),
         None,
     ),
     (
-        ItemPath::Attr(
-            Room32,
-            AttrItemPath(`core::basic::unit::@derive(0)`),
-        ),
+        ItemPath(`core::basic::unit::#derive(0)`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::Trait`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::Trait`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::Module`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::Module`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::Lifetime`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::Lifetime`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::Place`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::Place`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::basic::Universe`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::basic::Universe`),
         None,
     ),
 ]

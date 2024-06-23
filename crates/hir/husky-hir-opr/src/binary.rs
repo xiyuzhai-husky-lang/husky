@@ -1,5 +1,5 @@
 use husky_opr::*;
-use husky_sem_opr::binary::SemaBinaryOpr;
+use husky_sem_opr::binary::SemBinaryOpr;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum HirBinaryOpr {
@@ -13,33 +13,36 @@ pub enum HirBinaryOpr {
 }
 
 impl HirBinaryOpr {
-    pub fn from_sema(opr: SemaBinaryOpr) -> Self {
+    pub fn from_sema(opr: SemBinaryOpr) -> Self {
         match opr {
-            SemaBinaryOpr::Closed(opr) => HirBinaryOpr::Closed(opr),
-            SemaBinaryOpr::Shift(opr) => HirBinaryOpr::Shift(opr),
-            SemaBinaryOpr::Assign => HirBinaryOpr::Assign,
-            SemaBinaryOpr::AssignClosed(opr) => HirBinaryOpr::AssignClosed(opr),
-            SemaBinaryOpr::AssignShift(opr) => HirBinaryOpr::AssignShift(opr),
-            SemaBinaryOpr::Comparison(opr) => HirBinaryOpr::Comparison(opr),
-            SemaBinaryOpr::ShortCircuitLogic(opr) => HirBinaryOpr::ShortCircuitLogic(opr),
+            SemBinaryOpr::Closed(opr) => HirBinaryOpr::Closed(opr),
+            SemBinaryOpr::Shift(opr) => HirBinaryOpr::Shift(opr),
+            SemBinaryOpr::Assign => HirBinaryOpr::Assign,
+            SemBinaryOpr::AssignClosed(opr) => HirBinaryOpr::AssignClosed(opr),
+            SemBinaryOpr::AssignShift(opr) => HirBinaryOpr::AssignShift(opr),
+            SemBinaryOpr::Comparison(opr) => HirBinaryOpr::Comparison(opr),
+            SemBinaryOpr::ShortCircuitLogic(opr) => HirBinaryOpr::ShortCircuitLogic(opr),
 
             // For the variants without a direct match, you will need to decide the appropriate action.
-            SemaBinaryOpr::ScopeResolution => {
+            SemBinaryOpr::ScopeResolution => {
                 panic!("ScopeResolution is not supported in HirBinaryOpr")
             }
-            SemaBinaryOpr::CurryType => {
+            SemBinaryOpr::CurryType => {
                 panic!("CurryType is not supported in HirBinaryOpr")
             }
             // Ins and In do not have an equivalent in HirBinaryOpr
             // In a real scenario, consider proper error handling instead of panicking.
-            SemaBinaryOpr::Ins => {
+            SemBinaryOpr::Ins => {
                 panic!("Ins operator is not expected in HirBinaryOpr")
             }
-            SemaBinaryOpr::In => {
+            SemBinaryOpr::In => {
                 panic!("In operator is not expected in HirBinaryOpr")
             }
-            SemaBinaryOpr::As => {
+            SemBinaryOpr::As => {
                 panic!("As is not considered as an operator in HirBinaryOpr")
+            }
+            SemBinaryOpr::Of => {
+                panic!("Of is not considered as an operator in HirBinaryOpr")
             }
         }
     }

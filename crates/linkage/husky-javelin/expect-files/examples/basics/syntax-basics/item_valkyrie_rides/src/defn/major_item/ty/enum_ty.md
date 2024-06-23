@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
-            ),
-        ),
+        ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -18,16 +14,7 @@
         ),
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 10,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::UnitVariant`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -36,16 +23,7 @@
         ),
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 11,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithOneField`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -54,16 +32,7 @@
         ),
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 12,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithTwoFields`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -72,16 +41,7 @@
         ),
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 13,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithOneField`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -90,16 +50,7 @@
         ),
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 14,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithTwoFields`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,

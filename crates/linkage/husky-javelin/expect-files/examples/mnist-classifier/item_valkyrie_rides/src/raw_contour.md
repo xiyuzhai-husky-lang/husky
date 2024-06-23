@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::RawContour`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -18,11 +14,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::Direction`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -35,23 +27,11 @@
         ),
     ),
     (
-        ItemPath::Attr(
-            Room32,
-            AttrItemPath(`mnist_classifier::raw_contour::Direction::@derive(0)`),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::Direction::#derive(0)`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 17,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::Direction::Up`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -60,16 +40,7 @@
         ),
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 18,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::Direction::Left`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -78,16 +49,7 @@
         ),
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 19,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::Direction::Down`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -96,16 +58,7 @@
         ),
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 20,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::Direction::Right`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -114,13 +67,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::get_pixel_pair`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -133,13 +80,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -152,13 +93,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -171,13 +106,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::get_inward_direction`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -190,13 +119,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::get_angle_change`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -209,13 +132,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::get_outward_direction`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -228,11 +145,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::StreakCache`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -245,13 +158,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::get_concave_middle_point`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -304,13 +211,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::find_raw_contours`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -533,11 +434,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -550,16 +447,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)>::visualize`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)>::visualize`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -572,11 +460,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::RawContour(0)`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -589,14 +473,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -605,14 +482,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::RawContour(0)::bounding_box`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -661,14 +531,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -677,14 +540,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::RawContour(0)::contour_len`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -733,16 +589,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::raw_contour::RawContour(0)::displacement`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::RawContour(0)::displacement`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(

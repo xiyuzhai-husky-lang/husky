@@ -1,199 +1,133 @@
 ```rust
 [
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::array),
-        ),
+        ItemPath(`core::array`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::backend),
-        ),
+        ItemPath(`core::backend`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::basic),
-        ),
+        ItemPath(`core::basic`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::clone),
-        ),
+        ItemPath(`core::clone`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::cmp),
-        ),
+        ItemPath(`core::cmp`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::default),
-        ),
+        ItemPath(`core::default`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::frontend),
-        ),
+        ItemPath(`core::frontend`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::fmt),
-        ),
+        ItemPath(`core::fmt`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::logic),
-        ),
+        ItemPath(`core::logic`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::marker),
-        ),
+        ItemPath(`core::marker`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::mem),
-        ),
+        ItemPath(`core::mem`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::num),
-        ),
+        ItemPath(`core::num`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::ops),
-        ),
+        ItemPath(`core::ops`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::option),
-        ),
+        ItemPath(`core::option`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::prelude),
-        ),
+        ItemPath(`core::prelude`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::raw_bits),
-        ),
+        ItemPath(`core::raw_bits`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::result),
-        ),
+        ItemPath(`core::result`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::task),
-        ),
+        ItemPath(`core::task`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::vec),
-        ),
+        ItemPath(`core::vec`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::slice),
-        ),
+        ItemPath(`core::slice`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::str),
-        ),
+        ItemPath(`core::str`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::visual),
-        ),
+        ItemPath(`core::visual`),
         Ok(
             ItemDecTemplate::Submodule,
         ),

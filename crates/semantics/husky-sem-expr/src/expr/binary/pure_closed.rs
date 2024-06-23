@@ -9,7 +9,7 @@ impl<'a> SemExprBuilder<'a> {
         menu: &EthTermMenu,
     ) -> (
         SemExprIdx,
-        SemaBinaryOpr,
+        SemBinaryOpr,
         SemExprIdx,
         SemExprDataResult<SemaBinaryOprInstanceDispatch>,
         SemExprTypeResult<FlyTerm>,
@@ -25,7 +25,7 @@ impl<'a> SemExprBuilder<'a> {
             let ropd = self.build_sem_expr(ropd, ExpectAnyDerived);
             return (
                 lopd,
-                SemaBinaryOpr::Closed(opr),
+                SemBinaryOpr::Closed(opr),
                 ropd,
                 todo!(),
                 Err(DerivedSemExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into()),
@@ -75,7 +75,7 @@ impl<'a> SemExprBuilder<'a> {
         };
         (
             lopd,
-            SemaBinaryOpr::Closed(opr),
+            SemBinaryOpr::Closed(opr),
             ropd,
             Ok(SemaBinaryOprInstanceDispatch::builtin()),
             ty_result,

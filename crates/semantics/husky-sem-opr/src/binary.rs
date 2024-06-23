@@ -1,7 +1,7 @@
 use crate::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum SemaBinaryOpr {
+pub enum SemBinaryOpr {
     Closed(BinaryClosedOpr),
     Shift(BinaryShiftOpr),
     Assign,
@@ -14,15 +14,16 @@ pub enum SemaBinaryOpr {
     As,        // as
     Ins,       // :
     In,        // in
+    Of,
 }
 
-impl SemaBinaryOpr {
+impl SemBinaryOpr {
     pub fn code(self) -> &'static str {
         match self {
-            SemaBinaryOpr::Closed(opr) => opr.husky_code(),
-            SemaBinaryOpr::Shift(opr) => opr.husky_code(),
-            SemaBinaryOpr::Assign => "=",
-            SemaBinaryOpr::AssignClosed(opr) => match opr {
+            SemBinaryOpr::Closed(opr) => opr.husky_code(),
+            SemBinaryOpr::Shift(opr) => opr.husky_code(),
+            SemBinaryOpr::Assign => "=",
+            SemBinaryOpr::AssignClosed(opr) => match opr {
                 BinaryClosedOpr::Add => "+=",
                 BinaryClosedOpr::BitAnd => "&=",
                 BinaryClosedOpr::BitOr => "|=",
@@ -33,28 +34,29 @@ impl SemaBinaryOpr {
                 BinaryClosedOpr::Power => "**=",
                 BinaryClosedOpr::Sub => "-=",
             },
-            SemaBinaryOpr::AssignShift(opr) => match opr {
+            SemBinaryOpr::AssignShift(opr) => match opr {
                 BinaryShiftOpr::Shl => "<<=",
                 BinaryShiftOpr::Shr => ">>=",
             },
-            SemaBinaryOpr::Comparison(cmp_opr) => cmp_opr.husky_code(),
-            SemaBinaryOpr::ShortCircuitLogic(logic_opr) => logic_opr.husky_code(),
-            SemaBinaryOpr::CurryType => "->",
-            SemaBinaryOpr::As => todo!(),
-            SemaBinaryOpr::Ins => todo!(),
-            SemaBinaryOpr::ScopeResolution => todo!(),
-            SemaBinaryOpr::In => "in",
+            SemBinaryOpr::Comparison(cmp_opr) => cmp_opr.husky_code(),
+            SemBinaryOpr::ShortCircuitLogic(logic_opr) => logic_opr.husky_code(),
+            SemBinaryOpr::CurryType => "->",
+            SemBinaryOpr::As => "as",
+            SemBinaryOpr::Of => "of",
+            SemBinaryOpr::Ins => todo!(),
+            SemBinaryOpr::ScopeResolution => todo!(),
+            SemBinaryOpr::In => "in",
         }
     }
 
     pub fn spaced_code(self) -> &'static str {
         match self {
-            SemaBinaryOpr::Closed(opr) => opr.spaced_husky_code(),
-            SemaBinaryOpr::Shift(opr) => opr.spaced_husky_code(),
-            SemaBinaryOpr::Comparison(opr) => opr.spaced_husky_code(),
-            SemaBinaryOpr::ShortCircuitLogic(opr) => opr.spaced_husky_code(),
-            SemaBinaryOpr::Assign => " = ",
-            SemaBinaryOpr::AssignClosed(opr) => match opr {
+            SemBinaryOpr::Closed(opr) => opr.spaced_husky_code(),
+            SemBinaryOpr::Shift(opr) => opr.spaced_husky_code(),
+            SemBinaryOpr::Comparison(opr) => opr.spaced_husky_code(),
+            SemBinaryOpr::ShortCircuitLogic(opr) => opr.spaced_husky_code(),
+            SemBinaryOpr::Assign => " = ",
+            SemBinaryOpr::AssignClosed(opr) => match opr {
                 BinaryClosedOpr::Add => " += ",
                 BinaryClosedOpr::BitAnd => " &= ",
                 BinaryClosedOpr::BitOr => " |= ",
@@ -65,15 +67,16 @@ impl SemaBinaryOpr {
                 BinaryClosedOpr::Power => " **= ",
                 BinaryClosedOpr::Sub => " -= ",
             },
-            SemaBinaryOpr::AssignShift(opr) => match opr {
+            SemBinaryOpr::AssignShift(opr) => match opr {
                 BinaryShiftOpr::Shl => " <<= ",
                 BinaryShiftOpr::Shr => " >>= ",
             },
-            SemaBinaryOpr::CurryType => " -> ",
-            SemaBinaryOpr::As => " as ",
-            SemaBinaryOpr::Ins => " : ",
-            SemaBinaryOpr::ScopeResolution => " :: ",
-            SemaBinaryOpr::In => " in ",
+            SemBinaryOpr::CurryType => " -> ",
+            SemBinaryOpr::As => " as ",
+            SemBinaryOpr::Of => " of ",
+            SemBinaryOpr::Ins => " : ",
+            SemBinaryOpr::ScopeResolution => " :: ",
+            SemBinaryOpr::In => " in ",
         }
     }
 }

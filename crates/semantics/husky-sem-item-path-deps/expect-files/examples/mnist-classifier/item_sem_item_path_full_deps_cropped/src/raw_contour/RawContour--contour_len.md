@@ -1,0 +1,11 @@
+```rust
+Some(
+    [
+        ItemPath(`mnist_classifier::raw_contour::RawContour(0)::contour_len`),
+        ItemPath(`core::num::f32`),
+        ItemPath(`core::vec::Vec(0)::ilen`),
+        ItemPath(`core::num::f32(0)::abs`),
+        ItemPath(`core::num::i32`),
+    ],
+)
+```

@@ -1,0 +1,14 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+            ItemPath(`core::vec::Vec(0)::ilen`),
+            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+            ItemPath(`core::vec::Vec(0)::cyclic_slice_leashed`),
+            ItemPath(`core::vec::Vec(0)::push`),
+        ],
+    ),
+)
+```

@@ -28,11 +28,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`core::vec::Vec`, `Extern`),
-                                ),
-                            ),
+                            ItemPath(`core::vec::Vec`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -80,7 +76,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(`core::vec::Vec::@derive(0)`),
+                path: AttrItemPath(`core::vec::Vec::#derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -97,10 +93,7 @@
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::Attr(
-                            Room32,
-                            AttrItemPath(`core::vec::Vec::@derive(0)`),
-                        ),
+                        ItemPath(`core::vec::Vec::#derive(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -188,11 +181,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::ImplBlock(
-                            ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(`core::vec::Vec(0)`),
-                            ),
-                        ),
+                        ItemPath(`core::vec::Vec(0)`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -269,16 +258,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `core::vec::Vec(0)::ilen`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`core::vec::Vec(0)::ilen`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -377,16 +357,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `core::vec::Vec(0)::push`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`core::vec::Vec(0)::push`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -514,16 +485,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `core::vec::Vec(0)::first`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`core::vec::Vec(0)::first`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -635,16 +597,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `core::vec::Vec(0)::last`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`core::vec::Vec(0)::last`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -741,16 +694,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `core::vec::Vec(0)::pop`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`core::vec::Vec(0)::pop`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -857,16 +801,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `core::vec::Vec(0)::collect_leashes`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`core::vec::Vec(0)::collect_leashes`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -996,16 +931,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `core::vec::Vec(0)::cyclic_slice_leashed`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`core::vec::Vec(0)::cyclic_slice_leashed`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1176,16 +1102,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(
-                                        `core::vec::Vec(0)::pop_with_largest_opt_f32`,
-                                        TypeItemKind::MethodRitchie(
-                                            RitchieItemKind::Fn,
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ItemPath(`core::vec::Vec(0)::pop_with_largest_opt_f32`),
                         ),
                         expr_arena: Arena {
                             data: [],

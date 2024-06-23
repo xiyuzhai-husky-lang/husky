@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::cmp::PartialEq`),
-            ),
-        ),
+        ItemPath(`core::cmp::PartialEq`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(
@@ -26,11 +22,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::cmp::Eq`),
-            ),
-        ),
+        ItemPath(`core::cmp::Eq`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(
@@ -51,11 +43,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::cmp::PartialOrd`),
-            ),
-        ),
+        ItemPath(`core::cmp::PartialOrd`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(
@@ -76,11 +64,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::cmp::Ord`),
-            ),
-        ),
+        ItemPath(`core::cmp::Ord`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Trait(

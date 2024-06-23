@@ -1,0 +1,9 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`mnist::BinaryGrid28`),
+        ],
+    ),
+)
+```

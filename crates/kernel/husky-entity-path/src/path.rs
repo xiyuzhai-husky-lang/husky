@@ -22,7 +22,9 @@ use husky_vfs::{
     path::{crate_path::CratePath, module_path::ModulePath},
     toolchain::Toolchain,
 };
+use salsa::DisplayWithDb;
 
+/// doesn't support DebugWithDb by design
 #[salsa::interned(override_debug)]
 pub struct ItemPathId {
     pub data: ItemPathData,
@@ -220,7 +222,6 @@ pub enum IdentifiableEntityPath {
     TypeVariant(TypeVariantPath),
 }
 
-#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum ItemPath {
@@ -231,6 +232,32 @@ pub enum ItemPath {
     ImplBlock(ImplBlockPath),
     Attr(Room32, AttrItemPath),
     Chunk(Room32, ChunkItemPath),
+}
+
+impl salsa::DebugWithDb for ItemPath {
+    fn debug_fmt_with_db(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &salsa::Db,
+    ) -> std::fmt::Result {
+        f.write_str("ItemPath(`")?;
+        self.display_fmt_with_db(f, db)?;
+        f.write_str("`)")
+    }
+}
+
+// question: is this stable enough?
+impl PartialOrd for ItemPath {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        ItemPathId::partial_cmp(&**self, &**other)
+    }
+}
+
+// question: is this stable enough?
+impl Ord for ItemPath {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        ItemPathId::cmp(&**self, &**other)
+    }
 }
 
 #[test]
@@ -285,8 +312,8 @@ impl salsa::DisplayWithDb for ItemPath {
             ItemPath::MajorItem(path) => path.display_fmt_with_db(f, db),
             ItemPath::AssocItem(path) => path.display_fmt_with_db(f, db),
             ItemPath::TypeVariant(_, path) => path.display_fmt_with_db(f, db),
-            ItemPath::ImplBlock(_path) => todo!(),
-            ItemPath::Attr(_, _) => todo!(),
+            ItemPath::ImplBlock(path) => path.display_fmt_with_db(f, db),
+            ItemPath::Attr(_, path) => path.display_fmt_with_db(f, db),
             ItemPath::Chunk(_, _) => todo!(),
         }
     }

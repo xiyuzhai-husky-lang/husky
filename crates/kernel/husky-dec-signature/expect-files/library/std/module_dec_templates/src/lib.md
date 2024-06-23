@@ -1,28 +1,19 @@
 ```rust
 [
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`std::prelude),
-        ),
+        ItemPath(`std::prelude`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`std::logic),
-        ),
+        ItemPath(`std::logic`),
         Ok(
             ItemDecTemplate::Submodule,
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`std::ops),
-        ),
+        ItemPath(`std::ops`),
         Ok(
             ItemDecTemplate::Submodule,
         ),

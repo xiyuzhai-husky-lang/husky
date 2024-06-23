@@ -1,13 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`syntax_basics::expr::nested`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`syntax_basics::expr::nested`),
         Some(
             ItemSynDefn {
                 body: 2,
@@ -237,7 +231,7 @@
                                 syn_expr_idx: 1,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 2,
                             },
                         ],
@@ -255,13 +249,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`syntax_basics::expr::closure_inline`),
         Some(
             ItemSynDefn {
                 body: 5,
@@ -608,7 +596,7 @@
                                 syn_expr_idx: 4,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 5,
                             },
                         ],
@@ -626,13 +614,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`syntax_basics::expr::closure_nested`),
         Some(
             ItemSynDefn {
                 body: 6,
@@ -1002,7 +984,7 @@
                                 syn_expr_idx: 5,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 6,
                             },
                         ],
