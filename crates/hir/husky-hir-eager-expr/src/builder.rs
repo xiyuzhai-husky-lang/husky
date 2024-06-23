@@ -33,7 +33,7 @@ pub(crate) struct HirEagerExprBuilder<'a> {
     sem_to_hir_eager_stmt_idx_map: SemStmtMap<HirEagerStmtIdx>,
     hir_eager_comptime_symbol_region_data: HirEagerComptimeVariableRegionData,
     hir_eager_runtime_symbol_region_data: HirEagerRuntimeVariableRegionData,
-    syn_symbol_to_hir_eager_runtime_symbol_map: VariableMap<HirEagerRvarIdx>,
+    variable_to_hir_eager_runtime_symbol_map: VariableMap<HirEagerRvarIdx>,
 }
 
 impl<'a> HirEagerExprBuilder<'a> {
@@ -49,7 +49,7 @@ impl<'a> HirEagerExprBuilder<'a> {
             syn_expr_region_data.variable_region(),
             db,
         );
-        let (hir_eager_runtime_symbol_region, syn_symbol_to_hir_eager_runtime_symbol_map) =
+        let (hir_eager_runtime_symbol_region, variable_to_hir_eager_runtime_symbol_map) =
             HirEagerRuntimeVariableRegionData::from_syn(syn_expr_region_data.variable_region());
         Self {
             db,
@@ -64,7 +64,7 @@ impl<'a> HirEagerExprBuilder<'a> {
             sem_to_hir_eager_stmt_idx_map,
             hir_eager_comptime_symbol_region_data,
             hir_eager_runtime_symbol_region_data: hir_eager_runtime_symbol_region,
-            syn_symbol_to_hir_eager_runtime_symbol_map,
+            variable_to_hir_eager_runtime_symbol_map,
         }
     }
 
@@ -210,12 +210,12 @@ impl<'a> HirEagerExprBuilder<'a> {
         }
     }
 
-    pub(crate) fn inherited_syn_symbol_to_hir_eager_runtime_symbol(
+    pub(crate) fn inherited_variable_to_hir_eager_runtime_symbol(
         &self,
-        inherited_syn_symbol_idx: InheritedVariableIdx,
+        inherited_variable_idx: InheritedVariableIdx,
     ) -> Option<HirEagerRvarIdx> {
-        self.syn_symbol_to_hir_eager_runtime_symbol_map
-            .get_inherited(inherited_syn_symbol_idx)
+        self.variable_to_hir_eager_runtime_symbol_map
+            .get_inherited(inherited_variable_idx)
             .copied()
     }
 
@@ -223,7 +223,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         &self,
         current_variable_idx: CurrentVariableIdx,
     ) -> Option<HirEagerRvarIdx> {
-        self.syn_symbol_to_hir_eager_runtime_symbol_map
+        self.variable_to_hir_eager_runtime_symbol_map
             .get_current(current_variable_idx)
             .copied()
     }
@@ -244,7 +244,7 @@ impl<'a> HirEagerExprBuilder<'a> {
                 self.syn_to_hir_eager_pattern_idx_map,
                 self.sem_to_hir_eager_expr_idx_map,
                 self.sem_to_hir_eager_stmt_idx_map,
-                self.syn_symbol_to_hir_eager_runtime_symbol_map,
+                self.variable_to_hir_eager_runtime_symbol_map,
             ),
         )
     }

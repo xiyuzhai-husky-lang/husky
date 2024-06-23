@@ -20,7 +20,7 @@ impl<'a> PlaceContractEngine<'a> {
         match *stmt.data(self.sem_expr_region_data().sem_stmt_arena()) {
             SemStmtData::Let {
                 contract,
-                initial_value_sem_expr_idx,
+                initial_value: initial_value_sem_expr_idx,
                 ..
             } => self.infer_expr(initial_value_sem_expr_idx, contract, Default::default()),
             SemStmtData::Return { result, .. } => {
@@ -31,7 +31,7 @@ impl<'a> PlaceContractEngine<'a> {
             }
             SemStmtData::Break { .. } => (),
             SemStmtData::Eval {
-                sem_expr_idx,
+                expr: sem_expr_idx,
                 eol_semicolon,
                 ..
             } => {

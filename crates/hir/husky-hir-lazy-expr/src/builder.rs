@@ -26,7 +26,7 @@ pub(crate) struct HirLazyExprBuilder<'a> {
     sem_to_hir_lazy_expr_idx_map: SemExprMap<HirLazyExprIdx>,
     sem_to_hir_lazy_stmt_idx_map: SemStmtMap<HirLazyStmtIdx>,
     hir_lazy_variable_region: HirLazyVariableRegion,
-    syn_symbol_to_hir_lazy_variable_map: VariableMap<HirLazyVariableIdx>,
+    variable_to_hir_lazy_variable_map: VariableMap<HirLazyVariableIdx>,
 }
 
 impl<'a> HirLazyExprBuilder<'a> {
@@ -35,7 +35,7 @@ impl<'a> HirLazyExprBuilder<'a> {
         let sem_expr_region_data = sem_expr_region.data(db);
         let syn_to_hir_lazy_pattern_idx_map =
             SynPatternMap::new(syn_expr_region_data.pattern_expr_arena());
-        let (hir_lazy_variable_region, syn_symbol_to_hir_lazy_variable_map) =
+        let (hir_lazy_variable_region, variable_to_hir_lazy_variable_map) =
             HirLazyVariableRegion::from_syn(syn_expr_region_data.variable_region());
         Self {
             db,
@@ -49,7 +49,7 @@ impl<'a> HirLazyExprBuilder<'a> {
             sem_to_hir_lazy_expr_idx_map: SemExprMap::new(sem_expr_region_data.sem_expr_arena()),
             sem_to_hir_lazy_stmt_idx_map: SemStmtMap::new(sem_expr_region_data.sem_stmt_arena()),
             hir_lazy_variable_region,
-            syn_symbol_to_hir_lazy_variable_map,
+            variable_to_hir_lazy_variable_map,
         }
     }
 
@@ -171,12 +171,12 @@ impl<'a> HirLazyExprBuilder<'a> {
         self.finish()
     }
 
-    pub(crate) fn inherited_syn_symbol_to_hir_lazy_variable(
+    pub(crate) fn inherited_variable_to_hir_lazy_variable(
         &self,
-        inherited_syn_symbol_idx: InheritedVariableIdx,
+        inherited_variable_idx: InheritedVariableIdx,
     ) -> Option<HirLazyVariableIdx> {
-        self.syn_symbol_to_hir_lazy_variable_map
-            .get_inherited(inherited_syn_symbol_idx)
+        self.variable_to_hir_lazy_variable_map
+            .get_inherited(inherited_variable_idx)
             .copied()
     }
 
@@ -184,7 +184,7 @@ impl<'a> HirLazyExprBuilder<'a> {
         &self,
         current_variable_idx: CurrentVariableIdx,
     ) -> Option<HirLazyVariableIdx> {
-        self.syn_symbol_to_hir_lazy_variable_map
+        self.variable_to_hir_lazy_variable_map
             .get_current(current_variable_idx)
             .copied()
     }
@@ -203,7 +203,7 @@ impl<'a> HirLazyExprBuilder<'a> {
                 self.syn_to_hir_lazy_pattern_idx_map,
                 self.sem_to_hir_lazy_expr_idx_map,
                 self.sem_to_hir_lazy_stmt_idx_map,
-                self.syn_symbol_to_hir_lazy_variable_map,
+                self.variable_to_hir_lazy_variable_map,
             ),
         )
     }

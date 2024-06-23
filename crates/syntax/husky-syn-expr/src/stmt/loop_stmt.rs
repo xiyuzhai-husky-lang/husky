@@ -199,7 +199,7 @@ impl<'a> SynExprContext<'a> {
                     Some(access_end),
                     current_variable_variant,
                 );
-                let frame_var_symbol_idx = self
+                let frame_variable_idx = self
                     .define_symbols(
                         vec![frame_var_symbol],
                         Some(SyndicateTypeConstraint::LoopVariable),
@@ -210,14 +210,14 @@ impl<'a> SynExprContext<'a> {
                     SynExprData::FrameVarDecl {
                         regional_token_idx: particulars.for_between_loop_var_regional_token_idx,
                         ident: particulars.for_between_loop_var_ident,
-                        frame_var_symbol_idx,
+                        frame_variable_idx,
                         current_variable_kind,
                     },
                 );
                 SynStmtData::ForBetween {
                     for_token,
                     particulars,
-                    for_loop_var_symbol_idx: frame_var_symbol_idx,
+                    for_loop_var_symbol_idx: frame_variable_idx,
                     eol_colon,
                     block: self.parse_stmts(body),
                 }
@@ -328,13 +328,13 @@ impl<'a> SynExprContext<'a> {
         };
         let (forext_loop_var_ident, forext_loop_var_regional_token_idx) =
             match self.syn_expr_arena()[forext_loop_var_expr_idx] {
-                SynExprData::InheritedSynSymbol {
+                SynExprData::InheritedVariable {
                     ident,
                     regional_token_idx,
-                    inherited_syn_symbol_idx: _,
-                    inherited_syn_symbol_kind: _,
+                    inherited_variable_idx: _,
+                    inherited_variable_kind: _,
                 } => (ident, regional_token_idx),
-                SynExprData::CurrentSynSymbol {
+                SynExprData::CurrentVariable {
                     ident,
                     regional_token_idx,
                     current_variable_idx: _,

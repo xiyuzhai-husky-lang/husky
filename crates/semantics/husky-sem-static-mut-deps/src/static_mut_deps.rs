@@ -6,7 +6,9 @@ use vec_like::OrderedSmallVecSet;
 pub struct SemStaticMutDeps(OrderedSmallVecSet<ItemPath, 4>);
 
 impl SemStaticMutDeps {
-    pub(crate) fn merge(&mut self, other: &Self) {
+    pub(crate) fn merge(&mut self, other: &Self) -> bool {
+        let old_len = self.0.len();
         self.0.extend(&other.0);
+        old_len != self.0.len()
     }
 }

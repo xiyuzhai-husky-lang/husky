@@ -84,6 +84,10 @@ where
         todo!()
     }
 
+    fn visit_loop(&mut self, stmt: SemStmtIdx, f: impl Fn(&mut Self)) {
+        todo!()
+    }
+
     fn visit_condition(&mut self, condition: SemCondition, f: impl FnOnce(&mut Self)) {
         ()
     }

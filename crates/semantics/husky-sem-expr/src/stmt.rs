@@ -28,7 +28,7 @@ pub enum SemStmtData {
         let_pattern_sem_obelisk: LetVariableObelisk,
         contract: Contract,
         eq_token: EqRegionalToken,
-        initial_value_sem_expr_idx: SemExprIdx,
+        initial_value: SemExprIdx,
         coercion_outcome: Option<ExpectCoercionOutcome>,
     },
     Return {
@@ -48,7 +48,7 @@ pub enum SemStmtData {
         break_token: BreakRegionalToken,
     },
     Eval {
-        sem_expr_idx: SemExprIdx,
+        expr: SemExprIdx,
         outcome: Option<ExpectationOutcome>,
         // todo: change this to EolOrEolSemicolonToken
         eol_semicolon: Option<EolSemicolonRegionalToken>,
@@ -419,7 +419,7 @@ impl<'a> SemExprBuilder<'a> {
                     };
                     (
                         Ok(SemStmtData::Eval {
-                            sem_expr_idx,
+                            expr: sem_expr_idx,
                             eol_semicolon,
                             outcome,
                         }),

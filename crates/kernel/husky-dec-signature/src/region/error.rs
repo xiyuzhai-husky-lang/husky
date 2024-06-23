@@ -51,7 +51,7 @@ pub enum DerivedSynExprDecTermError {
     SelfTypeNotAllowedInThisRegion,
     // should have been reported as syntax error
     SelfValueNotAllowedInThisRegion,
-    InheritedSynSymbolIsNotValidTerm,
+    InheritedVariableIsNotValidTerm,
 }
 
 pub type SynExprDecTermResult<T> = Result<T, SynExprDecTermError>;

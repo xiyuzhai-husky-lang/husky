@@ -41,13 +41,13 @@ pub enum SynExprData {
         ident: Ident,
         ident_regional_token_idx: RegionalTokenIdx,
     },
-    InheritedSynSymbol {
+    InheritedVariable {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
-        inherited_syn_symbol_idx: InheritedVariableIdx,
-        inherited_syn_symbol_kind: InheritedVariableKind,
+        inherited_variable_idx: InheritedVariableIdx,
+        inherited_variable_kind: InheritedVariableKind,
     },
-    CurrentSynSymbol {
+    CurrentVariable {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
         current_variable_idx: CurrentVariableIdx,
@@ -56,7 +56,7 @@ pub enum SynExprData {
     FrameVarDecl {
         regional_token_idx: RegionalTokenIdx,
         ident: Ident,
-        frame_var_symbol_idx: CurrentVariableIdx,
+        frame_variable_idx: CurrentVariableIdx,
         current_variable_kind: CurrentVariableKind,
     },
     SelfType(RegionalTokenIdx),

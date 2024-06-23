@@ -11,7 +11,7 @@ impl<'a> SemExprBuilder<'a> {
             .current_variable_map()
             .get(current_variable_idx)
             .copied()
-            .ok_or(DerivedSemExprTypeError::CurrentSynSymbolTypeError)?
+            .ok_or(DerivedSemExprTypeError::CurrentVariableTypeError)?
             .into())
     }
 }

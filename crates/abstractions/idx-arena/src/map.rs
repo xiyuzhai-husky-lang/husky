@@ -54,6 +54,13 @@ impl<T, V> ArenaMap<T, V> {
         }
     }
 
+    pub fn new_initialized(arena: &Arena<T>, f: impl Fn(ArenaIdx<T>, &T) -> Option<V>) -> Self {
+        Self {
+            data: arena.indexed_iter().map(|(idx, t)| f(idx, t)).collect(),
+            phantom: PhantomData,
+        }
+    }
+
     pub fn new2(arena: ArenaRef<T>) -> Self {
         Self {
             data: arena.data().iter().map(|_| None).collect(),

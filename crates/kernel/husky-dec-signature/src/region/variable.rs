@@ -71,7 +71,7 @@ impl DecSymbolicVariableSignature {
 /// # constructors
 
 impl DecSymbolicVariableRegion {
-    /// will initialize `inherited_syn_symbol_terms`;
+    /// will initialize `inherited_variable_terms`;
     /// but will leave current_variable_terms unintialized;
     /// `self_ty_term` is set to that of parent if parent exists, otherwise none;
     /// `self_value_term` is set to that of parent if parent exists, otherwise none

@@ -508,7 +508,7 @@ impl<'a> SemExprBuilder<'a> {
             .expect("todo")
     }
 
-    pub(crate) fn infer_new_current_variable_syn_symbol_ty(
+    pub(crate) fn infer_new_current_variable_variable_ty(
         &mut self,
         current_variable_idx: CurrentVariableIdx,
     ) {
@@ -553,7 +553,7 @@ impl<'a> SemExprBuilder<'a> {
     ) {
         self.infer_pattern_ty(syn_pattern_root.into().syn_pattern_idx(), ty);
         for symbol in symbols {
-            self.infer_new_current_variable_syn_symbol_ty(symbol)
+            self.infer_new_current_variable_variable_ty(symbol)
         }
     }
 
