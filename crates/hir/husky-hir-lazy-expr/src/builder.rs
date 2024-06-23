@@ -10,7 +10,7 @@ use husky_syn_expr::{
     context::{SynExprRootKind, SynPatternRootKind},
     pattern::{SynPatternIdx, SynPatternMap},
     region::SynExprRegionData,
-    variable::{CurrentVariableIdx, InheritedSymbolicVariableIdx, VariableMap},
+    variable::{CurrentVariableIdx, InheritedVariableIdx, VariableMap},
 };
 use salsa::DebugWithDb;
 
@@ -173,7 +173,7 @@ impl<'a> HirLazyExprBuilder<'a> {
 
     pub(crate) fn inherited_syn_symbol_to_hir_lazy_variable(
         &self,
-        inherited_syn_symbol_idx: InheritedSymbolicVariableIdx,
+        inherited_syn_symbol_idx: InheritedVariableIdx,
     ) -> Option<HirLazyVariableIdx> {
         self.syn_symbol_to_hir_lazy_variable_map
             .get_inherited(inherited_syn_symbol_idx)

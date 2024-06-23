@@ -24,6 +24,7 @@ husky-eth-signature.workspace = true
 husky-sem-item-path-deps.workspace = true
 husky-sem-expr.workspace = true
 # syntax
+husky-syn-expr.workspace = true
 husky-entity-tree.workspace = true
 
 [dev-dependencies]
@@ -52,7 +53,6 @@ husky-token-data.workspace = true
 husky-regional-token.workspace = true
 # syntax
 husky-opr.workspace = true
-husky-syn-expr.workspace = true
 husky-syn-decl.workspace = true
 husky-syn-defn.workspace = true
 husky-syn-opr.workspace = true

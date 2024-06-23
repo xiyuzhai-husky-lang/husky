@@ -131,7 +131,7 @@ pub enum SemExprData {
     InheritedSynSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
-        inherited_syn_symbol_idx: InheritedSymbolicVariableIdx,
+        inherited_syn_symbol_idx: InheritedVariableIdx,
         inherited_syn_symbol_kind: InheritedVariableKind,
     },
     CurrentSynSymbol {
@@ -521,6 +521,10 @@ impl<V> SemExprMap<V> {
 
     pub fn insert_new(&mut self, expr: SemExprIdx, v: V) {
         self.0.insert_new(expr.0, v)
+    }
+
+    pub fn insert_new_or_merge(&mut self, expr: SemExprIdx, v: V, f: impl FnOnce(&mut V, V)) {
+        self.0.insert_new_or_merge(expr.0, v, f)
     }
 
     pub fn get(&self, expr: SemExprIdx) -> Option<&V> {

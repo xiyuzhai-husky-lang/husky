@@ -82,7 +82,7 @@ impl<'a> SynSymbolContextMut<'a> {
         &mut self,
         variables: impl IntoIterator<Item = CurrentVariableEntry>,
         ty_constraint: Option<SyndicateTypeConstraint>,
-    ) -> CurrentSynSymbolIdxRange {
+    ) -> CurrentVariableIdxRange {
         self.variable_region
             .define_variables(variables, ty_constraint)
     }

@@ -143,7 +143,7 @@ impl<'a> SynExprContext<'a> {
         &mut self,
         variables: impl IntoIterator<Item = CurrentVariableEntry>,
         ty_constraint: Option<SyndicateTypeConstraint>,
-    ) -> CurrentSynSymbolIdxRange {
+    ) -> CurrentVariableIdxRange {
         self.syn_symbol_context
             .define_symbols(variables, ty_constraint)
     }

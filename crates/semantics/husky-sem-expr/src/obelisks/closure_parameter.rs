@@ -6,7 +6,7 @@ use husky_syn_expr::syndicates::closure_parameter::ClosureParameterSyndicate;
 pub enum ClosureParameterObelisk {
     Simple {
         syn_pattern_root: ClosureSynPatternRoot,
-        variables: CurrentSynSymbolIdxRange,
+        variables: CurrentVariableIdxRange,
         colon_token: Option<ColonRegionalToken>,
         ty: Option<SemExprIdx>,
     },

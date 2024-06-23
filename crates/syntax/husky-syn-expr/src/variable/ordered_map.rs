@@ -3,8 +3,8 @@ use super::*;
 /// not cloneable intentionally
 #[derive(Debug, PartialEq, Eq)]
 pub struct SymbolOrderedMap<V> {
-    inherited_syn_symbol_map: InheritedSynSymbolOrderedMap<V>,
-    current_variable_map: CurrentSynSymbolOrderedMap<V>,
+    inherited_syn_symbol_map: InheritedVariableOrderedMap<V>,
+    current_variable_map: CurrentVariableOrderedMap<V>,
 }
 
 impl<V> SymbolOrderedMap<V> {
@@ -31,19 +31,19 @@ impl<V> SymbolOrderedMap<V> {
         self.current_variable_map.insert_next(idx, v)
     }
 
-    pub fn inherited_syn_symbol_map(&self) -> &InheritedSynSymbolOrderedMap<V> {
+    pub fn inherited_syn_symbol_map(&self) -> &InheritedVariableOrderedMap<V> {
         &self.inherited_syn_symbol_map
     }
 
-    pub fn current_variable_map(&self) -> &CurrentSynSymbolOrderedMap<V> {
+    pub fn current_variable_map(&self) -> &CurrentVariableOrderedMap<V> {
         &self.current_variable_map
     }
 }
 
-impl<V> std::ops::Index<InheritedSymbolicVariableIdx> for SymbolOrderedMap<V> {
+impl<V> std::ops::Index<InheritedVariableIdx> for SymbolOrderedMap<V> {
     type Output = V;
 
-    fn index(&self, index: InheritedSymbolicVariableIdx) -> &Self::Output {
+    fn index(&self, index: InheritedVariableIdx) -> &Self::Output {
         &self.inherited_syn_symbol_map[index]
     }
 }

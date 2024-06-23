@@ -12,8 +12,7 @@ use husky_syn_expr::{
     pattern::SynPatternIdx,
     region::SynExprRegion,
     variable::{
-        CurrentVariableIdx, CurrentVariableKind, InheritedSymbolicVariableIdx,
-        InheritedVariableKind,
+        CurrentVariableIdx, CurrentVariableKind, InheritedVariableIdx, InheritedVariableKind,
     },
 };
 #[cfg(feature = "protocol_support")]
@@ -62,7 +61,7 @@ pub enum TokenInfoData {
     Entity(EntityPath),
     EntityNode(ItemSynNodePath, EntityKind),
     InheritedSynSymbol {
-        inherited_syn_symbol_idx: InheritedSymbolicVariableIdx,
+        inherited_syn_symbol_idx: InheritedVariableIdx,
         inherited_syn_symbol_kind: InheritedVariableKind,
         syn_expr_region: ExprRegionLeash,
     },

@@ -119,6 +119,14 @@ impl<T, V> ArenaMap<T, V> {
         should!(self.data[idx.index()].is_none());
         self.data[idx.index()] = Some(v)
     }
+
+    #[track_caller]
+    pub fn insert_new_or_merge(&mut self, idx: ArenaIdx<T>, v: V, f: impl FnOnce(&mut V, V)) {
+        match &mut self.data[idx.index()] {
+            Some(v0) => f(v0, v),
+            entry => *entry = Some(v),
+        }
+    }
 }
 
 impl<T, V> std::ops::Index<ArenaIdx<T>> for ArenaMap<T, V> {

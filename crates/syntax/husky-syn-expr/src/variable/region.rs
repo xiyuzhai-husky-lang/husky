@@ -7,7 +7,7 @@ pub struct VariableRegionData {
     current_variable_arena: CurrentVariableArena,
     allow_self_type: AllowSelfType,
     allow_self_value: AllowSelfValue,
-    pattern_ty_constraints: Vec<(SyndicateTypeConstraint, CurrentSynSymbolIdxRange)>,
+    pattern_ty_constraints: Vec<(SyndicateTypeConstraint, CurrentVariableIdxRange)>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -112,7 +112,7 @@ impl VariableRegionData {
         self.pattern_ty_constraints.extend(
             ty_constraint
                 .into_iter()
-                .map(|ty_constraint| (ty_constraint, CurrentSynSymbolIdxRange::new_single(symbol))),
+                .map(|ty_constraint| (ty_constraint, CurrentVariableIdxRange::new_single(symbol))),
         );
         symbol
     }
@@ -122,7 +122,7 @@ impl VariableRegionData {
         &mut self,
         variables: impl IntoIterator<Item = CurrentVariableEntry>,
         ty_constraint: Option<SyndicateTypeConstraint>,
-    ) -> CurrentSynSymbolIdxRange {
+    ) -> CurrentVariableIdxRange {
         let symbols = self.current_variable_arena.alloc_batch(variables);
         self.pattern_ty_constraints.extend(
             ty_constraint
@@ -176,7 +176,7 @@ impl VariableRegionData {
 
     pub fn indexed_inherited_syn_symbols<'a>(
         &'a self,
-    ) -> impl Iterator<Item = (InheritedSymbolicVariableIdx, InheritedVariable)> + 'a {
+    ) -> impl Iterator<Item = (InheritedVariableIdx, InheritedVariable)> + 'a {
         self.inherited_syn_symbol_arena.indexed_copy_iter()
     }
 
@@ -253,15 +253,15 @@ impl VariableRegionData {
         &self.current_variable_arena
     }
 
-    pub fn pattern_ty_constraints(&self) -> &[(SyndicateTypeConstraint, CurrentSynSymbolIdxRange)] {
+    pub fn pattern_ty_constraints(&self) -> &[(SyndicateTypeConstraint, CurrentVariableIdxRange)] {
         &self.pattern_ty_constraints
     }
 }
 
-impl std::ops::Index<InheritedSymbolicVariableIdx> for VariableRegionData {
+impl std::ops::Index<InheritedVariableIdx> for VariableRegionData {
     type Output = InheritedVariable;
 
-    fn index(&self, index: InheritedSymbolicVariableIdx) -> &Self::Output {
+    fn index(&self, index: InheritedVariableIdx) -> &Self::Output {
         &self.inherited_syn_symbol_arena[index]
     }
 }
@@ -282,8 +282,8 @@ pub enum Prevariable {}
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct LocalSymbolIdx(usize);
 
-impl From<InheritedSymbolicVariableIdx> for LocalSymbolIdx {
-    fn from(value: InheritedSymbolicVariableIdx) -> Self {
+impl From<InheritedVariableIdx> for LocalSymbolIdx {
+    fn from(value: InheritedVariableIdx) -> Self {
         Self(value.index())
     }
 }
@@ -301,7 +301,7 @@ pub trait IntoLocalSymbolIdx: Copy {
     fn into_local_symbol_idx(self, expr_region_data: &SynExprRegionData) -> LocalSymbolIdx;
 }
 
-impl IntoLocalSymbolIdx for InheritedSymbolicVariableIdx {
+impl IntoLocalSymbolIdx for InheritedVariableIdx {
     fn into_local_symbol_idx(self, _: &SynExprRegionData) -> LocalSymbolIdx {
         self.into()
     }
