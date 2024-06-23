@@ -151,3 +151,9 @@ impl<T, V> std::ops::Index<&ArenaIdx<T>> for ArenaMap<T, V> {
         self.get(*index).unwrap()
     }
 }
+
+impl<T, V> std::ops::IndexMut<ArenaIdx<T>> for ArenaMap<T, V> {
+    fn index_mut(&mut self, index: ArenaIdx<T>) -> &mut Self::Output {
+        self.data[index.index()].as_mut().unwrap()
+    }
+}

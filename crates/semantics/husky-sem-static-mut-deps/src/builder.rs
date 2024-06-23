@@ -6,7 +6,9 @@ use husky_entity_path::{
     path::{ItemPath, PrincipalEntityPath},
     region::RegionPath,
 };
-use husky_fly_term::signature::assoc_item::trai_for_ty_item::binary_opr::SemaBinaryOprFlySignature;
+use husky_fly_term::signature::assoc_item::trai_for_ty_item::{
+    binary_opr::SemaBinaryOprFlySignature, index::FlyIndexSignature,
+};
 use husky_sem_expr::{
     helpers::{region::sem_expr_region_from_region_path, visitor::VisitSemExpr},
     stmt::condition::SemCondition,
@@ -233,13 +235,29 @@ where
                 );
                 for m in ritchie_parameter_argument_matches {
                     match m {
-                        SemaRitchieArgument::Simple(param, arg) => todo!(),
+                        SemaRitchieArgument::Simple(param, arg) => deps.merge(
+                            &self.expr_value_static_mut_deps_table[arg.argument_expr_idx],
+                            &mut self.counter,
+                        ),
+                        SemaRitchieArgument::Variadic(_, _) => todo!(),
+                        SemaRitchieArgument::Keyed(_, _) => todo!(),
+                    }
+                }
+                for m in ritchie_parameter_argument_matches {
+                    match m {
+                        SemaRitchieArgument::Simple(param, arg) => {
+                            if param.contract == Contract::BorrowMut {
+                                self.expr_value_static_mut_deps_table[arg.argument_expr_idx]
+                                    .merge(&deps, &mut self.counter)
+                            }
+                        }
                         SemaRitchieArgument::Variadic(_, _) => todo!(),
                         SemaRitchieArgument::Keyed(_, _) => todo!(),
                     }
                 }
                 if self_contract == Contract::BorrowMut {
-                    todo!()
+                    self.expr_value_static_mut_deps_table[self_argument]
+                        .merge(&deps, &mut self.counter);
                 }
                 deps
             }
@@ -258,7 +276,21 @@ where
                 ref index_sem_list_items,
                 ref index_dynamic_dispatch,
                 ..
-            } => todo!(),
+            } => {
+                let mut deps = self.expr_value_static_mut_deps_table[owner].clone();
+                for item in index_sem_list_items {
+                    deps.merge(
+                        &self.expr_value_static_mut_deps_table[item.sem_expr_idx],
+                        &mut self.counter,
+                    )
+                }
+                match index_dynamic_dispatch.signature() {
+                    FlyIndexSignature::Int { element_ty } => (),
+                    FlyIndexSignature::Regular { element_ty } => (),
+                    FlyIndexSignature::Index { element_ty } => (),
+                }
+                deps
+            }
             SemExprData::CompositionWithList {
                 owner, ref items, ..
             } => todo!(),
@@ -392,13 +424,13 @@ where
                 let mut deps = self.expr_control_flow_static_mut_deps_table[self_argument].clone();
                 for m in ritchie_parameter_argument_matches {
                     match m {
-                        SemaRitchieArgument::Simple(param, arg) => todo!(),
+                        SemaRitchieArgument::Simple(_, arg) => deps.merge(
+                            &self.expr_control_flow_static_mut_deps_table[arg.argument_expr_idx],
+                            &mut self.counter,
+                        ),
                         SemaRitchieArgument::Variadic(_, _) => todo!(),
                         SemaRitchieArgument::Keyed(_, _) => todo!(),
                     }
-                }
-                if self_contract == Contract::BorrowMut {
-                    todo!()
                 }
                 deps
             }
@@ -422,11 +454,24 @@ where
             } => todo!(),
             SemExprData::Index {
                 owner,
-                lbox_regional_token_idx,
                 ref index_sem_list_items,
-                rbox_regional_token_idx,
                 ref index_dynamic_dispatch,
-            } => todo!(),
+                ..
+            } => {
+                let mut deps = self.expr_control_flow_static_mut_deps_table[owner].clone();
+                for item in index_sem_list_items {
+                    deps.merge(
+                        &self.expr_control_flow_static_mut_deps_table[item.sem_expr_idx],
+                        &mut self.counter,
+                    )
+                }
+                match index_dynamic_dispatch.signature() {
+                    FlyIndexSignature::Int { element_ty } => (),
+                    FlyIndexSignature::Regular { element_ty } => (),
+                    FlyIndexSignature::Index { element_ty } => (),
+                }
+                deps
+            }
             SemExprData::CompositionWithList {
                 owner,
                 lbox_regional_token_idx,
