@@ -36,6 +36,11 @@ pub trait VisitSemExpr<'db>: Sized {
             }
         }
     }
+    /// final
+    fn visit_root_body(&mut self) {
+        let root_body = self.sem_expr_region_data().root_body();
+        root_body.simulate(self)
+    }
 }
 
 impl SemExprIdx {

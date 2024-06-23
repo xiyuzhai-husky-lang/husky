@@ -1,6 +1,10 @@
+pub mod backprop;
+pub mod deps;
 pub mod derive;
 pub mod task;
 
+use self::backprop::BackpropAttrEthTemplate;
+use self::deps::DepsAttrEthTemplate;
 use self::derive::*;
 use self::task::*;
 use super::*;
@@ -12,16 +16,20 @@ use husky_entity_path::path::attr::AttrItemPath;
 #[enum_class::from_variants]
 #[non_exhaustive]
 pub enum AttrEthTemplate {
-    Derive(DeriveAttrEthTemplate),
     Affect,
+    Backprop(BackpropAttrEthTemplate),
+    Deps(DepsAttrEthTemplate),
+    Derive(DeriveAttrEthTemplate),
     Task(TaskAttrEthTemplate),
 }
 
 impl AttrEthTemplate {
     pub fn path(self, db: &::salsa::Db) -> AttrItemPath {
         match self {
-            AttrEthTemplate::Derive(slf) => slf.path(db).into(),
             AttrEthTemplate::Affect => todo!(),
+            AttrEthTemplate::Backprop(slf) => slf.path(db).into(),
+            AttrEthTemplate::Deps(slf) => slf.path(db).into(),
+            AttrEthTemplate::Derive(slf) => slf.path(db).into(),
             AttrEthTemplate::Task(slf) => slf.path(db).into(),
         }
     }
@@ -38,6 +46,9 @@ impl HasEthTemplate for AttrItemPath {
 #[salsa::tracked]
 fn attr_eth_template(db: &::salsa::Db, path: AttrItemPath) -> EthSignatureResult<AttrEthTemplate> {
     match path.dec_template(db)? {
+        AttrDecTemplate::Backprop(dec_template) => {
+            BackpropAttrEthTemplate::from_dec(path, dec_template, db).map(Into::into)
+        }
         AttrDecTemplate::Deps(_) => todo!(),
         AttrDecTemplate::Derive(dec_template) => {
             DeriveAttrEthTemplate::from_dec(db, path, dec_template).map(Into::into)

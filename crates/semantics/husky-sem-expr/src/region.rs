@@ -146,6 +146,23 @@ impl SemExprRegionData {
         self.sem_expr_roots.iter().map(|&(_, root)| root)
     }
 
+    pub fn root_body(&self) -> SemExprIdx {
+        debug_assert_eq!(
+            self.sem_expr_roots
+                .iter()
+                .filter(|&&(_, (_, root_kind))| root_kind == SynExprRootKind::RootBody)
+                .count(),
+            1
+        );
+        self.sem_expr_roots
+            .iter()
+            .filter_map(|&(_, (expr, root_kind))| {
+                (root_kind == SynExprRootKind::RootBody).then_some(expr)
+            })
+            .next()
+            .unwrap()
+    }
+
     pub fn sem_expr_arena(&self) -> SemExprArenaRef {
         self.sem_expr_arena.arena_ref()
     }

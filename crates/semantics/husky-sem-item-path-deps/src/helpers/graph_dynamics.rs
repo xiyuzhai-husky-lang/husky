@@ -8,6 +8,7 @@ use husky_entity_path::path::{ItemPath, ItemPathId};
 
 #[salsa::interned(constructor = new)]
 pub struct SemItemPathDepsCyclceGroupItd {
+    #[return_ref]
     pub cycle_group: CycleGroup<SemItemPathDepsGraphDepsScheme>,
 }
 
