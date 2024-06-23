@@ -556,6 +556,12 @@ impl<V> std::ops::Index<SemExprIdx> for SemExprMap<V> {
     }
 }
 
+impl<V> std::ops::IndexMut<SemExprIdx> for SemExprMap<V> {
+    fn index_mut(&mut self, index: SemExprIdx) -> &mut Self::Output {
+        &mut self.0[index.0]
+    }
+}
+
 impl<'a> SemExprBuilder<'a> {
     pub(crate) fn build_all_exprs(&mut self) {
         for root in self.syn_expr_region_data().syn_expr_roots() {
