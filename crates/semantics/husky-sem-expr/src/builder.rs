@@ -549,7 +549,7 @@ impl<'a> SemExprBuilder<'a> {
         &mut self,
         syn_pattern_root: impl Into<SynPatternRoot>,
         ty: FlyTerm,
-        symbols: CurrentSynSymbolIdxRange,
+        symbols: CurrentVariableIdxRange,
     ) {
         self.infer_pattern_ty(syn_pattern_root.into().syn_pattern_idx(), ty);
         for symbol in symbols {

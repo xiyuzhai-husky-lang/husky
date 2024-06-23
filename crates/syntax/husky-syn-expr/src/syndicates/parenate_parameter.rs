@@ -24,7 +24,7 @@ pub struct ConstConstraint {
 pub enum ParenateParameterSyndicateNucleus {
     Simple {
         syn_pattern_root: ParenateParameterSynPatternRoot,
-        variables: CurrentSynSymbolIdxRange,
+        variables: CurrentVariableIdxRange,
         colon: ColonRegionalToken,
         ty: SynExprIdx,
     },

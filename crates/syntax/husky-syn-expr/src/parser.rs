@@ -191,7 +191,7 @@ where
         &mut self,
         variables: impl IntoIterator<Item = CurrentVariableEntry>,
         ty_constraint: Option<SyndicateTypeConstraint>,
-    ) -> CurrentSynSymbolIdxRange {
+    ) -> CurrentVariableIdxRange {
         self.context_mut().define_symbols(variables, ty_constraint)
     }
 

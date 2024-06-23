@@ -12,8 +12,8 @@ use husky_syn_expr::{
     pattern::{ParenateParameterSynPatternRoot, SynPatternMap, SynPatternSymbolMap},
     region::{SynExprRegion, SynExprRegionData},
     variable::{
-        CurrentSynSymbolIdxRange, CurrentTemplateVariableData, CurrentVariableData,
-        CurrentVariableIdx, SyndicateTypeConstraint, TemplateSymbolSynAttr,
+        CurrentTemplateVariableData, CurrentVariableData, CurrentVariableIdx,
+        CurrentVariableIdxRange, SyndicateTypeConstraint, TemplateSymbolSynAttr,
     },
 };
 use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr};
@@ -264,7 +264,7 @@ impl<'a> DecTermEngine<'a> {
         &mut self,
         parenate_syn_pattern_expr_root: ParenateParameterSynPatternRoot,
         ty: SynExprIdx,
-        symbols: CurrentSynSymbolIdxRange,
+        symbols: CurrentVariableIdxRange,
     ) {
         let Ok(ty) = self.infer_new_expr_term(ty) else {
             for symbol in symbols {

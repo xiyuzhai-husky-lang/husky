@@ -4,7 +4,7 @@ use super::*;
 // #[salsa::derive_debug_with_db]
 pub struct LetPatternSyndicate {
     syn_pattern_expr_root: LetPatternSynExprRoot,
-    variables: CurrentSynSymbolIdxRange,
+    variables: CurrentVariableIdxRange,
     colon_token: SynExprResult<Option<ColonRegionalToken>>,
     ty: Option<SynExprIdx>,
 }
@@ -66,7 +66,7 @@ impl LetPatternSyndicate {
         self.syn_pattern_expr_root
     }
 
-    pub fn variables(&self) -> CurrentSynSymbolIdxRange {
+    pub fn variables(&self) -> CurrentVariableIdxRange {
         self.variables
     }
 

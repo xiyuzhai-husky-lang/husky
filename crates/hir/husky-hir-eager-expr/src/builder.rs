@@ -17,7 +17,7 @@ use husky_syn_expr::{
     context::{SynExprRootKind, SynPatternRootKind},
     pattern::{SynPatternIdx, SynPatternMap},
     region::SynExprRegionData,
-    variable::{CurrentVariableIdx, InheritedSymbolicVariableIdx, VariableMap},
+    variable::{CurrentVariableIdx, InheritedVariableIdx, VariableMap},
 };
 
 pub(crate) struct HirEagerExprBuilder<'a> {
@@ -212,7 +212,7 @@ impl<'a> HirEagerExprBuilder<'a> {
 
     pub(crate) fn inherited_syn_symbol_to_hir_eager_runtime_symbol(
         &self,
-        inherited_syn_symbol_idx: InheritedSymbolicVariableIdx,
+        inherited_syn_symbol_idx: InheritedVariableIdx,
     ) -> Option<HirEagerRvarIdx> {
         self.syn_symbol_to_hir_eager_runtime_symbol_map
             .get_inherited(inherited_syn_symbol_idx)

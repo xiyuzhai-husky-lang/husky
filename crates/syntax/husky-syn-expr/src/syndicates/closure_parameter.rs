@@ -1,5 +1,5 @@
 use crate::{
-    ClosureSynPatternRoot, CurrentSynSymbolIdxRange, CurrentVariableData, CurrentVariableEntry,
+    ClosureSynPatternRoot, CurrentVariableData, CurrentVariableEntry, CurrentVariableIdxRange,
     ExprEnvironment, IsSynExprContext, OriginalSynExprError, SynExprError, SynExprIdx,
     SynExprParser, SynExprResult, SynExprRootKind, SyndicateTypeConstraint,
 };
@@ -11,7 +11,7 @@ use parsec::TryParseOptionFromStream;
 pub enum ClosureParameterSyndicate {
     Simple {
         syn_pattern_root: ClosureSynPatternRoot,
-        variables: CurrentSynSymbolIdxRange,
+        variables: CurrentVariableIdxRange,
         ty: Option<(ColonRegionalToken, SynExprIdx)>,
     },
 }
