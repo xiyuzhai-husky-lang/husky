@@ -66,7 +66,7 @@ impl<'db> IsGraphDynamicsContext<'db> for SemStaticMutDepsGraphDynamicsContext<'
         else {
             return value;
         };
-        value.merge(&builder.calc_root());
+        value.merge(&builder.calc_root(), &mut Default::default());
         value
     }
 
