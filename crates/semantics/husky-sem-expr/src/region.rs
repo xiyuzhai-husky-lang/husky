@@ -43,7 +43,7 @@ fn sem_expr_region_eth_term_fmt_context(
     let symbol_names = VecMap::from_iter_assuming_no_repetitions(
         sem_expr_region_data
             .symbol_terms
-            .inherited_syn_symbol_map()
+            .inherited_variable_map()
             .key_value_iter()
             .map(|(idx, term)| {
                 let FlyTermBase::Eth(EthTerm::SymbolicVariable(symbol)) =

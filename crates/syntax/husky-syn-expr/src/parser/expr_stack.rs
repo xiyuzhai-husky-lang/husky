@@ -89,7 +89,7 @@ impl SynExprData {
                 ident,
                 ident_regional_token_idx,
             } => todo!(),
-            SynExprData::InheritedSynSymbol { .. } | SynExprData::CurrentSynSymbol { .. } => {
+            SynExprData::InheritedVariable { .. } | SynExprData::CurrentVariable { .. } => {
                 BaseEntityPath::None
             }
             SynExprData::SelfValue(_) => todo!(),

@@ -3,7 +3,7 @@ use crate::*;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct VariableRegionData {
-    inherited_syn_symbol_arena: InheritedVariableArena,
+    inherited_variable_arena: InheritedVariableArena,
     current_variable_arena: CurrentVariableArena,
     allow_self_type: AllowSelfType,
     allow_self_value: AllowSelfValue,
@@ -89,7 +89,7 @@ impl VariableRegionData {
             }
         }
         Self {
-            inherited_syn_symbol_arena: match parent_symbol_region {
+            inherited_variable_arena: match parent_symbol_region {
                 Some(parent_symbol_region) => parent_symbol_region.bequeath(),
                 None => Default::default(),
             },
@@ -162,22 +162,24 @@ impl VariableRegionData {
                 Symbol::Current(current_variable_idx, current_variable.kind())
             })
             .or_else(|| {
-                self.inherited_syn_symbol_arena
+                self.inherited_variable_arena
                     .find_rev_indexed(|symbol| symbol.ident() == Some(ident))
-                    .map(|(inherited_syn_symbol_idx, inherited_syn_symbol)| {
-                        Symbol::Inherited(inherited_syn_symbol_idx, inherited_syn_symbol.kind)
+                    .map(|(inherited_variable_idx, inherited_variable)| {
+                        Symbol::Inherited(inherited_variable_idx, inherited_variable.kind)
                     })
             })
     }
 
-    pub fn inherited_syn_symbols<'a>(&'a self) -> impl Iterator<Item = &'a InheritedVariable> + 'a {
-        self.inherited_syn_symbol_arena.data().iter()
+    pub fn inherited_variables<'a>(
+        &'a self,
+    ) -> impl Iterator<Item = &'a InheritedVariableEntry> + 'a {
+        self.inherited_variable_arena.data().iter()
     }
 
-    pub fn indexed_inherited_syn_symbols<'a>(
+    pub fn indexed_inherited_variables<'a>(
         &'a self,
-    ) -> impl Iterator<Item = (InheritedVariableIdx, InheritedVariable)> + 'a {
-        self.inherited_syn_symbol_arena.indexed_copy_iter()
+    ) -> impl Iterator<Item = (InheritedVariableIdx, InheritedVariableEntry)> + 'a {
+        self.inherited_variable_arena.indexed_copy_iter()
     }
 
     pub fn current_variables<'a>(&'a self) -> impl Iterator<Item = &'a CurrentVariableEntry> + 'a {
@@ -195,9 +197,9 @@ impl VariableRegionData {
     }
 
     fn bequeath(&self) -> InheritedVariableArena {
-        let mut inherited_syn_symbol_arena = InheritedVariableArena::default();
-        for (_, inherited_syn_symbol) in self.indexed_inherited_syn_symbols() {
-            inherited_syn_symbol_arena.alloc_one(inherited_syn_symbol);
+        let mut inherited_variable_arena = InheritedVariableArena::default();
+        for (_, inherited_variable) in self.indexed_inherited_variables() {
+            inherited_variable_arena.alloc_one(inherited_variable);
         }
         for (current_variable_idx, current_variable) in self.indexed_current_variables() {
             let kind = match current_variable.data {
@@ -229,12 +231,12 @@ impl VariableRegionData {
                     pattern_variable_idx,
                 } => todo!(),
             };
-            inherited_syn_symbol_arena.alloc_one(InheritedVariable {
+            inherited_variable_arena.alloc_one(InheritedVariableEntry {
                 kind,
                 modifier: current_variable.modifier,
             });
         }
-        inherited_syn_symbol_arena
+        inherited_variable_arena
     }
 
     pub fn allow_self_ty(&self) -> AllowSelfType {
@@ -245,8 +247,8 @@ impl VariableRegionData {
         self.allow_self_value
     }
 
-    pub fn inherited_syn_symbol_arena(&self) -> &InheritedVariableArena {
-        &self.inherited_syn_symbol_arena
+    pub fn inherited_variable_arena(&self) -> &InheritedVariableArena {
+        &self.inherited_variable_arena
     }
 
     pub fn current_variable_arena(&self) -> &CurrentVariableArena {
@@ -259,10 +261,10 @@ impl VariableRegionData {
 }
 
 impl std::ops::Index<InheritedVariableIdx> for VariableRegionData {
-    type Output = InheritedVariable;
+    type Output = InheritedVariableEntry;
 
     fn index(&self, index: InheritedVariableIdx) -> &Self::Output {
-        &self.inherited_syn_symbol_arena[index]
+        &self.inherited_variable_arena[index]
     }
 }
 
@@ -276,9 +278,9 @@ impl std::ops::Index<CurrentVariableIdx> for VariableRegionData {
 
 pub enum Prevariable {}
 
-/// equal to InheritedSynSymbolIdx
+/// equal to InheritedVariableIdx
 ///
-/// equal to CurrentSynSymbolIdx + number of inherited symbols
+/// equal to CurrentVariableIdx + number of inherited symbols
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct LocalSymbolIdx(usize);
 
@@ -293,7 +295,7 @@ impl LocalSymbolIdx {
         current_variable_idx: CurrentVariableIdx,
         symbol_region: &VariableRegionData,
     ) -> Self {
-        Self(symbol_region.inherited_syn_symbol_arena.len() + current_variable_idx.index())
+        Self(symbol_region.inherited_variable_arena.len() + current_variable_idx.index())
     }
 }
 

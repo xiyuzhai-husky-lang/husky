@@ -226,11 +226,11 @@ impl ToHirEager for SemExprIdx {
                 //     ..
                 // } => todo!(),
             },
-            SemExprData::InheritedSynSymbol {
-                inherited_syn_symbol_idx,
-                inherited_syn_symbol_kind,
+            SemExprData::InheritedVariable {
+                inherited_variable_idx,
+                inherited_variable_kind,
                 ..
-            } => match inherited_syn_symbol_kind {
+            } => match inherited_variable_kind {
                 InheritedVariableKind::Template(symbol) => match symbol {
                     InheritedTemplateVariable::Lifetime { label: _ } => {
                         todo!()
@@ -244,11 +244,11 @@ impl ToHirEager for SemExprIdx {
                 InheritedVariableKind::Parenate { .. }
                 | InheritedVariableKind::SelfField { .. } => HirEagerExprData::Variable(
                     builder
-                        .inherited_syn_symbol_to_hir_eager_runtime_symbol(inherited_syn_symbol_idx)
+                        .inherited_variable_to_hir_eager_runtime_symbol(inherited_variable_idx)
                         .unwrap(),
                 ),
             },
-            SemExprData::CurrentSynSymbol {
+            SemExprData::CurrentVariable {
                 current_variable_idx,
                 ..
             } => HirEagerExprData::Variable(

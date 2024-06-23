@@ -128,13 +128,13 @@ pub enum SemExprData {
         ident_regional_token_idx: RegionalTokenIdx,
         ontology_dispatch: OntologyDispatch,
     },
-    InheritedSynSymbol {
+    InheritedVariable {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
-        inherited_syn_symbol_idx: InheritedVariableIdx,
-        inherited_syn_symbol_kind: InheritedVariableKind,
+        inherited_variable_idx: InheritedVariableIdx,
+        inherited_variable_kind: InheritedVariableKind,
     },
-    CurrentSynSymbol {
+    CurrentVariable {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
         current_variable_idx: CurrentVariableIdx,
@@ -143,7 +143,7 @@ pub enum SemExprData {
     FrameVarDecl {
         regional_token_idx: RegionalTokenIdx,
         ident: Ident,
-        frame_var_symbol_idx: CurrentVariableIdx,
+        frame_variable_idx: CurrentVariableIdx,
         current_variable_kind: CurrentVariableKind,
     },
     SelfType(RegionalTokenIdx),
@@ -843,34 +843,34 @@ impl<'a> SemExprBuilder<'a> {
                     });
                 (data_result, ty_result)
             }
-            SynExprData::InheritedSynSymbol {
+            SynExprData::InheritedVariable {
                 ident,
                 regional_token_idx,
-                inherited_syn_symbol_idx,
-                inherited_syn_symbol_kind,
+                inherited_variable_idx,
+                inherited_variable_kind,
             } => (
-                Ok(SemExprData::InheritedSynSymbol {
+                Ok(SemExprData::InheritedVariable {
                     ident,
                     regional_token_idx,
-                    inherited_syn_symbol_idx,
-                    inherited_syn_symbol_kind,
+                    inherited_variable_idx,
+                    inherited_variable_kind,
                 }),
                 match self
                     .symbol_tys()
-                    .inherited_syn_symbol_map()
-                    .get(inherited_syn_symbol_idx)
+                    .inherited_variable_map()
+                    .get(inherited_variable_idx)
                 {
                     Some(ty) => Ok((*ty).into()),
-                    None => Err(DerivedSemExprTypeError::InheritedSynSymbolTypeError.into()),
+                    None => Err(DerivedSemExprTypeError::InheritedVariableTypeError.into()),
                 },
             ),
-            SynExprData::CurrentSynSymbol {
+            SynExprData::CurrentVariable {
                 ident,
                 regional_token_idx,
                 current_variable_idx,
                 current_variable_kind,
             } => (
-                Ok(SemExprData::CurrentSynSymbol {
+                Ok(SemExprData::CurrentVariable {
                     ident,
                     regional_token_idx,
                     current_variable_idx,
@@ -881,16 +881,16 @@ impl<'a> SemExprBuilder<'a> {
             SynExprData::FrameVarDecl {
                 ident,
                 regional_token_idx,
-                frame_var_symbol_idx,
+                frame_variable_idx,
                 current_variable_kind,
             } => (
                 Ok(SemExprData::FrameVarDecl {
                     ident,
                     regional_token_idx,
-                    frame_var_symbol_idx,
+                    frame_variable_idx,
                     current_variable_kind,
                 }),
-                self.get_current_variable_ty(syn_expr_idx, frame_var_symbol_idx),
+                self.get_current_variable_ty(syn_expr_idx, frame_variable_idx),
             ),
             SynExprData::SelfType(regional_token_idx) => (
                 Ok(SemExprData::SelfType(regional_token_idx)),
@@ -1522,13 +1522,13 @@ impl<'a> SemExprBuilder<'a> {
                     .item_term_result(self)
                     .map_err(Into::into)
             }
-            SemExprData::InheritedSynSymbol {
+            SemExprData::InheritedVariable {
                 ident,
                 regional_token_idx,
-                inherited_syn_symbol_idx,
-                inherited_syn_symbol_kind,
-            } => Ok(self.symbol_terms()[inherited_syn_symbol_idx]),
-            SemExprData::CurrentSynSymbol {
+                inherited_variable_idx,
+                inherited_variable_kind,
+            } => Ok(self.symbol_terms()[inherited_variable_idx]),
+            SemExprData::CurrentVariable {
                 ident,
                 regional_token_idx,
                 current_variable_idx,
@@ -1548,7 +1548,7 @@ impl<'a> SemExprBuilder<'a> {
             SemExprData::FrameVarDecl {
                 regional_token_idx,
                 ident,
-                frame_var_symbol_idx,
+                frame_variable_idx,
                 current_variable_kind,
             } => todo!(),
             SemExprData::SelfType(regional_token_idx) => match self.self_ty() {
@@ -1695,11 +1695,11 @@ impl<'a> SemExprBuilder<'a> {
                 element_ty,
                 ..
             } => todo!(),
-            SemExprData::InheritedSynSymbol {
+            SemExprData::InheritedVariable {
                 ident,
                 regional_token_idx,
-                inherited_syn_symbol_idx,
-                inherited_syn_symbol_kind,
+                inherited_variable_idx,
+                inherited_variable_kind,
             } => todo!(),
             SemExprData::Ritchie {
                 ritchie_kind_regional_token_idx,

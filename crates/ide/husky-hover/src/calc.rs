@@ -94,7 +94,7 @@ impl<'a> HoverResultCalculator<'a> {
             Some(info) => match info.data() {
                 TokenInfoData::Entity(_) => format!(""),
                 TokenInfoData::EntityNode(_, _) => format!(""),
-                TokenInfoData::CurrentSynSymbol {
+                TokenInfoData::CurrentVariable {
                     current_variable_idx,
                     syn_expr_region,
                     ..
@@ -105,14 +105,14 @@ impl<'a> HoverResultCalculator<'a> {
                             .debug(self.db)
                     )
                 }
-                TokenInfoData::InheritedSynSymbol {
-                    inherited_syn_symbol_idx,
+                TokenInfoData::InheritedVariable {
+                    inherited_variable_idx,
                     syn_expr_region,
                     ..
                 } => {
                     format!(
                         "{:#?}",
-                        syn_expr_region.data(self.db).variable_region()[*inherited_syn_symbol_idx]
+                        syn_expr_region.data(self.db).variable_region()[*inherited_variable_idx]
                             .debug(self.db)
                     )
                 }

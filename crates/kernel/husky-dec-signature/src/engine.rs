@@ -469,16 +469,16 @@ impl<'a> DecTermEngine<'a> {
                     DecTerm::List(_) => todo!(),
                 }
             }
-            SynExprData::InheritedSynSymbol {
-                inherited_syn_symbol_idx,
+            SynExprData::InheritedVariable {
+                inherited_variable_idx,
                 ..
             } => self
                 .symbolic_variable_region
-                .inherited_variable_signature(inherited_syn_symbol_idx)
+                .inherited_variable_signature(inherited_variable_idx)
                 .term()
                 .map(Into::into)
-                .ok_or(DerivedSynExprDecTermError::InheritedSynSymbolIsNotValidTerm.into()),
-            SynExprData::CurrentSynSymbol {
+                .ok_or(DerivedSynExprDecTermError::InheritedVariableIsNotValidTerm.into()),
+            SynExprData::CurrentVariable {
                 current_variable_idx,
                 ..
             } => Ok(self

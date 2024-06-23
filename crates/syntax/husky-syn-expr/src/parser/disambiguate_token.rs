@@ -366,7 +366,7 @@ where
                 _ => (),
             }
         }
-        match self.context().syn_symbol_context().resolve_ident(
+        match self.context().variable_context().resolve_ident(
             self.db(),
             self.context().module_path(),
             regional_token_idx,
@@ -381,16 +381,16 @@ where
                         ),
                     )
                 }
-                Symbol::Inherited(inherited_syn_symbol_idx, inherited_syn_symbol_kind) => {
-                    DisambiguatedTokenData::InheritedSynSymbol {
+                Symbol::Inherited(inherited_variable_idx, inherited_variable_kind) => {
+                    DisambiguatedTokenData::InheritedVariable {
                         ident,
                         regional_token_idx,
-                        inherited_syn_symbol_idx,
-                        inherited_syn_symbol_kind,
+                        inherited_variable_idx,
+                        inherited_variable_kind,
                     }
                 }
                 Symbol::Current(current_variable_idx, current_variable_kind) => {
-                    DisambiguatedTokenData::CurrentSynSymbol {
+                    DisambiguatedTokenData::CurrentVariable {
                         ident,
                         regional_token_idx,
                         current_variable_idx,
@@ -410,13 +410,13 @@ where
 pub(crate) enum DisambiguatedTokenData {
     Literal(RegionalTokenIdx, LiteralTokenData),
     IdentifiableEntityPath(ItemPathExpr),
-    InheritedSynSymbol {
+    InheritedVariable {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
-        inherited_syn_symbol_idx: InheritedVariableIdx,
-        inherited_syn_symbol_kind: InheritedVariableKind,
+        inherited_variable_idx: InheritedVariableIdx,
+        inherited_variable_kind: InheritedVariableKind,
     },
-    CurrentSynSymbol {
+    CurrentVariable {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
         current_variable_idx: CurrentVariableIdx,

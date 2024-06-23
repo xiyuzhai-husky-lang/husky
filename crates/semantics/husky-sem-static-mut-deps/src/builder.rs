@@ -20,6 +20,7 @@ where
     expr_static_mut_deps_table: SemExprMap<SemStaticMutDeps>,
     stmt_static_mut_deps_table: SemStmtMap<SemStaticMutDeps>,
     variable_static_mut_deps_table: VariableMap<SemStaticMutDeps>,
+    effective_number_of_merges: usize,
     f: F,
 }
 
@@ -39,10 +40,13 @@ where
             sem_expr_region_data,
             expr_static_mut_deps_table: SemExprMap::new(sem_expr_region_data.sem_expr_arena()),
             stmt_static_mut_deps_table: SemStmtMap::new(sem_expr_region_data.sem_stmt_arena()),
-            variable_static_mut_deps_table: VariableMap::new(
+            variable_static_mut_deps_table: VariableMap::new_initialized(
                 syn_expr_region_data.variable_region(),
+                |_, _| Some(Default::default()),
+                |_, _| None,
             ),
             f,
+            effective_number_of_merges: 0,
         })
     }
 }
@@ -62,8 +66,7 @@ where
     }
 
     fn calc_expr(&mut self, expr: SemExprIdx) -> SemStaticMutDeps {
-        // todo: handle error
-        match expr.data(self.sem_expr_region_data.sem_expr_arena()) {
+        match *expr.data(self.sem_expr_region_data.sem_expr_arena()) {
             SemExprData::Literal(_, _) => todo!(),
             SemExprData::Unit {
                 lpar_regional_token_idx,
@@ -73,14 +76,14 @@ where
                 path_expr_idx,
                 path,
                 ty_path_disambiguation,
-                instantiation,
+                ref instantiation,
             } => todo!(),
             SemExprData::MajorItemPathAssocItem {
                 parent_expr_idx,
                 parent_path,
                 colon_colon_regional_token,
                 ident_token,
-                ontology_dispatch,
+                ref ontology_dispatch,
             } => todo!(),
             SemExprData::TypeAsTraitItem {
                 lpar_regional_token_idx,
@@ -91,22 +94,20 @@ where
                 colon_colon_regional_token_idx,
                 ident,
                 ident_regional_token_idx,
-                ontology_dispatch,
+                ref ontology_dispatch,
             } => todo!(),
             SemExprData::AssocItem {
                 parent_expr_idx,
                 colon_colon_regional_token_idx,
                 ident,
                 ident_regional_token_idx,
-                ontology_dispatch,
+                ref ontology_dispatch,
             } => todo!(),
-            SemExprData::InheritedSynSymbol {
-                ident,
-                regional_token_idx,
-                inherited_syn_symbol_idx,
-                inherited_syn_symbol_kind,
-            } => todo!(),
-            SemExprData::CurrentSynSymbol {
+            SemExprData::InheritedVariable {
+                inherited_variable_idx,
+                ..
+            } => self.variable_static_mut_deps_table[inherited_variable_idx].clone(),
+            SemExprData::CurrentVariable {
                 ident,
                 regional_token_idx,
                 current_variable_idx,
@@ -115,7 +116,7 @@ where
             SemExprData::FrameVarDecl {
                 regional_token_idx,
                 ident,
-                frame_var_symbol_idx,
+                frame_variable_idx,
                 current_variable_kind,
             } => todo!(),
             SemExprData::SelfType(_) => todo!(),
@@ -123,7 +124,7 @@ where
             SemExprData::Binary {
                 lopd,
                 opr,
-                dispatch,
+                ref dispatch,
                 opr_regional_token_idx,
                 ropd,
             } => todo!(),
@@ -145,7 +146,7 @@ where
             SemExprData::Unveil {
                 opd,
                 opr_regional_token_idx,
-                unveil_output_ty_signature,
+                ref unveil_output_ty_signature,
                 unveil_assoc_fn_path,
                 return_ty,
             } => todo!(),
@@ -157,16 +158,16 @@ where
             SemExprData::FunctionRitchieCall {
                 function,
                 ritchie_ty_kind,
-                template_arguments,
+                ref template_arguments,
                 lpar_regional_token_idx,
-                ritchie_parameter_argument_matches,
+                ref ritchie_parameter_argument_matches,
                 rpar_regional_token_idx,
             } => todo!(),
             SemExprData::Ritchie {
                 ritchie_kind_regional_token_idx,
                 ritchie_kind,
                 lpar_token,
-                parameter_ty_items,
+                ref parameter_ty_items,
                 rpar_regional_token_idx,
                 light_arrow_token,
                 return_ty,
@@ -176,31 +177,29 @@ where
                 self_ty,
                 dot_regional_token_idx,
                 ident_token,
-                dispatch,
+                ref dispatch,
             } => todo!(),
             SemExprData::MethodApplication {
                 self_argument,
                 dot_regional_token_idx,
                 ident_token,
-                template_arguments,
+                ref template_arguments,
                 lpar_regional_token_idx,
-                items,
+                ref items,
                 rpar_regional_token_idx,
             } => todo!(),
             SemExprData::MethodRitchieCall {
                 self_argument,
-                self_contract,
-                dot_regional_token_idx,
-                ident_token,
-                instance_dispatch,
-                template_arguments,
-                lpar_regional_token_idx,
-                ritchie_parameter_argument_matches,
-                rpar_regional_token_idx,
-            } => todo!(),
+                ref instance_dispatch,
+                ref ritchie_parameter_argument_matches,
+                ..
+            } => {
+                let mut deps = self.expr_static_mut_deps_table[self_argument].clone();
+                todo!()
+            }
             SemExprData::TemplateInstantiation {
                 template,
-                template_arguments,
+                ref template_arguments,
             } => todo!(),
             SemExprData::At {
                 at_regional_token_idx,
@@ -213,32 +212,32 @@ where
             } => todo!(),
             SemExprData::NewTuple {
                 lpar_regional_token_idx,
-                items,
+                ref items,
                 rpar_regional_token_idx,
             } => todo!(),
             SemExprData::Index {
                 owner,
                 lbox_regional_token_idx,
-                index_sem_list_items,
+                ref index_sem_list_items,
                 rbox_regional_token_idx,
-                index_dynamic_dispatch,
+                ref index_dynamic_dispatch,
             } => todo!(),
             SemExprData::CompositionWithList {
                 owner,
                 lbox_regional_token_idx,
-                items,
+                ref items,
                 rbox_regional_token_idx,
             } => todo!(),
             SemExprData::NewList {
                 lbox_regional_token_idx,
-                items,
+                ref items,
                 element_ty,
                 rbox_regional_token_idx,
             } => todo!(),
             SemExprData::BoxColonList {
                 lbox_regional_token_idx,
                 colon_regional_token_idx,
-                items,
+                ref items,
                 rbox_regional_token_idx,
             } => todo!(),
             SemExprData::VecFunctor {
@@ -247,20 +246,20 @@ where
             } => todo!(),
             SemExprData::ArrayFunctor {
                 lbox_regional_token_idx,
-                items,
+                ref items,
                 rbox_regional_token_idx,
             } => todo!(),
             SemExprData::Block { stmts } => todo!(),
             SemExprData::EmptyHtmlTag {
                 empty_html_bra_idx,
                 function_ident,
-                arguments,
+                ref arguments,
                 empty_html_ket,
             } => todo!(),
             SemExprData::Closure {
                 closure_kind_regional_token_idx,
                 lvert_regional_token_idx,
-                parameter_obelisks,
+                ref parameter_obelisks,
                 rvert_regional_token,
                 return_ty,
                 body,
@@ -299,8 +298,13 @@ where
 
     fn visit_expr_inner(&mut self, expr: SemExprIdx) {
         let deps = self.calc_expr(expr);
+        let effective_number_of_merges = &mut self.effective_number_of_merges;
         self.expr_static_mut_deps_table
-            .insert_new_or_merge(expr, deps, |deps0, deps| deps0.merge(&deps));
+            .insert_new_or_merge(expr, deps, |deps0, deps| {
+                if deps0.merge(&deps) {
+                    *effective_number_of_merges += 1;
+                }
+            });
     }
 
     fn visit_stmts(&mut self, stmts: SemStmtIdxRange, f: impl FnOnce(&mut Self)) {
@@ -313,6 +317,16 @@ where
 
     fn visit_stmt_inner(&mut self, stmt: SemStmtIdx) {
         todo!()
+    }
+
+    fn visit_loop(&mut self, stmt: SemStmtIdx, f: impl Fn(&mut Self)) {
+        loop {
+            let old_number_of_effective_merges = self.effective_number_of_merges;
+            f(self);
+            if old_number_of_effective_merges == self.effective_number_of_merges {
+                break;
+            }
+        }
     }
 
     fn visit_condition(&mut self, condition: SemCondition, f: impl FnOnce(&mut Self)) {
