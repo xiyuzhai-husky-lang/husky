@@ -524,6 +524,16 @@ impl<V> VariableMap<V> {
             .insert_new(current_variable_idx, v)
     }
 
+    pub fn insert_new_current_or_merge(
+        &mut self,
+        variable: CurrentVariableIdx,
+        v: V,
+        f: impl FnOnce(&mut V, V),
+    ) {
+        self.current_variable_map
+            .insert_new_or_merge(variable, v, f)
+    }
+
     pub fn get_inherited(&self, inherited_variable_idx: InheritedVariableIdx) -> Option<&V> {
         self.inherited_variable_map.get(inherited_variable_idx)
     }

@@ -265,6 +265,10 @@ impl<V> SemStmtMap<V> {
         self.0.insert_new(stmt.0, v)
     }
 
+    pub fn insert_new_or_merge(&mut self, stmt: SemStmtIdx, v: V, f: impl FnOnce(&mut V, V)) {
+        self.0.insert_new_or_merge(stmt.0, v, f)
+    }
+
     pub fn get(&self, stmt: SemStmtIdx) -> Option<&V> {
         self.0.get(stmt.0)
     }

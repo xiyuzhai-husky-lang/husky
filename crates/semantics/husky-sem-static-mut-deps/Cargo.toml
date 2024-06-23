@@ -20,6 +20,7 @@ vec-like.workspace = true
 # kernel
 husky-entity-path.workspace = true
 husky-eth-signature.workspace = true
+husky-term-prelude.workspace = true
 # semantics
 husky-sem-item-path-deps.workspace = true
 husky-sem-expr.workspace = true
@@ -33,7 +34,6 @@ husky-manifest.workspace = true
 husky-corgi-config.workspace = true
 husky-vfs.workspace = true
 # kernel
-husky-term-prelude.workspace = true
 husky-dec-signature.workspace = true
 husky-eth-term.workspace = true
 husky-eth-signature.workspace = true
