@@ -1,0 +1,10 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`core::visual::Visualize`),
+            ItemPath(`mnist::BinaryGrid28`),
+        ],
+    ),
+)
+```

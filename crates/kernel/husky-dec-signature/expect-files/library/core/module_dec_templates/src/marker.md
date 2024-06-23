@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::marker::Copy`),
-            ),
-        ),
+        ItemPath(`core::marker::Copy`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
@@ -29,11 +25,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::marker::Sized`),
-            ),
-        ),
+        ItemPath(`core::marker::Sized`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
@@ -57,11 +49,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`#derive _ as core::marker::Copy(0)`),
-            ),
-        ),
+        ItemPath(`#derive _ as core::marker::Copy(0)`),
         Ok(
             ItemDecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(

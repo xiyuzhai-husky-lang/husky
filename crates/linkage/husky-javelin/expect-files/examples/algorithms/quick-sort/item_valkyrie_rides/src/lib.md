@@ -1,13 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`quick_sort::quick_sort`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`quick_sort::quick_sort`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -119,13 +113,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`quick_sort::quick_sort_aux`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -232,13 +220,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`quick_sort::partition`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`quick_sort::partition`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -320,13 +302,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`quick_sort::quick_sort_works_for_integers`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -349,20 +325,11 @@
         ),
     ),
     (
-        ItemPath::Attr(
-            Room32,
-            AttrItemPath(`quick_sort::quick_sort_works_for_integers::@test(0)`),
-        ),
+        ItemPath(`quick_sort::quick_sort_works_for_integers::#test(0)`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`quick_sort::quick_sort_works_for_strs`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -398,10 +365,7 @@
         ),
     ),
     (
-        ItemPath::Attr(
-            Room32,
-            AttrItemPath(`quick_sort::quick_sort_works_for_strs::@test(0)`),
-        ),
+        ItemPath(`quick_sort::quick_sort_works_for_strs::#test(0)`),
         None,
     ),
 ]

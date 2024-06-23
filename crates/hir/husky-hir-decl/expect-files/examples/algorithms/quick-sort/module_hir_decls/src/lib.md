@@ -318,7 +318,7 @@
     HirDecl::Attr(
         AttrHirDecl::Test(
             TestAttrHirDecl {
-                path: AttrItemPath(`quick_sort::quick_sort_works_for_integers::@test(0)`),
+                path: AttrItemPath(`quick_sort::quick_sort_works_for_integers::#test(0)`),
             },
         ),
     ),
@@ -359,7 +359,7 @@
     HirDecl::Attr(
         AttrHirDecl::Test(
             TestAttrHirDecl {
-                path: AttrItemPath(`quick_sort::quick_sort_works_for_strs::@test(0)`),
+                path: AttrItemPath(`quick_sort::quick_sort_works_for_strs::#test(0)`),
             },
         ),
     ),

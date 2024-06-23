@@ -1,35 +1,19 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::cmp::PartialEq`),
-            ),
-        ),
+        ItemPath(`core::cmp::PartialEq`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::cmp::Eq`),
-            ),
-        ),
+        ItemPath(`core::cmp::Eq`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::cmp::PartialOrd`),
-            ),
-        ),
+        ItemPath(`core::cmp::PartialOrd`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::cmp::Ord`),
-            ),
-        ),
+        ItemPath(`core::cmp::Ord`),
         None,
     ),
 ]

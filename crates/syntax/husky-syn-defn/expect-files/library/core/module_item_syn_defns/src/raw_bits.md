@@ -1,91 +1,35 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::raw_bits::r32`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::raw_bits::r32`),
         None,
     ),
     (
-        ItemPath::Attr(
-            Room32,
-            AttrItemPath(`core::raw_bits::r32::@derive(0)`),
-        ),
+        ItemPath(`core::raw_bits::r32::#derive(0)`),
         None,
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`core::raw_bits::r32(0)`),
-            ),
-        ),
+        ItemPath(`core::raw_bits::r32(0)`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::raw_bits::r32(0)::last_bits`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::raw_bits::r32(0)::last_bits`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::raw_bits::r32(0)::ctz`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::raw_bits::r32(0)::ctz`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::raw_bits::r32(0)::co`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::raw_bits::r32(0)::co`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::raw_bits::r32(0)::span`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::raw_bits::r32(0)::span`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::raw_bits::r32(0)::right_mass`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::raw_bits::r32(0)::right_mass`),
         None,
     ),
 ]

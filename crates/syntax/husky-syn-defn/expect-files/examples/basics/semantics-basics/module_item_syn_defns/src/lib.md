@@ -1,13 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`semantics_basics::some_neural_network`, `Ritchie(
-                    Gn,
-                )`),
-            ),
-        ),
+        ItemPath(`semantics_basics::some_neural_network`),
         Some(
             ItemSynDefn {
                 body: 1,
@@ -335,7 +329,7 @@
                                 syn_expr_idx: 0,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 1,
                             },
                         ],

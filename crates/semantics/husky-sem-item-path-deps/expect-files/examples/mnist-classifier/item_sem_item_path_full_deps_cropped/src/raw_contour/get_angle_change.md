@@ -1,0 +1,11 @@
+```rust
+Some(
+    [
+        ItemPath(`mnist_classifier::raw_contour::get_angle_change`),
+        ItemPath(`mnist_classifier::raw_contour::Direction`),
+        ItemPath(`core::num::i32`),
+        ItemPath(`core::raw_bits::r32`),
+        ItemPath(`core::raw_bits::r32(0)::last_bits`),
+    ],
+)
+```

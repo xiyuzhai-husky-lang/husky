@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist::task::MnistTask`, `Extern`),
-            ),
-        ),
+        ItemPath(`mnist::task::MnistTask`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Type(
@@ -22,11 +18,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist::task::MnistTask(0)`),
-            ),
-        ),
+        ItemPath(`mnist::task::MnistTask(0)`),
         Ok(
             ItemEthTemplate::ImplBlock(
                 ImplBlockEthTemplate::TypeImpl(
@@ -42,16 +34,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist::task::MnistTask(0)::new`,
-                    TypeItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist::task::MnistTask(0)::new`),
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(

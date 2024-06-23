@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::fmt::Debug`),
-                ),
-            ),
+            ItemPath(`core::fmt::Debug`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::fmt::Debug`),
-                    ),
-                ),
+                ItemPath(`core::fmt::Debug`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],

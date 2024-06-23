@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::fermi::FermiMatchResult`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::fermi::FermiMatchResult`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -843,23 +835,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::fermi::fermi_match`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::fermi::fermi_match`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -1954,19 +1934,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::ImplBlock(
-                    ImplBlockPath::TypeImplBlock(
-                        TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -2110,25 +2082,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
-                        TypeItemKind::MemoizedField,
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
-                            TypeItemKind::MemoizedField,
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -2274,25 +2232,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
-                        TypeItemKind::MemoizedField,
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
-                            TypeItemKind::MemoizedField,
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -2438,25 +2382,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
-                        TypeItemKind::MemoizedField,
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
-                            TypeItemKind::MemoizedField,
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`),
             ),
             place_registry: PlaceRegistry {
                 infos: [

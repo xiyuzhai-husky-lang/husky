@@ -14,11 +14,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Form(
-                                    FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::digits::two::two_match`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -257,11 +253,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Form(
-                                    FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::digits::two::is_two`),
                         ),
                         expr_arena: Arena {
                             data: [],

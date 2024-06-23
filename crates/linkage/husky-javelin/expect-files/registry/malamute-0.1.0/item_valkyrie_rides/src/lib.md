@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`malamute::Class`, `Enum`),
-            ),
-        ),
+        ItemPath(`malamute::Class`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -34,23 +30,11 @@
         ),
     ),
     (
-        ItemPath::Attr(
-            Room32,
-            AttrItemPath(`malamute::Class::@derive(0)`),
-        ),
+        ItemPath(`malamute::Class::#derive(0)`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 2,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`malamute::Class::Known`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -59,16 +43,7 @@
         ),
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 3,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`malamute::Class::Unknown`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -77,11 +52,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`malamute::OneVsAll`, `Enum`),
-            ),
-        ),
+        ItemPath(`malamute::OneVsAll`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -94,23 +65,11 @@
         ),
     ),
     (
-        ItemPath::Attr(
-            Room32,
-            AttrItemPath(`malamute::OneVsAll::@derive(0)`),
-        ),
+        ItemPath(`malamute::OneVsAll::#derive(0)`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 5,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`malamute::OneVsAll::Yes`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -119,16 +78,7 @@
         ),
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 6,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`malamute::OneVsAll::No`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -137,11 +87,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`malamute::OneVsAllResult`, `Enum`),
-            ),
-        ),
+        ItemPath(`malamute::OneVsAllResult`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -154,23 +100,11 @@
         ),
     ),
     (
-        ItemPath::Attr(
-            Room32,
-            AttrItemPath(`malamute::OneVsAllResult::@derive(0)`),
-        ),
+        ItemPath(`malamute::OneVsAllResult::#derive(0)`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 8,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`malamute::OneVsAllResult::ConfidentYes`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -179,16 +113,7 @@
         ),
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 9,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`malamute::OneVsAllResult::ConfidentNo`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -197,16 +122,7 @@
         ),
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 10,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`malamute::OneVsAllResult::Unconfident`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -215,13 +131,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`malamute::narrow_down`, `Ritchie(
-                    Gn,
-                )`),
-            ),
-        ),
+        ItemPath(`malamute::narrow_down`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -283,11 +193,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`malamute::OneVsAll as core::default::Default(0)`),
-            ),
-        ),
+        ItemPath(`malamute::OneVsAll as core::default::Default(0)`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -300,16 +206,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<malamute::OneVsAll as core::default::Default(0)>::default`,
-                    TraitItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -322,11 +219,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
-            ),
-        ),
+        ItemPath(`malamute::Class as core::ops::Unveil(0)`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -388,14 +281,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<malamute::Class as core::ops::Unveil(0)>::Output`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -408,16 +294,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<malamute::Class as core::ops::Unveil(0)>::unveil`,
-                    TraitItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -531,11 +408,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
-            ),
-        ),
+        ItemPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -548,14 +421,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<malamute::OneVsAll as core::ops::Unveil(0)>::Output`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -568,16 +434,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
-                    TraitItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(

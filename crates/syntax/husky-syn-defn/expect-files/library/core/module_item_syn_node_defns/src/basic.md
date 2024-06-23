@@ -47,7 +47,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(`core::basic::bool::@derive(0)`),
+                                AttrItemPath(`core::basic::bool::#derive(0)`),
                             ),
                         },
                     ),
@@ -103,7 +103,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(`core::basic::never::@derive(0)`),
+                                AttrItemPath(`core::basic::never::#derive(0)`),
                             ),
                         },
                     ),
@@ -159,7 +159,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(`core::basic::unit::@derive(0)`),
+                                AttrItemPath(`core::basic::unit::#derive(0)`),
                             ),
                         },
                     ),

@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::visual::Visualize`),
-                ),
-            ),
+            ItemPath(`core::visual::Visualize`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::visual::Visualize`),
-                    ),
-                ),
+                ItemPath(`core::visual::Visualize`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -68,19 +60,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::visual::Visual`, `Extern`),
-                ),
-            ),
+            ItemPath(`core::visual::Visual`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::visual::Visual`, `Extern`),
-                    ),
-                ),
+                ItemPath(`core::visual::Visual`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -134,19 +118,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath(`#derive _ as core::visual::Visualize(0)`),
-                ),
-            ),
+            ItemPath(`#derive _ as core::visual::Visualize(0)`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::ImplBlock(
-                    ImplBlockPath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(`#derive _ as core::visual::Visualize(0)`),
-                    ),
-                ),
+                ItemPath(`#derive _ as core::visual::Visualize(0)`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -284,29 +260,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<#derive _ as core::visual::Visualize(0)>::visualize`,
-                        TraitItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            `<#derive _ as core::visual::Visualize(0)>::visualize`,
-                            TraitItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`),
             ),
             place_registry: PlaceRegistry {
                 infos: [

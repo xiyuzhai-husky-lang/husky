@@ -28,7 +28,7 @@ use husky_hir_ty::{
     HirType,
 };
 use husky_sem_expr::{SemExprData, SemExprIdx, SemaRitchieArgument};
-use husky_sem_opr::{binary::SemaBinaryOpr, suffix::SemaSuffixOpr};
+use husky_sem_opr::{binary::SemBinaryOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::variable::{InheritedTemplateVariable, InheritedVariableKind};
 use husky_term_prelude::literal::Literal;
 use vec_like::VecMap;
@@ -266,7 +266,7 @@ impl ToHirEager for SemExprIdx {
             SemExprData::Binary {
                 lopd, opr, ropd, ..
             } => match opr {
-                SemaBinaryOpr::As => HirEagerExprData::As {
+                SemBinaryOpr::As => HirEagerExprData::As {
                     opd: lopd.to_hir_eager(builder),
                     ty: builder.expr_term_hir_ty(ropd).unwrap(),
                 },

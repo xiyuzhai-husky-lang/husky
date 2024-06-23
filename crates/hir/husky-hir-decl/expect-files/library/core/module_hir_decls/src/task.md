@@ -9,11 +9,7 @@
                 ),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::task::IsTask`),
-                            ),
-                        ),
+                        ItemPath(`core::task::IsTask`),
                     ),
                     expr_arena: Arena {
                         data: [],
@@ -49,11 +45,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Form(
-                                    FormPath(`core::task::TASK`, `StaticVar`),
-                                ),
-                            ),
+                            ItemPath(`core::task::TASK`),
                         ),
                         expr_arena: Arena {
                             data: [],

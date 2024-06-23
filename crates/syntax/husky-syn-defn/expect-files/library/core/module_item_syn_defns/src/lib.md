@@ -1,157 +1,91 @@
 ```rust
 [
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::array),
-        ),
+        ItemPath(`core::array`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::backend),
-        ),
+        ItemPath(`core::backend`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::basic),
-        ),
+        ItemPath(`core::basic`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::clone),
-        ),
+        ItemPath(`core::clone`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::cmp),
-        ),
+        ItemPath(`core::cmp`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::default),
-        ),
+        ItemPath(`core::default`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::frontend),
-        ),
+        ItemPath(`core::frontend`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::fmt),
-        ),
+        ItemPath(`core::fmt`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::logic),
-        ),
+        ItemPath(`core::logic`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::marker),
-        ),
+        ItemPath(`core::marker`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::mem),
-        ),
+        ItemPath(`core::mem`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::num),
-        ),
+        ItemPath(`core::num`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::ops),
-        ),
+        ItemPath(`core::ops`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::option),
-        ),
+        ItemPath(`core::option`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::prelude),
-        ),
+        ItemPath(`core::prelude`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::raw_bits),
-        ),
+        ItemPath(`core::raw_bits`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::result),
-        ),
+        ItemPath(`core::result`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::task),
-        ),
+        ItemPath(`core::task`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::vec),
-        ),
+        ItemPath(`core::vec`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::slice),
-        ),
+        ItemPath(`core::slice`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::str),
-        ),
+        ItemPath(`core::str`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`core::visual),
-        ),
+        ItemPath(`core::visual`),
         None,
     ),
 ]

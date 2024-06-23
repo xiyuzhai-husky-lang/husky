@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`syntax_errors::ast::A`, `Struct`),
-            ),
-        ),
+        ItemPath(`syntax_errors::ast::A`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -52,11 +48,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`syntax_errors::ast::A(0)`),
-            ),
-        ),
+        ItemPath(`syntax_errors::ast::A(0)`),
         Ok(
             ItemDecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TypeImpl(

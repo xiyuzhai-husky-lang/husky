@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::three::three_fermi_match`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -67,11 +63,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::three::is_three`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -120,13 +112,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::three::uparc`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::three::uparc`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -172,13 +158,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::three::downarc`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::three::downarc`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -224,13 +204,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::three::back`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::three::back`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(

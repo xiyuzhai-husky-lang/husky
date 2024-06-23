@@ -6133,6 +6133,7 @@ version = "0.1.0"
 name = "husky-sem-item-path-deps"
 version = "0.1.0"
 dependencies = [
+ "graph-dynamics",
  "husky-ast",
  "husky-corgi-config",
  "husky-corgi-config-ast",
@@ -6216,19 +6217,28 @@ dependencies = [
 name = "husky-sem-static-mut-deps"
 version = "0.1.0"
 dependencies = [
+ "graph-dynamics",
+ "husky-entity-path",
  "husky-sem-expr",
  "husky-sem-item-path-deps",
+ "propagate",
  "salsa",
+ "vec-like",
 ]
 
 [[package]]
 name = "husky-sem-static-var-deps"
 version = "0.1.0"
 dependencies = [
+ "graph-dynamics",
+ "husky-entity-path",
  "husky-sem-expr",
  "husky-sem-item-path-deps",
  "husky-sem-static-mut-deps",
+ "husky-syn-expr",
+ "propagate",
  "salsa",
+ "vec-like",
 ]
 
 [[package]]

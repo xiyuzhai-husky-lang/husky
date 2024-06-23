@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::vec::Vec`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::vec::Vec`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Type(
@@ -30,11 +26,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`core::vec::Vec(0)`),
-            ),
-        ),
+        ItemPath(`core::vec::Vec(0)`),
         Ok(
             ItemEthTemplate::ImplBlock(
                 ImplBlockEthTemplate::TypeImpl(
@@ -56,16 +48,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::vec::Vec(0)::ilen`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::vec::Vec(0)::ilen`),
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
@@ -81,16 +64,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::vec::Vec(0)::push`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::vec::Vec(0)::push`),
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
@@ -106,16 +80,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::vec::Vec(0)::first`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::vec::Vec(0)::first`),
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
@@ -131,16 +96,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::vec::Vec(0)::last`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::vec::Vec(0)::last`),
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
@@ -156,16 +112,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::vec::Vec(0)::pop`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::vec::Vec(0)::pop`),
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
@@ -181,16 +128,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::vec::Vec(0)::collect_leashes`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::vec::Vec(0)::collect_leashes`),
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
@@ -206,16 +144,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::vec::Vec(0)::cyclic_slice_leashed`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::vec::Vec(0)::cyclic_slice_leashed`),
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
@@ -231,16 +160,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `core::vec::Vec(0)::pop_with_largest_opt_f32`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::vec::Vec(0)::pop_with_largest_opt_f32`),
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(

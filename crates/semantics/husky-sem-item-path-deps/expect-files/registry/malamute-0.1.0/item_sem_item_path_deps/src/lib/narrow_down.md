@@ -1,0 +1,11 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`core::num::f32`),
+            ItemPath(`core::num::i32`),
+            ItemPath(`malamute::OneVsAllResult`),
+        ],
+    ),
+)
+```

@@ -14,11 +14,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Form(
-                                    FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::digits::one::one_fermi_match`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -59,11 +55,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Form(
-                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::digits::one::is_one`),
                         ),
                         expr_arena: Arena {
                             data: [],

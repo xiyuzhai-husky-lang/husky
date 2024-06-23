@@ -12,11 +12,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`mnist::task::MnistTask`, `Extern`),
-                                    ),
-                                ),
+                                ItemPath(`mnist::task::MnistTask`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -61,11 +57,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::ImplBlock(
-                                ImplBlockPath::TypeImplBlock(
-                                    TypeImplBlockPath(`mnist::task::MnistTask(0)`),
-                                ),
-                            ),
+                            ItemPath(`mnist::task::MnistTask(0)`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -124,16 +116,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::AssocItem(
-                                    AssocItemPath::TypeItem(
-                                        TypeItemPath(
-                                            `mnist::task::MnistTask(0)::new`,
-                                            TypeItemKind::AssocRitchie(
-                                                RitchieItemKind::Fn,
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                                ItemPath(`mnist::task::MnistTask(0)::new`),
                             ),
                             expr_arena: Arena {
                                 data: [],

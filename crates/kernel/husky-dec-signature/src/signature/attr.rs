@@ -1,9 +1,13 @@
 pub mod deps;
 pub mod derive;
+pub mod projection;
+pub mod singleton;
 pub mod task;
 
 use self::deps::*;
 use self::derive::*;
+use self::projection::*;
+use self::singleton::*;
 use self::task::*;
 use super::*;
 use husky_entity_path::path::attr::AttrItemPath;
@@ -15,6 +19,8 @@ use husky_syn_decl::decl::attr::AttrSynDecl;
 pub enum AttrDecTemplate {
     Deps(DepsAttrDecTemplate),
     Derive(DeriveAttrDecTemplate),
+    Projection(ProjectionAttrDecTemplate),
+    Singleton(SingletonAttrDecTemplate),
     Task(TaskAttrDecTemplate),
 }
 
@@ -33,6 +39,12 @@ fn attr_dec_template(db: &::salsa::Db, path: AttrItemPath) -> DecSignatureResult
         AttrSynDecl::Backprop(_) => todo!(),
         AttrSynDecl::Deps(decl) => DepsAttrDecTemplate::from_decl(decl, db).map(Into::into),
         AttrSynDecl::Derive(decl) => DeriveAttrDecTemplate::from_decl(decl, db).map(Into::into),
+        AttrSynDecl::Projection(decl) => {
+            ProjectionAttrDecTemplate::from_decl(decl, db).map(Into::into)
+        }
+        AttrSynDecl::Singleton(decl) => {
+            SingletonAttrDecTemplate::from_decl(decl, db).map(Into::into)
+        }
         AttrSynDecl::Task(decl) => TaskAttrDecTemplate::from_decl(decl, db).map(Into::into),
         AttrSynDecl::Test(decl) => todo!(),
     }

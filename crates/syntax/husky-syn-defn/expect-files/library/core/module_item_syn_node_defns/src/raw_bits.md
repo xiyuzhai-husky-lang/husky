@@ -47,7 +47,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(`core::raw_bits::r32::@derive(0)`),
+                                AttrItemPath(`core::raw_bits::r32::#derive(0)`),
                             ),
                         },
                     ),

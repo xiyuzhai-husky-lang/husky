@@ -11,11 +11,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::default::Default`),
-                                ),
-                            ),
+                            ItemPath(`core::default::Default`),
                         ),
                         expr_arena: Arena {
                             data: [],

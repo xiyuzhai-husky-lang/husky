@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Add`),
-            ),
-        ),
+        ItemPath(`core::ops::Add`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
@@ -38,11 +34,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::AddAssign`),
-            ),
-        ),
+        ItemPath(`core::ops::AddAssign`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
@@ -75,11 +67,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitAnd`),
-            ),
-        ),
+        ItemPath(`core::ops::BitAnd`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
@@ -112,11 +100,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitAndAssign`),
-            ),
-        ),
+        ItemPath(`core::ops::BitAndAssign`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
@@ -149,11 +133,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitOr`),
-            ),
-        ),
+        ItemPath(`core::ops::BitOr`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
@@ -186,11 +166,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitOrAssign`),
-            ),
-        ),
+        ItemPath(`core::ops::BitOrAssign`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
@@ -223,11 +199,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitXor`),
-            ),
-        ),
+        ItemPath(`core::ops::BitXor`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
@@ -260,11 +232,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitXorAssign`),
-            ),
-        ),
+        ItemPath(`core::ops::BitXorAssign`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
@@ -297,11 +265,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Div`),
-            ),
-        ),
+        ItemPath(`core::ops::Div`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
@@ -334,11 +298,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::DivAssign`),
-            ),
-        ),
+        ItemPath(`core::ops::DivAssign`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
@@ -371,11 +331,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::IntIndex`),
-            ),
-        ),
+        ItemPath(`core::ops::IntIndex`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
@@ -399,48 +355,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Mul`),
-            ),
-        ),
-        Ok(
-            ItemDecTemplate::MajorItem(
-                MajorItemDecTemplate::Trait(
-                    TraitDecTemplate {
-                        template_parameters: DecTemplateParameters {
-                            data: [
-                                DeclarativeTemplateParameter {
-                                    annotated_variance: None,
-                                    svar: DecSymbolicVariable(
-                                        Id {
-                                            value: 10,
-                                        },
-                                    ),
-                                    annotated_traits: [],
-                                },
-                                DeclarativeTemplateParameter {
-                                    annotated_variance: None,
-                                    svar: DecSymbolicVariable(
-                                        Id {
-                                            value: 5,
-                                        },
-                                    ),
-                                    annotated_traits: [],
-                                },
-                            ],
-                        },
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::MulAssign`),
-            ),
-        ),
+        ItemPath(`core::ops::Mul`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
@@ -473,67 +388,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Neg`),
-            ),
-        ),
-        Ok(
-            ItemDecTemplate::MajorItem(
-                MajorItemDecTemplate::Trait(
-                    TraitDecTemplate {
-                        template_parameters: DecTemplateParameters {
-                            data: [
-                                DeclarativeTemplateParameter {
-                                    annotated_variance: None,
-                                    svar: DecSymbolicVariable(
-                                        Id {
-                                            value: 5,
-                                        },
-                                    ),
-                                    annotated_traits: [],
-                                },
-                            ],
-                        },
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Not`),
-            ),
-        ),
-        Ok(
-            ItemDecTemplate::MajorItem(
-                MajorItemDecTemplate::Trait(
-                    TraitDecTemplate {
-                        template_parameters: DecTemplateParameters {
-                            data: [
-                                DeclarativeTemplateParameter {
-                                    annotated_variance: None,
-                                    svar: DecSymbolicVariable(
-                                        Id {
-                                            value: 5,
-                                        },
-                                    ),
-                                    annotated_traits: [],
-                                },
-                            ],
-                        },
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Sub`),
-            ),
-        ),
+        ItemPath(`core::ops::MulAssign`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
@@ -566,11 +421,55 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Unveil`),
+        ItemPath(`core::ops::Neg`),
+        Ok(
+            ItemDecTemplate::MajorItem(
+                MajorItemDecTemplate::Trait(
+                    TraitDecTemplate {
+                        template_parameters: DecTemplateParameters {
+                            data: [
+                                DeclarativeTemplateParameter {
+                                    annotated_variance: None,
+                                    svar: DecSymbolicVariable(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                    annotated_traits: [],
+                                },
+                            ],
+                        },
+                    },
+                ),
             ),
         ),
+    ),
+    (
+        ItemPath(`core::ops::Not`),
+        Ok(
+            ItemDecTemplate::MajorItem(
+                MajorItemDecTemplate::Trait(
+                    TraitDecTemplate {
+                        template_parameters: DecTemplateParameters {
+                            data: [
+                                DeclarativeTemplateParameter {
+                                    annotated_variance: None,
+                                    svar: DecSymbolicVariable(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                    annotated_traits: [],
+                                },
+                            ],
+                        },
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath(`core::ops::Sub`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
@@ -603,11 +502,40 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::ops::ControlFlow`, `Enum`),
+        ItemPath(`core::ops::Unveil`),
+        Ok(
+            ItemDecTemplate::MajorItem(
+                MajorItemDecTemplate::Trait(
+                    TraitDecTemplate {
+                        template_parameters: DecTemplateParameters {
+                            data: [
+                                DeclarativeTemplateParameter {
+                                    annotated_variance: None,
+                                    svar: DecSymbolicVariable(
+                                        Id {
+                                            value: 10,
+                                        },
+                                    ),
+                                    annotated_traits: [],
+                                },
+                                DeclarativeTemplateParameter {
+                                    annotated_variance: None,
+                                    svar: DecSymbolicVariable(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                    annotated_traits: [],
+                                },
+                            ],
+                        },
+                    },
+                ),
             ),
         ),
+    ),
+    (
+        ItemPath(`core::ops::ControlFlow`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(

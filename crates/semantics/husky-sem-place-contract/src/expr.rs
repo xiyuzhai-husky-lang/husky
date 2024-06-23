@@ -3,7 +3,7 @@ use husky_fly_term::{dispatch::field::FieldFlySignature, ExpectationOutcome, Fly
 #[allow(unused_imports)]
 use husky_sem_expr::emit_note_on_sem_expr_codespan;
 use husky_sem_expr::{SemExprData, SemExprIdx, SemaRitchieArgument};
-use husky_sem_opr::{binary::SemaBinaryOpr, prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
+use husky_sem_opr::{binary::SemBinaryOpr, prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::context::SynExprRootKind;
 use husky_term_prelude::Contract;
 
@@ -68,8 +68,8 @@ impl<'a> PlaceContractEngine<'a> {
             } => {
                 // todo: coercion?
                 let (lopd_contract, ropd_contract) = match opr {
-                    SemaBinaryOpr::Assign => (Contract::BorrowMut, Contract::Move),
-                    SemaBinaryOpr::AssignClosed(_) | SemaBinaryOpr::AssignShift(_) => {
+                    SemBinaryOpr::Assign => (Contract::BorrowMut, Contract::Move),
+                    SemBinaryOpr::AssignClosed(_) | SemBinaryOpr::AssignShift(_) => {
                         (Contract::BorrowMut, Contract::Pure)
                     }
                     _ => (Contract::Pure, Contract::Pure),
@@ -240,7 +240,7 @@ fn root_contract(root_kind: SynExprRootKind) -> Option<Contract> {
         SynExprRootKind::ReturnType => None,
         SynExprRootKind::PropsStructFieldType { .. } => None,
         SynExprRootKind::TupleStructFieldType => None,
-        SynExprRootKind::BlockExpr => Some(Contract::Move),
+        SynExprRootKind::RootBody => Some(Contract::Move),
         SynExprRootKind::ReturnExpr => Some(Contract::Move),
         SynExprRootKind::StaticExpr => Some(Contract::Move),
         SynExprRootKind::Condition => todo!(),

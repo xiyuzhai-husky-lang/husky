@@ -1,10 +1,7 @@
 ```rust
 [
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`syntax_basics::defn::major_item),
-        ),
+        ItemPath(`syntax_basics::defn::major_item`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`syntax_basics::defn::major_item),

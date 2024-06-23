@@ -1,57 +1,31 @@
 ```rust
 [
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist_classifier::line_segment_sketch::concave_component),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::concave_component`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist_classifier::line_segment_sketch::convex_component),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::convex_component`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist_classifier::line_segment_sketch::convexity),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::convexity`),
         None,
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`mnist_classifier::line_segment_sketch::line_segment),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::line_segment`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::go_right`),
         Some(
             ItemSynDefn {
                 body: 52,
@@ -1285,7 +1259,7 @@
                                 syn_expr_idx: 51,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 52,
                             },
                         ],
@@ -1315,13 +1289,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::go_left`),
         Some(
             ItemSynDefn {
                 body: 52,
@@ -2555,7 +2523,7 @@
                                 syn_expr_idx: 51,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 52,
                             },
                         ],
@@ -2585,13 +2553,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::extend_end`),
         Some(
             ItemSynDefn {
                 body: 114,
@@ -5528,7 +5490,7 @@
                                 syn_expr_idx: 113,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 114,
                             },
                         ],
@@ -5582,13 +5544,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::extend_start`),
         Some(
             ItemSynDefn {
                 body: 124,
@@ -8850,7 +8806,7 @@
                                 syn_expr_idx: 123,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 124,
                             },
                         ],
@@ -8904,13 +8860,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::find_line_segments`),
         Some(
             ItemSynDefn {
                 body: 194,
@@ -13713,7 +13663,7 @@
                                 syn_expr_idx: 193,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 194,
                             },
                         ],
@@ -13803,24 +13753,11 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`),
         Some(
             ItemSynDefn {
                 body: 5,
@@ -14242,7 +14179,7 @@
                                 syn_expr_idx: 4,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 5,
                             },
                         ],
@@ -14255,24 +14192,11 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`,
-                    TypeItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`),
         Some(
             ItemSynDefn {
                 body: 12,
@@ -15008,7 +14932,7 @@
                                 syn_expr_idx: 11,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 12,
                             },
                         ],
@@ -15021,16 +14945,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`),
         Some(
             ItemSynDefn {
                 body: 5,
@@ -15374,7 +15289,7 @@
                                 syn_expr_idx: 4,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 5,
                             },
                         ],
@@ -15387,24 +15302,11 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`),
         Some(
             ItemSynDefn {
                 body: 3,
@@ -15755,7 +15657,7 @@
                                 syn_expr_idx: 2,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 3,
                             },
                         ],
@@ -15768,22 +15670,11 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`),
         Some(
             ItemSynDefn {
                 body: 3,
@@ -16128,7 +16019,7 @@
                                 syn_expr_idx: 2,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 3,
                             },
                         ],
@@ -16141,14 +16032,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`),
         Some(
             ItemSynDefn {
                 body: 57,
@@ -17767,7 +17651,7 @@
                                 syn_expr_idx: 56,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 57,
                             },
                         ],
@@ -17805,16 +17689,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`,
-                    TypeItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`),
         Some(
             ItemSynDefn {
                 body: 7,
@@ -18419,7 +18294,7 @@
                                 syn_expr_idx: 6,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 7,
                             },
                         ],

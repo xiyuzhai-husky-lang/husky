@@ -1,88 +1,35 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::RawContour`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::Direction`),
         None,
     ),
     (
-        ItemPath::Attr(
-            Room32,
-            AttrItemPath(`mnist_classifier::raw_contour::Direction::@derive(0)`),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::Direction::#derive(0)`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 17,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::Direction::Up`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 18,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::Direction::Left`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 19,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::Direction::Down`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 20,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::Direction::Right`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::get_pixel_pair`),
         Some(
             ItemSynDefn {
                 body: 9,
@@ -508,7 +455,7 @@
                                 syn_expr_idx: 8,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 9,
                             },
                         ],
@@ -521,13 +468,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`),
         Some(
             ItemSynDefn {
                 body: 6,
@@ -924,7 +865,7 @@
                                 syn_expr_idx: 5,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 6,
                             },
                         ],
@@ -937,13 +878,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`),
         Some(
             ItemSynDefn {
                 body: 9,
@@ -1369,7 +1304,7 @@
                                 syn_expr_idx: 8,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 9,
                             },
                         ],
@@ -1382,13 +1317,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::get_inward_direction`),
         Some(
             ItemSynDefn {
                 body: 24,
@@ -3684,7 +3613,7 @@
                                 syn_expr_idx: 23,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 24,
                             },
                         ],
@@ -3722,13 +3651,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::get_angle_change`),
         Some(
             ItemSynDefn {
                 body: 22,
@@ -4676,7 +4599,7 @@
                                 syn_expr_idx: 21,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 22,
                             },
                         ],
@@ -4698,13 +4621,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::get_outward_direction`),
         Some(
             ItemSynDefn {
                 body: 34,
@@ -8194,7 +8111,7 @@
                                 syn_expr_idx: 33,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 34,
                             },
                         ],
@@ -8244,21 +8161,11 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::StreakCache`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::get_concave_middle_point`),
         Some(
             ItemSynDefn {
                 body: 30,
@@ -9121,7 +9028,7 @@
                                 syn_expr_idx: 29,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 30,
                             },
                         ],
@@ -9147,13 +9054,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::find_raw_contours`),
         Some(
             ItemSynDefn {
                 body: 325,
@@ -15963,7 +15864,7 @@
                                 syn_expr_idx: 324,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 325,
                             },
                         ],
@@ -16069,24 +15970,11 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)>::visualize`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`<mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)>::visualize`),
         Some(
             ItemSynDefn {
                 body: 3,
@@ -16463,7 +16351,7 @@
                                 syn_expr_idx: 2,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 3,
                             },
                         ],
@@ -16476,22 +16364,11 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::RawContour(0)`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`),
         Some(
             ItemSynDefn {
                 body: 4,
@@ -16848,7 +16725,7 @@
                                 syn_expr_idx: 3,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 4,
                             },
                         ],
@@ -16861,14 +16738,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::RawContour(0)::bounding_box`),
         Some(
             ItemSynDefn {
                 body: 55,
@@ -18463,7 +18333,7 @@
                                 syn_expr_idx: 54,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 55,
                             },
                         ],
@@ -18501,14 +18371,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`),
         Some(
             ItemSynDefn {
                 body: 9,
@@ -18897,7 +18760,7 @@
                                 syn_expr_idx: 8,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 9,
                             },
                         ],
@@ -18910,14 +18773,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::RawContour(0)::contour_len`),
         Some(
             ItemSynDefn {
                 body: 65,
@@ -20403,7 +20259,7 @@
                                 syn_expr_idx: 64,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 65,
                             },
                         ],
@@ -20437,16 +20293,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::raw_contour::RawContour(0)::displacement`,
-                    TypeItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::raw_contour::RawContour(0)::displacement`),
         Some(
             ItemSynDefn {
                 body: 18,
@@ -21346,7 +21193,7 @@
                                 syn_expr_idx: 17,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 18,
                             },
                         ],

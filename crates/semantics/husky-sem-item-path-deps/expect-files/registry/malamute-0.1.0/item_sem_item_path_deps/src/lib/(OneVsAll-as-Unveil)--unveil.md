@@ -1,0 +1,14 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`malamute::OneVsAllResult`),
+            ItemPath(`core::ops::ControlFlow`),
+            ItemPath(`core::ops::ControlFlow::Break`),
+            ItemPath(`malamute::OneVsAll::Yes`),
+            ItemPath(`malamute::OneVsAll::No`),
+            ItemPath(`core::ops::ControlFlow::Continue`),
+        ],
+    ),
+)
+```

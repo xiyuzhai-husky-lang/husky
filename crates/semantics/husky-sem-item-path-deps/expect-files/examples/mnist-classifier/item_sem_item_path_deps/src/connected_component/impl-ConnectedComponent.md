@@ -1,0 +1,9 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`mnist_classifier::connected_component::ConnectedComponent`),
+        ],
+    ),
+)
+```

@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`malamute::Class`, `Enum`),
-                ),
-            ),
+            ItemPath(`malamute::Class`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`malamute::Class`, `Enum`),
-                    ),
-                ),
+                ItemPath(`malamute::Class`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -86,19 +78,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`malamute::OneVsAll`, `Enum`),
-                ),
-            ),
+            ItemPath(`malamute::OneVsAll`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`malamute::OneVsAll`, `Enum`),
-                    ),
-                ),
+                ItemPath(`malamute::OneVsAll`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -289,19 +273,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`malamute::OneVsAllResult`, `Enum`),
-                ),
-            ),
+            ItemPath(`malamute::OneVsAllResult`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`malamute::OneVsAllResult`, `Enum`),
-                    ),
-                ),
+                ItemPath(`malamute::OneVsAllResult`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -492,23 +468,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`malamute::narrow_down`, `Ritchie(
-                        Gn,
-                    )`),
-                ),
-            ),
+            ItemPath(`malamute::narrow_down`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`malamute::narrow_down`, `Ritchie(
-                            Gn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`malamute::narrow_down`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -1469,19 +1433,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath(`malamute::OneVsAll as core::default::Default(0)`),
-                ),
-            ),
+            ItemPath(`malamute::OneVsAll as core::default::Default(0)`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::ImplBlock(
-                    ImplBlockPath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(`malamute::OneVsAll as core::default::Default(0)`),
-                    ),
-                ),
+                ItemPath(`malamute::OneVsAll as core::default::Default(0)`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -2211,29 +2167,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<malamute::OneVsAll as core::default::Default(0)>::default`,
-                        TraitItemKind::AssocRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            `<malamute::OneVsAll as core::default::Default(0)>::default`,
-                            TraitItemKind::AssocRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -2406,19 +2344,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
-                ),
-            ),
+            ItemPath(`malamute::Class as core::ops::Unveil(0)`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::ImplBlock(
-                    ImplBlockPath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(`malamute::Class as core::ops::Unveil(0)`),
-                    ),
-                ),
+                ItemPath(`malamute::Class as core::ops::Unveil(0)`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -3478,25 +3408,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<malamute::Class as core::ops::Unveil(0)>::Output`,
-                        TraitItemKind::AssocType,
-                    ),
-                ),
-            ),
+            ItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            `<malamute::Class as core::ops::Unveil(0)>::Output`,
-                            TraitItemKind::AssocType,
-                        ),
-                    ),
-                ),
+                ItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -3672,29 +3588,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<malamute::Class as core::ops::Unveil(0)>::unveil`,
-                        TraitItemKind::AssocRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            `<malamute::Class as core::ops::Unveil(0)>::unveil`,
-                            TraitItemKind::AssocRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -4674,19 +4572,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
-                ),
-            ),
+            ItemPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::ImplBlock(
-                    ImplBlockPath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
-                    ),
-                ),
+                ItemPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -5940,25 +5830,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<malamute::OneVsAll as core::ops::Unveil(0)>::Output`,
-                        TraitItemKind::AssocType,
-                    ),
-                ),
-            ),
+            ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            `<malamute::OneVsAll as core::ops::Unveil(0)>::Output`,
-                            TraitItemKind::AssocType,
-                        ),
-                    ),
-                ),
+                ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -6134,29 +6010,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
-                        TraitItemKind::AssocRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
-                            TraitItemKind::AssocRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`),
             ),
             place_registry: PlaceRegistry {
                 infos: [

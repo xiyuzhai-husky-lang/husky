@@ -1,0 +1,10 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`core::num::f32`),
+            ItemPath(`core::num::f32(0)::sqrt`),
+        ],
+    ),
+)
+```

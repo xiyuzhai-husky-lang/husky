@@ -88,7 +88,7 @@ impl<'a> HirEagerExprBuilder<'a> {
     pub fn build_all_then_finish(mut self) -> (HirEagerExprRegion, HirEagerExprSourceMap) {
         for (sem_expr_idx, expr_root_kind) in self.sem_expr_region_data.sem_expr_roots() {
             match expr_root_kind {
-                SynExprRootKind::BlockExpr
+                SynExprRootKind::RootBody
                 | SynExprRootKind::ReturnExpr
                 | SynExprRootKind::FieldBindInitialValue { .. }
                 | SynExprRootKind::ParenateParameterDefaultValue { .. } => {

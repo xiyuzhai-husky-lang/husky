@@ -2,11 +2,7 @@
 SynDeclSheet {
     decls: [
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::fermi::FermiMatchResult`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
                     TypeSynDecl::PropsStruct(
@@ -316,13 +312,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::fermi::fermi_match`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
@@ -756,11 +746,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
@@ -868,14 +854,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
-                        TypeItemKind::MemoizedField,
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MemoizedField(
@@ -1091,14 +1070,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
-                        TypeItemKind::MemoizedField,
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MemoizedField(
@@ -1314,14 +1286,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
-                        TypeItemKind::MemoizedField,
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MemoizedField(

@@ -10,7 +10,7 @@ impl<'a> SynExprContext<'a> {
         let stmts = self.parse_stmts(body);
         let expr = SynExprData::Block { stmts };
         let expr = self.alloc_expr(expr);
-        self.add_expr_root(SynExprRootKind::BlockExpr, expr);
+        self.add_expr_root(SynExprRootKind::RootBody, expr);
         expr
     }
 

@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::seven::simple_seven_match`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -67,13 +63,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -86,11 +76,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::seven::special_seven_match`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -152,13 +138,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::seven::leftupcc_pattern`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -171,13 +151,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::seven::leftdowncc_pattern`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -190,11 +164,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::seven::is_seven`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,

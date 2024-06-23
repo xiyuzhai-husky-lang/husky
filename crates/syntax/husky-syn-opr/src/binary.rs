@@ -16,6 +16,7 @@ pub enum SynBinaryOpr {
     As,        // as
     Ins,       // :
     In,        // in
+    Of,
 }
 
 impl From<BinaryComparisonOpr> for SynBinaryOpr {
@@ -52,6 +53,7 @@ impl SynBinaryOpr {
             SynBinaryOpr::Ins => ":",
             SynBinaryOpr::ScopeResolution => "::",
             SynBinaryOpr::In => "in",
+            SynBinaryOpr::Of => "of",
         }
     }
 
@@ -82,6 +84,7 @@ impl SynBinaryOpr {
             SynBinaryOpr::Ins => " : ",
             SynBinaryOpr::ScopeResolution => " :: ",
             SynBinaryOpr::In => " in ",
+            SynBinaryOpr::Of => " of ",
         }
     }
 }
@@ -103,6 +106,7 @@ impl HasPrecedence for SynBinaryOpr {
             SynBinaryOpr::Ins => Precedence::Is,
             SynBinaryOpr::In => todo!(),
             SynBinaryOpr::ShortCircuitLogic(opr) => opr.precedence(),
+            SynBinaryOpr::Of => Precedence::Of,
         }
     }
 }

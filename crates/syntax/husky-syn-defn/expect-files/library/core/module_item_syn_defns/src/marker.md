@@ -1,27 +1,15 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::marker::Copy`),
-            ),
-        ),
+        ItemPath(`core::marker::Copy`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::marker::Sized`),
-            ),
-        ),
+        ItemPath(`core::marker::Sized`),
         None,
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`#derive _ as core::marker::Copy(0)`),
-            ),
-        ),
+        ItemPath(`#derive _ as core::marker::Copy(0)`),
         None,
     ),
 ]

@@ -1,39 +1,10 @@
 ```rust
 [
-    ItemPath::Submodule(
-        Room32,
-        SubmoduleItemPath(`std::prelude),
-    ),
-    ItemPath::Submodule(
-        Room32,
-        SubmoduleItemPath(`std::logic),
-    ),
-    ItemPath::Submodule(
-        Room32,
-        SubmoduleItemPath(`std::ops),
-    ),
-    ItemPath::MajorItem(
-        MajorItemPath::Trait(
-            TraitPath(`std::ops::Add`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TraitItem(
-            TraitItemPath(
-                `std::ops::Add::Output`,
-                TraitItemKind::AssocType,
-            ),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TraitItem(
-            TraitItemPath(
-                `std::ops::Add::add`,
-                TraitItemKind::MethodRitchie(
-                    RitchieItemKind::Fn,
-                ),
-            ),
-        ),
-    ),
+    ItemPath(`std::prelude`),
+    ItemPath(`std::logic`),
+    ItemPath(`std::ops`),
+    ItemPath(`std::ops::Add`),
+    ItemPath(`std::ops::Add::Output`),
+    ItemPath(`std::ops::Add::add`),
 ]
 ```

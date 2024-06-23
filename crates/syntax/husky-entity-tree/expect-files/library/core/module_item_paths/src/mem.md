@@ -1,29 +1,9 @@
 ```rust
 [
-    ItemPath::MajorItem(
-        MajorItemPath::Type(
-            TypePath(`core::mem::Ref`, `Extern`),
-        ),
-    ),
-    ItemPath::MajorItem(
-        MajorItemPath::Type(
-            TypePath(`core::mem::RefMut`, `Extern`),
-        ),
-    ),
-    ItemPath::MajorItem(
-        MajorItemPath::Type(
-            TypePath(`core::mem::Leash`, `Extern`),
-        ),
-    ),
-    ItemPath::MajorItem(
-        MajorItemPath::Type(
-            TypePath(`core::mem::At`, `Extern`),
-        ),
-    ),
-    ItemPath::ImplBlock(
-        ImplBlockPath::TraitForTypeImplBlock(
-            TraitForTypeImplBlockPath(`core::mem::Leash as core::marker::Copy(0)`),
-        ),
-    ),
+    ItemPath(`core::mem::Ref`),
+    ItemPath(`core::mem::RefMut`),
+    ItemPath(`core::mem::Leash`),
+    ItemPath(`core::mem::At`),
+    ItemPath(`core::mem::Leash as core::marker::Copy(0)`),
 ]
 ```

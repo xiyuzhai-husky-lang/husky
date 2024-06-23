@@ -2,19 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::result::Result`, `Enum`),
-                ),
-            ),
+            ItemPath(`core::result::Result`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::result::Result`, `Enum`),
-                    ),
-                ),
+                ItemPath(`core::result::Result`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -102,19 +94,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath(`core::result::Result as core::ops::Unveil(0)`),
-                ),
-            ),
+            ItemPath(`core::result::Result as core::ops::Unveil(0)`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::ImplBlock(
-                    ImplBlockPath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockPath(`core::result::Result as core::ops::Unveil(0)`),
-                    ),
-                ),
+                ItemPath(`core::result::Result as core::ops::Unveil(0)`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -1286,25 +1270,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<core::result::Result as core::ops::Unveil(0)>::Continue`,
-                        TraitItemKind::AssocType,
-                    ),
-                ),
-            ),
+            ItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            `<core::result::Result as core::ops::Unveil(0)>::Continue`,
-                            TraitItemKind::AssocType,
-                        ),
-                    ),
-                ),
+                ItemPath(`<core::result::Result as core::ops::Unveil(0)>::Continue`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -1522,29 +1492,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<core::result::Result as core::ops::Unveil(0)>::unveil`,
-                        TraitItemKind::AssocRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath::AssocItem(
-                    AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            `<core::result::Result as core::ops::Unveil(0)>::unveil`,
-                            TraitItemKind::AssocRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`<core::result::Result as core::ops::Unveil(0)>::unveil`),
             ),
             place_registry: PlaceRegistry {
                 infos: [

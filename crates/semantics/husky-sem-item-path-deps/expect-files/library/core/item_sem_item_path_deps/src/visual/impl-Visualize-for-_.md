@@ -1,0 +1,9 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`core::visual::Visualize`),
+        ],
+    ),
+)
+```

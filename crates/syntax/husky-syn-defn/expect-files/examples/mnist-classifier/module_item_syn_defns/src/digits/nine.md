@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::nine::nine_match`),
         Some(
             ItemSynDefn {
                 body: 5,
@@ -281,7 +277,7 @@
                                 syn_expr_idx: 4,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 5,
                             },
                         ],
@@ -294,11 +290,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::nine::nine_match_refine`),
         Some(
             ItemSynDefn {
                 body: 5,
@@ -574,7 +566,7 @@
                                 syn_expr_idx: 4,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 5,
                             },
                         ],
@@ -587,11 +579,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::nine::is_nine`),
         Some(
             ItemSynDefn {
                 body: 82,
@@ -3144,7 +3132,7 @@
                                 syn_expr_idx: 81,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 82,
                             },
                         ],
@@ -3190,13 +3178,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::nine::downmost`),
         Some(
             ItemSynDefn {
                 body: 8,
@@ -3654,7 +3636,7 @@
                                 syn_expr_idx: 7,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 8,
                             },
                         ],
@@ -3672,13 +3654,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::nine::big_cc`),
         Some(
             ItemSynDefn {
                 body: 14,
@@ -4234,7 +4210,7 @@
                                 syn_expr_idx: 13,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 14,
                             },
                         ],

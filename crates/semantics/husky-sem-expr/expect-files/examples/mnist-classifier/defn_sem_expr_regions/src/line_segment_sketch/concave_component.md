@@ -2,23 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
-                        Fn,
-                    )`),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::MajorItem(
-                    MajorItemPath::Form(
-                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
-                            Fn,
-                        )`),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -745,13 +733,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -1661,13 +1643,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Form(
-                                                    FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
-                                                        Fn,
-                                                    )`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -2330,11 +2306,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -4220,7 +4192,7 @@
                         SemExprIdx(
                             64,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -7275,29 +7247,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)>::visualize`,
-                        TraitItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)>::visualize`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            `<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)>::visualize`,
-                            TraitItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)>::visualize`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -7667,7 +7621,7 @@
                         SemExprIdx(
                             3,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -7852,25 +7806,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`,
-                        TypeItemKind::MemoizedField,
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`,
-                            TypeItemKind::MemoizedField,
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -7975,14 +7915,7 @@
                                                 ),
                                             ),
                                             instantiation: FlyInstantiation {
-                                                path: ItemPath::AssocItem(
-                                                    AssocItemPath::TypeItem(
-                                                        TypeItemPath(
-                                                            `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`,
-                                                            TypeItemKind::MemoizedField,
-                                                        ),
-                                                    ),
-                                                ),
+                                                path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`),
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
@@ -8125,7 +8058,7 @@
                         SemExprIdx(
                             2,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -8299,25 +8232,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`,
-                        TypeItemKind::MemoizedField,
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`,
-                            TypeItemKind::MemoizedField,
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -8422,14 +8341,7 @@
                                                 ),
                                             ),
                                             instantiation: FlyInstantiation {
-                                                path: ItemPath::AssocItem(
-                                                    AssocItemPath::TypeItem(
-                                                        TypeItemPath(
-                                                            `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`,
-                                                            TypeItemKind::MemoizedField,
-                                                        ),
-                                                    ),
-                                                ),
+                                                path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`),
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
@@ -8913,7 +8825,7 @@
                         SemExprIdx(
                             6,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -9199,25 +9111,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`,
-                        TypeItemKind::MemoizedField,
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`,
-                            TypeItemKind::MemoizedField,
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -12191,7 +12089,7 @@
                         SemExprIdx(
                             33,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -13800,25 +13698,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`,
-                        TypeItemKind::MemoizedField,
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`,
-                            TypeItemKind::MemoizedField,
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -16486,7 +16370,7 @@
                         SemExprIdx(
                             30,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -17849,25 +17733,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`,
-                        TypeItemKind::MemoizedField,
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`,
-                            TypeItemKind::MemoizedField,
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -21598,11 +21468,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::geom2d::BoundingBox`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -21645,11 +21511,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::geom2d::ClosedRange`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -21886,11 +21748,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::geom2d::ClosedRange`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -22704,7 +22562,7 @@
                         SemExprIdx(
                             59,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -25391,25 +25249,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
-                        TypeItemKind::MemoizedField,
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
-                            TypeItemKind::MemoizedField,
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -25598,14 +25442,7 @@
                                                 ),
                                             ),
                                             instantiation: FlyInstantiation {
-                                                path: ItemPath::AssocItem(
-                                                    AssocItemPath::TypeItem(
-                                                        TypeItemPath(
-                                                            `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
-                                                            TypeItemKind::MemoizedField,
-                                                        ),
-                                                    ),
-                                                ),
+                                                path: ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`),
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
@@ -25742,14 +25579,7 @@
                                                 ),
                                             ),
                                             instantiation: FlyInstantiation {
-                                                path: ItemPath::AssocItem(
-                                                    AssocItemPath::TypeItem(
-                                                        TypeItemPath(
-                                                            `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`,
-                                                            TypeItemKind::MemoizedField,
-                                                        ),
-                                                    ),
-                                                ),
+                                                path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`),
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
@@ -26062,7 +25892,7 @@
                         SemExprIdx(
                             6,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -26356,29 +26186,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -26400,11 +26212,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::MajorItem(
-                                                MajorItemPath::Type(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                                ),
-                                            ),
+                                            path: ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),
@@ -27708,7 +27516,7 @@
                         SemExprIdx(
                             14,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -28254,29 +28062,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -28912,7 +28702,7 @@
                         SemExprIdx(
                             6,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -29176,29 +28966,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -29834,7 +29606,7 @@
                         SemExprIdx(
                             6,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -30098,29 +29870,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -30523,7 +30277,7 @@
                         SemExprIdx(
                             3,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -30702,29 +30456,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -31264,7 +31000,7 @@
                         SemExprIdx(
                             5,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -31499,29 +31235,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TypeItem(
-                    TypeItemPath(
-                        `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`,
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TypeItem(
-                        TypeItemPath(
-                            `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`,
-                            TypeItemKind::MethodRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`),
             ),
             place_registry: PlaceRegistry {
                 infos: [
@@ -32061,7 +31779,7 @@
                         SemExprIdx(
                             5,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],

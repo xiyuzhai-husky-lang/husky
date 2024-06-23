@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::frontend::IsFrontend`),
-            ),
-        ),
+        ItemPath(`core::frontend::IsFrontend`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Trait(
@@ -29,11 +25,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::frontend::Cv2dFrontend`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::frontend::Cv2dFrontend`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -49,11 +41,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::frontend::Cv3dFrontend`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::frontend::Cv3dFrontend`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -69,11 +57,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::frontend::NlpFrontend`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::frontend::NlpFrontend`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -89,11 +73,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::frontend::Rl2dFrontend`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::frontend::Rl2dFrontend`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(

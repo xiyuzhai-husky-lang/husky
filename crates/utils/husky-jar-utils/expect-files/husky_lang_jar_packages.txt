@@ -1183,6 +1183,7 @@
     JarPackageSummary {
         name: "husky-sem-static-mut-deps",
         dependencies: [
+            "husky-entity-path",
             "husky-sem-expr",
             "husky-sem-item-path-deps",
         ],
@@ -1190,9 +1191,11 @@
     JarPackageSummary {
         name: "husky-sem-static-var-deps",
         dependencies: [
+            "husky-entity-path",
             "husky-sem-expr",
             "husky-sem-item-path-deps",
             "husky-sem-static-mut-deps",
+            "husky-syn-expr",
         ],
     },
 ]

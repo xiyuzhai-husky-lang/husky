@@ -103,11 +103,7 @@
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                             ),
                             expr_arena: Arena {
                                 data: [
@@ -489,11 +485,7 @@
                         ],
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -1008,11 +1000,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::ImplBlock(
-                                ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1081,16 +1069,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::AssocItem(
-                                    AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            `<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`,
-                                            TraitItemKind::MethodRitchie(
-                                                RitchieItemKind::Fn,
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                                ItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -1126,16 +1105,7 @@
                             5,
                             HirEagerExprRegion {
                                 region_path: RegionPath::ItemDefn(
-                                    ItemPath::AssocItem(
-                                        AssocItemPath::TraitForTypeItem(
-                                            TraitForTypeItemPath(
-                                                `<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`,
-                                                TraitItemKind::MethodRitchie(
-                                                    RitchieItemKind::Fn,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
+                                    ItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`),
                                 ),
                                 expr_arena: Arena {
                                     data: [
@@ -1385,11 +1355,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::ImplBlock(
-                                ImplBlockPath::TypeImplBlock(
-                                    TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -1492,16 +1458,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::AssocItem(
-                                    AssocItemPath::TypeItem(
-                                        TypeItemPath(
-                                            `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`,
-                                            TypeItemKind::AssocRitchie(
-                                                RitchieItemKind::Fn,
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -1577,16 +1534,7 @@
                             11,
                             HirEagerExprRegion {
                                 region_path: RegionPath::ItemDefn(
-                                    ItemPath::AssocItem(
-                                        AssocItemPath::TypeItem(
-                                            TypeItemPath(
-                                                `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`,
-                                                TypeItemKind::AssocRitchie(
-                                                    RitchieItemKind::Fn,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
+                                    ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`),
                                 ),
                                 expr_arena: Arena {
                                     data: [
@@ -2070,16 +2018,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::AssocItem(
-                                    AssocItemPath::TypeItem(
-                                        TypeItemPath(
-                                            `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
-                                            TypeItemKind::MethodRitchie(
-                                                RitchieItemKind::Fn,
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -2115,16 +2054,7 @@
                             5,
                             HirEagerExprRegion {
                                 region_path: RegionPath::ItemDefn(
-                                    ItemPath::AssocItem(
-                                        AssocItemPath::TypeItem(
-                                            TypeItemPath(
-                                                `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
-                                                TypeItemKind::MethodRitchie(
-                                                    RitchieItemKind::Fn,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
+                                    ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`),
                                 ),
                                 expr_arena: Arena {
                                     data: [
@@ -2396,11 +2326,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::ImplBlock(
-                                ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -2469,16 +2395,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::AssocItem(
-                                    AssocItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath(
-                                            `<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`,
-                                            TraitItemKind::MethodRitchie(
-                                                RitchieItemKind::Fn,
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                                ItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -2514,16 +2431,7 @@
                             3,
                             HirEagerExprRegion {
                                 region_path: RegionPath::ItemDefn(
-                                    ItemPath::AssocItem(
-                                        AssocItemPath::TraitForTypeItem(
-                                            TraitForTypeItemPath(
-                                                `<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`,
-                                                TraitItemKind::MethodRitchie(
-                                                    RitchieItemKind::Fn,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
+                                    ItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`),
                                 ),
                                 expr_arena: Arena {
                                     data: [
@@ -2738,11 +2646,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::ImplBlock(
-                                ImplBlockPath::TypeImplBlock(
-                                    TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)`),
-                                ),
-                            ),
+                            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -2801,14 +2705,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::AssocItem(
-                                    AssocItemPath::TypeItem(
-                                        TypeItemPath(
-                                            `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`,
-                                            TypeItemKind::MemoizedField,
-                                        ),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -2844,14 +2741,7 @@
                             2,
                             HirEagerExprRegion {
                                 region_path: RegionPath::ItemDefn(
-                                    ItemPath::AssocItem(
-                                        AssocItemPath::TypeItem(
-                                            TypeItemPath(
-                                                `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`,
-                                                TypeItemKind::MemoizedField,
-                                            ),
-                                        ),
-                                    ),
+                                    ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`),
                                 ),
                                 expr_arena: Arena {
                                     data: [
@@ -2989,14 +2879,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::AssocItem(
-                                    AssocItemPath::TypeItem(
-                                        TypeItemPath(
-                                            `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
-                                            TypeItemKind::MemoizedField,
-                                        ),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -3032,14 +2915,7 @@
                             52,
                             HirEagerExprRegion {
                                 region_path: RegionPath::ItemDefn(
-                                    ItemPath::AssocItem(
-                                        AssocItemPath::TypeItem(
-                                            TypeItemPath(
-                                                `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
-                                                TypeItemKind::MemoizedField,
-                                            ),
-                                        ),
-                                    ),
+                                    ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`),
                                 ),
                                 expr_arena: Arena {
                                     data: [
@@ -4919,16 +4795,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::AssocItem(
-                                    AssocItemPath::TypeItem(
-                                        TypeItemPath(
-                                            `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`,
-                                            TypeItemKind::AssocRitchie(
-                                                RitchieItemKind::Fn,
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -4991,16 +4858,7 @@
                             5,
                             HirEagerExprRegion {
                                 region_path: RegionPath::ItemDefn(
-                                    ItemPath::AssocItem(
-                                        AssocItemPath::TypeItem(
-                                            TypeItemPath(
-                                                `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`,
-                                                TypeItemKind::AssocRitchie(
-                                                    RitchieItemKind::Fn,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
+                                    ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`),
                                 ),
                                 expr_arena: Arena {
                                     data: [

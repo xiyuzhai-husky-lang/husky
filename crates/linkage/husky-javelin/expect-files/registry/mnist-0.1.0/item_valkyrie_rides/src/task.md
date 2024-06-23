@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist::task::MnistTask`, `Extern`),
-            ),
-        ),
+        ItemPath(`mnist::task::MnistTask`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -18,18 +14,11 @@
         ),
     ),
     (
-        ItemPath::Attr(
-            Room32,
-            AttrItemPath(`mnist::task::MnistTask::@task(0)`),
-        ),
+        ItemPath(`mnist::task::MnistTask::#task(0)`),
         None,
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist::task::MnistTask(0)`),
-            ),
-        ),
+        ItemPath(`mnist::task::MnistTask(0)`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -42,16 +31,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist::task::MnistTask(0)::new`,
-                    TypeItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`mnist::task::MnistTask(0)::new`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(

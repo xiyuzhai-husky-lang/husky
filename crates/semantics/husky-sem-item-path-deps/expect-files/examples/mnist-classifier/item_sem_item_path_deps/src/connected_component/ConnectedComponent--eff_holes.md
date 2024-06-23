@@ -1,0 +1,14 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`mnist_classifier::connected_component::EffHoles`),
+            ItemPath(`core::vec::Vec(0)::collect_leashes`),
+            ItemPath(`mnist_classifier::raw_contour::RawContour`),
+            ItemPath(`mnist_classifier::connected_component::hole_tmpl`),
+            ItemPath(`core::vec::Vec(0)::pop_with_largest_opt_f32`),
+            ItemPath(`core::vec::Vec(0)::push`),
+        ],
+    ),
+)
+```

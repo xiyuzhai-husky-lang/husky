@@ -99,7 +99,7 @@ fn check_jar_paths<'a>(jar_paths: impl Iterator<Item = &'a syn::Path>) {
             std::env::var("CARGO_MANIFEST_DIR").unwrap().into();
         let path = cargo_manifest_dir
             .join("../../utils/husky-jar-utils/expect-files/husky_lang_jar_tree.json");
-        assert!(path.exists());
+        assert!(path.exists(), "expect {path:?} to exist");
         let text = std::fs::read_to_string(path).unwrap();
         serde_json::from_str(&text).unwrap()
     }

@@ -1,13 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`quick_sort::quick_sort`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`quick_sort::quick_sort`),
         Some(
             ItemSynDefn {
                 body: 12,
@@ -584,7 +578,7 @@
                                 syn_expr_idx: 11,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 12,
                             },
                         ],
@@ -602,13 +596,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`quick_sort::quick_sort_aux`),
         Some(
             ItemSynDefn {
                 body: 22,
@@ -1549,7 +1537,7 @@
                                 syn_expr_idx: 21,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 22,
                             },
                         ],
@@ -1567,13 +1555,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`quick_sort::partition`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`quick_sort::partition`),
         Some(
             ItemSynDefn {
                 body: 62,
@@ -3280,7 +3262,7 @@
                                 syn_expr_idx: 61,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 62,
                             },
                         ],
@@ -3306,13 +3288,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`quick_sort::quick_sort_works_for_integers`),
         Some(
             ItemSynDefn {
                 body: 15,
@@ -3773,7 +3749,7 @@
                                 syn_expr_idx: 14,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 15,
                             },
                         ],
@@ -3791,20 +3767,11 @@
         ),
     ),
     (
-        ItemPath::Attr(
-            Room32,
-            AttrItemPath(`quick_sort::quick_sort_works_for_integers::@test(0)`),
-        ),
+        ItemPath(`quick_sort::quick_sort_works_for_integers::#test(0)`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`quick_sort::quick_sort_works_for_strs`),
         Some(
             ItemSynDefn {
                 body: 7,
@@ -4123,7 +4090,7 @@
                                 syn_expr_idx: 6,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 7,
                             },
                         ],
@@ -4141,10 +4108,7 @@
         ),
     ),
     (
-        ItemPath::Attr(
-            Room32,
-            AttrItemPath(`quick_sort::quick_sort_works_for_strs::@test(0)`),
-        ),
+        ItemPath(`quick_sort::quick_sort_works_for_strs::#test(0)`),
         None,
     ),
 ]

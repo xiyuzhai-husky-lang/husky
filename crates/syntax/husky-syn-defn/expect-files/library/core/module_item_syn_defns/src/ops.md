@@ -1,513 +1,195 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Add`),
-            ),
-        ),
+        ItemPath(`core::ops::Add`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::Add::Output`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::Add::Output`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::Add::add`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::Add::add`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::AddAssign`),
-            ),
-        ),
+        ItemPath(`core::ops::AddAssign`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::AddAssign::Output`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::AddAssign::Output`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::AddAssign::add`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::AddAssign::add`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitAnd`),
-            ),
-        ),
+        ItemPath(`core::ops::BitAnd`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::BitAnd::Output`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::BitAnd::Output`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::BitAnd::bitand`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::BitAnd::bitand`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitAndAssign`),
-            ),
-        ),
+        ItemPath(`core::ops::BitAndAssign`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::BitAndAssign::bitand_assign`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::BitAndAssign::bitand_assign`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitOr`),
-            ),
-        ),
+        ItemPath(`core::ops::BitOr`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::BitOr::Output`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::BitOr::Output`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::BitOr::bitor`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::BitOr::bitor`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitOrAssign`),
-            ),
-        ),
+        ItemPath(`core::ops::BitOrAssign`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::BitOrAssign::bitor_assign`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::BitOrAssign::bitor_assign`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitXor`),
-            ),
-        ),
+        ItemPath(`core::ops::BitXor`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::BitXor::Output`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::BitXor::Output`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::BitXor::bitxor`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::BitXor::bitxor`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::BitXorAssign`),
-            ),
-        ),
+        ItemPath(`core::ops::BitXorAssign`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::BitXorAssign::bitxor_assign`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::BitXorAssign::bitxor_assign`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Div`),
-            ),
-        ),
+        ItemPath(`core::ops::Div`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::Div::Output`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::Div::Output`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::Div::div`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::Div::div`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::DivAssign`),
-            ),
-        ),
+        ItemPath(`core::ops::DivAssign`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::DivAssign::div_assign`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::DivAssign::div_assign`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::IntIndex`),
-            ),
-        ),
+        ItemPath(`core::ops::IntIndex`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::IntIndex::Output`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::IntIndex::Output`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Mul`),
-            ),
-        ),
+        ItemPath(`core::ops::Mul`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::Mul::Output`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::Mul::Output`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::Mul::mul`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::Mul::mul`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::MulAssign`),
-            ),
-        ),
+        ItemPath(`core::ops::MulAssign`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::MulAssign::mul_assign`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::MulAssign::mul_assign`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Neg`),
-            ),
-        ),
+        ItemPath(`core::ops::Neg`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::Neg::Output`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::Neg::Output`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::Neg::neg`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::Neg::neg`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Not`),
-            ),
-        ),
+        ItemPath(`core::ops::Not`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::Not::Output`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::Not::Output`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::Not::not`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::Not::not`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Sub`),
-            ),
-        ),
+        ItemPath(`core::ops::Sub`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::Sub::Output`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::Sub::Output`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::Sub::sub`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::Sub::sub`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Trait(
-                TraitPath(`core::ops::Unveil`),
-            ),
-        ),
+        ItemPath(`core::ops::Unveil`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::Unveil::Output`,
-                    TraitItemKind::AssocType,
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::Unveil::Output`),
         None,
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitItem(
-                TraitItemPath(
-                    `core::ops::Unveil::unveil`,
-                    TraitItemKind::AssocRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::Unveil::unveil`),
         None,
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::ops::ControlFlow`, `Enum`),
-            ),
-        ),
+        ItemPath(`core::ops::ControlFlow`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 84,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::ControlFlow::Continue`),
         None,
     ),
     (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 85,
-                    },
-                ),
-            ),
-        ),
+        ItemPath(`core::ops::ControlFlow::Break`),
         None,
     ),
 ]

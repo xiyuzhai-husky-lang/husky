@@ -328,7 +328,7 @@ impl<'a> DecTermEngine<'a> {
                     continue;
                 }
                 SynExprRootKind::Dep
-                | SynExprRootKind::BlockExpr
+                | SynExprRootKind::RootBody
                 | SynExprRootKind::LetStmtType
                 | SynExprRootKind::LetStmtInitialValue
                 | SynExprRootKind::HtmlArgumentExpr
@@ -532,6 +532,7 @@ impl<'a> DecTermEngine<'a> {
                     // Ok(DecTypeAsTrait::new(db, lopd, ropd).into()),
                     SynBinaryOpr::Ins => todo!(),
                     SynBinaryOpr::In => todo!(),
+                    SynBinaryOpr::Of => todo!(),
                 }
             }
             SynExprData::Be { .. } => todo!(),

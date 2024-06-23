@@ -1,34 +1,37 @@
 use crate::{
-    context::{IsGraphRecursionContext, IsGraphRecursionScheme},
+    context::{IsGraphDynamicsContext, IsGraphDynamicsScheme},
     cycle_group::{CycleGroup, CycleGroupMap},
+    deps::IsGraphDepsScheme,
 };
 use propagate::{IsGraph, Propagate, PropagationResult};
 
-pub(crate) fn calc_cycle_group_final_values<'db, C: IsGraphRecursionContext<'db>>(
+pub(crate) fn calc_cycle_group_final_values<'db, C: IsGraphDynamicsContext<'db>>(
     ctx: C,
-    cycle_group: &'db CycleGroup<C::Scheme>,
-) -> PropagationResult<CycleGroupMap<C::Scheme>>
+    cycle_group: &'db CycleGroup<C::DepsScheme>,
+) -> PropagationResult<
+    CycleGroupMap<C::DepsScheme, <C::DynamicsScheme as IsGraphDynamicsScheme>::Value>,
+>
 where
-    [(); <C::Scheme as IsGraphRecursionScheme>::CYCLE_GROUP_N]:,
+    [(); <C::DepsScheme as IsGraphDepsScheme>::CYCLE_GROUP_N]:,
 {
     let local_graph = LocalGraph::new(ctx, cycle_group);
     Ok(local_graph
-        .propagate(<C::Scheme as IsGraphRecursionScheme>::MAX_ITERATION)?
+        .propagate(<C::DynamicsScheme as IsGraphDynamicsScheme>::MAX_ITERATION)?
         .finish())
 }
 
-struct LocalGraph<'db, C: IsGraphRecursionContext<'db>>
+struct LocalGraph<'db, C: IsGraphDynamicsContext<'db>>
 where
-    [(); <C::Scheme>::CYCLE_GROUP_N]:,
+    [(); <C::DepsScheme>::CYCLE_GROUP_N]:,
 {
     ctx: C,
-    map: CycleGroupMap<C::Scheme>,
+    map: CycleGroupMap<C::DepsScheme, <C::DynamicsScheme as IsGraphDynamicsScheme>::Value>,
     deps: Vec<Vec<usize>>,
 }
 
-impl<'db, C: IsGraphRecursionContext<'db>> std::fmt::Debug for LocalGraph<'db, C>
+impl<'db, C: IsGraphDynamicsContext<'db>> std::fmt::Debug for LocalGraph<'db, C>
 where
-    [(); <C::Scheme>::CYCLE_GROUP_N]:,
+    [(); <C::DepsScheme>::CYCLE_GROUP_N]:,
 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("LocalGraph")
@@ -45,11 +48,11 @@ where
     }
 }
 
-impl<'db, C: IsGraphRecursionContext<'db>> LocalGraph<'db, C>
+impl<'db, C: IsGraphDynamicsContext<'db>> LocalGraph<'db, C>
 where
-    [(); <C::Scheme>::CYCLE_GROUP_N]:,
+    [(); <C::DepsScheme>::CYCLE_GROUP_N]:,
 {
-    fn new(ctx: C, cycle_group: &'db CycleGroup<C::Scheme>) -> Self {
+    fn new(ctx: C, cycle_group: &'db CycleGroup<C::DepsScheme>) -> Self {
         Self {
             ctx,
             map: CycleGroupMap::new(ctx, cycle_group),
@@ -70,20 +73,22 @@ where
     }
 }
 
-impl<'db, C: IsGraphRecursionContext<'db>> LocalGraph<'db, C>
+impl<'db, C: IsGraphDynamicsContext<'db>> LocalGraph<'db, C>
 where
-    [(); <C::Scheme>::CYCLE_GROUP_N]:,
+    [(); <C::DepsScheme>::CYCLE_GROUP_N]:,
 {
-    fn finish(self) -> CycleGroupMap<C::Scheme> {
+    fn finish(
+        self,
+    ) -> CycleGroupMap<C::DepsScheme, <C::DynamicsScheme as IsGraphDynamicsScheme>::Value> {
         self.map
     }
 }
 
-impl<'db, C: IsGraphRecursionContext<'db>> IsGraph for LocalGraph<'db, C>
+impl<'db, C: IsGraphDynamicsContext<'db>> IsGraph for LocalGraph<'db, C>
 where
-    [(); <C::Scheme>::CYCLE_GROUP_N]:,
+    [(); <C::DepsScheme>::CYCLE_GROUP_N]:,
 {
-    type Value = <C::Scheme as IsGraphRecursionScheme>::Value;
+    type Value = <C::DynamicsScheme as IsGraphDynamicsScheme>::Value;
 
     fn len(&self) -> usize {
         self.map.len()
@@ -101,7 +106,7 @@ where
         self.ctx.updated_value((**self.map)[idx].0, |node| {
             self.map
                 .get_value(node)
-                .unwrap_or_else(|| self.ctx.value(node).expect("todo: handle error"))
+                .unwrap_or_else(|| self.ctx.final_value(node).expect("todo: handle error"))
         })
     }
 }

@@ -1,0 +1,11 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`core::ops::Unveil`),
+            ItemPath(`malamute::OneVsAllResult`),
+            ItemPath(`malamute::OneVsAll`),
+        ],
+    ),
+)
+```

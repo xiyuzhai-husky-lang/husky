@@ -1,10 +1,7 @@
 ```rust
 [
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`syntax_basics::ast),
-        ),
+        ItemPath(`syntax_basics::ast`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`syntax_basics::ast),
@@ -12,10 +9,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`syntax_basics::uses),
-        ),
+        ItemPath(`syntax_basics::uses`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`syntax_basics::uses),
@@ -23,10 +17,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`syntax_basics::defn),
-        ),
+        ItemPath(`syntax_basics::defn`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`syntax_basics::defn),
@@ -34,10 +25,7 @@
         ),
     ),
     (
-        ItemPath::Submodule(
-            Room32,
-            SubmoduleItemPath(`syntax_basics::expr),
-        ),
+        ItemPath(`syntax_basics::expr`),
         Ok(
             ItemEthTemplate::Submodule(
                 SubmoduleItemPath(`syntax_basics::expr),

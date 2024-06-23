@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::major::connected_components`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::major::connected_components`),
         Some(
             ItemSynDefn {
                 body: 3,
@@ -243,7 +239,7 @@
                                 syn_expr_idx: 2,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 3,
                             },
                         ],
@@ -256,11 +252,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::major::major_connected_component`),
         Some(
             ItemSynDefn {
                 body: 22,
@@ -1068,7 +1060,7 @@
                                 syn_expr_idx: 21,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 22,
                             },
                         ],
@@ -1094,11 +1086,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`),
         Some(
             ItemSynDefn {
                 body: 15,
@@ -1640,7 +1628,7 @@
                                 syn_expr_idx: 14,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 15,
                             },
                         ],
@@ -1658,11 +1646,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::major::major_raw_contours`),
         Some(
             ItemSynDefn {
                 body: 2,
@@ -1874,7 +1858,7 @@
                                 syn_expr_idx: 1,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 2,
                             },
                         ],
@@ -1887,11 +1871,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::major::major_raw_contour`),
         Some(
             ItemSynDefn {
                 body: 4,
@@ -2115,7 +2095,7 @@
                                 syn_expr_idx: 3,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 4,
                             },
                         ],
@@ -2128,11 +2108,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::major::major_line_segment_sketch`),
         Some(
             ItemSynDefn {
                 body: 2,
@@ -2331,7 +2307,7 @@
                                 syn_expr_idx: 1,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 2,
                             },
                         ],
@@ -2344,11 +2320,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::major::major_concave_components`),
         Some(
             ItemSynDefn {
                 body: 2,
@@ -2560,7 +2532,7 @@
                                 syn_expr_idx: 1,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 2,
                             },
                         ],

@@ -60,11 +60,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::array::Array`, `Extern`),
-                                    ),
-                                ),
+                                ItemPath(`core::array::Array`),
                             ),
                             expr_arena: Arena {
                                 data: [],

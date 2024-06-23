@@ -67,6 +67,7 @@
         relative_path: "crates/abstractions/graph-dynamics",
         dependencies: [
             "propagate",
+            "salsa",
             "vec-like",
             "salsa",
         ],
@@ -82,21 +83,6 @@
     PackageSummary {
         name: "husky-print-utils",
         relative_path: "crates/utils/husky-print-utils",
-        dependencies: [],
-    },
-    PackageSummary {
-        name: "vec-like",
-        relative_path: "crates/abstractions/vec-like",
-        dependencies: [
-            "husky-wild-utils",
-            "serde",
-            "smallvec",
-            "thiserror",
-        ],
-    },
-    PackageSummary {
-        name: "husky-wild-utils",
-        relative_path: "crates/utils/husky-wild-utils",
         dependencies: [],
     },
     PackageSummary {
@@ -163,6 +149,21 @@
     PackageSummary {
         name: "snapshot",
         relative_path: "crates/abstractions/snapshot",
+        dependencies: [],
+    },
+    PackageSummary {
+        name: "vec-like",
+        relative_path: "crates/abstractions/vec-like",
+        dependencies: [
+            "husky-wild-utils",
+            "serde",
+            "smallvec",
+            "thiserror",
+        ],
+    },
+    PackageSummary {
+        name: "husky-wild-utils",
+        relative_path: "crates/utils/husky-wild-utils",
         dependencies: [],
     },
     PackageSummary {
@@ -3553,6 +3554,7 @@
         name: "husky-sem-item-path-deps",
         relative_path: "crates/semantics/husky-sem-item-path-deps",
         dependencies: [
+            "graph-dynamics",
             "husky-entity-path",
             "husky-fly-term",
             "husky-sem-expr",
@@ -3595,19 +3597,28 @@
         name: "husky-sem-static-mut-deps",
         relative_path: "crates/semantics/husky-sem-static-mut-deps",
         dependencies: [
+            "graph-dynamics",
+            "husky-entity-path",
             "husky-sem-expr",
             "husky-sem-item-path-deps",
+            "propagate",
             "salsa",
+            "vec-like",
         ],
     },
     PackageSummary {
         name: "husky-sem-static-var-deps",
         relative_path: "crates/semantics/husky-sem-static-var-deps",
         dependencies: [
+            "graph-dynamics",
+            "husky-entity-path",
             "husky-sem-expr",
             "husky-sem-item-path-deps",
             "husky-sem-static-mut-deps",
+            "husky-syn-expr",
+            "propagate",
             "salsa",
+            "vec-like",
         ],
     },
     PackageSummary {

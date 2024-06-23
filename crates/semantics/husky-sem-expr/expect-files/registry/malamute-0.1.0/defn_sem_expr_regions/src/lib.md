@@ -2,29 +2,11 @@
 [
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<malamute::OneVsAll as core::default::Default(0)>::default`,
-                        TraitItemKind::AssocRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            `<malamute::OneVsAll as core::default::Default(0)>::default`,
-                            TraitItemKind::AssocRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -48,16 +30,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::TypeVariant(
-                                                Room32,
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 6,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            path: ItemPath(`malamute::OneVsAll::No`),
                                             task_ty: None,
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
@@ -198,7 +171,7 @@
                         SemExprIdx(
                             1,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -521,29 +494,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<malamute::Class as core::ops::Unveil(0)>::unveil`,
-                        TraitItemKind::AssocRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            `<malamute::Class as core::ops::Unveil(0)>::unveil`,
-                            TraitItemKind::AssocRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -612,16 +567,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::TypeVariant(
-                                                Room32,
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 112,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            path: ItemPath(`core::ops::ControlFlow::Break`),
                                             task_ty: None,
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
@@ -697,16 +643,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::TypeVariant(
-                                                Room32,
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 2,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            path: ItemPath(`malamute::Class::Known`),
                                             task_ty: None,
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
@@ -952,16 +889,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::TypeVariant(
-                                                Room32,
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 111,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            path: ItemPath(`core::ops::ControlFlow::Continue`),
                                             task_ty: None,
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
@@ -1318,7 +1246,7 @@
                         SemExprIdx(
                             9,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],
@@ -2399,29 +2327,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDefn(
-            ItemPath::AssocItem(
-                AssocItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
-                        TraitItemKind::AssocRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                ),
-            ),
+            ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDefn(
-                ItemPath::AssocItem(
-                    AssocItemPath::TraitForTypeItem(
-                        TraitForTypeItemPath(
-                            `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
-                            TraitItemKind::AssocRitchie(
-                                RitchieItemKind::Fn,
-                            ),
-                        ),
-                    ),
-                ),
+                ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],
@@ -2490,16 +2400,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::TypeVariant(
-                                                Room32,
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 112,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            path: ItemPath(`core::ops::ControlFlow::Break`),
                                             task_ty: None,
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
@@ -2575,16 +2476,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::TypeVariant(
-                                                Room32,
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 5,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            path: ItemPath(`malamute::OneVsAll::Yes`),
                                             task_ty: None,
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
@@ -2732,16 +2624,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::TypeVariant(
-                                                Room32,
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 112,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            path: ItemPath(`core::ops::ControlFlow::Break`),
                                             task_ty: None,
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
@@ -2817,16 +2700,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::TypeVariant(
-                                                Room32,
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 6,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            path: ItemPath(`malamute::OneVsAll::No`),
                                             task_ty: None,
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
@@ -2974,16 +2848,7 @@
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath::TypeVariant(
-                                                Room32,
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 111,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            path: ItemPath(`core::ops::ControlFlow::Continue`),
                                             task_ty: None,
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
@@ -3396,7 +3261,7 @@
                         SemExprIdx(
                             10,
                         ),
-                        SynExprRootKind::BlockExpr,
+                        SynExprRootKind::RootBody,
                     ),
                 ),
             ],

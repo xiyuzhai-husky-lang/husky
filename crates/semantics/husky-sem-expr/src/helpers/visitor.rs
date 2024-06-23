@@ -19,6 +19,11 @@ pub trait VisitSemExpr<'db>: Sized {
     fn visit_expr(&mut self, expr: SemExprIdx, f: impl FnOnce(&mut Self));
     fn visit_expr_inner(&mut self, expr: SemExprIdx);
     fn visit_stmts(&mut self, stmts: SemStmtIdxRange, f: impl FnOnce(&mut Self));
+    /// `f` is a closure in which
+    /// - first the subexpression and substatements of `stmt` will be visited in evaluation order
+    /// - then `visit_stmt_inner` will be invoked
+    ///
+    /// this method `visit_stmt` should set up the proper environment and invoke `f`
     fn visit_stmt(&mut self, stmt: SemStmtIdx, f: impl FnOnce(&mut Self));
     fn visit_stmt_inner(&mut self, stmt: SemStmtIdx);
     fn visit_condition(&mut self, condition: SemCondition, f: impl FnOnce(&mut Self));

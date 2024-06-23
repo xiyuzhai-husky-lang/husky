@@ -13,7 +13,12 @@ keywords.workspace = true
 
 [dependencies]
 # abstractions
+propagate.workspace = true
+graph-dynamics.workspace = true
 salsa.workspace = true
+vec-like.workspace = true
+# kernel
+husky-entity-path.workspace = true
 # semantics
 husky-sem-item-path-deps.workspace = true
 husky-sem-expr.workspace = true

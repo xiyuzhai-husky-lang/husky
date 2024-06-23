@@ -1,14 +1,41 @@
-use crate::context::{IsGraphRecursionContext, IsGraphRecursionScheme};
+use crate::{
+    context::{IsGraphDynamicsContext, IsGraphDynamicsScheme},
+    deps::{IsGraphDepsContext, IsGraphDepsScheme},
+};
 use vec_like::{ordered_small_vec_map::OrderedSmallVecMap, OrderedSmallVecSet};
 
-pub struct CycleGroup<S: IsGraphRecursionScheme>
+pub struct CycleGroup<S: IsGraphDepsScheme>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
     nodes: OrderedSmallVecSet<S::Node, { S::CYCLE_GROUP_N }>,
 }
 
-impl<S: IsGraphRecursionScheme> std::ops::Deref for CycleGroup<S>
+impl<S: IsGraphDepsScheme> ::salsa::DebugWithDb for CycleGroup<S>
+where
+    [(); S::CYCLE_GROUP_N]:,
+    S::Node: ::salsa::DebugWithDb,
+{
+    fn debug_fmt_with_db(
+        &self,
+        f: &mut ::std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> ::std::fmt::Result {
+        #[allow(unused_imports)]
+        use ::salsa::debug::helper::Fallback;
+        use ::salsa::fmt::{WithFmtContext, WithFmtContextTest};
+        WithFmtContextTest(self).with_fmt_context(
+            || {
+                let mut debug_struct = &mut f.debug_struct("CycleGroup");
+                debug_struct = debug_struct.field("nodes", &self.nodes.debug(db));
+                debug_struct.finish()
+            },
+            db,
+        )
+    }
+}
+
+impl<S: IsGraphDepsScheme> std::ops::Deref for CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
@@ -19,7 +46,7 @@ where
     }
 }
 
-impl<S: IsGraphRecursionScheme> std::fmt::Debug for CycleGroup<S>
+impl<S: IsGraphDepsScheme> std::fmt::Debug for CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: std::fmt::Debug,
@@ -31,7 +58,7 @@ where
     }
 }
 
-impl<S: IsGraphRecursionScheme> PartialEq for CycleGroup<S>
+impl<S: IsGraphDepsScheme> PartialEq for CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: PartialEq,
@@ -41,14 +68,14 @@ where
     }
 }
 
-impl<S: IsGraphRecursionScheme> Eq for CycleGroup<S>
+impl<S: IsGraphDepsScheme> Eq for CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: Eq,
 {
 }
 
-impl<S: IsGraphRecursionScheme> Clone for CycleGroup<S>
+impl<S: IsGraphDepsScheme> Clone for CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: Clone,
@@ -60,7 +87,7 @@ where
     }
 }
 
-impl<S: IsGraphRecursionScheme> std::hash::Hash for CycleGroup<S>
+impl<S: IsGraphDepsScheme> std::hash::Hash for CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: std::hash::Hash,
@@ -71,11 +98,11 @@ where
 }
 
 /// # constructor
-impl<'a, S: IsGraphRecursionScheme> CycleGroup<S>
+impl<'a, S: IsGraphDepsScheme> CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
-    pub(crate) fn calc<'db, C: IsGraphRecursionContext<'db, Scheme = S>>(
+    pub(crate) fn calc<'db, C: IsGraphDepsContext<'db, Scheme = S>>(
         ctx: C,
         node: S::Node,
     ) -> CycleGroup<S> {
@@ -91,7 +118,7 @@ where
 
 /// # getters
 
-impl<'a, S: IsGraphRecursionScheme> CycleGroup<S>
+impl<'a, S: IsGraphDepsScheme> CycleGroup<S>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
@@ -100,29 +127,29 @@ where
     }
 }
 
-pub struct CycleGroupMap<S: IsGraphRecursionScheme>
+pub struct CycleGroupMap<S: IsGraphDepsScheme, V>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
-    map: OrderedSmallVecMap<(S::Node, S::Value), { S::CYCLE_GROUP_N }>,
+    map: OrderedSmallVecMap<(S::Node, V), { S::CYCLE_GROUP_N }>,
 }
 
-impl<S: IsGraphRecursionScheme> std::ops::Deref for CycleGroupMap<S>
+impl<S: IsGraphDepsScheme, V> std::ops::Deref for CycleGroupMap<S, V>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
-    type Target = OrderedSmallVecMap<(S::Node, S::Value), { S::CYCLE_GROUP_N }>;
+    type Target = OrderedSmallVecMap<(S::Node, V), { S::CYCLE_GROUP_N }>;
 
     fn deref(&self) -> &Self::Target {
         &self.map
     }
 }
 
-impl<S: IsGraphRecursionScheme> std::fmt::Debug for CycleGroupMap<S>
+impl<S: IsGraphDepsScheme, V> std::fmt::Debug for CycleGroupMap<S, V>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: std::fmt::Debug,
-    S::Value: std::fmt::Debug,
+    V: std::fmt::Debug,
 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("CycleGroupMap")
@@ -131,30 +158,37 @@ where
     }
 }
 
-impl<S: IsGraphRecursionScheme> PartialEq for CycleGroupMap<S>
+impl<S: IsGraphDepsScheme, V> PartialEq for CycleGroupMap<S, V>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: PartialEq,
-    S::Value: PartialEq,
+    V: PartialEq,
 {
     fn eq(&self, other: &Self) -> bool {
         self.map == other.map
     }
 }
 
-impl<S: IsGraphRecursionScheme> Eq for CycleGroupMap<S>
+impl<S: IsGraphDepsScheme, V> Eq for CycleGroupMap<S, V>
 where
     [(); S::CYCLE_GROUP_N]:,
     S::Node: Eq,
-    S::Value: Eq,
+    V: Eq,
 {
 }
 
-impl<S: IsGraphRecursionScheme> CycleGroupMap<S>
+impl<S: IsGraphDepsScheme, V> CycleGroupMap<S, V>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
-    pub(crate) fn new<'db, C: IsGraphRecursionContext<'db, Scheme = S>>(
+    pub(crate) fn new<
+        'db,
+        C: IsGraphDynamicsContext<
+            'db,
+            DepsScheme = S,
+            DynamicsScheme: IsGraphDynamicsScheme<Value = V>,
+        >,
+    >(
         ctx: C,
         cycle_group: &'db CycleGroup<S>,
     ) -> Self {
@@ -164,34 +198,34 @@ where
                 .map_collect(|node| ctx.initial_value(node)),
         }
     }
-    pub(crate) fn new_one_element_map(node: S::Node, value: S::Value) -> Self {
+    pub(crate) fn new_one_element_map(node: S::Node, value: V) -> Self {
         Self {
             map: OrderedSmallVecMap::new_one_element_map((node, value)),
         }
     }
 }
 
-impl<S: IsGraphRecursionScheme> CycleGroupMap<S>
+impl<S: IsGraphDepsScheme, V> CycleGroupMap<S, V>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
-    pub(crate) unsafe fn entries_mut(&mut self) -> &mut [(S::Node, S::Value)] {
+    pub(crate) unsafe fn entries_mut(&mut self) -> &mut [(S::Node, V)] {
         self.map.entries_mut()
     }
 }
 
-impl<S: IsGraphRecursionScheme> std::ops::Index<S::Node> for CycleGroupMap<S>
+impl<S: IsGraphDepsScheme, V> std::ops::Index<S::Node> for CycleGroupMap<S, V>
 where
     [(); S::CYCLE_GROUP_N]:,
 {
-    type Output = S::Value;
+    type Output = V;
 
     fn index(&self, index: S::Node) -> &Self::Output {
         &self.map[index].1
     }
 }
 
-impl<S: IsGraphRecursionScheme> std::ops::IndexMut<S::Node> for CycleGroupMap<S>
+impl<S: IsGraphDepsScheme, V> std::ops::IndexMut<S::Node> for CycleGroupMap<S, V>
 where
     [(); S::CYCLE_GROUP_N]:,
 {

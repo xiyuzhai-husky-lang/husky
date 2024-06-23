@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::mem::Ref`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::mem::Ref`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -44,11 +40,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::mem::RefMut`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::mem::RefMut`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -87,11 +79,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::mem::Leash`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::mem::Leash`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -119,11 +107,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::mem::At`, `Extern`),
-            ),
-        ),
+        ItemPath(`core::mem::At`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Type(
@@ -158,11 +142,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`core::mem::Leash as core::marker::Copy(0)`),
-            ),
-        ),
+        ItemPath(`core::mem::Leash as core::marker::Copy(0)`),
         Ok(
             ItemDecTemplate::ImplBlock(
                 ImplBlockDecTemplate::TraitForTypeImpl(

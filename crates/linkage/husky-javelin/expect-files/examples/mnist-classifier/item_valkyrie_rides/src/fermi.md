@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::fermi::FermiMatchResult`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -18,13 +14,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::fermi::fermi_match`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -308,11 +298,7 @@
         ),
     ),
     (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: Some(
@@ -325,14 +311,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -391,14 +370,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
@@ -457,14 +429,7 @@
         ),
     ),
     (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(
-                    `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
-                    TypeItemKind::MemoizedField,
-                ),
-            ),
-        ),
+        ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,

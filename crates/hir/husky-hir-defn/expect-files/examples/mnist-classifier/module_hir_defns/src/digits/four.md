@@ -16,11 +16,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::digits::four::left_components`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -163,11 +159,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::digits::four::components_max_downwards`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -225,11 +217,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::digits::four::components_max_heights`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -287,11 +275,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
-                                    ),
-                                ),
+                                ItemPath(`mnist_classifier::digits::four::is_four`),
                             ),
                             expr_arena: Arena {
                                 data: [],

@@ -1,13 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
         Some(
             ItemSynDefn {
                 body: 93,
@@ -2498,7 +2492,7 @@
                                 syn_expr_idx: 92,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 93,
                             },
                         ],

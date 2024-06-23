@@ -11,11 +11,7 @@
                     ),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Trait(
-                                    TraitPath(`core::frontend::IsFrontend`),
-                                ),
-                            ),
+                            ItemPath(`core::frontend::IsFrontend`),
                         ),
                         expr_arena: Arena {
                             data: [],
@@ -54,11 +50,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::frontend::Cv2dFrontend`, `Extern`),
-                                    ),
-                                ),
+                                ItemPath(`core::frontend::Cv2dFrontend`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -98,11 +90,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::frontend::Cv3dFrontend`, `Extern`),
-                                    ),
-                                ),
+                                ItemPath(`core::frontend::Cv3dFrontend`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -142,11 +130,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::frontend::NlpFrontend`, `Extern`),
-                                    ),
-                                ),
+                                ItemPath(`core::frontend::NlpFrontend`),
                             ),
                             expr_arena: Arena {
                                 data: [],
@@ -186,11 +170,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`core::frontend::Rl2dFrontend`, `Extern`),
-                                    ),
-                                ),
+                                ItemPath(`core::frontend::Rl2dFrontend`),
                             ),
                             expr_arena: Arena {
                                 data: [],

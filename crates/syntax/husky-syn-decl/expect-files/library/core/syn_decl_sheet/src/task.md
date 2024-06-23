@@ -2,11 +2,7 @@
 SynDeclSheet {
     decls: [
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::task::IsTask`),
-                ),
-            ),
+            ItemPath(`core::task::IsTask`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Trait(
                     TraitSynDecl {
@@ -82,11 +78,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`core::task::Task`, `TypeVar`),
-                ),
-            ),
+            ItemPath(`core::task::Task`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::TypeVar(
@@ -151,11 +143,7 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath::MajorItem(
-                MajorItemPath::Form(
-                    FormPath(`core::task::TASK`, `StaticVar`),
-                ),
-            ),
+            ItemPath(`core::task::TASK`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::StaticVar(

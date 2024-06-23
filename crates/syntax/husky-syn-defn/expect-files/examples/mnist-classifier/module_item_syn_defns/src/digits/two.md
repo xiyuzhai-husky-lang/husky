@@ -1,11 +1,7 @@
 ```rust
 [
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::two::two_match`),
         Some(
             ItemSynDefn {
                 body: 7,
@@ -355,7 +351,7 @@
                                 syn_expr_idx: 6,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 7,
                             },
                         ],
@@ -368,13 +364,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::two::left_cc_pattern`),
         Some(
             ItemSynDefn {
                 body: 8,
@@ -832,7 +822,7 @@
                                 syn_expr_idx: 7,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 8,
                             },
                         ],
@@ -850,13 +840,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::two::right_cc_pattern`),
         Some(
             ItemSynDefn {
                 body: 8,
@@ -1314,7 +1298,7 @@
                                 syn_expr_idx: 7,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 8,
                             },
                         ],
@@ -1332,13 +1316,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
-                    Fn,
-                )`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::two::down_cc_pattern`),
         Some(
             ItemSynDefn {
                 body: 8,
@@ -1796,7 +1774,7 @@
                                 syn_expr_idx: 7,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 8,
                             },
                         ],
@@ -1814,11 +1792,7 @@
         ),
     ),
     (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
-            ),
-        ),
+        ItemPath(`mnist_classifier::digits::two::is_two`),
         Some(
             ItemSynDefn {
                 body: 109,
@@ -5329,7 +5303,7 @@
                                 syn_expr_idx: 108,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
+                                kind: SynExprRootKind::RootBody,
                                 syn_expr_idx: 109,
                             },
                         ],
