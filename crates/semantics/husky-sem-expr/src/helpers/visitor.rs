@@ -31,6 +31,8 @@ pub trait VisitSemExpr<'db>: Sized {
     /// - the loop body is simulated
     /// - the postcondition is simulated if it exists
     fn visit_loop(&mut self, stmt: SemStmtIdx, f: impl Fn(&mut Self));
+    fn visit_branches(&mut self, f: impl Fn(&mut Self));
+    fn visit_branch(&mut self, f: impl Fn(&mut Self));
     fn visit_condition(&mut self, condition: SemCondition, f: impl FnOnce(&mut Self));
     fn visit_condition_inner(&mut self, condition: SemCondition);
     /// final
@@ -332,16 +334,15 @@ impl SemStmtIdx {
                     ref if_branch,
                     ref elif_branches,
                     ref else_branch,
-                } => {
-                    // ad hoc
-                    if_branch.simulate(visitor);
+                } => visitor.visit_branches(|visitor| {
+                    visitor.visit_branch(|visitor| if_branch.simulate(visitor));
                     for elif_branch in elif_branches {
-                        elif_branch.simulate(visitor);
+                        visitor.visit_branch(|visitor| elif_branch.simulate(visitor));
                     }
                     if let Some(else_branch) = else_branch {
-                        else_branch.simulate(visitor);
+                        visitor.visit_branch(|visitor| else_branch.simulate(visitor));
                     }
-                }
+                }),
                 SemStmtData::Match {
                     match_token,
                     match_opd,
@@ -349,11 +350,12 @@ impl SemStmtIdx {
                     eol_with_token,
                     ref case_branches,
                 } => {
-                    // ad hoc
                     match_opd.simulate(visitor);
-                    for case_branch in case_branches {
-                        case_branch.stmts.simulate(visitor);
-                    }
+                    visitor.visit_branches(|visitor| {
+                        for case_branch in case_branches {
+                            visitor.visit_branch(|visitor| case_branch.stmts.simulate(visitor));
+                        }
+                    })
                 }
                 // ad hoc
                 SemStmtData::Narrate { .. } => (),
@@ -471,6 +473,14 @@ fn visit_sem_expr_works() {
         }
 
         fn visit_loop(&mut self, stmt: SemStmtIdx, f: impl Fn(&mut Self)) {
+            f(self)
+        }
+
+        fn visit_branches(&mut self, f: impl Fn(&mut Self)) {
+            f(self)
+        }
+
+        fn visit_branch(&mut self, f: impl Fn(&mut Self)) {
             f(self)
         }
 

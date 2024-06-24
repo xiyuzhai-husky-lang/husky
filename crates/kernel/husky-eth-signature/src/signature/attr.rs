@@ -21,6 +21,7 @@ pub enum AttrEthTemplate {
     Deps(DepsAttrEthTemplate),
     Derive(DeriveAttrEthTemplate),
     Task(TaskAttrEthTemplate),
+    Test,
 }
 
 impl AttrEthTemplate {
@@ -31,6 +32,7 @@ impl AttrEthTemplate {
             AttrEthTemplate::Deps(slf) => slf.path(db).into(),
             AttrEthTemplate::Derive(slf) => slf.path(db).into(),
             AttrEthTemplate::Task(slf) => slf.path(db).into(),
+            AttrEthTemplate::Test => todo!(),
         }
     }
 }
@@ -58,5 +60,6 @@ fn attr_eth_template(db: &::salsa::Db, path: AttrItemPath) -> EthSignatureResult
         }
         AttrDecTemplate::Projection(_) => todo!(),
         AttrDecTemplate::Singleton(_) => todo!(),
+        AttrDecTemplate::Test => Ok(AttrEthTemplate::Test),
     }
 }

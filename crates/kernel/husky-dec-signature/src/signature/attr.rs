@@ -25,6 +25,7 @@ pub enum AttrDecTemplate {
     Projection(ProjectionAttrDecTemplate),
     Singleton(SingletonAttrDecTemplate),
     Task(TaskAttrDecTemplate),
+    Test,
 }
 
 impl HasDecTemplate for AttrItemPath {
@@ -51,6 +52,6 @@ fn attr_dec_template(db: &::salsa::Db, path: AttrItemPath) -> DecSignatureResult
             SingletonAttrDecTemplate::from_decl(decl, db).map(Into::into)
         }
         AttrSynDecl::Task(decl) => TaskAttrDecTemplate::from_decl(decl, db).map(Into::into),
-        AttrSynDecl::Test(decl) => todo!(),
+        AttrSynDecl::Test(decl) => Ok(AttrDecTemplate::Test),
     }
 }

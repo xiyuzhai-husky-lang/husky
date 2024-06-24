@@ -220,6 +220,11 @@ impl SemStmtIdxRange {
         SemStmtIdx(self.0.end())
     }
 
+    pub fn last(self) -> Option<SemStmtIdx> {
+        let last = self.0.last()?;
+        Some(SemStmtIdx(last))
+    }
+
     pub fn split_last(self) -> (Self, SemStmtIdx) {
         let (range, last) = self.0.split_last();
         (Self(range), SemStmtIdx(last))

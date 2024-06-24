@@ -105,22 +105,15 @@ where
                 PrincipalEntityPath::TypeVariant(path) => self.calc_path(path).clone(),
             },
             SemExprData::MajorItemPathAssocItem {
-                parent_expr_idx,
                 parent_path,
-                colon_colon_regional_token,
-                ident_token,
                 ref ontology_dispatch,
+                ..
             } => todo!(),
             SemExprData::TypeAsTraitItem {
-                lpar_regional_token_idx,
                 ty,
-                as_region_token_idx,
                 trai,
-                rpar_regional_token_idx,
-                colon_colon_regional_token_idx,
-                ident,
-                ident_regional_token_idx,
                 ref ontology_dispatch,
+                ..
             } => todo!(),
             SemExprData::AssocItem {
                 parent_expr_idx,
@@ -138,12 +131,9 @@ where
                 ..
             } => self.variable_static_mut_deps_table[current_variable_idx].clone(),
             SemExprData::FrameVarDecl {
-                regional_token_idx,
-                ident,
-                frame_variable_idx,
-                current_variable_kind,
+                frame_variable_idx, ..
             } => todo!(),
-            SemExprData::SelfType(_) => todo!(),
+            SemExprData::SelfType(_) => Default::default(),
             SemExprData::SelfValue(_) => todo!(),
             SemExprData::Binary {
                 lopd,
@@ -166,45 +156,60 @@ where
                 be_regional_token_idx,
                 target,
             } => todo!(),
-            SemExprData::Prefix {
-                opr,
-                opr_regional_token_idx,
-                opd,
-            } => todo!(),
-            SemExprData::Suffix {
-                opd,
-                opr,
-                opr_regional_token_idx,
-            } => todo!(),
+            // todo: handle signature
+            SemExprData::Prefix { opr, opd, .. } => {
+                self.expr_value_static_mut_deps_table[opd].clone()
+            }
+            // todo: handle signature
+            SemExprData::Suffix { opd, opr, .. } => {
+                self.expr_value_static_mut_deps_table[opd].clone()
+            }
             SemExprData::Unveil {
                 opd,
-                opr_regional_token_idx,
                 ref unveil_output_ty_signature,
                 unveil_assoc_fn_path,
                 return_ty,
+                ..
             } => todo!(),
-            SemExprData::Unwrap {
-                opd,
-                opr_regional_token_idx,
-            } => todo!(),
+            SemExprData::Unwrap { opd, .. } => todo!(),
             SemExprData::FunctionApplication { function, argument } => todo!(),
             SemExprData::FunctionRitchieCall {
                 function,
                 ritchie_ty_kind,
                 ref template_arguments,
-                lpar_regional_token_idx,
                 ref ritchie_parameter_argument_matches,
-                rpar_regional_token_idx,
-            } => todo!(),
-            SemExprData::Ritchie {
-                ritchie_kind_regional_token_idx,
-                ritchie_kind,
-                lpar_token,
-                ref parameter_ty_items,
-                rpar_regional_token_idx,
-                light_arrow_token,
-                return_ty,
-            } => todo!(),
+                ..
+            } => {
+                let mut deps = SemStaticMutDeps::default();
+                deps.merge(
+                    &self.expr_value_static_mut_deps_table[function],
+                    &mut self.counter,
+                );
+                for m in ritchie_parameter_argument_matches {
+                    match m {
+                        SemaRitchieArgument::Simple(param, arg) => deps.merge(
+                            &self.expr_value_static_mut_deps_table[arg.argument_expr_idx],
+                            &mut self.counter,
+                        ),
+                        SemaRitchieArgument::Variadic(_, _) => todo!(),
+                        SemaRitchieArgument::Keyed(_, _) => todo!(),
+                    }
+                }
+                for m in ritchie_parameter_argument_matches {
+                    match m {
+                        SemaRitchieArgument::Simple(param, arg) => {
+                            if param.contract == Contract::BorrowMut {
+                                self.expr_value_static_mut_deps_table[arg.argument_expr_idx]
+                                    .merge(&deps, &mut self.counter)
+                            }
+                        }
+                        SemaRitchieArgument::Variadic(_, _) => todo!(),
+                        SemaRitchieArgument::Keyed(_, _) => todo!(),
+                    }
+                }
+                deps
+            }
+            SemExprData::Ritchie { .. } => Default::default(),
             SemExprData::Field {
                 self_argument,
                 self_ty,
@@ -269,7 +274,9 @@ where
                 at_regional_token_idx,
                 place_label_regional_token,
             } => todo!(),
-            SemExprData::Delimitered { item, .. } => todo!(),
+            SemExprData::Delimitered { item, .. } => {
+                self.expr_value_static_mut_deps_table[item].clone()
+            }
             SemExprData::NewTuple { ref items, .. } => todo!(),
             SemExprData::Index {
                 owner,
@@ -302,7 +309,9 @@ where
             SemExprData::BoxColonList { ref items, .. } => todo!(),
             SemExprData::VecFunctor { .. } => Default::default(),
             SemExprData::ArrayFunctor { .. } => Default::default(),
-            SemExprData::Block { stmts } => todo!(),
+            SemExprData::Block { stmts } => {
+                self.stmt_value_static_mut_deps_table[stmts.last().unwrap()].clone()
+            }
             SemExprData::EmptyHtmlTag {
                 empty_html_bra_idx,
                 function_ident,
@@ -359,16 +368,12 @@ where
                 be_regional_token_idx,
                 target,
             } => todo!(),
-            SemExprData::Prefix {
-                opr,
-                opr_regional_token_idx,
-                opd,
-            } => todo!(),
-            SemExprData::Suffix {
-                opd,
-                opr,
-                opr_regional_token_idx,
-            } => todo!(),
+            SemExprData::Prefix { opd, .. } => {
+                self.expr_control_flow_static_mut_deps_table[opd].clone()
+            }
+            SemExprData::Suffix { opd, .. } => {
+                self.expr_control_flow_static_mut_deps_table[opd].clone()
+            }
             SemExprData::Unveil {
                 opd,
                 opr_regional_token_idx,
@@ -383,12 +388,22 @@ where
             SemExprData::FunctionApplication { function, argument } => todo!(),
             SemExprData::FunctionRitchieCall {
                 function,
-                ritchie_ty_kind,
-                ref template_arguments,
-                lpar_regional_token_idx,
                 ref ritchie_parameter_argument_matches,
-                rpar_regional_token_idx,
-            } => todo!(),
+                ..
+            } => {
+                let mut deps = self.expr_control_flow_static_mut_deps_table[function].clone();
+                for m in ritchie_parameter_argument_matches {
+                    match m {
+                        SemaRitchieArgument::Simple(_, arg) => deps.merge(
+                            &self.expr_control_flow_static_mut_deps_table[arg.argument_expr_idx],
+                            &mut self.counter,
+                        ),
+                        SemaRitchieArgument::Variadic(_, _) => todo!(),
+                        SemaRitchieArgument::Keyed(_, _) => todo!(),
+                    }
+                }
+                deps
+            }
             SemExprData::Ritchie {
                 ritchie_kind_regional_token_idx,
                 ritchie_kind,
@@ -442,11 +457,9 @@ where
                 at_regional_token_idx,
                 place_label_regional_token,
             } => todo!(),
-            SemExprData::Delimitered {
-                lpar_regional_token_idx,
-                item,
-                rpar_regional_token_idx,
-            } => todo!(),
+            SemExprData::Delimitered { item, .. } => {
+                self.expr_control_flow_static_mut_deps_table[item].clone()
+            }
             SemExprData::NewTuple {
                 lpar_regional_token_idx,
                 ref items,
@@ -484,22 +497,14 @@ where
                 element_ty,
                 rbox_regional_token_idx,
             } => todo!(),
-            SemExprData::BoxColonList {
-                lbox_regional_token_idx,
-                colon_regional_token_idx,
-                ref items,
-                rbox_regional_token_idx,
-            } => todo!(),
-            SemExprData::VecFunctor {
-                lbox_regional_token_idx,
-                rbox_regional_token_idx,
-            } => todo!(),
-            SemExprData::ArrayFunctor {
-                lbox_regional_token_idx,
-                ref items,
-                rbox_regional_token_idx,
-            } => todo!(),
-            SemExprData::Block { stmts } => todo!(),
+            SemExprData::BoxColonList { .. }
+            | SemExprData::VecFunctor { .. }
+            | SemExprData::ArrayFunctor { .. } => Default::default(),
+            SemExprData::Block { stmts } | SemExprData::NestedBlock { stmts, .. } => {
+                let mut deps = Default::default();
+                self.calc_stmts_control_flow(stmts, &mut deps);
+                deps
+            }
             SemExprData::EmptyHtmlTag {
                 empty_html_bra_idx,
                 function_ident,
@@ -517,11 +522,6 @@ where
             SemExprData::Sorry { regional_token_idx } => todo!(),
             SemExprData::Todo { regional_token_idx } => todo!(),
             SemExprData::Unreachable { regional_token_idx } => todo!(),
-            SemExprData::NestedBlock {
-                lcurl_regional_token_idx,
-                stmts,
-                rcurl_regional_token,
-            } => todo!(),
         }
     }
 
@@ -572,7 +572,23 @@ where
                 ref if_branch,
                 ref elif_branches,
                 ref else_branch,
-            } => todo!(),
+            } => {
+                let mut deps =
+                    self.stmt_value_static_mut_deps_table[if_branch.stmts.last().unwrap()].clone();
+                for elif_branch in elif_branches {
+                    deps.merge(
+                        &self.stmt_value_static_mut_deps_table[elif_branch.stmts.last().unwrap()],
+                        &mut self.counter,
+                    );
+                }
+                if let Some(else_branch) = else_branch {
+                    deps.merge(
+                        &self.stmt_value_static_mut_deps_table[else_branch.stmts.last().unwrap()],
+                        &mut self.counter,
+                    );
+                }
+                deps
+            }
             SemStmtData::Match {
                 match_token,
                 match_opd,
@@ -589,17 +605,24 @@ where
             SemStmtData::Let { initial_value, .. } => {
                 self.expr_control_flow_static_mut_deps_table[initial_value].clone()
             }
-            SemStmtData::Return { .. } => Default::default(), // because the type of a return statement is never
+            SemStmtData::Return { result, .. } => {
+                let mut deps = self.expr_control_flow_static_mut_deps_table[result].clone();
+                deps.merge(
+                    &self.expr_value_static_mut_deps_table[result],
+                    &mut self.counter,
+                );
+                deps
+            }
             SemStmtData::Require { condition, .. } => {
                 // todo: consider deps of Default::default
                 let mut deps = self.calc_condition_value(condition);
                 todo!()
             }
             SemStmtData::Assert { condition, .. } => {
-                //
-                let mut deps = self.calc_condition_value(condition);
-                todo!()
-            } // because it will panic if condition not met
+                let mut deps = self.calc_condition_control_flow(condition);
+                deps.merge(&self.calc_condition_value(condition), &mut self.counter);
+                deps
+            }
             SemStmtData::Break { break_token } => Default::default(),
             SemStmtData::Eval { expr, .. } => {
                 self.expr_control_flow_static_mut_deps_table[expr].clone()
@@ -649,15 +672,43 @@ where
                 ref if_branch,
                 ref elif_branches,
                 ref else_branch,
-            } => todo!(),
+            } => {
+                let mut deps = SemStaticMutDeps::default();
+                let mut t = |stmts| {
+                    self.calc_stmts_control_flow(stmts, &mut deps);
+                };
+                t(if_branch.stmts);
+                for elif_branch in elif_branches {
+                    t(elif_branch.stmts)
+                }
+                if let Some(else_branch) = else_branch {
+                    t(else_branch.stmts)
+                }
+                deps
+            }
             SemStmtData::Match {
                 match_token,
                 match_opd,
                 match_contract,
                 eol_with_token,
                 ref case_branches,
-            } => todo!(),
+            } => {
+                let mut deps = self.expr_control_flow_static_mut_deps_table[match_opd].clone();
+                for case_branch in case_branches {
+                    self.calc_stmts_control_flow(case_branch.stmts, &mut deps)
+                }
+                deps
+            }
             SemStmtData::Narrate { narrate_token } => todo!(),
+        }
+    }
+
+    fn calc_stmts_control_flow(&mut self, stmts: SemStmtIdxRange, deps: &mut SemStaticMutDeps) {
+        for stmt in stmts {
+            deps.merge(
+                &self.stmt_control_flow_static_mut_deps_table[stmt],
+                &mut self.counter,
+            );
         }
     }
 
@@ -766,6 +817,14 @@ where
                 break;
             }
         }
+    }
+
+    fn visit_branches(&mut self, f: impl Fn(&mut Self)) {
+        f(self)
+    }
+
+    fn visit_branch(&mut self, f: impl Fn(&mut Self)) {
+        f(self)
     }
 
     fn visit_condition(&mut self, condition: SemCondition, f: impl FnOnce(&mut Self)) {
