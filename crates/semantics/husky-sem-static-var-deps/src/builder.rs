@@ -88,6 +88,14 @@ where
         todo!()
     }
 
+    fn visit_branches(&mut self, f: impl Fn(&mut Self)) {
+        f(self)
+    }
+
+    fn visit_branch(&mut self, f: impl Fn(&mut Self)) {
+        f(self)
+    }
+
     fn visit_condition(&mut self, condition: SemCondition, f: impl FnOnce(&mut Self)) {
         ()
     }
