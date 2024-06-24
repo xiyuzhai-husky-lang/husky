@@ -173,7 +173,7 @@
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [],
                                         },
                                         current_variable_arena: Arena {
@@ -279,13 +279,13 @@
                         ),
                         expr_arena: Arena {
                             data: [
-                                SynExprData::InheritedSynSymbol {
+                                SynExprData::InheritedVariable {
                                     ident: `line_segment_sketch`,
                                     regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
-                                    inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                                    inherited_variable_idx: 0,
+                                    inherited_variable_kind: InheritedVariableKind::Parenate {
                                         ident: `line_segment_sketch`,
                                     },
                                 },
@@ -321,13 +321,13 @@
                                         10,
                                     ),
                                 },
-                                SynExprData::InheritedSynSymbol {
+                                SynExprData::InheritedVariable {
                                     ident: `line_segment_sketch`,
                                     regional_token_idx: RegionalTokenIdx(
                                         14,
                                     ),
-                                    inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                                    inherited_variable_idx: 0,
+                                    inherited_variable_kind: InheritedVariableKind::Parenate {
                                         ident: `line_segment_sketch`,
                                     },
                                 },
@@ -343,17 +343,17 @@
                                         ),
                                     },
                                 },
-                                SynExprData::InheritedSynSymbol {
+                                SynExprData::InheritedVariable {
                                     ident: `index`,
                                     regional_token_idx: RegionalTokenIdx(
                                         18,
                                     ),
-                                    inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                                    inherited_variable_idx: 1,
+                                    inherited_variable_kind: InheritedVariableKind::Parenate {
                                         ident: `index`,
                                     },
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `L`,
                                     regional_token_idx: RegionalTokenIdx(
                                         20,
@@ -408,13 +408,13 @@
                                         25,
                                     ),
                                 },
-                                SynExprData::InheritedSynSymbol {
+                                SynExprData::InheritedVariable {
                                     ident: `line_segment_sketch`,
                                     regional_token_idx: RegionalTokenIdx(
                                         29,
                                     ),
-                                    inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                                    inherited_variable_idx: 0,
+                                    inherited_variable_kind: InheritedVariableKind::Parenate {
                                         ident: `line_segment_sketch`,
                                     },
                                 },
@@ -430,13 +430,13 @@
                                         ),
                                     },
                                 },
-                                SynExprData::InheritedSynSymbol {
+                                SynExprData::InheritedVariable {
                                     ident: `index`,
                                     regional_token_idx: RegionalTokenIdx(
                                         34,
                                     ),
-                                    inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                                    inherited_variable_idx: 1,
+                                    inherited_variable_kind: InheritedVariableKind::Parenate {
                                         ident: `index`,
                                     },
                                 },
@@ -469,7 +469,7 @@
                                         37,
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `L`,
                                     regional_token_idx: RegionalTokenIdx(
                                         39,
@@ -524,7 +524,7 @@
                                         44,
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `previous_displacement`,
                                     regional_token_idx: RegionalTokenIdx(
                                         48,
@@ -534,7 +534,7 @@
                                         pattern_variable_idx: 2,
                                     },
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `current_displacement`,
                                     regional_token_idx: RegionalTokenIdx(
                                         52,
@@ -569,7 +569,7 @@
                                         53,
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `is_rotation_counterclockwise_result`,
                                     regional_token_idx: RegionalTokenIdx(
                                         55,
@@ -620,13 +620,13 @@
                                     ),
                                     opd: 26,
                                 },
-                                SynExprData::InheritedSynSymbol {
+                                SynExprData::InheritedVariable {
                                     ident: `line_segment_sketch`,
                                     regional_token_idx: RegionalTokenIdx(
                                         68,
                                     ),
-                                    inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                                    inherited_variable_idx: 0,
+                                    inherited_variable_kind: InheritedVariableKind::Parenate {
                                         ident: `line_segment_sketch`,
                                     },
                                 },
@@ -642,13 +642,13 @@
                                         ),
                                     },
                                 },
-                                SynExprData::InheritedSynSymbol {
+                                SynExprData::InheritedVariable {
                                     ident: `index`,
                                     regional_token_idx: RegionalTokenIdx(
                                         73,
                                     ),
-                                    inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                                    inherited_variable_idx: 1,
+                                    inherited_variable_kind: InheritedVariableKind::Parenate {
                                         ident: `index`,
                                     },
                                 },
@@ -681,7 +681,7 @@
                                         76,
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `L`,
                                     regional_token_idx: RegionalTokenIdx(
                                         78,
@@ -728,7 +728,7 @@
                                         ),
                                     },
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `previous_interval`,
                                     regional_token_idx: RegionalTokenIdx(
                                         83,
@@ -763,12 +763,12 @@
                                         89,
                                     ),
                                     ident: `i1`,
-                                    frame_var_symbol_idx: 6,
+                                    for_loop_varible_idx: 6,
                                     current_variable_kind: CurrentVariableKind::LoopVariable(
                                         40,
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `previous_interval`,
                                     regional_token_idx: RegionalTokenIdx(
                                         91,
@@ -818,13 +818,13 @@
                                     ),
                                     ropd: 43,
                                 },
-                                SynExprData::InheritedSynSymbol {
+                                SynExprData::InheritedVariable {
                                     ident: `line_segment_sketch`,
                                     regional_token_idx: RegionalTokenIdx(
                                         100,
                                     ),
-                                    inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                                    inherited_variable_idx: 0,
+                                    inherited_variable_kind: InheritedVariableKind::Parenate {
                                         ident: `line_segment_sketch`,
                                     },
                                 },
@@ -840,7 +840,7 @@
                                         ),
                                     },
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `previous_interval`,
                                     regional_token_idx: RegionalTokenIdx(
                                         106,
@@ -870,7 +870,7 @@
                                         110,
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `i1`,
                                     regional_token_idx: RegionalTokenIdx(
                                         112,
@@ -913,7 +913,7 @@
                                         113,
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `previous_raw_cross`,
                                     regional_token_idx: RegionalTokenIdx(
                                         116,
@@ -923,7 +923,7 @@
                                         pattern_variable_idx: 4,
                                     },
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `current_displacement`,
                                     regional_token_idx: RegionalTokenIdx(
                                         120,
@@ -933,7 +933,7 @@
                                         pattern_variable_idx: 1,
                                     },
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `displacement`,
                                     regional_token_idx: RegionalTokenIdx(
                                         124,
@@ -968,7 +968,7 @@
                                         125,
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `previous_raw_cross`,
                                     regional_token_idx: RegionalTokenIdx(
                                         114,
@@ -1032,13 +1032,13 @@
                                     ),
                                     opd: 58,
                                 },
-                                SynExprData::InheritedSynSymbol {
+                                SynExprData::InheritedVariable {
                                     ident: `line_segment_sketch`,
                                     regional_token_idx: RegionalTokenIdx(
                                         136,
                                     ),
-                                    inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                                    inherited_variable_idx: 0,
+                                    inherited_variable_kind: InheritedVariableKind::Parenate {
                                         ident: `line_segment_sketch`,
                                     },
                                 },
@@ -1054,17 +1054,17 @@
                                         ),
                                     },
                                 },
-                                SynExprData::InheritedSynSymbol {
+                                SynExprData::InheritedVariable {
                                     ident: `index`,
                                     regional_token_idx: RegionalTokenIdx(
                                         140,
                                     ),
-                                    inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                                    inherited_variable_idx: 1,
+                                    inherited_variable_kind: InheritedVariableKind::Parenate {
                                         ident: `index`,
                                     },
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `L`,
                                     regional_token_idx: RegionalTokenIdx(
                                         142,
@@ -1111,7 +1111,7 @@
                                         ),
                                     },
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `current_interval`,
                                     regional_token_idx: RegionalTokenIdx(
                                         147,
@@ -1146,12 +1146,12 @@
                                         153,
                                     ),
                                     ident: `i2`,
-                                    frame_var_symbol_idx: 10,
+                                    for_loop_varible_idx: 10,
                                     current_variable_kind: CurrentVariableKind::LoopVariable(
                                         69,
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `current_interval`,
                                     regional_token_idx: RegionalTokenIdx(
                                         155,
@@ -1201,13 +1201,13 @@
                                     ),
                                     ropd: 72,
                                 },
-                                SynExprData::InheritedSynSymbol {
+                                SynExprData::InheritedVariable {
                                     ident: `line_segment_sketch`,
                                     regional_token_idx: RegionalTokenIdx(
                                         164,
                                     ),
-                                    inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                                    inherited_variable_idx: 0,
+                                    inherited_variable_kind: InheritedVariableKind::Parenate {
                                         ident: `line_segment_sketch`,
                                     },
                                 },
@@ -1223,7 +1223,7 @@
                                         ),
                                     },
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `previous_interval`,
                                     regional_token_idx: RegionalTokenIdx(
                                         170,
@@ -1253,7 +1253,7 @@
                                         174,
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `i2`,
                                     regional_token_idx: RegionalTokenIdx(
                                         176,
@@ -1296,7 +1296,7 @@
                                         177,
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `current_raw_cross`,
                                     regional_token_idx: RegionalTokenIdx(
                                         180,
@@ -1306,7 +1306,7 @@
                                         pattern_variable_idx: 7,
                                     },
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `current_displacement`,
                                     regional_token_idx: RegionalTokenIdx(
                                         184,
@@ -1316,7 +1316,7 @@
                                         pattern_variable_idx: 1,
                                     },
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `displacement`,
                                     regional_token_idx: RegionalTokenIdx(
                                         188,
@@ -1351,7 +1351,7 @@
                                         189,
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `current_raw_cross`,
                                     regional_token_idx: RegionalTokenIdx(
                                         178,
@@ -1394,7 +1394,7 @@
                                     ),
                                     ropd: 85,
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `current_raw_cross`,
                                     regional_token_idx: RegionalTokenIdx(
                                         192,
@@ -1404,7 +1404,7 @@
                                         pattern_variable_idx: 7,
                                     },
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `previous_raw_cross`,
                                     regional_token_idx: RegionalTokenIdx(
                                         194,
@@ -1424,7 +1424,7 @@
                                     ),
                                     ropd: 88,
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `is_rotation_counterclockwise_result`,
                                     regional_token_idx: RegionalTokenIdx(
                                         198,
@@ -1626,7 +1626,7 @@
                                             },
                                         ),
                                     },
-                                    for_loop_var_symbol_idx: 6,
+                                    for_loop_varible_idx: 6,
                                     eol_colon: Ok(
                                         EolRegionalToken::Colon(
                                             EolColonRegionalToken {
@@ -1730,7 +1730,7 @@
                                             },
                                         ),
                                     },
-                                    for_loop_var_symbol_idx: 10,
+                                    for_loop_varible_idx: 10,
                                     eol_colon: Ok(
                                         EolRegionalToken::Colon(
                                             EolColonRegionalToken {
@@ -2157,15 +2157,15 @@
                             },
                         },
                         variable_region: VariableRegionData {
-                            inherited_syn_symbol_arena: Arena {
+                            inherited_variable_arena: Arena {
                                 data: [
-                                    InheritedVariable {
+                                    InheritedVariableEntry {
                                         modifier: Pure,
                                         kind: InheritedVariableKind::Parenate {
                                             ident: `line_segment_sketch`,
                                         },
                                     },
-                                    InheritedVariable {
+                                    InheritedVariableEntry {
                                         modifier: Pure,
                                         kind: InheritedVariableKind::Parenate {
                                             ident: `index`,

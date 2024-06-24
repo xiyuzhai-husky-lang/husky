@@ -57,8 +57,8 @@ impl<'a> PlaceContractEngine<'a> {
             | SemExprData::MajorItemPathAssocItem { .. }
             | SemExprData::TypeAsTraitItem { .. }
             | SemExprData::AssocItem { .. }
-            | SemExprData::InheritedSynSymbol { .. }
-            | SemExprData::CurrentSynSymbol { .. }
+            | SemExprData::InheritedVariable { .. }
+            | SemExprData::CurrentVariable { .. }
             | SemExprData::FrameVarDecl { .. }
             | SemExprData::SelfType(_)
             | SemExprData::SelfValue(_)

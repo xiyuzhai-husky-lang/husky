@@ -12,8 +12,8 @@ use husky_syn_expr::{
     pattern::{ParenateParameterSynPatternRoot, SynPatternMap, SynPatternSymbolMap},
     region::{SynExprRegion, SynExprRegionData},
     variable::{
-        CurrentSynSymbolIdxRange, CurrentTemplateVariableData, CurrentVariableData,
-        CurrentVariableIdx, SyndicateTypeConstraint, TemplateSymbolSynAttr,
+        CurrentTemplateVariableData, CurrentVariableData, CurrentVariableIdx,
+        CurrentVariableIdxRange, SyndicateTypeConstraint, TemplateSymbolSynAttr,
     },
 };
 use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr};
@@ -264,7 +264,7 @@ impl<'a> DecTermEngine<'a> {
         &mut self,
         parenate_syn_pattern_expr_root: ParenateParameterSynPatternRoot,
         ty: SynExprIdx,
-        symbols: CurrentSynSymbolIdxRange,
+        symbols: CurrentVariableIdxRange,
     ) {
         let Ok(ty) = self.infer_new_expr_term(ty) else {
             for symbol in symbols {
@@ -469,16 +469,16 @@ impl<'a> DecTermEngine<'a> {
                     DecTerm::List(_) => todo!(),
                 }
             }
-            SynExprData::InheritedSynSymbol {
-                inherited_syn_symbol_idx,
+            SynExprData::InheritedVariable {
+                inherited_variable_idx,
                 ..
             } => self
                 .symbolic_variable_region
-                .inherited_variable_signature(inherited_syn_symbol_idx)
+                .inherited_variable_signature(inherited_variable_idx)
                 .term()
                 .map(Into::into)
-                .ok_or(DerivedSynExprDecTermError::InheritedSynSymbolIsNotValidTerm.into()),
-            SynExprData::CurrentSynSymbol {
+                .ok_or(DerivedSynExprDecTermError::InheritedVariableIsNotValidTerm.into()),
+            SynExprData::CurrentVariable {
                 current_variable_idx,
                 ..
             } => Ok(self

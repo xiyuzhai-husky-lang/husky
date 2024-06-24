@@ -334,10 +334,10 @@ impl<'a> SemExprRangeCalculator<'a> {
     fn calc_expr_range(&mut self, expr: &SemExprData) -> RegionalTokenIdxRange {
         match expr {
             SemExprData::Literal(regional_token_idx, _)
-            | SemExprData::InheritedSynSymbol {
+            | SemExprData::InheritedVariable {
                 regional_token_idx, ..
             }
-            | SemExprData::CurrentSynSymbol {
+            | SemExprData::CurrentVariable {
                 regional_token_idx, ..
             }
             | SemExprData::FrameVarDecl {
@@ -589,7 +589,7 @@ impl<'a> SemExprRangeCalculator<'a> {
         match stmt_idx.data(self.sem_expr_region_data.sem_stmt_arena()) {
             SemStmtData::Let {
                 let_token,
-                initial_value_sem_expr_idx,
+                initial_value: initial_value_sem_expr_idx,
                 ..
             } => {
                 let start = let_token.regional_token_idx();
@@ -624,7 +624,9 @@ impl<'a> SemExprRangeCalculator<'a> {
             SemStmtData::Break { break_token } => {
                 RegionalTokenIdxRange::new_single(break_token.regional_token_idx())
             }
-            SemStmtData::Eval { sem_expr_idx, .. } => self[sem_expr_idx],
+            SemStmtData::Eval {
+                expr: sem_expr_idx, ..
+            } => self[sem_expr_idx],
             SemStmtData::ForBetween {
                 for_token,
                 ref particulars,

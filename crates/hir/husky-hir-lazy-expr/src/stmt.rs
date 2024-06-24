@@ -52,7 +52,7 @@ impl ToHirLazy for SemStmtIdx {
             SemStmtData::Let {
                 let_token: _,
                 let_pattern_sem_obelisk: let_variables_pattern,
-                initial_value_sem_expr_idx: initial_value,
+                initial_value,
                 ..
             } => HirLazyStmtData::Let {
                 pattern: builder.new_let_variables_pattern(let_variables_pattern),
@@ -79,7 +79,7 @@ impl ToHirLazy for SemStmtIdx {
                 condition: condition.to_hir_lazy(builder),
             },
             SemStmtData::Eval {
-                sem_expr_idx: expr_idx,
+                expr: expr_idx,
                 outcome: _,
                 eol_semicolon,
             } => HirLazyStmtData::Eval {

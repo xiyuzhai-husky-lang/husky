@@ -1,0 +1,10 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`malamute::OneVsAll`),
+            ItemPath(`malamute::Class`),
+        ],
+    ),
+)
+```

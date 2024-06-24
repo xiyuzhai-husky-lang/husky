@@ -16,23 +16,23 @@ where
                 self.accept_atom(SynExprData::Literal(regional_token_idx, lit))
             }
             DisambiguatedTokenData::IdentifiableEntityPath(expr) => self.accept_atom(expr.into()),
-            DisambiguatedTokenData::InheritedSynSymbol {
+            DisambiguatedTokenData::InheritedVariable {
                 ident,
                 regional_token_idx,
-                inherited_syn_symbol_idx,
-                inherited_syn_symbol_kind,
-            } => self.accept_atom(SynExprData::InheritedSynSymbol {
+                inherited_variable_idx,
+                inherited_variable_kind,
+            } => self.accept_atom(SynExprData::InheritedVariable {
                 ident,
                 regional_token_idx,
-                inherited_syn_symbol_idx,
-                inherited_syn_symbol_kind,
+                inherited_variable_idx,
+                inherited_variable_kind,
             }),
-            DisambiguatedTokenData::CurrentSynSymbol {
+            DisambiguatedTokenData::CurrentVariable {
                 ident,
                 regional_token_idx,
                 current_variable_idx,
                 current_variable_kind,
-            } => self.accept_atom(SynExprData::CurrentSynSymbol {
+            } => self.accept_atom(SynExprData::CurrentVariable {
                 ident,
                 regional_token_idx,
                 current_variable_idx,

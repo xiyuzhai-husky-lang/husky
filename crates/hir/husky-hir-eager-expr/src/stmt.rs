@@ -37,7 +37,7 @@ pub enum HirEagerStmtData {
     },
     ForBetween {
         particulars: HirEagerForBetweenParticulars,
-        // frame_var_symbol_idx: CurrentHirEagerSymbolIdx,
+        // for_loop_varible_idx: CurrentHirEagerSymbolIdx,
         stmts: HirEagerStmtIdxRange,
     },
     Forext {
@@ -80,7 +80,7 @@ impl ToHirEager for SemStmtIdx {
             &SemStmtData::Let {
                 ref let_pattern_sem_obelisk,
                 contract,
-                initial_value_sem_expr_idx,
+                initial_value: initial_value_sem_expr_idx,
                 ref coercion_outcome,
                 ..
             } => HirEagerStmtData::Let {
@@ -111,7 +111,7 @@ impl ToHirEager for SemStmtIdx {
             },
             SemStmtData::Break { break_token: _ } => HirEagerStmtData::Break,
             SemStmtData::Eval {
-                sem_expr_idx,
+                expr: sem_expr_idx,
                 outcome,
                 eol_semicolon,
             } => HirEagerStmtData::Eval {
@@ -126,7 +126,7 @@ impl ToHirEager for SemStmtIdx {
             },
             SemStmtData::ForBetween {
                 ref particulars,
-                for_loop_var_symbol_idx: _frame_var_symbol_idx,
+                for_loop_varible_idx: _for_loop_varible_idx,
                 stmts: ref block,
                 ..
             } => HirEagerStmtData::ForBetween {

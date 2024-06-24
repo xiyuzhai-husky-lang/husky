@@ -6,10 +6,18 @@ use husky_syn_expr::syndicates::closure_parameter::ClosureParameterSyndicate;
 pub enum ClosureParameterObelisk {
     Simple {
         syn_pattern_root: ClosureSynPatternRoot,
-        variables: CurrentSynSymbolIdxRange,
+        variables: CurrentVariableIdxRange,
         colon_token: Option<ColonRegionalToken>,
         ty: Option<SemExprIdx>,
     },
+}
+
+impl ClosureParameterObelisk {
+    pub fn variables(self) -> CurrentVariableIdxRange {
+        match self {
+            ClosureParameterObelisk::Simple { variables, .. } => variables,
+        }
+    }
 }
 
 impl<'a> SemExprBuilder<'a> {

@@ -117,9 +117,9 @@ pub enum DerivedSemExprTypeError {
     #[error("bracketed item type error")]
     DelimiteredItemTypeError,
     #[error("current symbol type error")]
-    CurrentSynSymbolTypeError,
+    CurrentVariableTypeError,
     #[error("inherited symbol type error")]
-    InheritedSynSymbolTypeError,
+    InheritedVariableTypeError,
     #[error("callable type error")]
     CallableTypeError,
     #[error("function type not inferred in application or function call")]

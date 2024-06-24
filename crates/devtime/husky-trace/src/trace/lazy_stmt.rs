@@ -436,7 +436,7 @@ impl Trace {
                 SemStmtData::ForBetween {
                     for_token: _,
                     particulars: _,
-                    for_loop_var_symbol_idx: _,
+                    for_loop_varible_idx: _,
                     eol_colon: _,
                     stmts: _,
                 } => todo!(),

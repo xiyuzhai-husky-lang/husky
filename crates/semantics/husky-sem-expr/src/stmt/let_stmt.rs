@@ -90,7 +90,7 @@ impl<'a> SemExprBuilder<'a> {
                 let_pattern_sem_obelisk,
                 contract,
                 eq_token,
-                initial_value_sem_expr_idx,
+                initial_value: initial_value_sem_expr_idx,
                 coercion_outcome,
             }),
             ty_result,

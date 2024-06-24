@@ -4,7 +4,7 @@ use husky_regional_token::ColonRegionalToken;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct LetVariableObelisk {
     syn_pattern_root: LetPatternSynExprRoot,
-    variables: CurrentSynSymbolIdxRange,
+    variables: CurrentVariableIdxRange,
     colon_token: Option<ColonRegionalToken>,
     ty_sem_expr_idx: Option<SemExprIdx>,
 }
@@ -14,7 +14,7 @@ impl LetVariableObelisk {
         self.syn_pattern_root
     }
 
-    pub fn variables(&self) -> CurrentSynSymbolIdxRange {
+    pub fn variables(&self) -> CurrentVariableIdxRange {
         self.variables
     }
 

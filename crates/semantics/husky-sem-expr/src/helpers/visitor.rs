@@ -1,6 +1,7 @@
 use super::region::sem_expr_region_from_region_path;
 use super::*;
 use crate::{SemExprData, SemExprIdx, SemExprRegionData, SemStmtIdx, SemStmtIdxRange};
+use closure_parameter::ClosureParameterObelisk;
 use condition::SemCondition;
 use husky_entity_path::region::RegionPath;
 use husky_entity_tree::{
@@ -17,15 +18,34 @@ pub trait VisitSemExpr<'db>: Sized {
     fn db(&self) -> &'db ::salsa::Db;
     fn sem_expr_region_data(&self) -> &'db SemExprRegionData;
     fn visit_expr(&mut self, expr: SemExprIdx, f: impl FnOnce(&mut Self));
-    fn visit_expr_inner(&mut self, expr: SemExprIdx);
+    fn visit_expr_itself(&mut self, expr: SemExprIdx);
+    fn visit_closure_inner(
+        &mut self,
+        expr: SemExprIdx,
+        parameters: &[ClosureParameterObelisk],
+        f: impl FnOnce(&mut Self),
+    );
     fn visit_stmts(&mut self, stmts: SemStmtIdxRange, f: impl FnOnce(&mut Self));
     /// `f` is a closure in which
-    /// - first the subexpression and substatements of `stmt` will be visited in evaluation order
+    /// - first the subexpression and substatements of `stmt` will be simulated in evaluation order
     /// - then `visit_stmt_inner` will be invoked
     ///
     /// this method `visit_stmt` should set up the proper environment and invoke `f`
     fn visit_stmt(&mut self, stmt: SemStmtIdx, f: impl FnOnce(&mut Self));
-    fn visit_stmt_inner(&mut self, stmt: SemStmtIdx);
+    fn visit_stmt_itself(&mut self, stmt: SemStmtIdx);
+    /// `f` is a closure that can be called for arbitrary times, in which
+    /// - the precondition is simulated if it exists
+    /// - the loop body is simulated
+    /// - the postcondition is simulated if it exists
+    fn visit_for_loop_stmt_inner(
+        &mut self,
+        stmt: SemStmtIdx,
+        for_loop_varible_idx: CurrentVariableIdx,
+        f: impl Fn(&mut Self),
+    );
+    fn visit_loop(&mut self, stmt: SemStmtIdx, f: impl Fn(&mut Self));
+    fn visit_branches(&mut self, f: impl Fn(&mut Self));
+    fn visit_branch(&mut self, f: impl Fn(&mut Self));
     fn visit_condition(&mut self, condition: SemCondition, f: impl FnOnce(&mut Self));
     fn visit_condition_inner(&mut self, condition: SemCondition);
     /// final
@@ -35,6 +55,11 @@ pub trait VisitSemExpr<'db>: Sized {
                 expr.simulate(self)
             }
         }
+    }
+    /// final
+    fn visit_root_body(&mut self) {
+        let root_body = self.sem_expr_region_data().root_body();
+        root_body.simulate(self)
     }
 }
 
@@ -49,8 +74,8 @@ impl SemExprIdx {
                 | SemExprData::PrincipalEntityPath { .. }
                 | SemExprData::MajorItemPathAssocItem { .. }
                 | SemExprData::AssocItem { .. }
-                | SemExprData::InheritedSynSymbol { .. }
-                | SemExprData::CurrentSynSymbol { .. }
+                | SemExprData::InheritedVariable { .. }
+                | SemExprData::CurrentVariable { .. }
                 | SemExprData::FrameVarDecl { .. }
                 | SemExprData::SelfType(_)
                 | SemExprData::SelfValue(_) => (),
@@ -192,7 +217,11 @@ impl SemExprIdx {
                     rvert_regional_token,
                     return_ty,
                     body,
-                } => body.simulate(visitor),
+                } => {
+                    visitor.visit_closure_inner(self, parameter_obelisks, |visitor| {
+                        body.simulate(visitor)
+                    });
+                }
                 SemExprData::Sorry { regional_token_idx } => todo!(),
                 // ad hoc
                 SemExprData::Todo { .. } => (),
@@ -200,7 +229,7 @@ impl SemExprIdx {
                 SemExprData::Unreachable { .. } => (),
                 SemExprData::NestedBlock { stmts, .. } => stmts.simulate(visitor),
             }
-            visitor.visit_expr_inner(self)
+            visitor.visit_expr_itself(self)
         });
     }
 }
@@ -253,24 +282,20 @@ impl SemStmtIdx {
             let sem_expr_region_data = visitor.sem_expr_region_data();
             let sem_stmt_arena_ref = sem_expr_region_data.sem_stmt_arena();
             match *self.data(sem_stmt_arena_ref) {
-                SemStmtData::Let {
-                    initial_value_sem_expr_idx,
-                    ..
-                } => initial_value_sem_expr_idx.simulate(visitor),
+                SemStmtData::Let { initial_value, .. } => initial_value.simulate(visitor),
                 SemStmtData::Return { result, .. } => result.simulate(visitor),
                 SemStmtData::Require { condition, .. } | SemStmtData::Assert { condition, .. } => {
                     condition.simulate(visitor)
                 }
                 SemStmtData::Break { .. } => (),
-                SemStmtData::Eval { sem_expr_idx, .. } => sem_expr_idx.simulate(visitor),
+                SemStmtData::Eval { expr, .. } => expr.simulate(visitor),
                 SemStmtData::ForBetween {
                     for_token,
                     ref particulars,
-                    for_loop_var_symbol_idx,
+                    for_loop_varible_idx,
                     eol_colon,
                     stmts,
                 } => {
-                    // ad hoc
                     let range = particulars.range();
                     range
                         .initial_boundary
@@ -280,7 +305,9 @@ impl SemStmtIdx {
                         .final_boundary
                         .bound_expr
                         .map(|bound_expr| bound_expr.simulate(visitor));
-                    stmts.simulate(visitor);
+                    visitor.visit_for_loop_stmt_inner(self, for_loop_varible_idx, |visitor| {
+                        visitor.visit_loop(self, |visitor| stmts.simulate(visitor))
+                    })
                 }
                 SemStmtData::ForIn {
                     for_token,
@@ -295,7 +322,7 @@ impl SemStmtIdx {
                     stmts,
                 } => {
                     // ad hoc
-                    particulars.bound_expr_sem_expr_idx.simulate(visitor);
+                    particulars.bound_expr.simulate(visitor);
                     stmts.simulate(visitor);
                 }
                 SemStmtData::While {
@@ -304,9 +331,10 @@ impl SemStmtIdx {
                     eol_colon,
                     stmts,
                 } => {
-                    // ad hoc
-                    condition.simulate(visitor);
-                    stmts.simulate(visitor);
+                    visitor.visit_loop(self, |visitor| {
+                        condition.simulate(visitor);
+                        stmts.simulate(visitor);
+                    });
                 }
                 SemStmtData::DoWhile {
                     do_token,
@@ -315,24 +343,24 @@ impl SemStmtIdx {
                     eol_colon,
                     stmts,
                 } => {
-                    // ad hoc
-                    condition.simulate(visitor);
-                    stmts.simulate(visitor);
+                    visitor.visit_loop(self, |visitor| {
+                        stmts.simulate(visitor);
+                        condition.simulate(visitor);
+                    });
                 }
                 SemStmtData::IfElse {
                     ref if_branch,
                     ref elif_branches,
                     ref else_branch,
-                } => {
-                    // ad hoc
-                    if_branch.simulate(visitor);
+                } => visitor.visit_branches(|visitor| {
+                    visitor.visit_branch(|visitor| if_branch.simulate(visitor));
                     for elif_branch in elif_branches {
-                        elif_branch.simulate(visitor);
+                        visitor.visit_branch(|visitor| elif_branch.simulate(visitor));
                     }
                     if let Some(else_branch) = else_branch {
-                        else_branch.simulate(visitor);
+                        visitor.visit_branch(|visitor| else_branch.simulate(visitor));
                     }
-                }
+                }),
                 SemStmtData::Match {
                     match_token,
                     match_opd,
@@ -340,16 +368,17 @@ impl SemStmtIdx {
                     eol_with_token,
                     ref case_branches,
                 } => {
-                    // ad hoc
                     match_opd.simulate(visitor);
-                    for case_branch in case_branches {
-                        case_branch.stmts.simulate(visitor);
-                    }
+                    visitor.visit_branches(|visitor| {
+                        for case_branch in case_branches {
+                            visitor.visit_branch(|visitor| case_branch.stmts.simulate(visitor));
+                        }
+                    })
                 }
                 // ad hoc
                 SemStmtData::Narrate { .. } => (),
             };
-            visitor.visit_stmt_inner(self);
+            visitor.visit_stmt_itself(self);
         })
     }
 }
@@ -439,11 +468,20 @@ fn visit_sem_expr_works() {
             f(self)
         }
 
-        fn visit_expr_inner(&mut self, expr: SemExprIdx) {
+        fn visit_expr_itself(&mut self, expr: SemExprIdx) {
             let token_idx_range =
                 self.sem_expr_range_region_data[expr].token_idx_range(self.base.unwrap());
             let text_range = self.ranged_token_sheet.tokens_text_range(token_idx_range);
             self.visits.push(self.text.text_within(text_range));
+        }
+
+        fn visit_closure_inner(
+            &mut self,
+            expr: SemExprIdx,
+            parameters: &[ClosureParameterObelisk],
+            f: impl FnOnce(&mut Self),
+        ) {
+            f(self)
         }
 
         fn visit_stmts(&mut self, stmts: SemStmtIdxRange, f: impl FnOnce(&mut Self)) {
@@ -454,11 +492,32 @@ fn visit_sem_expr_works() {
             f(self)
         }
 
-        fn visit_stmt_inner(&mut self, stmt: SemStmtIdx) {
+        fn visit_stmt_itself(&mut self, stmt: SemStmtIdx) {
             let token_idx_range =
                 self.sem_expr_range_region_data[stmt].token_idx_range(self.base.unwrap());
             let text_range = self.ranged_token_sheet.tokens_text_range(token_idx_range);
             self.visits.push(self.text.text_within(text_range));
+        }
+
+        fn visit_for_loop_stmt_inner(
+            &mut self,
+            stmt: SemStmtIdx,
+            for_loop_varible_idx: CurrentVariableIdx,
+            f: impl Fn(&mut Self),
+        ) {
+            f(self)
+        }
+
+        fn visit_loop(&mut self, stmt: SemStmtIdx, f: impl Fn(&mut Self)) {
+            f(self)
+        }
+
+        fn visit_branches(&mut self, f: impl Fn(&mut Self)) {
+            f(self)
+        }
+
+        fn visit_branch(&mut self, f: impl Fn(&mut Self)) {
+            f(self)
         }
 
         fn visit_condition(&mut self, condition: SemCondition, f: impl FnOnce(&mut Self)) {

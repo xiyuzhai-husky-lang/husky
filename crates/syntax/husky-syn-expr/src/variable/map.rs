@@ -3,8 +3,8 @@ use super::*;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct SymbolMap<V> {
-    inherited_syn_symbol_map: InheritedSynSymbolMap<V>,
-    current_variable_map: CurrentSynSymbolMap<V>,
+    inherited_variable_map: InheritedVariableMap<V>,
+    current_variable_map: CurrentVariableMap<V>,
 }
 
 impl<V> SymbolMap<V> {
@@ -12,26 +12,26 @@ impl<V> SymbolMap<V> {
     where
         V: Clone,
     {
-        let inherited_syn_symbol_arena = region.inherited_syn_symbol_arena();
+        let inherited_variable_arena = region.inherited_variable_arena();
         let current_variable_arena = region.current_variable_arena();
         Self {
-            inherited_syn_symbol_map: match parent {
+            inherited_variable_map: match parent {
                 Some(parent) => {
-                    let mut inherited_syn_symbol_map = parent
-                        .inherited_syn_symbol_map
-                        .clone_for_extended(inherited_syn_symbol_arena);
-                    let base = parent.inherited_syn_symbol_map.len();
+                    let mut inherited_variable_map = parent
+                        .inherited_variable_map
+                        .clone_for_extended(inherited_variable_arena);
+                    let base = parent.inherited_variable_map.len();
                     for (parent_idx, v) in parent.current_variable_map.key_value_iter() {
                         unsafe {
                             let idx = ArenaIdx::from_raw(base + parent_idx.index());
-                            inherited_syn_symbol_map.insert_new(idx, v.clone())
+                            inherited_variable_map.insert_new(idx, v.clone())
                         }
                     }
-                    inherited_syn_symbol_map
+                    inherited_variable_map
                 }
-                None => InheritedSynSymbolMap::new(inherited_syn_symbol_arena),
+                None => InheritedVariableMap::new(inherited_variable_arena),
             },
-            current_variable_map: CurrentSynSymbolMap::new(current_variable_arena),
+            current_variable_map: CurrentVariableMap::new(current_variable_arena),
         }
     }
 
@@ -39,22 +39,22 @@ impl<V> SymbolMap<V> {
         self.current_variable_map.insert_new(idx, v)
     }
 
-    pub fn inherited_syn_symbol_map(&self) -> &InheritedSynSymbolMap<V> {
-        &self.inherited_syn_symbol_map
+    pub fn inherited_variable_map(&self) -> &InheritedVariableMap<V> {
+        &self.inherited_variable_map
     }
 
-    pub fn current_variable_map(&self) -> &CurrentSynSymbolMap<V> {
+    pub fn current_variable_map(&self) -> &CurrentVariableMap<V> {
         &self.current_variable_map
     }
 
-    pub fn current_variables(&self) -> &CurrentSynSymbolMap<V> {
+    pub fn current_variables(&self) -> &CurrentVariableMap<V> {
         &self.current_variable_map
     }
 
-    pub fn inherited_syn_symbol_key_values(
+    pub fn inherited_variable_key_values(
         &self,
-    ) -> impl Iterator<Item = (InheritedSymbolicVariableIdx, &V)> {
-        self.inherited_syn_symbol_map.key_value_iter()
+    ) -> impl Iterator<Item = (InheritedVariableIdx, &V)> {
+        self.inherited_variable_map.key_value_iter()
     }
 
     pub fn current_variable_key_values(&self) -> impl Iterator<Item = (CurrentVariableIdx, &V)> {
@@ -62,11 +62,11 @@ impl<V> SymbolMap<V> {
     }
 }
 
-impl<V> std::ops::Index<InheritedSymbolicVariableIdx> for SymbolMap<V> {
+impl<V> std::ops::Index<InheritedVariableIdx> for SymbolMap<V> {
     type Output = V;
 
-    fn index(&self, index: InheritedSymbolicVariableIdx) -> &Self::Output {
-        &self.inherited_syn_symbol_map[index]
+    fn index(&self, index: InheritedVariableIdx) -> &Self::Output {
+        &self.inherited_variable_map[index]
     }
 }
 

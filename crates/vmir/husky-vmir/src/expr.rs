@@ -446,7 +446,7 @@ impl<LinkageImpl: IsLinkageImpl> VmirExprIdx<LinkageImpl> {
             VmirExprData::Binary { lopd, opr, ropd } => {
                 let lopd = lopd.eval(None, ctx)?;
                 let ropd = ropd.eval(None, ctx)?;
-                ctx.eval_expr_inner(self, |_ctx| match opr {
+                ctx.eval_expr_itself(self, |_ctx| match opr {
                     HirBinaryOpr::Closed(opr) => Continue(match opr {
                         BinaryClosedOpr::Add => lopd + ropd,
                         BinaryClosedOpr::BitAnd => lopd & ropd,
@@ -472,7 +472,7 @@ impl<LinkageImpl: IsLinkageImpl> VmirExprIdx<LinkageImpl> {
             VmirExprData::Be { opd, pattern } => todo!(),
             VmirExprData::Prefix { opr, opd } => {
                 let opd = opd.eval(None, ctx)?;
-                ctx.eval_expr_inner(self, |_ctx| match opr {
+                ctx.eval_expr_itself(self, |_ctx| match opr {
                     HirPrefixOpr::Minus => Continue(-opd),
                     HirPrefixOpr::NotBool => todo!(),
                     HirPrefixOpr::NotInt => todo!(),
@@ -510,7 +510,7 @@ impl<LinkageImpl: IsLinkageImpl> VmirExprIdx<LinkageImpl> {
                             },
                         )
                         .collect::<VmControlFlow<_, _, _>>()?;
-                ctx.eval_expr_inner(self, |ctx| linkage_impl.eval_vm(arguments, ctx.db()))
+                ctx.eval_expr_itself(self, |ctx| linkage_impl.eval_vm(arguments, ctx.db()))
             }
             VmirExprData::Block { stmts, destroyers } => stmts.eval(ctx),
             VmirExprData::Closure => todo!(),

@@ -1,0 +1,10 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`core::fmt::Debug`),
+            ItemPath(`core::visual::Visualize`),
+        ],
+    ),
+)
+```

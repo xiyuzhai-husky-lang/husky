@@ -2,6 +2,7 @@ use crate::{region::SemStaticVarDepsRegion, static_var_deps::SemStaticVarDeps};
 use husky_entity_path::{path::ItemPath, region::RegionPath};
 use husky_sem_expr::{
     helpers::{region::sem_expr_region_from_region_path, visitor::VisitSemExpr},
+    obelisks::closure_parameter::ClosureParameterObelisk,
     stmt::condition::SemCondition,
     SemExprIdx, SemExprMap, SemExprRegionData, SemStmtIdx, SemStmtIdxRange,
 };
@@ -68,7 +69,16 @@ where
         f(self)
     }
 
-    fn visit_expr_inner(&mut self, expr: SemExprIdx) {
+    fn visit_expr_itself(&mut self, expr: SemExprIdx) {
+        todo!()
+    }
+
+    fn visit_closure_inner(
+        &mut self,
+        expr: SemExprIdx,
+        parameters: &[ClosureParameterObelisk],
+        f: impl FnOnce(&mut Self),
+    ) {
         todo!()
     }
 
@@ -80,8 +90,20 @@ where
         f(self)
     }
 
-    fn visit_stmt_inner(&mut self, stmt: SemStmtIdx) {
+    fn visit_stmt_itself(&mut self, stmt: SemStmtIdx) {
         todo!()
+    }
+
+    fn visit_loop(&mut self, stmt: SemStmtIdx, f: impl Fn(&mut Self)) {
+        todo!()
+    }
+
+    fn visit_branches(&mut self, f: impl Fn(&mut Self)) {
+        f(self)
+    }
+
+    fn visit_branch(&mut self, f: impl Fn(&mut Self)) {
+        f(self)
     }
 
     fn visit_condition(&mut self, condition: SemCondition, f: impl FnOnce(&mut Self)) {
@@ -90,5 +112,14 @@ where
 
     fn visit_condition_inner(&mut self, condition: SemCondition) {
         ()
+    }
+
+    fn visit_for_loop_stmt_inner(
+        &mut self,
+        stmt: SemStmtIdx,
+        for_loop_varible_idx: husky_syn_expr::variable::CurrentVariableIdx,
+        f: impl Fn(&mut Self),
+    ) {
+        todo!()
     }
 }

@@ -18,7 +18,7 @@ impl<'a> SemExprBuilder<'a> {
         let (lopd_sem_expr_idx, lopd_ty) = self.build_sem_expr_with_ty(lopd, ExpectAnyOriginal);
         let Some(lopd_ty) = lopd_ty else {
             match self.syn_expr_region_data()[lopd] {
-                SynExprData::CurrentSynSymbol {
+                SynExprData::CurrentVariable {
                     ident,
                     regional_token_idx,
                     current_variable_idx,

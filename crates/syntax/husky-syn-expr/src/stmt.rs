@@ -44,7 +44,7 @@ pub enum SynStmtData {
     ForBetween {
         for_token: StmtForRegionalToken,
         particulars: SynForBetweenParticulars,
-        for_loop_var_symbol_idx: CurrentVariableIdx,
+        for_loop_varible_idx: CurrentVariableIdx,
         eol_colon: SynExprResult<EolRegionalToken>,
         block: SynStmtIdxRange,
     },

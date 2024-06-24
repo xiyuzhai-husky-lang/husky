@@ -4,7 +4,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct CasePatternSyndicate {
     syn_pattern_root: CaseSynPatternRoot,
-    variables: CurrentSynSymbolIdxRange,
+    variables: CurrentVariableIdxRange,
 }
 
 impl<'a, C> SynExprParser<'a, C>
@@ -50,7 +50,7 @@ impl CasePatternSyndicate {
         self.syn_pattern_root
     }
 
-    pub fn variables(&self) -> CurrentSynSymbolIdxRange {
+    pub fn variables(&self) -> CurrentVariableIdxRange {
         self.variables
     }
 }

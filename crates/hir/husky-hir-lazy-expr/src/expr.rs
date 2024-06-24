@@ -153,15 +153,15 @@ impl ToHirLazy for SemExprIdx {
             SemExprData::MajorItemPathAssocItem { .. } => todo!(),
             SemExprData::TypeAsTraitItem { .. } => todo!(),
             SemExprData::AssocItem { .. } => todo!(),
-            SemExprData::InheritedSynSymbol {
-                inherited_syn_symbol_idx,
+            SemExprData::InheritedVariable {
+                inherited_variable_idx,
                 ..
             } => HirLazyExprData::Variable(
                 builder
-                    .inherited_syn_symbol_to_hir_lazy_variable(inherited_syn_symbol_idx)
+                    .inherited_variable_to_hir_lazy_variable(inherited_variable_idx)
                     .unwrap(),
             ),
-            SemExprData::CurrentSynSymbol {
+            SemExprData::CurrentVariable {
                 current_variable_idx,
                 ..
             } => HirLazyExprData::Variable(
@@ -170,11 +170,11 @@ impl ToHirLazy for SemExprIdx {
                     .unwrap(),
             ),
             SemExprData::FrameVarDecl {
-                frame_var_symbol_idx,
+                for_loop_varible_idx,
                 ..
             } => HirLazyExprData::Variable(
                 builder
-                    .current_variable_to_hir_lazy_variable(frame_var_symbol_idx)
+                    .current_variable_to_hir_lazy_variable(for_loop_varible_idx)
                     .unwrap(),
             ),
             SemExprData::SelfType(_) => todo!(),

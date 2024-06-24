@@ -4,7 +4,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct BePatternSyndicate {
     pattern_expr_root: BeSynPatternRoot,
-    variables: CurrentSynSymbolIdxRange,
+    variables: CurrentVariableIdxRange,
 }
 
 impl<'a, C> SynExprParser<'a, C>
@@ -50,7 +50,7 @@ impl BePatternSyndicate {
         self.pattern_expr_root
     }
 
-    pub fn variables(&self) -> CurrentSynSymbolIdxRange {
+    pub fn variables(&self) -> CurrentVariableIdxRange {
         self.variables
     }
 }

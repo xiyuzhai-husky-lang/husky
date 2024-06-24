@@ -1,9 +1,11 @@
+pub mod backprop;
 pub mod deps;
 pub mod derive;
 pub mod projection;
 pub mod singleton;
 pub mod task;
 
+use self::backprop::*;
 use self::deps::*;
 use self::derive::*;
 use self::projection::*;
@@ -17,11 +19,13 @@ use husky_syn_decl::decl::attr::AttrSynDecl;
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum AttrDecTemplate {
+    Backprop(BackpropAttrDecTemplate),
     Deps(DepsAttrDecTemplate),
     Derive(DeriveAttrDecTemplate),
     Projection(ProjectionAttrDecTemplate),
     Singleton(SingletonAttrDecTemplate),
     Task(TaskAttrDecTemplate),
+    Test,
 }
 
 impl HasDecTemplate for AttrItemPath {
@@ -36,7 +40,9 @@ impl HasDecTemplate for AttrItemPath {
 fn attr_dec_template(db: &::salsa::Db, path: AttrItemPath) -> DecSignatureResult<AttrDecTemplate> {
     match path.syn_decl(db)? {
         AttrSynDecl::Affect(decl) => todo!(),
-        AttrSynDecl::Backprop(_) => todo!(),
+        AttrSynDecl::Backprop(decl) => {
+            BackpropAttrDecTemplate::from_decl(path, decl, db).map(Into::into)
+        }
         AttrSynDecl::Deps(decl) => DepsAttrDecTemplate::from_decl(decl, db).map(Into::into),
         AttrSynDecl::Derive(decl) => DeriveAttrDecTemplate::from_decl(decl, db).map(Into::into),
         AttrSynDecl::Projection(decl) => {
@@ -46,6 +52,6 @@ fn attr_dec_template(db: &::salsa::Db, path: AttrItemPath) -> DecSignatureResult
             SingletonAttrDecTemplate::from_decl(decl, db).map(Into::into)
         }
         AttrSynDecl::Task(decl) => TaskAttrDecTemplate::from_decl(decl, db).map(Into::into),
-        AttrSynDecl::Test(decl) => todo!(),
+        AttrSynDecl::Test(decl) => Ok(AttrDecTemplate::Test),
     }
 }

@@ -1,6 +1,6 @@
 use crate::*;
 use husky_hir_ty::HirType;
-use husky_sem_expr::LetVariableObelisk;
+use husky_sem_expr::obelisks::let_variable::LetVariableObelisk;
 use husky_syn_expr::{pattern::SynPatternData, syndicates::BePatternSyndicate};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]

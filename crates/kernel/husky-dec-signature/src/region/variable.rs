@@ -9,7 +9,7 @@ use husky_entity_tree::node::{
 };
 use husky_syn_expr::{
     region::SynExprRegionData,
-    variable::{InheritedSymbolicVariableIdx, SymbolOrderedMap, VariableRegionData},
+    variable::{InheritedVariableIdx, SymbolOrderedMap, VariableRegionData},
 };
 use husky_term_prelude::symbol::SymbolName;
 use husky_vfs::toolchain::Toolchain;
@@ -71,7 +71,7 @@ impl DecSymbolicVariableSignature {
 /// # constructors
 
 impl DecSymbolicVariableRegion {
-    /// will initialize `inherited_syn_symbol_terms`;
+    /// will initialize `inherited_variable_terms`;
     /// but will leave current_variable_terms unintialized;
     /// `self_ty_term` is set to that of parent if parent exists, otherwise none;
     /// `self_value_term` is set to that of parent if parent exists, otherwise none
@@ -194,7 +194,7 @@ impl DecSymbolicVariableRegion {
 
     pub fn inherited_variable_signature(
         &self,
-        inherited_variable_idx: InheritedSymbolicVariableIdx,
+        inherited_variable_idx: InheritedVariableIdx,
     ) -> DecSymbolicVariableSignature {
         self.signatures[inherited_variable_idx]
     }
