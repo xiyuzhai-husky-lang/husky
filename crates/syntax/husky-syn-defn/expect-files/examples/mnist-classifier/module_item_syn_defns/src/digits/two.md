@@ -70,7 +70,7 @@
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [],
                                         },
                                         current_variable_arena: Arena {
@@ -334,7 +334,7 @@
                             },
                         },
                         variable_region: VariableRegionData {
-                            inherited_syn_symbol_arena: Arena {
+                            inherited_variable_arena: Arena {
                                 data: [],
                             },
                             current_variable_arena: Arena {
@@ -499,7 +499,7 @@
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [],
                                         },
                                         current_variable_arena: Arena {
@@ -571,13 +571,13 @@
                         ),
                         expr_arena: Arena {
                             data: [
-                                SynExprData::InheritedSynSymbol {
+                                SynExprData::InheritedVariable {
                                     ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
-                                    inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                                    inherited_variable_idx: 0,
+                                    inherited_variable_kind: InheritedVariableKind::Parenate {
                                         ident: `cc`,
                                     },
                                 },
@@ -601,7 +601,7 @@
                                         8,
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
@@ -647,7 +647,7 @@
                                     ),
                                     ropd: 4,
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         15,
@@ -767,9 +767,9 @@
                             },
                         },
                         variable_region: VariableRegionData {
-                            inherited_syn_symbol_arena: Arena {
+                            inherited_variable_arena: Arena {
                                 data: [
-                                    InheritedVariable {
+                                    InheritedVariableEntry {
                                         modifier: Pure,
                                         kind: InheritedVariableKind::Parenate {
                                             ident: `cc`,
@@ -975,7 +975,7 @@
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [],
                                         },
                                         current_variable_arena: Arena {
@@ -1047,13 +1047,13 @@
                         ),
                         expr_arena: Arena {
                             data: [
-                                SynExprData::InheritedSynSymbol {
+                                SynExprData::InheritedVariable {
                                     ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
-                                    inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                                    inherited_variable_idx: 0,
+                                    inherited_variable_kind: InheritedVariableKind::Parenate {
                                         ident: `cc`,
                                     },
                                 },
@@ -1077,7 +1077,7 @@
                                         8,
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
@@ -1123,7 +1123,7 @@
                                     ),
                                     ropd: 4,
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         15,
@@ -1243,9 +1243,9 @@
                             },
                         },
                         variable_region: VariableRegionData {
-                            inherited_syn_symbol_arena: Arena {
+                            inherited_variable_arena: Arena {
                                 data: [
-                                    InheritedVariable {
+                                    InheritedVariableEntry {
                                         modifier: Pure,
                                         kind: InheritedVariableKind::Parenate {
                                             ident: `cc`,
@@ -1451,7 +1451,7 @@
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [],
                                         },
                                         current_variable_arena: Arena {
@@ -1523,13 +1523,13 @@
                         ),
                         expr_arena: Arena {
                             data: [
-                                SynExprData::InheritedSynSymbol {
+                                SynExprData::InheritedVariable {
                                     ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
-                                    inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                                    inherited_variable_idx: 0,
+                                    inherited_variable_kind: InheritedVariableKind::Parenate {
                                         ident: `cc`,
                                     },
                                 },
@@ -1553,7 +1553,7 @@
                                         8,
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
@@ -1599,7 +1599,7 @@
                                     ),
                                     ropd: 4,
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         15,
@@ -1719,9 +1719,9 @@
                             },
                         },
                         variable_region: VariableRegionData {
-                            inherited_syn_symbol_arena: Arena {
+                            inherited_variable_arena: Arena {
                                 data: [
-                                    InheritedVariable {
+                                    InheritedVariableEntry {
                                         modifier: Pure,
                                         kind: InheritedVariableKind::Parenate {
                                             ident: `cc`,
@@ -1950,7 +1950,7 @@
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [],
                                         },
                                         current_variable_arena: Arena {
@@ -2034,7 +2034,7 @@
                                         ),
                                     },
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `eff_holes`,
                                     regional_token_idx: RegionalTokenIdx(
                                         16,
@@ -2238,7 +2238,7 @@
                                         50,
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `cc_num`,
                                     regional_token_idx: RegionalTokenIdx(
                                         52,
@@ -2322,7 +2322,7 @@
                                     ),
                                     ropd: 27,
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `lower_excess`,
                                     regional_token_idx: RegionalTokenIdx(
                                         66,
@@ -2356,7 +2356,7 @@
                                     ),
                                     ropd: 30,
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `cc_num`,
                                     regional_token_idx: RegionalTokenIdx(
                                         70,
@@ -2386,7 +2386,7 @@
                                     ),
                                     ropd: 33,
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `left_cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         75,
@@ -2412,7 +2412,7 @@
                                         },
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `right_cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         82,
@@ -2438,7 +2438,7 @@
                                         },
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `right_cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         91,
@@ -2481,7 +2481,7 @@
                                         ),
                                     ),
                                 ),
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `a`,
                                     regional_token_idx: RegionalTokenIdx(
                                         96,
@@ -2508,7 +2508,7 @@
                                     ),
                                     ropd: 44,
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `left_cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         103,
@@ -2578,7 +2578,7 @@
                                         113,
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `left_cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         117,
@@ -2627,7 +2627,7 @@
                                         ),
                                     },
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `left_cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         128,
@@ -2676,7 +2676,7 @@
                                         ),
                                     },
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `left_cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         139,
@@ -2725,7 +2725,7 @@
                                         146,
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `left_cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         150,
@@ -2774,7 +2774,7 @@
                                         157,
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `left_ymax`,
                                     regional_token_idx: RegionalTokenIdx(
                                         162,
@@ -2784,7 +2784,7 @@
                                         pattern_variable_idx: 12,
                                     },
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `left_ymin`,
                                     regional_token_idx: RegionalTokenIdx(
                                         164,
@@ -2837,7 +2837,7 @@
                                     ),
                                     ropd: 71,
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `right_cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         171,
@@ -2886,7 +2886,7 @@
                                         178,
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `right_cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         182,
@@ -2935,7 +2935,7 @@
                                         189,
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `right_ymax`,
                                     regional_token_idx: RegionalTokenIdx(
                                         194,
@@ -2945,7 +2945,7 @@
                                         pattern_variable_idx: 15,
                                     },
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `right_ymin`,
                                     regional_token_idx: RegionalTokenIdx(
                                         196,
@@ -2998,7 +2998,7 @@
                                     ),
                                     ropd: 85,
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `left_mid_y`,
                                     regional_token_idx: RegionalTokenIdx(
                                         201,
@@ -3008,7 +3008,7 @@
                                         pattern_variable_idx: 14,
                                     },
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `right_mid_y`,
                                     regional_token_idx: RegionalTokenIdx(
                                         203,
@@ -3028,7 +3028,7 @@
                                     ),
                                     ropd: 88,
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `cc_num`,
                                     regional_token_idx: RegionalTokenIdx(
                                         205,
@@ -3058,7 +3058,7 @@
                                     ),
                                     ropd: 91,
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `left_cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         210,
@@ -3084,7 +3084,7 @@
                                         },
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `right_cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         217,
@@ -3110,7 +3110,7 @@
                                         },
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `down_cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         224,
@@ -3136,7 +3136,7 @@
                                         },
                                     ),
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `down_cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         231,
@@ -3209,7 +3209,7 @@
                                     ),
                                     ropd: 103,
                                 },
-                                SynExprData::CurrentSynSymbol {
+                                SynExprData::CurrentVariable {
                                     ident: `down_cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         244,
@@ -4791,7 +4791,7 @@
                             },
                         },
                         variable_region: VariableRegionData {
-                            inherited_syn_symbol_arena: Arena {
+                            inherited_variable_arena: Arena {
                                 data: [],
                             },
                             current_variable_arena: Arena {

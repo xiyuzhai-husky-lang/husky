@@ -1,0 +1,10 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`core::marker::Copy`),
+            ItemPath(`core::mem::Leash`),
+        ],
+    ),
+)
+```

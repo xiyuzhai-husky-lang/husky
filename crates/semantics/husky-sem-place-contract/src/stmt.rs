@@ -65,11 +65,7 @@ impl<'a> PlaceContractEngine<'a> {
                 stmts,
                 ..
             } => {
-                self.infer_expr(
-                    particulars.bound_expr,
-                    Contract::Pure,
-                    Default::default(),
-                );
+                self.infer_expr(particulars.bound_expr, Contract::Pure, Default::default());
                 self.infer_stmts(stmts, Contract::Pure, Default::default());
             }
             SemStmtData::While {
