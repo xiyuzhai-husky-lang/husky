@@ -21,7 +21,7 @@ impl SemStaticMutDeps {
 }
 
 #[derive(Default)]
-pub struct EffectiveMergeCounter {
+pub(crate) struct EffectiveMergeCounter {
     count: usize,
 }
 
