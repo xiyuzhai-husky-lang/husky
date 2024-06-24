@@ -140,7 +140,7 @@ SynNodeDeclSheet {
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [],
                                         },
                                         current_variable_arena: Arena {
@@ -413,14 +413,14 @@ SynNodeDeclSheet {
                                             function_expr_idx: 0,
                                             argument_expr_idx: 1,
                                         },
-                                        SynExprData::CurrentSynSymbol {
+                                        SynExprData::CurrentVariable {
                                             ident: `T2`,
                                             regional_token_idx: RegionalTokenIdx(
                                                 17,
                                             ),
                                             current_variable_idx: 1,
                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `T2`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -434,14 +434,14 @@ SynNodeDeclSheet {
                                             function_expr_idx: 2,
                                             argument_expr_idx: 3,
                                         },
-                                        SynExprData::CurrentSynSymbol {
+                                        SynExprData::CurrentVariable {
                                             ident: `E2`,
                                             regional_token_idx: RegionalTokenIdx(
                                                 18,
                                             ),
                                             current_variable_idx: 3,
                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `E2`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -465,14 +465,14 @@ SynNodeDeclSheet {
                                                 ),
                                             ),
                                         },
-                                        SynExprData::CurrentSynSymbol {
+                                        SynExprData::CurrentVariable {
                                             ident: `T1`,
                                             regional_token_idx: RegionalTokenIdx(
                                                 21,
                                             ),
                                             current_variable_idx: 0,
                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `T1`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -486,14 +486,14 @@ SynNodeDeclSheet {
                                             function_expr_idx: 7,
                                             argument_expr_idx: 8,
                                         },
-                                        SynExprData::CurrentSynSymbol {
+                                        SynExprData::CurrentVariable {
                                             ident: `E1`,
                                             regional_token_idx: RegionalTokenIdx(
                                                 22,
                                             ),
                                             current_variable_idx: 2,
                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `E1`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -618,7 +618,7 @@ SynNodeDeclSheet {
                                     },
                                 },
                                 variable_region: VariableRegionData {
-                                    inherited_syn_symbol_arena: Arena {
+                                    inherited_variable_arena: Arena {
                                         data: [],
                                     },
                                     current_variable_arena: Arena {
@@ -865,14 +865,14 @@ SynNodeDeclSheet {
                                                             function_expr_idx: 0,
                                                             argument_expr_idx: 1,
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `T2`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 17,
                                                             ),
                                                             current_variable_idx: 1,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `T2`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -886,14 +886,14 @@ SynNodeDeclSheet {
                                                             function_expr_idx: 2,
                                                             argument_expr_idx: 3,
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `E2`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 18,
                                                             ),
                                                             current_variable_idx: 3,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E2`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -917,14 +917,14 @@ SynNodeDeclSheet {
                                                                 ),
                                                             ),
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `T1`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 21,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `T1`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -938,14 +938,14 @@ SynNodeDeclSheet {
                                                             function_expr_idx: 7,
                                                             argument_expr_idx: 8,
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `E1`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 22,
                                                             ),
                                                             current_variable_idx: 2,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E1`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -1070,7 +1070,7 @@ SynNodeDeclSheet {
                                                     },
                                                 },
                                                 variable_region: VariableRegionData {
-                                                    inherited_syn_symbol_arena: Arena {
+                                                    inherited_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     current_variable_arena: Arena {
@@ -1236,13 +1236,13 @@ SynNodeDeclSheet {
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            SynExprData::InheritedSynSymbol {
+                                            SynExprData::InheritedVariable {
                                                 ident: `E2`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     4,
                                                 ),
-                                                inherited_syn_symbol_idx: 3,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                inherited_variable_idx: 3,
+                                                inherited_variable_kind: InheritedVariableKind::Template(
                                                     InheritedTemplateVariable::Type {
                                                         ident: `E2`,
                                                     },
@@ -1272,9 +1272,9 @@ SynNodeDeclSheet {
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
@@ -1282,7 +1282,7 @@ SynNodeDeclSheet {
                                                         },
                                                     ),
                                                 },
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
@@ -1290,7 +1290,7 @@ SynNodeDeclSheet {
                                                         },
                                                     ),
                                                 },
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
@@ -1298,7 +1298,7 @@ SynNodeDeclSheet {
                                                         },
                                                     ),
                                                 },
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
@@ -1496,14 +1496,14 @@ SynNodeDeclSheet {
                                                             function_expr_idx: 0,
                                                             argument_expr_idx: 1,
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `T2`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 17,
                                                             ),
                                                             current_variable_idx: 1,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `T2`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -1517,14 +1517,14 @@ SynNodeDeclSheet {
                                                             function_expr_idx: 2,
                                                             argument_expr_idx: 3,
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `E2`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 18,
                                                             ),
                                                             current_variable_idx: 3,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E2`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -1548,14 +1548,14 @@ SynNodeDeclSheet {
                                                                 ),
                                                             ),
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `T1`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 21,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `T1`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -1569,14 +1569,14 @@ SynNodeDeclSheet {
                                                             function_expr_idx: 7,
                                                             argument_expr_idx: 8,
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `E1`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 22,
                                                             ),
                                                             current_variable_idx: 2,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E1`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -1701,7 +1701,7 @@ SynNodeDeclSheet {
                                                     },
                                                 },
                                                 variable_region: VariableRegionData {
-                                                    inherited_syn_symbol_arena: Arena {
+                                                    inherited_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     current_variable_arena: Arena {
@@ -1879,13 +1879,13 @@ SynNodeDeclSheet {
                                                     ),
                                                 ),
                                             },
-                                            SynExprData::InheritedSynSymbol {
+                                            SynExprData::InheritedVariable {
                                                 ident: `T2`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     8,
                                                 ),
-                                                inherited_syn_symbol_idx: 1,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                inherited_variable_idx: 1,
+                                                inherited_variable_kind: InheritedVariableKind::Template(
                                                     InheritedTemplateVariable::Type {
                                                         ident: `T2`,
                                                     },
@@ -1895,13 +1895,13 @@ SynNodeDeclSheet {
                                                 function_expr_idx: 0,
                                                 argument_expr_idx: 1,
                                             },
-                                            SynExprData::InheritedSynSymbol {
+                                            SynExprData::InheritedVariable {
                                                 ident: `E2`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     9,
                                                 ),
-                                                inherited_syn_symbol_idx: 3,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                inherited_variable_idx: 3,
+                                                inherited_variable_kind: InheritedVariableKind::Template(
                                                     InheritedTemplateVariable::Type {
                                                         ident: `E2`,
                                                     },
@@ -1921,13 +1921,13 @@ SynNodeDeclSheet {
                                                     ),
                                                 ),
                                             },
-                                            SynExprData::InheritedSynSymbol {
+                                            SynExprData::InheritedVariable {
                                                 ident: `T1`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     13,
                                                 ),
-                                                inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                inherited_variable_idx: 0,
+                                                inherited_variable_kind: InheritedVariableKind::Template(
                                                     InheritedTemplateVariable::Type {
                                                         ident: `T1`,
                                                     },
@@ -1937,13 +1937,13 @@ SynNodeDeclSheet {
                                                 function_expr_idx: 5,
                                                 argument_expr_idx: 6,
                                             },
-                                            SynExprData::InheritedSynSymbol {
+                                            SynExprData::InheritedVariable {
                                                 ident: `E1`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     14,
                                                 ),
-                                                inherited_syn_symbol_idx: 2,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                inherited_variable_idx: 2,
+                                                inherited_variable_kind: InheritedVariableKind::Template(
                                                     InheritedTemplateVariable::Type {
                                                         ident: `E1`,
                                                     },
@@ -2046,9 +2046,9 @@ SynNodeDeclSheet {
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
@@ -2056,7 +2056,7 @@ SynNodeDeclSheet {
                                                         },
                                                     ),
                                                 },
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
@@ -2064,7 +2064,7 @@ SynNodeDeclSheet {
                                                         },
                                                     ),
                                                 },
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
@@ -2072,7 +2072,7 @@ SynNodeDeclSheet {
                                                         },
                                                     ),
                                                 },
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {

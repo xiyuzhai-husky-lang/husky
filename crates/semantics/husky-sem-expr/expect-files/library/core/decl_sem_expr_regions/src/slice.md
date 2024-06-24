@@ -28,7 +28,7 @@
             },
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
@@ -43,7 +43,7 @@
                 ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     FlyTerm {
                         place: None,
@@ -104,7 +104,7 @@
             },
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
@@ -119,7 +119,7 @@
                 ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     FlyTerm {
                         place: None,
@@ -201,14 +201,14 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(
                                         6,
                                     ),
                                     current_variable_idx: 0,
                                     current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                        template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                        template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `E`,
                                                 regional_token_idx: RegionalTokenIdx(
@@ -339,7 +339,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
@@ -354,7 +354,7 @@
                 ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     FlyTerm {
                         place: None,
@@ -585,7 +585,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -600,7 +600,7 @@
                 current_variable_map: [],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
@@ -819,7 +819,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -863,7 +863,7 @@
                 ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
@@ -1041,14 +1041,14 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(
                                         12,
                                     ),
                                     current_variable_idx: 0,
                                     current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                        template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                        template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `E`,
                                                 regional_token_idx: RegionalTokenIdx(
@@ -1201,7 +1201,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
@@ -1216,7 +1216,7 @@
                 ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     FlyTerm {
                         place: None,
@@ -1400,13 +1400,13 @@
                     data: [
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::InheritedSynSymbol {
+                                SemExprData::InheritedVariable {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
-                                    inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                    inherited_variable_idx: 0,
+                                    inherited_variable_kind: InheritedVariableKind::Template(
                                         InheritedTemplateVariable::Type {
                                             ident: `E`,
                                         },
@@ -1476,7 +1476,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -1491,7 +1491,7 @@
                 current_variable_map: [],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
@@ -1607,14 +1607,14 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(
                                         6,
                                     ),
                                     current_variable_idx: 0,
                                     current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                        template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                        template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `E`,
                                                 regional_token_idx: RegionalTokenIdx(
@@ -1745,7 +1745,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
@@ -1760,7 +1760,7 @@
                 ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     FlyTerm {
                         place: None,
@@ -1991,7 +1991,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -2006,7 +2006,7 @@
                 current_variable_map: [],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
@@ -2159,7 +2159,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -2174,7 +2174,7 @@
                 current_variable_map: [],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
@@ -2327,7 +2327,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -2342,7 +2342,7 @@
                 current_variable_map: [],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
@@ -2425,13 +2425,13 @@
                     data: [
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::InheritedSynSymbol {
+                                SemExprData::InheritedVariable {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(
                                         9,
                                     ),
-                                    inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                    inherited_variable_idx: 0,
+                                    inherited_variable_kind: InheritedVariableKind::Template(
                                         InheritedTemplateVariable::Type {
                                             ident: `E`,
                                         },
@@ -2591,7 +2591,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -2606,7 +2606,7 @@
                 current_variable_map: [],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
@@ -2749,13 +2749,13 @@
                     data: [
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::InheritedSynSymbol {
+                                SemExprData::InheritedVariable {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(
                                         9,
                                     ),
-                                    inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                    inherited_variable_idx: 0,
+                                    inherited_variable_kind: InheritedVariableKind::Template(
                                         InheritedTemplateVariable::Type {
                                             ident: `E`,
                                         },
@@ -2915,7 +2915,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -2930,7 +2930,7 @@
                 current_variable_map: [],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(

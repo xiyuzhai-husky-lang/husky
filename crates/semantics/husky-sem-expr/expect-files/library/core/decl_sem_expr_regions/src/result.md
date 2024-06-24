@@ -28,7 +28,7 @@
             },
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
@@ -53,7 +53,7 @@
                 ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     FlyTerm {
                         place: None,
@@ -205,14 +205,14 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `T2`,
                                     regional_token_idx: RegionalTokenIdx(
                                         17,
                                     ),
                                     current_variable_idx: 1,
                                     current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                        template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                        template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `T2`,
                                                 regional_token_idx: RegionalTokenIdx(
@@ -280,14 +280,14 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `E2`,
                                     regional_token_idx: RegionalTokenIdx(
                                         18,
                                     ),
                                     current_variable_idx: 3,
                                     current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                        template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                        template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `E2`,
                                                 regional_token_idx: RegionalTokenIdx(
@@ -388,14 +388,14 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `T1`,
                                     regional_token_idx: RegionalTokenIdx(
                                         21,
                                     ),
                                     current_variable_idx: 0,
                                     current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                        template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                        template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `T1`,
                                                 regional_token_idx: RegionalTokenIdx(
@@ -463,14 +463,14 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `E1`,
                                     regional_token_idx: RegionalTokenIdx(
                                         22,
                                     ),
                                     current_variable_idx: 2,
                                     current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                        template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                        template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `E1`,
                                                 regional_token_idx: RegionalTokenIdx(
@@ -727,7 +727,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
@@ -772,7 +772,7 @@
                 ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     FlyTerm {
                         place: None,
@@ -1284,13 +1284,13 @@
                     data: [
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::InheritedSynSymbol {
+                                SemExprData::InheritedVariable {
                                     ident: `E2`,
                                     regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
-                                    inherited_syn_symbol_idx: 3,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                    inherited_variable_idx: 3,
+                                    inherited_variable_kind: InheritedVariableKind::Template(
                                         InheritedTemplateVariable::Type {
                                             ident: `E2`,
                                         },
@@ -1360,7 +1360,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -1405,7 +1405,7 @@
                 current_variable_map: [],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
@@ -1544,13 +1544,13 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::InheritedSynSymbol {
+                                SemExprData::InheritedVariable {
                                     ident: `T2`,
                                     regional_token_idx: RegionalTokenIdx(
                                         8,
                                     ),
-                                    inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                    inherited_variable_idx: 1,
+                                    inherited_variable_kind: InheritedVariableKind::Template(
                                         InheritedTemplateVariable::Type {
                                             ident: `T2`,
                                         },
@@ -1614,13 +1614,13 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::InheritedSynSymbol {
+                                SemExprData::InheritedVariable {
                                     ident: `E2`,
                                     regional_token_idx: RegionalTokenIdx(
                                         9,
                                     ),
-                                    inherited_syn_symbol_idx: 3,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                    inherited_variable_idx: 3,
+                                    inherited_variable_kind: InheritedVariableKind::Template(
                                         InheritedTemplateVariable::Type {
                                             ident: `E2`,
                                         },
@@ -1717,13 +1717,13 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::InheritedSynSymbol {
+                                SemExprData::InheritedVariable {
                                     ident: `T1`,
                                     regional_token_idx: RegionalTokenIdx(
                                         13,
                                     ),
-                                    inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                    inherited_variable_idx: 0,
+                                    inherited_variable_kind: InheritedVariableKind::Template(
                                         InheritedTemplateVariable::Type {
                                             ident: `T1`,
                                         },
@@ -1787,13 +1787,13 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::InheritedSynSymbol {
+                                SemExprData::InheritedVariable {
                                     ident: `E1`,
                                     regional_token_idx: RegionalTokenIdx(
                                         14,
                                     ),
-                                    inherited_syn_symbol_idx: 2,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                    inherited_variable_idx: 2,
+                                    inherited_variable_kind: InheritedVariableKind::Template(
                                         InheritedTemplateVariable::Type {
                                             ident: `E1`,
                                         },
@@ -2022,7 +2022,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -2082,7 +2082,7 @@
                 ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     FlyTerm {
                         place: None,
                         base: FlyTermBase::Eth(
