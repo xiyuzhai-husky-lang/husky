@@ -3598,6 +3598,7 @@
         relative_path: "crates/semantics/husky-sem-static-mut-deps",
         dependencies: [
             "graph-dynamics",
+            "husky-entity-kind",
             "husky-entity-path",
             "husky-entity-tree",
             "husky-eth-signature",
@@ -3617,7 +3618,6 @@
             "husky-dec-signature",
             "husky-dec-term",
             "husky-dec-ty",
-            "husky-entity-kind",
             "husky-entity-path",
             "husky-entity-tree",
             "husky-eth-signature",
