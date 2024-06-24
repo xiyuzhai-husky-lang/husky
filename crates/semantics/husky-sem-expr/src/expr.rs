@@ -143,7 +143,7 @@ pub enum SemExprData {
     FrameVarDecl {
         regional_token_idx: RegionalTokenIdx,
         ident: Ident,
-        frame_variable_idx: CurrentVariableIdx,
+        for_loop_varible_idx: CurrentVariableIdx,
         current_variable_kind: CurrentVariableKind,
     },
     SelfType(RegionalTokenIdx),
@@ -887,16 +887,16 @@ impl<'a> SemExprBuilder<'a> {
             SynExprData::FrameVarDecl {
                 ident,
                 regional_token_idx,
-                frame_variable_idx,
+                for_loop_varible_idx,
                 current_variable_kind,
             } => (
                 Ok(SemExprData::FrameVarDecl {
                     ident,
                     regional_token_idx,
-                    frame_variable_idx,
+                    for_loop_varible_idx,
                     current_variable_kind,
                 }),
-                self.get_current_variable_ty(syn_expr_idx, frame_variable_idx),
+                self.get_current_variable_ty(syn_expr_idx, for_loop_varible_idx),
             ),
             SynExprData::SelfType(regional_token_idx) => (
                 Ok(SemExprData::SelfType(regional_token_idx)),
@@ -1554,7 +1554,7 @@ impl<'a> SemExprBuilder<'a> {
             SemExprData::FrameVarDecl {
                 regional_token_idx,
                 ident,
-                frame_variable_idx,
+                for_loop_varible_idx,
                 current_variable_kind,
             } => todo!(),
             SemExprData::SelfType(regional_token_idx) => match self.self_ty() {

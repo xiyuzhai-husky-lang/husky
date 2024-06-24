@@ -12,6 +12,14 @@ pub enum ClosureParameterObelisk {
     },
 }
 
+impl ClosureParameterObelisk {
+    pub fn variables(self) -> CurrentVariableIdxRange {
+        match self {
+            ClosureParameterObelisk::Simple { variables, .. } => variables,
+        }
+    }
+}
+
 impl<'a> SemExprBuilder<'a> {
     pub(crate) fn build_closure_parameter_obelisk(
         &mut self,

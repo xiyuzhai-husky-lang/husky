@@ -232,7 +232,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             }
             | SemExprData::FrameVarDecl {
                 regional_token_idx,
-                frame_variable_idx: current_variable_idx,
+                for_loop_varible_idx: current_variable_idx,
                 current_variable_kind,
                 ..
             } => self.add(

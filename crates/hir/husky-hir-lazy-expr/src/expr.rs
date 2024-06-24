@@ -170,10 +170,11 @@ impl ToHirLazy for SemExprIdx {
                     .unwrap(),
             ),
             SemExprData::FrameVarDecl {
-                frame_variable_idx, ..
+                for_loop_varible_idx,
+                ..
             } => HirLazyExprData::Variable(
                 builder
-                    .current_variable_to_hir_lazy_variable(frame_variable_idx)
+                    .current_variable_to_hir_lazy_variable(for_loop_varible_idx)
                     .unwrap(),
             ),
             SemExprData::SelfType(_) => todo!(),

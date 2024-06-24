@@ -37,7 +37,7 @@ pub enum HirEagerStmtData {
     },
     ForBetween {
         particulars: HirEagerForBetweenParticulars,
-        // frame_variable_idx: CurrentHirEagerSymbolIdx,
+        // for_loop_varible_idx: CurrentHirEagerSymbolIdx,
         stmts: HirEagerStmtIdxRange,
     },
     Forext {
@@ -126,7 +126,7 @@ impl ToHirEager for SemStmtIdx {
             },
             SemStmtData::ForBetween {
                 ref particulars,
-                for_loop_var_symbol_idx: _frame_variable_idx,
+                for_loop_varible_idx: _for_loop_varible_idx,
                 stmts: ref block,
                 ..
             } => HirEagerStmtData::ForBetween {
