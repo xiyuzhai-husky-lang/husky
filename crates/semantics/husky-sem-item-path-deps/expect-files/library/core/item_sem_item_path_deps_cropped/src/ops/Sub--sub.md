@@ -1,0 +1,9 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`core::ops::Sub::Output`),
+        ],
+    ),
+)
+```

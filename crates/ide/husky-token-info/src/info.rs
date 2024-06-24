@@ -12,8 +12,7 @@ use husky_syn_expr::{
     pattern::SynPatternIdx,
     region::SynExprRegion,
     variable::{
-        CurrentVariableIdx, CurrentVariableKind, InheritedSymbolicVariableIdx,
-        InheritedVariableKind,
+        CurrentVariableIdx, CurrentVariableKind, InheritedVariableIdx, InheritedVariableKind,
     },
 };
 #[cfg(feature = "protocol_support")]
@@ -61,12 +60,12 @@ impl TokenInfo {
 pub enum TokenInfoData {
     Entity(EntityPath),
     EntityNode(ItemSynNodePath, EntityKind),
-    InheritedSynSymbol {
-        inherited_syn_symbol_idx: InheritedSymbolicVariableIdx,
-        inherited_syn_symbol_kind: InheritedVariableKind,
+    InheritedVariable {
+        inherited_variable_idx: InheritedVariableIdx,
+        inherited_variable_kind: InheritedVariableKind,
         syn_expr_region: ExprRegionLeash,
     },
-    CurrentSynSymbol {
+    CurrentVariable {
         current_variable_idx: CurrentVariableIdx,
         current_variable_kind: CurrentVariableKind,
         syn_expr_region: ExprRegionLeash,
@@ -104,7 +103,7 @@ impl TokenInfoData {
         match self {
             TokenInfoData::Entity(path) => path.item_kind(db).class().into(),
             TokenInfoData::EntityNode(_path, item_kind) => item_kind.class().into(),
-            TokenInfoData::CurrentSynSymbol {
+            TokenInfoData::CurrentVariable {
                 current_variable_kind,
                 ..
             } => match current_variable_kind {
@@ -119,10 +118,10 @@ impl TokenInfoData {
                 CurrentVariableKind::FieldVariable { .. } => TokenClass::Variable,
             },
             // TokenProtocol::Variable,
-            TokenInfoData::InheritedSynSymbol {
-                inherited_syn_symbol_kind,
+            TokenInfoData::InheritedVariable {
+                inherited_variable_kind,
                 ..
-            } => match inherited_syn_symbol_kind {
+            } => match inherited_variable_kind {
                 InheritedVariableKind::Parenate { .. } => TokenClass::Parameter,
                 InheritedVariableKind::Template { .. } => TokenClass::ImplicitParameter,
                 InheritedVariableKind::SelfField { .. } => TokenClass::Variable,

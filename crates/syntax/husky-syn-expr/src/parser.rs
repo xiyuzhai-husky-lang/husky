@@ -191,20 +191,20 @@ where
         &mut self,
         variables: impl IntoIterator<Item = CurrentVariableEntry>,
         ty_constraint: Option<SyndicateTypeConstraint>,
-    ) -> CurrentSynSymbolIdxRange {
+    ) -> CurrentVariableIdxRange {
         self.context_mut().define_symbols(variables, ty_constraint)
     }
 
     fn allow_self_ty(&self) -> AllowSelfType {
         self.context()
-            .syn_symbol_context()
+            .variable_context()
             .symbol_region()
             .allow_self_ty()
     }
 
     fn allow_self_value(&self) -> AllowSelfValue {
         self.context()
-            .syn_symbol_context()
+            .variable_context()
             .symbol_region()
             .allow_self_value()
     }

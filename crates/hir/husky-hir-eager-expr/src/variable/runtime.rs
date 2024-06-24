@@ -1,6 +1,6 @@
 use super::*;
 use husky_syn_expr::variable::{
-    AllowSelfValue, CurrentVariableData, CurrentVariableEntry, InheritedVariable,
+    AllowSelfValue, CurrentVariableData, CurrentVariableEntry, InheritedVariableEntry,
     InheritedVariableKind, VariableMap, VariableRegionData,
 };
 use idx_arena::ArenaIdx;
@@ -44,39 +44,38 @@ pub enum HirEagerRuntimeVariableData {
 
 impl HirEagerRuntimeVariableRegionData {
     pub(crate) fn from_syn(
-        syn_symbol_region: &VariableRegionData,
+        variable_region: &VariableRegionData,
     ) -> (Self, VariableMap<HirEagerRvarIdx>) {
         let mut arena = HirEagerRvarArena::default();
-        let self_value_variable = match syn_symbol_region.allow_self_value() {
+        let self_value_variable = match variable_region.allow_self_value() {
             AllowSelfValue::True => Some(arena.alloc_one(HirEagerRuntimeVariableEntry {
                 name: HirEagerRuntimeVariableName::SelfValue,
                 data: HirEagerRuntimeVariableData::SelfValue,
             })),
             AllowSelfValue::False => None,
         };
-        let mut syn_symbol_to_hir_eager_runtime_symbol_map =
-            VariableMap::<HirEagerRvarIdx>::new(syn_symbol_region);
+        let mut variable_to_hir_eager_runtime_symbol_map =
+            VariableMap::<HirEagerRvarIdx>::new(variable_region);
 
-        for (inherited_syn_symbol_idx, inherited_syn_symbol) in
-            syn_symbol_region.indexed_inherited_syn_symbols()
+        for (inherited_variable_idx, inherited_variable) in
+            variable_region.indexed_inherited_variables()
         {
             if let Some(hir_eager_runtime_symbol) =
-                HirEagerRuntimeVariableEntry::from_inherited_syn(inherited_syn_symbol)
+                HirEagerRuntimeVariableEntry::from_inherited_syn(inherited_variable)
             {
                 let hir_eager_runtime_symbol_idx = arena.alloc_one(hir_eager_runtime_symbol);
-                syn_symbol_to_hir_eager_runtime_symbol_map
-                    .push_inherited(inherited_syn_symbol_idx, hir_eager_runtime_symbol_idx)
+                variable_to_hir_eager_runtime_symbol_map
+                    .insert_new_inherited(inherited_variable_idx, hir_eager_runtime_symbol_idx)
             }
         }
-        for (current_variable_idx, current_variable) in
-            syn_symbol_region.indexed_current_variables()
+        for (current_variable_idx, current_variable) in variable_region.indexed_current_variables()
         {
             if let Some(hir_eager_runtime_symbol) =
                 HirEagerRuntimeVariableEntry::from_current_syn(current_variable)
             {
                 let hir_eager_runtime_symbol_idx = arena.alloc_one(hir_eager_runtime_symbol);
-                syn_symbol_to_hir_eager_runtime_symbol_map
-                    .push_current(current_variable_idx, hir_eager_runtime_symbol_idx)
+                variable_to_hir_eager_runtime_symbol_map
+                    .insert_new_current(current_variable_idx, hir_eager_runtime_symbol_idx)
             }
         }
         (
@@ -84,7 +83,7 @@ impl HirEagerRuntimeVariableRegionData {
                 arena,
                 self_value_variable,
             },
-            syn_symbol_to_hir_eager_runtime_symbol_map,
+            variable_to_hir_eager_runtime_symbol_map,
         )
     }
 
@@ -111,16 +110,16 @@ impl HirEagerRuntimeVariableEntry {
     }
 
     fn from_inherited_syn(
-        inherited_syn_symbol: InheritedVariable,
+        inherited_variable: InheritedVariableEntry,
     ) -> Option<HirEagerRuntimeVariableEntry> {
-        let name = match inherited_syn_symbol.kind() {
+        let name = match inherited_variable.kind() {
             InheritedVariableKind::Template(_)
             | InheritedVariableKind::Parenate { .. }
             | InheritedVariableKind::SelfField { .. } => {
-                HirEagerRuntimeVariableName::Ident(inherited_syn_symbol.ident()?)
+                HirEagerRuntimeVariableName::Ident(inherited_variable.ident()?)
             }
         };
-        let data = HirEagerRuntimeVariableData::from_inherited_syn(inherited_syn_symbol.kind())?;
+        let data = HirEagerRuntimeVariableData::from_inherited_syn(inherited_variable.kind())?;
         Some(Self { name, data })
     }
 
@@ -138,9 +137,9 @@ impl HirEagerRuntimeVariableEntry {
 
 impl HirEagerRuntimeVariableData {
     fn from_inherited_syn(
-        inherited_syn_symbol_kind: InheritedVariableKind,
+        inherited_variable_kind: InheritedVariableKind,
     ) -> Option<HirEagerRuntimeVariableData> {
-        match inherited_syn_symbol_kind {
+        match inherited_variable_kind {
             InheritedVariableKind::Template(_) => None,
             InheritedVariableKind::Parenate { ident: _ } => {
                 Some(HirEagerRuntimeVariableData::ParenateParameter)

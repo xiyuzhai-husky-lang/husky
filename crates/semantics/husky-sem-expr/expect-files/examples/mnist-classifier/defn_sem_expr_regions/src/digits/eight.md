@@ -337,7 +337,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::Eval {
-                                    sem_expr_idx: SemExprIdx(
+                                    expr: SemExprIdx(
                                         4,
                                     ),
                                     outcome: Some(
@@ -383,11 +383,11 @@
             },
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
@@ -2075,7 +2075,7 @@
                                             3,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemExprIdx(
+                                    initial_value: SemExprIdx(
                                         4,
                                     ),
                                     coercion_outcome: None,
@@ -2142,7 +2142,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::Eval {
-                                    sem_expr_idx: SemExprIdx(
+                                    expr: SemExprIdx(
                                         19,
                                     ),
                                     outcome: Some(
@@ -2327,7 +2327,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
@@ -2346,7 +2346,7 @@
                 ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
@@ -3340,13 +3340,13 @@
                     data: [
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::InheritedSynSymbol {
+                                SemExprData::InheritedVariable {
                                     ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),
-                                    inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                                    inherited_variable_idx: 0,
+                                    inherited_variable_kind: InheritedVariableKind::Parenate {
                                         ident: `cc`,
                                     },
                                 },
@@ -3707,13 +3707,13 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::InheritedSynSymbol {
+                                SemExprData::InheritedVariable {
                                     ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         13,
                                     ),
-                                    inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                                    inherited_variable_idx: 0,
+                                    inherited_variable_kind: InheritedVariableKind::Parenate {
                                         ident: `cc`,
                                     },
                                 },
@@ -4166,13 +4166,13 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::InheritedSynSymbol {
+                                SemExprData::InheritedVariable {
                                     ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         26,
                                     ),
-                                    inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                                    inherited_variable_idx: 0,
+                                    inherited_variable_kind: InheritedVariableKind::Parenate {
                                         ident: `cc`,
                                     },
                                 },
@@ -4670,13 +4670,13 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::InheritedSynSymbol {
+                                SemExprData::InheritedVariable {
                                     ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         38,
                                     ),
-                                    inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                                    inherited_variable_idx: 0,
+                                    inherited_variable_kind: InheritedVariableKind::Parenate {
                                         ident: `cc`,
                                     },
                                 },
@@ -5052,7 +5052,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::Eval {
-                                    sem_expr_idx: SemExprIdx(
+                                    expr: SemExprIdx(
                                         20,
                                     ),
                                     outcome: Some(
@@ -5108,7 +5108,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -5127,7 +5127,7 @@
                 current_variable_map: [],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {

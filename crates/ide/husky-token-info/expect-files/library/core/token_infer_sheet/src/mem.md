@@ -65,10 +65,10 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         0,
                     ),
-                    data: TokenInfoData::CurrentSynSymbol {
+                    data: TokenInfoData::CurrentVariable {
                         current_variable_idx: 0,
                         current_variable_kind: CurrentVariableKind::TemplateParameter {
-                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Lifetime {
+                            template_parameter_kind: CurrentTemplateParameterVariableKind::Lifetime {
                                 label_token: LifetimeLabelRegionalToken {
                                     label: `'a`,
                                     token_idx: RegionalTokenIdx(
@@ -88,10 +88,10 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSynSymbol {
+                    data: TokenInfoData::CurrentVariable {
                         current_variable_idx: 1,
                         current_variable_kind: CurrentVariableKind::TemplateParameter {
-                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                            template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(
@@ -146,10 +146,10 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         0,
                     ),
-                    data: TokenInfoData::CurrentSynSymbol {
+                    data: TokenInfoData::CurrentVariable {
                         current_variable_idx: 0,
                         current_variable_kind: CurrentVariableKind::TemplateParameter {
-                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Lifetime {
+                            template_parameter_kind: CurrentTemplateParameterVariableKind::Lifetime {
                                 label_token: LifetimeLabelRegionalToken {
                                     label: `'a`,
                                     token_idx: RegionalTokenIdx(
@@ -169,10 +169,10 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSynSymbol {
+                    data: TokenInfoData::CurrentVariable {
                         current_variable_idx: 1,
                         current_variable_kind: CurrentVariableKind::TemplateParameter {
-                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                            template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(
@@ -227,10 +227,10 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         0,
                     ),
-                    data: TokenInfoData::CurrentSynSymbol {
+                    data: TokenInfoData::CurrentVariable {
                         current_variable_idx: 0,
                         current_variable_kind: CurrentVariableKind::TemplateParameter {
-                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                            template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(
@@ -252,10 +252,10 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         0,
                     ),
-                    data: TokenInfoData::CurrentSynSymbol {
+                    data: TokenInfoData::CurrentVariable {
                         current_variable_idx: 0,
                         current_variable_kind: CurrentVariableKind::TemplateParameter {
-                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                            template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(
@@ -315,10 +315,10 @@ Ok(
                             2,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSynSymbol {
+                    data: TokenInfoData::CurrentVariable {
                         current_variable_idx: 0,
                         current_variable_kind: CurrentVariableKind::TemplateParameter {
-                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                            template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(
@@ -371,10 +371,10 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         0,
                     ),
-                    data: TokenInfoData::CurrentSynSymbol {
+                    data: TokenInfoData::CurrentVariable {
                         current_variable_idx: 0,
                         current_variable_kind: CurrentVariableKind::TemplateParameter {
-                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Place {
+                            template_parameter_kind: CurrentTemplateParameterVariableKind::Place {
                                 label_token: PlaceLabelRegionalToken {
                                     label: `'α`,
                                     regional_token_idx: RegionalTokenIdx(
@@ -393,10 +393,10 @@ Ok(
                     src: TokenInfoSource::TemplateParameter(
                         1,
                     ),
-                    data: TokenInfoData::CurrentSynSymbol {
+                    data: TokenInfoData::CurrentVariable {
                         current_variable_idx: 1,
                         current_variable_kind: CurrentVariableKind::TemplateParameter {
-                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                            template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(

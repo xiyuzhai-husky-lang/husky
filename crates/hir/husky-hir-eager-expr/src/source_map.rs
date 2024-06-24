@@ -21,7 +21,7 @@ pub struct HirEagerExprSourceMapData {
     syn_to_hir_eager_pattern_idx_map: SynPatternMap<HirEagerPatternIdx>,
     sem_to_hir_eager_expr_idx_map: SemExprMap<HirEagerExprIdx>,
     sem_to_hir_eager_stmt_idx_map: SemStmtMap<HirEagerStmtIdx>,
-    syn_symbol_to_hir_eager_runtime_symbol_map: VariableMap<HirEagerRvarIdx>,
+    variable_to_hir_eager_runtime_symbol_map: VariableMap<HirEagerRvarIdx>,
 }
 
 impl HirEagerExprSourceMap {
@@ -30,7 +30,7 @@ impl HirEagerExprSourceMap {
         syn_to_hir_eager_pattern_idx_map: SynPatternMap<HirEagerPatternIdx>,
         sem_to_hir_eager_expr_idx_map: SemExprMap<HirEagerExprIdx>,
         sem_to_hir_eager_stmt_idx_map: SemStmtMap<HirEagerStmtIdx>,
-        syn_symbol_to_hir_eager_runtime_symbol_map: VariableMap<HirEagerRvarIdx>,
+        variable_to_hir_eager_runtime_symbol_map: VariableMap<HirEagerRvarIdx>,
     ) -> Self {
         Self::new_inner(
             db,
@@ -38,7 +38,7 @@ impl HirEagerExprSourceMap {
                 syn_to_hir_eager_pattern_idx_map,
                 sem_to_hir_eager_expr_idx_map,
                 sem_to_hir_eager_stmt_idx_map,
-                syn_symbol_to_hir_eager_runtime_symbol_map,
+                variable_to_hir_eager_runtime_symbol_map,
             },
         )
     }
@@ -73,7 +73,7 @@ impl HirEagerExprSourceMapData {
         &self,
         current_variable_idx: CurrentVariableIdx,
     ) -> Option<HirEagerRvarIdx> {
-        self.syn_symbol_to_hir_eager_runtime_symbol_map
+        self.variable_to_hir_eager_runtime_symbol_map
             .get_current(current_variable_idx)
             .copied()
     }

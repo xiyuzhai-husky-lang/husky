@@ -54,6 +54,13 @@ impl<T, V> ArenaMap<T, V> {
         }
     }
 
+    pub fn new_initialized(arena: &Arena<T>, f: impl Fn(ArenaIdx<T>, &T) -> Option<V>) -> Self {
+        Self {
+            data: arena.indexed_iter().map(|(idx, t)| f(idx, t)).collect(),
+            phantom: PhantomData,
+        }
+    }
+
     pub fn new2(arena: ArenaRef<T>) -> Self {
         Self {
             data: arena.data().iter().map(|_| None).collect(),
@@ -119,6 +126,14 @@ impl<T, V> ArenaMap<T, V> {
         should!(self.data[idx.index()].is_none());
         self.data[idx.index()] = Some(v)
     }
+
+    #[track_caller]
+    pub fn insert_new_or_merge(&mut self, idx: ArenaIdx<T>, v: V, f: impl FnOnce(&mut V, V)) {
+        match &mut self.data[idx.index()] {
+            Some(v0) => f(v0, v),
+            entry => *entry = Some(v),
+        }
+    }
 }
 
 impl<T, V> std::ops::Index<ArenaIdx<T>> for ArenaMap<T, V> {
@@ -134,5 +149,11 @@ impl<T, V> std::ops::Index<&ArenaIdx<T>> for ArenaMap<T, V> {
 
     fn index(&self, index: &ArenaIdx<T>) -> &Self::Output {
         self.get(*index).unwrap()
+    }
+}
+
+impl<T, V> std::ops::IndexMut<ArenaIdx<T>> for ArenaMap<T, V> {
+    fn index_mut(&mut self, index: ArenaIdx<T>) -> &mut Self::Output {
+        self.data[index.index()].as_mut().unwrap()
     }
 }

@@ -21,7 +21,7 @@ use husky_syn_expr::{
     pattern::{PatternVariable, SynPatternData},
     region::{SynExprRegion, SynExprRegionData},
     variable::{
-        CurrentTemplateParameterSynSymbolKind, CurrentVariableEntry, CurrentVariableIdx,
+        CurrentTemplateParameterVariableKind, CurrentVariableEntry, CurrentVariableIdx,
         CurrentVariableKind,
     },
 };
@@ -224,7 +224,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
 
     fn visit_expr(&mut self, sem_expr_idx: SemExprIdx, sem_expr_data: &SemExprData) {
         match sem_expr_data {
-            SemExprData::CurrentSynSymbol {
+            SemExprData::CurrentVariable {
                 regional_token_idx,
                 current_variable_idx,
                 current_variable_kind,
@@ -232,30 +232,30 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             }
             | SemExprData::FrameVarDecl {
                 regional_token_idx,
-                frame_var_symbol_idx: current_variable_idx,
+                for_loop_varible_idx: current_variable_idx,
                 current_variable_kind,
                 ..
             } => self.add(
                 *regional_token_idx,
                 sem_expr_idx,
-                TokenInfoData::CurrentSynSymbol {
+                TokenInfoData::CurrentVariable {
                     current_variable_idx: *current_variable_idx,
                     current_variable_kind: *current_variable_kind,
                     syn_expr_region: self.syn_expr_region,
                 },
             ),
-            SemExprData::InheritedSynSymbol {
+            SemExprData::InheritedVariable {
                 regional_token_idx,
-                inherited_syn_symbol_idx,
-                inherited_syn_symbol_kind,
+                inherited_variable_idx,
+                inherited_variable_kind,
                 ..
             } => self.add(
                 *regional_token_idx,
                 sem_expr_idx,
-                TokenInfoData::InheritedSynSymbol {
-                    inherited_syn_symbol_idx: *inherited_syn_symbol_idx,
+                TokenInfoData::InheritedVariable {
+                    inherited_variable_idx: *inherited_variable_idx,
                     syn_expr_region: self.syn_expr_region,
-                    inherited_syn_symbol_kind: *inherited_syn_symbol_kind,
+                    inherited_variable_kind: *inherited_variable_kind,
                 },
             ),
             SemExprData::SelfType(regional_token_idx) => {
@@ -568,7 +568,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                         } => self.override_add(
                             ident_token.regional_token_idx(),
                             pattern_idx,
-                            TokenInfoData::CurrentSynSymbol {
+                            TokenInfoData::CurrentVariable {
                                 current_variable_idx: current_variable_idx,
                                 syn_expr_region: self.syn_expr_region,
                                 current_variable_kind: current_variable_kind,
@@ -582,37 +582,37 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             CurrentVariableKind::TemplateParameter {
                 template_parameter_kind,
             } => match template_parameter_kind {
-                CurrentTemplateParameterSynSymbolKind::Type { ident_token } => self.add(
+                CurrentTemplateParameterVariableKind::Type { ident_token } => self.add(
                     ident_token.regional_token_idx(),
                     TokenInfoSource::TemplateParameter(current_variable_idx),
-                    TokenInfoData::CurrentSynSymbol {
+                    TokenInfoData::CurrentVariable {
                         current_variable_idx: current_variable_idx,
                         syn_expr_region: self.syn_expr_region,
                         current_variable_kind: current_variable_kind,
                     },
                 ),
-                CurrentTemplateParameterSynSymbolKind::Lifetime { label_token } => self.add(
+                CurrentTemplateParameterVariableKind::Lifetime { label_token } => self.add(
                     label_token.regional_token_idx(),
                     current_variable_idx,
-                    TokenInfoData::CurrentSynSymbol {
+                    TokenInfoData::CurrentVariable {
                         current_variable_idx: current_variable_idx,
                         syn_expr_region: self.syn_expr_region,
                         current_variable_kind: current_variable_kind,
                     },
                 ),
-                CurrentTemplateParameterSynSymbolKind::Place { label_token } => self.add(
+                CurrentTemplateParameterVariableKind::Place { label_token } => self.add(
                     label_token.regional_token_idx(),
                     current_variable_idx,
-                    TokenInfoData::CurrentSynSymbol {
+                    TokenInfoData::CurrentVariable {
                         current_variable_idx: current_variable_idx,
                         syn_expr_region: self.syn_expr_region,
                         current_variable_kind: current_variable_kind,
                     },
                 ),
-                CurrentTemplateParameterSynSymbolKind::Constant { ident_token } => self.add(
+                CurrentTemplateParameterVariableKind::Constant { ident_token } => self.add(
                     ident_token.regional_token_idx(),
                     current_variable_idx,
-                    TokenInfoData::CurrentSynSymbol {
+                    TokenInfoData::CurrentVariable {
                         current_variable_idx: current_variable_idx,
                         syn_expr_region: self.syn_expr_region,
                         current_variable_kind: current_variable_kind,
@@ -622,7 +622,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             CurrentVariableKind::VariadicParenateParameter { ident_token } => self.add(
                 ident_token.regional_token_idx(),
                 current_variable_idx,
-                TokenInfoData::CurrentSynSymbol {
+                TokenInfoData::CurrentVariable {
                     current_variable_idx: current_variable_idx,
                     syn_expr_region: self.syn_expr_region,
                     current_variable_kind: current_variable_kind,
@@ -631,7 +631,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             CurrentVariableKind::FieldVariable { ident_token } => self.add(
                 ident_token.regional_token_idx(),
                 current_variable_idx,
-                TokenInfoData::CurrentSynSymbol {
+                TokenInfoData::CurrentVariable {
                     current_variable_idx: current_variable_idx,
                     syn_expr_region: self.syn_expr_region,
                     current_variable_kind: current_variable_kind,

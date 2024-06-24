@@ -447,7 +447,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::Eval {
-                                    sem_expr_idx: SemExprIdx(
+                                    expr: SemExprIdx(
                                         6,
                                     ),
                                     outcome: Some(
@@ -493,11 +493,11 @@
             },
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
@@ -1684,7 +1684,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `simp_one_match`,
                                     regional_token_idx: RegionalTokenIdx(
                                         26,
@@ -3963,7 +3963,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `downmost`,
                                     regional_token_idx: RegionalTokenIdx(
                                         100,
@@ -4047,7 +4047,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `simp_one_match`,
                                     regional_token_idx: RegionalTokenIdx(
                                         105,
@@ -4355,7 +4355,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `simp_one_match`,
                                     regional_token_idx: RegionalTokenIdx(
                                         112,
@@ -5448,7 +5448,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `downmost`,
                                     regional_token_idx: RegionalTokenIdx(
                                         145,
@@ -5757,7 +5757,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `downmost`,
                                     regional_token_idx: RegionalTokenIdx(
                                         154,
@@ -8554,7 +8554,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `upmost`,
                                     regional_token_idx: RegionalTokenIdx(
                                         228,
@@ -8638,7 +8638,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `upmost`,
                                     regional_token_idx: RegionalTokenIdx(
                                         236,
@@ -8947,7 +8947,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `upmost`,
                                     regional_token_idx: RegionalTokenIdx(
                                         245,
@@ -9383,7 +9383,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `upmost`,
                                     regional_token_idx: RegionalTokenIdx(
                                         258,
@@ -9529,7 +9529,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `upmost`,
                                     regional_token_idx: RegionalTokenIdx(
                                         263,
@@ -9991,7 +9991,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `long_vertical`,
                                     regional_token_idx: RegionalTokenIdx(
                                         277,
@@ -10181,7 +10181,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `long_vertical_dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         283,
@@ -10472,7 +10472,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `upmost`,
                                     regional_token_idx: RegionalTokenIdx(
                                         290,
@@ -10635,7 +10635,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `upmost`,
                                     regional_token_idx: RegionalTokenIdx(
                                         295,
@@ -10798,7 +10798,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `upmost`,
                                     regional_token_idx: RegionalTokenIdx(
                                         300,
@@ -11433,7 +11433,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `long_vertical_dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         317,
@@ -11623,7 +11623,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `long_vertical_dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         323,
@@ -11752,7 +11752,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `long_vertical_dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         327,
@@ -12160,7 +12160,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `hat`,
                                     regional_token_idx: RegionalTokenIdx(
                                         338,
@@ -13775,7 +13775,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `downmost_number_of_strokes`,
                                     regional_token_idx: RegionalTokenIdx(
                                         388,
@@ -13902,7 +13902,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `downmost`,
                                     regional_token_idx: RegionalTokenIdx(
                                         394,
@@ -14048,7 +14048,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `downmost`,
                                     regional_token_idx: RegionalTokenIdx(
                                         399,
@@ -14428,7 +14428,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `downmost_hat`,
                                     regional_token_idx: RegionalTokenIdx(
                                         411,
@@ -14618,7 +14618,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `downmost`,
                                     regional_token_idx: RegionalTokenIdx(
                                         419,
@@ -14764,7 +14764,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `downmost`,
                                     regional_token_idx: RegionalTokenIdx(
                                         424,
@@ -15226,7 +15226,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `downmost_feet`,
                                     regional_token_idx: RegionalTokenIdx(
                                         438,
@@ -15492,7 +15492,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `downmost_hat_dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         445,
@@ -15621,7 +15621,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `downmost_feet_dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         449,
@@ -15988,7 +15988,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `downmost_number_of_strokes`,
                                     regional_token_idx: RegionalTokenIdx(
                                         459,
@@ -16403,7 +16403,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `a`,
                                     regional_token_idx: RegionalTokenIdx(
                                         477,
@@ -16448,7 +16448,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `b`,
                                     regional_token_idx: RegionalTokenIdx(
                                         479,
@@ -16538,7 +16538,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `c`,
                                     regional_token_idx: RegionalTokenIdx(
                                         483,
@@ -16583,7 +16583,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `a`,
                                     regional_token_idx: RegionalTokenIdx(
                                         485,
@@ -16673,7 +16673,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `c`,
                                     regional_token_idx: RegionalTokenIdx(
                                         487,
@@ -16848,7 +16848,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `c`,
                                     regional_token_idx: RegionalTokenIdx(
                                         492,
@@ -17123,7 +17123,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::Eval {
-                                    sem_expr_idx: SemExprIdx(
+                                    expr: SemExprIdx(
                                         20,
                                     ),
                                     outcome: Some(
@@ -17191,7 +17191,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::Eval {
-                                    sem_expr_idx: SemExprIdx(
+                                    expr: SemExprIdx(
                                         29,
                                     ),
                                     outcome: Some(
@@ -17247,7 +17247,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::Eval {
-                                    sem_expr_idx: SemExprIdx(
+                                    expr: SemExprIdx(
                                         61,
                                     ),
                                     outcome: Some(
@@ -17378,7 +17378,7 @@
                                             257,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemExprIdx(
+                                    initial_value: SemExprIdx(
                                         137,
                                     ),
                                     coercion_outcome: None,
@@ -17417,7 +17417,7 @@
                                             276,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemExprIdx(
+                                    initial_value: SemExprIdx(
                                         139,
                                     ),
                                     coercion_outcome: None,
@@ -17460,7 +17460,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::Eval {
-                                    sem_expr_idx: SemExprIdx(
+                                    expr: SemExprIdx(
                                         157,
                                     ),
                                     outcome: Some(
@@ -17489,7 +17489,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::Eval {
-                                    sem_expr_idx: SemExprIdx(
+                                    expr: SemExprIdx(
                                         168,
                                     ),
                                     outcome: Some(
@@ -17518,7 +17518,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::Eval {
-                                    sem_expr_idx: SemExprIdx(
+                                    expr: SemExprIdx(
                                         193,
                                     ),
                                     outcome: Some(
@@ -17618,7 +17618,7 @@
                                             74,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemExprIdx(
+                                    initial_value: SemExprIdx(
                                         40,
                                     ),
                                     coercion_outcome: None,
@@ -17657,7 +17657,7 @@
                                             83,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemExprIdx(
+                                    initial_value: SemExprIdx(
                                         44,
                                     ),
                                     coercion_outcome: None,
@@ -17696,7 +17696,7 @@
                                             92,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemExprIdx(
+                                    initial_value: SemExprIdx(
                                         48,
                                     ),
                                     coercion_outcome: None,
@@ -17784,7 +17784,7 @@
                                             144,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemExprIdx(
+                                    initial_value: SemExprIdx(
                                         80,
                                     ),
                                     coercion_outcome: None,
@@ -17827,7 +17827,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::Eval {
-                                    sem_expr_idx: SemExprIdx(
+                                    expr: SemExprIdx(
                                         97,
                                     ),
                                     outcome: Some(
@@ -17856,7 +17856,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::Eval {
-                                    sem_expr_idx: SemExprIdx(
+                                    expr: SemExprIdx(
                                         114,
                                     ),
                                     outcome: Some(
@@ -18029,7 +18029,7 @@
                                             393,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemExprIdx(
+                                    initial_value: SemExprIdx(
                                         204,
                                     ),
                                     coercion_outcome: None,
@@ -18068,7 +18068,7 @@
                                             410,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemExprIdx(
+                                    initial_value: SemExprIdx(
                                         206,
                                     ),
                                     coercion_outcome: None,
@@ -18107,7 +18107,7 @@
                                             418,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemExprIdx(
+                                    initial_value: SemExprIdx(
                                         216,
                                     ),
                                     coercion_outcome: None,
@@ -18146,7 +18146,7 @@
                                             437,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemExprIdx(
+                                    initial_value: SemExprIdx(
                                         218,
                                     ),
                                     coercion_outcome: None,
@@ -18164,7 +18164,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::Eval {
-                                    sem_expr_idx: SemExprIdx(
+                                    expr: SemExprIdx(
                                         226,
                                     ),
                                     outcome: Some(
@@ -18239,7 +18239,7 @@
                                             464,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemExprIdx(
+                                    initial_value: SemExprIdx(
                                         231,
                                     ),
                                     coercion_outcome: None,
@@ -18278,7 +18278,7 @@
                                             470,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemExprIdx(
+                                    initial_value: SemExprIdx(
                                         233,
                                     ),
                                     coercion_outcome: None,
@@ -18317,7 +18317,7 @@
                                             476,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemExprIdx(
+                                    initial_value: SemExprIdx(
                                         236,
                                     ),
                                     coercion_outcome: None,
@@ -18356,7 +18356,7 @@
                                             482,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemExprIdx(
+                                    initial_value: SemExprIdx(
                                         239,
                                     ),
                                     coercion_outcome: None,
@@ -18424,7 +18424,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::Eval {
-                                    sem_expr_idx: SemExprIdx(
+                                    expr: SemExprIdx(
                                         247,
                                     ),
                                     outcome: Some(
@@ -18455,7 +18455,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::Eval {
-                                    sem_expr_idx: SemExprIdx(
+                                    expr: SemExprIdx(
                                         6,
                                     ),
                                     outcome: Some(
@@ -18505,7 +18505,7 @@
                                             17,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemExprIdx(
+                                    initial_value: SemExprIdx(
                                         10,
                                     ),
                                     coercion_outcome: None,
@@ -19795,7 +19795,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
@@ -20010,7 +20010,7 @@
                 ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
@@ -31862,13 +31862,13 @@
                     data: [
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::InheritedSynSymbol {
+                                SemExprData::InheritedVariable {
                                     ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
-                                    inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                                    inherited_variable_idx: 0,
+                                    inherited_variable_kind: InheritedVariableKind::Parenate {
                                         ident: `cc`,
                                     },
                                 },
@@ -32050,7 +32050,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
@@ -32265,7 +32265,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         15,
@@ -32464,7 +32464,7 @@
                                             3,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemExprIdx(
+                                    initial_value: SemExprIdx(
                                         1,
                                     ),
                                     coercion_outcome: None,
@@ -32507,7 +32507,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::Eval {
-                                    sem_expr_idx: SemExprIdx(
+                                    expr: SemExprIdx(
                                         7,
                                     ),
                                     outcome: Some(
@@ -32613,7 +32613,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -32647,7 +32647,7 @@
                 ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
@@ -33000,13 +33000,13 @@
                     data: [
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::InheritedSynSymbol {
+                                SemExprData::InheritedVariable {
                                     ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
-                                    inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                                    inherited_variable_idx: 0,
+                                    inherited_variable_kind: InheritedVariableKind::Parenate {
                                         ident: `cc`,
                                     },
                                 },
@@ -33188,7 +33188,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
@@ -33403,13 +33403,13 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::InheritedSynSymbol {
+                                SemExprData::InheritedVariable {
                                     ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         16,
                                     ),
-                                    inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                                    inherited_variable_idx: 0,
+                                    inherited_variable_kind: InheritedVariableKind::Parenate {
                                         ident: `cc`,
                                     },
                                 },
@@ -33751,7 +33751,7 @@
                                             3,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemExprIdx(
+                                    initial_value: SemExprIdx(
                                         1,
                                     ),
                                     coercion_outcome: None,
@@ -33794,7 +33794,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::Eval {
-                                    sem_expr_idx: SemExprIdx(
+                                    expr: SemExprIdx(
                                         9,
                                     ),
                                     outcome: Some(
@@ -33896,7 +33896,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -33930,7 +33930,7 @@
                 ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
@@ -34327,13 +34327,13 @@
                     data: [
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::InheritedSynSymbol {
+                                SemExprData::InheritedVariable {
                                     ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
-                                    inherited_syn_symbol_idx: 0,
-                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                                    inherited_variable_idx: 0,
+                                    inherited_variable_kind: InheritedVariableKind::Parenate {
                                         ident: `cc`,
                                     },
                                 },
@@ -34515,7 +34515,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
@@ -34730,7 +34730,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         16,
@@ -34945,7 +34945,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         22,
@@ -35118,7 +35118,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         26,
@@ -35350,7 +35350,7 @@
                                             3,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemExprIdx(
+                                    initial_value: SemExprIdx(
                                         1,
                                     ),
                                     coercion_outcome: None,
@@ -35418,7 +35418,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::Eval {
-                                    sem_expr_idx: SemExprIdx(
+                                    expr: SemExprIdx(
                                         15,
                                     ),
                                     outcome: Some(
@@ -35531,7 +35531,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [
+                inherited_variable_map: [
                     SymbolType(
                         FlyTerm {
                             place: Some(
@@ -35565,7 +35565,7 @@
                 ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {

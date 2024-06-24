@@ -18,18 +18,18 @@ use parsec::{IsStreamParser, TryParseFromStream};
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Symbol {
     PrincipalEntity(PrincipalEntityPath),
-    Inherited(InheritedSymbolicVariableIdx, InheritedVariableKind),
+    Inherited(InheritedVariableIdx, InheritedVariableKind),
     Current(CurrentVariableIdx, CurrentVariableKind),
 }
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct InheritedVariable {
+pub struct InheritedVariableEntry {
     modifier: VariableModifier,
     kind: InheritedVariableKind,
 }
 
-impl InheritedVariable {
+impl InheritedVariableEntry {
     pub fn kind(&self) -> InheritedVariableKind {
         self.kind
     }
@@ -175,7 +175,7 @@ impl CurrentVariableEntry {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum CurrentVariableKind {
     TemplateParameter {
-        template_parameter_kind: CurrentTemplateParameterSynSymbolKind,
+        template_parameter_kind: CurrentTemplateParameterVariableKind,
     },
     SimpleParenateParameter {
         pattern_variable_idx: PatternVariableIdx,
@@ -203,7 +203,7 @@ pub enum CurrentVariableKind {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum CurrentTemplateParameterSynSymbolKind {
+pub enum CurrentTemplateParameterVariableKind {
     Type {
         ident_token: IdentRegionalToken,
     },
@@ -451,25 +451,25 @@ impl CurrentVariableData {
 }
 
 impl CurrentTemplateVariableData {
-    fn kind(&self) -> CurrentTemplateParameterSynSymbolKind {
+    fn kind(&self) -> CurrentTemplateParameterVariableKind {
         match self {
             CurrentTemplateVariableData::Type { ident_token, .. } => {
-                CurrentTemplateParameterSynSymbolKind::Type {
+                CurrentTemplateParameterVariableKind::Type {
                     ident_token: *ident_token,
                 }
             }
             CurrentTemplateVariableData::Lifetime { label_token } => {
-                CurrentTemplateParameterSynSymbolKind::Lifetime {
+                CurrentTemplateParameterVariableKind::Lifetime {
                     label_token: *label_token,
                 }
             }
             CurrentTemplateVariableData::Place { label_token } => {
-                CurrentTemplateParameterSynSymbolKind::Place {
+                CurrentTemplateParameterVariableKind::Place {
                     label_token: *label_token,
                 }
             }
             CurrentTemplateVariableData::Constant { ident_token, .. } => {
-                CurrentTemplateParameterSynSymbolKind::Constant {
+                CurrentTemplateParameterVariableKind::Constant {
                     ident_token: *ident_token,
                 }
             }
@@ -477,26 +477,26 @@ impl CurrentTemplateVariableData {
     }
 }
 
-pub type InheritedVariableArena = Arena<InheritedVariable>;
-pub type InheritedSymbolicVariableIdx = ArenaIdx<InheritedVariable>;
-pub type InheritedSynSymbolIdxRange = ArenaIdxRange<InheritedVariable>;
-pub(crate) type InheritedSynSymbolMap<V> = ArenaMap<InheritedVariable, V>;
-pub(crate) type InheritedSynSymbolOrderedMap<V> = ArenaOrderedMap<InheritedVariable, V>;
+pub type InheritedVariableArena = Arena<InheritedVariableEntry>;
+pub type InheritedVariableIdx = ArenaIdx<InheritedVariableEntry>;
+pub type InheritedVariableIdxRange = ArenaIdxRange<InheritedVariableEntry>;
+pub(crate) type InheritedVariableMap<V> = ArenaMap<InheritedVariableEntry, V>;
+pub(crate) type InheritedVariableOrderedMap<V> = ArenaOrderedMap<InheritedVariableEntry, V>;
 
 pub type CurrentVariableArena = Arena<CurrentVariableEntry>;
 pub type CurrentVariableIdx = ArenaIdx<CurrentVariableEntry>;
-pub type CurrentSynSymbolIdxRange = ArenaIdxRange<CurrentVariableEntry>;
-pub(crate) type CurrentSynSymbolMap<V> = ArenaMap<CurrentVariableEntry, V>;
-pub(crate) type CurrentSynSymbolOrderedMap<V> = ArenaOrderedMap<CurrentVariableEntry, V>;
+pub type CurrentVariableIdxRange = ArenaIdxRange<CurrentVariableEntry>;
+pub(crate) type CurrentVariableMap<V> = ArenaMap<CurrentVariableEntry, V>;
+pub(crate) type CurrentVariableOrderedMap<V> = ArenaOrderedMap<CurrentVariableEntry, V>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ParentVariableIdx {
-    Inherited(InheritedSymbolicVariableIdx),
+    Inherited(InheritedVariableIdx),
     Current(CurrentVariableIdx),
 }
 
-impl From<InheritedSymbolicVariableIdx> for ParentVariableIdx {
-    fn from(v: InheritedSymbolicVariableIdx) -> Self {
+impl From<InheritedVariableIdx> for ParentVariableIdx {
+    fn from(v: InheritedVariableIdx) -> Self {
         Self::Inherited(v)
     }
 }
@@ -509,26 +509,33 @@ impl From<CurrentVariableIdx> for ParentVariableIdx {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VariableMap<V> {
-    inherited_syn_symbol_map: InheritedSynSymbolMap<V>,
-    current_variable_map: CurrentSynSymbolMap<V>,
+    inherited_variable_map: InheritedVariableMap<V>,
+    current_variable_map: CurrentVariableMap<V>,
 }
 
 impl<V> VariableMap<V> {
-    pub fn push_inherited(&mut self, inherited_syn_symbol_idx: InheritedSymbolicVariableIdx, v: V) {
-        self.inherited_syn_symbol_map
-            .insert_new(inherited_syn_symbol_idx, v)
+    pub fn insert_new_inherited(&mut self, inherited_variable_idx: InheritedVariableIdx, v: V) {
+        self.inherited_variable_map
+            .insert_new(inherited_variable_idx, v)
     }
 
-    pub fn push_current(&mut self, current_variable_idx: CurrentVariableIdx, v: V) {
+    pub fn insert_new_current(&mut self, current_variable_idx: CurrentVariableIdx, v: V) {
         self.current_variable_map
             .insert_new(current_variable_idx, v)
     }
 
-    pub fn get_inherited(
-        &self,
-        inherited_syn_symbol_idx: InheritedSymbolicVariableIdx,
-    ) -> Option<&V> {
-        self.inherited_syn_symbol_map.get(inherited_syn_symbol_idx)
+    pub fn insert_new_current_or_merge(
+        &mut self,
+        variable: CurrentVariableIdx,
+        v: V,
+        f: impl FnOnce(&mut V, V),
+    ) {
+        self.current_variable_map
+            .insert_new_or_merge(variable, v, f)
+    }
+
+    pub fn get_inherited(&self, inherited_variable_idx: InheritedVariableIdx) -> Option<&V> {
+        self.inherited_variable_map.get(inherited_variable_idx)
     }
 
     pub fn get_current(&self, current_variable_idx: CurrentVariableIdx) -> Option<&V> {
@@ -537,23 +544,38 @@ impl<V> VariableMap<V> {
 }
 
 impl<V> VariableMap<V> {
-    pub fn new(syn_symbol_region: &VariableRegionData) -> Self {
+    pub fn new(variable_region: &VariableRegionData) -> Self {
         Self {
-            inherited_syn_symbol_map: InheritedSynSymbolMap::new(
-                syn_symbol_region.inherited_syn_symbol_arena(),
+            inherited_variable_map: InheritedVariableMap::new(
+                variable_region.inherited_variable_arena(),
             ),
-            current_variable_map: CurrentSynSymbolMap::new(
-                syn_symbol_region.current_variable_arena(),
+            current_variable_map: CurrentVariableMap::new(variable_region.current_variable_arena()),
+        }
+    }
+
+    pub fn new_initialized(
+        variable_region: &VariableRegionData,
+        f1: impl Fn(InheritedVariableIdx, &InheritedVariableEntry) -> Option<V>,
+        f2: impl Fn(CurrentVariableIdx, &CurrentVariableEntry) -> Option<V>,
+    ) -> Self {
+        Self {
+            inherited_variable_map: InheritedVariableMap::new_initialized(
+                variable_region.inherited_variable_arena(),
+                f1,
+            ),
+            current_variable_map: CurrentVariableMap::new_initialized(
+                variable_region.current_variable_arena(),
+                f2,
             ),
         }
     }
 }
 
-impl<V> std::ops::Index<InheritedSymbolicVariableIdx> for VariableMap<V> {
+impl<V> std::ops::Index<InheritedVariableIdx> for VariableMap<V> {
     type Output = V;
 
-    fn index(&self, idx: InheritedSymbolicVariableIdx) -> &Self::Output {
-        &self.inherited_syn_symbol_map[idx]
+    fn index(&self, idx: InheritedVariableIdx) -> &Self::Output {
+        &self.inherited_variable_map[idx]
     }
 }
 
@@ -565,15 +587,21 @@ impl<V> std::ops::Index<CurrentVariableIdx> for VariableMap<V> {
     }
 }
 
-pub struct SynSymbolOrderedMap<V> {
-    inherited_syn_symbol_ordered_map: InheritedSynSymbolOrderedMap<V>,
-    current_variable_ordered_map: CurrentSynSymbolOrderedMap<V>,
+impl<V> std::ops::IndexMut<CurrentVariableIdx> for VariableMap<V> {
+    fn index_mut(&mut self, index: CurrentVariableIdx) -> &mut Self::Output {
+        &mut self.current_variable_map[index]
+    }
 }
 
-impl<V> SynSymbolOrderedMap<V> {
-    pub fn push_inherited(&mut self, inherited_syn_symbol_idx: InheritedSymbolicVariableIdx, v: V) {
-        self.inherited_syn_symbol_ordered_map
-            .insert_next(inherited_syn_symbol_idx, v)
+pub struct VariableOrderedMap<V> {
+    inherited_variable_ordered_map: InheritedVariableOrderedMap<V>,
+    current_variable_ordered_map: CurrentVariableOrderedMap<V>,
+}
+
+impl<V> VariableOrderedMap<V> {
+    pub fn push_inherited(&mut self, inherited_variable_idx: InheritedVariableIdx, v: V) {
+        self.inherited_variable_ordered_map
+            .insert_next(inherited_variable_idx, v)
     }
 
     pub fn push_current(&mut self, current_variable_idx: CurrentVariableIdx, v: V) {
@@ -582,27 +610,33 @@ impl<V> SynSymbolOrderedMap<V> {
     }
 }
 
-impl<V> Default for SynSymbolOrderedMap<V> {
+impl<V> Default for VariableOrderedMap<V> {
     fn default() -> Self {
         Self {
-            inherited_syn_symbol_ordered_map: Default::default(),
+            inherited_variable_ordered_map: Default::default(),
             current_variable_ordered_map: Default::default(),
         }
     }
 }
 
-impl<V> std::ops::Index<InheritedSymbolicVariableIdx> for SynSymbolOrderedMap<V> {
+impl<V> std::ops::Index<InheritedVariableIdx> for VariableOrderedMap<V> {
     type Output = V;
 
-    fn index(&self, idx: InheritedSymbolicVariableIdx) -> &Self::Output {
-        &self.inherited_syn_symbol_ordered_map[idx]
+    fn index(&self, idx: InheritedVariableIdx) -> &Self::Output {
+        &self.inherited_variable_ordered_map[idx]
     }
 }
 
-impl<V> std::ops::Index<CurrentVariableIdx> for SynSymbolOrderedMap<V> {
+impl<V> std::ops::Index<CurrentVariableIdx> for VariableOrderedMap<V> {
     type Output = V;
 
     fn index(&self, idx: CurrentVariableIdx) -> &Self::Output {
         &self.current_variable_ordered_map[idx]
+    }
+}
+
+impl<V> std::ops::IndexMut<CurrentVariableIdx> for VariableOrderedMap<V> {
+    fn index_mut(&mut self, index: CurrentVariableIdx) -> &mut Self::Output {
+        &mut self.current_variable_ordered_map[index]
     }
 }

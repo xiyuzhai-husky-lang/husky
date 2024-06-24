@@ -145,7 +145,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::Eval {
-                                    sem_expr_idx: SemExprIdx(
+                                    expr: SemExprIdx(
                                         0,
                                     ),
                                     outcome: Some(
@@ -193,7 +193,7 @@
                                             3,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemExprIdx(
+                                    initial_value: SemExprIdx(
                                         1,
                                     ),
                                     coercion_outcome: None,
@@ -274,7 +274,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
@@ -295,7 +295,7 @@
                 ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
@@ -515,7 +515,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `x`,
                                     regional_token_idx: RegionalTokenIdx(
                                         9,
@@ -760,7 +760,7 @@
                                             3,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemExprIdx(
+                                    initial_value: SemExprIdx(
                                         5,
                                     ),
                                     coercion_outcome: None,
@@ -922,7 +922,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
@@ -955,7 +955,7 @@
                 ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {
@@ -1286,7 +1286,7 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `x`,
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
@@ -1548,7 +1548,7 @@
                         SemStmtEntry {
                             data_result: Ok(
                                 SemStmtData::Eval {
-                                    sem_expr_idx: SemExprIdx(
+                                    expr: SemExprIdx(
                                         4,
                                     ),
                                     outcome: Some(
@@ -1592,7 +1592,7 @@
                                             3,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemExprIdx(
+                                    initial_value: SemExprIdx(
                                         6,
                                     ),
                                     coercion_outcome: None,
@@ -1754,7 +1754,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
@@ -1787,7 +1787,7 @@
                 ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [],
             },
             fly_term_region: FlyTermRegion {

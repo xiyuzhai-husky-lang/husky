@@ -90,8 +90,8 @@ impl<'db> SemItemPathDepsBuilder<'db> {
                 self.add_item_path(ontology_dispatch.path());
                 self.add_instantiation(ontology_dispatch.instantiation());
             }
-            SemExprData::InheritedSynSymbol { .. } => (),
-            SemExprData::CurrentSynSymbol { .. } => (),
+            SemExprData::InheritedVariable { .. } => (),
+            SemExprData::CurrentVariable { .. } => (),
             SemExprData::FrameVarDecl { .. } => (),
             SemExprData::SelfType(_) => (),
             SemExprData::SelfValue(_) => (),

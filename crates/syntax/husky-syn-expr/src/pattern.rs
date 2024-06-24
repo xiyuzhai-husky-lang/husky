@@ -193,12 +193,12 @@ where
                         },
                         ItemPathExpr::AssocItem { .. } => todo!(),
                     },
-                    DisambiguatedTokenData::InheritedSynSymbol {
+                    DisambiguatedTokenData::InheritedVariable {
                         regional_token_idx,
                         ident,
                         ..
                     }
-                    | DisambiguatedTokenData::CurrentSynSymbol {
+                    | DisambiguatedTokenData::CurrentVariable {
                         regional_token_idx,
                         ident,
                         ..

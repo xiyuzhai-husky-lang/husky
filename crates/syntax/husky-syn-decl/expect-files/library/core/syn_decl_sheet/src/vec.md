@@ -79,7 +79,7 @@ SynDeclSheet {
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [],
                                         },
                                         current_variable_arena: Arena {
@@ -195,14 +195,14 @@ SynDeclSheet {
                                                 ),
                                             ),
                                         },
-                                        SynExprData::CurrentSynSymbol {
+                                        SynExprData::CurrentVariable {
                                             ident: `E`,
                                             regional_token_idx: RegionalTokenIdx(
                                                 6,
                                             ),
                                             current_variable_idx: 0,
                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `E`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -256,7 +256,7 @@ SynDeclSheet {
                                     },
                                 },
                                 variable_region: VariableRegionData {
-                                    inherited_syn_symbol_arena: Arena {
+                                    inherited_variable_arena: Arena {
                                         data: [],
                                     },
                                     current_variable_arena: Arena {
@@ -367,14 +367,14 @@ SynDeclSheet {
                                                                 ),
                                                             ),
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `E`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 6,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -428,7 +428,7 @@ SynDeclSheet {
                                                     },
                                                 },
                                                 variable_region: VariableRegionData {
-                                                    inherited_syn_symbol_arena: Arena {
+                                                    inherited_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     current_variable_arena: Arena {
@@ -558,9 +558,9 @@ SynDeclSheet {
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
@@ -689,14 +689,14 @@ SynDeclSheet {
                                                                 ),
                                                             ),
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `E`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 6,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -750,7 +750,7 @@ SynDeclSheet {
                                                     },
                                                 },
                                                 variable_region: VariableRegionData {
-                                                    inherited_syn_symbol_arena: Arena {
+                                                    inherited_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     current_variable_arena: Arena {
@@ -830,13 +830,13 @@ SynDeclSheet {
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            SynExprData::InheritedSynSymbol {
+                                            SynExprData::InheritedVariable {
                                                 ident: `E`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     12,
                                                 ),
-                                                inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                inherited_variable_idx: 0,
+                                                inherited_variable_kind: InheritedVariableKind::Template(
                                                     InheritedTemplateVariable::Type {
                                                         ident: `E`,
                                                     },
@@ -899,9 +899,9 @@ SynDeclSheet {
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
@@ -1042,14 +1042,14 @@ SynDeclSheet {
                                                                 ),
                                                             ),
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `E`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 6,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -1103,7 +1103,7 @@ SynDeclSheet {
                                                     },
                                                 },
                                                 variable_region: VariableRegionData {
-                                                    inherited_syn_symbol_arena: Arena {
+                                                    inherited_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     current_variable_arena: Arena {
@@ -1203,13 +1203,13 @@ SynDeclSheet {
                                                 function_expr_idx: 0,
                                                 argument_expr_idx: 1,
                                             },
-                                            SynExprData::InheritedSynSymbol {
+                                            SynExprData::InheritedVariable {
                                                 ident: `E`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     11,
                                                 ),
-                                                inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                inherited_variable_idx: 0,
+                                                inherited_variable_kind: InheritedVariableKind::Template(
                                                     InheritedTemplateVariable::Type {
                                                         ident: `E`,
                                                     },
@@ -1259,9 +1259,9 @@ SynDeclSheet {
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
@@ -1368,14 +1368,14 @@ SynDeclSheet {
                                                                 ),
                                                             ),
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `E`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 6,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -1429,7 +1429,7 @@ SynDeclSheet {
                                                     },
                                                 },
                                                 variable_region: VariableRegionData {
-                                                    inherited_syn_symbol_arena: Arena {
+                                                    inherited_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     current_variable_arena: Arena {
@@ -1529,13 +1529,13 @@ SynDeclSheet {
                                                 function_expr_idx: 0,
                                                 argument_expr_idx: 1,
                                             },
-                                            SynExprData::InheritedSynSymbol {
+                                            SynExprData::InheritedVariable {
                                                 ident: `E`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     11,
                                                 ),
-                                                inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                inherited_variable_idx: 0,
+                                                inherited_variable_kind: InheritedVariableKind::Template(
                                                     InheritedTemplateVariable::Type {
                                                         ident: `E`,
                                                     },
@@ -1585,9 +1585,9 @@ SynDeclSheet {
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
@@ -1699,14 +1699,14 @@ SynDeclSheet {
                                                                 ),
                                                             ),
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `E`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 6,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -1760,7 +1760,7 @@ SynDeclSheet {
                                                     },
                                                 },
                                                 variable_region: VariableRegionData {
-                                                    inherited_syn_symbol_arena: Arena {
+                                                    inherited_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     current_variable_arena: Arena {
@@ -1850,13 +1850,13 @@ SynDeclSheet {
                                                     ),
                                                 ),
                                             },
-                                            SynExprData::InheritedSynSymbol {
+                                            SynExprData::InheritedVariable {
                                                 ident: `E`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     11,
                                                 ),
-                                                inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                inherited_variable_idx: 0,
+                                                inherited_variable_kind: InheritedVariableKind::Template(
                                                     InheritedTemplateVariable::Type {
                                                         ident: `E`,
                                                     },
@@ -1906,9 +1906,9 @@ SynDeclSheet {
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
@@ -2014,14 +2014,14 @@ SynDeclSheet {
                                                                 ),
                                                             ),
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `E`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 6,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -2075,7 +2075,7 @@ SynDeclSheet {
                                                     },
                                                 },
                                                 variable_region: VariableRegionData {
-                                                    inherited_syn_symbol_arena: Arena {
+                                                    inherited_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     current_variable_arena: Arena {
@@ -2155,13 +2155,13 @@ SynDeclSheet {
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            SynExprData::InheritedSynSymbol {
+                                            SynExprData::InheritedVariable {
                                                 ident: `E`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     12,
                                                 ),
-                                                inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                inherited_variable_idx: 0,
+                                                inherited_variable_kind: InheritedVariableKind::Template(
                                                     InheritedTemplateVariable::Type {
                                                         ident: `E`,
                                                     },
@@ -2211,9 +2211,9 @@ SynDeclSheet {
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
@@ -2360,14 +2360,14 @@ SynDeclSheet {
                                                                 ),
                                                             ),
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `E`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 6,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -2421,7 +2421,7 @@ SynDeclSheet {
                                                     },
                                                 },
                                                 variable_region: VariableRegionData {
-                                                    inherited_syn_symbol_arena: Arena {
+                                                    inherited_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     current_variable_arena: Arena {
@@ -2531,13 +2531,13 @@ SynDeclSheet {
                                                     ),
                                                 ),
                                             },
-                                            SynExprData::InheritedSynSymbol {
+                                            SynExprData::InheritedVariable {
                                                 ident: `E`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     19,
                                                 ),
-                                                inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                inherited_variable_idx: 0,
+                                                inherited_variable_kind: InheritedVariableKind::Template(
                                                     InheritedTemplateVariable::Type {
                                                         ident: `E`,
                                                     },
@@ -2669,9 +2669,9 @@ SynDeclSheet {
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
@@ -2876,14 +2876,14 @@ SynDeclSheet {
                                                                 ),
                                                             ),
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `E`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 6,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `E`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -2937,7 +2937,7 @@ SynDeclSheet {
                                                     },
                                                 },
                                                 variable_region: VariableRegionData {
-                                                    inherited_syn_symbol_arena: Arena {
+                                                    inherited_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     current_variable_arena: Arena {
@@ -3017,13 +3017,13 @@ SynDeclSheet {
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            SynExprData::InheritedSynSymbol {
+                                            SynExprData::InheritedVariable {
                                                 ident: `E`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     13,
                                                 ),
-                                                inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                inherited_variable_idx: 0,
+                                                inherited_variable_kind: InheritedVariableKind::Template(
                                                     InheritedTemplateVariable::Type {
                                                         ident: `E`,
                                                     },
@@ -3080,13 +3080,13 @@ SynDeclSheet {
                                                     2,
                                                 ),
                                             },
-                                            SynExprData::InheritedSynSymbol {
+                                            SynExprData::InheritedVariable {
                                                 ident: `E`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     21,
                                                 ),
-                                                inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                inherited_variable_idx: 0,
+                                                inherited_variable_kind: InheritedVariableKind::Template(
                                                     InheritedTemplateVariable::Type {
                                                         ident: `E`,
                                                     },
@@ -3164,9 +3164,9 @@ SynDeclSheet {
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {

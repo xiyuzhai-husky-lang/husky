@@ -71,7 +71,7 @@ SynDeclSheet {
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [],
                                         },
                                         current_variable_arena: Arena {
@@ -193,14 +193,14 @@ SynDeclSheet {
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            SynExprData::CurrentSynSymbol {
+                                            SynExprData::CurrentVariable {
                                                 ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     14,
                                                 ),
                                                 current_variable_idx: 0,
                                                 current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                    template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                    template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -234,7 +234,7 @@ SynDeclSheet {
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [],
                                         },
                                         current_variable_arena: Arena {
@@ -415,14 +415,14 @@ SynDeclSheet {
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            SynExprData::CurrentSynSymbol {
+                                            SynExprData::CurrentVariable {
                                                 ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     14,
                                                 ),
                                                 current_variable_idx: 0,
                                                 current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                    template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                    template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -456,7 +456,7 @@ SynDeclSheet {
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [],
                                         },
                                         current_variable_arena: Arena {
@@ -716,14 +716,14 @@ SynDeclSheet {
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            SynExprData::CurrentSynSymbol {
+                                            SynExprData::CurrentVariable {
                                                 ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     12,
                                                 ),
                                                 current_variable_idx: 0,
                                                 current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                    template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                    template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -773,14 +773,14 @@ SynDeclSheet {
                                                     ),
                                                 ),
                                             },
-                                            SynExprData::CurrentSynSymbol {
+                                            SynExprData::CurrentVariable {
                                                 ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     32,
                                                 ),
                                                 current_variable_idx: 0,
                                                 current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                    template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                    template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -794,14 +794,14 @@ SynDeclSheet {
                                                 function_expr_idx: 4,
                                                 argument_expr_idx: 5,
                                             },
-                                            SynExprData::CurrentSynSymbol {
+                                            SynExprData::CurrentVariable {
                                                 ident: `label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     33,
                                                 ),
                                                 current_variable_idx: 1,
                                                 current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                    template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
+                                                    template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `label`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -910,7 +910,7 @@ SynDeclSheet {
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [],
                                         },
                                         current_variable_arena: Arena {
@@ -1168,14 +1168,14 @@ SynDeclSheet {
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        SynExprData::CurrentSynSymbol {
+                                        SynExprData::CurrentVariable {
                                             ident: `Label`,
                                             regional_token_idx: RegionalTokenIdx(
                                                 12,
                                             ),
                                             current_variable_idx: 0,
                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `Label`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -1205,14 +1205,14 @@ SynDeclSheet {
                                                 ),
                                             ),
                                         },
-                                        SynExprData::CurrentSynSymbol {
+                                        SynExprData::CurrentVariable {
                                             ident: `Label`,
                                             regional_token_idx: RegionalTokenIdx(
                                                 17,
                                             ),
                                             current_variable_idx: 0,
                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `Label`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -1226,14 +1226,14 @@ SynDeclSheet {
                                             function_expr_idx: 2,
                                             argument_expr_idx: 3,
                                         },
-                                        SynExprData::CurrentSynSymbol {
+                                        SynExprData::CurrentVariable {
                                             ident: `label`,
                                             regional_token_idx: RegionalTokenIdx(
                                                 18,
                                             ),
                                             current_variable_idx: 1,
                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
+                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `label`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -1302,7 +1302,7 @@ SynDeclSheet {
                                     },
                                 },
                                 variable_region: VariableRegionData {
-                                    inherited_syn_symbol_arena: Arena {
+                                    inherited_variable_arena: Arena {
                                         data: [],
                                     },
                                     current_variable_arena: Arena {
@@ -1465,14 +1465,14 @@ SynDeclSheet {
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 12,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `Label`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -1502,14 +1502,14 @@ SynDeclSheet {
                                                                 ),
                                                             ),
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 17,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `Label`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -1523,14 +1523,14 @@ SynDeclSheet {
                                                             function_expr_idx: 2,
                                                             argument_expr_idx: 3,
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 18,
                                                             ),
                                                             current_variable_idx: 1,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `label`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -1599,7 +1599,7 @@ SynDeclSheet {
                                                     },
                                                 },
                                                 variable_region: VariableRegionData {
-                                                    inherited_syn_symbol_arena: Arena {
+                                                    inherited_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     current_variable_arena: Arena {
@@ -1770,9 +1770,9 @@ SynDeclSheet {
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
@@ -1780,7 +1780,7 @@ SynDeclSheet {
                                                         },
                                                     ),
                                                 },
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Constant {
@@ -1888,14 +1888,14 @@ SynDeclSheet {
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        SynExprData::CurrentSynSymbol {
+                                        SynExprData::CurrentVariable {
                                             ident: `Label`,
                                             regional_token_idx: RegionalTokenIdx(
                                                 10,
                                             ),
                                             current_variable_idx: 0,
                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `Label`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -1929,14 +1929,14 @@ SynDeclSheet {
                                             function_expr_idx: 1,
                                             argument_expr_idx: 2,
                                         },
-                                        SynExprData::CurrentSynSymbol {
+                                        SynExprData::CurrentVariable {
                                             ident: `Label`,
                                             regional_token_idx: RegionalTokenIdx(
                                                 18,
                                             ),
                                             current_variable_idx: 0,
                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `Label`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -1950,14 +1950,14 @@ SynDeclSheet {
                                             function_expr_idx: 3,
                                             argument_expr_idx: 4,
                                         },
-                                        SynExprData::CurrentSynSymbol {
+                                        SynExprData::CurrentVariable {
                                             ident: `label`,
                                             regional_token_idx: RegionalTokenIdx(
                                                 19,
                                             ),
                                             current_variable_idx: 1,
                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
+                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `label`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -1981,14 +1981,14 @@ SynDeclSheet {
                                                 ),
                                             ),
                                         },
-                                        SynExprData::CurrentSynSymbol {
+                                        SynExprData::CurrentVariable {
                                             ident: `Label`,
                                             regional_token_idx: RegionalTokenIdx(
                                                 22,
                                             ),
                                             current_variable_idx: 0,
                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `Label`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -2114,7 +2114,7 @@ SynDeclSheet {
                                     },
                                 },
                                 variable_region: VariableRegionData {
-                                    inherited_syn_symbol_arena: Arena {
+                                    inherited_variable_arena: Arena {
                                         data: [],
                                     },
                                     current_variable_arena: Arena {
@@ -2256,14 +2256,14 @@ SynDeclSheet {
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 10,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `Label`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -2297,14 +2297,14 @@ SynDeclSheet {
                                                             function_expr_idx: 1,
                                                             argument_expr_idx: 2,
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 18,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `Label`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -2318,14 +2318,14 @@ SynDeclSheet {
                                                             function_expr_idx: 3,
                                                             argument_expr_idx: 4,
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 19,
                                                             ),
                                                             current_variable_idx: 1,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `label`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -2349,14 +2349,14 @@ SynDeclSheet {
                                                                 ),
                                                             ),
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 22,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `Label`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -2482,7 +2482,7 @@ SynDeclSheet {
                                                     },
                                                 },
                                                 variable_region: VariableRegionData {
-                                                    inherited_syn_symbol_arena: Arena {
+                                                    inherited_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     current_variable_arena: Arena {
@@ -2641,9 +2641,9 @@ SynDeclSheet {
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
@@ -2651,7 +2651,7 @@ SynDeclSheet {
                                                         },
                                                     ),
                                                 },
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Constant {
@@ -2751,14 +2751,14 @@ SynDeclSheet {
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 10,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `Label`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -2792,14 +2792,14 @@ SynDeclSheet {
                                                             function_expr_idx: 1,
                                                             argument_expr_idx: 2,
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 18,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `Label`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -2813,14 +2813,14 @@ SynDeclSheet {
                                                             function_expr_idx: 3,
                                                             argument_expr_idx: 4,
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 19,
                                                             ),
                                                             current_variable_idx: 1,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `label`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -2844,14 +2844,14 @@ SynDeclSheet {
                                                                 ),
                                                             ),
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 22,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `Label`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -2977,7 +2977,7 @@ SynDeclSheet {
                                                     },
                                                 },
                                                 variable_region: VariableRegionData {
-                                                    inherited_syn_symbol_arena: Arena {
+                                                    inherited_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     current_variable_arena: Arena {
@@ -3116,13 +3116,13 @@ SynDeclSheet {
                                                     ),
                                                 ),
                                             },
-                                            SynExprData::InheritedSynSymbol {
+                                            SynExprData::InheritedVariable {
                                                 ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     8,
                                                 ),
-                                                inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                inherited_variable_idx: 0,
+                                                inherited_variable_kind: InheritedVariableKind::Template(
                                                     InheritedTemplateVariable::Type {
                                                         ident: `Label`,
                                                     },
@@ -3132,13 +3132,13 @@ SynDeclSheet {
                                                 function_expr_idx: 0,
                                                 argument_expr_idx: 1,
                                             },
-                                            SynExprData::InheritedSynSymbol {
+                                            SynExprData::InheritedVariable {
                                                 ident: `label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     9,
                                                 ),
-                                                inherited_syn_symbol_idx: 1,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                inherited_variable_idx: 1,
+                                                inherited_variable_kind: InheritedVariableKind::Template(
                                                     InheritedTemplateVariable::Constant {
                                                         ident: `label`,
                                                     },
@@ -3300,9 +3300,9 @@ SynDeclSheet {
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
@@ -3310,7 +3310,7 @@ SynDeclSheet {
                                                         },
                                                     ),
                                                 },
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Constant {
@@ -3456,14 +3456,14 @@ SynDeclSheet {
                                 ),
                                 expr_arena: Arena {
                                     data: [
-                                        SynExprData::CurrentSynSymbol {
+                                        SynExprData::CurrentVariable {
                                             ident: `Label`,
                                             regional_token_idx: RegionalTokenIdx(
                                                 12,
                                             ),
                                             current_variable_idx: 0,
                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `Label`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -3497,14 +3497,14 @@ SynDeclSheet {
                                             function_expr_idx: 1,
                                             argument_expr_idx: 2,
                                         },
-                                        SynExprData::CurrentSynSymbol {
+                                        SynExprData::CurrentVariable {
                                             ident: `Label`,
                                             regional_token_idx: RegionalTokenIdx(
                                                 20,
                                             ),
                                             current_variable_idx: 0,
                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `Label`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -3518,14 +3518,14 @@ SynDeclSheet {
                                             function_expr_idx: 3,
                                             argument_expr_idx: 4,
                                         },
-                                        SynExprData::CurrentSynSymbol {
+                                        SynExprData::CurrentVariable {
                                             ident: `label`,
                                             regional_token_idx: RegionalTokenIdx(
                                                 21,
                                             ),
                                             current_variable_idx: 1,
                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
+                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `label`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -3549,14 +3549,14 @@ SynDeclSheet {
                                                 ),
                                             ),
                                         },
-                                        SynExprData::CurrentSynSymbol {
+                                        SynExprData::CurrentVariable {
                                             ident: `Label`,
                                             regional_token_idx: RegionalTokenIdx(
                                                 24,
                                             ),
                                             current_variable_idx: 0,
                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `Label`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -3570,14 +3570,14 @@ SynDeclSheet {
                                             function_expr_idx: 8,
                                             argument_expr_idx: 9,
                                         },
-                                        SynExprData::CurrentSynSymbol {
+                                        SynExprData::CurrentVariable {
                                             ident: `label`,
                                             regional_token_idx: RegionalTokenIdx(
                                                 25,
                                             ),
                                             current_variable_idx: 1,
                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
+                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `label`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -3703,7 +3703,7 @@ SynDeclSheet {
                                     },
                                 },
                                 variable_region: VariableRegionData {
-                                    inherited_syn_symbol_arena: Arena {
+                                    inherited_variable_arena: Arena {
                                         data: [],
                                     },
                                     current_variable_arena: Arena {
@@ -3858,14 +3858,14 @@ SynDeclSheet {
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 12,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `Label`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -3899,14 +3899,14 @@ SynDeclSheet {
                                                             function_expr_idx: 1,
                                                             argument_expr_idx: 2,
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 20,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `Label`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -3920,14 +3920,14 @@ SynDeclSheet {
                                                             function_expr_idx: 3,
                                                             argument_expr_idx: 4,
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 21,
                                                             ),
                                                             current_variable_idx: 1,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `label`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -3951,14 +3951,14 @@ SynDeclSheet {
                                                                 ),
                                                             ),
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 24,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `Label`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -3972,14 +3972,14 @@ SynDeclSheet {
                                                             function_expr_idx: 8,
                                                             argument_expr_idx: 9,
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 25,
                                                             ),
                                                             current_variable_idx: 1,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `label`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -4105,7 +4105,7 @@ SynDeclSheet {
                                                     },
                                                 },
                                                 variable_region: VariableRegionData {
-                                                    inherited_syn_symbol_arena: Arena {
+                                                    inherited_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     current_variable_arena: Arena {
@@ -4277,9 +4277,9 @@ SynDeclSheet {
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
@@ -4287,7 +4287,7 @@ SynDeclSheet {
                                                         },
                                                     ),
                                                 },
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Constant {
@@ -4387,14 +4387,14 @@ SynDeclSheet {
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 12,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `Label`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -4428,14 +4428,14 @@ SynDeclSheet {
                                                             function_expr_idx: 1,
                                                             argument_expr_idx: 2,
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 20,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `Label`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -4449,14 +4449,14 @@ SynDeclSheet {
                                                             function_expr_idx: 3,
                                                             argument_expr_idx: 4,
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 21,
                                                             ),
                                                             current_variable_idx: 1,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `label`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -4480,14 +4480,14 @@ SynDeclSheet {
                                                                 ),
                                                             ),
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `Label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 24,
                                                             ),
                                                             current_variable_idx: 0,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `Label`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -4501,14 +4501,14 @@ SynDeclSheet {
                                                             function_expr_idx: 8,
                                                             argument_expr_idx: 9,
                                                         },
-                                                        SynExprData::CurrentSynSymbol {
+                                                        SynExprData::CurrentVariable {
                                                             ident: `label`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 25,
                                                             ),
                                                             current_variable_idx: 1,
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                                                template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
+                                                                template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {
                                                                     ident_token: IdentRegionalToken {
                                                                         ident: `label`,
                                                                         regional_token_idx: RegionalTokenIdx(
@@ -4634,7 +4634,7 @@ SynDeclSheet {
                                                     },
                                                 },
                                                 variable_region: VariableRegionData {
-                                                    inherited_syn_symbol_arena: Arena {
+                                                    inherited_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     current_variable_arena: Arena {
@@ -4786,13 +4786,13 @@ SynDeclSheet {
                                                     ),
                                                 ),
                                             },
-                                            SynExprData::InheritedSynSymbol {
+                                            SynExprData::InheritedVariable {
                                                 ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     8,
                                                 ),
-                                                inherited_syn_symbol_idx: 0,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                inherited_variable_idx: 0,
+                                                inherited_variable_kind: InheritedVariableKind::Template(
                                                     InheritedTemplateVariable::Type {
                                                         ident: `Label`,
                                                     },
@@ -4802,13 +4802,13 @@ SynDeclSheet {
                                                 function_expr_idx: 0,
                                                 argument_expr_idx: 1,
                                             },
-                                            SynExprData::InheritedSynSymbol {
+                                            SynExprData::InheritedVariable {
                                                 ident: `label`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     9,
                                                 ),
-                                                inherited_syn_symbol_idx: 1,
-                                                inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                                                inherited_variable_idx: 1,
+                                                inherited_variable_kind: InheritedVariableKind::Template(
                                                     InheritedTemplateVariable::Constant {
                                                         ident: `label`,
                                                     },
@@ -4970,9 +4970,9 @@ SynDeclSheet {
                                         },
                                     },
                                     variable_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
+                                        inherited_variable_arena: Arena {
                                             data: [
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Type {
@@ -4980,7 +4980,7 @@ SynDeclSheet {
                                                         },
                                                     ),
                                                 },
-                                                InheritedVariable {
+                                                InheritedVariableEntry {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Constant {

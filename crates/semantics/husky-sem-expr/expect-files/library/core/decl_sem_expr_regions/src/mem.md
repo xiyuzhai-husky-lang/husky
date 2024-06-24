@@ -28,7 +28,7 @@
             },
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
@@ -53,7 +53,7 @@
                 ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     FlyTerm {
                         place: None,
@@ -120,7 +120,7 @@
             },
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
@@ -145,7 +145,7 @@
                 ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     FlyTerm {
                         place: None,
@@ -212,7 +212,7 @@
             },
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
@@ -227,7 +227,7 @@
                 ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     FlyTerm {
                         place: None,
@@ -288,7 +288,7 @@
             },
             sem_expr_terms: [],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
@@ -313,7 +313,7 @@
                 ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     FlyTerm {
                         place: None,
@@ -434,14 +434,14 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::CurrentSynSymbol {
+                                SemExprData::CurrentVariable {
                                     ident: `E`,
                                     regional_token_idx: RegionalTokenIdx(
                                         8,
                                     ),
                                     current_variable_idx: 0,
                                     current_variable_kind: CurrentVariableKind::TemplateParameter {
-                                        template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                        template_parameter_kind: CurrentTemplateParameterVariableKind::Type {
                                             ident_token: IdentRegionalToken {
                                                 ident: `E`,
                                                 regional_token_idx: RegionalTokenIdx(
@@ -594,7 +594,7 @@
                 ),
             ],
             symbol_tys: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
@@ -609,7 +609,7 @@
                 ],
             },
             symbol_terms: SymbolMap {
-                inherited_syn_symbol_map: [],
+                inherited_variable_map: [],
                 current_variable_map: [
                     FlyTerm {
                         place: None,

@@ -237,10 +237,10 @@ impl<'a> SynExprRangeCalculator<'a> {
     fn calc_expr_range(&mut self, expr: &SynExprData) -> RegionalTokenIdxRange {
         match *expr {
             SynExprData::Literal(regional_token_idx, _)
-            | SynExprData::InheritedSynSymbol {
+            | SynExprData::InheritedVariable {
                 regional_token_idx, ..
             }
-            | SynExprData::CurrentSynSymbol {
+            | SynExprData::CurrentVariable {
                 regional_token_idx, ..
             }
             | SynExprData::FrameVarDecl {

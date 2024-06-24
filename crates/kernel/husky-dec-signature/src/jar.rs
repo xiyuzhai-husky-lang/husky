@@ -85,10 +85,11 @@ pub struct DecSignatureJar(
     crate::signature::assoc_item::trai_for_ty_item::assoc_val::TraitForTypeAssocValDecTemplate,
     // attr
     crate::signature::attr::attr_dec_template,
-    crate::signature::attr::task::TaskAttrDecTemplate,
+    crate::signature::attr::backprop::BackpropAttrDecTemplate,
     crate::signature::attr::deps::DepsAttrDecTemplate,
     crate::signature::attr::derive::DeriveAttrDecTemplate,
     crate::signature::attr::derive::DeriveAttrShardDecTemplate,
     crate::signature::attr::projection::ProjectionAttrDecTemplate,
     crate::signature::attr::singleton::SingletonAttrDecTemplate,
+    crate::signature::attr::task::TaskAttrDecTemplate,
 );

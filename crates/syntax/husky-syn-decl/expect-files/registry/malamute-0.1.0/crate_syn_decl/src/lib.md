@@ -198,7 +198,7 @@ Ok(
                             },
                         },
                         variable_region: VariableRegionData {
-                            inherited_syn_symbol_arena: Arena {
+                            inherited_variable_arena: Arena {
                                 data: [],
                             },
                             current_variable_arena: Arena {

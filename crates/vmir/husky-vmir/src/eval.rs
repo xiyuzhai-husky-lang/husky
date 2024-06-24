@@ -26,7 +26,7 @@ pub trait EvalVmir<'comptime, LinkageImpl: IsLinkageImpl> {
     ) -> LinkageImplVmControlFlow<LinkageImpl>;
 
     /// wrap the inner expression evaluation process, which exclude evalution of subexpressions
-    fn eval_expr_inner(
+    fn eval_expr_itself(
         &mut self,
         expr: VmirExprIdx<LinkageImpl>,
         f: impl FnOnce(&mut Self) -> LinkageImplVmControlFlow<LinkageImpl>,

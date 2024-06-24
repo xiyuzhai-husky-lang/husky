@@ -35,7 +35,7 @@ impl<'a> SemExprBuilder<'a> {
     pub(crate) fn build_sem_for_between_particulars(
         &mut self,
         particulars: &'a SynForBetweenParticulars,
-        for_loop_var_symbol_idx: CurrentVariableIdx,
+        for_loop_varible_idx: CurrentVariableIdx,
     ) -> SynExprResultRef<'a, SemaForBetweenParticulars> {
         let Ok(ref range) = particulars.range else {
             todo!()
@@ -76,18 +76,18 @@ impl<'a> SemExprBuilder<'a> {
             todo!()
         };
         // let place = FlyPlace::ImmutableOnStack {
-        //     location: for_loop_var_symbol_idx
+        //     location: for_loop_varible_idx
         //         .into_local_symbol_idx(self.syn_expr_region_data())
         //         .into(),
         // };
         let frame_var_symbol_ty = SymbolType::new_variable_ty(
             self,
-            for_loop_var_symbol_idx,
+            for_loop_varible_idx,
             VariableModifier::Pure,
             expected_frame_var_ty,
         )
         .unwrap();
-        self.add_symbol_ty(for_loop_var_symbol_idx, frame_var_symbol_ty);
+        self.add_symbol_ty(for_loop_varible_idx, frame_var_symbol_ty);
         let for_between_loop_var_expr_idx = self.build_sem_expr(
             particulars.for_between_loop_var_expr_idx,
             ExpectCoercion::new_pure(self, frame_var_symbol_ty.term()),
@@ -141,7 +141,7 @@ pub struct SemaForextParticulars {
     pub forext_loop_var_regional_token_idx: RegionalTokenIdx,
     pub forext_loop_var_ident: Ident,
     pub forext_loop_var_sem_expr_idx: SemExprIdx,
-    pub bound_expr_sem_expr_idx: SemExprIdx,
+    pub bound_expr: SemExprIdx,
     pub boundary_kind: LoopBoundaryKind,
 }
 
@@ -172,7 +172,7 @@ impl<'a> SemExprBuilder<'a> {
             forext_loop_var_regional_token_idx: particulars.forext_loop_var_regional_token_idx,
             forext_loop_var_ident: particulars.forext_loop_var_ident,
             forext_loop_var_sem_expr_idx,
-            bound_expr_sem_expr_idx,
+            bound_expr: bound_expr_sem_expr_idx,
             boundary_kind: particulars.boundary_kind,
         }
     }

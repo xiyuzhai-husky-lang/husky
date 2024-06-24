@@ -28,7 +28,7 @@ pub enum SemStmtData {
         let_pattern_sem_obelisk: LetVariableObelisk,
         contract: Contract,
         eq_token: EqRegionalToken,
-        initial_value_sem_expr_idx: SemExprIdx,
+        initial_value: SemExprIdx,
         coercion_outcome: Option<ExpectCoercionOutcome>,
     },
     Return {
@@ -48,7 +48,7 @@ pub enum SemStmtData {
         break_token: BreakRegionalToken,
     },
     Eval {
-        sem_expr_idx: SemExprIdx,
+        expr: SemExprIdx,
         outcome: Option<ExpectationOutcome>,
         // todo: change this to EolOrEolSemicolonToken
         eol_semicolon: Option<EolSemicolonRegionalToken>,
@@ -56,7 +56,7 @@ pub enum SemStmtData {
     ForBetween {
         for_token: StmtForRegionalToken,
         particulars: SemaForBetweenParticulars,
-        for_loop_var_symbol_idx: CurrentVariableIdx,
+        for_loop_varible_idx: CurrentVariableIdx,
         eol_colon: EolRegionalToken,
         stmts: SemStmtIdxRange,
     },
@@ -220,6 +220,11 @@ impl SemStmtIdxRange {
         SemStmtIdx(self.0.end())
     }
 
+    pub fn last(self) -> Option<SemStmtIdx> {
+        let last = self.0.last()?;
+        Some(SemStmtIdx(last))
+    }
+
     pub fn split_last(self) -> (Self, SemStmtIdx) {
         let (range, last) = self.0.split_last();
         (Self(range), SemStmtIdx(last))
@@ -263,6 +268,10 @@ impl<V> SemStmtMap<V> {
 
     pub fn insert_new(&mut self, stmt: SemStmtIdx, v: V) {
         self.0.insert_new(stmt.0, v)
+    }
+
+    pub fn insert_new_or_merge(&mut self, stmt: SemStmtIdx, v: V, f: impl FnOnce(&mut V, V)) {
+        self.0.insert_new_or_merge(stmt.0, v, f)
     }
 
     pub fn get(&self, stmt: SemStmtIdx) -> Option<&V> {
@@ -419,7 +428,7 @@ impl<'a> SemExprBuilder<'a> {
                     };
                     (
                         Ok(SemStmtData::Eval {
-                            sem_expr_idx,
+                            expr: sem_expr_idx,
                             eol_semicolon,
                             outcome,
                         }),
@@ -434,13 +443,13 @@ impl<'a> SemExprBuilder<'a> {
             SynStmtData::ForBetween {
                 for_token,
                 ref particulars,
-                for_loop_var_symbol_idx,
+                for_loop_varible_idx,
                 ref block,
                 ref eol_colon,
             } => {
                 let expr_expectation = self.expect_unit();
                 let Ok(particulars) =
-                    self.build_sem_for_between_particulars(particulars, for_loop_var_symbol_idx)
+                    self.build_sem_for_between_particulars(particulars, for_loop_varible_idx)
                 else {
                     todo!()
                 };
@@ -450,7 +459,7 @@ impl<'a> SemExprBuilder<'a> {
                     Ok(SemStmtData::ForBetween {
                         for_token,
                         particulars,
-                        for_loop_var_symbol_idx,
+                        for_loop_varible_idx,
                         eol_colon,
                         stmts: block,
                     }),

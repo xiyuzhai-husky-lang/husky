@@ -35,7 +35,7 @@ fn item_sem_item_path_deps_works() {
 }
 
 #[salsa::tracked(return_ref)]
-pub(crate) fn item_item_path_deps_cropped(
+pub(crate) fn item_sem_item_path_deps_cropped(
     db: &::salsa::Db,
     item_path_id: ItemPathId,
 ) -> SemItemPathDepsResult<VecSet<ItemPath>> {
@@ -53,10 +53,10 @@ fn item_item_path_deps_cropped_works() {
         |db, item_syn_node_path: ItemSynNodePath| {
             item_syn_node_path
                 .unambiguous_item_path(db)
-                .map(|item_path| item_item_path_deps_cropped(db, *item_path))
+                .map(|item_path| item_sem_item_path_deps_cropped(db, *item_path))
         },
         &AstTestConfig::new(
-            "item_item_path_deps_cropped",
+            "item_sem_item_path_deps_cropped",
             FileExtensionConfig::Markdown,
             TestDomainsConfig::SEMANTICS,
         ),

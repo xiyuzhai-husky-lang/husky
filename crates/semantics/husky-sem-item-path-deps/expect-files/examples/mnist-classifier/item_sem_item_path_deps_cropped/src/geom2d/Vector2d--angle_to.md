@@ -1,0 +1,12 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`mnist_classifier::geom2d::Vector2d`),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::dot`),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`),
+        ],
+    ),
+)
+```

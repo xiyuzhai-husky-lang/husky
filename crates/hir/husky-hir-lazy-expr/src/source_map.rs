@@ -20,7 +20,7 @@ pub struct HirLazyExprSourceMapData {
     syn_to_hir_lazy_pattern_idx_map: SynPatternMap<HirLazyPatternIdx>,
     sem_to_hir_lazy_expr_idx_map: SemExprMap<HirLazyExprIdx>,
     sem_to_hir_lazy_stmt_idx_map: SemStmtMap<HirLazyStmtIdx>,
-    syn_symbol_to_hir_lazy_variable_map: VariableMap<HirLazyVariableIdx>,
+    variable_to_hir_lazy_variable_map: VariableMap<HirLazyVariableIdx>,
 }
 
 impl HirLazyExprSourceMapData {
@@ -55,7 +55,7 @@ impl HirLazyExprSourceMapData {
         &self,
         current_variable_idx: CurrentVariableIdx,
     ) -> Option<HirLazyVariableIdx> {
-        self.syn_symbol_to_hir_lazy_variable_map
+        self.variable_to_hir_lazy_variable_map
             .get_current(current_variable_idx)
             .copied()
     }
@@ -74,7 +74,7 @@ impl HirLazyExprSourceMap {
         syn_to_hir_lazy_pattern_idx_map: SynPatternMap<HirLazyPatternIdx>,
         sem_to_hir_lazy_expr_idx_map: SemExprMap<HirLazyExprIdx>,
         sem_to_hir_lazy_stmt_idx_map: SemStmtMap<HirLazyStmtIdx>,
-        syn_symbol_to_hir_lazy_variable_map: VariableMap<HirLazyVariableIdx>,
+        variable_to_hir_lazy_variable_map: VariableMap<HirLazyVariableIdx>,
     ) -> Self {
         Self::new_inner(
             db,
@@ -82,7 +82,7 @@ impl HirLazyExprSourceMap {
                 syn_to_hir_lazy_pattern_idx_map,
                 sem_to_hir_lazy_expr_idx_map,
                 sem_to_hir_lazy_stmt_idx_map,
-                syn_symbol_to_hir_lazy_variable_map,
+                variable_to_hir_lazy_variable_map,
             },
         )
     }

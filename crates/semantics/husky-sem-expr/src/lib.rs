@@ -21,11 +21,11 @@ pub use self::builder::*;
 pub use self::error::*;
 pub use self::expr::*;
 pub use self::jar::*;
-pub use self::obelisks::*;
 pub use self::region::*;
 pub use self::stmt::*;
 
 use self::jar::SemExprJar as Jar;
+use self::obelisks::*;
 use either::*;
 use husky_dec_signature::*;
 use husky_entity_kind::*;

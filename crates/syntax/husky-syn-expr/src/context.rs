@@ -16,7 +16,7 @@ pub struct SynExprContext<'a> {
     module_path: ModulePath,
     crate_root_path: ModulePath,
     parent_syn_expr_region: Option<SynExprRegion>,
-    syn_symbol_context: SynSymbolContextMut<'a>,
+    variable_context: VariableContextMut<'a>,
     syn_expr_arena: SynExprArena,
     syn_principal_entity_path_expr_arena: SynPrincipalEntityPathExprArena,
     syn_pattern_expr_region: SynPatternRegion,
@@ -71,7 +71,7 @@ impl<'a> SynExprContext<'a> {
             module_path,
             crate_root_path: module_path.root_module_path(db),
             parent_syn_expr_region: parent_expr_region,
-            syn_symbol_context: SynSymbolContextMut::new(
+            variable_context: VariableContextMut::new(
                 module_symbol_context,
                 parent_expr_region.map(|er| er.data(db).variable_region()),
                 allow_self_type,
@@ -90,7 +90,7 @@ impl<'a> SynExprContext<'a> {
     }
 
     pub fn finish(self) -> SynExprRegion {
-        self.syn_symbol_context.into_expr_region(
+        self.variable_context.into_expr_region(
             self.db,
             self.parent_syn_expr_region,
             self.path,
@@ -134,8 +134,7 @@ impl<'a> SynExprContext<'a> {
         variable: CurrentVariableEntry,
         ty_constraint: Option<SyndicateTypeConstraint>,
     ) -> CurrentVariableIdx {
-        self.syn_symbol_context
-            .define_symbol(variable, ty_constraint)
+        self.variable_context.define_symbol(variable, ty_constraint)
     }
 
     #[inline(always)]
@@ -143,8 +142,8 @@ impl<'a> SynExprContext<'a> {
         &mut self,
         variables: impl IntoIterator<Item = CurrentVariableEntry>,
         ty_constraint: Option<SyndicateTypeConstraint>,
-    ) -> CurrentSynSymbolIdxRange {
-        self.syn_symbol_context
+    ) -> CurrentVariableIdxRange {
+        self.variable_context
             .define_symbols(variables, ty_constraint)
     }
 
@@ -156,8 +155,8 @@ impl<'a> SynExprContext<'a> {
         &self.syn_expr_arena
     }
 
-    pub fn syn_symbol_context(&self) -> &SynSymbolContextMut<'a> {
-        &self.syn_symbol_context
+    pub fn variable_context(&self) -> &VariableContextMut<'a> {
+        &self.variable_context
     }
 
     pub fn module_path(&self) -> ModulePath {
@@ -222,7 +221,7 @@ impl<'a> SynExprContext<'a> {
         var: CurrentVariableIdx,
         access_end: RegionalTokenIdxRangeEnd,
     ) {
-        self.syn_symbol_context
+        self.variable_context
             .set_lambda_variable_access_end(var, access_end)
     }
 }

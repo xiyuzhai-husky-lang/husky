@@ -43,7 +43,7 @@ fn sem_expr_region_eth_term_fmt_context(
     let symbol_names = VecMap::from_iter_assuming_no_repetitions(
         sem_expr_region_data
             .symbol_terms
-            .inherited_syn_symbol_map()
+            .inherited_variable_map()
             .key_value_iter()
             .map(|(idx, term)| {
                 let FlyTermBase::Eth(EthTerm::SymbolicVariable(symbol)) =
@@ -144,6 +144,23 @@ impl SemExprRegionData {
         &'a self,
     ) -> impl Iterator<Item = (SemExprIdx, SynExprRootKind)> + 'a {
         self.sem_expr_roots.iter().map(|&(_, root)| root)
+    }
+
+    pub fn root_body(&self) -> SemExprIdx {
+        debug_assert_eq!(
+            self.sem_expr_roots
+                .iter()
+                .filter(|&&(_, (_, root_kind))| root_kind == SynExprRootKind::RootBody)
+                .count(),
+            1
+        );
+        self.sem_expr_roots
+            .iter()
+            .filter_map(|&(_, (expr, root_kind))| {
+                (root_kind == SynExprRootKind::RootBody).then_some(expr)
+            })
+            .next()
+            .unwrap()
     }
 
     pub fn sem_expr_arena(&self) -> SemExprArenaRef {

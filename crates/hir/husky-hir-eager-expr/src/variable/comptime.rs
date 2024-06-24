@@ -61,9 +61,9 @@ impl HirEagerComptimeVariableRegionData {
     ) -> Self {
         let mut arena = HirEagerComptimeVariableArena::default();
         let terms = sem_expr_region_data.fly_term_region().terms();
-        for (inherited_syn_symbol_idx, &fly_term) in sem_expr_region_data
+        for (inherited_variable_idx, &fly_term) in sem_expr_region_data
             .symbol_terms()
-            .inherited_syn_symbol_key_values()
+            .inherited_variable_key_values()
         {
             let FlyTermBase::Eth(term) = fly_term.base_resolved_inner(terms) else {
                 unreachable!()
@@ -74,7 +74,7 @@ impl HirEagerComptimeVariableRegionData {
                     else {
                         continue;
                     };
-                    let name = match syn_symobl_region_data[inherited_syn_symbol_idx].ident() {
+                    let name = match syn_symobl_region_data[inherited_variable_idx].ident() {
                         Some(ident) => HirEagerComptimeVariableName::Ident(ident),
                         None => todo!(),
                     };

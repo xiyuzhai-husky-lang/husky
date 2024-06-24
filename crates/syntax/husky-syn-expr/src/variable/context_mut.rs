@@ -3,12 +3,12 @@ use husky_vfs::path::module_path::ModulePath;
 
 use super::*;
 
-pub struct SynSymbolContextMut<'a> {
+pub struct VariableContextMut<'a> {
     module_symbol_context: ModuleSymbolContext<'a>,
     variable_region: VariableRegionData,
 }
 
-impl<'a> SynSymbolContextMut<'a> {
+impl<'a> VariableContextMut<'a> {
     pub fn new(
         module_symbol_context: ModuleSymbolContext<'a>,
         parent_symbol_region: Option<&VariableRegionData>,
@@ -82,7 +82,7 @@ impl<'a> SynSymbolContextMut<'a> {
         &mut self,
         variables: impl IntoIterator<Item = CurrentVariableEntry>,
         ty_constraint: Option<SyndicateTypeConstraint>,
-    ) -> CurrentSynSymbolIdxRange {
+    ) -> CurrentVariableIdxRange {
         self.variable_region
             .define_variables(variables, ty_constraint)
     }
