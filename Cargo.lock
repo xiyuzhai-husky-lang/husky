@@ -6236,6 +6236,7 @@ dependencies = [
  "husky-manifest-ast",
  "husky-opr",
  "husky-place",
+ "husky-print-utils",
  "husky-regional-token",
  "husky-sem-expr",
  "husky-sem-item-path-deps",

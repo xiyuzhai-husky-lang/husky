@@ -52,6 +52,12 @@ impl<T, V> std::ops::Index<ArenaIdx<T>> for ArenaOrderedMap<T, V> {
     }
 }
 
+impl<T, V> std::ops::IndexMut<ArenaIdx<T>> for ArenaOrderedMap<T, V> {
+    fn index_mut(&mut self, index: ArenaIdx<T>) -> &mut Self::Output {
+        &mut self.data[index.index()]
+    }
+}
+
 impl<T, V> salsa::DebugWithDb for ArenaOrderedMap<T, V>
 where
     T: salsa::DebugWithDb,

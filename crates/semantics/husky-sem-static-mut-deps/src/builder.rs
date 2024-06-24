@@ -11,11 +11,12 @@ use husky_fly_term::signature::assoc_item::trai_for_ty_item::{
 };
 use husky_sem_expr::{
     helpers::{region::sem_expr_region_from_region_path, visitor::VisitSemExpr},
+    obelisks::closure_parameter::ClosureParameterObelisk,
     stmt::condition::SemCondition,
     SemExprData, SemExprIdx, SemExprMap, SemExprRegionData, SemStmtData, SemStmtIdx,
     SemStmtIdxRange, SemStmtMap, SemaRitchieArgument,
 };
-use husky_syn_expr::variable::VariableMap;
+use husky_syn_expr::variable::{CurrentVariableIdx, VariableMap};
 use husky_syn_expr::{region::SynExprRegionData, variable::CurrentVariableIdxRange};
 use husky_term_prelude::Contract;
 use vec_like::OrderedSmallVecSet;
@@ -108,7 +109,7 @@ where
                 parent_path,
                 ref ontology_dispatch,
                 ..
-            } => todo!(),
+            } => self.calc_path(ontology_dispatch.path()).clone(),
             SemExprData::TypeAsTraitItem {
                 ty,
                 trai,
@@ -128,10 +129,19 @@ where
             } => self.variable_static_mut_deps_table[inherited_variable_idx].clone(),
             SemExprData::CurrentVariable {
                 current_variable_idx,
+                ident,
                 ..
-            } => self.variable_static_mut_deps_table[current_variable_idx].clone(),
+            } => {
+                use husky_print_utils::p;
+                use salsa::DebugWithDb;
+
+                p!(ident.debug(self.db));
+                p!(self.sem_expr_region_data.path().debug(self.db));
+                self.variable_static_mut_deps_table[current_variable_idx].clone()
+            }
             SemExprData::FrameVarDecl {
-                frame_variable_idx, ..
+                for_loop_varible_idx,
+                ..
             } => todo!(),
             SemExprData::SelfType(_) => Default::default(),
             SemExprData::SelfValue(_) => todo!(),
@@ -301,15 +311,20 @@ where
             SemExprData::CompositionWithList {
                 owner, ref items, ..
             } => todo!(),
-            SemExprData::NewList {
-                ref items,
-                element_ty,
-                ..
-            } => todo!(),
+            SemExprData::NewList { ref items, .. } => {
+                let mut deps = SemStaticMutDeps::default();
+                for item in items {
+                    deps.merge(
+                        &self.expr_value_static_mut_deps_table[item.sem_expr_idx],
+                        &mut self.counter,
+                    );
+                }
+                deps
+            }
             SemExprData::BoxColonList { ref items, .. } => todo!(),
             SemExprData::VecFunctor { .. } => Default::default(),
             SemExprData::ArrayFunctor { .. } => Default::default(),
-            SemExprData::Block { stmts } => {
+            SemExprData::Block { stmts } | SemExprData::NestedBlock { stmts, .. } => {
                 self.stmt_value_static_mut_deps_table[stmts.last().unwrap()].clone()
             }
             SemExprData::EmptyHtmlTag {
@@ -318,22 +333,15 @@ where
                 ref arguments,
                 empty_html_ket,
             } => todo!(),
+            // ad hoc
             SemExprData::Closure {
-                closure_kind_regional_token_idx,
-                lvert_regional_token_idx,
                 ref parameter_obelisks,
-                rvert_regional_token,
-                return_ty,
                 body,
-            } => todo!(),
+                ..
+            } => self.expr_value_static_mut_deps_table[body].clone(),
             SemExprData::Sorry { .. }
             | SemExprData::Todo { .. }
             | SemExprData::Unreachable { .. } => Default::default(),
-            SemExprData::NestedBlock {
-                lcurl_regional_token_idx,
-                stmts,
-                rcurl_regional_token,
-            } => todo!(),
         }
     }
 
@@ -491,12 +499,16 @@ where
                 ref items,
                 rbox_regional_token_idx,
             } => todo!(),
-            SemExprData::NewList {
-                lbox_regional_token_idx,
-                ref items,
-                element_ty,
-                rbox_regional_token_idx,
-            } => todo!(),
+            SemExprData::NewList { ref items, .. } => {
+                let mut deps = SemStaticMutDeps::default();
+                for item in items {
+                    deps.merge(
+                        &self.expr_control_flow_static_mut_deps_table[item.sem_expr_idx],
+                        &mut self.counter,
+                    );
+                }
+                deps
+            }
             SemExprData::BoxColonList { .. }
             | SemExprData::VecFunctor { .. }
             | SemExprData::ArrayFunctor { .. } => Default::default(),
@@ -511,17 +523,13 @@ where
                 ref arguments,
                 empty_html_ket,
             } => todo!(),
-            SemExprData::Closure {
-                closure_kind_regional_token_idx,
-                lvert_regional_token_idx,
-                ref parameter_obelisks,
-                rvert_regional_token,
-                return_ty,
-                body,
-            } => todo!(),
-            SemExprData::Sorry { regional_token_idx } => todo!(),
-            SemExprData::Todo { regional_token_idx } => todo!(),
-            SemExprData::Unreachable { regional_token_idx } => todo!(),
+            SemExprData::Closure { .. } => Default::default(),
+            // ad hoc
+            SemExprData::Sorry { regional_token_idx } => Default::default(),
+            // ad hoc
+            SemExprData::Todo { regional_token_idx } => Default::default(),
+            // ad hoc
+            SemExprData::Unreachable { regional_token_idx } => Default::default(),
         }
     }
 
@@ -596,7 +604,8 @@ where
                 eol_with_token,
                 ref case_branches,
             } => todo!(),
-            SemStmtData::Narrate { narrate_token } => todo!(),
+            // ad hoc
+            SemStmtData::Narrate { narrate_token } => Default::default(),
         }
     }
 
@@ -630,7 +639,7 @@ where
             SemStmtData::ForBetween {
                 for_token,
                 ref particulars,
-                for_loop_var_symbol_idx,
+                for_loop_varible_idx,
                 eol_colon,
                 stmts,
             } => todo!(),
@@ -699,7 +708,8 @@ where
                 }
                 deps
             }
-            SemStmtData::Narrate { narrate_token } => todo!(),
+            // ad hoc
+            SemStmtData::Narrate { .. } => Default::default(),
         }
     }
 
@@ -775,7 +785,7 @@ where
         f(self)
     }
 
-    fn visit_expr_inner(&mut self, expr: SemExprIdx) {
+    fn visit_expr_itself(&mut self, expr: SemExprIdx) {
         let deps = self.calc_expr_value(expr);
         self.expr_value_static_mut_deps_table
             .insert_new_or_merge(expr, deps, |deps0, deps| {
@@ -788,6 +798,18 @@ where
             });
     }
 
+    fn visit_closure_inner(
+        &mut self,
+        expr: SemExprIdx,
+        parameters: &[ClosureParameterObelisk],
+        f: impl FnOnce(&mut Self),
+    ) {
+        for parameter in parameters {
+            self.populate_into_current_variables(parameter.variables(), Default::default())
+        }
+        f(self)
+    }
+
     fn visit_stmts(&mut self, stmts: SemStmtIdxRange, f: impl FnOnce(&mut Self)) {
         f(self)
     }
@@ -796,7 +818,18 @@ where
         f(self)
     }
 
-    fn visit_stmt_inner(&mut self, stmt: SemStmtIdx) {
+    fn visit_for_loop_stmt_inner(
+        &mut self,
+        stmt: SemStmtIdx,
+        current_variable_idx: CurrentVariableIdx,
+        f: impl Fn(&mut Self),
+    ) {
+        self.variable_static_mut_deps_table
+            .insert_new_current(current_variable_idx, Default::default());
+        f(self)
+    }
+
+    fn visit_stmt_itself(&mut self, stmt: SemStmtIdx) {
         let deps = self.calc_stmt_value(stmt);
         self.stmt_value_static_mut_deps_table
             .insert_new_or_merge(stmt, deps, |deps0, deps| {

@@ -142,7 +142,7 @@ impl HirLazyVariableRegion {
             {
                 let hir_eager_runtime_symbol_idx = arena.alloc_one(hir_eager_runtime_symbol);
                 variable_to_hir_eager_runtime_symbol_map
-                    .push_inherited(inherited_variable_idx, hir_eager_runtime_symbol_idx)
+                    .insert_new_inherited(inherited_variable_idx, hir_eager_runtime_symbol_idx)
             }
         }
         for (current_variable_idx, current_variable) in variable_region.indexed_current_variables()
@@ -152,7 +152,7 @@ impl HirLazyVariableRegion {
             {
                 let hir_eager_runtime_symbol_idx = arena.alloc_one(hir_eager_runtime_symbol);
                 variable_to_hir_eager_runtime_symbol_map
-                    .push_current(current_variable_idx, hir_eager_runtime_symbol_idx)
+                    .insert_new_current(current_variable_idx, hir_eager_runtime_symbol_idx)
             }
         }
         (Self { arena }, variable_to_hir_eager_runtime_symbol_map)

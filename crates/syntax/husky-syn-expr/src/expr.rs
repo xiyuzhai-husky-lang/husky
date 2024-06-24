@@ -56,7 +56,7 @@ pub enum SynExprData {
     FrameVarDecl {
         regional_token_idx: RegionalTokenIdx,
         ident: Ident,
-        frame_variable_idx: CurrentVariableIdx,
+        for_loop_varible_idx: CurrentVariableIdx,
         current_variable_kind: CurrentVariableKind,
     },
     SelfType(RegionalTokenIdx),

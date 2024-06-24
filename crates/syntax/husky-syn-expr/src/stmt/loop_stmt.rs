@@ -199,7 +199,7 @@ impl<'a> SynExprContext<'a> {
                     Some(access_end),
                     current_variable_variant,
                 );
-                let frame_variable_idx = self
+                let for_loop_varible_idx = self
                     .define_symbols(
                         vec![frame_var_symbol],
                         Some(SyndicateTypeConstraint::LoopVariable),
@@ -210,14 +210,14 @@ impl<'a> SynExprContext<'a> {
                     SynExprData::FrameVarDecl {
                         regional_token_idx: particulars.for_between_loop_var_regional_token_idx,
                         ident: particulars.for_between_loop_var_ident,
-                        frame_variable_idx,
+                        for_loop_varible_idx,
                         current_variable_kind,
                     },
                 );
                 SynStmtData::ForBetween {
                     for_token,
                     particulars,
-                    for_loop_var_symbol_idx: frame_variable_idx,
+                    for_loop_varible_idx: for_loop_varible_idx,
                     eol_colon,
                     block: self.parse_stmts(body),
                 }

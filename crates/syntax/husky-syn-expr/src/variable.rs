@@ -514,12 +514,12 @@ pub struct VariableMap<V> {
 }
 
 impl<V> VariableMap<V> {
-    pub fn push_inherited(&mut self, inherited_variable_idx: InheritedVariableIdx, v: V) {
+    pub fn insert_new_inherited(&mut self, inherited_variable_idx: InheritedVariableIdx, v: V) {
         self.inherited_variable_map
             .insert_new(inherited_variable_idx, v)
     }
 
-    pub fn push_current(&mut self, current_variable_idx: CurrentVariableIdx, v: V) {
+    pub fn insert_new_current(&mut self, current_variable_idx: CurrentVariableIdx, v: V) {
         self.current_variable_map
             .insert_new(current_variable_idx, v)
     }
@@ -587,6 +587,12 @@ impl<V> std::ops::Index<CurrentVariableIdx> for VariableMap<V> {
     }
 }
 
+impl<V> std::ops::IndexMut<CurrentVariableIdx> for VariableMap<V> {
+    fn index_mut(&mut self, index: CurrentVariableIdx) -> &mut Self::Output {
+        &mut self.current_variable_map[index]
+    }
+}
+
 pub struct VariableOrderedMap<V> {
     inherited_variable_ordered_map: InheritedVariableOrderedMap<V>,
     current_variable_ordered_map: CurrentVariableOrderedMap<V>,
@@ -626,5 +632,11 @@ impl<V> std::ops::Index<CurrentVariableIdx> for VariableOrderedMap<V> {
 
     fn index(&self, idx: CurrentVariableIdx) -> &Self::Output {
         &self.current_variable_ordered_map[idx]
+    }
+}
+
+impl<V> std::ops::IndexMut<CurrentVariableIdx> for VariableOrderedMap<V> {
+    fn index_mut(&mut self, index: CurrentVariableIdx) -> &mut Self::Output {
+        &mut self.current_variable_ordered_map[index]
     }
 }

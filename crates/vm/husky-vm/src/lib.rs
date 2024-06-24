@@ -97,7 +97,7 @@ where
         f(self)
     }
 
-    fn eval_expr_inner(
+    fn eval_expr_itself(
         &mut self,
         expr: VmirExprIdx<Linktime::LinkageImpl>,
         f: impl FnOnce(&mut Self) -> LinkageImplVmControlFlow<Linktime::LinkageImpl>,

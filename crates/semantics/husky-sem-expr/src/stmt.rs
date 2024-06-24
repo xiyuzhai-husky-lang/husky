@@ -56,7 +56,7 @@ pub enum SemStmtData {
     ForBetween {
         for_token: StmtForRegionalToken,
         particulars: SemaForBetweenParticulars,
-        for_loop_var_symbol_idx: CurrentVariableIdx,
+        for_loop_varible_idx: CurrentVariableIdx,
         eol_colon: EolRegionalToken,
         stmts: SemStmtIdxRange,
     },
@@ -443,13 +443,13 @@ impl<'a> SemExprBuilder<'a> {
             SynStmtData::ForBetween {
                 for_token,
                 ref particulars,
-                for_loop_var_symbol_idx,
+                for_loop_varible_idx,
                 ref block,
                 ref eol_colon,
             } => {
                 let expr_expectation = self.expect_unit();
                 let Ok(particulars) =
-                    self.build_sem_for_between_particulars(particulars, for_loop_var_symbol_idx)
+                    self.build_sem_for_between_particulars(particulars, for_loop_varible_idx)
                 else {
                     todo!()
                 };
@@ -459,7 +459,7 @@ impl<'a> SemExprBuilder<'a> {
                     Ok(SemStmtData::ForBetween {
                         for_token,
                         particulars,
-                        for_loop_var_symbol_idx,
+                        for_loop_varible_idx,
                         eol_colon,
                         stmts: block,
                     }),
