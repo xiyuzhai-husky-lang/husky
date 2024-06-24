@@ -66,7 +66,7 @@ impl<'a> PlaceContractEngine<'a> {
                 ..
             } => {
                 self.infer_expr(
-                    particulars.bound_expr_sem_expr_idx,
+                    particulars.bound_expr,
                     Contract::Pure,
                     Default::default(),
                 );

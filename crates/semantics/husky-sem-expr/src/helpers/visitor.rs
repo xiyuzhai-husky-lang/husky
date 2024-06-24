@@ -322,7 +322,7 @@ impl SemStmtIdx {
                     stmts,
                 } => {
                     // ad hoc
-                    particulars.bound_expr_sem_expr_idx.simulate(visitor);
+                    particulars.bound_expr.simulate(visitor);
                     stmts.simulate(visitor);
                 }
                 SemStmtData::While {

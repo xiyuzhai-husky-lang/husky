@@ -141,7 +141,7 @@ pub struct SemaForextParticulars {
     pub forext_loop_var_regional_token_idx: RegionalTokenIdx,
     pub forext_loop_var_ident: Ident,
     pub forext_loop_var_sem_expr_idx: SemExprIdx,
-    pub bound_expr_sem_expr_idx: SemExprIdx,
+    pub bound_expr: SemExprIdx,
     pub boundary_kind: LoopBoundaryKind,
 }
 
@@ -172,7 +172,7 @@ impl<'a> SemExprBuilder<'a> {
             forext_loop_var_regional_token_idx: particulars.forext_loop_var_regional_token_idx,
             forext_loop_var_ident: particulars.forext_loop_var_ident,
             forext_loop_var_sem_expr_idx,
-            bound_expr_sem_expr_idx,
+            bound_expr: bound_expr_sem_expr_idx,
             boundary_kind: particulars.boundary_kind,
         }
     }
