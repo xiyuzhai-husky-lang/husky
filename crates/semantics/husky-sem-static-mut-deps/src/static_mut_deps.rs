@@ -14,6 +14,10 @@ impl SemStaticMutDeps {
             counter.count += 1
         }
     }
+
+    pub(crate) fn insert(&mut self, item_path: ItemPath) {
+        self.0.insert(item_path);
+    }
 }
 
 #[derive(Default)]

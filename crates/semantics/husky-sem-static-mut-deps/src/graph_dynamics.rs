@@ -3,8 +3,9 @@ use ::graph_dynamics::{
     context::{IsGraphDynamicsContext, IsGraphDynamicsScheme},
     cycle_group::CycleGroupMap,
 };
+use husky_entity_kind::MajorFormKind;
 use husky_entity_path::{
-    path::{ItemPath, ItemPathId},
+    path::{assoc_item::AssocItemPath, major_item::MajorItemPath, ItemPath, ItemPathId},
     region::RegionPath,
 };
 use husky_eth_signature::signature::attr::AttrEthTemplate;
@@ -52,7 +53,7 @@ impl<'db> IsGraphDynamicsContext<'db> for SemStaticMutDepsGraphDynamicsContext<'
     }
 
     fn initial_value(self, node: ItemPath) -> SemStaticMutDeps {
-        item_sem_static_mut_deps_cycle_group_initial_value(self.db, *node).clone()
+        item_sem_static_mut_deps_initial_value(self.db, *node).clone()
     }
 
     fn updated_value<'a>(
@@ -79,7 +80,7 @@ impl<'db> IsGraphDynamicsContext<'db> for SemStaticMutDepsGraphDynamicsContext<'
 }
 
 #[salsa::tracked(return_ref)]
-fn item_sem_static_mut_deps_cycle_group_initial_value(
+fn item_sem_static_mut_deps_initial_value(
     db: &::salsa::Db,
     item_path_id: ItemPathId,
 ) -> SemStaticMutDeps {
@@ -87,6 +88,33 @@ fn item_sem_static_mut_deps_cycle_group_initial_value(
 
     let attr_paths = item_path_id.attr_paths(db);
     let mut deps = SemStaticMutDeps::default();
+    let item_path = item_path_id.item_path(db);
+    match item_path {
+        ItemPath::Submodule(_, _) => (),
+        ItemPath::MajorItem(major_item_path) => match major_item_path {
+            MajorItemPath::Type(_) => (),
+            MajorItemPath::Trait(_) => (),
+            MajorItemPath::Form(major_form_path) => match major_form_path.kind(db) {
+                MajorFormKind::Ritchie(_) => (),
+                MajorFormKind::TypeAlias => (),
+                MajorFormKind::TypeVar => (),
+                MajorFormKind::Val => (),
+                MajorFormKind::StaticMut => deps.insert(item_path),
+                MajorFormKind::StaticVar => (),
+                MajorFormKind::Compterm => (),
+                MajorFormKind::Conceptual => (),
+            },
+        },
+        ItemPath::AssocItem(assoc_item_path) => match assoc_item_path {
+            AssocItemPath::TypeItem(_) => (),         // ad hoc
+            AssocItemPath::TraitItem(_) => (),        // ad hoc
+            AssocItemPath::TraitForTypeItem(_) => (), // ad hoc
+        },
+        ItemPath::TypeVariant(_, _) => (),
+        ItemPath::ImplBlock(_) => (),
+        ItemPath::Attr(_, _) => (),
+        ItemPath::Chunk(_, _) => (),
+    };
     for attr_path in attr_paths {
         use husky_eth_signature::signature::HasEthTemplate;
 
