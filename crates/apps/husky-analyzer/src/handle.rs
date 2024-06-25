@@ -223,7 +223,15 @@ pub(crate) fn handle_code_lens(
     _snapshot: AnalyzerDBSnapshot,
     _params: lsp_types::CodeLensParams,
 ) -> Result<Option<Vec<CodeLens>>> {
-    Ok(None)
+    Ok(Some(vec![CodeLens {
+        range: lsp_types::Range::new(Position::new(0, 0), Position::new(0, 4)),
+        command: Some(lsp_types::Command {
+            title: "#deps()".to_string(),
+            command: "deps".to_string(),
+            arguments: None,
+        }),
+        data: None,
+    }]))
 }
 
 pub(crate) fn handle_code_lens_resolve(
