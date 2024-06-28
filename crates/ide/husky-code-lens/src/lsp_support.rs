@@ -24,3 +24,15 @@ impl CodeLens {
         todo!()
     }
 }
+
+#[test]
+fn module_lsp_code_lenses_unresolved_works() {
+    DB::ast_rich_test_debug(
+        |module_path, db| module_lsp_code_lenses_unresolved(db, module_path),
+        &AstTestConfig::new(
+            "module_lsp_code_lens_unresolved",
+            FileExtensionConfig::Markdown,
+            TestDomainsConfig::IDE,
+        ),
+    );
+}
