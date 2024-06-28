@@ -22,6 +22,7 @@ salsa.workspace = true
 # fs
 husky-vfs.workspace = true
 # kernel
+husky-entity-kind.workspace = true
 husky-entity-path.workspace = true
 # lex
 husky-regional-token.workspace = true
