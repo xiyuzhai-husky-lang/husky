@@ -1,5 +1,9 @@
 use crate::*;
-use husky_entity_path::path::{ItemPath, ItemPathId};
+use husky_entity_kind::MajorFormKind;
+use husky_entity_path::path::{
+    major_item::{form::MajorFormPath, MajorItemPath},
+    ItemPath, ItemPathId,
+};
 use husky_entity_tree::helpers::paths::module_item_paths;
 use husky_vfs::path::module_path::ModulePath;
 
@@ -49,15 +53,37 @@ fn module_code_lenses_works() {
 }
 
 #[salsa::tracked(return_ref)]
-pub fn item_code_lenses_data(db: &::salsa::Db, item_path_id: ItemPathId) -> Vec<CodeLensData> {
+fn item_code_lenses_data(db: &::salsa::Db, item_path_id: ItemPathId) -> Vec<CodeLensData> {
     let item_path = item_path_id.item_path(db);
     match item_path {
         ItemPath::Submodule(_, _) => vec![],
-        ItemPath::MajorItem(_) => vec![],
+        ItemPath::MajorItem(major_item_path) => match major_item_path {
+            MajorItemPath::Type(_) => vec![],
+            MajorItemPath::Trait(_) => vec![],
+            MajorItemPath::Form(major_form_path) => {
+                major_form_code_lenses_data(major_form_path, db)
+            }
+        },
         ItemPath::AssocItem(_) => vec![],
         ItemPath::TypeVariant(_, _) => vec![],
         ItemPath::ImplBlock(_) => vec![],
         ItemPath::Attr(_, _) => vec![],
         ItemPath::Chunk(_, _) => vec![],
+    }
+}
+
+fn major_form_code_lenses_data(
+    major_form_path: MajorFormPath,
+    db: &::salsa::Db,
+) -> Vec<CodeLensData> {
+    match major_form_path.kind(db) {
+        MajorFormKind::Ritchie(_) => vec![],
+        MajorFormKind::TypeAlias => vec![],
+        MajorFormKind::TypeVar => vec![],
+        MajorFormKind::Val => vec![CodeLensData::Deps],
+        MajorFormKind::StaticMut => vec![],
+        MajorFormKind::StaticVar => vec![],
+        MajorFormKind::Compterm => vec![],
+        MajorFormKind::Conceptual => vec![],
     }
 }

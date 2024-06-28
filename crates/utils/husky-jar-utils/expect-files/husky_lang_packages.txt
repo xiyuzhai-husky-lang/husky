@@ -935,6 +935,7 @@
         name: "husky-code-lens",
         relative_path: "crates/ide/husky-code-lens",
         dependencies: [
+            "husky-entity-kind",
             "husky-entity-path",
             "husky-entity-tree",
             "husky-regional-token",

@@ -4239,6 +4239,7 @@ dependencies = [
  "husky-dec-signature",
  "husky-dec-term",
  "husky-dec-ty",
+ "husky-entity-kind",
  "husky-entity-path",
  "husky-entity-tree",
  "husky-eth-signature",
