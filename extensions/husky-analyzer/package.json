@@ -4,7 +4,7 @@
     "description": "Husky language support for Visual Studio Code",
     "private": true,
     "icon": "icon.png",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "publisher": "husky-lang",
     "repository": {
         "url": "https://github.com/xiyuzhai-husky-lang/husky.git",
