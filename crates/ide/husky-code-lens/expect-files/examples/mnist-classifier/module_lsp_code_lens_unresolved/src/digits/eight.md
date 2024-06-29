@@ -14,7 +14,7 @@
         command: Some(
             Command {
                 title: "#deps",
-                command: "deps",
+                command: "husky-analyzer.deps",
                 arguments: None,
             },
         ),
@@ -34,7 +34,7 @@
         command: Some(
             Command {
                 title: "#deps",
-                command: "deps",
+                command: "husky-analyzer.deps",
                 arguments: None,
             },
         ),
