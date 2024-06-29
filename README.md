@@ -16,3 +16,7 @@ Husky is built with the following features:
 - TODO
 
 Many of the above features are already seen in existing languages. However, they are integrated harmonically for hybrid AI development. After all, a programming language is not just about the union of its features but also about their interaction.
+
+## Timeline
+
+Husky is currently in the prototyping stage, focusing on AI research. It will transform into a stable language once AI technology is mature.
