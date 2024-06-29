@@ -100,8 +100,10 @@ pub type FlyPlaceResult<T> = Result<T, FlyPlaceError>;
 impl FlyQuary {
     pub(crate) fn bind(&self, contract: Contract) -> FlyPlaceResult<()> {
         match (contract, self) {
-            (Contract::Compterm, FlyQuary::Compterm) => Ok(()),
-            (Contract::Compterm, _) => Err(FlyPlaceError::CannotConvertToConst),
+            // (Contract::Compterm, FlyQuary::Compterm) => Ok(()),
+            // (Contract::Compterm, _) => Err(FlyPlaceError::CannotConvertToConst),
+            // ad hoc
+            (Contract::Compterm, _) => Ok(()),
             (Contract::Leash, FlyQuary::Leashed { .. }) => Ok(()),
             (Contract::Leash, _) => todo!("error"),
             (Contract::Pure, _) => Ok(()),

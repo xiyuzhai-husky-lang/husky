@@ -1851,11 +1851,15 @@
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
-                                        Err(
-                                            FlyTermExpectationError::Original(
-                                                OriginalFlyTermExpectationError::Place(
-                                                    CannotConvertToConst,
-                                                ),
+                                        Ok(
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
+                                                            expectee_quary: Transient,
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         ),
                                     ),
