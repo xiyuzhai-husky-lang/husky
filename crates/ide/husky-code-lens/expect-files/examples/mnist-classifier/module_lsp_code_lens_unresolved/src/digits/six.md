@@ -1,16 +1,64 @@
 ```rust
 [
     CodeLens {
-        item_path: ItemPath(`mnist_classifier::digits::six::six_match`),
-        data: CodeLensData::Deps,
+        range: Range {
+            start: Position {
+                line: 2,
+                character: 0,
+            },
+            end: Position {
+                line: 2,
+                character: 33,
+            },
+        },
+        command: Some(
+            Command {
+                title: "#deps",
+                command: "deps",
+                arguments: None,
+            },
+        ),
+        data: None,
     },
     CodeLens {
-        item_path: ItemPath(`mnist_classifier::digits::six::six_match_refined1`),
-        data: CodeLensData::Deps,
+        range: Range {
+            start: Position {
+                line: 5,
+                character: 0,
+            },
+            end: Position {
+                line: 5,
+                character: 42,
+            },
+        },
+        command: Some(
+            Command {
+                title: "#deps",
+                command: "deps",
+                arguments: None,
+            },
+        ),
+        data: None,
     },
     CodeLens {
-        item_path: ItemPath(`mnist_classifier::digits::six::is_six`),
-        data: CodeLensData::Deps,
+        range: Range {
+            start: Position {
+                line: 8,
+                character: 0,
+            },
+            end: Position {
+                line: 8,
+                character: 60,
+            },
+        },
+        command: Some(
+            Command {
+                title: "#deps",
+                command: "deps",
+                arguments: None,
+            },
+        ),
+        data: None,
     },
 ]
 ```

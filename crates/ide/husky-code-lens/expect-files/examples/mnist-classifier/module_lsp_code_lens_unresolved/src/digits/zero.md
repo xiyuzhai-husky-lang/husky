@@ -1,12 +1,44 @@
 ```rust
 [
     CodeLens {
-        item_path: ItemPath(`mnist_classifier::digits::zero::open_one_match`),
-        data: CodeLensData::Deps,
+        range: Range {
+            start: Position {
+                line: 2,
+                character: 0,
+            },
+            end: Position {
+                line: 2,
+                character: 38,
+            },
+        },
+        command: Some(
+            Command {
+                title: "#deps",
+                command: "deps",
+                arguments: None,
+            },
+        ),
+        data: None,
     },
     CodeLens {
-        item_path: ItemPath(`mnist_classifier::digits::zero::is_zero`),
-        data: CodeLensData::Deps,
+        range: Range {
+            start: Position {
+                line: 9,
+                character: 0,
+            },
+            end: Position {
+                line: 9,
+                character: 62,
+            },
+        },
+        command: Some(
+            Command {
+                title: "#deps",
+                command: "deps",
+                arguments: None,
+            },
+        ),
+        data: None,
     },
 ]
 ```
