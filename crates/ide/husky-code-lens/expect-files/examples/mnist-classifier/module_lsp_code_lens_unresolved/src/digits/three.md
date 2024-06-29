@@ -1,12 +1,44 @@
 ```rust
 [
     CodeLens {
-        item_path: ItemPath(`mnist_classifier::digits::three::three_fermi_match`),
-        data: CodeLensData::Deps,
+        range: Range {
+            start: Position {
+                line: 2,
+                character: 0,
+            },
+            end: Position {
+                line: 2,
+                character: 41,
+            },
+        },
+        command: Some(
+            Command {
+                title: "#deps",
+                command: "deps",
+                arguments: None,
+            },
+        ),
+        data: None,
     },
     CodeLens {
-        item_path: ItemPath(`mnist_classifier::digits::three::is_three`),
-        data: CodeLensData::Deps,
+        range: Range {
+            start: Position {
+                line: 15,
+                character: 0,
+            },
+            end: Position {
+                line: 15,
+                character: 64,
+            },
+        },
+        command: Some(
+            Command {
+                title: "#deps",
+                command: "deps",
+                arguments: None,
+            },
+        ),
+        data: None,
     },
 ]
 ```

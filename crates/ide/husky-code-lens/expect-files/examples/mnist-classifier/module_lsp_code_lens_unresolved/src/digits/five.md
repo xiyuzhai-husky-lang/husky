@@ -1,8 +1,24 @@
 ```rust
 [
     CodeLens {
-        item_path: ItemPath(`mnist_classifier::digits::five::is_five`),
-        data: CodeLensData::Deps,
+        range: Range {
+            start: Position {
+                line: 2,
+                character: 0,
+            },
+            end: Position {
+                line: 2,
+                character: 62,
+            },
+        },
+        command: Some(
+            Command {
+                title: "#deps",
+                command: "deps",
+                arguments: None,
+            },
+        ),
+        data: None,
     },
 ]
 ```

@@ -12,10 +12,10 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
-thiserror.workspace = true
 lsp-types = { workspace = true, optional = true }
 serde_json.workspace = true
 sealed.workspace = true
+thiserror.workspace = true
 # abstraction
 is.workspace = true
 salsa.workspace = true

@@ -14,6 +14,16 @@ pub struct CodeLens {
     data: CodeLensData,
 }
 
+impl CodeLens {
+    pub fn item_path(&self) -> ItemPath {
+        self.item_path
+    }
+
+    pub fn data(&self) -> &CodeLensData {
+        &self.data
+    }
+}
+
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum CodeLensData {

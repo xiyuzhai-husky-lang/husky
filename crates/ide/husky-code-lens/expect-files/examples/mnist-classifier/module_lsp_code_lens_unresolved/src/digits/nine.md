@@ -1,16 +1,64 @@
 ```rust
 [
     CodeLens {
-        item_path: ItemPath(`mnist_classifier::digits::nine::nine_match`),
-        data: CodeLensData::Deps,
+        range: Range {
+            start: Position {
+                line: 2,
+                character: 0,
+            },
+            end: Position {
+                line: 2,
+                character: 34,
+            },
+        },
+        command: Some(
+            Command {
+                title: "#deps",
+                command: "deps",
+                arguments: None,
+            },
+        ),
+        data: None,
     },
     CodeLens {
-        item_path: ItemPath(`mnist_classifier::digits::nine::nine_match_refine`),
-        data: CodeLensData::Deps,
+        range: Range {
+            start: Position {
+                line: 5,
+                character: 0,
+            },
+            end: Position {
+                line: 5,
+                character: 41,
+            },
+        },
+        command: Some(
+            Command {
+                title: "#deps",
+                command: "deps",
+                arguments: None,
+            },
+        ),
+        data: None,
     },
     CodeLens {
-        item_path: ItemPath(`mnist_classifier::digits::nine::is_nine`),
-        data: CodeLensData::Deps,
+        range: Range {
+            start: Position {
+                line: 8,
+                character: 0,
+            },
+            end: Position {
+                line: 8,
+                character: 62,
+            },
+        },
+        command: Some(
+            Command {
+                title: "#deps",
+                command: "deps",
+                arguments: None,
+            },
+        ),
+        data: None,
     },
 ]
 ```

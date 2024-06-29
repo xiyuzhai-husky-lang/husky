@@ -37,6 +37,7 @@ impl RegionalTokenIdxBase {
         self.len
     }
 
+    /// gives the token idx range of the whole region
     pub fn token_idx_range(self) -> TokenIdxRange {
         let start = self.index_base;
         let end = start + self.len;
