@@ -55,7 +55,7 @@ impl CodeLens {
         match *self.data() {
             CodeLensData::Deps => lsp_types::Command {
                 title: "#deps".to_string(),
-                command: "deps".to_string(),
+                command: "husky-analyzer.deps".to_string(),
                 arguments: None,
             },
             CodeLensData::Affect => todo!(),
