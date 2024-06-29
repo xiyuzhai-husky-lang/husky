@@ -1,3 +1,3 @@
 # The Husky Programming Language
 
-Husky is a new programming for developing hybrid AI systems.
+Husky is a new programming language for developing hybrid AI systems.
