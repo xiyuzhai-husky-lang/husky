@@ -1,6 +1,8 @@
 //! todo: there should be tests, and there should be submodules
-mod semantic_tokens;
+mod code_lens;
+pub(crate) mod semantic_tokens;
 
+pub(crate) use code_lens::*;
 use convert::to_proto;
 use husky_inlay_hints::lsp_support::HasLspInlayHints;
 pub(crate) use semantic_tokens::*;
@@ -217,21 +219,6 @@ pub(crate) fn handle_code_action_resolve(
 ) -> Result<lsp_ext::CodeAction> {
     msg_once!("todo handle code action resolve!");
     Ok(lsp_ext::CodeAction::default())
-}
-
-pub(crate) fn handle_code_lens(
-    _snapshot: AnalyzerDBSnapshot,
-    _params: lsp_types::CodeLensParams,
-) -> Result<Option<Vec<CodeLens>>> {
-    Ok(None)
-}
-
-pub(crate) fn handle_code_lens_resolve(
-    _snapshot: AnalyzerDBSnapshot,
-    _code_lens: CodeLens,
-) -> Result<CodeLens> {
-    msg_once!("todo handle code lens resolve!");
-    todo!()
 }
 
 pub(crate) fn handle_document_highlight(
