@@ -1,3 +1,4 @@
+#![feature(generic_const_exprs)]
 mod builder;
 mod graph_dynamics;
 pub mod jar;

@@ -18,6 +18,7 @@ graph-dynamics.workspace = true
 salsa.workspace = true
 vec-like.workspace = true
 # kernel
+husky-entity-kind.workspace = true
 husky-entity-path.workspace = true
 husky-eth-signature.workspace = true
 husky-fly-term.workspace = true
@@ -43,7 +44,6 @@ husky-eth-signature.workspace = true
 husky-dec-term.workspace = true
 husky-dec-ty.workspace = true
 husky-entity-path.workspace = true
-husky-entity-kind.workspace = true
 husky-coword.workspace = true
 husky-expr.workspace = true
 husky-place.workspace = true

@@ -44,6 +44,7 @@ use salsa::snapshot::SnapshotClone;
     husky_ide_fmt::jar::IdeFmtJar,
     husky_inlay_hints::jar::InlayHintsJar,
     husky_diagnostics::DiagnosticsJar,
+    husky_code_lens::jar::CodeLensJar,
 )]
 pub struct AnalyzerDb;
 
