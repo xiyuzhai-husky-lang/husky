@@ -59,6 +59,9 @@ husky-text-protocol = { workspace = true, features = ["lsp_support"] }
 husky-manifest.workspace = true
 husky-sem-expr.workspace = true
 husky-sem-place-contract.workspace = true
+husky-sem-item-path-deps.workspace = true
+husky-sem-static-mut-deps.workspace = true
+husky-sem-static-var-deps.workspace = true
 husky-corgi-config.workspace = true
 # syntax
 husky-ast.workspace = true

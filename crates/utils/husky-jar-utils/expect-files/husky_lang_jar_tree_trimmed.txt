@@ -5,6 +5,7 @@
     },
     "husky-code-lens": {
         "husky-sem-place-contract",
+        "husky-sem-static-var-deps",
     },
     "husky-completion": {
         "husky-syn-expr",
