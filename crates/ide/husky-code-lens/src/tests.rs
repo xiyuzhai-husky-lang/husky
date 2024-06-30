@@ -29,6 +29,9 @@ pub(crate) use husky_ast::test_utils::*;
     husky_fly_term::jar::FlyTermJar,
     husky_sem_expr::jar::SemExprJar,
     husky_sem_place_contract::jar::SemPlaceContractJar,
+    husky_sem_item_path_deps::jar::SemItemPathDepsJar,
+    husky_sem_static_mut_deps::jar::SemStaticMutDepsJar,
+    husky_sem_static_var_deps::jar::SemStaticVarDepsJar,
     Jar
 )]
 pub(crate) struct DB;

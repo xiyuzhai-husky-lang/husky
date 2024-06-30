@@ -5,6 +5,24 @@ use vec_like::OrderedSmallVecSet;
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
 pub struct SemStaticVarDeps(OrderedSmallVecSet<ItemPath, 4>);
 
+impl std::ops::Deref for SemStaticVarDeps {
+    type Target = OrderedSmallVecSet<ItemPath, 4>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+
+impl IntoIterator for &SemStaticVarDeps {
+    type Item = ItemPath;
+
+    type IntoIter = impl Iterator<Item = Self::Item>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.0.iter().copied()
+    }
+}
+
 impl SemStaticVarDeps {
     /// returns whether `self` is changed
     pub(crate) fn merge(&mut self, other: &Self, counter: &mut EffectiveMergeCounter) {

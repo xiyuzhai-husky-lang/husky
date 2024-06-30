@@ -30,3 +30,21 @@ impl EffectiveMergeCounter {
         self.count
     }
 }
+
+impl std::ops::Deref for SemStaticMutDeps {
+    type Target = OrderedSmallVecSet<ItemPath, 4>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+
+impl IntoIterator for &SemStaticMutDeps {
+    type Item = ItemPath;
+
+    type IntoIter = impl Iterator<Item = Self::Item>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.0.iter().copied()
+    }
+}

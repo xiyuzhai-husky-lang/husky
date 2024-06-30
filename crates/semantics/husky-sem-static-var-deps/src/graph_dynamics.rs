@@ -142,7 +142,7 @@ fn item_sem_static_var_deps_cycle_group_final_values(
     ctx.calc_cycle_group_final_values(cycle_group)
 }
 
-pub fn item_sem_static_var_deps<'db>(
+pub(crate) fn item_sem_static_var_deps<'db>(
     db: &'db ::salsa::Db,
     item_path_id: ItemPathId,
 ) -> &'db SemStaticVarDeps {
