@@ -526,7 +526,7 @@
     (
         Linkage {
             data: LinkageData::MajorStatic {
-                path: FormPath(`mnist::TASK`, `StaticVar`),
+                path: FormPath(`mnist::task`, `StaticVar`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,

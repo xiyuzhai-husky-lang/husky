@@ -126,7 +126,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist::TASK`, `StaticVar`),
+                    FormPath(`mnist::task`, `StaticVar`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],

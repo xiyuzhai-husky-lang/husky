@@ -83,7 +83,7 @@ TokenSheetData {
             Keyword::Var,
         ),
         TokenData::Ident(
-            `TASK`,
+            `task`,
         ),
         TokenData::Punctuation(
             Punctuation(

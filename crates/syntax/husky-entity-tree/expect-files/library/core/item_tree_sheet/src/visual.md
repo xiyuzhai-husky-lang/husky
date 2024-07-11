@@ -1979,7 +1979,7 @@ EntityTreeSheet {
                 ),
             },
             EntitySymbolEntry {
-                ident: `TASK`,
+                ident: `task`,
                 visible_scope: Scope::PubUnder(
                     ModulePath(`core::visual`),
                 ),
@@ -1991,12 +1991,12 @@ EntityTreeSheet {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             major_item_path: MajorItemPath::Form(
-                                                FormPath(`core::task::TASK`, `StaticVar`),
+                                                FormPath(`core::task::task`, `StaticVar`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`core::task::TASK`, `StaticVar`),
+                                                FormPath(`core::task::task`, `StaticVar`),
                                             ),
                                         ),
                                         visibility: Scope::Pub,
@@ -2006,7 +2006,7 @@ EntityTreeSheet {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::TASK`, `StaticVar`),
+                                        FormPath(`core::task::task`, `StaticVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -2018,7 +2018,7 @@ EntityTreeSheet {
                         ),
                         path: PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`core::task::TASK`, `StaticVar`),
+                                FormPath(`core::task::task`, `StaticVar`),
                             ),
                         ),
                         visibility: Scope::PubUnder(

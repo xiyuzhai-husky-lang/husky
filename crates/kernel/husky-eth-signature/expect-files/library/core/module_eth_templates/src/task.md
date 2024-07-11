@@ -36,13 +36,13 @@
         ),
     ),
     (
-        ItemPath(`core::task::TASK`),
+        ItemPath(`core::task::task`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::StaticVar(
                         MajorStaticVarEthTemplate {
-                            path: FormPath(`core::task::TASK`, `StaticVar`),
+                            path: FormPath(`core::task::task`, `StaticVar`),
                         },
                     ),
                 ),

@@ -143,12 +143,12 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath(`core::task::TASK`),
+            ItemPath(`core::task::task`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::StaticVar(
                         MajorStaticVarSynDecl {
-                            path: FormPath(`core::task::TASK`, `StaticVar`),
+                            path: FormPath(`core::task::task`, `StaticVar`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 0,
                             },
@@ -159,7 +159,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                MajorFormSynNodePath(`core::task::TASK`, `StaticVar`, (0)),
+                                                MajorFormSynNodePath(`core::task::task`, `StaticVar`, (0)),
                                             ),
                                         ),
                                     ),

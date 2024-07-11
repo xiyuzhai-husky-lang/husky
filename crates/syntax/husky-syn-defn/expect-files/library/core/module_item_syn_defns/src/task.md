@@ -17,7 +17,7 @@
         None,
     ),
     (
-        ItemPath(`core::task::TASK`),
+        ItemPath(`core::task::task`),
         None,
     ),
 ]

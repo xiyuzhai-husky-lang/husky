@@ -4,9 +4,9 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::StaticVar(
                 MajorStaticVarHirDefn {
-                    path: FormPath(`mnist::TASK`, `StaticVar`),
+                    path: FormPath(`mnist::task`, `StaticVar`),
                     hir_decl: MajorStaticVarHirDecl {
-                        path: FormPath(`mnist::TASK`, `StaticVar`),
+                        path: FormPath(`mnist::task`, `StaticVar`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist::task::MnistTask`, `Extern`),
@@ -16,7 +16,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath(`mnist::TASK`),
+                                ItemPath(`mnist::task`),
                             ),
                             expr_arena: Arena {
                                 data: [],
