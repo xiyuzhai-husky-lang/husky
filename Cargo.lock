@@ -3802,6 +3802,8 @@ dependencies = [
 name = "graph-dynamics"
 version = "0.1.0"
 dependencies = [
+ "husky-debug-utils",
+ "husky-print-utils",
  "propagate",
  "salsa",
  "vec-like",
@@ -4411,6 +4413,13 @@ dependencies = [
  "husky-visual-protocol",
  "serde",
  "ui",
+]
+
+[[package]]
+name = "husky-debug-utils"
+version = "0.1.0"
+dependencies = [
+ "colored",
 ]
 
 [[package]]
@@ -9309,6 +9318,7 @@ dependencies = [
 name = "propagate"
 version = "0.1.0"
 dependencies = [
+ "husky-debug-utils",
  "husky-print-utils",
  "sealed",
 ]

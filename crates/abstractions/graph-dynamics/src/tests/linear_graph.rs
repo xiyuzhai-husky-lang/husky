@@ -1,6 +1,7 @@
 use super::*;
 use crate::deps::{IsGraphDepsContext, IsGraphDepsScheme};
 use propagate::{PropagationResult, PropagationResultRef};
+use salsa::DebugWithDb;
 
 #[derive(Clone, Copy)]
 pub(crate) struct LinearGraphContext<'db> {
@@ -56,6 +57,10 @@ impl<'db> IsGraphDepsContext<'db> for LinearGraphContext<'db> {
 impl<'db> IsGraphDynamicsContext<'db> for LinearGraphContext<'db> {
     type DepsScheme = LinearGraphScheme;
     type DynamicsScheme = LinearGraphScheme;
+
+    fn debug_node(self, node: LinearGraphNode) -> String {
+        format!("{:?}", node.debug_with(self.db))
+    }
 
     fn deps_cropped(self, node: LinearGraphNode) -> impl IntoIterator<Item = LinearGraphNode> {
         <Self as IsGraphDepsContext<'db>>::deps_cropped(self, node)

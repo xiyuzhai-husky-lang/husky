@@ -13,7 +13,7 @@
         },
         command: Some(
             Command {
-                title: "#deps()",
+                title: "#deps(mnist::input)",
                 command: "husky-analyzer.deps",
                 arguments: None,
             },
@@ -33,7 +33,7 @@
         },
         command: Some(
             Command {
-                title: "#deps()",
+                title: "#deps(mnist::input)",
                 command: "husky-analyzer.deps",
                 arguments: None,
             },
@@ -53,7 +53,7 @@
         },
         command: Some(
             Command {
-                title: "#deps()",
+                title: "#deps(mnist::input)",
                 command: "husky-analyzer.deps",
                 arguments: None,
             },
@@ -73,7 +73,7 @@
         },
         command: Some(
             Command {
-                title: "#deps()",
+                title: "#deps(mnist::input)",
                 command: "husky-analyzer.deps",
                 arguments: None,
             },

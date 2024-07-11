@@ -9,6 +9,7 @@ use husky_sem_static_mut_deps::item_sem_static_mut_deps;
 use husky_sem_static_var_deps::item_sem_static_var_deps;
 use husky_token::{RangedTokenSheet, TokenDb};
 use husky_vfs::path::module_path::ModulePath;
+use salsa::DisplayWithDb;
 
 pub fn module_lsp_code_lenses_unresolved(
     module_path: ModulePath,
@@ -57,11 +58,22 @@ impl CodeLens {
         match *self.data() {
             CodeLensData::Deps => {
                 let mut title = "#deps(".to_string();
+                let mut empty = true;
                 for _ in item_sem_static_mut_deps(self.item_path(), db) {
+                    if empty {
+                        empty = false
+                    } else {
+                        title.push_str(", ");
+                    }
                     todo!()
                 }
-                for _ in item_sem_static_var_deps(self.item_path(), db) {
-                    todo!()
+                for item_path in item_sem_static_var_deps(self.item_path(), db) {
+                    if empty {
+                        empty = false
+                    } else {
+                        title.push_str(", ");
+                    }
+                    title.push_str(&item_path.display_with(db).to_string());
                 }
                 title.push(')');
                 lsp_types::Command {

@@ -24,8 +24,12 @@ impl IntoIterator for &SemStaticVarDeps {
 }
 
 impl SemStaticVarDeps {
-    /// returns whether `self` is changed
-    pub(crate) fn merge(&mut self, other: &Self, counter: &mut EffectiveMergeCounter) {
+    pub(crate) fn merge(&mut self, other: &Self) {
+        self.0.extend(&other.0);
+    }
+
+    /// this is used when caching, to see whether there is any effective change
+    pub(crate) fn merge_counted(&mut self, other: &Self, counter: &mut EffectiveMergeCounter) {
         let old_len = self.0.len();
         self.0.extend(&other.0);
         if old_len != self.0.len() {

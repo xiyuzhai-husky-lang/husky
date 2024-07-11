@@ -20,6 +20,7 @@ use husky_sem_item_path_deps::{
 };
 use propagate::PropagationResult;
 use propagate::PropagationResultRef;
+use salsa::DebugWithDb;
 
 pub struct SemStaticVarDepsGraphDynamicsScheme {}
 
@@ -38,6 +39,10 @@ impl<'db> IsGraphDynamicsContext<'db> for SemStaticVarDepsGraphDynamicsContext<'
     type DepsScheme = SemItemPathDepsGraphDepsScheme;
 
     type DynamicsScheme = SemStaticVarDepsGraphDynamicsScheme;
+
+    fn debug_node(self, node: ItemPath) -> String {
+        format!("{:?}", node.debug_with(self.db))
+    }
 
     fn deps_cropped(self, node: ItemPath) -> impl IntoIterator<Item = ItemPath> {
         item_sem_item_path_deps(self.db, *node)
@@ -70,7 +75,7 @@ impl<'db> IsGraphDynamicsContext<'db> for SemStaticVarDepsGraphDynamicsContext<'
         else {
             return value;
         };
-        value.merge(&builder.calc_root(), &mut Default::default());
+        value.merge(&builder.calc_root());
         value
     }
 
