@@ -1,5 +1,5 @@
 [package]
-name = "graph-dynamics"
+name = "husky-debug-utils"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -12,15 +12,7 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
-propagate.workspace = true
-salsa.workspace = true
-vec-like.workspace = true
-# utils
-husky-debug-utils.workspace = true
-husky-print-utils.workspace = true
-
-[dev-dependencies]
-salsa.workspace = true
+colored.workspace = true
 
 [lints]
 workspace = true

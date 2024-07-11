@@ -66,6 +66,8 @@
         name: "graph-dynamics",
         relative_path: "crates/abstractions/graph-dynamics",
         dependencies: [
+            "husky-debug-utils",
+            "husky-print-utils",
             "propagate",
             "salsa",
             "vec-like",
@@ -73,17 +75,25 @@
         ],
     },
     PackageSummary {
-        name: "propagate",
-        relative_path: "crates/abstractions/propagate",
+        name: "husky-debug-utils",
+        relative_path: "crates/utils/husky-debug-utils",
         dependencies: [
-            "husky-print-utils",
-            "sealed",
+            "colored",
         ],
     },
     PackageSummary {
         name: "husky-print-utils",
         relative_path: "crates/utils/husky-print-utils",
         dependencies: [],
+    },
+    PackageSummary {
+        name: "propagate",
+        relative_path: "crates/abstractions/propagate",
+        dependencies: [
+            "husky-debug-utils",
+            "husky-print-utils",
+            "sealed",
+        ],
     },
     PackageSummary {
         name: "salsa",

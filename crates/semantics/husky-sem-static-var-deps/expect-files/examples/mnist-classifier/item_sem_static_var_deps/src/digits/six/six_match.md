@@ -1,7 +1,9 @@
 ```rust
 Some(
     SemStaticVarDeps(
-        [],
+        [
+            ItemPath(`mnist::input`),
+        ],
     ),
 )
 ```

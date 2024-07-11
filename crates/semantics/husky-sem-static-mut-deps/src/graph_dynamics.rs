@@ -36,6 +36,12 @@ impl<'db> IsGraphDynamicsContext<'db> for SemStaticMutDepsGraphDynamicsContext<'
 
     type DynamicsScheme = SemStaticMutDepsGraphDynamicsScheme;
 
+    fn debug_node(self, node: ItemPath) -> String {
+        use salsa::DebugWithDb;
+
+        format!("{:?}", node.debug_with(self.db))
+    }
+
     fn deps_cropped(self, node: ItemPath) -> impl IntoIterator<Item = ItemPath> {
         item_sem_item_path_deps(self.db, *node)
             .as_ref()
@@ -67,7 +73,7 @@ impl<'db> IsGraphDynamicsContext<'db> for SemStaticMutDepsGraphDynamicsContext<'
         else {
             return value;
         };
-        value.merge(&builder.calc_root(), &mut Default::default());
+        value.merge(&builder.calc_root());
         value
     }
 

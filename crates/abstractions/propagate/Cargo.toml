@@ -5,4 +5,6 @@ edition = "2021"
 
 [dependencies]
 sealed.workspace = true
+# utils
+husky-debug-utils.workspace = true
 husky-print-utils.workspace = true
