@@ -27,7 +27,7 @@
         ),
     ),
     (
-        ItemPath(`mnist::TASK`),
+        ItemPath(`mnist::task`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(

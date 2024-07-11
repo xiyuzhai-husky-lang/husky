@@ -121,4 +121,4 @@ pub fn input() -> &'static BinaryImage28 {
 }
 
 // ad hoc
-pub fn TASK() {}
+pub fn task() {}

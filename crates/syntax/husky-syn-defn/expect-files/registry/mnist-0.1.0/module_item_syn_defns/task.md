@@ -5,7 +5,7 @@
         None,
     ),
     (
-        ItemPath(`mnist::TASK`),
+        ItemPath(`mnist::task`),
         None,
     ),
 ]

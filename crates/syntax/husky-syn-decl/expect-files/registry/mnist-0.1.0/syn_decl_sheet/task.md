@@ -101,12 +101,12 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath(`mnist::TASK`),
+            ItemPath(`mnist::task`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::StaticVar(
                         MajorStaticVarSynDecl {
-                            path: FormPath(`mnist::TASK`, `StaticVar`),
+                            path: FormPath(`mnist::task`, `StaticVar`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 0,
                             },
@@ -119,7 +119,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                MajorFormSynNodePath(`mnist::TASK`, `StaticVar`, (0)),
+                                                MajorFormSynNodePath(`mnist::task`, `StaticVar`, (0)),
                                             ),
                                         ),
                                     ),

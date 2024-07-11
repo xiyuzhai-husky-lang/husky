@@ -15,13 +15,13 @@
         ),
     ),
     (
-        ItemPath(`mnist::TASK`),
+        ItemPath(`mnist::task`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::StaticVar(
                         MajorStaticVarEthTemplate {
-                            path: FormPath(`mnist::TASK`, `StaticVar`),
+                            path: FormPath(`mnist::task`, `StaticVar`),
                         },
                     ),
                 ),

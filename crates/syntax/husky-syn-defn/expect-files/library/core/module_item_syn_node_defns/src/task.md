@@ -108,7 +108,7 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Form(
-                MajorFormSynNodePath(`core::task::TASK`, `StaticVar`, (0)),
+                MajorFormSynNodePath(`core::task::task`, `StaticVar`, (0)),
             ),
         ),
         None,

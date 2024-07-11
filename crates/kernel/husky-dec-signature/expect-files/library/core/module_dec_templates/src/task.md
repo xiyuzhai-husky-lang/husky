@@ -39,7 +39,7 @@
         ),
     ),
     (
-        ItemPath(`core::task::TASK`),
+        ItemPath(`core::task::task`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(

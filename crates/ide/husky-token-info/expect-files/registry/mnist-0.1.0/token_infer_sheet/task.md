@@ -123,7 +123,7 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                MajorFormSynNodePath(`mnist::TASK`, `StaticVar`, (0)),
+                                MajorFormSynNodePath(`mnist::task`, `StaticVar`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
