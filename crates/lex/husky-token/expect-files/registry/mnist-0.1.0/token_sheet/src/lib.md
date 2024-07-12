@@ -512,7 +512,7 @@ TokenSheetData {
             Keyword::Var,
         ),
         TokenData::Ident(
-            `input`,
+            `INPUT`,
         ),
         TokenData::Punctuation(
             Punctuation(

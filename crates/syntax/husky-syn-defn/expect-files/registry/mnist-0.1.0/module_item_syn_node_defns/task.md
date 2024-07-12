@@ -11,7 +11,7 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Form(
-                MajorFormSynNodePath(`mnist::task`, `StaticVar`, (0)),
+                MajorFormSynNodePath(`mnist::TASK`, `StaticVar`, (0)),
             ),
         ),
         None,

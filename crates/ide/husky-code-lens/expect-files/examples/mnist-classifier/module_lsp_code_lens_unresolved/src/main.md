@@ -13,7 +13,7 @@
         },
         command: Some(
             Command {
-                title: "#deps(mnist::input)",
+                title: "#deps(mnist::INPUT)",
                 command: "husky-analyzer.deps",
                 arguments: None,
             },

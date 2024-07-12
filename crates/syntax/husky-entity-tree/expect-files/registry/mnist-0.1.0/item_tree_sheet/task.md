@@ -35,28 +35,28 @@ EntityTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            MajorFormSynNodePath(`mnist::task`, `StaticVar`, (0)),
+                            MajorFormSynNodePath(`mnist::TASK`, `StaticVar`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 2,
                         ident_token: IdentToken {
-                            ident: `task`,
+                            ident: `TASK`,
                             token_idx: TokenIdx(
                                 16,
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist::task`, `StaticVar`),
+                            path: FormPath(`mnist::TASK`, `StaticVar`),
                             body: None,
                         },
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        MajorFormSynNodePath(`mnist::task`, `StaticVar`, (0)),
+                        MajorFormSynNodePath(`mnist::TASK`, `StaticVar`, (0)),
                     ),
                 ),
-                ident: `task`,
+                ident: `TASK`,
                 visibility: Scope::Pub,
             },
         ],
@@ -73,11 +73,11 @@ EntityTreeSheet {
                 },
             },
             EntitySymbolEntry {
-                ident: `task`,
+                ident: `TASK`,
                 visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Form(
-                        FormPath(`mnist::task`, `StaticVar`),
+                        FormPath(`mnist::TASK`, `StaticVar`),
                     ),
                 },
             },

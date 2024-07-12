@@ -66,7 +66,7 @@
         ),
     ),
     (
-        ItemPath(`mnist::input`),
+        ItemPath(`mnist::INPUT`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(

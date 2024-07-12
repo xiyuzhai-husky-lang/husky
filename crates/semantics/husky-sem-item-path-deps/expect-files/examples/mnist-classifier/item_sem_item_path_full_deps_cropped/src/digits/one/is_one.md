@@ -44,7 +44,7 @@ Some(
         ItemPath(`core::num::f32(0)::sqrt`),
         ItemPath(`mnist::BinaryImage28`),
         ItemPath(`mnist_classifier::connected_component::find_connected_components`),
-        ItemPath(`mnist::input`),
+        ItemPath(`mnist::INPUT`),
         ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
         ItemPath(`core::slice::CyclicSlice`),
         ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),

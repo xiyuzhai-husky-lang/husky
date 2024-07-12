@@ -4,7 +4,7 @@
         path: TracePath {
             data: TracePathData::StaticVarItem(
                 StaticVarTracePathData {
-                    static_var_item_path: FormPath(`mnist::input`, `StaticVar`),
+                    static_var_item_path: FormPath(`mnist::INPUT`, `StaticVar`),
                 },
             ),
         },

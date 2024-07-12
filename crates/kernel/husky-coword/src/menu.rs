@@ -46,7 +46,7 @@ pub struct CowordMenu {
     backprop_ident: Ident,
     deps_ident: Ident,
     derive_ident: Ident,
-    task_ident: Ident,
+    task_attr_ident: Ident,
     test_ident: Ident,
 }
 
@@ -92,7 +92,7 @@ impl CowordMenu {
             backprop_ident: Ident::from_ref(db, "backprop").unwrap(),
             deps_ident: Ident::from_ref(db, "deps").unwrap(),
             derive_ident: Ident::from_ref(db, "derive").unwrap(),
-            task_ident: Ident::from_ref(db, "task").unwrap(),
+            task_attr_ident: Ident::from_ref(db, "task").unwrap(),
             test_ident: Ident::from_ref(db, "test").unwrap(),
         }
     }
@@ -250,8 +250,8 @@ impl CowordMenu {
     }
 
     /// `task`
-    pub fn task_ident(&self) -> Ident {
-        self.task_ident
+    pub fn task_attr_ident(&self) -> Ident {
+        self.task_attr_ident
     }
 
     /// `test`

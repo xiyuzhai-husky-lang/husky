@@ -808,7 +808,7 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                MajorFormSynNodePath(`mnist::input`, `StaticVar`, (0)),
+                                MajorFormSynNodePath(`mnist::INPUT`, `StaticVar`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {

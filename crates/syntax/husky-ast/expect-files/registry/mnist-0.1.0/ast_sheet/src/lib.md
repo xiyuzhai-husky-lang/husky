@@ -791,7 +791,7 @@ AstSheet {
                     connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
-                    ident: `input`,
+                    ident: `INPUT`,
                     token_idx: TokenIdx(
                         119,
                     ),
@@ -804,7 +804,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist::input`, `StaticVar`),
+                    path: FormPath(`mnist::INPUT`, `StaticVar`),
                     body: None,
                 },
             },

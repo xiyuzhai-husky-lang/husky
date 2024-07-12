@@ -32862,7 +32862,7 @@
             path: TracePath {
                 data: TracePathData::StaticVarItem(
                     StaticVarTracePathData {
-                        static_var_item_path: FormPath(`mnist::input`, `StaticVar`),
+                        static_var_item_path: FormPath(`mnist::INPUT`, `StaticVar`),
                     },
                 ),
             },
@@ -32889,7 +32889,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorStaticVar {
-                            path: FormPath(`mnist::input`, `StaticVar`),
+                            path: FormPath(`mnist::INPUT`, `StaticVar`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -32899,7 +32899,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FormPath(`mnist::input`, `StaticVar`),
+                    FormPath(`mnist::INPUT`, `StaticVar`),
                 ),
                 caching_class: Val,
             },

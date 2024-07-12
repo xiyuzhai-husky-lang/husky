@@ -1,6 +1,6 @@
 ```rust
 [
     ItemPath(`mnist::Task`),
-    ItemPath(`mnist::task`),
+    ItemPath(`mnist::TASK`),
 ]
 ```

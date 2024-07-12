@@ -50,7 +50,7 @@ Some(
         ItemPath(`core::vec::Vec(0)::push`),
         ItemPath(`mnist::BinaryImage28`),
         ItemPath(`mnist_classifier::connected_component::find_connected_components`),
-        ItemPath(`mnist::input`),
+        ItemPath(`mnist::INPUT`),
         ItemPath(`core::num::f32(0)::abs`),
         ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
         ItemPath(`core::slice::CyclicSlice(0)::first`),

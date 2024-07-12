@@ -35,4 +35,4 @@ impl BinaryGrid28:
 impl core::ops::IntIndex for BinaryGrid28:
     type Output = r32
 
-pub static var input: BinaryImage28
+pub static var INPUT: BinaryImage28

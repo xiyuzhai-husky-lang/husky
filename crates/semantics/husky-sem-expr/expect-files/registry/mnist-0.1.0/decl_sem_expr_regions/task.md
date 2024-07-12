@@ -148,11 +148,11 @@
     },
     SemExprRegion {
         path: RegionPath::ItemDecl(
-            ItemPath(`mnist::task`),
+            ItemPath(`mnist::TASK`),
         ),
         data: SemExprRegionData {
             path: RegionPath::ItemDecl(
-                ItemPath(`mnist::task`),
+                ItemPath(`mnist::TASK`),
             ),
             place_registry: PlaceRegistry {
                 infos: [],

@@ -60,13 +60,13 @@
         ),
     ),
     (
-        ItemPath(`mnist::input`),
+        ItemPath(`mnist::INPUT`),
         Ok(
             ItemEthTemplate::MajorItem(
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::StaticVar(
                         MajorStaticVarEthTemplate {
-                            path: FormPath(`mnist::input`, `StaticVar`),
+                            path: FormPath(`mnist::INPUT`, `StaticVar`),
                             return_ty: EthTerm(`BinaryImage28`),
                         },
                     ),

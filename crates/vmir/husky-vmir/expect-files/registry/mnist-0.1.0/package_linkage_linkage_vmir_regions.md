@@ -451,7 +451,7 @@
     (
         Linkage {
             data: LinkageData::MajorStaticVar {
-                path: FormPath(`mnist::input`, `StaticVar`),
+                path: FormPath(`mnist::INPUT`, `StaticVar`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -526,7 +526,7 @@
     (
         Linkage {
             data: LinkageData::MajorStaticVar {
-                path: FormPath(`mnist::task`, `StaticVar`),
+                path: FormPath(`mnist::TASK`, `StaticVar`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,

@@ -29048,7 +29048,7 @@
                             ),
                         },
                         TraceViewTokenData {
-                            text: "input",
+                            text: "INPUT",
                             token_class: StaticVarEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
@@ -29093,7 +29093,7 @@
                             assoc_trace_id: None,
                         },
                         TraceViewTokenData {
-                            text: "input",
+                            text: "INPUT",
                             token_class: StaticVarEntity,
                             spaces_before: 0,
                             assoc_trace_id: None,
@@ -29122,7 +29122,7 @@
                 TraceViewLineData {
                     tokens_data: [
                         TraceViewTokenData {
-                            text: "input",
+                            text: "INPUT",
                             token_class: StaticVarEntity,
                             spaces_before: 0,
                             assoc_trace_id: None,
@@ -29258,7 +29258,7 @@
                             assoc_trace_id: None,
                         },
                         TraceViewTokenData {
-                            text: "input",
+                            text: "INPUT",
                             token_class: StaticVarEntity,
                             spaces_before: 1,
                             assoc_trace_id: None,
@@ -29305,7 +29305,7 @@
                             assoc_trace_id: None,
                         },
                         TraceViewTokenData {
-                            text: "input",
+                            text: "INPUT",
                             token_class: StaticVarEntity,
                             spaces_before: 0,
                             assoc_trace_id: None,
@@ -29334,7 +29334,7 @@
                 TraceViewLineData {
                     tokens_data: [
                         TraceViewTokenData {
-                            text: "input",
+                            text: "INPUT",
                             token_class: StaticVarEntity,
                             spaces_before: 0,
                             assoc_trace_id: None,
@@ -30264,7 +30264,7 @@
                             ),
                         },
                         TraceViewTokenData {
-                            text: "input",
+                            text: "INPUT",
                             token_class: StaticVarEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
@@ -30539,7 +30539,7 @@
                             ),
                         },
                         TraceViewTokenData {
-                            text: "input",
+                            text: "INPUT",
                             token_class: StaticVarEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
@@ -31142,7 +31142,7 @@
                             ),
                         },
                         TraceViewTokenData {
-                            text: "input",
+                            text: "INPUT",
                             token_class: StaticVarEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
