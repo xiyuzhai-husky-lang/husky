@@ -3350,31 +3350,6 @@
         dependencies: [],
     },
     PackageSummary {
-        name: "husky-bc-base",
-        relative_path: "crates/bc/husky-bc-base",
-        dependencies: [
-            "husky-ndp-task",
-            "shifted-unsigned-int",
-        ],
-    },
-    PackageSummary {
-        name: "husky-ndp-task",
-        relative_path: "crates/tasks/husky-ndp-task",
-        dependencies: [
-            "husky-ndp-task-interface",
-        ],
-    },
-    PackageSummary {
-        name: "husky-ndp-task-interface",
-        relative_path: "crates/tasks/husky-ndp-task-interface",
-        dependencies: [],
-    },
-    PackageSummary {
-        name: "husky-gohan-shard",
-        relative_path: "crates/bc/husky-shard",
-        dependencies: [],
-    },
-    PackageSummary {
         name: "husky-corgi-base",
         relative_path: "crates/corgi/husky-corgi-base",
         dependencies: [],
@@ -3718,57 +3693,6 @@
     PackageSummary {
         name: "husky-syn-fmt",
         relative_path: "crates/syntax/husky-syn-fmt",
-        dependencies: [],
-    },
-    PackageSummary {
-        name: "husky-boot-task",
-        relative_path: "crates/tasks/husky-boot-task",
-        dependencies: [
-            "husky-boot-linktime",
-            "husky-dev-comptime",
-            "husky-linkage-impl",
-            "husky-standard-value",
-            "husky-task",
-            "husky-trace-protocol",
-            "husky-visual-protocol",
-        ],
-    },
-    PackageSummary {
-        name: "husky-boot-task-interface",
-        relative_path: "crates/tasks/husky-boot-task-interface",
-        dependencies: [],
-    },
-    PackageSummary {
-        name: "husky-boot-task-interface-macros",
-        relative_path: "crates/tasks/husky-boot-task-interface-macros",
-        dependencies: [],
-    },
-    PackageSummary {
-        name: "husky-io-task",
-        relative_path: "crates/tasks/husky-io-task",
-        dependencies: [
-            "dashmap",
-            "either",
-            "husky-ki",
-            "husky-mono-linktime",
-            "husky-standard-value",
-            "husky-task",
-            "husky-vm",
-        ],
-    },
-    PackageSummary {
-        name: "husky-io-task-interface",
-        relative_path: "crates/tasks/husky-io-task-interface",
-        dependencies: [],
-    },
-    PackageSummary {
-        name: "husky-io-task-interface-macros",
-        relative_path: "crates/tasks/husky-io-task-interface-macros",
-        dependencies: [],
-    },
-    PackageSummary {
-        name: "husky-ndp-task-interface-macros",
-        relative_path: "crates/tasks/husky-ndp-task-interface-macros",
         dependencies: [],
     },
     PackageSummary {
