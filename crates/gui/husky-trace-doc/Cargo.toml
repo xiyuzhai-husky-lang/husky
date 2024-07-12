@@ -18,7 +18,7 @@ ui.workspace = true
 # kernel
 husky-devsoul.workspace = true
 # gui
-husky-gui = { path = "../../gui/husky-gui" }
+husky-gui.workspace = true
 # protocols
 husky-value-protocol.workspace = true
 husky-visual-protocol.workspace = true
@@ -26,7 +26,7 @@ husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features
     "client"
 ] }
 # gui
-husky-code-editor = { path = "../../gui/husky-code-editor" }
+husky-code-editor.workspace = true
 # devsoul
 husky-devsoul-interface.workspace = true
 # utils
@@ -35,7 +35,7 @@ husky-print-utils.workspace = true
 [dev-dependencies]
 tokio.workspace = true
 # gui
-husky-gui = { path = "../../gui/husky-gui" }
+husky-gui.workspace = true
 # protocols
 husky-visual-protocol.workspace = true
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features = [
