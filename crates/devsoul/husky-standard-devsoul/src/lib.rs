@@ -1,7 +1,8 @@
 mod runtime_storage;
 
-use husky_ml_devsoul_interface::InputId;
-pub use husky_ml_devsoul_interface::{pedestal::MlPedestal, DEV_EVAL_CONTEXT};
+use husky_standard_devsoul_interface::InputId;
+pub use husky_standard_devsoul_interface::{pedestal::StandardPedestal, DEV_EVAL_CONTEXT};
+use husky_standard_trace_protocol::StandardTraceProtocol;
 
 use self::runtime_storage::*;
 use husky_mono_linktime::MonoLinktime;
@@ -19,27 +20,27 @@ use husky_visual_protocol::synchrotron::VisualSynchrotron;
 use serde::{Deserialize, Serialize};
 use std::marker::PhantomData;
 
-pub struct MlDevsoul<Figure>(PhantomData<Figure>)
+pub struct StandardDevsoul<Figure>(PhantomData<Figure>)
 where
-    Figure: IsFigure<MlPedestal>;
+    Figure: IsFigure<StandardPedestal>;
 
-type LinkageImpl = husky_linkage_impl::standard::LinkageImpl<MlPedestal>;
+type LinkageImpl = husky_linkage_impl::standard::LinkageImpl<StandardPedestal>;
 
-impl<Figure> IsDevsoul for MlDevsoul<Figure>
+impl<Figure> IsDevsoul for StandardDevsoul<Figure>
 where
-    Figure: IsFigure<MlPedestal>,
+    Figure: IsFigure<StandardPedestal>,
 {
-    type Pedestal = MlPedestal;
+    type Pedestal = StandardPedestal;
 
     type LinkageImpl = LinkageImpl;
 
     type Linktime = MonoLinktime<LinkageImpl>;
 
-    type RuntimeStorage = MlDevRuntimeStorage;
+    type RuntimeStorage = StandardDevRuntimeStorage;
 
     type RuntimeSpecificConfig = ();
 
-    type TraceProtocol = MlTraceProtocol<Figure>;
+    type TraceProtocol = StandardTraceProtocol<Figure>;
 
     fn dev_eval_context_local_key() -> &'static DevEvalContextLocalKey<LinkageImpl> {
         &DEV_EVAL_CONTEXT
@@ -61,8 +62,8 @@ where
             None => (None, None),
         };
         match pedestal {
-            MlPedestal::Specific(_) => {
-                <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure<MlPedestal>>::new_specific(
+            StandardPedestal::Specific(_) => {
+                <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure<StandardPedestal>>::new_specific(
                     followed ,
                     accompanyings,
                     |ki_repr, visual_synchrotron| {
@@ -77,9 +78,9 @@ where
                     visual_synchrotron,
                 )
             }
-            MlPedestal::Generic => {
+            StandardPedestal::Generic => {
                 let pedestals = (0..49).into_iter().filter_map(|index| {
-                        let pedestal = MlPedestal::Specific(InputId::from_index(index));
+                        let pedestal = StandardPedestal::Specific(InputId::from_index(index));
                         let Some(ki_domain_repr_interface) = domain else {
                             return Some(pedestal)
                         };
@@ -95,7 +96,7 @@ where
                             KiControlFlow::Throw(_) => todo!(),
                         }
                     });
-                <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure<MlPedestal>>::new_generic(
+                <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure<StandardPedestal>>::new_generic(
                     followed,
                     accompanyings,
                     pedestals,
@@ -113,22 +114,4 @@ where
             }
         }
     }
-}
-
-#[derive(Debug, Serialize, Deserialize, PartialEq, Eq, Clone)]
-pub struct MlTraceProtocol<Figure: IsFigure<MlPedestal>>(PhantomData<Figure>);
-
-impl<Figure: IsFigure<MlPedestal>> Default for MlTraceProtocol<Figure> {
-    fn default() -> Self {
-        Self(Default::default())
-    }
-}
-
-impl<Figure> IsTraceProtocol for MlTraceProtocol<Figure>
-where
-    Figure: IsFigure<MlPedestal>,
-{
-    type Pedestal = MlPedestal;
-
-    type Figure = Figure;
 }

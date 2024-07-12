@@ -83,7 +83,7 @@ husky-corgi-config-ast.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-defn.workspace = true
 # devsoul
-husky-ml-devsoul.workspace = true
+husky-standard-devsoul.workspace = true
 # ki
 husky-ki.workspace = true
 husky-ki-repr = { path = "../../ki/husky-ki-repr", features = ["test_utils"] }

@@ -284,6 +284,7 @@ husky-graphics2d-visual-protocol = { path = "crates/protocols/husky-graphics2d-v
 husky-text-protocol = { path = "crates/protocols/husky-text-protocol" }
 husky-token-protocol = { path = "crates/protocols/husky-token-protocol" }
 husky-trace-protocol = { path = "crates/protocols/husky-trace-protocol" }
+husky-standard-trace-protocol = { path = "crates/protocols/husky-standard-trace-protocol" }
 husky-value-protocol = { path = "crates/protocols/husky-value-protocol" }
 husky-visual-protocol = { path = "crates/protocols/husky-visual-protocol" }
 # runtime
@@ -307,9 +308,9 @@ husky-syn-defn = { path = "crates/syntax/husky-syn-defn" }
 husky-syn-opr = { path = "crates/syntax/husky-syn-opr" }
 husky-entity-tree = { path = "crates/syntax/husky-entity-tree" }
 # devsoul
-husky-ml-devsoul = { path = "crates/devsoul/husky-ml-devsoul" }
-husky-ml-devsoul-interface = { path = "crates/devsoul/husky-ml-devsoul-interface" }
-husky-ml-devsoul-interface-macros = { path = "crates/devsoul/husky-ml-devsoul-interface-macros" }
+husky-standard-devsoul = { path = "crates/devsoul/husky-standard-devsoul" }
+husky-standard-devsoul-interface = { path = "crates/devsoul/husky-standard-devsoul-interface" }
+husky-standard-devsoul-interface-macros = { path = "crates/devsoul/husky-standard-devsoul-interface-macros" }
 husky-devsoul = { path = "crates/devsoul/husky-devsoul" }
 husky-devsoul-interface = { path = "crates/devsoul/husky-devsoul-interface" }
 husky-devsoul-interface-macros = { path = "crates/devsoul/husky-devsoul-interface-macros" }
@@ -367,4 +368,4 @@ husky-core = { path = "library/core" }
 # registry
 ad-hoc-devsoul-dependency = { path = "registry/ad-hoc-devsoul-dependency" }
 malamute = { path = "registry/malamute-0.1.0" }
-ml-devsoul = { path = "registry/ml-devsoul-0.1.0" }
+standard-devsoul = { path = "registry/standard-devsoul-0.1.0" }

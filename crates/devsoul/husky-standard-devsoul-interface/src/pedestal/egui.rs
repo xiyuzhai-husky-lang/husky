@@ -2,7 +2,7 @@ use super::*;
 use ::egui::{vec2, Button, Color32, RichText, TextStyle, Ui, Widget};
 use husky_trace_protocol::{pedestal::PedestalUi, view::action::TraceViewAction};
 
-impl PedestalUi<Ui> for MlPedestal {
+impl PedestalUi<Ui> for StandardPedestal {
     fn pedestal_ui<TraceProtocol>(
         self,
         ui: &mut Ui,
@@ -15,8 +15,8 @@ impl PedestalUi<Ui> for MlPedestal {
     {
         // todo: style this
         let text = match self {
-            MlPedestal::Specific(_) => "SPECIFIC",
-            MlPedestal::Generic => "GENERIC",
+            StandardPedestal::Specific(_) => "SPECIFIC",
+            StandardPedestal::Generic => "GENERIC",
         };
         let glyph_width =
             ui.fonts(|f| f.glyph_width(&TextStyle::Monospace.resolve(ui.style()), ' '));
@@ -33,9 +33,9 @@ impl PedestalUi<Ui> for MlPedestal {
                 {
                     action_buffer.push(TraceViewAction::SetPedestal {
                         pedestal: match self {
-                            MlPedestal::Specific(_) => MlPedestal::Generic,
-                            MlPedestal::Generic => {
-                                MlPedestal::Specific(pedestal_ui_buffer.base_input_id)
+                            StandardPedestal::Specific(_) => StandardPedestal::Generic,
+                            StandardPedestal::Generic => {
+                                StandardPedestal::Specific(pedestal_ui_buffer.base_input_id)
                             }
                         },
                     })
@@ -49,12 +49,14 @@ impl PedestalUi<Ui> for MlPedestal {
                         Ok(index) => {
                             let input_id = InputId::from_index(index);
                             match self {
-                                MlPedestal::Specific(_) => {
+                                StandardPedestal::Specific(_) => {
                                     action_buffer.push(TraceViewAction::SetPedestal {
-                                        pedestal: MlPedestal::Specific(input_id),
+                                        pedestal: StandardPedestal::Specific(input_id),
                                     })
                                 }
-                                MlPedestal::Generic => pedestal_ui_buffer.base_input_id = input_id,
+                                StandardPedestal::Generic => {
+                                    pedestal_ui_buffer.base_input_id = input_id
+                                }
                             }
                         }
                         Err(e) => pedestal_ui_buffer.error = Some(e.to_string()),

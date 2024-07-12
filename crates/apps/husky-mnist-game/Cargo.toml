@@ -21,7 +21,7 @@ husky-trace-protocol.workspace = true
 husky-graphics2d-visual-protocol.workspace = true
 # devsoul
 husky-devsoul-interface.workspace = true
-husky-ml-devsoul-interface.workspace = true
+husky-standard-devsoul-interface.workspace = true
 # utils
 husky-print-utils.workspace = true
 # registry

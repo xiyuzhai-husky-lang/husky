@@ -8,28 +8,28 @@ use husky_ki::{version_stamp::KiVersionStamp, Ki};
 use std::sync::{Arc, Mutex};
 
 #[derive(Debug, Default)]
-pub struct MlDevRuntimeStorage {
+pub struct StandardDevRuntimeStorage {
     ki_values: DashMap<
-        MlDevRuntimeValStorageKey,
+        StandardDevRuntimeValStorageKey,
         Arc<Mutex<Option<(KiVersionStamp, StandardLinkageImplKiControlFlow)>>>,
     >,
     memo_field_values: DashMap<
-        MlDevRuntimeMemoizedFieldStorageKey,
+        StandardDevRuntimeMemoizedFieldStorageKey,
         Arc<Mutex<Option<StandardLinkageImplKiControlFlow>>>,
     >,
 }
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
-pub struct MlDevRuntimeValStorageKey {
+pub struct StandardDevRuntimeValStorageKey {
     ki: Ki,
-    pedestal: MlPedestal,
+    pedestal: StandardPedestal,
 }
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
-pub struct MlDevRuntimeMemoizedFieldStorageKey {
+pub struct StandardDevRuntimeMemoizedFieldStorageKey {
     jar_index: HuskyJarIndex,
     ingredient_index: HuskyIngredientIndex,
-    pedestal: MlPedestal,
+    pedestal: StandardPedestal,
     slf: AnyPointer,
 }
 
@@ -38,15 +38,15 @@ pub struct AnyPointer(*const std::ffi::c_void);
 
 unsafe impl Send for AnyPointer {}
 
-impl IsRuntimeStorage<LinkageImpl> for MlDevRuntimeStorage {
+impl IsRuntimeStorage<LinkageImpl> for StandardDevRuntimeStorage {
     fn get_or_try_init_val_value(
         &self,
         val: Ki,
-        pedestal: MlPedestal,
+        pedestal: StandardPedestal,
         f: impl FnOnce() -> StandardLinkageImplKiControlFlow,
         db: &::salsa::Db,
     ) -> StandardLinkageImplKiControlFlow {
-        let key = MlDevRuntimeValStorageKey { ki: val, pedestal };
+        let key = StandardDevRuntimeValStorageKey { ki: val, pedestal };
         let mu = self.ki_values.entry(key).or_default().clone();
         let mut opt_stored_val_control_flow_store_guard = mu.lock().expect("todo");
         let new_version_stamp = key.ki.version_stamp(db);
@@ -71,12 +71,12 @@ impl IsRuntimeStorage<LinkageImpl> for MlDevRuntimeStorage {
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        pedestal: MlPedestal,
+        pedestal: StandardPedestal,
         slf: &'static std::ffi::c_void,
         f: impl FnOnce(&'static std::ffi::c_void) -> StandardLinkageImplKiControlFlow,
     ) -> StandardLinkageImplKiControlFlow {
         // todo: maybe add version stamp?
-        let key = MlDevRuntimeMemoizedFieldStorageKey {
+        let key = StandardDevRuntimeMemoizedFieldStorageKey {
             jar_index,
             ingredient_index,
             pedestal,

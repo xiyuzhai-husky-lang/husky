@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 husky-core.workspace = true
 husky-linkage-impl.workspace = true
-husky-ml-devsoul-interface.workspace = true
+husky-standard-devsoul-interface.workspace = true
 husky-standard-value.workspace = true
 husky-devsoul-interface.workspace = true
 husky-rng-utils.workspace = true

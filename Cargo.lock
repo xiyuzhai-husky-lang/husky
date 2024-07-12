@@ -99,7 +99,7 @@ version = "0.1.0"
 dependencies = [
  "husky-devsoul-interface",
  "husky-linkage-impl",
- "husky-ml-devsoul-interface",
+ "husky-standard-devsoul-interface",
  "husky-standard-value",
 ]
 
@@ -4561,12 +4561,12 @@ dependencies = [
  "husky-ki-repr",
  "husky-linkage",
  "husky-linkage-impl",
- "husky-ml-devsoul",
- "husky-ml-devsoul-interface",
  "husky-mono-linktime",
  "husky-opr",
  "husky-path-utils",
  "husky-print-utils",
+ "husky-standard-devsoul",
+ "husky-standard-devsoul-interface",
  "husky-sync-utils",
  "husky-term-prelude",
  "husky-text-protocol",
@@ -5485,12 +5485,12 @@ dependencies = [
  "husky-linkage",
  "husky-manifest",
  "husky-manifest-ast",
- "husky-ml-devsoul",
  "husky-place",
  "husky-print-utils",
  "husky-regional-token",
  "husky-sem-expr",
  "husky-sem-place-contract",
+ "husky-standard-devsoul",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -5676,53 +5676,6 @@ name = "husky-mir-pass"
 version = "0.1.0"
 
 [[package]]
-name = "husky-ml-devsoul"
-version = "0.1.0"
-dependencies = [
- "dashmap 6.0.1",
- "either",
- "husky-devsoul",
- "husky-devsoul-interface",
- "husky-ki",
- "husky-linkage",
- "husky-linkage-impl",
- "husky-ml-devsoul-interface",
- "husky-mono-linktime",
- "husky-rust-transpilation",
- "husky-standard-value",
- "husky-trace-protocol",
- "husky-vfs",
- "husky-visual-protocol",
- "salsa",
- "serde",
-]
-
-[[package]]
-name = "husky-ml-devsoul-interface"
-version = "0.1.0"
-dependencies = [
- "egui",
- "enum-class",
- "husky-devsoul-interface",
- "husky-linkage-impl",
- "husky-ml-devsoul-interface-macros",
- "husky-standard-value",
- "husky-trace-protocol",
- "serde",
- "shifted-unsigned-int",
-]
-
-[[package]]
-name = "husky-ml-devsoul-interface-macros"
-version = "0.1.0"
-dependencies = [
- "husky-proc-macro-utils",
- "proc-macro2",
- "quote",
- "syn 2.0.66",
-]
-
-[[package]]
 name = "husky-mnist-classifier-developer"
 version = "0.1.0"
 dependencies = [
@@ -5730,7 +5683,7 @@ dependencies = [
  "husky-dev-comptime",
  "husky-devtime",
  "husky-graphics2d-visual-protocol",
- "husky-ml-devsoul",
+ "husky-standard-devsoul",
 ]
 
 [[package]]
@@ -5743,8 +5696,8 @@ dependencies = [
  "expect-test",
  "husky-devsoul-interface",
  "husky-graphics2d-visual-protocol",
- "husky-ml-devsoul-interface",
  "husky-print-utils",
+ "husky-standard-devsoul-interface",
  "husky-trace-protocol",
  "husky-visual-protocol",
  "image",
@@ -5807,9 +5760,10 @@ dependencies = [
  "husky-code-editor",
  "husky-graphics2d-visual-protocol",
  "husky-gui",
- "husky-ml-devsoul",
- "husky-ml-devsoul-interface",
  "husky-print-utils",
+ "husky-standard-devsoul",
+ "husky-standard-devsoul-interface",
+ "husky-standard-trace-protocol",
  "husky-token-protocol",
  "husky-trace-doc",
  "husky-trace-protocol",
@@ -6321,6 +6275,63 @@ dependencies = [
  "itertools 0.11.0",
  "lsp-types 0.95.0",
  "salsa",
+]
+
+[[package]]
+name = "husky-standard-devsoul"
+version = "0.1.0"
+dependencies = [
+ "dashmap 6.0.1",
+ "either",
+ "husky-devsoul",
+ "husky-devsoul-interface",
+ "husky-ki",
+ "husky-linkage",
+ "husky-linkage-impl",
+ "husky-mono-linktime",
+ "husky-rust-transpilation",
+ "husky-standard-devsoul-interface",
+ "husky-standard-trace-protocol",
+ "husky-standard-value",
+ "husky-trace-protocol",
+ "husky-vfs",
+ "husky-visual-protocol",
+ "salsa",
+ "serde",
+]
+
+[[package]]
+name = "husky-standard-devsoul-interface"
+version = "0.1.0"
+dependencies = [
+ "egui",
+ "enum-class",
+ "husky-devsoul-interface",
+ "husky-linkage-impl",
+ "husky-standard-devsoul-interface-macros",
+ "husky-standard-value",
+ "husky-trace-protocol",
+ "serde",
+ "shifted-unsigned-int",
+]
+
+[[package]]
+name = "husky-standard-devsoul-interface-macros"
+version = "0.1.0"
+dependencies = [
+ "husky-proc-macro-utils",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.66",
+]
+
+[[package]]
+name = "husky-standard-trace-protocol"
+version = "0.1.0"
+dependencies = [
+ "husky-standard-devsoul-interface",
+ "husky-trace-protocol",
+ "serde",
 ]
 
 [[package]]
@@ -8109,8 +8120,8 @@ dependencies = [
  "husky-core",
  "husky-devsoul-interface",
  "husky-linkage-impl",
- "husky-ml-devsoul-interface",
  "husky-rng-utils",
+ "husky-standard-devsoul-interface",
  "husky-standard-value",
  "lazy_static",
  "serde",
