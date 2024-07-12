@@ -19,7 +19,7 @@
             source: KiReprSource::ValItem(
                 FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
             ),
-            caching_class: ValItem,
+            caching_class: Val,
         },
     ),
     (
@@ -33,7 +33,7 @@
             source: KiReprSource::ValItem(
                 FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
             ),
-            caching_class: ValItem,
+            caching_class: Val,
         },
     ),
 ]

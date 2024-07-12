@@ -108,7 +108,7 @@ pub enum KiReprExpansionSource {
 impl KiReprSource {
     pub(crate) fn caching_class(self) -> KiCachingClass {
         match self {
-            KiReprSource::ValItem(_) => KiCachingClass::ValItem,
+            KiReprSource::ValItem(_) => KiCachingClass::Val,
             KiReprSource::Expansion { source, .. } => source.caching_class(),
         }
     }

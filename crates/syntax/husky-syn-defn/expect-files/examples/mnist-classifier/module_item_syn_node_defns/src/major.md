@@ -136,7 +136,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::input`, `StaticVar`),
                                             ),
                                         ),
                                     ),
@@ -194,7 +194,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist::input`, `Val`),
+                                            FormPath(`mnist::input`, `StaticVar`),
                                         ),
                                     ),
                                 },

@@ -19,7 +19,7 @@
             source: KiReprSource::ValItem(
                 FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
             ),
-            caching_class: ValItem,
+            caching_class: Val,
         },
     ),
     (
@@ -41,7 +41,7 @@
             source: KiReprSource::ValItem(
                 FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
             ),
-            caching_class: ValItem,
+            caching_class: Val,
         },
     ),
 ]

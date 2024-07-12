@@ -801,18 +801,19 @@ Ok(
             ),
             None,
             None,
+            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                MajorFormSynNodePath(`mnist::input`, `Val`, (0)),
+                                MajorFormSynNodePath(`mnist::input`, `StaticVar`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
                             module_item_kind: MajorItemKind::Form(
-                                MajorFormKind::Val,
+                                MajorFormKind::StaticVar,
                             ),
                             connection: MajorItemConnectionKind::Connected,
                         },
@@ -839,7 +840,6 @@ Ok(
                     ),
                 },
             ),
-            None,
         ],
     },
 )

@@ -84,8 +84,15 @@ impl KiRepr {
         )
     }
 
+    // todo: general paths
     pub fn new_val_item(path: MajorFormPath, db: &::salsa::Db) -> Self {
+        debug_assert_eq!(path.kind(db), husky_entity_kind::MajorFormKind::Val);
         val_item_ki_repr(db, path)
+    }
+
+    // todo: general paths
+    pub fn new_static_var_item(path: MajorFormPath, db: &::salsa::Db) -> Self {
+        static_var_item_ki_repr(db, path)
     }
 
     pub(crate) fn with_source(self, source: KiReprSource, db: &::salsa::Db) -> Self {
@@ -103,6 +110,8 @@ impl KiRepr {
 fn val_item_ki_repr(db: &::salsa::Db, path: MajorFormPath) -> KiRepr {
     let domain = KiDomainRepr::Omni;
     let MajorFormHirDefn::Val(hir_defn) = path.hir_defn(db).unwrap() else {
+        use salsa::DebugWithDb;
+        husky_print_utils::p!(path.debug(db));
         unreachable!()
     };
     let opn = match Linkage::new_val_item(path, db) {
@@ -110,7 +119,19 @@ fn val_item_ki_repr(db: &::salsa::Db, path: MajorFormPath) -> KiRepr {
         None => KiOpn::ValItemLazilyDefined(path),
     };
     let opds = smallvec![];
-    let caching_class = KiCachingClass::ValItem;
+    let caching_class = KiCachingClass::Val;
+    KiRepr::new(domain, opn, opds, KiReprSource::ValItem(path), db)
+}
+
+#[salsa::tracked(jar = KiReprJar)]
+fn static_var_item_ki_repr(db: &::salsa::Db, path: MajorFormPath) -> KiRepr {
+    let domain = KiDomainRepr::Omni;
+    let MajorFormHirDefn::StaticVar(hir_defn) = path.hir_defn(db).unwrap() else {
+        unreachable!()
+    };
+    let opn = KiOpn::Linkage(Linkage::new_static_var_item(path, db));
+    let opds = smallvec![];
+    let caching_class = KiCachingClass::StaticVar;
     KiRepr::new(domain, opn, opds, KiReprSource::ValItem(path), db)
 }
 
@@ -149,7 +170,8 @@ impl From<KiDomainReprInterface> for KiDomainRepr {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum KiCachingClass {
-    ValItem,
+    StaticVar,
+    Val,
     Variable,
     Expr,
     Stmt,

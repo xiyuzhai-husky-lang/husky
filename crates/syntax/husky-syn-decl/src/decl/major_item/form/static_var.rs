@@ -10,19 +10,14 @@ pub struct MajorStaticVarSynNodeDecl {
     #[return_ref]
     pub return_ty: SynNodeDeclResult<ReturnTypeBeforeEqSyndicate>,
     #[return_ref]
-    pub eq_or_eol_semicolon_token:
-        SynNodeDeclResult<Either<EqRegionalToken, EolSemicolonRegionalToken>>,
+    pub opt_eq_token: TokenDataResult<Option<EqRegionalToken>>,
     pub expr: Option<SynExprIdx>,
     pub syn_expr_region: SynExprRegion,
 }
 
 impl MajorStaticVarSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
-        chain_as_ref_err_collect!(
-            self.colon_token(db),
-            self.return_ty(db),
-            self.eq_or_eol_semicolon_token(db)
-        )
+        chain_as_ref_err_collect!(self.colon_token(db), self.return_ty(db))
     }
 }
 
@@ -36,15 +31,14 @@ impl<'a> ItemSynNodeDeclParser<'a> {
             .try_parse_expected(OriginalSynNodeDeclError::ExpectedColonBeforeStaticReturnType);
         let return_ty =
             parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedStaticReturnType);
-        let eq_or_eol_semicolon_token =
-            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEqTokenForStatic);
+        let opt_eq_token = parser.try_parse_option();
         let expr = parser.parse_expr_root(None, SynExprRootKind::StaticExpr);
         MajorStaticVarSynNodeDecl::new(
             self.db(),
             syn_node_path,
             colon_token,
             return_ty,
-            eq_or_eol_semicolon_token,
+            opt_eq_token,
             expr,
             parser.finish(),
         )

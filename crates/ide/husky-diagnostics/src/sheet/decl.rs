@@ -94,7 +94,7 @@ impl Diagnose for OriginalSynNodeDeclError {
             OriginalSynNodeDeclError::ExpectedCrateDeclNarrative(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedEqTokenForLibCrateDefaultConstExcludes(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedEqTokenForTypeAlias(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedEqTokenForStatic(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedEqTokenForStaticMut(_) => todo!(),
         }
     }
 
@@ -143,7 +143,7 @@ impl Diagnose for OriginalSynNodeDeclError {
             OriginalSynNodeDeclError::ExpectedCrateDeclNarrative(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedEqTokenForLibCrateDefaultConstExcludes(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedEqTokenForTypeAlias(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectedEqTokenForStatic(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedEqTokenForStaticMut(_) => todo!(),
         }
     }
 }

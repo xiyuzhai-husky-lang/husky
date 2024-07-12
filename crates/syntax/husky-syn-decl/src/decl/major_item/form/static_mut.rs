@@ -37,7 +37,7 @@ impl<'a> ItemSynNodeDeclParser<'a> {
         let return_ty =
             parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedStaticReturnType);
         let eq_or_eol_semicolon_token =
-            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEqTokenForStatic);
+            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEqTokenForStaticMut);
         let expr = parser.parse_expr_root(None, SynExprRootKind::StaticExpr);
         MajorStaticMutSynNodeDecl::new(
             self.db(),

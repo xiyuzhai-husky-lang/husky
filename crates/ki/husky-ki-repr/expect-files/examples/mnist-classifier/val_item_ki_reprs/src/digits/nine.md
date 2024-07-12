@@ -19,7 +19,7 @@
             source: KiReprSource::ValItem(
                 FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
             ),
-            caching_class: ValItem,
+            caching_class: Val,
         },
     ),
     (
@@ -41,7 +41,7 @@
             source: KiReprSource::ValItem(
                 FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
             ),
-            caching_class: ValItem,
+            caching_class: Val,
         },
     ),
     (
@@ -63,7 +63,7 @@
             source: KiReprSource::ValItem(
                 FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
             ),
-            caching_class: ValItem,
+            caching_class: Val,
         },
     ),
 ]

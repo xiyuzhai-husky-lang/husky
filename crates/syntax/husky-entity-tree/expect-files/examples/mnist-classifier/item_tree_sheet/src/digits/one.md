@@ -1224,12 +1224,12 @@ EntityTreeSheet {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             major_item_path: MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::input`, `StaticVar`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::input`, `StaticVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -1241,7 +1241,7 @@ EntityTreeSheet {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`mnist::input`, `Val`),
+                                        FormPath(`mnist::input`, `StaticVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -1253,7 +1253,7 @@ EntityTreeSheet {
                         ),
                         path: PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist::input`, `Val`),
+                                FormPath(`mnist::input`, `StaticVar`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
