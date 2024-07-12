@@ -19,7 +19,7 @@ use husky_task::{
 };
 use husky_task_interface::{
     ki_repr::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface},
-    IsDevRuntime, IsLinkageImpl, LinkageImplKiControlFlow, TaskIngredientIndex, TaskJarIndex,
+    HuskyIngredientIndex, HuskyJarIndex, IsDevRuntime, IsLinkageImpl, LinkageImplKiControlFlow,
 };
 use husky_vfs::{error::VfsResult, path::linktime_target_path::LinktimeTargetPath};
 use std::{convert::Infallible, path::Path};
@@ -82,8 +82,8 @@ impl<DevAscension: IsDevAscension> IsDevRuntime<DevAscension::LinkageImpl>
 
     fn eval_ingredient_at_pedestal_with(
         &self,
-        jar_index: TaskJarIndex,
-        ingredient_index: TaskIngredientIndex,
+        jar_index: HuskyJarIndex,
+        ingredient_index: HuskyIngredientIndex,
         base_point: DevAscension::Pedestal,
         f: impl FnOnce() -> DevAscensionValueResult<DevAscension>,
     ) -> DevAscensionKiControlFlow<DevAscension> {
@@ -97,8 +97,8 @@ impl<DevAscension: IsDevAscension> IsDevRuntime<DevAscension::LinkageImpl>
 
     fn eval_ingredient_at_pedestal(
         &self,
-        jar_index: TaskJarIndex,
-        ingredient_index: TaskIngredientIndex,
+        jar_index: HuskyJarIndex,
+        ingredient_index: HuskyIngredientIndex,
         pedestal: DevAscension::Pedestal,
     ) -> DevAscensionKiControlFlow<DevAscension> {
         self.eval_ki_repr_at_pedestal(
@@ -144,8 +144,8 @@ impl<DevAscension: IsDevAscension> IsDevRuntime<DevAscension::LinkageImpl>
 
     fn eval_memo_field_with(
         &self,
-        jar_index: TaskJarIndex,
-        ingredient_index: TaskIngredientIndex,
+        jar_index: HuskyJarIndex,
+        ingredient_index: HuskyIngredientIndex,
         pedestal: DevAscension::Pedestal,
         slf: &'static std::ffi::c_void,
         f: fn(&'static std::ffi::c_void) -> DevAscensionKiControlFlow<DevAscension>,
