@@ -2,33 +2,31 @@ use crate::*;
 use husky_hir_opr::binary::HirBinaryOpr;
 use husky_ki::{KiOpn, KiPatternData};
 use husky_ki_repr::repr::{KiArgumentRepr, KiDomainRepr, KiRepr};
-use husky_ml_task::MlDevAscension;
+use husky_ml_task::MlDevend;
 use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr};
 use husky_task::{
-    dev_ascension::{dev_eval_context, with_runtime_and_base_point, IsDevAscension},
-    helpers::{DevAscensionException, DevAscensionValue},
+    devend::{dev_eval_context, with_runtime_and_base_point, IsDevend},
+    helpers::{DevendException, DevendValue},
 };
 use husky_task_interface::ki_repr::KiArgumentReprInterface;
 use husky_task_interface::{ki_control_flow::KiControlFlow, IsLinkageImpl};
 use husky_term_prelude::literal::Literal;
 use husky_value_interface::IsValue;
 
-impl<DevAscension: IsDevAscension> DevRuntime<DevAscension> {
+impl<Devend: IsDevend> DevRuntime<Devend> {
     pub fn eval_ki_repr_at_pedestal(
         &self,
         ki_repr: KiRepr,
-        pedestal: DevAscension::Pedestal,
-    ) -> DevAscensionKiControlFlow<DevAscension> {
-        with_runtime_and_base_point::<DevAscension, _, _>(self, pedestal, || {
-            self.eval_ki_repr(ki_repr)
-        })
+        pedestal: Devend::Pedestal,
+    ) -> DevendKiControlFlow<Devend> {
+        with_runtime_and_base_point::<Devend, _, _>(self, pedestal, || self.eval_ki_repr(ki_repr))
     }
 
     pub fn eval_ki_domain_repr_at_pedestal(
         &self,
         ki_domain_repr: KiDomainRepr,
-        pedestal: DevAscension::Pedestal,
-    ) -> KiControlFlow<(), Infallible, DevAscensionException<DevAscension>> {
+        pedestal: Devend::Pedestal,
+    ) -> KiControlFlow<(), Infallible, DevendException<Devend>> {
         match ki_domain_repr {
             KiDomainRepr::Omni => KiControlFlow::Continue(()),
             KiDomainRepr::ConditionSatisfied(condition_ki_repr) => {
@@ -70,10 +68,10 @@ impl<DevAscension: IsDevAscension> DevRuntime<DevAscension> {
         }
     }
 
-    fn eval_ki_repr(&self, ki_repr: KiRepr) -> DevAscensionKiControlFlow<DevAscension> {
+    fn eval_ki_repr(&self, ki_repr: KiRepr) -> DevendKiControlFlow<Devend> {
         // todo: consider domain
         let db = self.db();
-        let result: DevAscensionKiControlFlow<DevAscension> = match ki_repr.opn(db) {
+        let result: DevendKiControlFlow<Devend> = match ki_repr.opn(db) {
             KiOpn::Return => todo!(),
             KiOpn::Require => {
                 let arguments: &[_] = ki_repr.arguments(db);
@@ -104,7 +102,7 @@ impl<DevAscension: IsDevAscension> DevRuntime<DevAscension> {
             KiOpn::Literal(lit) => {
                 // ad hoc
                 let db = self.db();
-                let value: DevAscensionValue<DevAscension> = match lit {
+                let value: DevendValue<Devend> = match lit {
                     Literal::Unit(_) => ().into(),
                     Literal::Bool(b) => b.into(),
                     Literal::I8(i) => i.into(),
@@ -139,15 +137,12 @@ impl<DevAscension: IsDevAscension> DevRuntime<DevAscension> {
             }
             KiOpn::Linkage(linkage) => {
                 let linkage_impl = self.comptime.linkage_impl(linkage);
-                let control_flow = linkage_impl.eval_ki(
-                    ki_repr.into(),
-                    dev_eval_context::<DevAscension>(),
-                    unsafe {
+                let control_flow =
+                    linkage_impl.eval_ki(ki_repr.into(), dev_eval_context::<Devend>(), unsafe {
                         std::mem::transmute::<_, &[KiArgumentReprInterface]>(
                             ki_repr.arguments(db) as &[KiArgumentRepr]
                         )
-                    },
-                );
+                    });
                 control_flow
             }
             KiOpn::FunctionRitchie(_) => todo!(),
@@ -230,7 +225,7 @@ impl<DevAscension: IsDevAscension> DevRuntime<DevAscension> {
                         db,
                     ))
                     .enum_index_value_presenter();
-                KiControlFlow::Continue(DevAscensionValue::<DevAscension>::from_enum_index(
+                KiControlFlow::Continue(DevendValue::<Devend>::from_enum_index(
                     path.index(db).raw(), // ad hoc
                     presenter,
                 ))
@@ -252,7 +247,7 @@ impl<DevAscension: IsDevAscension> DevRuntime<DevAscension> {
             }
             KiOpn::Unwrap {} => {
                 use husky_print_utils::p;
-                let pedestal = DevAscension::dev_eval_context_local_key()
+                let pedestal = Devend::dev_eval_context_local_key()
                     .get()
                     .expect("`DEV_EVAL_CONTEXT` not set")
                     .pedestal();
@@ -278,7 +273,7 @@ impl<DevAscension: IsDevAscension> DevRuntime<DevAscension> {
         result
     }
 
-    fn eval_root_stmts(&self, stmt_ki_reprs: &[KiRepr]) -> DevAscensionKiControlFlow<DevAscension> {
+    fn eval_root_stmts(&self, stmt_ki_reprs: &[KiRepr]) -> DevendKiControlFlow<Devend> {
         match self.eval_stmts(stmt_ki_reprs) {
             KiControlFlow::Continue(value) | KiControlFlow::Return(value) => {
                 KiControlFlow::Continue(value)
@@ -293,11 +288,7 @@ impl<DevAscension: IsDevAscension> DevRuntime<DevAscension> {
     fn eval_stmts(
         &self,
         stmt_ki_reprs: &[KiRepr],
-    ) -> KiControlFlow<
-        DevAscensionValue<DevAscension>,
-        DevAscensionValue<DevAscension>,
-        DevAscensionException<DevAscension>,
-    > {
+    ) -> KiControlFlow<DevendValue<Devend>, DevendValue<Devend>, DevendException<Devend>> {
         for &stmt_ki_repr in &stmt_ki_reprs[..stmt_ki_reprs.len() - 1] {
             let _: () = self.eval_ki_repr(stmt_ki_repr)?.into();
         }
@@ -307,11 +298,7 @@ impl<DevAscension: IsDevAscension> DevRuntime<DevAscension> {
     fn eval_val_argument(
         &self,
         val_argument_repr: &KiArgumentRepr,
-    ) -> KiControlFlow<
-        DevAscensionValue<DevAscension>,
-        DevAscensionValue<DevAscension>,
-        DevAscensionException<DevAscension>,
-    > {
+    ) -> KiControlFlow<DevendValue<Devend>, DevendValue<Devend>, DevendException<Devend>> {
         match *val_argument_repr {
             KiArgumentRepr::Simple(ki_repr) => self.eval_ki_repr(ki_repr),
             KiArgumentRepr::Keyed(_) => todo!(),
@@ -334,7 +321,7 @@ fn ki_repr_eval_works() {
     use husky_path_utils::dev_paths::*;
 
     let dev_paths = HuskyLangDevPaths::new();
-    let runtime: DevRuntime<MlDevAscension<()>> =
+    let runtime: DevRuntime<MlDevend<()>> =
         DevRuntime::new(dev_paths.dev_root().join("examples/mnist-classifier"), None).unwrap();
     let db = runtime.db();
     let DevComptimeTarget::SingleCrate(crate_path) = runtime.comptime_target() else {
