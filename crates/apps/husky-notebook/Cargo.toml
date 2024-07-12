@@ -24,9 +24,9 @@ husky-trace-doc = { path = "../../gui/husky-trace-doc", features = [
 husky-token-protocol = { path = "../../protocols/husky-token-protocol" }
 husky-trace-protocol.workspace = true
 husky-graphics2d-visual-protocol.workspace = true
-# tasks
-husky-ml-task.workspace = true
-husky-ml-task-interface = { workspace = true, features = ["egui"] }
+# devsoul
+husky-ml-devsoul.workspace = true
+husky-ml-devsoul-interface = { workspace = true, features = ["egui"] }
 # utils
 husky-unicode-symbols.workspace = true
 husky-print-utils.workspace = true

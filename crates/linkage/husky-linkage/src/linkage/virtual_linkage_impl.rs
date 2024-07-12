@@ -1,5 +1,5 @@
 use super::*;
-use husky_task_interface::{
+use husky_devsoul_interface::{
     vm_control_flow::LinkageImplVmControlFlow, IsLinkageImpl, VmArgumentValue,
 };
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
@@ -33,10 +33,10 @@ impl IsLinkageImpl for VirtualLinkageImpl {
 
     fn eval_ki(
         self,
-        ki_repr_interface: husky_task_interface::ugly::__KiReprInterface,
-        ctx: husky_task_interface::DevEvalContext<Self>,
-        arguments: &[husky_task_interface::ugly::__KiArgumentReprInterface],
-    ) -> husky_task_interface::LinkageImplKiControlFlow<Self> {
+        ki_repr_interface: husky_devsoul_interface::ugly::__KiReprInterface,
+        ctx: husky_devsoul_interface::DevEvalContext<Self>,
+        arguments: &[husky_devsoul_interface::ugly::__KiArgumentReprInterface],
+    ) -> husky_devsoul_interface::LinkageImplKiControlFlow<Self> {
         todo!()
     }
 
@@ -45,7 +45,7 @@ impl IsLinkageImpl for VirtualLinkageImpl {
         mut arguments: Vec<VmArgumentValue<Self>>,
         db: &dyn std::any::Any,
     ) -> LinkageImplVmControlFlow<Self> {
-        use husky_task_interface::vm_control_flow::VmControlFlow::*;
+        use husky_devsoul_interface::vm_control_flow::VmControlFlow::*;
 
         let db: &::salsa::Db = db.downcast_ref().unwrap();
         match self.data(db) {

@@ -1,7 +1,7 @@
 use crate::{channel::MnistChannel, op::history::OpTime, trace::Trace, MnistDb};
 
 use husky_graphics2d_visual_protocol::figure::Graphics2dFigure;
-use husky_ml_task_interface::pedestal::MlPedestal;
+use husky_ml_devsoul_interface::pedestal::MlPedestal;
 use husky_trace_protocol::figure::IsFigure;
 use husky_visual_protocol::synchrotron::VisualSynchrotron;
 
@@ -34,7 +34,7 @@ impl MnistChannel {
         &self,
     ) -> Vec<(
         husky_trace_protocol::id::TraceId,
-        husky_task_interface::ki_repr::KiReprInterface,
+        husky_devsoul_interface::ki_repr::KiReprInterface,
     )> {
         self.trace_selection()
             .set()

@@ -3,11 +3,11 @@ pub mod pedestal;
 pub mod ugly;
 
 use self::pedestal::MlPedestal;
-use husky_linkage_impl::standard::StandardLinkageImplKiControlFlow;
-use husky_standard_value::{ugly::__ValueStands, FromValue};
-use husky_task_interface::ki_repr::{
+use husky_devsoul_interface::ki_repr::{
     KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface,
 };
+use husky_linkage_impl::standard::StandardLinkageImplKiControlFlow;
+use husky_standard_value::{ugly::__ValueStands, FromValue};
 use serde::{Deserialize, Serialize};
 use shifted_unsigned_int::ShiftedU32;
 use std::{cell::Cell, convert::Infallible};
@@ -46,7 +46,7 @@ fn sample_id_size_works() {
 }
 
 pub type DevEvalContext =
-    husky_task_interface::DevEvalContext<husky_linkage_impl::standard::LinkageImpl<MlPedestal>>;
+    husky_devsoul_interface::DevEvalContext<husky_linkage_impl::standard::LinkageImpl<MlPedestal>>;
 
 thread_local! {
     pub static DEV_EVAL_CONTEXT: Cell<std::option::Option<DevEvalContext>> = Cell::new(None);

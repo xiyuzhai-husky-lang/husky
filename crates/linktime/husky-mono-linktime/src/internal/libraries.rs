@@ -5,7 +5,7 @@ use husky_linkage_impl::AnyLinkageImpls;
 use husky_manifest::helpers::upstream::HasAllUpstreamPackages;
 use husky_rust_transpilation::transpile_to_fs::TranspileToFsFull;
 
-use husky_task_interface::HuskyJarIndex;
+use husky_devsoul_interface::HuskyJarIndex;
 use husky_vfs::path::package_path::PackagePath;
 use libloading::Library;
 use std::path::PathBuf;

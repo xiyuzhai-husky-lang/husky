@@ -36,7 +36,7 @@ impl VirtualPath {
             .join(&self.data(db))
             .canonicalize()
             .map_err(|e| {
-                p!(e);
+                p!(db.vfs_cache().current_dir().join(&self.data(db)), e);
                 todo!()
             })
     }

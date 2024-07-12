@@ -1,8 +1,8 @@
 #![allow(warnings, non_snake_case)]
 use husky_core::*;
-use ad_hoc_task_dependency::{*, ugly::*};
+use ad_hoc_devsoul_dependency::{*, ugly::*};
 
-ad_hoc_task_dependency::init_crate!();
+ad_hoc_devsoul_dependency::init_crate!();
 
 #[rustfmt::skip]
 pub fn quick_sort<T: Ord>(ref mut arr: &mut [T]) {

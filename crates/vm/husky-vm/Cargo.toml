@@ -18,9 +18,9 @@ salsa.workspace = true
 husky-linkage.workspace = true
 # kernel
 husky-place.workspace = true
-# task
-husky-task-interface.workspace = true
-husky-task.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
+husky-devsoul.workspace = true
 # semantics
 husky-sem-expr.workspace = true
 # value

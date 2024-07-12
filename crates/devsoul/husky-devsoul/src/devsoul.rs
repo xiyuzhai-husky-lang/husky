@@ -1,14 +1,14 @@
 use crate::*;
-use husky_ki::Ki;
-use husky_task_interface::{
+use husky_devsoul_interface::{
     ki_control_flow::KiControlFlow,
     ki_repr::{KiDomainReprInterface, KiReprInterface},
     pedestal::IsPedestalFull,
     DevEvalContext, IsDevRuntime, IsDevRuntimeDyn,
 };
-use husky_task_interface::{
+use husky_devsoul_interface::{
     HuskyIngredientIndex, HuskyJarIndex, IsLinkageImpl, LinkageImplKiControlFlow,
 };
+use husky_ki::Ki;
 use husky_trace_protocol::{
     id::TraceId,
     protocol::{IsTraceProtocol, IsTraceProtocolFull},
@@ -18,7 +18,7 @@ use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 
 use std::{cell::Cell, thread::LocalKey};
 
-pub trait IsDevend: 'static {
+pub trait IsDevsoul: 'static {
     type Pedestal: IsPedestalFull;
     type LinkageImpl: IsLinkageImpl<Pedestal = Self::Pedestal>;
     type Linktime: IsLinktime<LinkageImpl = Self::LinkageImpl>;
@@ -88,18 +88,18 @@ pub trait IsRuntimeStorage<LinkageImpl: IsLinkageImpl>: Default + Send {
 pub type DevEvalContextLocalKey<LinkageImpl> =
     LocalKey<Cell<std::option::Option<DevEvalContext<LinkageImpl>>>>;
 
-pub fn dev_eval_context<Devend: IsDevend>(
-) -> DevEvalContext<<Devend::Linktime as IsLinktime>::LinkageImpl> {
-    Devend::dev_eval_context_local_key()
+pub fn dev_eval_context<Devsoul: IsDevsoul>(
+) -> DevEvalContext<<Devsoul::Linktime as IsLinktime>::LinkageImpl> {
+    Devsoul::dev_eval_context_local_key()
         .get()
         .expect("`DEV_EVAL_CONTEXT` not set")
 }
 
-pub fn with_dev_eval_context<Devend: IsDevend, R>(
-    ctx: DevEvalContext<<Devend::Linktime as IsLinktime>::LinkageImpl>,
+pub fn with_dev_eval_context<Devsoul: IsDevsoul, R>(
+    ctx: DevEvalContext<<Devsoul::Linktime as IsLinktime>::LinkageImpl>,
     f: impl FnOnce() -> R,
 ) -> R {
-    let local_key = Devend::dev_eval_context_local_key();
+    let local_key = Devsoul::dev_eval_context_local_key();
     let old = local_key.replace(Some(ctx));
     let r = f();
     local_key.set(old);
@@ -107,16 +107,16 @@ pub fn with_dev_eval_context<Devend: IsDevend, R>(
 }
 
 pub fn with_runtime_and_base_point<
-    Devend: IsDevend,
-    Runtime: IsDevRuntime<<Devend::Linktime as IsLinktime>::LinkageImpl>,
+    Devsoul: IsDevsoul,
+    Runtime: IsDevRuntime<<Devsoul::Linktime as IsLinktime>::LinkageImpl>,
     R,
 >(
     runtime: &Runtime,
-    base_point: <<Devend::Linktime as IsLinktime>::LinkageImpl as IsLinkageImpl>::Pedestal,
+    base_point: <<Devsoul::Linktime as IsLinktime>::LinkageImpl as IsLinkageImpl>::Pedestal,
     f: impl FnOnce() -> R,
 ) -> R {
-    let _local_dev_eval_context = Devend::dev_eval_context_local_key();
-    with_dev_eval_context::<Devend, _>(
+    let _local_dev_eval_context = Devsoul::dev_eval_context_local_key();
+    with_dev_eval_context::<Devsoul, _>(
         DevEvalContext::new(
             unsafe { runtime.cast_to_static_self_static_ref() },
             base_point,

@@ -15,8 +15,8 @@ husky-term-prelude.workspace = true
 husky-hir-opr.workspace = true
 # linkage
 husky-linkage.workspace = true
-# task
-husky-task-interface.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
 
 [dev-dependencies]
 husky-ki = { path = ".", features = ["test_utils"] }

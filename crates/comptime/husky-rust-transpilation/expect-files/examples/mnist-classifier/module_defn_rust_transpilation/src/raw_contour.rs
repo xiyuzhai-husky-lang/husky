@@ -1,7 +1,7 @@
 use crate::*;
 
 #[rustfmt::skip]
-#[ad_hoc_task_dependency::value_conversion]
+#[ad_hoc_devsoul_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq)]
 pub struct RawContour {
     pub cc: Leash<crate::connected_component::ConnectedComponent>,
@@ -18,7 +18,7 @@ impl RawContour {
 }
 
 #[rustfmt::skip]
-#[ad_hoc_task_dependency::value_conversion]
+#[ad_hoc_devsoul_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq, Copy, Eq)]
 pub enum Direction {
     Up,
@@ -204,7 +204,7 @@ pub fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inward_dire
 }
 
 #[rustfmt::skip]
-#[ad_hoc_task_dependency::value_conversion]
+#[ad_hoc_devsoul_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq)]
 pub struct StreakCache {
     pub prev1: i32,
@@ -329,12 +329,12 @@ impl Visualize for crate::raw_contour::RawContour {
 
 #[rustfmt::skip]
 impl crate::raw_contour::RawContour {
-    #[ad_hoc_task_dependency::memo_field(ingredient_index = 9, return_ref)]
+    #[ad_hoc_devsoul_dependency::memo_field(ingredient_index = 9, return_ref)]
     pub fn line_segment_sketch(&'static self) -> crate::line_segment_sketch::LineSegmentSketch {
         crate::line_segment_sketch::LineSegmentSketch::new(&self, 1.4f32)
     }
 
-    #[ad_hoc_task_dependency::memo_field(ingredient_index = 10, return_ref)]
+    #[ad_hoc_devsoul_dependency::memo_field(ingredient_index = 10, return_ref)]
     pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
         let start_point = &self.points[0 as usize];
         let mut xmin = start_point.x;
@@ -351,12 +351,12 @@ impl crate::raw_contour::RawContour {
         return crate::geom2d::BoundingBox::__constructor(crate::geom2d::ClosedRange::__constructor(xmin, xmax), crate::geom2d::ClosedRange::__constructor(ymin, ymax));
     }
 
-    #[ad_hoc_task_dependency::memo_field(ingredient_index = 11, return_ref)]
+    #[ad_hoc_devsoul_dependency::memo_field(ingredient_index = 11, return_ref)]
     pub fn relative_bounding_box(&'static self) -> crate::geom2d::RelativeBoundingBox {
         self.cc.raw_contours()[0 as usize].bounding_box().relative_bounding_box(&self.bounding_box())
     }
 
-    #[ad_hoc_task_dependency::memo_field(ingredient_index = 12)]
+    #[ad_hoc_devsoul_dependency::memo_field(ingredient_index = 12)]
     pub fn contour_len(&'static self) -> f32 {
         let mut contour_len = 0.0f32;
         for i in (0 + 1)..self.points.ilen() {

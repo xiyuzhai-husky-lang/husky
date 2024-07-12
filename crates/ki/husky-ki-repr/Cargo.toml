@@ -30,7 +30,7 @@ husky-entity-path.workspace = true
 husky-coword.workspace = true
 husky-place.workspace = true
 husky-term-prelude.workspace = true
-husky-task.workspace = true
+husky-devsoul.workspace = true
 # lex
 husky-regional-token.workspace = true
 # linkage
@@ -40,8 +40,8 @@ husky-sem-expr.workspace = true
 # syntax
 husky-entity-tree.workspace = true
 husky-syn-defn.workspace = true
-# task
-husky-task-interface.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
 # ki
 husky-ki.workspace = true
 # utils
@@ -82,8 +82,8 @@ husky-syn-decl.workspace = true
 husky-corgi-config-ast.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-defn.workspace = true
-# tasks
-husky-ml-task.workspace = true
+# devsoul
+husky-ml-devsoul.workspace = true
 # ki
 husky-ki.workspace = true
 husky-ki-repr = { path = "../../ki/husky-ki-repr", features = ["test_utils"] }

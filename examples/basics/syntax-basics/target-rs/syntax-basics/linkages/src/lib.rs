@@ -1,6 +1,6 @@
 #![feature(trait_upcasting)]
 use husky_core::*;
-use ad_hoc_task_dependency::{*, ugly::*};
+use ad_hoc_devsoul_dependency::{*, ugly::*};
 use syntax_basics::*;
 
 #[rustfmt::skip]

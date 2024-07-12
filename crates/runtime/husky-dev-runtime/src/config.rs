@@ -3,12 +3,12 @@ use crate::*;
 #[derive(Default)]
 pub struct DevRuntimeCommonConfig {}
 
-pub struct DevRuntimeConfig<Devend: IsDevend> {
+pub struct DevRuntimeConfig<Devsoul: IsDevsoul> {
     common: DevRuntimeCommonConfig,
-    specifc: Devend::RuntimeSpecificConfig,
+    specifc: Devsoul::RuntimeSpecificConfig,
 }
 
-impl<Devend: IsDevend> Default for DevRuntimeConfig<Devend> {
+impl<Devsoul: IsDevsoul> Default for DevRuntimeConfig<Devsoul> {
     fn default() -> Self {
         Self {
             common: Default::default(),

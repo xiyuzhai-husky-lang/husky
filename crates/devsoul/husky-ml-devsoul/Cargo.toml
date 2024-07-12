@@ -1,5 +1,5 @@
 [package]
-name = "husky-ml-task"
+name = "husky-ml-devsoul"
 version.workspace = true
 edition = "2021"
 
@@ -23,9 +23,9 @@ husky-mono-linktime.workspace = true
 # protocols
 husky-trace-protocol.workspace = true
 husky-visual-protocol.workspace = true
-# tasks
-husky-task-interface.workspace = true
-husky-task.workspace = true
-husky-ml-task-interface.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
+husky-devsoul.workspace = true
+husky-ml-devsoul-interface.workspace = true
 # ki
 husky-ki.workspace = true

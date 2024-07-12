@@ -3,13 +3,13 @@
 version = 3
 
 [[package]]
-name = "ad-hoc-task-dependency"
+name = "ad-hoc-devsoul-dependency"
 version = "0.1.0"
 dependencies = [
+ "husky-devsoul-interface",
  "husky-linkage-impl",
- "husky-ml-task-interface",
+ "husky-ml-devsoul-interface",
  "husky-standard-value",
- "husky-task-interface",
 ]
 
 [[package]]
@@ -274,13 +274,39 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-devsoul-interface"
+version = "0.1.0"
+dependencies = [
+ "husky-decl-macro-utils",
+ "husky-devsoul-interface-macros",
+ "husky-value-interface",
+ "husky-value-protocol",
+ "husky-visual-protocol",
+ "once_cell",
+ "serde",
+ "serde-impl",
+ "shifted-unsigned-int",
+ "smallvec",
+]
+
+[[package]]
+name = "husky-devsoul-interface-macros"
+version = "0.1.0"
+dependencies = [
+ "husky-proc-macro-utils",
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
 name = "husky-linkage-impl"
 version = "0.1.0"
 dependencies = [
  "colored",
  "husky-decl-macro-utils",
+ "husky-devsoul-interface",
  "husky-standard-value",
- "husky-task-interface",
  "husky-value-protocol",
  "rustc_version",
  "smallvec",
@@ -305,20 +331,20 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-ml-task-interface"
+name = "husky-ml-devsoul-interface"
 version = "0.1.0"
 dependencies = [
  "enum-class",
+ "husky-devsoul-interface",
  "husky-linkage-impl",
- "husky-ml-task-interface-macros",
+ "husky-ml-devsoul-interface-macros",
  "husky-standard-value",
- "husky-task-interface",
  "serde",
  "shifted-unsigned-int",
 ]
 
 [[package]]
-name = "husky-ml-task-interface-macros"
+name = "husky-ml-devsoul-interface-macros"
 version = "0.1.0"
 dependencies = [
  "husky-proc-macro-utils",
@@ -373,10 +399,10 @@ name = "husky-standard-value"
 version = "0.1.0"
 dependencies = [
  "husky-decl-macro-utils",
+ "husky-devsoul-interface",
  "husky-literal-value",
  "husky-print-utils",
  "husky-standard-value-macros",
- "husky-task-interface",
  "husky-value-interface",
  "husky-value-protocol",
  "husky-visual-protocol",
@@ -390,32 +416,6 @@ dependencies = [
 
 [[package]]
 name = "husky-standard-value-macros"
-version = "0.1.0"
-dependencies = [
- "husky-proc-macro-utils",
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
-name = "husky-task-interface"
-version = "0.1.0"
-dependencies = [
- "husky-decl-macro-utils",
- "husky-task-interface-macros",
- "husky-value-interface",
- "husky-value-protocol",
- "husky-visual-protocol",
- "once_cell",
- "serde",
- "serde-impl",
- "shifted-unsigned-int",
- "smallvec",
-]
-
-[[package]]
-name = "husky-task-interface-macros"
 version = "0.1.0"
 dependencies = [
  "husky-proc-macro-utils",
@@ -516,11 +516,11 @@ name = "mnist"
 version = "0.1.0"
 dependencies = [
  "husky-core",
+ "husky-devsoul-interface",
  "husky-linkage-impl",
- "husky-ml-task-interface",
+ "husky-ml-devsoul-interface",
  "husky-rng-utils",
  "husky-standard-value",
- "husky-task-interface",
  "lazy_static",
  "serde",
 ]
@@ -529,7 +529,7 @@ dependencies = [
 name = "mnist-linkages"
 version = "0.1.0"
 dependencies = [
- "ad-hoc-task-dependency",
+ "ad-hoc-devsoul-dependency",
  "husky-core",
  "mnist",
 ]

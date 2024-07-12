@@ -1,5 +1,5 @@
 [package]
-name = "husky-task-interface"
+name = "husky-devsoul-interface"
 version.workspace = true
 edition = "2021"
 
@@ -13,8 +13,8 @@ serde-impl.workspace = true
 # protocols
 husky-value-protocol.workspace = true
 husky-visual-protocol.workspace = true
-# tasks
-husky-task-interface-macros.workspace = true
+# devsoul
+husky-devsoul-interface-macros.workspace = true
 # utils
 husky-decl-macro-utils.workspace = true
 # value

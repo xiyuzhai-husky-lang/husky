@@ -6,7 +6,7 @@ use husky_visual_protocol::synchrotron::VisualSynchrotron;
 
 use husky_dev_comptime::DevComptimeTarget;
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
-use husky_task::devend::IsDevend;
+use husky_devsoul::devsoul::IsDevsoul;
 use husky_trace::{jar::TraceDb, trace::Trace};
 use husky_trace_protocol::{
     protocol::{IsTraceProtocol, TraceBundle},
@@ -20,14 +20,14 @@ use husky_value_protocol::presentation::{
 use husky_vfs::error::VfsResult;
 use std::path::Path;
 
-pub struct Devtime<Devend: IsDevend> {
-    runtime: DevRuntime<Devend>,
+pub struct Devtime<Devsoul: IsDevsoul> {
+    runtime: DevRuntime<Devsoul>,
 }
 
-impl<Devend: IsDevend> Devtime<Devend> {
+impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
     pub fn new(
         target_crate: &Path,
-        runtime_config: Option<DevRuntimeConfig<Devend>>,
+        runtime_config: Option<DevRuntimeConfig<Devsoul>>,
     ) -> VfsResult<Self> {
         Ok(Self {
             runtime: DevRuntime::new(target_crate, runtime_config)?,
@@ -43,10 +43,10 @@ impl<Devend: IsDevend> Devtime<Devend> {
     }
 }
 
-impl<Devend: IsDevend> Default for Devtime<Devend>
+impl<Devsoul: IsDevsoul> Default for Devtime<Devsoul>
 where
-    Devend: Default,
-    Devend::Linktime: Default,
+    Devsoul: Default,
+    Devsoul::Linktime: Default,
 {
     fn default() -> Self {
         Self {
@@ -55,10 +55,10 @@ where
     }
 }
 
-impl<Devend: IsDevend> IsTracetime for Devtime<Devend> {
+impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
     type Trace = Trace;
 
-    type TraceProtocol = Devend::TraceProtocol;
+    type TraceProtocol = Devsoul::TraceProtocol;
 
     type SerdeImpl = serde_impl::json::SerdeJson;
 
@@ -84,7 +84,7 @@ impl<Devend: IsDevend> IsTracetime for Devtime<Devend> {
         value_presenter_cache: &mut ValuePresenterCache,
         value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
     ) -> husky_trace_protocol::stalk::TraceStalk {
-        use husky_task_interface::pedestal::IsPedestal;
+        use husky_devsoul_interface::pedestal::IsPedestal;
         let db = self.runtime.db();
         if !pedestal.is_closed() {
             return TraceStalk::None;
@@ -127,7 +127,7 @@ impl<Devend: IsDevend> IsTracetime for Devtime<Devend> {
                 Some((trace.into(), trace.ki_repr(db)?.into()))
             })
             .collect::<Vec<_>>();
-        Devend::calc_figure(
+        Devsoul::calc_figure(
             followed,
             accompanyings_except_followed,
             pedestal,

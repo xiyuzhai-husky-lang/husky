@@ -1,5 +1,5 @@
 use crate::*;
-use husky_task_interface::pedestal::{IsPedestal, IsPedestalFull};
+use husky_devsoul_interface::pedestal::{IsPedestal, IsPedestalFull};
 
 use ui::ui::IsUi;
 

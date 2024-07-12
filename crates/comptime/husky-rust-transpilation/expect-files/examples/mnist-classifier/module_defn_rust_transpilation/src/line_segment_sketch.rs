@@ -11,7 +11,7 @@ pub use self::line_segment::*;
 use crate::*;
 
 #[rustfmt::skip]
-#[ad_hoc_task_dependency::value_conversion]
+#[ad_hoc_devsoul_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq)]
 pub struct LineSegmentStroke {
     pub points: CyclicSliceLeashed<crate::geom2d::Point2d>,
@@ -32,7 +32,7 @@ impl LineSegmentStroke {
 }
 
 #[rustfmt::skip]
-#[ad_hoc_task_dependency::value_conversion]
+#[ad_hoc_devsoul_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq)]
 pub struct LineSegmentSketch {
     pub contour: Leash<crate::raw_contour::RawContour>,
@@ -234,12 +234,12 @@ impl Visualize for crate::line_segment_sketch::LineSegmentSketch {
 
 #[rustfmt::skip]
 impl crate::line_segment_sketch::LineSegmentSketch {
-    #[ad_hoc_task_dependency::memo_field(ingredient_index = 13, return_ref)]
+    #[ad_hoc_devsoul_dependency::memo_field(ingredient_index = 13, return_ref)]
     pub fn concave_components(&'static self) -> Vec<crate::line_segment_sketch::concave_component::ConcaveComponent> {
         crate::line_segment_sketch::concave_component::find_concave_components(&self)
     }
 
-    #[ad_hoc_task_dependency::memo_field(ingredient_index = 14, return_ref)]
+    #[ad_hoc_devsoul_dependency::memo_field(ingredient_index = 14, return_ref)]
     pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
         let start_point = &self.strokes[0 as usize].start;
         let mut xmin = start_point.x;

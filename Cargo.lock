@@ -94,13 +94,13 @@ dependencies = [
 ]
 
 [[package]]
-name = "ad-hoc-task-dependency"
+name = "ad-hoc-devsoul-dependency"
 version = "0.1.0"
 dependencies = [
+ "husky-devsoul-interface",
  "husky-linkage-impl",
- "husky-ml-task-interface",
+ "husky-ml-devsoul-interface",
  "husky-standard-value",
- "husky-task-interface",
 ]
 
 [[package]]
@@ -4133,11 +4133,11 @@ name = "husky-boot-linktime"
 version = "0.1.0"
 dependencies = [
  "dashmap 6.0.1",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-linkage",
  "husky-linkage-impl",
  "husky-standard-value",
- "husky-task",
- "husky-task-interface",
  "husky-vfs",
  "salsa",
  "smallvec",
@@ -4368,8 +4368,8 @@ dependencies = [
 name = "husky-daniel-jackson-visual-protocol"
 version = "0.1.0"
 dependencies = [
- "husky-task",
- "husky-task-interface",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-trace-protocol",
  "husky-visual-protocol",
  "serde",
@@ -4496,6 +4496,8 @@ dependencies = [
  "husky-dec-signature",
  "husky-dec-term",
  "husky-dec-ty",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-entity-kind",
  "husky-entity-path",
  "husky-entity-tree",
@@ -4523,8 +4525,6 @@ dependencies = [
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
- "husky-task",
- "husky-task-interface",
  "husky-term-prelude",
  "husky-text",
  "husky-text-protocol",
@@ -4548,6 +4548,8 @@ dependencies = [
  "husky-check-utils",
  "husky-coword",
  "husky-dev-comptime",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-entity-kind",
  "husky-entity-path",
  "husky-entity-tree",
@@ -4559,15 +4561,13 @@ dependencies = [
  "husky-ki-repr",
  "husky-linkage",
  "husky-linkage-impl",
- "husky-ml-task",
- "husky-ml-task-interface",
+ "husky-ml-devsoul",
+ "husky-ml-devsoul-interface",
  "husky-mono-linktime",
  "husky-opr",
  "husky-path-utils",
  "husky-print-utils",
  "husky-sync-utils",
- "husky-task",
- "husky-task-interface",
  "husky-term-prelude",
  "husky-text-protocol",
  "husky-token",
@@ -4589,6 +4589,50 @@ name = "husky-dev-utils"
 version = "0.0.0"
 
 [[package]]
+name = "husky-devsoul"
+version = "0.1.0"
+dependencies = [
+ "enum-class",
+ "husky-devsoul-interface",
+ "husky-ki",
+ "husky-linkage",
+ "husky-linkage-impl",
+ "husky-trace-protocol",
+ "husky-value-interface",
+ "husky-vfs",
+ "husky-visual-protocol",
+ "salsa",
+ "smallvec",
+ "ui",
+]
+
+[[package]]
+name = "husky-devsoul-interface"
+version = "0.1.0"
+dependencies = [
+ "husky-decl-macro-utils",
+ "husky-devsoul-interface-macros",
+ "husky-value-interface",
+ "husky-value-protocol",
+ "husky-visual-protocol",
+ "once_cell",
+ "serde",
+ "serde-impl",
+ "shifted-unsigned-int",
+ "smallvec",
+]
+
+[[package]]
+name = "husky-devsoul-interface-macros"
+version = "0.1.0"
+dependencies = [
+ "husky-proc-macro-utils",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.66",
+]
+
+[[package]]
 name = "husky-devtime"
 version = "0.0.0"
 dependencies = [
@@ -4597,6 +4641,8 @@ dependencies = [
  "husky-coword",
  "husky-dev-comptime",
  "husky-dev-runtime",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-entity-kind",
  "husky-eth-signature",
  "husky-eth-term",
@@ -4607,8 +4653,6 @@ dependencies = [
  "husky-syn-defn",
  "husky-syn-expr",
  "husky-sync-utils",
- "husky-task",
- "husky-task-interface",
  "husky-text-protocol",
  "husky-trace",
  "husky-trace-protocol",
@@ -4725,6 +4769,7 @@ dependencies = [
  "husky-corgi-config-ast",
  "husky-coword",
  "husky-crate-decl-ast",
+ "husky-devsoul-interface",
  "husky-entity-kind",
  "husky-entity-path",
  "husky-entity-tree",
@@ -4738,7 +4783,6 @@ dependencies = [
  "husky-regional-token",
  "husky-scope",
  "husky-scope-expr",
- "husky-task-interface",
  "husky-term-prelude",
  "husky-text",
  "husky-text-protocol",
@@ -4962,9 +5006,9 @@ dependencies = [
  "egui",
  "enum-class",
  "husky-control-flow-utils",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-print-utils",
- "husky-task",
- "husky-task-interface",
  "husky-trace-protocol",
  "husky-visual-protocol",
  "serde",
@@ -5397,11 +5441,11 @@ name = "husky-ki"
 version = "0.1.0"
 dependencies = [
  "husky-coword",
+ "husky-devsoul-interface",
  "husky-entity-path",
  "husky-hir-opr",
  "husky-ki",
  "husky-linkage",
- "husky-task-interface",
  "husky-term-prelude",
  "salsa",
  "smallvec",
@@ -5419,6 +5463,8 @@ dependencies = [
  "husky-dec-signature",
  "husky-dec-term",
  "husky-dec-ty",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-entity-kind",
  "husky-entity-path",
  "husky-entity-tree",
@@ -5439,7 +5485,7 @@ dependencies = [
  "husky-linkage",
  "husky-manifest",
  "husky-manifest-ast",
- "husky-ml-task",
+ "husky-ml-devsoul",
  "husky-place",
  "husky-print-utils",
  "husky-regional-token",
@@ -5448,8 +5494,6 @@ dependencies = [
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
- "husky-task",
- "husky-task-interface",
  "husky-term-prelude",
  "husky-text",
  "husky-token",
@@ -5498,6 +5542,7 @@ dependencies = [
  "husky-dec-signature",
  "husky-dec-term",
  "husky-dec-ty",
+ "husky-devsoul-interface",
  "husky-entity-kind",
  "husky-entity-path",
  "husky-entity-tree",
@@ -5521,7 +5566,6 @@ dependencies = [
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
- "husky-task-interface",
  "husky-term-prelude",
  "husky-text",
  "husky-token",
@@ -5544,8 +5588,8 @@ version = "0.1.0"
 dependencies = [
  "colored",
  "husky-decl-macro-utils",
+ "husky-devsoul-interface",
  "husky-standard-value",
- "husky-task-interface",
  "husky-value-protocol",
  "rustc_version",
  "smallvec",
@@ -5632,20 +5676,20 @@ name = "husky-mir-pass"
 version = "0.1.0"
 
 [[package]]
-name = "husky-ml-task"
+name = "husky-ml-devsoul"
 version = "0.1.0"
 dependencies = [
  "dashmap 6.0.1",
  "either",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-ki",
  "husky-linkage",
  "husky-linkage-impl",
- "husky-ml-task-interface",
+ "husky-ml-devsoul-interface",
  "husky-mono-linktime",
  "husky-rust-transpilation",
  "husky-standard-value",
- "husky-task",
- "husky-task-interface",
  "husky-trace-protocol",
  "husky-vfs",
  "husky-visual-protocol",
@@ -5654,22 +5698,22 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-ml-task-interface"
+name = "husky-ml-devsoul-interface"
 version = "0.1.0"
 dependencies = [
  "egui",
  "enum-class",
+ "husky-devsoul-interface",
  "husky-linkage-impl",
- "husky-ml-task-interface-macros",
+ "husky-ml-devsoul-interface-macros",
  "husky-standard-value",
- "husky-task-interface",
  "husky-trace-protocol",
  "serde",
  "shifted-unsigned-int",
 ]
 
 [[package]]
-name = "husky-ml-task-interface-macros"
+name = "husky-ml-devsoul-interface-macros"
 version = "0.1.0"
 dependencies = [
  "husky-proc-macro-utils",
@@ -5686,7 +5730,7 @@ dependencies = [
  "husky-dev-comptime",
  "husky-devtime",
  "husky-graphics2d-visual-protocol",
- "husky-ml-task",
+ "husky-ml-devsoul",
 ]
 
 [[package]]
@@ -5697,10 +5741,10 @@ dependencies = [
  "egui",
  "enum-index",
  "expect-test",
+ "husky-devsoul-interface",
  "husky-graphics2d-visual-protocol",
- "husky-ml-task-interface",
+ "husky-ml-devsoul-interface",
  "husky-print-utils",
- "husky-task-interface",
  "husky-trace-protocol",
  "husky-visual-protocol",
  "image",
@@ -5722,14 +5766,14 @@ dependencies = [
  "husky-cargo-utils",
  "husky-corgi-config",
  "husky-dev-comptime",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-linkage",
  "husky-linkage-impl",
  "husky-manifest",
  "husky-print-utils",
  "husky-rust-transpilation",
  "husky-standard-value",
- "husky-task",
- "husky-task-interface",
  "husky-vfs",
  "libloading 0.8.3",
  "salsa",
@@ -5763,8 +5807,8 @@ dependencies = [
  "husky-code-editor",
  "husky-graphics2d-visual-protocol",
  "husky-gui",
- "husky-ml-task",
- "husky-ml-task-interface",
+ "husky-ml-devsoul",
+ "husky-ml-devsoul-interface",
  "husky-print-utils",
  "husky-token-protocol",
  "husky-trace-doc",
@@ -5925,6 +5969,8 @@ dependencies = [
  "husky-dec-signature",
  "husky-dec-term",
  "husky-dec-ty",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-entity-kind",
  "husky-entity-path",
  "husky-entity-tree",
@@ -5953,8 +5999,6 @@ dependencies = [
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
- "husky-task",
- "husky-task-interface",
  "husky-term-prelude",
  "husky-text",
  "husky-token",
@@ -6284,11 +6328,11 @@ name = "husky-standard-value"
 version = "0.1.0"
 dependencies = [
  "husky-decl-macro-utils",
+ "husky-devsoul-interface",
  "husky-hir-prelude",
  "husky-literal-value",
  "husky-print-utils",
  "husky-standard-value-macros",
- "husky-task-interface",
  "husky-term-prelude",
  "husky-value-interface",
  "husky-value-protocol",
@@ -6445,60 +6489,16 @@ name = "husky-sync-utils"
 version = "0.0.0"
 
 [[package]]
-name = "husky-task"
-version = "0.1.0"
-dependencies = [
- "enum-class",
- "husky-ki",
- "husky-linkage",
- "husky-linkage-impl",
- "husky-task-interface",
- "husky-trace-protocol",
- "husky-value-interface",
- "husky-vfs",
- "husky-visual-protocol",
- "salsa",
- "smallvec",
- "ui",
-]
-
-[[package]]
-name = "husky-task-interface"
-version = "0.1.0"
-dependencies = [
- "husky-decl-macro-utils",
- "husky-task-interface-macros",
- "husky-value-interface",
- "husky-value-protocol",
- "husky-visual-protocol",
- "once_cell",
- "serde",
- "serde-impl",
- "shifted-unsigned-int",
- "smallvec",
-]
-
-[[package]]
-name = "husky-task-interface-macros"
-version = "0.1.0"
-dependencies = [
- "husky-proc-macro-utils",
- "proc-macro2",
- "quote",
- "syn 2.0.66",
-]
-
-[[package]]
 name = "husky-term-prelude"
 version = "0.1.0"
 dependencies = [
  "enum-class",
  "husky-coword",
+ "husky-devsoul-interface",
  "husky-entity-kind",
  "husky-entity-path",
  "husky-literal-value",
  "husky-print-utils",
- "husky-task-interface",
  "husky-term-prelude",
  "husky-vfs",
  "ordered-float 4.2.0",
@@ -6872,10 +6872,10 @@ dependencies = [
  "enum-class",
  "epaint",
  "husky-code-editor",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-gui",
  "husky-print-utils",
- "husky-task",
- "husky-task-interface",
  "husky-trace-protocol",
  "husky-value-protocol",
  "husky-visual-protocol",
@@ -6895,9 +6895,9 @@ dependencies = [
  "enum-class",
  "futures",
  "futures-util",
+ "husky-devsoul-interface",
  "husky-io-utils",
  "husky-print-utils",
- "husky-task-interface",
  "husky-token-protocol",
  "husky-trace-protocol",
  "husky-value-protocol",
@@ -7023,6 +7023,8 @@ dependencies = [
  "husky-dec-signature",
  "husky-dec-term",
  "husky-dec-ty",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-entity-path",
  "husky-entity-tree",
  "husky-eth-signature",
@@ -7045,8 +7047,6 @@ dependencies = [
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
- "husky-task",
- "husky-task-interface",
  "husky-term-prelude",
  "husky-text",
  "husky-token",
@@ -7074,6 +7074,8 @@ dependencies = [
  "husky-dec-signature",
  "husky-dec-term",
  "husky-dec-ty",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-entity-kind",
  "husky-entity-path",
  "husky-entity-tree",
@@ -7104,8 +7106,6 @@ dependencies = [
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
- "husky-task",
- "husky-task-interface",
  "husky-term-prelude",
  "husky-text",
  "husky-token",
@@ -7892,7 +7892,7 @@ dependencies = [
 name = "malamute"
 version = "0.1.0"
 dependencies = [
- "ad-hoc-task-dependency",
+ "ad-hoc-devsoul-dependency",
  "husky-core",
  "serde",
  "smallvec",
@@ -8098,7 +8098,7 @@ dependencies = [
 name = "ml-task"
 version = "0.1.0"
 dependencies = [
- "ad-hoc-task-dependency",
+ "ad-hoc-devsoul-dependency",
  "husky-core",
 ]
 
@@ -8107,11 +8107,11 @@ name = "mnist"
 version = "0.1.0"
 dependencies = [
  "husky-core",
+ "husky-devsoul-interface",
  "husky-linkage-impl",
- "husky-ml-task-interface",
+ "husky-ml-devsoul-interface",
  "husky-rng-utils",
  "husky-standard-value",
- "husky-task-interface",
  "lazy_static",
  "serde",
 ]

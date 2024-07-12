@@ -3,12 +3,12 @@ mod tests;
 
 #[cfg(test)]
 use self::tests::*;
+use husky_devsoul::linktime::IsLinktime;
+use husky_devsoul_interface::{vm_control_flow::LinkageImplVmControlFlow, IsLinkageImpl};
 use husky_linkage::linkage::Linkage;
 use husky_linkage::template_argument::qual::LinQual;
 use husky_place::place::idx::PlaceIdx;
 use husky_place::PlaceRegistry;
-use husky_task::linktime::IsLinktime;
-use husky_task_interface::{vm_control_flow::LinkageImplVmControlFlow, IsLinkageImpl};
 use husky_vmir::storage::IsVmirStorage;
 use husky_vmir::{
     eval::EvalVmir,
@@ -156,7 +156,7 @@ fn run_test_linkage_works() {
 
 #[cfg(test)]
 fn run_test_linkage(test_linkage: TestLinkage, db: &::salsa::Db) {
-    use husky_task::linktime::VirtualLinktime;
+    use husky_devsoul::linktime::VirtualLinktime;
     use husky_vmir::storage::VirtualVmirStorage;
 
     let linktime = VirtualLinktime;

@@ -6,37 +6,37 @@ mod eval;
 pub use self::config::*;
 
 use husky_dev_comptime::{DevComptime, DevComptimeTarget};
-use husky_ki::{KiRuntimeConstant, KiRuntimeConstantData};
-use husky_ki_repr::repr::KiRepr;
-use husky_linkage::linkage::Linkage;
-use husky_task::{
-    devend::IsDevend,
-    helpers::{DevendException, DevendValue},
+use husky_devsoul::{
+    devsoul::IsDevsoul,
+    helpers::{DevsoulException, DevsoulValue},
 };
-use husky_task::{
-    devend::IsRuntimeStorage,
-    helpers::{DevendKiControlFlow, DevendValueResult},
+use husky_devsoul::{
+    devsoul::IsRuntimeStorage,
+    helpers::{DevsoulKiControlFlow, DevsoulValueResult},
 };
-use husky_task_interface::{
+use husky_devsoul_interface::{
     ki_repr::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface},
     HuskyIngredientIndex, HuskyJarIndex, IsDevRuntime, IsLinkageImpl, LinkageImplKiControlFlow,
 };
+use husky_ki::{KiRuntimeConstant, KiRuntimeConstantData};
+use husky_ki_repr::repr::KiRepr;
+use husky_linkage::linkage::Linkage;
 use husky_vfs::{error::VfsResult, path::linktime_target_path::LinktimeTargetPath};
 use std::{convert::Infallible, path::Path};
 
 /// Dropping libraries or linkage_impls before runtime storage will lead to segmentation fault
 ///
 /// so it's necessary to pub `storage` field before `comptime`
-pub struct DevRuntime<Devend: IsDevend> {
-    config: DevRuntimeConfig<Devend>,
-    storage: Devend::RuntimeStorage,
-    comptime: DevComptime<Devend>,
+pub struct DevRuntime<Devsoul: IsDevsoul> {
+    config: DevRuntimeConfig<Devsoul>,
+    storage: Devsoul::RuntimeStorage,
+    comptime: DevComptime<Devsoul>,
 }
 
-impl<Devend: IsDevend> DevRuntime<Devend> {
+impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     pub fn new(
         target_crate: impl AsRef<Path>,
-        config: Option<DevRuntimeConfig<Devend>>,
+        config: Option<DevRuntimeConfig<Devsoul>>,
     ) -> VfsResult<Self> {
         Ok(Self {
             config: config.unwrap_or_default(),
@@ -58,9 +58,9 @@ impl<Devend: IsDevend> DevRuntime<Devend> {
     }
 }
 
-impl<Devend: IsDevend> Default for DevRuntime<Devend>
+impl<Devsoul: IsDevsoul> Default for DevRuntime<Devsoul>
 where
-    Devend::Linktime: Default,
+    Devsoul::Linktime: Default,
 {
     fn default() -> Self {
         Self {
@@ -71,7 +71,7 @@ where
     }
 }
 
-impl<Devend: IsDevend> IsDevRuntime<Devend::LinkageImpl> for DevRuntime<Devend> {
+impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinkageImpl> for DevRuntime<Devsoul> {
     type StaticSelf = Self;
 
     unsafe fn cast_to_static_self_static_ref(&self) -> &'static Self::StaticSelf {
@@ -82,9 +82,9 @@ impl<Devend: IsDevend> IsDevRuntime<Devend::LinkageImpl> for DevRuntime<Devend> 
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        base_point: Devend::Pedestal,
-        f: impl FnOnce() -> DevendValueResult<Devend>,
-    ) -> DevendKiControlFlow<Devend> {
+        base_point: Devsoul::Pedestal,
+        f: impl FnOnce() -> DevsoulValueResult<Devsoul>,
+    ) -> DevsoulKiControlFlow<Devsoul> {
         self.storage.get_or_try_init_val_value(
             self.comptime.ingredient_val(jar_index, ingredient_index),
             base_point,
@@ -97,8 +97,8 @@ impl<Devend: IsDevend> IsDevRuntime<Devend::LinkageImpl> for DevRuntime<Devend> 
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        pedestal: Devend::Pedestal,
-    ) -> DevendKiControlFlow<Devend> {
+        pedestal: Devsoul::Pedestal,
+    ) -> DevsoulKiControlFlow<Devsoul> {
         self.eval_ki_repr_at_pedestal(
             self.comptime
                 .ingredient_ki_repr(jar_index, ingredient_index),
@@ -109,26 +109,29 @@ impl<Devend: IsDevend> IsDevRuntime<Devend::LinkageImpl> for DevRuntime<Devend> 
     fn eval_ki_repr_interface_at_pedestal(
         &self,
         ki_repr_interface: KiReprInterface,
-        pedestal: Devend::Pedestal,
-    ) -> DevendKiControlFlow<Devend> {
+        pedestal: Devsoul::Pedestal,
+    ) -> DevsoulKiControlFlow<Devsoul> {
         self.eval_ki_repr_at_pedestal(ki_repr_interface.into(), pedestal)
     }
 
     fn eval_ki_domain_repr_interface_at_pedestal(
         &self,
         ki_domain_repr: KiDomainReprInterface,
-        pedestal: Devend::Pedestal,
-    ) -> husky_task_interface::ki_control_flow::KiControlFlow<(), Infallible, DevendException<Devend>>
-    {
+        pedestal: Devsoul::Pedestal,
+    ) -> husky_devsoul_interface::ki_control_flow::KiControlFlow<
+        (),
+        Infallible,
+        DevsoulException<Devsoul>,
+    > {
         self.eval_ki_domain_repr_at_pedestal(ki_domain_repr.into(), pedestal)
     }
 
     fn eval_ki_repr_with(
         &self,
         ki_repr: KiReprInterface,
-        pedestal: Devend::Pedestal,
-        f: impl FnOnce(KiDomainReprInterface) -> DevendKiControlFlow<Devend>,
-    ) -> DevendKiControlFlow<Devend> {
+        pedestal: Devsoul::Pedestal,
+        f: impl FnOnce(KiDomainReprInterface) -> DevsoulKiControlFlow<Devsoul>,
+    ) -> DevsoulKiControlFlow<Devsoul> {
         let db = self.db();
         let ki_repr: KiRepr = unsafe { std::mem::transmute(ki_repr) };
         let ki_domain_repr: KiDomainReprInterface =
@@ -141,10 +144,10 @@ impl<Devend: IsDevend> IsDevRuntime<Devend::LinkageImpl> for DevRuntime<Devend> 
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        pedestal: Devend::Pedestal,
+        pedestal: Devsoul::Pedestal,
         slf: &'static std::ffi::c_void,
-        f: fn(&'static std::ffi::c_void) -> DevendKiControlFlow<Devend>,
-    ) -> DevendKiControlFlow<Devend> {
+        f: fn(&'static std::ffi::c_void) -> DevsoulKiControlFlow<Devsoul>,
+    ) -> DevsoulKiControlFlow<Devsoul> {
         self.storage
             .get_or_try_init_memo_field_value(jar_index, ingredient_index, pedestal, slf, f)
     }
@@ -152,7 +155,7 @@ impl<Devend: IsDevend> IsDevRuntime<Devend::LinkageImpl> for DevRuntime<Devend> 
     fn eval_val_runtime_constant(
         &self,
         val_runtime_constant: KiRuntimeConstantInterface,
-    ) -> DevendValue<Devend> {
+    ) -> DevsoulValue<Devsoul> {
         use husky_value_interface::IsValue;
 
         let db = self.db();
@@ -167,7 +170,7 @@ impl<Devend: IsDevend> IsDevRuntime<Devend::LinkageImpl> for DevRuntime<Devend> 
                         db,
                     ))
                     .enum_index_value_presenter();
-                DevendValue::<Devend>::from_enum_index(path.index(db).raw(), presenter)
+                DevsoulValue::<Devsoul>::from_enum_index(path.index(db).raw(), presenter)
             }
         }
     }

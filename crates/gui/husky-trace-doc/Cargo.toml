@@ -16,7 +16,7 @@ enum-class.workspace = true
 notify-change = { path = "../../abstractions/notify-change" }
 ui.workspace = true
 # kernel
-husky-task.workspace = true
+husky-devsoul.workspace = true
 # gui
 husky-gui = { path = "../../gui/husky-gui" }
 # protocols
@@ -27,8 +27,8 @@ husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features
 ] }
 # gui
 husky-code-editor = { path = "../../gui/husky-code-editor" }
-# tasks
-husky-task-interface.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
 # utils
 husky-print-utils.workspace = true
 

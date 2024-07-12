@@ -16,7 +16,7 @@ thiserror = { workspace = true, optional = true }
 tokio = { workspace = true, optional = true }
 tokio-tungstenite = { workspace = true, optional = true }
 # abstractions
-shifted-unsigned-int= { workspace = true, features =["serde"] }
+shifted-unsigned-int = { workspace = true, features = ["serde"] }
 serde-impl = { path = "../../abstractions/serde-impl" }
 enum-class.workspace = true
 notify-change = { path = "../../abstractions/notify-change" }
@@ -26,8 +26,8 @@ vec-like.workspace = true
 husky-token-protocol = { workspace = true, features = ["serde"] }
 husky-value-protocol.workspace = true
 husky-visual-protocol.workspace = true
-# tasks
-husky-task-interface.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
 # utils
 husky-io-utils.workspace = true
 husky-print-utils.workspace = true

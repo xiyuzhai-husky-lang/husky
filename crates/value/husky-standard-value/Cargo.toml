@@ -16,8 +16,8 @@ husky-hir-prelude = { workspace = true, optional = true }
 # protocols
 husky-value-protocol.workspace = true
 husky-visual-protocol.workspace = true
-# tasks
-husky-task-interface.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
 # utils
 husky-decl-macro-utils.workspace = true
 husky-wild-utils.workspace = true
