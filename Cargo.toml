@@ -94,22 +94,17 @@ crossbeam-channel = "0.5.0"
 crossbeam-utils = { version = "0.8", default-features = false }
 ctrlc = "3.4.1"
 csv = "1"
-dashmap = "5.5.1"
+dashmap = "6.0.1"
 dirs = "5"
-ecolor = { version = "0.27.0", features = ["serde", "bytemuck"] }
+ecolor = { version = "0.28.1", features = ["serde", "bytemuck"] }
 ecow = { version = "0.2", features = ["serde"] }
-eframe = "0.27.0"
-egui = { version = "0.27.0", features = [
-    "callstack",
-    "extra_debug_asserts",
-    "extra_asserts",
-    "document-features"
-] }
+eframe = "0.28.1"
+egui = { version = "0.28.1", features = ["callstack", "document-features"] }
 either = "1.8.1"
 elsa = "=1.7.1"
 ena = "0.14.2"
 env_proxy = "0.4"
-epaint = "0.27.0"
+epaint = "0.28.1"
 expect-test = "1.4.1"
 futures = "0.3.28"
 futures-util = { version = "0.3", default-features = false, features = [

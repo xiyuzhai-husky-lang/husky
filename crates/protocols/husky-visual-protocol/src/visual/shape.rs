@@ -192,6 +192,23 @@ impl Into<egui::Stroke> for Stroke {
     }
 }
 
+#[cfg(feature = "egui")]
+impl Into<egui::epaint::PathStroke> for Stroke {
+    fn into(self) -> egui::epaint::PathStroke {
+        use egui::Color32;
+
+        egui::epaint::PathStroke {
+            width: self.width(),
+            color: egui::epaint::ColorMode::Solid(match self.color_class {
+                Color::Red => Color32::RED,
+                Color::LightYellow => todo!(),
+                Color::Yellow => Color32::YELLOW,
+                Color::Purple => todo!(),
+            }),
+        }
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub enum Color {
     Red,

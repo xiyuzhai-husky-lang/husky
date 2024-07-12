@@ -35,6 +35,7 @@ impl<'tree, Tab> DockArea<'tree, Tab> {
             rect,
             Layout::top_down_justified(Align::Min),
             (node_index, "node"),
+            None,
         );
         let spacing = ui.spacing().item_spacing;
         ui.spacing_mut().item_spacing = Vec2::ZERO;
@@ -114,6 +115,7 @@ impl<'tree, Tab> DockArea<'tree, Tab> {
                 tabbar_inner_rect,
                 Layout::left_to_right(Align::Center),
                 "tabs",
+                None,
             );
 
             let mut clip_rect = tabbar_outer_rect;
@@ -441,6 +443,7 @@ impl<'tree, Tab> DockArea<'tree, Tab> {
             rect,
             Layout::left_to_right(Align::Center),
             (node_index, "tab_add"),
+            None,
         );
 
         let (rect, mut response) = ui.allocate_exact_size(ui.available_size(), Sense::click());
@@ -780,6 +783,7 @@ impl<'tree, Tab> DockArea<'tree, Tab> {
                 id,
                 body_rect,
                 ui.clip_rect(),
+                egui::UiStackInfo::default(),
             );
             ui.set_clip_rect(Rect::from_min_max(ui.cursor().min, ui.clip_rect().max));
 
