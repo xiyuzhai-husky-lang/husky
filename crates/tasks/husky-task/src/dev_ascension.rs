@@ -18,8 +18,7 @@ use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 
 use std::{cell::Cell, thread::LocalKey};
 
-#[deprecated]
-pub trait IsDevAscension {
+pub trait IsDevAscension: 'static {
     type Pedestal: IsPedestalFull;
     type LinkageImpl: IsLinkageImpl<Pedestal = Self::Pedestal>;
     type Linktime: IsLinktime<LinkageImpl = Self::LinkageImpl>;

@@ -1,19 +1,18 @@
 use crate::*;
-use husky_task::helpers::TaskDevRuntimeSpecificConfig;
 
 #[derive(Default)]
 pub struct DevRuntimeCommonConfig {}
 
-pub struct DevRuntimeConfig<Task: IsTask> {
+pub struct DevRuntimeConfig<DevAscension: IsDevAscension> {
     common: DevRuntimeCommonConfig,
-    task_specifc: TaskDevRuntimeSpecificConfig<Task>,
+    specifc: DevAscension::RuntimeSpecificConfig,
 }
 
-impl<Task: IsTask> Default for DevRuntimeConfig<Task> {
+impl<DevAscension: IsDevAscension> Default for DevRuntimeConfig<DevAscension> {
     fn default() -> Self {
         Self {
             common: Default::default(),
-            task_specifc: Default::default(),
+            specifc: Default::default(),
         }
     }
 }

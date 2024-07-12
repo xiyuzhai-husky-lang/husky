@@ -22,6 +22,7 @@ use husky_visual_protocol::synchrotron::VisualSynchrotron;
 use serde::{Deserialize, Serialize};
 use std::marker::PhantomData;
 
+#[deprecated]
 pub struct MlTask<Figure>
 where
     Figure: IsFigure<MlPedestal>,
