@@ -6,7 +6,7 @@ use husky_visual_protocol::synchrotron::VisualSynchrotron;
 
 use husky_dev_comptime::DevComptimeTarget;
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
-use husky_task::dev_ascension::IsDevAscension;
+use husky_task::devend::IsDevend;
 use husky_trace::{jar::TraceDb, trace::Trace};
 use husky_trace_protocol::{
     protocol::{IsTraceProtocol, TraceBundle},
@@ -20,14 +20,14 @@ use husky_value_protocol::presentation::{
 use husky_vfs::error::VfsResult;
 use std::path::Path;
 
-pub struct Devtime<DevAscension: IsDevAscension> {
-    runtime: DevRuntime<DevAscension>,
+pub struct Devtime<Devend: IsDevend> {
+    runtime: DevRuntime<Devend>,
 }
 
-impl<DevAscension: IsDevAscension> Devtime<DevAscension> {
+impl<Devend: IsDevend> Devtime<Devend> {
     pub fn new(
         target_crate: &Path,
-        runtime_config: Option<DevRuntimeConfig<DevAscension>>,
+        runtime_config: Option<DevRuntimeConfig<Devend>>,
     ) -> VfsResult<Self> {
         Ok(Self {
             runtime: DevRuntime::new(target_crate, runtime_config)?,
@@ -43,10 +43,10 @@ impl<DevAscension: IsDevAscension> Devtime<DevAscension> {
     }
 }
 
-impl<DevAscension: IsDevAscension> Default for Devtime<DevAscension>
+impl<Devend: IsDevend> Default for Devtime<Devend>
 where
-    DevAscension: Default,
-    DevAscension::Linktime: Default,
+    Devend: Default,
+    Devend::Linktime: Default,
 {
     fn default() -> Self {
         Self {
@@ -55,10 +55,10 @@ where
     }
 }
 
-impl<DevAscension: IsDevAscension> IsTracetime for Devtime<DevAscension> {
+impl<Devend: IsDevend> IsTracetime for Devtime<Devend> {
     type Trace = Trace;
 
-    type TraceProtocol = DevAscension::TraceProtocol;
+    type TraceProtocol = Devend::TraceProtocol;
 
     type SerdeImpl = serde_impl::json::SerdeJson;
 
@@ -127,7 +127,7 @@ impl<DevAscension: IsDevAscension> IsTracetime for Devtime<DevAscension> {
                 Some((trace.into(), trace.ki_repr(db)?.into()))
             })
             .collect::<Vec<_>>();
-        DevAscension::calc_figure(
+        Devend::calc_figure(
             followed,
             accompanyings_except_followed,
             pedestal,

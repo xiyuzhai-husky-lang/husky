@@ -3,7 +3,7 @@ use dashmap::DashMap;
 use husky_linkage_impl::standard::StandardLinkageImplKiControlFlow;
 
 use husky_ki::{version_stamp::KiVersionStamp, Ki};
-use husky_task::dev_ascension::IsRuntimeStorage;
+use husky_task::devend::IsRuntimeStorage;
 use husky_task_interface::{HuskyIngredientIndex, HuskyJarIndex};
 use std::sync::{Arc, Mutex};
 

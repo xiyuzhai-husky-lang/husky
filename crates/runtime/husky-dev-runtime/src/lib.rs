@@ -10,12 +10,12 @@ use husky_ki::{KiRuntimeConstant, KiRuntimeConstantData};
 use husky_ki_repr::repr::KiRepr;
 use husky_linkage::linkage::Linkage;
 use husky_task::{
-    dev_ascension::IsDevAscension,
-    helpers::{DevAscensionException, DevAscensionValue},
+    devend::IsDevend,
+    helpers::{DevendException, DevendValue},
 };
 use husky_task::{
-    dev_ascension::IsRuntimeStorage,
-    helpers::{DevAscensionKiControlFlow, DevAscensionValueResult},
+    devend::IsRuntimeStorage,
+    helpers::{DevendKiControlFlow, DevendValueResult},
 };
 use husky_task_interface::{
     ki_repr::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface},
@@ -27,16 +27,16 @@ use std::{convert::Infallible, path::Path};
 /// Dropping libraries or linkage_impls before runtime storage will lead to segmentation fault
 ///
 /// so it's necessary to pub `storage` field before `comptime`
-pub struct DevRuntime<DevAscension: IsDevAscension> {
-    config: DevRuntimeConfig<DevAscension>,
-    storage: DevAscension::RuntimeStorage,
-    comptime: DevComptime<DevAscension>,
+pub struct DevRuntime<Devend: IsDevend> {
+    config: DevRuntimeConfig<Devend>,
+    storage: Devend::RuntimeStorage,
+    comptime: DevComptime<Devend>,
 }
 
-impl<DevAscension: IsDevAscension> DevRuntime<DevAscension> {
+impl<Devend: IsDevend> DevRuntime<Devend> {
     pub fn new(
         target_crate: impl AsRef<Path>,
-        config: Option<DevRuntimeConfig<DevAscension>>,
+        config: Option<DevRuntimeConfig<Devend>>,
     ) -> VfsResult<Self> {
         Ok(Self {
             config: config.unwrap_or_default(),
@@ -58,9 +58,9 @@ impl<DevAscension: IsDevAscension> DevRuntime<DevAscension> {
     }
 }
 
-impl<DevAscension: IsDevAscension> Default for DevRuntime<DevAscension>
+impl<Devend: IsDevend> Default for DevRuntime<Devend>
 where
-    DevAscension::Linktime: Default,
+    Devend::Linktime: Default,
 {
     fn default() -> Self {
         Self {
@@ -71,9 +71,7 @@ where
     }
 }
 
-impl<DevAscension: IsDevAscension> IsDevRuntime<DevAscension::LinkageImpl>
-    for DevRuntime<DevAscension>
-{
+impl<Devend: IsDevend> IsDevRuntime<Devend::LinkageImpl> for DevRuntime<Devend> {
     type StaticSelf = Self;
 
     unsafe fn cast_to_static_self_static_ref(&self) -> &'static Self::StaticSelf {
@@ -84,9 +82,9 @@ impl<DevAscension: IsDevAscension> IsDevRuntime<DevAscension::LinkageImpl>
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        base_point: DevAscension::Pedestal,
-        f: impl FnOnce() -> DevAscensionValueResult<DevAscension>,
-    ) -> DevAscensionKiControlFlow<DevAscension> {
+        base_point: Devend::Pedestal,
+        f: impl FnOnce() -> DevendValueResult<Devend>,
+    ) -> DevendKiControlFlow<Devend> {
         self.storage.get_or_try_init_val_value(
             self.comptime.ingredient_val(jar_index, ingredient_index),
             base_point,
@@ -99,8 +97,8 @@ impl<DevAscension: IsDevAscension> IsDevRuntime<DevAscension::LinkageImpl>
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        pedestal: DevAscension::Pedestal,
-    ) -> DevAscensionKiControlFlow<DevAscension> {
+        pedestal: Devend::Pedestal,
+    ) -> DevendKiControlFlow<Devend> {
         self.eval_ki_repr_at_pedestal(
             self.comptime
                 .ingredient_ki_repr(jar_index, ingredient_index),
@@ -111,29 +109,26 @@ impl<DevAscension: IsDevAscension> IsDevRuntime<DevAscension::LinkageImpl>
     fn eval_ki_repr_interface_at_pedestal(
         &self,
         ki_repr_interface: KiReprInterface,
-        pedestal: DevAscension::Pedestal,
-    ) -> DevAscensionKiControlFlow<DevAscension> {
+        pedestal: Devend::Pedestal,
+    ) -> DevendKiControlFlow<Devend> {
         self.eval_ki_repr_at_pedestal(ki_repr_interface.into(), pedestal)
     }
 
     fn eval_ki_domain_repr_interface_at_pedestal(
         &self,
         ki_domain_repr: KiDomainReprInterface,
-        pedestal: DevAscension::Pedestal,
-    ) -> husky_task_interface::ki_control_flow::KiControlFlow<
-        (),
-        Infallible,
-        DevAscensionException<DevAscension>,
-    > {
+        pedestal: Devend::Pedestal,
+    ) -> husky_task_interface::ki_control_flow::KiControlFlow<(), Infallible, DevendException<Devend>>
+    {
         self.eval_ki_domain_repr_at_pedestal(ki_domain_repr.into(), pedestal)
     }
 
     fn eval_ki_repr_with(
         &self,
         ki_repr: KiReprInterface,
-        pedestal: DevAscension::Pedestal,
-        f: impl FnOnce(KiDomainReprInterface) -> DevAscensionKiControlFlow<DevAscension>,
-    ) -> DevAscensionKiControlFlow<DevAscension> {
+        pedestal: Devend::Pedestal,
+        f: impl FnOnce(KiDomainReprInterface) -> DevendKiControlFlow<Devend>,
+    ) -> DevendKiControlFlow<Devend> {
         let db = self.db();
         let ki_repr: KiRepr = unsafe { std::mem::transmute(ki_repr) };
         let ki_domain_repr: KiDomainReprInterface =
@@ -146,10 +141,10 @@ impl<DevAscension: IsDevAscension> IsDevRuntime<DevAscension::LinkageImpl>
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        pedestal: DevAscension::Pedestal,
+        pedestal: Devend::Pedestal,
         slf: &'static std::ffi::c_void,
-        f: fn(&'static std::ffi::c_void) -> DevAscensionKiControlFlow<DevAscension>,
-    ) -> DevAscensionKiControlFlow<DevAscension> {
+        f: fn(&'static std::ffi::c_void) -> DevendKiControlFlow<Devend>,
+    ) -> DevendKiControlFlow<Devend> {
         self.storage
             .get_or_try_init_memo_field_value(jar_index, ingredient_index, pedestal, slf, f)
     }
@@ -157,7 +152,7 @@ impl<DevAscension: IsDevAscension> IsDevRuntime<DevAscension::LinkageImpl>
     fn eval_val_runtime_constant(
         &self,
         val_runtime_constant: KiRuntimeConstantInterface,
-    ) -> DevAscensionValue<DevAscension> {
+    ) -> DevendValue<Devend> {
         use husky_value_interface::IsValue;
 
         let db = self.db();
@@ -172,7 +167,7 @@ impl<DevAscension: IsDevAscension> IsDevRuntime<DevAscension::LinkageImpl>
                         db,
                     ))
                     .enum_index_value_presenter();
-                DevAscensionValue::<DevAscension>::from_enum_index(path.index(db).raw(), presenter)
+                DevendValue::<Devend>::from_enum_index(path.index(db).raw(), presenter)
             }
         }
     }

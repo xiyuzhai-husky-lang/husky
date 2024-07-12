@@ -6,7 +6,7 @@ pub use husky_ml_task_interface::{pedestal::MlPedestal, DEV_EVAL_CONTEXT};
 use self::runtime_storage::*;
 use husky_mono_linktime::MonoLinktime;
 
-use husky_task::dev_ascension::{DevEvalContextLocalKey, IsDevAscension};
+use husky_task::devend::{DevEvalContextLocalKey, IsDevend};
 use husky_task_interface::{
     ki_control_flow::KiControlFlow,
     ki_repr::{KiDomainReprInterface, KiReprInterface},
@@ -19,13 +19,13 @@ use husky_visual_protocol::synchrotron::VisualSynchrotron;
 use serde::{Deserialize, Serialize};
 use std::marker::PhantomData;
 
-pub struct MlDevAscension<Figure>(PhantomData<Figure>)
+pub struct MlDevend<Figure>(PhantomData<Figure>)
 where
     Figure: IsFigure<MlPedestal>;
 
 type LinkageImpl = husky_linkage_impl::standard::LinkageImpl<MlPedestal>;
 
-impl<Figure> IsDevAscension for MlDevAscension<Figure>
+impl<Figure> IsDevend for MlDevend<Figure>
 where
     Figure: IsFigure<MlPedestal>,
 {
