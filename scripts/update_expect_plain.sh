@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Duration over which to change the brightness, in seconds
-DURATION=0.5
-
 # Format the Rust project
 cargo fmt
 
