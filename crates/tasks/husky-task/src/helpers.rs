@@ -2,8 +2,6 @@ use husky_task_interface::{IsLinkageImpl, LinkageImplKiControlFlow};
 
 use crate::*;
 
-pub type DevRuntimeStorage<Task> =
-    <<Task as IsTask>::DevAscension as IsDevAscension>::RuntimeStorage;
 pub type DevAscensionValue<DevAscension> =
     <<DevAscension as IsDevAscension>::LinkageImpl as IsLinkageImpl>::Value;
 pub type DevAscensionException<DevAscension> =

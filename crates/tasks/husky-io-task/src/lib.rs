@@ -4,7 +4,6 @@
 // use husky_hir_deps::HirDepsDb;
 // use husky_mono_linktime::MonoLinktime;
 // use husky_standard_value::RegularValue;
-// use husky_task::{linkage::IsLinkage, IsDevAscension, IsTask};
 // use std::marker::PhantomData;
 
 // pub struct MlTask< VisualProtocol>
@@ -13,14 +12,6 @@
 //     VisualProtocol: IsVisualProtocol,
 // {
 //     _marker: PhantomData<(ComptimeDb, VisualProtocol)>,
-// }
-
-// impl< VisualProtocol> IsTask for MlTask< VisualProtocol>
-// where
-//     ComptimeDb: HirDepsDb,
-//     VisualProtocol: IsVisualProtocol,
-// {
-//     type DevAscension = MlDevAscension<VisualProtocol>;
 // }
 
 // pub struct MlDevAscension<VisualProtocol>(PhantomData<(ComptimeDb, VisualProtocol)>)

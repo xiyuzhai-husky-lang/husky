@@ -9,7 +9,7 @@ use husky_ki::Ki;
 use husky_ki_repr::repr::KiRepr;
 use husky_linkage::linkage::Linkage;
 use husky_manifest::helpers::upstream::HasAllUpstreamPackages;
-use husky_task::{dev_ascension::IsDevAscension, linktime::IsLinktime, IsTask};
+use husky_task::{dev_ascension::IsDevAscension, linktime::IsLinktime};
 use husky_task_interface::TaskIngredientIndex;
 use husky_task_interface::TaskJarIndex;
 use husky_toolchain_config::toolchain_config;
