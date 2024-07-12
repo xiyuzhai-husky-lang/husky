@@ -136,8 +136,8 @@ SynNodeDeclSheet {
                                     expr: 0,
                                 },
                             ),
-                            eq_or_eol_semicolon_token: Ok(
-                                Left(
+                            opt_eq_token: Ok(
+                                Some(
                                     EqRegionalToken(
                                         RegionalTokenIdx(
                                             11,

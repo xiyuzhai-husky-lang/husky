@@ -40,7 +40,9 @@ where
     fn propagate(self, version_limit: usize) -> PropagationResult<Self> {
         let mut engine = PropagationEngine::new(self);
         let mut prev_version = 0;
+        let mut i = 0;
         while prev_version < engine.max_version() {
+            i += 1;
             if prev_version > version_limit {
                 return Err(PropagationError::InfiniteLoop);
             }

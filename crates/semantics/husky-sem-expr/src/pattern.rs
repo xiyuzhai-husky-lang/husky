@@ -18,8 +18,6 @@ impl<'a> SemExprBuilder<'a> {
             {
                 ()
             }
-            SynPatternData::TupleStruct { .. } => todo!(),
-            SynPatternData::TupleTypeVariant { .. } => todo!(),
             SynPatternData::Props { name, ref fields } => todo!(),
             SynPatternData::OneOf { ref options } => {
                 for option in options.elements() {

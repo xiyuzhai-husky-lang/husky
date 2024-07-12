@@ -1104,7 +1104,7 @@ EntityTreeSheet {
                 ),
             },
             EntitySymbolEntry {
-                ident: `input`,
+                ident: `INPUT`,
                 visible_scope: Scope::PubUnder(
                     ModulePath(`mnist_classifier::digits::eight`),
                 ),
@@ -1116,12 +1116,12 @@ EntityTreeSheet {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             major_item_path: MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -1133,7 +1133,7 @@ EntityTreeSheet {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`mnist::input`, `Val`),
+                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -1145,7 +1145,7 @@ EntityTreeSheet {
                         ),
                         path: PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist::input`, `Val`),
+                                FormPath(`mnist::INPUT`, `StaticVar`),
                             ),
                         ),
                         visibility: Scope::PubUnder(

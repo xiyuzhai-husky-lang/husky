@@ -220,28 +220,28 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Form(
-                                    MajorFormSynNodePath(`mnist::input`, `Val`, (0)),
+                                    MajorFormSynNodePath(`mnist::INPUT`, `StaticVar`, (0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 27,
                                 ident_token: IdentToken {
-                                    ident: `input`,
+                                    ident: `INPUT`,
                                     token_idx: TokenIdx(
-                                        118,
+                                        119,
                                     ),
                                 },
                                 block: DefnBlock::Form {
-                                    path: FormPath(`mnist::input`, `Val`),
+                                    path: FormPath(`mnist::INPUT`, `StaticVar`),
                                     body: None,
                                 },
                             },
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                MajorFormSynNodePath(`mnist::input`, `Val`, (0)),
+                                MajorFormSynNodePath(`mnist::INPUT`, `StaticVar`, (0)),
                             ),
                         ),
-                        ident: `input`,
+                        ident: `INPUT`,
                         visibility: Scope::Pub,
                     },
                 ],
@@ -283,11 +283,11 @@ EntityTreeCrateBundle {
                         },
                     },
                     EntitySymbolEntry {
-                        ident: `input`,
+                        ident: `INPUT`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Form(
-                                FormPath(`mnist::input`, `Val`),
+                                FormPath(`mnist::INPUT`, `StaticVar`),
                             ),
                         },
                     },

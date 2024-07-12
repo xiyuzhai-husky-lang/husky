@@ -651,7 +651,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `input`,
+                        ident: `INPUT`,
                         visible_scope: Scope::PubUnder(
                             ModulePath(`mnist_classifier`),
                         ),
@@ -659,12 +659,12 @@ EntityTreeCrateBundle {
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
                                     major_item_path: MajorItemPath::Form(
-                                        FormPath(`mnist::input`, `Val`),
+                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                     ),
                                 },
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`mnist::input`, `Val`),
+                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -2962,7 +2962,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `input`,
+                        ident: `INPUT`,
                         visible_scope: Scope::PubUnder(
                             ModulePath(`mnist_classifier::connected_component`),
                         ),
@@ -2972,12 +2972,12 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             major_item_path: MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -2989,7 +2989,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`mnist::input`, `Val`),
+                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -5728,7 +5728,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `input`,
+                        ident: `INPUT`,
                         visible_scope: Scope::PubUnder(
                             ModulePath(`mnist_classifier::raw_contour`),
                         ),
@@ -5738,12 +5738,12 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             major_item_path: MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -5755,7 +5755,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`mnist::input`, `Val`),
+                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -10512,7 +10512,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `input`,
+                        ident: `INPUT`,
                         visible_scope: Scope::PubUnder(
                             ModulePath(`mnist_classifier::line_segment_sketch::concave_component`),
                         ),
@@ -10522,12 +10522,12 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             major_item_path: MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -10539,7 +10539,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`mnist::input`, `Val`),
+                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -16387,7 +16387,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `input`,
+                        ident: `INPUT`,
                         visible_scope: Scope::PubUnder(
                             ModulePath(`mnist_classifier::fermi`),
                         ),
@@ -16397,12 +16397,12 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             major_item_path: MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -16414,7 +16414,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`mnist::input`, `Val`),
+                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -18895,7 +18895,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `input`,
+                        ident: `INPUT`,
                         visible_scope: Scope::PubUnder(
                             ModulePath(`mnist_classifier::digits`),
                         ),
@@ -18905,12 +18905,12 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             major_item_path: MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -18922,7 +18922,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`mnist::input`, `Val`),
+                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -22353,7 +22353,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `input`,
+                        ident: `INPUT`,
                         visible_scope: Scope::PubUnder(
                             ModulePath(`mnist_classifier::digits::zero`),
                         ),
@@ -22365,12 +22365,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`mnist::input`, `Val`),
+                                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`mnist::input`, `Val`),
+                                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -22382,7 +22382,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -22394,7 +22394,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`mnist::input`, `Val`),
+                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -25682,7 +25682,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `input`,
+                        ident: `INPUT`,
                         visible_scope: Scope::PubUnder(
                             ModulePath(`mnist_classifier::digits::one`),
                         ),
@@ -25694,12 +25694,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`mnist::input`, `Val`),
+                                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`mnist::input`, `Val`),
+                                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -25711,7 +25711,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -25723,7 +25723,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`mnist::input`, `Val`),
+                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -29009,7 +29009,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `input`,
+                        ident: `INPUT`,
                         visible_scope: Scope::PubUnder(
                             ModulePath(`mnist_classifier::digits::six`),
                         ),
@@ -29021,12 +29021,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`mnist::input`, `Val`),
+                                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`mnist::input`, `Val`),
+                                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -29038,7 +29038,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -29050,7 +29050,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`mnist::input`, `Val`),
+                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -32344,7 +32344,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `input`,
+                        ident: `INPUT`,
                         visible_scope: Scope::PubUnder(
                             ModulePath(`mnist_classifier::digits::three`),
                         ),
@@ -32356,12 +32356,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`mnist::input`, `Val`),
+                                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`mnist::input`, `Val`),
+                                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -32373,7 +32373,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -32385,7 +32385,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`mnist::input`, `Val`),
+                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -35777,7 +35777,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `input`,
+                        ident: `INPUT`,
                         visible_scope: Scope::PubUnder(
                             ModulePath(`mnist_classifier::digits::four`),
                         ),
@@ -35789,12 +35789,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`mnist::input`, `Val`),
+                                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`mnist::input`, `Val`),
+                                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -35806,7 +35806,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -35818,7 +35818,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`mnist::input`, `Val`),
+                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -38892,7 +38892,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `input`,
+                        ident: `INPUT`,
                         visible_scope: Scope::PubUnder(
                             ModulePath(`mnist_classifier::digits::five`),
                         ),
@@ -38904,12 +38904,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`mnist::input`, `Val`),
+                                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`mnist::input`, `Val`),
+                                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -38921,7 +38921,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -38933,7 +38933,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`mnist::input`, `Val`),
+                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -42276,7 +42276,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `input`,
+                        ident: `INPUT`,
                         visible_scope: Scope::PubUnder(
                             ModulePath(`mnist_classifier::digits::seven`),
                         ),
@@ -42288,12 +42288,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`mnist::input`, `Val`),
+                                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`mnist::input`, `Val`),
+                                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -42305,7 +42305,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -42317,7 +42317,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`mnist::input`, `Val`),
+                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -45497,7 +45497,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `input`,
+                        ident: `INPUT`,
                         visible_scope: Scope::PubUnder(
                             ModulePath(`mnist_classifier::digits::eight`),
                         ),
@@ -45509,12 +45509,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`mnist::input`, `Val`),
+                                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`mnist::input`, `Val`),
+                                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -45526,7 +45526,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -45538,7 +45538,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`mnist::input`, `Val`),
+                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -48824,7 +48824,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `input`,
+                        ident: `INPUT`,
                         visible_scope: Scope::PubUnder(
                             ModulePath(`mnist_classifier::digits::nine`),
                         ),
@@ -48836,12 +48836,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`mnist::input`, `Val`),
+                                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`mnist::input`, `Val`),
+                                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -48853,7 +48853,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -48865,7 +48865,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`mnist::input`, `Val`),
+                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -52159,7 +52159,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `input`,
+                        ident: `INPUT`,
                         visible_scope: Scope::PubUnder(
                             ModulePath(`mnist_classifier::digits::two`),
                         ),
@@ -52171,12 +52171,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`mnist::input`, `Val`),
+                                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`mnist::input`, `Val`),
+                                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                                     ),
                                                 ),
                                                 visibility: Scope::PubUnder(
@@ -52188,7 +52188,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -52200,7 +52200,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`mnist::input`, `Val`),
+                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -55069,7 +55069,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `input`,
+                        ident: `INPUT`,
                         visible_scope: Scope::PubUnder(
                             ModulePath(`mnist_classifier::major`),
                         ),
@@ -55079,12 +55079,12 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             major_item_path: MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -55096,7 +55096,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`mnist::input`, `Val`),
+                                        FormPath(`mnist::INPUT`, `StaticVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(

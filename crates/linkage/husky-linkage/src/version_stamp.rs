@@ -52,7 +52,7 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
             builder.add(hir_defn);
             builder.add_instantiation(instantiation)
         }
-        LinkageData::MajorStatic {
+        LinkageData::MajorStaticVar {
             path,
             ref instantiation,
         } => {

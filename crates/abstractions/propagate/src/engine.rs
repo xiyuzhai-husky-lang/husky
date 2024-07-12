@@ -1,5 +1,4 @@
 use crate::*;
-use husky_print_utils::p;
 
 /// version 1 is for the beginning,
 /// version 0 is intended to be a strict lower bound not achievable
@@ -19,6 +18,7 @@ impl<G: IsGraph> PropagationEngine<G> {
     }
 
     pub(crate) fn update_all(&mut self) {
+        // `self.versions.len()` is equal to graph length
         for i in 0..self.versions.len() {
             self.try_update(i)
         }

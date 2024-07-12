@@ -244,12 +244,12 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath(`mnist::input`),
+            ItemPath(`mnist::INPUT`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
-                    FormSynDecl::Val(
-                        MajorValSynDecl {
-                            path: FormPath(`mnist::input`, `Val`),
+                    FormSynDecl::StaticVar(
+                        MajorStaticVarSynDecl {
+                            path: FormPath(`mnist::INPUT`, `StaticVar`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 0,
                             },
@@ -260,7 +260,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                MajorFormSynNodePath(`mnist::input`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist::INPUT`, `StaticVar`, (0)),
                                             ),
                                         ),
                                     ),
@@ -285,7 +285,7 @@ SynDeclSheet {
                                                     IdentRegionalToken {
                                                         ident: `BinaryImage28`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            5,
+                                                            6,
                                                         ),
                                                     },
                                                 ),

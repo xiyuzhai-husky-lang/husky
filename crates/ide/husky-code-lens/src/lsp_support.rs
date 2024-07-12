@@ -5,8 +5,11 @@ use crate::{
 use code_lens::CodeLensData;
 use husky_entity_path::region::RegionPath;
 use husky_entity_tree::helpers::tokra_region::HasRegionalTokenIdxBase;
+use husky_sem_static_mut_deps::item_sem_static_mut_deps;
+use husky_sem_static_var_deps::item_sem_static_var_deps;
 use husky_token::{RangedTokenSheet, TokenDb};
 use husky_vfs::path::module_path::ModulePath;
+use salsa::DisplayWithDb;
 
 pub fn module_lsp_code_lenses_unresolved(
     module_path: ModulePath,
@@ -28,7 +31,7 @@ impl CodeLens {
     ) -> lsp_types::CodeLens {
         lsp_types::CodeLens {
             range: self.range(ranged_token_sheet, db),
-            command: Some(self.lsp_command()),
+            command: Some(self.lsp_command(db)),
             data: None,
         }
     }
@@ -51,13 +54,34 @@ impl CodeLens {
         text_range.into()
     }
 
-    fn lsp_command(&self) -> lsp_types::Command {
+    fn lsp_command(&self, db: &::salsa::Db) -> lsp_types::Command {
         match *self.data() {
-            CodeLensData::Deps => lsp_types::Command {
-                title: "#deps".to_string(),
-                command: "husky-analyzer.deps".to_string(),
-                arguments: None,
-            },
+            CodeLensData::Deps => {
+                let mut title = "#deps(".to_string();
+                let mut empty = true;
+                for _ in item_sem_static_mut_deps(self.item_path(), db) {
+                    if empty {
+                        empty = false
+                    } else {
+                        title.push_str(", ");
+                    }
+                    todo!()
+                }
+                for item_path in item_sem_static_var_deps(self.item_path(), db) {
+                    if empty {
+                        empty = false
+                    } else {
+                        title.push_str(", ");
+                    }
+                    title.push_str(&item_path.display_with(db).to_string());
+                }
+                title.push(')');
+                lsp_types::Command {
+                    title,
+                    command: "husky-analyzer.deps".to_string(),
+                    arguments: None,
+                }
+            }
             CodeLensData::Affect => todo!(),
             CodeLensData::Runnable => todo!(),
             CodeLensData::HasImpls => todo!(),

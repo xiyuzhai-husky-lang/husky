@@ -66,12 +66,12 @@
         ),
     ),
     (
-        ItemPath(`mnist::input`),
+        ItemPath(`mnist::INPUT`),
         Ok(
             ItemDecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
-                    MajorFormDecTemplate::Val(
-                        MajorValDecTemplate {
+                    MajorFormDecTemplate::StaticVar(
+                        MajorStaticVarDecTemplate {
                             return_ty: EntityPath(
                                 Type(
                                     TypePath(

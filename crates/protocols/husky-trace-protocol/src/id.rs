@@ -27,7 +27,8 @@ impl TraceId {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum TraceKind {
     Submodule,
-    ValItem,
+    Val,
+    StaticVar,
     LazyCall,
     LazyCallInput,
     LazyExpr,

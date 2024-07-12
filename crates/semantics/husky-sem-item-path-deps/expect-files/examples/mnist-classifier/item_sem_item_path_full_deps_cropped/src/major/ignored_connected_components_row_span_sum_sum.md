@@ -8,7 +8,7 @@ Some(
         ItemPath(`mnist_classifier::major::major_connected_component`),
         ItemPath(`mnist_classifier::connected_component::ConnectedComponent`),
         ItemPath(`mnist_classifier::connected_component::find_connected_components`),
-        ItemPath(`mnist::input`),
+        ItemPath(`mnist::INPUT`),
         ItemPath(`core::num::i32`),
         ItemPath(`mnist::BinaryImage28`),
         ItemPath(`<#derive _ as core::clone::Clone(0)>::clone`),

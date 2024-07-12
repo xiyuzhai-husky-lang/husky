@@ -43,6 +43,7 @@
                     FormEthTemplate::StaticVar(
                         MajorStaticVarEthTemplate {
                             path: FormPath(`core::task::TASK`, `StaticVar`),
+                            return_ty: EthTerm(`Task`),
                         },
                     ),
                 ),

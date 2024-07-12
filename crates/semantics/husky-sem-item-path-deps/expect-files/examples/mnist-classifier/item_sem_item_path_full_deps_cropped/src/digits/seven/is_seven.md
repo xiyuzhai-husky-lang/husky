@@ -24,7 +24,7 @@ Some(
         ItemPath(`mnist_classifier::digits::seven::leftdowncc_pattern`),
         ItemPath(`mnist::BinaryImage28`),
         ItemPath(`mnist_classifier::connected_component::find_connected_components`),
-        ItemPath(`mnist::input`),
+        ItemPath(`mnist::INPUT`),
         ItemPath(`core::num::i32`),
         ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
         ItemPath(`core::num::f32`),

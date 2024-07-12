@@ -7,7 +7,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: ValItem,
+            trace_kind: StaticVar,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -18,14 +18,20 @@
                             assoc_trace_id: None,
                         },
                         TraceViewTokenData {
-                            text: "val",
+                            text: "static",
                             token_class: OtherKeyword,
                             spaces_before: 1,
                             assoc_trace_id: None,
                         },
                         TraceViewTokenData {
-                            text: "input",
-                            token_class: ValEntity,
+                            text: "var",
+                            token_class: OtherKeyword,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "INPUT",
+                            token_class: StaticVarEntity,
                             spaces_before: 1,
                             assoc_trace_id: None,
                         },
@@ -41,16 +47,10 @@
                             spaces_before: 1,
                             assoc_trace_id: None,
                         },
-                        TraceViewTokenData {
-                            text: ";",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
                     ],
                 },
             ],
-            have_subtraces: true,
+            have_subtraces: false,
         },
     ),
 ]
