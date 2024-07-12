@@ -10,12 +10,12 @@ use husky_ki::{KiRuntimeConstant, KiRuntimeConstantData};
 use husky_ki_repr::repr::KiRepr;
 use husky_linkage::linkage::Linkage;
 use husky_task::{
-    dev_ascension::IsRuntimeStorage,
-    helpers::{TaskDevAscension, TaskKiControlFlow, TaskLinkageImpl, TaskValueResult},
+    dev_ascension::IsDevAscension,
+    helpers::{DevAscensionException, DevAscensionValue, DevRuntimeStorage},
 };
 use husky_task::{
-    helpers::{DevRuntimeStorage, TaskDevLinkTime, TaskDevPedestal},
-    IsTask,
+    dev_ascension::IsRuntimeStorage,
+    helpers::{DevAscensionKiControlFlow, DevAscensionValueResult},
 };
 use husky_task_interface::{
     ki_repr::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface},
@@ -27,21 +27,18 @@ use std::{convert::Infallible, path::Path};
 /// Dropping libraries or linkage_impls before runtime storage will lead to segmentation fault
 ///
 /// so it's necessary to pub `storage` field before `comptime`
-pub struct DevRuntime<Task: IsTask> {
-    task: Task,
-    config: DevRuntimeConfig<Task>,
-    storage: DevRuntimeStorage<Task>,
-    comptime: DevComptime<Task>,
+pub struct DevRuntime<DevAscension: IsDevAscension> {
+    config: DevRuntimeConfig<DevAscension>,
+    storage: DevAscension::RuntimeStorage,
+    comptime: DevComptime<DevAscension>,
 }
 
-impl<Task: IsTask> DevRuntime<Task> {
+impl<DevAscension: IsDevAscension> DevRuntime<DevAscension> {
     pub fn new(
-        task: Task,
         target_crate: impl AsRef<Path>,
-        config: Option<DevRuntimeConfig<Task>>,
+        config: Option<DevRuntimeConfig<DevAscension>>,
     ) -> VfsResult<Self> {
         Ok(Self {
-            task,
             config: config.unwrap_or_default(),
             storage: Default::default(),
             comptime: DevComptime::new(target_crate)?,
@@ -61,14 +58,12 @@ impl<Task: IsTask> DevRuntime<Task> {
     }
 }
 
-impl<Task: IsTask> Default for DevRuntime<Task>
+impl<DevAscension: IsDevAscension> Default for DevRuntime<DevAscension>
 where
-    Task: Default,
-    TaskDevLinkTime<Task>: Default,
+    DevAscension::Linktime: Default,
 {
     fn default() -> Self {
         Self {
-            task: Default::default(),
             comptime: Default::default(),
             storage: Default::default(),
             config: Default::default(),
@@ -76,7 +71,9 @@ where
     }
 }
 
-impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
+impl<DevAscension: IsDevAscension> IsDevRuntime<DevAscension::LinkageImpl>
+    for DevRuntime<DevAscension>
+{
     type StaticSelf = Self;
 
     unsafe fn cast_to_static_self_static_ref(&self) -> &'static Self::StaticSelf {
@@ -87,9 +84,9 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
-        base_point: TaskDevPedestal<Task>,
-        f: impl FnOnce() -> TaskValueResult<Task>,
-    ) -> TaskKiControlFlow<Task> {
+        base_point: DevAscension::Pedestal,
+        f: impl FnOnce() -> DevAscensionValueResult<DevAscension>,
+    ) -> DevAscensionKiControlFlow<DevAscension> {
         self.storage.get_or_try_init_val_value(
             self.comptime.ingredient_val(jar_index, ingredient_index),
             base_point,
@@ -102,8 +99,8 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
-        pedestal: <TaskLinkageImpl<Task> as IsLinkageImpl>::Pedestal,
-    ) -> TaskKiControlFlow<Task> {
+        pedestal: DevAscension::Pedestal,
+    ) -> DevAscensionKiControlFlow<DevAscension> {
         self.eval_ki_repr_at_pedestal(
             self.comptime
                 .ingredient_ki_repr(jar_index, ingredient_index),
@@ -114,19 +111,19 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
     fn eval_ki_repr_interface_at_pedestal(
         &self,
         ki_repr_interface: KiReprInterface,
-        pedestal: <TaskLinkageImpl<Task> as IsLinkageImpl>::Pedestal,
-    ) -> LinkageImplKiControlFlow<TaskLinkageImpl<Task>> {
+        pedestal: DevAscension::Pedestal,
+    ) -> DevAscensionKiControlFlow<DevAscension> {
         self.eval_ki_repr_at_pedestal(ki_repr_interface.into(), pedestal)
     }
 
     fn eval_ki_domain_repr_interface_at_pedestal(
         &self,
         ki_domain_repr: KiDomainReprInterface,
-        pedestal: <TaskLinkageImpl<Task> as IsLinkageImpl>::Pedestal,
+        pedestal: DevAscension::Pedestal,
     ) -> husky_task_interface::ki_control_flow::KiControlFlow<
         (),
         Infallible,
-        <TaskLinkageImpl<Task> as IsLinkageImpl>::Exception,
+        DevAscensionException<DevAscension>,
     > {
         self.eval_ki_domain_repr_at_pedestal(ki_domain_repr.into(), pedestal)
     }
@@ -134,9 +131,9 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
     fn eval_ki_repr_with(
         &self,
         ki_repr: KiReprInterface,
-        pedestal: <TaskLinkageImpl<Task> as IsLinkageImpl>::Pedestal,
-        f: impl FnOnce(KiDomainReprInterface) -> LinkageImplKiControlFlow<TaskLinkageImpl<Task>>,
-    ) -> LinkageImplKiControlFlow<TaskLinkageImpl<Task>> {
+        pedestal: DevAscension::Pedestal,
+        f: impl FnOnce(KiDomainReprInterface) -> DevAscensionKiControlFlow<DevAscension>,
+    ) -> DevAscensionKiControlFlow<DevAscension> {
         let db = self.db();
         let ki_repr: KiRepr = unsafe { std::mem::transmute(ki_repr) };
         let ki_domain_repr: KiDomainReprInterface =
@@ -149,10 +146,10 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
         &self,
         jar_index: TaskJarIndex,
         ingredient_index: TaskIngredientIndex,
-        pedestal: <TaskLinkageImpl<Task> as IsLinkageImpl>::Pedestal,
+        pedestal: DevAscension::Pedestal,
         slf: &'static std::ffi::c_void,
-        f: fn(&'static std::ffi::c_void) -> LinkageImplKiControlFlow<TaskLinkageImpl<Task>>,
-    ) -> LinkageImplKiControlFlow<TaskLinkageImpl<Task>> {
+        f: fn(&'static std::ffi::c_void) -> DevAscensionKiControlFlow<DevAscension>,
+    ) -> DevAscensionKiControlFlow<DevAscension> {
         self.storage
             .get_or_try_init_memo_field_value(jar_index, ingredient_index, pedestal, slf, f)
     }
@@ -160,7 +157,7 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
     fn eval_val_runtime_constant(
         &self,
         val_runtime_constant: KiRuntimeConstantInterface,
-    ) -> <TaskLinkageImpl<Task> as IsLinkageImpl>::Value {
+    ) -> DevAscensionValue<DevAscension> {
         use husky_value_interface::IsValue;
 
         let db = self.db();
@@ -175,10 +172,7 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
                         db,
                     ))
                     .enum_index_value_presenter();
-                <TaskLinkageImpl<Task> as IsLinkageImpl>::Value::from_enum_index(
-                    path.index(db).raw(),
-                    presenter,
-                )
+                DevAscensionValue::<DevAscension>::from_enum_index(path.index(db).raw(), presenter)
             }
         }
     }

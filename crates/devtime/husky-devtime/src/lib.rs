@@ -6,11 +6,7 @@ use husky_visual_protocol::synchrotron::VisualSynchrotron;
 
 use husky_dev_comptime::DevComptimeTarget;
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
-use husky_task::{
-    dev_ascension::IsDevAscension,
-    helpers::{TaskDevLinkTime, TaskTraceProtocol},
-    IsTask,
-};
+use husky_task::dev_ascension::IsDevAscension;
 use husky_trace::{jar::TraceDb, trace::Trace};
 use husky_trace_protocol::{
     protocol::{IsTraceProtocol, TraceBundle},
@@ -24,18 +20,17 @@ use husky_value_protocol::presentation::{
 use husky_vfs::error::VfsResult;
 use std::path::Path;
 
-pub struct Devtime<Task: IsTask> {
-    runtime: DevRuntime<Task>,
+pub struct Devtime<DevAscension: IsDevAscension> {
+    runtime: DevRuntime<DevAscension>,
 }
 
-impl<Task: IsTask> Devtime<Task> {
+impl<DevAscension: IsDevAscension> Devtime<DevAscension> {
     pub fn new(
-        task: Task,
         target_crate: &Path,
-        runtime_config: Option<DevRuntimeConfig<Task>>,
+        runtime_config: Option<DevRuntimeConfig<DevAscension>>,
     ) -> VfsResult<Self> {
         Ok(Self {
-            runtime: DevRuntime::new(task, target_crate, runtime_config)?,
+            runtime: DevRuntime::new(target_crate, runtime_config)?,
         })
     }
 
@@ -48,10 +43,10 @@ impl<Task: IsTask> Devtime<Task> {
     }
 }
 
-impl<Task: IsTask> Default for Devtime<Task>
+impl<DevAscension: IsDevAscension> Default for Devtime<DevAscension>
 where
-    Task: Default,
-    TaskDevLinkTime<Task>: Default,
+    DevAscension: Default,
+    DevAscension::Linktime: Default,
 {
     fn default() -> Self {
         Self {
@@ -60,10 +55,10 @@ where
     }
 }
 
-impl<Task: IsTask> IsTracetime for Devtime<Task> {
+impl<DevAscension: IsDevAscension> IsTracetime for Devtime<DevAscension> {
     type Trace = Trace;
 
-    type TraceProtocol = TaskTraceProtocol<Task>;
+    type TraceProtocol = DevAscension::TraceProtocol;
 
     type SerdeImpl = serde_impl::json::SerdeJson;
 
@@ -132,7 +127,7 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
                 Some((trace.into(), trace.ki_repr(db)?.into()))
             })
             .collect::<Vec<_>>();
-        <Task::DevAscension as IsDevAscension>::calc_figure(
+        DevAscension::calc_figure(
             followed,
             accompanyings_except_followed,
             pedestal,

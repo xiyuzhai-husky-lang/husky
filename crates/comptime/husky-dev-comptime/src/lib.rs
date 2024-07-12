@@ -9,11 +9,7 @@ use husky_ki::Ki;
 use husky_ki_repr::repr::KiRepr;
 use husky_linkage::linkage::Linkage;
 use husky_manifest::helpers::upstream::HasAllUpstreamPackages;
-use husky_task::{
-    helpers::{TaskDevLinkTime, TaskDevLinkageImpl},
-    linktime::IsLinktime,
-    IsTask,
-};
+use husky_task::{dev_ascension::IsDevAscension, linktime::IsLinktime, IsTask};
 use husky_task_interface::TaskIngredientIndex;
 use husky_task_interface::TaskJarIndex;
 use husky_toolchain_config::toolchain_config;
@@ -27,11 +23,11 @@ use husky_vfs::{
 };
 use std::path::Path;
 
-pub struct DevComptime<Task: IsTask> {
+pub struct DevComptime<DevAscension: IsDevAscension> {
     db: DevComptimeDb,
     target: DevComptimeTarget,
     target_path: Option<LinktimeTargetPath>,
-    linktime: TaskDevLinkTime<Task>,
+    linktime: DevAscension::Linktime,
     ingredient_vals: Vec<(
         PackagePath,
         Vec<(IngredientPath, Option<KiRepr>, Option<Ki>)>,
@@ -45,7 +41,7 @@ pub enum DevComptimeTarget {
     SingleCrate(CratePath),
 }
 
-impl<Task: IsTask> DevComptime<Task> {
+impl<DevAscension: IsDevAscension> DevComptime<DevAscension> {
     pub fn new(target_crate_path: impl AsRef<Path>) -> VfsResult<Self> {
         let target_crate_path = target_crate_path.as_ref();
         let db = DevComptimeDb::default();
@@ -92,7 +88,7 @@ impl<Task: IsTask> DevComptime<Task> {
         self.target_path
     }
 
-    pub fn linkage_impl(&self, linkage: Linkage) -> TaskDevLinkageImpl<Task> {
+    pub fn linkage_impl(&self, linkage: Linkage) -> DevAscension::LinkageImpl {
         self.linktime.linkage_impl(linkage, self.db())
     }
 
@@ -171,15 +167,15 @@ fn ingredient_kis(
         .collect()
 }
 
-impl<Task: IsTask> DevComptime<Task> {
+impl<DevAscension: IsDevAscension> DevComptime<DevAscension> {
     pub fn db(&self) -> &::salsa::Db {
         &self.db
     }
 }
 
-impl<Task: IsTask> Default for DevComptime<Task>
+impl<DevAscension: IsDevAscension> Default for DevComptime<DevAscension>
 where
-    TaskDevLinkTime<Task>: Default,
+    DevAscension::Linktime: Default,
 {
     fn default() -> Self {
         Self {
