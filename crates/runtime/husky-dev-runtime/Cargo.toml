@@ -40,11 +40,11 @@ husky-visual-protocol.workspace = true
 # syntax
 husky-entity-tree.workspace = true
 husky-ast.workspace = true
-# tasks
-husky-task-interface.workspace = true
-husky-task.workspace = true
-husky-ml-task-interface.workspace = true
-husky-ml-task.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
+husky-devsoul.workspace = true
+husky-ml-devsoul-interface.workspace = true
+husky-ml-devsoul.workspace = true
 # utils
 husky-check-utils.workspace = true
 husky-path-utils.workspace = true

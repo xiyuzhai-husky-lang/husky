@@ -7,7 +7,7 @@ use self::arena::*;
 use super::*;
 use husky_graphics2d_visual_protocol::figure::Graphics2dFigure;
 use husky_gui::helpers::repaint_signal::EguiRepaintSignal;
-use husky_ml_task::{MlPedestal, MlTraceProtocol};
+use husky_ml_devsoul::{MlPedestal, MlTraceProtocol};
 use husky_trace_doc::doc::TraceDoc;
 use ui::component::UiComponent;
 

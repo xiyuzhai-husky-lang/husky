@@ -9,7 +9,7 @@ pub mod vm_control_flow;
 
 pub use self::ki_control_flow::KiControlFlow;
 pub use self::linkage_impl::*;
-pub use husky_task_interface_macros::*;
+pub use husky_devsoul_interface_macros::*;
 
 use self::ki_repr::{
     KiArgumentReprInterface, KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface,

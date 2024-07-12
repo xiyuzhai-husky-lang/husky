@@ -8,7 +8,7 @@ members = [
     "crates/corgi/*",
     "crates/cybertron/*",
     "crates/devtime/*",
-    "crates/devtools/*",
+    "crates/gadgets/*",
     "crates/fs/*",
     "crates/gui/*",
     "crates/ide/*",
@@ -25,7 +25,7 @@ members = [
     "crates/runtime/*",
     "crates/semantics/*",
     "crates/syntax/*",
-    "crates/tasks/*",
+    "crates/devsoul/*",
     "crates/tex/*",
     "crates/utils/*",
     "crates/value/*",
@@ -306,13 +306,13 @@ husky-syn-decl = { path = "crates/syntax/husky-syn-decl" }
 husky-syn-defn = { path = "crates/syntax/husky-syn-defn" }
 husky-syn-opr = { path = "crates/syntax/husky-syn-opr" }
 husky-entity-tree = { path = "crates/syntax/husky-entity-tree" }
-# tasks
-husky-ml-task = { path = "crates/tasks/husky-ml-task" }
-husky-ml-task-interface = { path = "crates/tasks/husky-ml-task-interface" }
-husky-ml-task-interface-macros = { path = "crates/tasks/husky-ml-task-interface-macros" }
-husky-task = { path = "crates/tasks/husky-task" }
-husky-task-interface = { path = "crates/tasks/husky-task-interface" }
-husky-task-interface-macros = { path = "crates/tasks/husky-task-interface-macros" }
+# devsoul
+husky-ml-devsoul = { path = "crates/devsoul/husky-ml-devsoul" }
+husky-ml-devsoul-interface = { path = "crates/devsoul/husky-ml-devsoul-interface" }
+husky-ml-devsoul-interface-macros = { path = "crates/devsoul/husky-ml-devsoul-interface-macros" }
+husky-devsoul = { path = "crates/devsoul/husky-devsoul" }
+husky-devsoul-interface = { path = "crates/devsoul/husky-devsoul-interface" }
+husky-devsoul-interface-macros = { path = "crates/devsoul/husky-devsoul-interface-macros" }
 # tex
 husky-tex-ast = { path = "crates/tex/husky-tex-ast" }
 husky-tex-command = { path = "crates/tex/husky-tex-command" }
@@ -365,6 +365,6 @@ husky-vmir = { path = "crates/vmir/husky-vmir" }
 # library
 husky-core = { path = "library/core" }
 # registry
-ad-hoc-task-dependency = { path = "registry/ad-hoc-task-dependency" }
+ad-hoc-devsoul-dependency = { path = "registry/ad-hoc-devsoul-dependency" }
 malamute = { path = "registry/malamute-0.1.0" }
-ml-task = { path = "registry/ml-task-0.1.0" }
+ml-devsoul = { path = "registry/ml-devsoul-0.1.0" }

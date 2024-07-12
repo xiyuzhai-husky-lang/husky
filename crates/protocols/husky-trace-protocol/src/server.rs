@@ -7,7 +7,7 @@ use crate::{
     view::{action::TraceViewAction, TraceViewData},
     *,
 };
-use husky_task_interface::{ki_repr::KiReprInterface, pedestal::IsPedestalFull};
+use husky_devsoul_interface::{ki_repr::KiReprInterface, pedestal::IsPedestalFull};
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
 };

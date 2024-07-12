@@ -2,7 +2,7 @@ mod flag;
 
 use self::flag::*;
 use crate::*;
-use ad_hoc_task_dependency::ki_control_flow::KiControlFlow;
+use ad_hoc_devsoul_dependency::ki_control_flow::KiControlFlow;
 use smallvec::SmallVec;
 
 #[allow(warnings, non_snake_case)]

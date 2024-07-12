@@ -6,8 +6,8 @@ pub mod standard;
 
 pub use self::any::AnyLinkageImpls;
 
-use husky_task_interface::{ki_control_flow::KiControlFlow, LinkageImplKiControlFlow};
-use husky_task_interface::{
+use husky_devsoul_interface::{ki_control_flow::KiControlFlow, LinkageImplKiControlFlow};
+use husky_devsoul_interface::{
     ki_repr::{KiArgumentReprInterface, KiReprInterface},
     DevEvalContext, IsLinkageImpl,
 };

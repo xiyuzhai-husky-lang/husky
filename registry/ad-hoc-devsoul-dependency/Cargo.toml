@@ -1,5 +1,5 @@
 [package]
-name = "ad-hoc-task-dependency"
+name = "ad-hoc-devsoul-dependency"
 version.workspace = true
 authors = ["my_name"]
 edition = "2021"
@@ -9,6 +9,6 @@ edition = "2021"
 husky-standard-value.workspace = true
 # linkage
 husky-linkage-impl = { workspace = true, features = ["standard"] }
-# tasks
-husky-task-interface.workspace = true
-husky-ml-task-interface.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
+husky-ml-devsoul-interface.workspace = true

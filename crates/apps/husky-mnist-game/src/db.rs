@@ -1,7 +1,7 @@
 use self::op::history::{MnistOpHistory, OpTime};
 use super::*;
 use crate::op::frame::MnistOpFrame;
-use husky_ml_task_interface::InputId;
+use husky_ml_devsoul_interface::InputId;
 use mnist::dataset::MnistDataset;
 
 pub struct MnistDb {

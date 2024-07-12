@@ -1,7 +1,7 @@
 use super::*;
 use crate::op::history::OpTime;
 use egui::Slider;
-use husky_ml_task_interface::{pedestal::MlPedestal, InputId};
+use husky_ml_devsoul_interface::{pedestal::MlPedestal, InputId};
 
 pub struct MnistControl {
     input_id: InputId,

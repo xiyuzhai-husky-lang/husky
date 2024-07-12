@@ -3,8 +3,8 @@ use crate::{
     stmt::VmirStmtArena,
     *,
 };
+use husky_devsoul::linktime::VirtualLinktime;
 use husky_linkage::linkage::{virtual_linkage_impl::VirtualLinkageImpl, Linkage};
-use husky_task::linktime::VirtualLinktime;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]

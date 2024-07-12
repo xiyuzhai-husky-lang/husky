@@ -11,8 +11,8 @@ smallvec.workspace = true
 husky-value-protocol.workspace = true
 # vm
 husky-standard-value.workspace = true
-# tasks
-husky-task-interface.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
 # utils
 husky-decl-macro-utils.workspace = true
 

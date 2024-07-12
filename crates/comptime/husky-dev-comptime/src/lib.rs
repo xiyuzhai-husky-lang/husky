@@ -2,6 +2,9 @@ pub mod db;
 
 use self::db::DevComptimeDb;
 
+use husky_devsoul::{devsoul::IsDevsoul, linktime::IsLinktime};
+use husky_devsoul_interface::HuskyIngredientIndex;
+use husky_devsoul_interface::HuskyJarIndex;
 use husky_entity_kind::{MajorFormKind, TraitItemKind, TypeItemKind};
 use husky_entity_path::path::{assoc_item::AssocItemPath, major_item::MajorItemPath, ItemPath};
 use husky_entity_tree::helpers::ingredient::{HasIngredientPaths, IngredientPath};
@@ -9,9 +12,6 @@ use husky_ki::Ki;
 use husky_ki_repr::repr::KiRepr;
 use husky_linkage::linkage::Linkage;
 use husky_manifest::helpers::upstream::HasAllUpstreamPackages;
-use husky_task::{devend::IsDevend, linktime::IsLinktime};
-use husky_task_interface::HuskyIngredientIndex;
-use husky_task_interface::HuskyJarIndex;
 use husky_toolchain_config::toolchain_config;
 use husky_vfs::{
     error::VfsResult,
@@ -23,11 +23,11 @@ use husky_vfs::{
 };
 use std::path::Path;
 
-pub struct DevComptime<Devend: IsDevend> {
+pub struct DevComptime<Devsoul: IsDevsoul> {
     db: DevComptimeDb,
     target: DevComptimeTarget,
     target_path: Option<LinktimeTargetPath>,
-    linktime: Devend::Linktime,
+    linktime: Devsoul::Linktime,
     ingredient_vals: Vec<(
         PackagePath,
         Vec<(IngredientPath, Option<KiRepr>, Option<Ki>)>,
@@ -41,7 +41,7 @@ pub enum DevComptimeTarget {
     SingleCrate(CratePath),
 }
 
-impl<Devend: IsDevend> DevComptime<Devend> {
+impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
     pub fn new(target_crate_path: impl AsRef<Path>) -> VfsResult<Self> {
         let target_crate_path = target_crate_path.as_ref();
         let db = DevComptimeDb::default();
@@ -88,7 +88,7 @@ impl<Devend: IsDevend> DevComptime<Devend> {
         self.target_path
     }
 
-    pub fn linkage_impl(&self, linkage: Linkage) -> Devend::LinkageImpl {
+    pub fn linkage_impl(&self, linkage: Linkage) -> Devsoul::LinkageImpl {
         self.linktime.linkage_impl(linkage, self.db())
     }
 
@@ -167,15 +167,15 @@ fn ingredient_kis(
         .collect()
 }
 
-impl<Devend: IsDevend> DevComptime<Devend> {
+impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
     pub fn db(&self) -> &::salsa::Db {
         &self.db
     }
 }
 
-impl<Devend: IsDevend> Default for DevComptime<Devend>
+impl<Devsoul: IsDevsoul> Default for DevComptime<Devsoul>
 where
-    Devend::Linktime: Default,
+    Devsoul::Linktime: Default,
 {
     fn default() -> Self {
         Self {

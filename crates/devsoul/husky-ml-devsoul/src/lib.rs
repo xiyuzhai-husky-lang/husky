@@ -1,13 +1,13 @@
 mod runtime_storage;
 
-use husky_ml_task_interface::InputId;
-pub use husky_ml_task_interface::{pedestal::MlPedestal, DEV_EVAL_CONTEXT};
+use husky_ml_devsoul_interface::InputId;
+pub use husky_ml_devsoul_interface::{pedestal::MlPedestal, DEV_EVAL_CONTEXT};
 
 use self::runtime_storage::*;
 use husky_mono_linktime::MonoLinktime;
 
-use husky_task::devend::{DevEvalContextLocalKey, IsDevend};
-use husky_task_interface::{
+use husky_devsoul::devsoul::{DevEvalContextLocalKey, IsDevsoul};
+use husky_devsoul_interface::{
     ki_control_flow::KiControlFlow,
     ki_repr::{KiDomainReprInterface, KiReprInterface},
     IsDevRuntime, IsDevRuntimeDyn,
@@ -19,13 +19,13 @@ use husky_visual_protocol::synchrotron::VisualSynchrotron;
 use serde::{Deserialize, Serialize};
 use std::marker::PhantomData;
 
-pub struct MlDevend<Figure>(PhantomData<Figure>)
+pub struct MlDevsoul<Figure>(PhantomData<Figure>)
 where
     Figure: IsFigure<MlPedestal>;
 
 type LinkageImpl = husky_linkage_impl::standard::LinkageImpl<MlPedestal>;
 
-impl<Figure> IsDevend for MlDevend<Figure>
+impl<Figure> IsDevsoul for MlDevsoul<Figure>
 where
     Figure: IsFigure<MlPedestal>,
 {

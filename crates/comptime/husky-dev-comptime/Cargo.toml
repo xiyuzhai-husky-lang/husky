@@ -37,7 +37,7 @@ husky-eth-term.workspace = true
 husky-eth-signature.workspace = true
 husky-fly-term.workspace = true
 husky-place.workspace = true
-husky-task.workspace = true
+husky-devsoul.workspace = true
 husky-term-prelude.workspace = true
 # lex
 husky-text.workspace = true
@@ -61,8 +61,8 @@ husky-syn-expr.workspace = true
 husky-syn-decl.workspace = true
 husky-syn-defn.workspace = true
 husky-entity-tree.workspace = true
-# task
-husky-task-interface.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
 # utils
 husky-print-utils.workspace = true
 # ki

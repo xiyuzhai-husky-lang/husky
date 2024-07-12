@@ -4,9 +4,9 @@ pub mod task;
 use dataset::MNIST_DATASET;
 use husky_core::*;
 use husky_linkage_impl::standard::ugly::*;
-use husky_ml_task_interface::{input_id, label::IsLabel, ugly::*, InputId};
+use husky_ml_devsoul_interface::{input_id, label::IsLabel, ugly::*, InputId};
 
-use husky_task_interface::{init_crate, ugly::*};
+use husky_devsoul_interface::{init_crate, ugly::*};
 
 init_crate!();
 

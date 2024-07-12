@@ -37,7 +37,7 @@ pub enum KiRuntimeConstantData {
 
 #[test]
 fn val_runtime_constants_works() {
-    use husky_task_interface::ki_repr::KiRuntimeConstantInterface;
+    use husky_devsoul_interface::ki_repr::KiRuntimeConstantInterface;
 
     assert_eq!(
         std::mem::size_of::<KiRuntimeConstant>(),

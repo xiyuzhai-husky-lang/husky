@@ -3,7 +3,7 @@ mod egui;
 
 use super::InputId;
 use super::*;
-use husky_task_interface::pedestal::{IsPedestal, IsPedestalUiBuffer};
+use husky_devsoul_interface::pedestal::{IsPedestal, IsPedestalUiBuffer};
 
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]

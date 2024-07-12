@@ -1,5 +1,5 @@
 [package]
-name = "husky-task-interface-macros"
+name = "husky-ml-devsoul-interface-macros"
 version.workspace = true
 edition = "2021"
 

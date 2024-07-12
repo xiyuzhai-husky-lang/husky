@@ -76,13 +76,13 @@ pub struct RustTranspilationSetupData {
 impl RustTranspilationSetupData {
     fn new_ad_hoc(package_path: PackagePath, db: &::salsa::Db) -> Self {
         Self {
-            task_dependency_name: Kebab::from_ref(db, "ad-hoc-task-dependency").unwrap(),
-            task_dependency_ident: Ident::from_ref(db, "ad_hoc_task_dependency").unwrap(),
+            task_dependency_name: Kebab::from_ref(db, "ad-hoc-devsoul-dependency").unwrap(),
+            task_dependency_ident: Ident::from_ref(db, "ad_hoc_devsoul_dependency").unwrap(),
             task_dependency_path: package_path
                 .registry_path(db)
                 .unwrap()
                 .path()
-                .join("ad-hoc-task-dependency", db),
+                .join("ad-hoc-devsoul-dependency", db),
         }
     }
 }

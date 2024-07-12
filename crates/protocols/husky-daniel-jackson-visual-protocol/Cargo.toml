@@ -8,9 +8,9 @@ serde.workspace = true
 # abstractions
 ui.workspace = true
 # kernel
-husky-task.workspace = true
+husky-devsoul.workspace = true
 # protocols
 husky-visual-protocol.workspace = true
 husky-trace-protocol.workspace = true
-# tasks
-husky-task-interface.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true

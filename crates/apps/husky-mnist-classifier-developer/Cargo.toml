@@ -11,5 +11,5 @@ husky-devtime = { path = "../../devtime/husky-devtime" }
 # protocols
 husky-graphics2d-visual-protocol = { path = "../../protocols/husky-graphics2d-visual-protocol" }
 husky-ad-hoc-protocol = { path = "../../protocols/husky-ad-hoc-protocol" }
-# tasks
-husky-ml-task = { path = "../../tasks/husky-ml-task" }
+# devsoul
+husky-ml-devsoul = { path = "../../devsoul/husky-ml-devsoul" }
