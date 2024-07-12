@@ -6,10 +6,7 @@ pub use husky_ml_task_interface::{pedestal::MlPedestal, DEV_EVAL_CONTEXT};
 use self::runtime_storage::*;
 use husky_mono_linktime::MonoLinktime;
 
-use husky_task::{
-    dev_ascension::{DevEvalContextLocalKey, IsDevAscension},
-    IsTask,
-};
+use husky_task::dev_ascension::{DevEvalContextLocalKey, IsDevAscension};
 use husky_task_interface::{
     ki_control_flow::KiControlFlow,
     ki_repr::{KiDomainReprInterface, KiReprInterface},
@@ -39,13 +36,6 @@ where
             _marker: PhantomData,
         }
     }
-}
-
-impl<Figure> IsTask for MlTask<Figure>
-where
-    Figure: IsFigure<MlPedestal> + Send,
-{
-    type DevAscension = MlDevAscension<Figure>;
 }
 
 pub struct MlDevAscension<Figure>(PhantomData<Figure>)
