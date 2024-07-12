@@ -70,7 +70,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `input`,
+            `INPUT`,
         ),
         TokenData::Punctuation(
             Punctuation(

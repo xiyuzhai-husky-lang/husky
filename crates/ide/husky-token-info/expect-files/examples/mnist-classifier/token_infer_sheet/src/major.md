@@ -125,14 +125,14 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist::input`, `StaticVar`),
+                                FormPath(`mnist::INPUT`, `StaticVar`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist::input`, `StaticVar`),
+                                FormPath(`mnist::INPUT`, `StaticVar`),
                             ),
                         ),
                     ),

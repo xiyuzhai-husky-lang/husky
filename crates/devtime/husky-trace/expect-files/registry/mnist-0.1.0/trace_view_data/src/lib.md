@@ -30,7 +30,7 @@
                             assoc_trace_id: None,
                         },
                         TraceViewTokenData {
-                            text: "input",
+                            text: "INPUT",
                             token_class: StaticVarEntity,
                             spaces_before: 1,
                             assoc_trace_id: None,

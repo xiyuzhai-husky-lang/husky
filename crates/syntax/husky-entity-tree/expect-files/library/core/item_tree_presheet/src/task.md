@@ -95,28 +95,28 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            MajorFormSynNodePath(`core::task::task`, `StaticVar`, (0)),
+                            MajorFormSynNodePath(`core::task::TASK`, `StaticVar`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 4,
                         ident_token: IdentToken {
-                            ident: `task`,
+                            ident: `TASK`,
                             token_idx: TokenIdx(
                                 22,
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`core::task::task`, `StaticVar`),
+                            path: FormPath(`core::task::TASK`, `StaticVar`),
                             body: None,
                         },
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        MajorFormSynNodePath(`core::task::task`, `StaticVar`, (0)),
+                        MajorFormSynNodePath(`core::task::TASK`, `StaticVar`, (0)),
                     ),
                 ),
-                ident: `task`,
+                ident: `TASK`,
                 visibility: Scope::Pub,
             },
         ],

@@ -244,12 +244,12 @@ SynDeclSheet {
             ),
         ),
         (
-            ItemPath(`mnist::input`),
+            ItemPath(`mnist::INPUT`),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::StaticVar(
                         MajorStaticVarSynDecl {
-                            path: FormPath(`mnist::input`, `StaticVar`),
+                            path: FormPath(`mnist::INPUT`, `StaticVar`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 0,
                             },
@@ -260,7 +260,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                MajorFormSynNodePath(`mnist::input`, `StaticVar`, (0)),
+                                                MajorFormSynNodePath(`mnist::INPUT`, `StaticVar`, (0)),
                                             ),
                                         ),
                                     ),

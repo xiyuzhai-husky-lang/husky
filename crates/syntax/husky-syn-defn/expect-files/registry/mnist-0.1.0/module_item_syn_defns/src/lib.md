@@ -61,7 +61,7 @@
         None,
     ),
     (
-        ItemPath(`mnist::input`),
+        ItemPath(`mnist::INPUT`),
         None,
     ),
     (

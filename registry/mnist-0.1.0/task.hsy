@@ -2,4 +2,4 @@ use mnist::task::MnistTask
 
 pub type var Task = MnistTask
 
-pub static var task: mnist::task::MnistTask = MnistTask::new()
+pub static var TASK: mnist::task::MnistTask = MnistTask::new()

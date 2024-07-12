@@ -24,7 +24,7 @@ Some(
         ItemPath(`mnist_classifier::fermi::FermiMatchResult`),
         ItemPath(`mnist_classifier::digits::zero::almost_closed`),
         ItemPath(`mnist_classifier::connected_component::find_connected_components`),
-        ItemPath(`mnist::input`),
+        ItemPath(`mnist::INPUT`),
         ItemPath(`mnist_classifier::geom2d::Vector2d`),
         ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`),
         ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`),

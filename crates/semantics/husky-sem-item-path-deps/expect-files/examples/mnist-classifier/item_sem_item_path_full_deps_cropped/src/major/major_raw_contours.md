@@ -11,7 +11,7 @@ Some(
         ItemPath(`mnist::BinaryImage28`),
         ItemPath(`core::num::f32`),
         ItemPath(`mnist_classifier::connected_component::find_connected_components`),
-        ItemPath(`mnist::input`),
+        ItemPath(`mnist::INPUT`),
         ItemPath(`core::num::i32`),
         ItemPath(`<#derive _ as core::clone::Clone(0)>::clone`),
         ItemPath(`core::raw_bits::r32(0)::ctz`),

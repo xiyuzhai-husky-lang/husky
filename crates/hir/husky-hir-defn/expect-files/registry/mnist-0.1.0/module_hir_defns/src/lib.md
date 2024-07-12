@@ -601,9 +601,9 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::StaticVar(
                 MajorStaticVarHirDefn {
-                    path: FormPath(`mnist::input`, `StaticVar`),
+                    path: FormPath(`mnist::INPUT`, `StaticVar`),
                     hir_decl: MajorStaticVarHirDecl {
-                        path: FormPath(`mnist::input`, `StaticVar`),
+                        path: FormPath(`mnist::INPUT`, `StaticVar`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
@@ -613,7 +613,7 @@
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(
-                                ItemPath(`mnist::input`),
+                                ItemPath(`mnist::INPUT`),
                             ),
                             expr_arena: Arena {
                                 data: [],

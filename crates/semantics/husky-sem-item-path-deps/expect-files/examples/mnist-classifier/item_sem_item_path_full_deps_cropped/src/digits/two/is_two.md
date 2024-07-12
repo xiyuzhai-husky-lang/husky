@@ -39,7 +39,7 @@ Some(
         ItemPath(`mnist_classifier::major::major_raw_contour`),
         ItemPath(`mnist::BinaryImage28`),
         ItemPath(`mnist_classifier::connected_component::find_connected_components`),
-        ItemPath(`mnist::input`),
+        ItemPath(`mnist::INPUT`),
         ItemPath(`core::vec::Vec(0)::collect_leashes`),
         ItemPath(`core::vec::Vec(0)::pop_with_largest_opt_f32`),
         ItemPath(`core::vec::Vec(0)::push`),

@@ -4,6 +4,6 @@
     ItemPath(`core::task::IsTask::Backend`),
     ItemPath(`core::task::IsTask::Frontend`),
     ItemPath(`core::task::Task`),
-    ItemPath(`core::task::task`),
+    ItemPath(`core::task::TASK`),
 ]
 ```

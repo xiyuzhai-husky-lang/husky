@@ -2,7 +2,7 @@
 Some(
     SemStaticVarDeps(
         [
-            ItemPath(`mnist::input`),
+            ItemPath(`mnist::INPUT`),
         ],
     ),
 )

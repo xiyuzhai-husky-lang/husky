@@ -5,7 +5,7 @@
         None,
     ),
     (
-        ItemPath(`mnist::task`),
+        ItemPath(`mnist::TASK`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,
