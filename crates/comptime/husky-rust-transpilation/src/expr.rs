@@ -113,11 +113,17 @@ fn transpile_hir_eager_expr_to_rust(
             principal_entity_path.transpile_to_rust(builder);
             match principal_entity_path {
                 PrincipalEntityPath::Module(_) => unreachable!(),
-                PrincipalEntityPath::MajorItem(MajorItemPath::Form(path)) => {
-                    if let MajorFormKind::Val = path.kind(db) {
+                PrincipalEntityPath::MajorItem(MajorItemPath::Form(path)) => match path.kind(db) {
+                    MajorFormKind::Ritchie(_) => (),
+                    MajorFormKind::TypeAlias => (),
+                    MajorFormKind::TypeVar => (),
+                    MajorFormKind::Val | MajorFormKind::StaticVar => {
                         builder.delimited(RustDelimiter::Par, |_| ())
                     }
-                }
+                    MajorFormKind::StaticMut => todo!(),
+                    MajorFormKind::Compterm => (),
+                    MajorFormKind::Conceptual => todo!(),
+                },
                 PrincipalEntityPath::TypeVariant(_) => (),
                 PrincipalEntityPath::MajorItem(_) => (),
             }

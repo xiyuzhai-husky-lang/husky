@@ -12,7 +12,7 @@ impl Linkage {
                 path,
                 ref instantiation,
             } => (path.into(), instantiation),
-            LinkageData::MajorStatic {
+            LinkageData::MajorStaticVar {
                 path,
                 ref instantiation,
             } => (path.into(), instantiation),

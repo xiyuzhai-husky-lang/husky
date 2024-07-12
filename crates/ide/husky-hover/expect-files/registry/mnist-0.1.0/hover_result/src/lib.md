@@ -610,18 +610,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 120;\n\ntoken_line_group_idx = 27\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Semicolon,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 120;\n\ntoken_line_group_idx = 27\n\ntoken = TokenData::Ident(\n    `BinaryImage28`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            0,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`mnist::BinaryImage28`, `Extern`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`mnist::BinaryImage28`, `Extern`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
                                 line: 37,
-                                character: 28,
+                                character: 22,
                             },
                             end: Position {
                                 line: 37,
-                                character: 29,
+                                character: 35,
                             },
                         },
                     ),

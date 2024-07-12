@@ -43,13 +43,13 @@
     Trace {
         path: TracePath {
             data: TracePathData::ValItem(
-                ValItemTracePathData {
+                ValTracePathData {
                     val_item_path: FormPath(`mnist_classifier::main`, `Val`),
                 },
             ),
         },
-        data: ValItem(
-            ValItemTraceData {
+        data: Val(
+            ValTraceData {
                 path: TracePath(
                     Id {
                         value: 3,

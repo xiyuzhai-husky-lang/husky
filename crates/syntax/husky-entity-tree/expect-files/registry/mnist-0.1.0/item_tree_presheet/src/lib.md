@@ -218,25 +218,25 @@ EntityTreePresheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Form(
-                            MajorFormSynNodePath(`mnist::input`, `Val`, (0)),
+                            MajorFormSynNodePath(`mnist::input`, `StaticVar`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 27,
                         ident_token: IdentToken {
                             ident: `input`,
                             token_idx: TokenIdx(
-                                118,
+                                119,
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist::input`, `Val`),
+                            path: FormPath(`mnist::input`, `StaticVar`),
                             body: None,
                         },
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Form(
-                        MajorFormSynNodePath(`mnist::input`, `Val`, (0)),
+                        MajorFormSynNodePath(`mnist::input`, `StaticVar`, (0)),
                     ),
                 ),
                 ident: `input`,

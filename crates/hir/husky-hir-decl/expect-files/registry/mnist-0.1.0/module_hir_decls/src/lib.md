@@ -540,9 +540,9 @@
     ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Form(
-            MajorFormHirDecl::Val(
-                MajorValHirDecl {
-                    path: FormPath(`mnist::input`, `Val`),
+            MajorFormHirDecl::StaticVar(
+                MajorStaticVarHirDecl {
+                    path: FormPath(`mnist::input`, `StaticVar`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),

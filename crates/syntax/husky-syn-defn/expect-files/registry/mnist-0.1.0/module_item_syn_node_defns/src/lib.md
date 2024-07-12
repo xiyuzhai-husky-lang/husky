@@ -499,7 +499,7 @@
     (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Form(
-                MajorFormSynNodePath(`mnist::input`, `Val`, (0)),
+                MajorFormSynNodePath(`mnist::input`, `StaticVar`, (0)),
             ),
         ),
         None,

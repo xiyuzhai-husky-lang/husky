@@ -42,7 +42,7 @@ pub enum LinkageData {
         path: MajorFormPath,
         instantiation: LinInstantiation,
     },
-    MajorStatic {
+    MajorStaticVar {
         path: MajorFormPath,
         instantiation: LinInstantiation,
     },
@@ -135,6 +135,16 @@ impl Linkage {
                 },
             )),
         }
+    }
+
+    pub fn new_static_var_item(path: MajorFormPath, db: &::salsa::Db) -> Self {
+        Self::new(
+            db,
+            LinkageData::MajorStaticVar {
+                path,
+                instantiation: LinInstantiation::new_empty(false),
+            },
+        )
     }
 
     // todo: lin_instantiation
@@ -375,7 +385,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                     MajorFormKind::StaticMut => {
                         smallvec![Linkage::new(
                             db,
-                            LinkageData::MajorStatic {
+                            LinkageData::MajorStaticVar {
                                 path,
                                 instantiation: LinInstantiation::new_empty(false),
                             }
@@ -385,7 +395,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                     MajorFormKind::StaticVar => {
                         smallvec![Linkage::new(
                             db,
-                            LinkageData::MajorStatic {
+                            LinkageData::MajorStaticVar {
                                 path,
                                 instantiation: LinInstantiation::new_empty(false),
                             }

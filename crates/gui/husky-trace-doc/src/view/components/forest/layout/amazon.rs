@@ -220,7 +220,8 @@ where
                     });
             }
             TraceKind::EagerPattern => todo!(),
-            TraceKind::ValItem => {
+            TraceKind::StaticVar => unreachable!("no subtraces"),
+            TraceKind::Val => {
                 Frame::none()
                     .inner_margin(0.)
                     .show(ui, |ui| self.render_traces(subtrace_ids, ui));

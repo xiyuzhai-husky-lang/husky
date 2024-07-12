@@ -6,24 +6,26 @@ use husky_syn_defn::{item_syn_defn, ItemSynDefn};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct ValItemTracePathData {
+pub struct ValTracePathData {
+    // todo: more general paths
     val_item_path: MajorFormPath,
 }
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct ValItemTraceData {
+pub struct ValTraceData {
     path: TracePath,
+    // todo: more general paths
     val_item_path: MajorFormPath,
 }
 
 impl Trace {
-    pub fn from_val_item_path(val_item_path: MajorFormPath, db: &::salsa::Db) -> Self {
+    pub fn from_major_val_form_path(val_item_path: MajorFormPath, db: &::salsa::Db) -> Self {
         debug_assert_eq!(val_item_path.kind(db), MajorFormKind::Val);
-        let path = TracePath::new(ValItemTracePathData { val_item_path }, db);
+        let path = TracePath::new(ValTracePathData { val_item_path }, db);
         Trace::new(
             path,
-            ValItemTraceData {
+            ValTraceData {
                 path,
                 val_item_path,
             }
@@ -33,7 +35,7 @@ impl Trace {
     }
 }
 
-impl ValItemTraceData {
+impl ValTraceData {
     pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         use husky_entity_tree::node::HasSynNodePath;
         let val_item_path = self.val_item_path;

@@ -22,6 +22,7 @@
                     FormEthTemplate::StaticVar(
                         MajorStaticVarEthTemplate {
                             path: FormPath(`mnist::task`, `StaticVar`),
+                            return_ty: EthTerm(`MnistTask`),
                         },
                     ),
                 ),

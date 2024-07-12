@@ -74,7 +74,7 @@ pub enum OriginalSynNodeDeclError {
     #[error("expect `=` for type alias")]
     ExpectedEqTokenForTypeAlias(RegionalTokenStreamState),
     #[error("expect `=` for static")]
-    ExpectedEqTokenForStatic(RegionalTokenStreamState),
+    ExpectedEqTokenForStaticMut(RegionalTokenStreamState),
     #[error("expected `{{` `(` or `;` for struct")]
     ExpectedLcurlOrLparOrSemicolonForStruct(RegionalTokenStreamState),
     #[error("expected `=` for associated type")]

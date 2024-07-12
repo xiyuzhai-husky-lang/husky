@@ -65,7 +65,7 @@
                                     path_expr_idx: 1,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist::input`, `Val`),
+                                            FormPath(`mnist::input`, `StaticVar`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
