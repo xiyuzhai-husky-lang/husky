@@ -7,7 +7,7 @@ use husky_task_interface::{
     DevEvalContext, IsDevRuntime, IsDevRuntimeDyn,
 };
 use husky_task_interface::{
-    IsLinkageImpl, LinkageImplKiControlFlow, TaskIngredientIndex, TaskJarIndex,
+    HuskyIngredientIndex, HuskyJarIndex, IsLinkageImpl, LinkageImplKiControlFlow,
 };
 use husky_trace_protocol::{
     id::TraceId,
@@ -75,8 +75,8 @@ pub trait IsRuntimeStorage<LinkageImpl: IsLinkageImpl>: Default + Send {
 
     fn get_or_try_init_memo_field_value(
         &self,
-        jar_index: TaskJarIndex,
-        ingredient_index: TaskIngredientIndex,
+        jar_index: HuskyJarIndex,
+        ingredient_index: HuskyIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
         slf: &'static std::ffi::c_void,
         f: impl FnOnce(&'static std::ffi::c_void) -> LinkageImplKiControlFlow<LinkageImpl>,

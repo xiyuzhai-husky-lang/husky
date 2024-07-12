@@ -22,13 +22,14 @@ use std::convert::Infallible;
 #[macro_export]
 macro_rules! init_crate {
     () => {
-        pub(crate) static __TASK_JAR_INDEX: __TaskJarIndexOnceCell = __TaskJarIndexOnceCell::new();
+        pub(crate) static __TASK_JAR_INDEX: __HuskyJarIndexOnceCell =
+            __HuskyJarIndexOnceCell::new();
 
-        pub fn __set_jar_index(jar_index: __TaskJarIndex) {
+        pub fn __set_jar_index(jar_index: __HuskyJarIndex) {
             __TASK_JAR_INDEX.set(jar_index).unwrap();
         }
 
-        pub(crate) fn __jar_index() -> __TaskJarIndex {
+        pub(crate) fn __jar_index() -> __HuskyJarIndex {
             *__TASK_JAR_INDEX
                 .get()
                 .expect("`__TASK_JAR_INDEX` is not initialized")
@@ -43,7 +44,7 @@ macro_rules! init_crate {
         {
             <T as __FromValue>::from_value_static(__dev_eval_context().eval_eager_val_item_with(
                 __jar_index(),
-                __TaskIngredientIndex::from_index(ingredient_index),
+                __HuskyIngredientIndex::from_index(ingredient_index),
                 f,
             ))
         }
@@ -54,7 +55,7 @@ macro_rules! init_crate {
         {
             <T as __FromValue>::from_value_static(__dev_eval_context().eval_lazy_val_item(
                 __jar_index(),
-                __TaskIngredientIndex::from_index(ingredient_index),
+                __HuskyIngredientIndex::from_index(ingredient_index),
             ))
         }
 
@@ -68,7 +69,7 @@ macro_rules! init_crate {
         {
             <T as __FromValue>::from_value_static(__dev_eval_context().eval_memo_field_with(
                 __jar_index(),
-                __TaskIngredientIndex::from_index(ingredient_index),
+                __HuskyIngredientIndex::from_index(ingredient_index),
                 slf,
                 f,
             ))
@@ -86,7 +87,7 @@ macro_rules! init_crate {
             <&'static T as __FromValue>::from_value_static(
                 __dev_eval_context().eval_memo_field_with(
                     __jar_index(),
-                    __TaskIngredientIndex::from_index(ingredient_index),
+                    __HuskyIngredientIndex::from_index(ingredient_index),
                     slf,
                     f,
                 ),
@@ -96,9 +97,9 @@ macro_rules! init_crate {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
-pub struct TaskJarIndex(ShiftedU32);
+pub struct HuskyJarIndex(ShiftedU32);
 
-impl TaskJarIndex {
+impl HuskyJarIndex {
     pub fn from_index(index: usize) -> Self {
         Self(index.into())
     }
@@ -109,9 +110,9 @@ impl TaskJarIndex {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, PartialOrd, Ord, Hash)]
-pub struct TaskIngredientIndex(ShiftedU32);
+pub struct HuskyIngredientIndex(ShiftedU32);
 
-impl TaskIngredientIndex {
+impl HuskyIngredientIndex {
     pub fn from_index(index: usize) -> Self {
         Self(index.into())
     }
@@ -121,7 +122,7 @@ impl TaskIngredientIndex {
     }
 }
 
-pub type TaskJarIndexOnceCell = OnceCell<TaskJarIndex>;
+pub type HuskyJarIndexOnceCell = OnceCell<HuskyJarIndex>;
 
 pub struct DevEvalContext<LinkageImpl: IsLinkageImpl> {
     runtime: &'static dyn IsDevRuntimeDyn<LinkageImpl>,
@@ -161,8 +162,8 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
 
     pub fn eval_eager_val_item_with(
         self,
-        jar_index: TaskJarIndex,
-        ingredient_index: TaskIngredientIndex,
+        jar_index: HuskyJarIndex,
+        ingredient_index: HuskyIngredientIndex,
         f: fn() -> LinkageImplKiControlFlow<LinkageImpl>,
     ) -> LinkageImpl::Value {
         self.runtime
@@ -172,8 +173,8 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
 
     pub fn eval_lazy_val_item(
         self,
-        jar_index: TaskJarIndex,
-        ingredient_index: TaskIngredientIndex,
+        jar_index: HuskyJarIndex,
+        ingredient_index: HuskyIngredientIndex,
     ) -> LinkageImpl::Value {
         self.runtime
             .eval_lazy_val_item_dyn(jar_index, ingredient_index, self.pedestal)
@@ -217,8 +218,8 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
 
     pub fn eval_memo_field_with<Slf>(
         self,
-        jar_index: TaskJarIndex,
-        ingredient_index: TaskIngredientIndex,
+        jar_index: HuskyJarIndex,
+        ingredient_index: HuskyIngredientIndex,
         slf: &'static Slf,
         f: fn(&'static Slf) -> LinkageImplKiControlFlow<LinkageImpl>,
     ) -> LinkageImpl::Value {
@@ -248,8 +249,8 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
     /// returns `Value` because there is guaranteed to be no control flow
     fn eval_ingredient_at_pedestal_with(
         &self,
-        jar_index: TaskJarIndex,
-        ingredient_index: TaskIngredientIndex,
+        jar_index: HuskyJarIndex,
+        ingredient_index: HuskyIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
         f: impl FnOnce() -> LinkageImplKiControlFlow<LinkageImpl>,
     ) -> LinkageImplKiControlFlow<LinkageImpl>;
@@ -258,8 +259,8 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
     /// returns `Value` because there is guaranteed to be no control flow
     fn eval_ingredient_at_pedestal(
         &self,
-        jar_index: TaskJarIndex,
-        ingredient_index: TaskIngredientIndex,
+        jar_index: HuskyJarIndex,
+        ingredient_index: HuskyIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
     ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
@@ -288,8 +289,8 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
 
     fn eval_memo_field_with(
         &self,
-        jar_index: TaskJarIndex,
-        ingredient_index: TaskIngredientIndex,
+        jar_index: HuskyJarIndex,
+        ingredient_index: HuskyIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
         slf: &'static std::ffi::c_void,
         f: fn(&'static std::ffi::c_void) -> LinkageImplKiControlFlow<LinkageImpl>,
@@ -304,16 +305,16 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
 pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
     fn eval_eager_val_item_dyn(
         &self,
-        jar_index: TaskJarIndex,
-        ingredient_index: TaskIngredientIndex,
+        jar_index: HuskyJarIndex,
+        ingredient_index: HuskyIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
         f: fn() -> LinkageImplKiControlFlow<LinkageImpl>,
     ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
     fn eval_lazy_val_item_dyn(
         &self,
-        jar_index: TaskJarIndex,
-        ingredient_index: TaskIngredientIndex,
+        jar_index: HuskyJarIndex,
+        ingredient_index: HuskyIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
     ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
@@ -343,8 +344,8 @@ pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
 
     fn eval_memo_field_with_dyn(
         &self,
-        jar_index: TaskJarIndex,
-        ingredient_index: TaskIngredientIndex,
+        jar_index: HuskyJarIndex,
+        ingredient_index: HuskyIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
         slf: &'static std::ffi::c_void,
         f: fn(&'static std::ffi::c_void) -> LinkageImplKiControlFlow<LinkageImpl>,
@@ -362,8 +363,8 @@ where
 {
     fn eval_eager_val_item_dyn(
         &self,
-        jar_index: TaskJarIndex,
-        ingredient_index: TaskIngredientIndex,
+        jar_index: HuskyJarIndex,
+        ingredient_index: HuskyIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
         f: fn() -> LinkageImplKiControlFlow<LinkageImpl>,
     ) -> LinkageImplKiControlFlow<LinkageImpl> {
@@ -372,8 +373,8 @@ where
 
     fn eval_lazy_val_item_dyn(
         &self,
-        jar_index: TaskJarIndex,
-        ingredient_index: TaskIngredientIndex,
+        jar_index: HuskyJarIndex,
+        ingredient_index: HuskyIngredientIndex,
         pedestal: <LinkageImpl as IsLinkageImpl>::Pedestal,
     ) -> LinkageImplKiControlFlow<LinkageImpl> {
         self.eval_ingredient_at_pedestal(jar_index, ingredient_index, pedestal)
@@ -428,8 +429,8 @@ where
 
     fn eval_memo_field_with_dyn(
         &self,
-        jar_index: TaskJarIndex,
-        ingredient_index: TaskIngredientIndex,
+        jar_index: HuskyJarIndex,
+        ingredient_index: HuskyIngredientIndex,
         pedestal: LinkageImpl::Pedestal,
         slf: &'static std::ffi::c_void,
         f: fn(&'static std::ffi::c_void) -> LinkageImplKiControlFlow<LinkageImpl>,

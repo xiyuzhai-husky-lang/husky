@@ -10,8 +10,8 @@ use husky_ki_repr::repr::KiRepr;
 use husky_linkage::linkage::Linkage;
 use husky_manifest::helpers::upstream::HasAllUpstreamPackages;
 use husky_task::{dev_ascension::IsDevAscension, linktime::IsLinktime};
-use husky_task_interface::TaskIngredientIndex;
-use husky_task_interface::TaskJarIndex;
+use husky_task_interface::HuskyIngredientIndex;
+use husky_task_interface::HuskyJarIndex;
 use husky_toolchain_config::toolchain_config;
 use husky_vfs::{
     error::VfsResult,
@@ -94,8 +94,8 @@ impl<DevAscension: IsDevAscension> DevComptime<DevAscension> {
 
     pub fn ingredient_val(
         &self,
-        jar_index: TaskJarIndex,
-        ingredient_index: TaskIngredientIndex,
+        jar_index: HuskyJarIndex,
+        ingredient_index: HuskyIngredientIndex,
     ) -> Ki {
         self.ingredient_vals[jar_index.index()].1[ingredient_index.index()]
             .2
@@ -104,8 +104,8 @@ impl<DevAscension: IsDevAscension> DevComptime<DevAscension> {
 
     pub fn ingredient_ki_repr(
         &self,
-        jar_index: TaskJarIndex,
-        ingredient_index: TaskIngredientIndex,
+        jar_index: HuskyJarIndex,
+        ingredient_index: HuskyIngredientIndex,
     ) -> KiRepr {
         self.ingredient_vals[jar_index.index()].1[ingredient_index.index()]
             .1

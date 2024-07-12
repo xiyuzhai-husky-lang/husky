@@ -4,7 +4,7 @@ use husky_linkage_impl::standard::StandardLinkageImplKiControlFlow;
 
 use husky_ki::{version_stamp::KiVersionStamp, Ki};
 use husky_task::dev_ascension::IsRuntimeStorage;
-use husky_task_interface::{TaskIngredientIndex, TaskJarIndex};
+use husky_task_interface::{HuskyIngredientIndex, HuskyJarIndex};
 use std::sync::{Arc, Mutex};
 
 #[derive(Debug, Default)]
@@ -27,8 +27,8 @@ pub struct MlDevRuntimeValStorageKey {
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub struct MlDevRuntimeMemoizedFieldStorageKey {
-    jar_index: TaskJarIndex,
-    ingredient_index: TaskIngredientIndex,
+    jar_index: HuskyJarIndex,
+    ingredient_index: HuskyIngredientIndex,
     pedestal: MlPedestal,
     slf: AnyPointer,
 }
@@ -69,8 +69,8 @@ impl IsRuntimeStorage<LinkageImpl> for MlDevRuntimeStorage {
 
     fn get_or_try_init_memo_field_value(
         &self,
-        jar_index: TaskJarIndex,
-        ingredient_index: TaskIngredientIndex,
+        jar_index: HuskyJarIndex,
+        ingredient_index: HuskyIngredientIndex,
         pedestal: MlPedestal,
         slf: &'static std::ffi::c_void,
         f: impl FnOnce(&'static std::ffi::c_void) -> StandardLinkageImplKiControlFlow,
