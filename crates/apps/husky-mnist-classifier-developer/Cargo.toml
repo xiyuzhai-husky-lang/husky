@@ -12,4 +12,4 @@ husky-devtime = { path = "../../devtime/husky-devtime" }
 husky-graphics2d-visual-protocol = { path = "../../protocols/husky-graphics2d-visual-protocol" }
 husky-ad-hoc-protocol = { path = "../../protocols/husky-ad-hoc-protocol" }
 # devsoul
-husky-ml-devsoul = { path = "../../devsoul/husky-ml-devsoul" }
+husky-standard-devsoul = { path = "../../devsoul/husky-standard-devsoul" }

@@ -2,7 +2,7 @@ pub mod label;
 pub mod pedestal;
 pub mod ugly;
 
-use self::pedestal::MlPedestal;
+use self::pedestal::StandardPedestal;
 use husky_devsoul_interface::ki_repr::{
     KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface,
 };
@@ -45,8 +45,9 @@ fn sample_id_size_works() {
     )
 }
 
-pub type DevEvalContext =
-    husky_devsoul_interface::DevEvalContext<husky_linkage_impl::standard::LinkageImpl<MlPedestal>>;
+pub type DevEvalContext = husky_devsoul_interface::DevEvalContext<
+    husky_linkage_impl::standard::LinkageImpl<StandardPedestal>,
+>;
 
 thread_local! {
     pub static DEV_EVAL_CONTEXT: Cell<std::option::Option<DevEvalContext>> = Cell::new(None);

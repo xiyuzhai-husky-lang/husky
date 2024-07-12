@@ -11,4 +11,4 @@ husky-standard-value.workspace = true
 husky-linkage-impl = { workspace = true, features = ["standard"] }
 # devsoul
 husky-devsoul-interface.workspace = true
-husky-ml-devsoul-interface.workspace = true
+husky-standard-devsoul-interface.workspace = true

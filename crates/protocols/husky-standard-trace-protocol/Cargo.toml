@@ -1,0 +1,21 @@
+[package]
+name = "husky-standard-trace-protocol"
+version.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[dependencies]
+serde.workspace = true
+# protocols
+husky-trace-protocol.workspace = true
+husky-standard-devsoul-interface.workspace = true
+
+[lints]
+workspace = true

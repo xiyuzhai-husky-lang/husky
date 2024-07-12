@@ -1,5 +1,5 @@
 [package]
-name = "husky-ml-devsoul-interface"
+name = "husky-standard-devsoul-interface"
 version.workspace = true
 edition = "2021"
 
@@ -13,7 +13,7 @@ serde.workspace = true
 husky-linkage-impl.workspace = true
 # devsoul
 husky-devsoul-interface.workspace = true
-husky-ml-devsoul-interface-macros.workspace = true
+husky-standard-devsoul-interface-macros.workspace = true
 # protocols
 husky-trace-protocol = { workspace = true, optional = true }
 # vm

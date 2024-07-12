@@ -1,7 +1,7 @@
 use super::*;
 use crate::op::history::OpTime;
 use egui::Slider;
-use husky_ml_devsoul_interface::{pedestal::MlPedestal, InputId};
+use husky_standard_devsoul_interface::{pedestal::StandardPedestal, InputId};
 
 pub struct MnistControl {
     input_id: InputId,
@@ -28,8 +28,8 @@ impl MnistControl {
         OpTime::from_index(self.frame_idx.into())
     }
 
-    pub(crate) fn pedestal(&self) -> MlPedestal {
-        MlPedestal::Specific(self.input_id)
+    pub(crate) fn pedestal(&self) -> StandardPedestal {
+        StandardPedestal::Specific(self.input_id)
     }
 }
 

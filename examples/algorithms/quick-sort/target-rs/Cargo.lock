@@ -8,7 +8,7 @@ version = "0.1.0"
 dependencies = [
  "husky-devsoul-interface",
  "husky-linkage-impl",
- "husky-ml-devsoul-interface",
+ "husky-standard-devsoul-interface",
  "husky-standard-value",
 ]
 
@@ -320,29 +320,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-ml-devsoul-interface"
-version = "0.1.0"
-dependencies = [
- "enum-class",
- "husky-devsoul-interface",
- "husky-linkage-impl",
- "husky-ml-devsoul-interface-macros",
- "husky-standard-value",
- "serde",
- "shifted-unsigned-int",
-]
-
-[[package]]
-name = "husky-ml-devsoul-interface-macros"
-version = "0.1.0"
-dependencies = [
- "husky-proc-macro-utils",
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
 name = "husky-path-utils"
 version = "0.0.0"
 dependencies = [
@@ -374,6 +351,29 @@ name = "husky-salsa-log-utils"
 version = "0.1.0"
 dependencies = [
  "expect-test",
+]
+
+[[package]]
+name = "husky-standard-devsoul-interface"
+version = "0.1.0"
+dependencies = [
+ "enum-class",
+ "husky-devsoul-interface",
+ "husky-linkage-impl",
+ "husky-standard-devsoul-interface-macros",
+ "husky-standard-value",
+ "serde",
+ "shifted-unsigned-int",
+]
+
+[[package]]
+name = "husky-standard-devsoul-interface-macros"
+version = "0.1.0"
+dependencies = [
+ "husky-proc-macro-utils",
+ "proc-macro2",
+ "quote",
+ "syn",
 ]
 
 [[package]]

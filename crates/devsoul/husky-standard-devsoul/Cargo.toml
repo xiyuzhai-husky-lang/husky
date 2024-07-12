@@ -1,5 +1,5 @@
 [package]
-name = "husky-ml-devsoul"
+name = "husky-standard-devsoul"
 version.workspace = true
 edition = "2021"
 
@@ -22,10 +22,11 @@ husky-linkage-impl.workspace = true
 husky-mono-linktime.workspace = true
 # protocols
 husky-trace-protocol.workspace = true
+husky-standard-trace-protocol.workspace = true
 husky-visual-protocol.workspace = true
 # devsoul
 husky-devsoul-interface.workspace = true
 husky-devsoul.workspace = true
-husky-ml-devsoul-interface.workspace = true
+husky-standard-devsoul-interface.workspace = true
 # ki
 husky-ki.workspace = true

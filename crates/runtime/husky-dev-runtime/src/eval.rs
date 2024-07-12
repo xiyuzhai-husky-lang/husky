@@ -8,8 +8,8 @@ use husky_devsoul_interface::{ki_control_flow::KiControlFlow, IsLinkageImpl};
 use husky_hir_opr::binary::HirBinaryOpr;
 use husky_ki::{KiOpn, KiPatternData};
 use husky_ki_repr::repr::{KiArgumentRepr, KiDomainRepr, KiRepr};
-use husky_ml_devsoul::MlDevsoul;
 use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr};
+use husky_standard_devsoul::StandardDevsoul;
 use husky_term_prelude::literal::Literal;
 use husky_value_interface::IsValue;
 
@@ -319,11 +319,11 @@ fn ki_repr_eval_works() {
     use husky_entity_kind::MajorFormKind;
     use husky_entity_path::path::{major_item::MajorItemPath, ItemPath};
     use husky_entity_tree::helpers::paths::module_item_paths;
-    use husky_ml_devsoul_interface::InputId;
     use husky_path_utils::dev_paths::*;
+    use husky_standard_devsoul_interface::InputId;
 
     let dev_paths = HuskyLangDevPaths::new();
-    let runtime: DevRuntime<MlDevsoul<()>> =
+    let runtime: DevRuntime<StandardDevsoul<()>> =
         DevRuntime::new(dev_paths.dev_root().join("examples/mnist-classifier"), None).unwrap();
     let db = runtime.db();
     let DevComptimeTarget::SingleCrate(crate_path) = runtime.comptime_target() else {
