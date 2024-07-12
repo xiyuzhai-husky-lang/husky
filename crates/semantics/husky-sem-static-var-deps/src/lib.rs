@@ -1,5 +1,7 @@
 #![feature(generic_const_exprs)]
 #![feature(impl_trait_in_assoc_type)]
+//! warning: this crate is mostly copied from `husky-sem-static-mut-deps` and adapted in an ad hoc way.
+//! there should be a lot more to adapt, so expects bugs.
 mod builder;
 mod graph_dynamics;
 pub mod jar;
