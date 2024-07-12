@@ -91,10 +91,7 @@ where
         let root_body = self.sem_expr_region_data().root_body();
         self.visit_root_body();
         let mut deps = self.expr_value_static_mut_deps_table[root_body].clone();
-        deps.merge(
-            &self.expr_control_flow_static_mut_deps_table[root_body],
-            &mut self.counter,
-        );
+        deps.merge(&self.expr_control_flow_static_mut_deps_table[root_body]);
         deps
     }
 
@@ -150,10 +147,7 @@ where
                 ..
             } => {
                 let mut deps = self.expr_value_static_mut_deps_table[lopd].clone();
-                deps.merge(
-                    &self.expr_value_static_mut_deps_table[ropd],
-                    &mut self.counter,
-                );
+                deps.merge(&self.expr_value_static_mut_deps_table[ropd]);
                 match dispatch.signature() {
                     SemaBinaryOprFlySignature::Builtin => (),
                 }
@@ -181,7 +175,7 @@ where
             } => {
                 let mut deps = self.expr_value_static_mut_deps_table[opd].clone();
                 let path_deps = self.calc_path(unveil_assoc_fn_path);
-                deps.merge(path_deps, &mut self.counter);
+                deps.merge(path_deps);
                 deps
             }
             SemExprData::Unwrap { opd, .. } => self.expr_value_static_mut_deps_table[opd].clone(),
@@ -194,21 +188,15 @@ where
                 ..
             } => {
                 let mut deps = SemStaticMutDeps::default();
-                deps.merge(
-                    &self.expr_value_static_mut_deps_table[function],
-                    &mut self.counter,
-                );
+                deps.merge(&self.expr_value_static_mut_deps_table[function]);
                 for m in ritchie_parameter_argument_matches {
                     match m {
-                        SemaRitchieArgument::Simple(_, arg) => deps.merge(
-                            &self.expr_value_static_mut_deps_table[arg.argument_expr_idx],
-                            &mut self.counter,
-                        ),
+                        SemaRitchieArgument::Simple(_, arg) => deps
+                            .merge(&self.expr_value_static_mut_deps_table[arg.argument_expr_idx]),
                         SemaRitchieArgument::Variadic(_, args) => {
                             for arg in args {
                                 deps.merge(
                                     &self.expr_value_static_mut_deps_table[arg.argument_expr_idx()],
-                                    &mut self.counter,
                                 );
                             }
                         }
@@ -216,7 +204,6 @@ where
                         SemaRitchieArgument::Keyed(_, arg) => match arg {
                             Some(arg) => deps.merge(
                                 &self.expr_value_static_mut_deps_table[arg.argument_expr_idx()],
-                                &mut self.counter,
                             ),
                             None => (),
                         },
@@ -227,7 +214,7 @@ where
                         SemaRitchieArgument::Simple(param, arg) => {
                             if param.contract == Contract::BorrowMut {
                                 self.expr_value_static_mut_deps_table[arg.argument_expr_idx]
-                                    .merge(&deps, &mut self.counter)
+                                    .merge(&deps)
                             }
                         }
                         SemaRitchieArgument::Variadic(param, _) => {
@@ -255,7 +242,7 @@ where
                     FieldFlySignature::PropsStruct { .. } => (),
                     FieldFlySignature::Memoized { path, .. } => {
                         let path_deps = self.calc_path(path);
-                        deps.merge(path_deps, &mut self.counter);
+                        deps.merge(path_deps);
                     }
                 }
                 deps
@@ -277,16 +264,11 @@ where
                 ..
             } => {
                 let mut deps = self.expr_value_static_mut_deps_table[self_argument].clone();
-                deps.merge(
-                    (self.f)(instance_dispatch.signature().path().into()),
-                    &mut self.counter,
-                );
+                deps.merge((self.f)(instance_dispatch.signature().path().into()));
                 for m in ritchie_parameter_argument_matches {
                     match m {
-                        SemaRitchieArgument::Simple(param, arg) => deps.merge(
-                            &self.expr_value_static_mut_deps_table[arg.argument_expr_idx],
-                            &mut self.counter,
-                        ),
+                        SemaRitchieArgument::Simple(param, arg) => deps
+                            .merge(&self.expr_value_static_mut_deps_table[arg.argument_expr_idx]),
                         SemaRitchieArgument::Variadic(_, _) => todo!(),
                         SemaRitchieArgument::Keyed(_, _) => todo!(),
                     }
@@ -296,7 +278,7 @@ where
                         SemaRitchieArgument::Simple(param, arg) => {
                             if param.contract == Contract::BorrowMut {
                                 self.expr_value_static_mut_deps_table[arg.argument_expr_idx]
-                                    .merge(&deps, &mut self.counter)
+                                    .merge(&deps)
                             }
                         }
                         SemaRitchieArgument::Variadic(_, _) => todo!(),
@@ -304,8 +286,7 @@ where
                     }
                 }
                 if self_contract == Contract::BorrowMut {
-                    self.expr_value_static_mut_deps_table[self_argument]
-                        .merge(&deps, &mut self.counter);
+                    self.expr_value_static_mut_deps_table[self_argument].merge(&deps);
                 }
                 deps
             }
@@ -329,10 +310,7 @@ where
             } => {
                 let mut deps = self.expr_value_static_mut_deps_table[owner].clone();
                 for item in index_sem_list_items {
-                    deps.merge(
-                        &self.expr_value_static_mut_deps_table[item.sem_expr_idx],
-                        &mut self.counter,
-                    )
+                    deps.merge(&self.expr_value_static_mut_deps_table[item.sem_expr_idx])
                 }
                 match index_dynamic_dispatch.signature() {
                     FlyIndexSignature::Int { element_ty } => (),
@@ -347,10 +325,7 @@ where
             SemExprData::NewList { ref items, .. } => {
                 let mut deps = SemStaticMutDeps::default();
                 for item in items {
-                    deps.merge(
-                        &self.expr_value_static_mut_deps_table[item.sem_expr_idx],
-                        &mut self.counter,
-                    );
+                    deps.merge(&self.expr_value_static_mut_deps_table[item.sem_expr_idx]);
                 }
                 deps
             }
@@ -368,10 +343,7 @@ where
             } => {
                 let mut deps = SemStaticMutDeps::default();
                 for argument in arguments {
-                    deps.merge(
-                        &self.expr_value_static_mut_deps_table[argument.expr()],
-                        &mut self.counter,
-                    )
+                    deps.merge(&self.expr_value_static_mut_deps_table[argument.expr()])
                 }
                 deps
             }
@@ -407,10 +379,7 @@ where
                 ..
             } => {
                 let mut deps = self.expr_control_flow_static_mut_deps_table[lopd].clone();
-                deps.merge(
-                    &self.expr_control_flow_static_mut_deps_table[ropd],
-                    &mut self.counter,
-                );
+                deps.merge(&self.expr_control_flow_static_mut_deps_table[ropd]);
                 deps
             }
             SemExprData::Be {
@@ -432,20 +401,14 @@ where
                 return_ty,
             } => {
                 let mut deps = self.expr_control_flow_static_mut_deps_table[opd].clone();
-                deps.merge(
-                    &self.expr_value_static_mut_deps_table[opd],
-                    &mut self.counter,
-                );
+                deps.merge(&self.expr_value_static_mut_deps_table[opd]);
                 let path_deps = self.calc_path(unveil_assoc_fn_path);
-                deps.merge(path_deps, &mut self.counter);
+                deps.merge(path_deps);
                 deps
             }
             SemExprData::Unwrap { opd, .. } => {
                 let mut deps = self.expr_control_flow_static_mut_deps_table[opd].clone();
-                deps.merge(
-                    &self.expr_value_static_mut_deps_table[opd],
-                    &mut self.counter,
-                );
+                deps.merge(&self.expr_value_static_mut_deps_table[opd]);
                 deps
             }
             SemExprData::FunctionApplication { function, argument } => todo!(),
@@ -459,21 +422,18 @@ where
                     match m {
                         SemaRitchieArgument::Simple(_, arg) => deps.merge(
                             &self.expr_control_flow_static_mut_deps_table[arg.argument_expr_idx],
-                            &mut self.counter,
                         ),
                         SemaRitchieArgument::Variadic(_, args) => {
                             for arg in args {
                                 deps.merge(
                                     &self.expr_control_flow_static_mut_deps_table
                                         [arg.argument_expr_idx()],
-                                    &mut self.counter,
                                 );
                             }
                         }
                         SemaRitchieArgument::Keyed(_, arg) => match arg {
                             Some(arg) => deps.merge(
                                 &self.expr_value_static_mut_deps_table[arg.argument_expr_idx()],
-                                &mut self.counter,
                             ),
                             None => (),
                         },
@@ -511,7 +471,6 @@ where
                     match m {
                         SemaRitchieArgument::Simple(_, arg) => deps.merge(
                             &self.expr_control_flow_static_mut_deps_table[arg.argument_expr_idx],
-                            &mut self.counter,
                         ),
                         SemaRitchieArgument::Variadic(_, _) => todo!(),
                         SemaRitchieArgument::Keyed(_, _) => todo!(),
@@ -543,10 +502,7 @@ where
             } => {
                 let mut deps = self.expr_control_flow_static_mut_deps_table[owner].clone();
                 for item in index_sem_list_items {
-                    deps.merge(
-                        &self.expr_control_flow_static_mut_deps_table[item.sem_expr_idx],
-                        &mut self.counter,
-                    )
+                    deps.merge(&self.expr_control_flow_static_mut_deps_table[item.sem_expr_idx])
                 }
                 match index_dynamic_dispatch.signature() {
                     FlyIndexSignature::Int { element_ty } => (),
@@ -564,10 +520,7 @@ where
             SemExprData::NewList { ref items, .. } => {
                 let mut deps = SemStaticMutDeps::default();
                 for item in items {
-                    deps.merge(
-                        &self.expr_control_flow_static_mut_deps_table[item.sem_expr_idx],
-                        &mut self.counter,
-                    );
+                    deps.merge(&self.expr_control_flow_static_mut_deps_table[item.sem_expr_idx]);
                 }
                 deps
             }
@@ -587,10 +540,7 @@ where
             } => {
                 let mut deps = SemStaticMutDeps::default();
                 for argument in arguments {
-                    deps.merge(
-                        &self.expr_value_static_mut_deps_table[argument.expr()],
-                        &mut self.counter,
-                    )
+                    deps.merge(&self.expr_value_static_mut_deps_table[argument.expr()])
                 }
                 deps
             }
@@ -620,7 +570,7 @@ where
                         .insert_new_current_or_merge(
                             variable,
                             initial_value_deps.clone(),
-                            |deps0, deps| deps0.merge(&deps, &mut self.counter),
+                            |deps0, deps| deps0.merge(&deps),
                         );
                 }
                 Default::default()
@@ -657,13 +607,11 @@ where
                 for elif_branch in elif_branches {
                     deps.merge(
                         &self.stmt_value_static_mut_deps_table[elif_branch.stmts.last().unwrap()],
-                        &mut self.counter,
                     );
                 }
                 if let Some(else_branch) = else_branch {
                     deps.merge(
                         &self.stmt_value_static_mut_deps_table[else_branch.stmts.last().unwrap()],
-                        &mut self.counter,
                     );
                 }
                 deps
@@ -679,7 +627,6 @@ where
                 for case_branch in case_branches {
                     deps.merge(
                         &self.stmt_value_static_mut_deps_table[case_branch.stmts.last().unwrap()],
-                        &mut self.counter,
                     );
                 }
                 deps
@@ -696,21 +643,18 @@ where
             }
             SemStmtData::Return { result, .. } => {
                 let mut deps = self.expr_control_flow_static_mut_deps_table[result].clone();
-                deps.merge(
-                    &self.expr_value_static_mut_deps_table[result],
-                    &mut self.counter,
-                );
+                deps.merge(&self.expr_value_static_mut_deps_table[result]);
                 deps
             }
             SemStmtData::Require { condition, .. } => {
                 // todo: consider deps of Default::default
                 let mut deps = self.calc_condition_control_flow(condition);
-                deps.merge(&self.calc_condition_value(condition), &mut self.counter);
+                deps.merge(&self.calc_condition_value(condition));
                 deps
             }
             SemStmtData::Assert { condition, .. } => {
                 let mut deps = self.calc_condition_control_flow(condition);
-                deps.merge(&self.calc_condition_value(condition), &mut self.counter);
+                deps.merge(&self.calc_condition_value(condition));
                 deps
             }
             SemStmtData::Break { break_token } => Default::default(),
@@ -730,10 +674,7 @@ where
                     self.expr_control_flow_static_mut_deps_table[bound_expr].clone();
                 }
                 for stmt in stmts {
-                    deps.merge(
-                        &self.stmt_control_flow_static_mut_deps_table[stmt],
-                        &mut self.counter,
-                    );
+                    deps.merge(&self.stmt_control_flow_static_mut_deps_table[stmt]);
                 }
                 deps
             }
@@ -748,10 +689,7 @@ where
                 // if let Some(bound_expr) = t
                 // self.expr_control_flow_static_mut_deps_table[bound_expr].clone();
                 for stmt in stmts {
-                    deps.merge(
-                        &self.stmt_control_flow_static_mut_deps_table[stmt],
-                        &mut self.counter,
-                    );
+                    deps.merge(&self.stmt_control_flow_static_mut_deps_table[stmt]);
                 }
                 deps
             }
@@ -763,10 +701,7 @@ where
                 let mut deps =
                     self.expr_control_flow_static_mut_deps_table[particulars.bound_expr].clone();
                 for stmt in stmts {
-                    deps.merge(
-                        &self.stmt_control_flow_static_mut_deps_table[stmt],
-                        &mut self.counter,
-                    );
+                    deps.merge(&self.stmt_control_flow_static_mut_deps_table[stmt]);
                 }
                 deps
             }
@@ -778,10 +713,7 @@ where
             } => {
                 let mut deps = self.calc_condition_control_flow(condition);
                 for stmt in stmts {
-                    deps.merge(
-                        &self.stmt_control_flow_static_mut_deps_table[stmt],
-                        &mut self.counter,
-                    );
+                    deps.merge(&self.stmt_control_flow_static_mut_deps_table[stmt]);
                 }
                 deps
             }
@@ -823,10 +755,7 @@ where
 
     fn calc_stmts_control_flow(&mut self, stmts: SemStmtIdxRange, deps: &mut SemStaticMutDeps) {
         for stmt in stmts {
-            deps.merge(
-                &self.stmt_control_flow_static_mut_deps_table[stmt],
-                &mut self.counter,
-            );
+            deps.merge(&self.stmt_control_flow_static_mut_deps_table[stmt]);
         }
     }
 
@@ -866,7 +795,7 @@ where
         for variable in variables {
             self.variable_static_mut_deps_table
                 .insert_new_current_or_merge(variable, deps.clone(), |deps0, deps| {
-                    SemStaticMutDeps::merge(deps0, &deps, &mut self.counter)
+                    SemStaticMutDeps::merge(deps0, &deps)
                 })
         }
     }
@@ -896,12 +825,12 @@ where
         let deps = self.calc_expr_value(expr);
         self.expr_value_static_mut_deps_table
             .insert_new_or_merge(expr, deps, |deps0, deps| {
-                deps0.merge(&deps, &mut self.counter)
+                deps0.merge_counted(&deps, &mut self.counter)
             });
         let deps = self.calc_expr_control_flow(expr);
         self.expr_control_flow_static_mut_deps_table
             .insert_new_or_merge(expr, deps, |deps0, deps| {
-                deps0.merge(&deps, &mut self.counter)
+                deps0.merge_counted(&deps, &mut self.counter)
             });
     }
 
@@ -940,12 +869,12 @@ where
         let deps = self.calc_stmt_value(stmt);
         self.stmt_value_static_mut_deps_table
             .insert_new_or_merge(stmt, deps, |deps0, deps| {
-                deps0.merge(&deps, &mut self.counter)
+                deps0.merge_counted(&deps, &mut self.counter)
             });
         let deps = self.calc_stmt_control_flow(stmt);
         self.stmt_control_flow_static_mut_deps_table
             .insert_new_or_merge(stmt, deps, |deps0, deps| {
-                deps0.merge(&deps, &mut self.counter)
+                deps0.merge_counted(&deps, &mut self.counter)
             });
     }
 

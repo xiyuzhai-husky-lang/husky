@@ -65,13 +65,13 @@
                                     path_expr_idx: 1,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist::input`, `Val`),
+                                            FormPath(`mnist::INPUT`, `StaticVar`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
-                                            path: ItemPath(`mnist::input`),
+                                            path: ItemPath(`mnist::INPUT`),
                                             task_ty: Some(
                                                 EthTerm(`MnistTask`),
                                             ),

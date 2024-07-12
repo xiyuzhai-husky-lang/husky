@@ -116,9 +116,11 @@ impl std::ops::IndexMut<usize> for BinaryGrid28 {
 
 impl BinaryGrid28 {}
 
-pub fn input() -> &'static BinaryImage28 {
+#[allow(non_snake_case)]
+pub fn INPUT() -> &'static BinaryImage28 {
     MNIST_DATASET.input(input_id())
 }
 
 // ad hoc
+#[allow(non_snake_case)]
 pub fn TASK() {}

@@ -2,10 +2,10 @@
 Some(
     [
         "find_connected_components",
-        "input",
-        "find_connected_components(input)",
-        "find_connected_components(input)",
-        "find_connected_components(input)",
+        "INPUT",
+        "find_connected_components(INPUT)",
+        "find_connected_components(INPUT)",
+        "find_connected_components(INPUT)",
     ],
 )
 ```

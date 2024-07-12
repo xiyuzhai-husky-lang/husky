@@ -69,7 +69,7 @@ impl<Task: IsTask> DevComptime<Task> {
             )),
         };
         let ingredient_vals = target_path
-            .map(|target_path| ingredient_vals(target_path, &db))
+            .map(|target_path| ingredient_kis(target_path, &db))
             .unwrap_or_default();
         Ok(Self {
             linktime: IsLinktime::new_linktime(
@@ -117,7 +117,7 @@ impl<Task: IsTask> DevComptime<Task> {
     }
 }
 
-fn ingredient_vals(
+fn ingredient_kis(
     target_path: LinktimeTargetPath,
     db: &::salsa::Db,
 ) -> Vec<(
@@ -140,6 +140,7 @@ fn ingredient_vals(
                     .iter()
                     .map(|&ingredient_path| {
                         let ki_repr = match ingredient_path.item_path() {
+                            // todo: consider StaticVar, StaticMut?
                             ItemPath::MajorItem(MajorItemPath::Form(path))
                                 if path.kind(db) == MajorFormKind::Val =>
                             {

@@ -14,6 +14,8 @@ pub trait IsGraphDynamicsScheme: 'static {
 pub trait IsGraphDynamicsContext<'db>: Copy {
     type DepsScheme: IsGraphDepsScheme;
     type DynamicsScheme: IsGraphDynamicsScheme;
+    fn debug_node(self, node: Node<Self::DepsScheme>) -> String;
+
     /// crop deps that definitely are not going to form a cycle
     fn deps_cropped(
         self,

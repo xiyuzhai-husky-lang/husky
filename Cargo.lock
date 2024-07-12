@@ -3802,6 +3802,8 @@ dependencies = [
 name = "graph-dynamics"
 version = "0.1.0"
 dependencies = [
+ "husky-debug-utils",
+ "husky-print-utils",
  "propagate",
  "salsa",
  "vec-like",
@@ -4060,7 +4062,10 @@ dependencies = [
  "husky-print-utils",
  "husky-profile-utils",
  "husky-sem-expr",
+ "husky-sem-item-path-deps",
  "husky-sem-place-contract",
+ "husky-sem-static-mut-deps",
+ "husky-sem-static-var-deps",
  "husky-semantic-token",
  "husky-syn-decl",
  "husky-syn-defn",
@@ -4250,7 +4255,10 @@ dependencies = [
  "husky-place",
  "husky-regional-token",
  "husky-sem-expr",
+ "husky-sem-item-path-deps",
  "husky-sem-place-contract",
+ "husky-sem-static-mut-deps",
+ "husky-sem-static-var-deps",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -4405,6 +4413,13 @@ dependencies = [
  "husky-visual-protocol",
  "serde",
  "ui",
+]
+
+[[package]]
+name = "husky-debug-utils"
+version = "0.1.0"
+dependencies = [
+ "colored",
 ]
 
 [[package]]
@@ -9303,6 +9318,7 @@ dependencies = [
 name = "propagate"
 version = "0.1.0"
 dependencies = [
+ "husky-debug-utils",
  "husky-print-utils",
  "sealed",
 ]

@@ -204,14 +204,8 @@ SynNodeDeclSheet {
                                     expr: 0,
                                 },
                             ),
-                            eq_or_eol_semicolon_token: Ok(
-                                Right(
-                                    EolSemicolonRegionalToken {
-                                        regional_token_idx: RegionalTokenIdx(
-                                            7,
-                                        ),
-                                    },
-                                ),
+                            opt_eq_token: Ok(
+                                None,
                             ),
                             expr: None,
                             syn_expr_region: SynExprRegion {

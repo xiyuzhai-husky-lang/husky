@@ -138,7 +138,7 @@
         ),
     ),
     (
-        ItemPath(`mnist::input`),
+        ItemPath(`mnist::INPUT`),
         Some(
             ValkyrieRides {
                 hir_template_parameters: None,

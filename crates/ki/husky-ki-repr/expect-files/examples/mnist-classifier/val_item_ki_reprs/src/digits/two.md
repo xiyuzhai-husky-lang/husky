@@ -19,7 +19,7 @@
             source: KiReprSource::ValItem(
                 FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
             ),
-            caching_class: ValItem,
+            caching_class: Val,
         },
     ),
     (
@@ -41,7 +41,7 @@
             source: KiReprSource::ValItem(
                 FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
             ),
-            caching_class: ValItem,
+            caching_class: Val,
         },
     ),
 ]

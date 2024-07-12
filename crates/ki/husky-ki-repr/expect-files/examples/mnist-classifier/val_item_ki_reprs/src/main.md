@@ -19,7 +19,7 @@
             source: KiReprSource::ValItem(
                 FormPath(`mnist_classifier::main`, `Val`),
             ),
-            caching_class: ValItem,
+            caching_class: Val,
         },
     ),
 ]

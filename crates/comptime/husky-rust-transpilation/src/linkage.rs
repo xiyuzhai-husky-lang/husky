@@ -87,7 +87,7 @@ impl TranspileToRustWith<()> for Linkage {
                 RitchieItemKind::Tn => todo!(),
             },
             // ad hoc
-            LinkageData::MajorStatic { path, .. } => builder
+            LinkageData::MajorStaticVar { path, .. } => builder
                 .macro_call(RustMacroName::FnLinkageImpl, |builder| {
                     path.transpile_to_rust(builder)
                 }),

@@ -50,13 +50,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 14,
@@ -90,7 +90,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -208,13 +208,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -248,7 +248,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -317,13 +317,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 15,
@@ -349,7 +349,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -360,7 +360,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -470,7 +470,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 7,
@@ -490,7 +490,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
@@ -549,7 +549,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
@@ -632,7 +632,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 1,
@@ -652,7 +652,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
@@ -735,7 +735,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 2,
@@ -755,7 +755,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
@@ -838,7 +838,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 3,
@@ -858,7 +858,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
@@ -917,7 +917,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
@@ -1000,7 +1000,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 5,
@@ -1020,7 +1020,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
@@ -1096,7 +1096,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 6,
@@ -1110,13 +1110,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -1150,7 +1150,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -1245,7 +1245,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 1,
@@ -1374,7 +1374,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 2,
@@ -1391,7 +1391,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -1544,7 +1544,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
@@ -1656,7 +1656,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 32,
@@ -1670,13 +1670,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -1710,7 +1710,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -1816,7 +1816,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 32,
@@ -1833,7 +1833,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -2022,7 +2022,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 41,
@@ -2134,7 +2134,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
@@ -2241,7 +2241,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 35,
@@ -2353,7 +2353,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
@@ -2460,7 +2460,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 37,
@@ -2572,7 +2572,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
@@ -2679,7 +2679,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 39,
@@ -2834,7 +2834,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 41,
@@ -2851,7 +2851,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -2929,7 +2929,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 10,
@@ -3041,7 +3041,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
@@ -3148,7 +3148,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 44,
@@ -3165,7 +3165,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -3243,7 +3243,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 11,
@@ -3257,13 +3257,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -3297,7 +3297,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -3398,7 +3398,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 48,
@@ -3506,7 +3506,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 49,
@@ -3523,7 +3523,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -3601,7 +3601,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 12,
@@ -3615,13 +3615,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -3655,7 +3655,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -3756,7 +3756,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 53,
@@ -3864,7 +3864,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 54,
@@ -3881,7 +3881,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -4019,7 +4019,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 13,
@@ -4033,13 +4033,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -4073,7 +4073,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -4174,7 +4174,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 58,
@@ -4282,7 +4282,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 59,
@@ -4299,7 +4299,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -4441,7 +4441,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 14,
@@ -4538,7 +4538,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 13,
@@ -4645,7 +4645,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 64,
@@ -4757,7 +4757,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 65,
@@ -4854,7 +4854,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 13,
@@ -4961,7 +4961,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 68,
@@ -5073,7 +5073,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 69,
@@ -5090,7 +5090,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -5232,7 +5232,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 15,
@@ -5246,13 +5246,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 68,
@@ -5286,7 +5286,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -5387,7 +5387,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 72,
@@ -5499,7 +5499,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 73,
@@ -5513,13 +5513,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 68,
@@ -5553,7 +5553,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -5654,7 +5654,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 75,
@@ -5766,7 +5766,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 76,
@@ -5783,7 +5783,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -5925,7 +5925,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 16,
@@ -6026,7 +6026,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 14,
@@ -6127,7 +6127,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 15,
@@ -6144,7 +6144,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -6222,7 +6222,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 17,
@@ -6323,7 +6323,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 16,
@@ -6340,7 +6340,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -6488,7 +6488,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 18,
@@ -6600,7 +6600,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
@@ -6707,7 +6707,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 85,
@@ -6724,7 +6724,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -6795,13 +6795,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 80,
@@ -6835,7 +6835,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -6953,13 +6953,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -6993,7 +6993,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -7062,13 +7062,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 81,
@@ -7094,7 +7094,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -7105,7 +7105,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
@@ -7283,7 +7283,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 5,
@@ -7297,13 +7297,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -7337,7 +7337,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -7432,7 +7432,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 2,
@@ -7446,13 +7446,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 90,
@@ -7486,7 +7486,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -7624,7 +7624,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 5,
@@ -7641,7 +7641,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
@@ -7794,7 +7794,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 42,
@@ -7906,7 +7906,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 10,
@@ -7920,13 +7920,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -7960,7 +7960,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -8066,7 +8066,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 10,
@@ -8083,7 +8083,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
@@ -8264,7 +8264,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 43,
@@ -8284,7 +8284,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -8343,7 +8343,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -8444,7 +8444,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 2,
@@ -8464,7 +8464,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -8615,7 +8615,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 42,
@@ -8722,7 +8722,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 12,
@@ -8739,7 +8739,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
@@ -8920,7 +8920,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 43,
@@ -8940,7 +8940,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -9023,7 +9023,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 15,
@@ -9043,7 +9043,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -9126,7 +9126,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 16,
@@ -9146,7 +9146,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -9205,7 +9205,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -9264,7 +9264,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -9323,7 +9323,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -9439,7 +9439,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 20,
@@ -9459,7 +9459,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -9518,7 +9518,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -9601,7 +9601,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 22,
@@ -9621,7 +9621,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -9680,7 +9680,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -9739,7 +9739,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -9855,7 +9855,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 25,
@@ -9875,7 +9875,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -9976,7 +9976,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 26,
@@ -9996,7 +9996,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -10079,7 +10079,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 27,
@@ -10099,7 +10099,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -10158,7 +10158,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -10217,7 +10217,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -10276,7 +10276,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -10335,7 +10335,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -10394,7 +10394,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -10477,7 +10477,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 33,
@@ -10497,7 +10497,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -10556,7 +10556,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -10615,7 +10615,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -10674,7 +10674,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -10733,7 +10733,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -10816,7 +10816,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 38,
@@ -10836,7 +10836,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -10919,7 +10919,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 39,
@@ -10939,7 +10939,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -11015,13 +11015,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 124,
@@ -11055,7 +11055,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -11173,13 +11173,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -11213,7 +11213,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -11282,13 +11282,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 125,
@@ -11322,7 +11322,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -11440,13 +11440,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -11480,7 +11480,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -11549,13 +11549,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 126,
@@ -11581,7 +11581,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -11592,7 +11592,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
@@ -11724,7 +11724,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 19,
@@ -11738,13 +11738,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 124,
@@ -11778,7 +11778,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -11874,7 +11874,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 1,
@@ -11891,7 +11891,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
@@ -11963,7 +11963,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 20,
@@ -12054,7 +12054,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 19,
@@ -12071,7 +12071,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
@@ -12219,7 +12219,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 21,
@@ -12233,13 +12233,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -12273,7 +12273,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -12374,7 +12374,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 6,
@@ -12391,7 +12391,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
@@ -12533,7 +12533,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 22,
@@ -12547,13 +12547,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -12587,7 +12587,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -12688,7 +12688,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 8,
@@ -12702,13 +12702,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -12742,7 +12742,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -12843,7 +12843,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 10,
@@ -12860,7 +12860,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
@@ -12981,7 +12981,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 23,
@@ -13001,7 +13001,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -13060,7 +13060,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -13119,7 +13119,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -13178,7 +13178,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -13237,7 +13237,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -13296,7 +13296,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -13355,7 +13355,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -13438,7 +13438,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 11,
@@ -13458,7 +13458,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -13574,7 +13574,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 12,
@@ -13594,7 +13594,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -13653,7 +13653,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -13712,7 +13712,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -13813,7 +13813,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 15,
@@ -13833,7 +13833,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -13909,7 +13909,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 16,
@@ -14016,7 +14016,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 21,
@@ -14124,7 +14124,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 13,
@@ -14141,7 +14141,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
@@ -14320,7 +14320,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 83,
@@ -14334,13 +14334,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 124,
@@ -14374,7 +14374,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -14475,7 +14475,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 81,
@@ -14620,7 +14620,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 83,
@@ -14637,7 +14637,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
@@ -14733,7 +14733,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 25,
@@ -14753,7 +14753,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -14836,7 +14836,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 17,
@@ -14850,13 +14850,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 124,
@@ -14890,7 +14890,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -14991,7 +14991,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 86,
@@ -15008,7 +15008,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
@@ -15086,7 +15086,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 26,
@@ -15193,7 +15193,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 21,
@@ -15301,7 +15301,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 94,
@@ -15408,7 +15408,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 98,
@@ -15520,7 +15520,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 99,
@@ -15537,7 +15537,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
@@ -15633,7 +15633,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 27,
@@ -15653,7 +15653,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -15736,7 +15736,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 18,
@@ -15843,7 +15843,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 21,
@@ -15951,7 +15951,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 103,
@@ -15968,7 +15968,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
@@ -16046,7 +16046,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 28,
@@ -16147,7 +16147,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 22,
@@ -16164,7 +16164,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
@@ -16235,13 +16235,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 176,
@@ -16275,7 +16275,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -16393,13 +16393,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -16433,7 +16433,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -16502,13 +16502,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 177,
@@ -16542,7 +16542,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -16599,13 +16599,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -16639,7 +16639,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -16757,13 +16757,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -16797,7 +16797,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -16967,13 +16967,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 176,
@@ -17007,7 +17007,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -17177,13 +17177,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 176,
@@ -17217,7 +17217,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -17387,13 +17387,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 176,
@@ -17427,7 +17427,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -19231,13 +19231,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 176,
@@ -19271,7 +19271,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -19583,13 +19583,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 229,
@@ -19623,7 +19623,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -19741,13 +19741,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -19781,7 +19781,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -19850,13 +19850,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 230,
@@ -19890,7 +19890,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -20008,13 +20008,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -20048,7 +20048,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -20117,13 +20117,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 231,
@@ -20157,7 +20157,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -20275,13 +20275,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -20315,7 +20315,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -20384,13 +20384,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 232,
@@ -20424,7 +20424,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -20481,13 +20481,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 229,
@@ -20521,7 +20521,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -20639,13 +20639,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 229,
@@ -20679,7 +20679,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -20849,13 +20849,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -20889,7 +20889,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -21230,13 +21230,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 230,
@@ -21270,7 +21270,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -21834,13 +21834,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -21874,7 +21874,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -21943,13 +21943,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -21983,7 +21983,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -23107,13 +23107,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 283,
@@ -23147,7 +23147,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -23227,13 +23227,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 285,
@@ -23267,7 +23267,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -23385,13 +23385,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -23425,7 +23425,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -23494,13 +23494,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 286,
@@ -23534,7 +23534,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -23652,13 +23652,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -23692,7 +23692,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -23761,13 +23761,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 287,
@@ -23801,7 +23801,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -23858,13 +23858,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -23898,7 +23898,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -24068,13 +24068,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 285,
@@ -24108,7 +24108,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -24837,13 +24837,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 286,
@@ -24877,7 +24877,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -25047,13 +25047,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 286,
@@ -25087,7 +25087,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -25277,13 +25277,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 315,
@@ -25317,7 +25317,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -25435,13 +25435,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -25475,7 +25475,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -25544,13 +25544,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 316,
@@ -25584,7 +25584,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -25693,13 +25693,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -25733,7 +25733,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -25802,13 +25802,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -25842,7 +25842,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -26090,13 +26090,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -26130,7 +26130,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -26332,13 +26332,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 329,
@@ -26372,7 +26372,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -26490,13 +26490,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -26530,7 +26530,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -26599,13 +26599,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 330,
@@ -26639,7 +26639,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -26757,13 +26757,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -26797,7 +26797,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -26866,13 +26866,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 331,
@@ -26906,7 +26906,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -27015,13 +27015,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -27055,7 +27055,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -27396,13 +27396,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 329,
@@ -27436,7 +27436,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -28000,13 +28000,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -28040,7 +28040,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -28109,13 +28109,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -28149,7 +28149,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -29273,13 +29273,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 376,
@@ -29313,7 +29313,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -29431,13 +29431,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -29471,7 +29471,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -29540,13 +29540,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 377,
@@ -29580,7 +29580,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -29689,13 +29689,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -29729,7 +29729,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -29899,13 +29899,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -29939,7 +29939,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -30280,13 +30280,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 376,
@@ -30320,7 +30320,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -30490,13 +30490,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 376,
@@ -30530,7 +30530,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -30700,13 +30700,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 376,
@@ -30740,7 +30740,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -31020,13 +31020,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -31060,7 +31060,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -31129,13 +31129,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -31169,7 +31169,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -32603,13 +32603,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 430,
@@ -32643,7 +32643,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::connected_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -32860,20 +32860,20 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::ValItem(
-                    ValItemTracePathData {
-                        val_item_path: FormPath(`mnist::input`, `Val`),
+                data: TracePathData::StaticVarItem(
+                    StaticVarTracePathData {
+                        static_var_item_path: FormPath(`mnist::INPUT`, `StaticVar`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: StaticVar(
+                StaticVarTraceData {
                     path: TracePath(
                         Id {
                             value: 435,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    static_var_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 289,
@@ -32888,8 +32888,8 @@
                 ki_domain_repr: Omni,
                 opn: KiOpn::Linkage(
                     Linkage {
-                        data: LinkageData::MajorVal {
-                            path: FormPath(`mnist::input`, `Val`),
+                        data: LinkageData::MajorStaticVar {
+                            path: FormPath(`mnist::INPUT`, `StaticVar`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -32899,9 +32899,9 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FormPath(`mnist::input`, `Val`),
+                    FormPath(`mnist::INPUT`, `StaticVar`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -33070,13 +33070,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -33110,7 +33110,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -33488,13 +33488,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 430,
@@ -33528,7 +33528,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::connected_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -34002,13 +34002,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 430,
@@ -34042,7 +34042,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::connected_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -34261,13 +34261,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 430,
@@ -34301,7 +34301,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::connected_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -34419,13 +34419,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 90,
@@ -34459,7 +34459,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -34745,13 +34745,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 430,
@@ -34785,7 +34785,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::connected_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -34974,13 +34974,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 430,
@@ -35014,7 +35014,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::connected_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -35294,13 +35294,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -35334,7 +35334,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -35617,13 +35617,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 431,
@@ -35657,7 +35657,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -35714,13 +35714,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -35754,7 +35754,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -36037,13 +36037,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 432,
@@ -36077,7 +36077,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -36134,13 +36134,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -36174,7 +36174,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -36457,13 +36457,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 68,
@@ -36497,7 +36497,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -36554,13 +36554,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 432,
@@ -36594,7 +36594,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -36712,13 +36712,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -36752,7 +36752,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -36809,13 +36809,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 68,
@@ -36849,7 +36849,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -36967,13 +36967,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::main`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 3,
@@ -37007,7 +37007,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::main`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -37064,13 +37064,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 81,
@@ -37096,7 +37096,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -37107,7 +37107,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
@@ -37285,7 +37285,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 5,
@@ -37299,13 +37299,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -37339,7 +37339,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -37434,7 +37434,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 2,
@@ -37448,13 +37448,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 90,
@@ -37488,7 +37488,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -37626,7 +37626,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 5,
@@ -37643,7 +37643,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
@@ -37796,7 +37796,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 42,
@@ -37908,7 +37908,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 10,
@@ -37922,13 +37922,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -37962,7 +37962,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -38068,7 +38068,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 10,
@@ -38085,7 +38085,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
@@ -38266,7 +38266,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 43,
@@ -38286,7 +38286,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -38345,7 +38345,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -38446,7 +38446,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 2,
@@ -38466,7 +38466,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -38617,7 +38617,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 42,
@@ -38724,7 +38724,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 12,
@@ -38741,7 +38741,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
@@ -38922,7 +38922,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 43,
@@ -38942,7 +38942,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -39025,7 +39025,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 15,
@@ -39045,7 +39045,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -39128,7 +39128,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 16,
@@ -39148,7 +39148,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -39207,7 +39207,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -39266,7 +39266,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -39325,7 +39325,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -39441,7 +39441,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 20,
@@ -39461,7 +39461,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -39520,7 +39520,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -39603,7 +39603,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 22,
@@ -39623,7 +39623,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -39682,7 +39682,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -39741,7 +39741,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -39857,7 +39857,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 25,
@@ -39877,7 +39877,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -39978,7 +39978,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 26,
@@ -39998,7 +39998,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -40081,7 +40081,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 27,
@@ -40101,7 +40101,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -40160,7 +40160,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -40219,7 +40219,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -40278,7 +40278,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -40337,7 +40337,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -40396,7 +40396,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -40479,7 +40479,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 33,
@@ -40499,7 +40499,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -40558,7 +40558,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -40617,7 +40617,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -40676,7 +40676,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -40735,7 +40735,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -40818,7 +40818,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 38,
@@ -40838,7 +40838,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -40921,7 +40921,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 39,
@@ -40941,7 +40941,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
@@ -41043,13 +41043,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 126,
@@ -41075,7 +41075,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -41086,7 +41086,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
@@ -41218,7 +41218,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 19,
@@ -41232,13 +41232,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 124,
@@ -41272,7 +41272,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -41368,7 +41368,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 1,
@@ -41385,7 +41385,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
@@ -41457,7 +41457,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 20,
@@ -41548,7 +41548,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 19,
@@ -41565,7 +41565,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
@@ -41713,7 +41713,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 21,
@@ -41727,13 +41727,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -41767,7 +41767,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -41868,7 +41868,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 6,
@@ -41885,7 +41885,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
@@ -42027,7 +42027,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 22,
@@ -42041,13 +42041,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -42081,7 +42081,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -42182,7 +42182,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 8,
@@ -42196,13 +42196,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -42236,7 +42236,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -42337,7 +42337,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 10,
@@ -42354,7 +42354,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
@@ -42475,7 +42475,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 23,
@@ -42495,7 +42495,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -42554,7 +42554,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -42613,7 +42613,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -42672,7 +42672,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -42731,7 +42731,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -42790,7 +42790,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -42849,7 +42849,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -42932,7 +42932,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 11,
@@ -42952,7 +42952,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -43068,7 +43068,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 12,
@@ -43088,7 +43088,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -43147,7 +43147,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -43206,7 +43206,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -43307,7 +43307,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 15,
@@ -43327,7 +43327,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -43403,7 +43403,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 16,
@@ -43510,7 +43510,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 21,
@@ -43618,7 +43618,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 13,
@@ -43635,7 +43635,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
@@ -43814,7 +43814,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 83,
@@ -43828,13 +43828,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 124,
@@ -43868,7 +43868,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -43969,7 +43969,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 81,
@@ -44114,7 +44114,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 83,
@@ -44131,7 +44131,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
@@ -44227,7 +44227,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 25,
@@ -44247,7 +44247,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -44330,7 +44330,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 17,
@@ -44344,13 +44344,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 124,
@@ -44384,7 +44384,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -44485,7 +44485,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 86,
@@ -44502,7 +44502,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
@@ -44580,7 +44580,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 26,
@@ -44687,7 +44687,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 21,
@@ -44795,7 +44795,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 94,
@@ -44902,7 +44902,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 98,
@@ -45014,7 +45014,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 99,
@@ -45031,7 +45031,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
@@ -45127,7 +45127,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 27,
@@ -45147,7 +45147,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
@@ -45230,7 +45230,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 18,
@@ -45337,7 +45337,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 21,
@@ -45445,7 +45445,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 103,
@@ -45462,7 +45462,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
@@ -45540,7 +45540,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 28,
@@ -45641,7 +45641,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 22,
@@ -45658,7 +45658,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
@@ -45755,13 +45755,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 15,
@@ -45787,7 +45787,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -45798,7 +45798,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -45908,7 +45908,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 7,
@@ -45928,7 +45928,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
@@ -45987,7 +45987,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
@@ -46070,7 +46070,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 1,
@@ -46090,7 +46090,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
@@ -46173,7 +46173,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 2,
@@ -46193,7 +46193,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
@@ -46276,7 +46276,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 3,
@@ -46296,7 +46296,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
@@ -46355,7 +46355,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
@@ -46438,7 +46438,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 5,
@@ -46458,7 +46458,7 @@
                                 LazyStmtTracePathData {
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
-                                            ValItemTracePathData {
+                                            ValTracePathData {
                                                 val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
@@ -46534,7 +46534,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 6,
@@ -46548,13 +46548,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -46588,7 +46588,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -46683,7 +46683,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 1,
@@ -46812,7 +46812,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 2,
@@ -46829,7 +46829,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -46982,7 +46982,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
@@ -47094,7 +47094,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 32,
@@ -47108,13 +47108,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -47148,7 +47148,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -47254,7 +47254,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 32,
@@ -47271,7 +47271,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -47460,7 +47460,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 41,
@@ -47572,7 +47572,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
@@ -47679,7 +47679,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 35,
@@ -47791,7 +47791,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
@@ -47898,7 +47898,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 37,
@@ -48010,7 +48010,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
@@ -48117,7 +48117,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 39,
@@ -48272,7 +48272,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 41,
@@ -48289,7 +48289,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -48367,7 +48367,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 10,
@@ -48479,7 +48479,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
@@ -48586,7 +48586,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 44,
@@ -48603,7 +48603,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -48681,7 +48681,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 11,
@@ -48695,13 +48695,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -48735,7 +48735,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -48836,7 +48836,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 48,
@@ -48944,7 +48944,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 49,
@@ -48961,7 +48961,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -49039,7 +49039,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 12,
@@ -49053,13 +49053,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -49093,7 +49093,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -49194,7 +49194,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 53,
@@ -49302,7 +49302,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 54,
@@ -49319,7 +49319,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -49457,7 +49457,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 13,
@@ -49471,13 +49471,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -49511,7 +49511,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -49612,7 +49612,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 58,
@@ -49720,7 +49720,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 59,
@@ -49737,7 +49737,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -49879,7 +49879,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 14,
@@ -49976,7 +49976,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 13,
@@ -50083,7 +50083,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 64,
@@ -50195,7 +50195,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 65,
@@ -50292,7 +50292,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 13,
@@ -50399,7 +50399,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 68,
@@ -50511,7 +50511,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 69,
@@ -50528,7 +50528,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -50670,7 +50670,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 15,
@@ -50684,13 +50684,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 68,
@@ -50724,7 +50724,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -50825,7 +50825,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 72,
@@ -50937,7 +50937,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 73,
@@ -50951,13 +50951,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 68,
@@ -50991,7 +50991,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -51092,7 +51092,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 75,
@@ -51204,7 +51204,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 76,
@@ -51221,7 +51221,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -51363,7 +51363,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 16,
@@ -51464,7 +51464,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 14,
@@ -51565,7 +51565,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 15,
@@ -51582,7 +51582,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -51660,7 +51660,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Stmt {
                         stmt: 17,
@@ -51761,7 +51761,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 16,
@@ -51778,7 +51778,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -51926,7 +51926,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 18,
@@ -52038,7 +52038,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
@@ -52145,7 +52145,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     source: Expr {
                         expr: 85,
@@ -52162,7 +52162,7 @@
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
-                                ValItemTracePathData {
+                                ValTracePathData {
                                     val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
@@ -52259,13 +52259,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 287,
@@ -52299,7 +52299,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -52356,13 +52356,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -52396,7 +52396,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -52566,13 +52566,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 285,
@@ -52606,7 +52606,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -53335,13 +53335,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 286,
@@ -53375,7 +53375,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -53545,13 +53545,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 286,
@@ -53585,7 +53585,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -53801,13 +53801,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 316,
@@ -53841,7 +53841,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -53950,13 +53950,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -53990,7 +53990,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -54059,13 +54059,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -54099,7 +54099,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -54347,13 +54347,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -54387,7 +54387,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -54615,13 +54615,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 177,
@@ -54655,7 +54655,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -54712,13 +54712,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -54752,7 +54752,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -54870,13 +54870,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -54910,7 +54910,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -55080,13 +55080,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 176,
@@ -55120,7 +55120,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -55290,13 +55290,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 176,
@@ -55330,7 +55330,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -55500,13 +55500,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 176,
@@ -55540,7 +55540,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -57344,13 +57344,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 176,
@@ -57384,7 +57384,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -57722,13 +57722,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 331,
@@ -57762,7 +57762,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -57871,13 +57871,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -57911,7 +57911,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -58252,13 +58252,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 329,
@@ -58292,7 +58292,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -58856,13 +58856,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -58896,7 +58896,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -58965,13 +58965,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -59005,7 +59005,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -60155,13 +60155,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 283,
@@ -60195,7 +60195,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -60301,13 +60301,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 377,
@@ -60341,7 +60341,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -60450,13 +60450,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 18,
@@ -60490,7 +60490,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -60660,13 +60660,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -60700,7 +60700,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -61041,13 +61041,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 376,
@@ -61081,7 +61081,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -61251,13 +61251,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 376,
@@ -61291,7 +61291,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -61461,13 +61461,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 376,
@@ -61501,7 +61501,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -61781,13 +61781,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -61821,7 +61821,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),
@@ -61890,13 +61890,13 @@
         Trace {
             path: TracePath {
                 data: TracePathData::ValItem(
-                    ValItemTracePathData {
+                    ValTracePathData {
                         val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
-            data: ValItem(
-                ValItemTraceData {
+            data: Val(
+                ValTraceData {
                     path: TracePath(
                         Id {
                             value: 39,
@@ -61930,7 +61930,7 @@
                 source: KiReprSource::ValItem(
                     FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
-                caching_class: ValItem,
+                caching_class: Val,
             },
         ),
     ),

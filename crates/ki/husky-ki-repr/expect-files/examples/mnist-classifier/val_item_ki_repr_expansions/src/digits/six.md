@@ -97,7 +97,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
@@ -139,7 +139,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 1,
@@ -167,7 +167,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 2,
@@ -204,7 +204,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 3,
@@ -241,7 +241,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: LetVariable {
                                 stmt: 19,
@@ -266,7 +266,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     KiRepr {
                         ki_domain_repr: StmtNotReturned(
@@ -313,7 +313,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 6,
@@ -338,7 +338,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     KiRepr {
                         ki_domain_repr: StmtNotReturned(
@@ -385,7 +385,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 8,
@@ -410,7 +410,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     KiRepr {
                         ki_domain_repr: StmtNotReturned(
@@ -457,7 +457,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 10,
@@ -504,7 +504,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 11,
@@ -557,7 +557,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: LetVariable {
                                 stmt: 21,
@@ -611,7 +611,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 13,
@@ -645,7 +645,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 14,
@@ -688,7 +688,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 15,
@@ -713,7 +713,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     KiRepr {
                         ki_domain_repr: ConditionSatisfied(
@@ -760,7 +760,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 18,
@@ -785,7 +785,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     KiRepr {
                         ki_domain_repr: ConditionSatisfied(
@@ -832,7 +832,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 20,
@@ -864,7 +864,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 21,
@@ -960,7 +960,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 22,
@@ -1016,7 +1016,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 23,
@@ -1041,7 +1041,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     KiRepr {
                         ki_domain_repr: StmtNotReturned(
@@ -1089,7 +1089,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 25,
@@ -1123,7 +1123,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 26,
@@ -1166,7 +1166,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 27,
@@ -1209,7 +1209,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: LetVariable {
                                 stmt: 6,
@@ -1245,7 +1245,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 29,
@@ -1303,7 +1303,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 30,
@@ -1361,7 +1361,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: LetVariable {
                                 stmt: 7,
@@ -1415,7 +1415,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 32,
@@ -1452,7 +1452,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: LetVariable {
                                 stmt: 19,
@@ -1488,7 +1488,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 34,
@@ -1546,7 +1546,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 35,
@@ -1600,7 +1600,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 36,
@@ -1625,7 +1625,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     KiRepr {
                         ki_domain_repr: StmtNotReturned(
@@ -1673,7 +1673,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 38,
@@ -1698,7 +1698,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     KiRepr {
                         ki_domain_repr: StmtNotReturned(
@@ -1745,7 +1745,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 40,
@@ -1782,7 +1782,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 41,
@@ -1829,7 +1829,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 42,
@@ -1872,7 +1872,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: LetVariable {
                                 stmt: 6,
@@ -1926,7 +1926,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: LetVariable {
                                 stmt: 8,
@@ -1963,7 +1963,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 45,
@@ -2001,7 +2001,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 46,
@@ -2048,7 +2048,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 47,
@@ -2073,7 +2073,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     KiRepr {
                         ki_domain_repr: StmtNotReturned(
@@ -2104,7 +2104,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 49,
@@ -2151,7 +2151,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 50,
@@ -2205,7 +2205,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: LetVariable {
                                 stmt: 9,
@@ -2237,7 +2237,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 53,
@@ -2328,7 +2328,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 54,
@@ -2384,7 +2384,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 55,
@@ -2420,7 +2420,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 56,
@@ -2445,7 +2445,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     KiRepr {
                         ki_domain_repr: StmtNotReturned(
@@ -2492,7 +2492,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 58,
@@ -2529,7 +2529,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: LetVariable {
                                 stmt: 19,
@@ -2565,7 +2565,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 60,
@@ -2623,7 +2623,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 61,
@@ -2688,7 +2688,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 62,
@@ -2742,7 +2742,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: LetVariable {
                                 stmt: 9,
@@ -2767,7 +2767,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     KiRepr {
                         ki_domain_repr: StmtNotReturned(
@@ -2808,7 +2808,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: LetVariable {
                                 stmt: 22,
@@ -2833,7 +2833,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     KiRepr {
                         ki_domain_repr: StmtNotReturned(
@@ -2859,7 +2859,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 68,
@@ -2924,7 +2924,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 69,
@@ -2956,7 +2956,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 70,
@@ -3062,7 +3062,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 71,
@@ -3118,7 +3118,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 72,
@@ -3183,7 +3183,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: LetVariable {
                                 stmt: 13,
@@ -3237,7 +3237,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 74,
@@ -3274,7 +3274,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 75,
@@ -3321,7 +3321,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 76,
@@ -3357,7 +3357,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 77,
@@ -3393,7 +3393,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 78,
@@ -3418,7 +3418,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     KiRepr {
                         ki_domain_repr: StmtNotReturned(
@@ -3465,7 +3465,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 81,
@@ -3497,7 +3497,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 82,
@@ -3588,7 +3588,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 83,
@@ -3644,7 +3644,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 84,
@@ -3669,7 +3669,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     KiRepr {
                         ki_domain_repr: StmtNotReturned(
@@ -3716,7 +3716,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 86,
@@ -3753,7 +3753,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 87,
@@ -3800,7 +3800,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 88,
@@ -3825,7 +3825,7 @@
                         source: KiReprSource::ValItem(
                             FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                         ),
-                        caching_class: ValItem,
+                        caching_class: Val,
                     },
                     KiRepr {
                         ki_domain_repr: ConditionSatisfied(
@@ -3872,7 +3872,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 90,
@@ -3909,7 +3909,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 91,
@@ -3956,7 +3956,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 92,
@@ -4009,7 +4009,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: LetVariable {
                                 stmt: 21,
@@ -4063,7 +4063,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 94,
@@ -4097,7 +4097,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 95,
@@ -4140,7 +4140,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 96,
@@ -4176,7 +4176,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 97,
@@ -4229,7 +4229,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 98,
@@ -4287,7 +4287,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 99,
@@ -4324,7 +4324,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 100,
@@ -4371,7 +4371,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 101,
@@ -4424,7 +4424,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: LetVariable {
                                 stmt: 21,
@@ -4478,7 +4478,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 103,
@@ -4512,7 +4512,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 104,
@@ -4555,7 +4555,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 105,
@@ -4608,7 +4608,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: LetVariable {
                                 stmt: 21,
@@ -4662,7 +4662,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 107,
@@ -4696,7 +4696,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 108,
@@ -4739,7 +4739,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 109,
@@ -4775,7 +4775,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 110,
@@ -4828,7 +4828,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 111,
@@ -4886,7 +4886,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 112,
@@ -4923,7 +4923,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 113,
@@ -4970,7 +4970,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 114,
@@ -5017,7 +5017,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: LetVariable {
                                 stmt: 22,
@@ -5054,7 +5054,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 116,
@@ -5101,7 +5101,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 117,
@@ -5137,7 +5137,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 118,
@@ -5182,7 +5182,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Stmt {
                                 stmt: 0,
@@ -5225,7 +5225,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Stmt {
                                 stmt: 1,
@@ -5261,7 +5261,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Stmt {
                                 stmt: 3,
@@ -5297,7 +5297,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Stmt {
                                 stmt: 4,
@@ -5340,7 +5340,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Stmt {
                                 stmt: 11,
@@ -5400,7 +5400,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Stmt {
                                 stmt: 12,
@@ -5445,7 +5445,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Stmt {
                                 stmt: 15,
@@ -5481,7 +5481,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Stmt {
                                 stmt: 16,
@@ -5524,7 +5524,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Stmt {
                                 stmt: 17,
@@ -5567,7 +5567,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Stmt {
                                 stmt: 18,
@@ -5604,7 +5604,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Stmt {
                                 stmt: 20,
@@ -5674,7 +5674,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Stmt {
                                 stmt: 23,
@@ -5719,7 +5719,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Stmt {
                                 stmt: 25,
@@ -5762,7 +5762,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Stmt {
                                 stmt: 26,
@@ -5807,7 +5807,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Stmt {
                                 stmt: 27,
@@ -5850,7 +5850,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Stmt {
                                 stmt: 28,
@@ -5889,7 +5889,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Stmt {
                                 stmt: 20,
@@ -5959,7 +5959,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Stmt {
                                 stmt: 23,
@@ -6015,7 +6015,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 84,
@@ -6060,7 +6060,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Stmt {
                                 stmt: 25,
@@ -6103,7 +6103,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Stmt {
                                 stmt: 26,
@@ -6148,7 +6148,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Stmt {
                                 stmt: 27,
@@ -6191,7 +6191,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Stmt {
                                 stmt: 28,
@@ -6227,7 +6227,7 @@
                                 source: KiReprSource::ValItem(
                                     FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
-                                caching_class: ValItem,
+                                caching_class: Val,
                             },
                             source: Expr {
                                 expr: 118,

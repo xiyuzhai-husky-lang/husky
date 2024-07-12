@@ -367,18 +367,18 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Form(
-                    MajorFormSynNodePath(`mnist::input`, `Val`, (0)),
+                    MajorFormSynNodePath(`mnist::INPUT`, `StaticVar`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Val(
-                        MajorValSynNodeDecl {
-                            syn_node_path: MajorFormSynNodePath(`mnist::input`, `Val`, (0)),
+                    FormSynNodeDecl::StaticVar(
+                        MajorStaticVarSynNodeDecl {
+                            syn_node_path: MajorFormSynNodePath(`mnist::INPUT`, `StaticVar`, (0)),
                             colon_token: Ok(
                                 ColonRegionalToken(
                                     RegionalTokenIdx(
-                                        4,
+                                        5,
                                     ),
                                 ),
                             ),
@@ -387,17 +387,8 @@ SynNodeDeclSheet {
                                     expr: 0,
                                 },
                             ),
-                            eq_token: Err(
-                                SynNodeDeclError::Original(
-                                    OriginalSynNodeDeclError::ExpectedEqTokenForMemo(
-                                        RegionalTokenStreamState {
-                                            next_regional_token_idx: RegionalTokenIdx(
-                                                6,
-                                            ),
-                                            drained: false,
-                                        },
-                                    ),
-                                ),
+                            opt_eq_token: Ok(
+                                None,
                             ),
                             expr: None,
                             syn_expr_region: SynExprRegion {
@@ -406,7 +397,7 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::ItemDecl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                MajorFormSynNodePath(`mnist::input`, `Val`, (0)),
+                                                MajorFormSynNodePath(`mnist::INPUT`, `StaticVar`, (0)),
                                             ),
                                         ),
                                     ),
@@ -431,7 +422,7 @@ SynNodeDeclSheet {
                                                     IdentRegionalToken {
                                                         ident: `BinaryImage28`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            5,
+                                                            6,
                                                         ),
                                                     },
                                                 ),

@@ -16,7 +16,7 @@ use malamute::*
 use mnist::*
 
 // ad hoc
-// const task: impl Task = new_binary_dataset()
+// const TASK: impl Task = new_binary_dataset()
 
 val main: Class MnistLabel =
     is_one?

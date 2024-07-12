@@ -1,7 +1,7 @@
 use crate::*
 
 pub val connected_components: []ConnectedComponent =
-    find_connected_components(input)
+    find_connected_components(INPUT)
 
 pub val major_connected_component: ~ConnectedComponent =
     let mut i0 = 0

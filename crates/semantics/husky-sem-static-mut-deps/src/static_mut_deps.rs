@@ -6,8 +6,11 @@ use vec_like::OrderedSmallVecSet;
 pub struct SemStaticMutDeps(OrderedSmallVecSet<ItemPath, 4>);
 
 impl SemStaticMutDeps {
-    /// returns whether `self` is changed
-    pub(crate) fn merge(&mut self, other: &Self, counter: &mut EffectiveMergeCounter) {
+    pub(crate) fn merge(&mut self, other: &Self) {
+        self.0.extend(&other.0);
+    }
+
+    pub(crate) fn merge_counted(&mut self, other: &Self, counter: &mut EffectiveMergeCounter) {
         let old_len = self.0.len();
         self.0.extend(&other.0);
         if old_len != self.0.len() {
@@ -28,5 +31,23 @@ pub(crate) struct EffectiveMergeCounter {
 impl EffectiveMergeCounter {
     pub fn count(&self) -> usize {
         self.count
+    }
+}
+
+impl std::ops::Deref for SemStaticMutDeps {
+    type Target = OrderedSmallVecSet<ItemPath, 4>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+
+impl IntoIterator for &SemStaticMutDeps {
+    type Item = ItemPath;
+
+    type IntoIter = impl Iterator<Item = Self::Item>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.0.iter().copied()
     }
 }

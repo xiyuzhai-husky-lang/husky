@@ -786,25 +786,25 @@ AstSheet {
                 },
                 item_kind: EntityKind::MajorItem {
                     module_item_kind: MajorItemKind::Form(
-                        MajorFormKind::Val,
+                        MajorFormKind::StaticVar,
                     ),
                     connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
-                    ident: `input`,
+                    ident: `INPUT`,
                     token_idx: TokenIdx(
-                        118,
+                        119,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        119,
+                        120,
                     ),
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist::input`, `Val`),
+                    path: FormPath(`mnist::INPUT`, `StaticVar`),
                     body: None,
                 },
             },

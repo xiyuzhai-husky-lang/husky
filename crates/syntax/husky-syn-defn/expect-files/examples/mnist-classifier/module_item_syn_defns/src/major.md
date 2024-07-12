@@ -132,7 +132,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist::input`, `Val`),
+                                                FormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         ),
                                     ),
@@ -182,7 +182,7 @@
                                 SynPrincipalEntityPathExpr::Root {
                                     path_name_token: PathNameRegionalToken::Ident(
                                         IdentRegionalToken {
-                                            ident: `input`,
+                                            ident: `INPUT`,
                                             regional_token_idx: RegionalTokenIdx(
                                                 3,
                                             ),
@@ -190,7 +190,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist::input`, `Val`),
+                                            FormPath(`mnist::INPUT`, `StaticVar`),
                                         ),
                                     ),
                                 },

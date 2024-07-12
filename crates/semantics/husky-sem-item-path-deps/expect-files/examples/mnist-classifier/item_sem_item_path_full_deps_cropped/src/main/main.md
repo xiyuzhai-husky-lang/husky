@@ -97,7 +97,7 @@ Some(
         ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_point`),
         ItemPath(`mnist_classifier::digits::zero::almost_closed`),
         ItemPath(`mnist_classifier::connected_component::find_connected_components`),
-        ItemPath(`mnist::input`),
+        ItemPath(`mnist::INPUT`),
         ItemPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`),
         ItemPath(`mnist_classifier::digits::seven::leftupcc_pattern`),
         ItemPath(`mnist_classifier::digits::seven::leftdowncc_pattern`),

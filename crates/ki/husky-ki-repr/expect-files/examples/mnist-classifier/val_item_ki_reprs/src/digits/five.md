@@ -19,7 +19,7 @@
             source: KiReprSource::ValItem(
                 FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
             ),
-            caching_class: ValItem,
+            caching_class: Val,
         },
     ),
 ]

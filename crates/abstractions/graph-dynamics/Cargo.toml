@@ -15,6 +15,9 @@ keywords.workspace = true
 propagate.workspace = true
 salsa.workspace = true
 vec-like.workspace = true
+# utils
+husky-debug-utils.workspace = true
+husky-print-utils.workspace = true
 
 [dev-dependencies]
 salsa.workspace = true

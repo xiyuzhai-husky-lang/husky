@@ -505,11 +505,14 @@ TokenSheetData {
         ),
         TokenData::Keyword(
             Keyword::Form(
-                Val,
+                Static,
             ),
         ),
+        TokenData::Keyword(
+            Keyword::Var,
+        ),
         TokenData::Ident(
-            `input`,
+            `INPUT`,
         ),
         TokenData::Punctuation(
             Punctuation(
@@ -518,11 +521,6 @@ TokenSheetData {
         ),
         TokenData::Ident(
             `BinaryImage28`,
-        ),
-        TokenData::Punctuation(
-            Punctuation(
-                PunctuationMapped::Semicolon,
-            ),
         ),
     ],
     token_verses: TokenVerses {

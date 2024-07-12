@@ -55,7 +55,7 @@ Some(
         ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
         ItemPath(`mnist::BinaryImage28`),
         ItemPath(`mnist_classifier::connected_component::find_connected_components`),
-        ItemPath(`mnist::input`),
+        ItemPath(`mnist::INPUT`),
         ItemPath(`core::raw_bits::r32(0)::ctz`),
         ItemPath(`mnist::BinaryImage28(0)::new_zeros`),
         ItemPath(`mnist_classifier::connected_component::horizontal_extend`),

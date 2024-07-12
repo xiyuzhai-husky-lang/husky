@@ -10,8 +10,9 @@ pub mod lazy_expr;
 pub mod lazy_loop_group;
 pub mod lazy_pattern_expr;
 pub mod lazy_stmt;
+pub mod static_var;
 pub mod submodule;
-pub mod val_item;
+pub mod val;
 
 use self::eager_call::*;
 use self::eager_call_input::*;
@@ -24,7 +25,7 @@ use self::lazy_expr::*;
 use self::lazy_pattern_expr::*;
 use self::lazy_stmt::*;
 use self::submodule::*;
-use self::val_item::*;
+use self::val::*;
 use crate::{
     registry::trace_path::{TracePathDisambiguator, TracePathRegistry},
     *,
@@ -48,6 +49,7 @@ use husky_trace_protocol::{
 };
 use husky_vfs::path::crate_path::CrateKind;
 use husky_vfs::path::crate_path::CratePath;
+use static_var::{StaticVarTraceData, StaticVarTracePathData};
 use vec_like::VecPairMap;
 
 #[salsa::interned(db = TraceDb, jar = TraceJar, constructor = new_inner)]
@@ -61,7 +63,8 @@ pub struct TracePath {
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum TracePathData {
     Submodule(SubmoduleTracePathData),
-    ValItem(ValItemTracePathData),
+    ValItem(ValTracePathData),
+    StaticVarItem(StaticVarTracePathData),
     LazyCallInput(LazyCallInputTracePathData),
     LazyCall(LazyCallTracePathData),
     LazyExpr(LazyExprTracePathData),
@@ -104,7 +107,8 @@ impl Into<TraceId> for Trace {
 #[enum_class::from_variants]
 pub enum TraceData {
     Submodule(SubmoduleTraceData),
-    ValItem(ValItemTraceData),
+    Val(ValTraceData),
+    StaticVar(StaticVarTraceData),
     LazyCallInput(LazyCallInputTraceData),
     LazyCall(LazyCallTraceData),
     LazyExpr(LazyExprTraceData),
@@ -137,14 +141,16 @@ impl Trace {
 
     fn from_form_path(form_path: MajorFormPath, db: &::salsa::Db) -> Option<Self> {
         match form_path.kind(db) {
-            MajorFormKind::Val => Some(Trace::from_val_item_path(form_path, db).into()),
+            MajorFormKind::Val => Some(Trace::from_major_val_form_path(form_path, db).into()),
+            MajorFormKind::StaticVar => {
+                Some(Trace::from_major_static_var_form_path(form_path, db).into())
+            }
             MajorFormKind::Compterm
             | MajorFormKind::Ritchie(_)
             | MajorFormKind::TypeAlias
             | MajorFormKind::TypeVar
             | MajorFormKind::Conceptual => None,
             MajorFormKind::StaticMut => todo!(),
-            MajorFormKind::StaticVar => todo!(),
         }
     }
 
@@ -194,7 +200,8 @@ impl TraceData {
     pub fn trace_kind(&self) -> TraceKind {
         match self {
             TraceData::Submodule(_) => TraceKind::Submodule,
-            TraceData::ValItem(_) => TraceKind::ValItem,
+            TraceData::Val(_) => TraceKind::Val,
+            TraceData::StaticVar(_) => TraceKind::StaticVar,
             TraceData::LazyCallInput(_) => TraceKind::LazyCallInput,
             TraceData::LazyCall(_) => TraceKind::LazyCall,
             TraceData::LazyExpr(_) => TraceKind::LazyExpr,
@@ -210,7 +217,8 @@ impl TraceData {
 
     pub fn ki_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<KiRepr> {
         match self {
-            TraceData::ValItem(slf) => Some(slf.ki_repr(db)),
+            TraceData::Val(slf) => Some(slf.ki_repr(db)),
+            TraceData::StaticVar(slf) => Some(slf.ki_repr(db)),
             TraceData::LazyExpr(slf) => slf.ki_repr(trace_id, db),
             TraceData::LazyPattern(slf) => slf.ki_repr(trace_id, db),
             TraceData::LazyCall(slf) => Some(slf.ki_repr(db)),
@@ -250,7 +258,8 @@ impl TraceData {
     fn view_lines(&self, trace_id: Trace, db: &::salsa::Db) -> TraceViewLines {
         match self {
             TraceData::Submodule(slf) => slf.view_lines(db),
-            TraceData::ValItem(slf) => slf.view_lines(db),
+            TraceData::Val(slf) => slf.view_lines(db),
+            TraceData::StaticVar(slf) => slf.view_lines(db),
             TraceData::LazyCallInput(slf) => slf.view_lines(db),
             TraceData::LazyCall(slf) => slf.view_lines(db),
             TraceData::LazyExpr(slf) => slf.view_lines(db),
@@ -267,7 +276,8 @@ impl TraceData {
     fn have_subtraces(&self, db: &::salsa::Db) -> bool {
         match self {
             TraceData::Submodule(slf) => slf.have_subtraces(),
-            TraceData::ValItem(slf) => slf.have_subtraces(db),
+            TraceData::Val(slf) => slf.have_subtraces(db),
+            TraceData::StaticVar(slf) => slf.have_subtraces(db),
             TraceData::LazyCallInput(slf) => slf.have_subtraces(),
             TraceData::LazyCall(slf) => slf.have_subtraces(db),
             TraceData::LazyExpr(slf) => slf.have_subtraces(db),
@@ -284,7 +294,8 @@ impl TraceData {
     fn subtraces(&self, trace_id: Trace, db: &::salsa::Db) -> Vec<Trace> {
         match self {
             TraceData::Submodule(slf) => slf.subtraces(db),
-            TraceData::ValItem(slf) => slf.subtraces(trace_id, db),
+            TraceData::Val(slf) => slf.subtraces(trace_id, db),
+            TraceData::StaticVar(slf) => slf.subtraces(trace_id, db),
             TraceData::LazyCallInput(slf) => slf.subtraces(),
             TraceData::LazyCall(slf) => slf.subtraces(trace_id, db),
             TraceData::LazyExpr(slf) => slf.subtraces(trace_id, db),
@@ -300,8 +311,9 @@ impl TraceData {
 
     fn ki_repr_expansion(&self, trace_id: Trace, db: &::salsa::Db) -> KiReprExpansion {
         match self {
-            TraceData::Submodule(_) => unreachable!(),
-            TraceData::ValItem(slf) => slf.ki_repr_expansion(trace_id, db),
+            TraceData::Submodule(_) => unreachable!("no subtraces, thus no expansion"),
+            TraceData::Val(slf) => slf.ki_repr_expansion(trace_id, db),
+            TraceData::StaticVar(slf) => unreachable!("no subtraces, thus no expansion"),
             TraceData::LazyCallInput(_) => todo!(),
             TraceData::LazyCall(_) => todo!(),
             TraceData::LazyExpr(slf) => slf.ki_repr_expansion(db),

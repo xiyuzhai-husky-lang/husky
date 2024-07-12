@@ -53,7 +53,7 @@ impl IsLinkageImpl for VirtualLinkageImpl {
                 path,
                 instantiation,
             } => todo!(),
-            LinkageData::MajorStatic {
+            LinkageData::MajorStaticVar {
                 path,
                 instantiation,
             } => todo!(),
