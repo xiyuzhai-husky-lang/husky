@@ -19,25 +19,6 @@ use husky_visual_protocol::synchrotron::VisualSynchrotron;
 use serde::{Deserialize, Serialize};
 use std::marker::PhantomData;
 
-#[deprecated]
-pub struct MlTask<Figure>
-where
-    Figure: IsFigure<MlPedestal>,
-{
-    _marker: PhantomData<Figure>,
-}
-
-impl<Figure> MlTask<Figure>
-where
-    Figure: IsFigure<MlPedestal>,
-{
-    pub fn new() -> Self {
-        Self {
-            _marker: PhantomData,
-        }
-    }
-}
-
 pub struct MlDevAscension<Figure>(PhantomData<Figure>)
 where
     Figure: IsFigure<MlPedestal>;

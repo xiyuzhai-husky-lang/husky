@@ -4122,14 +4122,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-bc-base"
-version = "0.1.0"
-dependencies = [
- "husky-ndp-task",
- "shifted-unsigned-int",
-]
-
-[[package]]
 name = "husky-bindgen-utils"
 version = "0.1.0"
 dependencies = [
@@ -4151,27 +4143,6 @@ dependencies = [
  "smallvec",
  "version-stamp",
 ]
-
-[[package]]
-name = "husky-boot-task"
-version = "0.1.0"
-dependencies = [
- "husky-boot-linktime",
- "husky-dev-comptime",
- "husky-linkage-impl",
- "husky-standard-value",
- "husky-task",
- "husky-trace-protocol",
- "husky-visual-protocol",
-]
-
-[[package]]
-name = "husky-boot-task-interface"
-version = "0.1.0"
-
-[[package]]
-name = "husky-boot-task-interface-macros"
-version = "0.1.0"
 
 [[package]]
 name = "husky-borrow-checker"
@@ -4985,10 +4956,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-gohan-shard"
-version = "0.1.0"
-
-[[package]]
 name = "husky-graphics2d-visual-protocol"
 version = "0.1.0"
 dependencies = [
@@ -5328,27 +5295,6 @@ dependencies = [
  "serde_json",
  "thiserror",
 ]
-
-[[package]]
-name = "husky-io-task"
-version = "0.1.0"
-dependencies = [
- "dashmap 6.0.1",
- "either",
- "husky-ki",
- "husky-mono-linktime",
- "husky-standard-value",
- "husky-task",
- "husky-vm",
-]
-
-[[package]]
-name = "husky-io-task-interface"
-version = "0.1.0"
-
-[[package]]
-name = "husky-io-task-interface-macros"
-version = "0.1.0"
 
 [[package]]
 name = "husky-io-utils"
@@ -5804,21 +5750,6 @@ dependencies = [
 
 [[package]]
 name = "husky-namekian-grammar-rules"
-version = "0.1.0"
-
-[[package]]
-name = "husky-ndp-task"
-version = "0.1.0"
-dependencies = [
- "husky-ndp-task-interface",
-]
-
-[[package]]
-name = "husky-ndp-task-interface"
-version = "0.1.0"
-
-[[package]]
-name = "husky-ndp-task-interface-macros"
 version = "0.1.0"
 
 [[package]]

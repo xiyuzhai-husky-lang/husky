@@ -4,7 +4,6 @@ members = [
     "crates/apps/*",
     "crates/archs/*",
     "crates/benchmarks/*",
-    "crates/bc/*",
     "crates/comptime/*",
     "crates/corgi/*",
     "crates/cybertron/*",
@@ -308,15 +307,6 @@ husky-syn-defn = { path = "crates/syntax/husky-syn-defn" }
 husky-syn-opr = { path = "crates/syntax/husky-syn-opr" }
 husky-entity-tree = { path = "crates/syntax/husky-entity-tree" }
 # tasks
-husky-boot-task = { path = "crates/tasks/husky-boot-task" }
-husky-boot-task-interface = { path = "crates/tasks/husky-boot-task-interface" }
-husky-boot-task-interface-macros = { path = "crates/tasks/husky-boot-task-interface-macros" }
-husky-ndp-task = { path = "crates/tasks/husky-ndp-task" }
-husky-ndp-task-interface = { path = "crates/tasks/husky-ndp-task-interface" }
-husky-ndp-task-interface-macros = { path = "crates/tasks/husky-ndp-task-interface-macros" }
-husky-io-task = { path = "crates/tasks/husky-io-task" }
-husky-io-task-interface = { path = "crates/tasks/husky-io-task-interface" }
-husky-io-task-interface-macros = { path = "crates/tasks/husky-io-task-interface-macros" }
 husky-ml-task = { path = "crates/tasks/husky-ml-task" }
 husky-ml-task-interface = { path = "crates/tasks/husky-ml-task-interface" }
 husky-ml-task-interface-macros = { path = "crates/tasks/husky-ml-task-interface-macros" }
