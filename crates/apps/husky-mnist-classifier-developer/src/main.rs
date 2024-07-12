@@ -9,6 +9,7 @@ type Task = MlTask<Graphics2dFigure<MlPedestal>>;
 fn main() {
     let task = Task::new();
     let path: PathBuf = "examples/mnist-classifier".into();
-    let devtime: Devtime<MlDevAscension<()>> = Devtime::new(&path, None).expect("valid");
+    let devtime: Devtime<MlDevAscension<Graphics2dFigure<MlPedestal>>> =
+        Devtime::new(&path, None).expect("valid");
     devtime.serve_traces(AD_HOC_WEBSOCKET_ADDRESS)
 }
