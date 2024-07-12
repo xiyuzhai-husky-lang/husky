@@ -10,12 +10,12 @@ egui_dock.workspace = true
 tokio.workspace = true
 tracing-subscriber = "0.3.16"
 # abstractions
-ui = { path = "../../abstractions/ui" }
-enum-index = { path = "../../abstractions/enum-index" }
+ui.workspace = true
+enum-index.workspace = true
 # gui
-husky-gui = { path = "../../gui/husky-gui" }
-husky-code-editor = { path = "../../gui/husky-code-editor" }
-husky-trace-doc = { path = "../../gui/husky-trace-doc", features = [
+husky-gui.workspace = true
+husky-code-editor.workspace = true
+husky-trace-doc = { workspace = true, features = [
     # ad hoc
     "mock",
     "egui"

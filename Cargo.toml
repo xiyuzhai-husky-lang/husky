@@ -229,6 +229,10 @@ husky-toolchain-config = { path = "crates/fs/husky-toolchain-config" }
 husky-vfs = { path = "crates/fs/husky-vfs" }
 # gui
 egui_dock = { path = "crates/gui/egui-dock" }
+husky-code-editor = { path = "crates/gui/husky-code-editor" }
+husky-color = { path = "crates/gui/husky-color" }
+husky-gui = { path = "crates/gui/husky-gui" }
+husky-trace-doc = { path = "crates/gui/husky-trace-doc" }
 # hir
 husky-hir-decl = { path = "crates/hir/husky-hir-decl" }
 husky-hir-defn = { path = "crates/hir/husky-hir-defn" }
