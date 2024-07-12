@@ -20,6 +20,6 @@ fn main() -> Result<(), eframe::Error> {
     eframe::run_native(
         "Husky Mnist Game",
         options,
-        Box::new(|_cc| Box::new(MnistApp::default())),
+        Box::new(|_cc| Ok(Box::new(MnistApp::default()))),
     )
 }
