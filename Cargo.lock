@@ -5761,7 +5761,6 @@ dependencies = [
  "husky-graphics2d-visual-protocol",
  "husky-gui",
  "husky-print-utils",
- "husky-standard-devsoul",
  "husky-standard-devsoul-interface",
  "husky-standard-trace-protocol",
  "husky-token-protocol",
