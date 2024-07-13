@@ -1,6 +1,6 @@
 use crate::*;
 use husky_devsoul::{
-    devsoul::{dev_eval_context, with_runtime_and_base_point, IsDevsoul},
+    devsoul::{dev_eval_context, with_runtime, IsDevsoul},
     helpers::{DevsoulException, DevsoulValue},
 };
 use husky_devsoul_interface::ki_repr::KiArgumentReprInterface;
@@ -14,23 +14,18 @@ use husky_term_prelude::literal::Literal;
 use husky_value_interface::IsValue;
 
 impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
-    pub fn eval_ki_repr_at_pedestal(
-        &self,
-        ki_repr: KiRepr,
-        pedestal: Devsoul::Pedestal,
-    ) -> DevsoulKiControlFlow<Devsoul> {
-        with_runtime_and_base_point::<Devsoul, _, _>(self, pedestal, || self.eval_ki_repr(ki_repr))
-    }
+    // pub fn eval_ki_repr(&self, ki_repr: KiRepr) -> DevsoulKiControlFlow<Devsoul> {
+    //     with_runtime::<Devsoul, _, _>(self, || self.eval_ki_repr(ki_repr))
+    // }
 
-    pub fn eval_ki_domain_repr_at_pedestal(
+    pub fn eval_ki_domain_repr(
         &self,
         ki_domain_repr: KiDomainRepr,
-        pedestal: Devsoul::Pedestal,
     ) -> KiControlFlow<(), Infallible, DevsoulException<Devsoul>> {
         match ki_domain_repr {
             KiDomainRepr::Omni => KiControlFlow::Continue(()),
             KiDomainRepr::ConditionSatisfied(condition_ki_repr) => {
-                match self.eval_ki_repr_at_pedestal(condition_ki_repr, pedestal) {
+                match self.eval_ki_repr(condition_ki_repr) {
                     KiControlFlow::Continue(value) => match value.to_bool() {
                         true => KiControlFlow::Continue(()),
                         false => KiControlFlow::Undefined,
@@ -43,7 +38,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                 }
             }
             KiDomainRepr::ConditionNotSatisfied(condition_ki_repr) => {
-                match self.eval_ki_repr_at_pedestal(condition_ki_repr, pedestal) {
+                match self.eval_ki_repr(condition_ki_repr) {
                     KiControlFlow::Continue(value) => match value.to_bool() {
                         true => KiControlFlow::Undefined,
                         false => KiControlFlow::Continue(()),
@@ -55,20 +50,19 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                     KiControlFlow::Throw(_) => todo!(),
                 }
             }
-            KiDomainRepr::StmtNotReturned(stmt_ki_repr) => {
-                match self.eval_ki_repr_at_pedestal(stmt_ki_repr, pedestal) {
-                    KiControlFlow::Continue(_) => KiControlFlow::Continue(()),
-                    KiControlFlow::LoopContinue => todo!(),
-                    KiControlFlow::LoopExit(_) => todo!(),
-                    KiControlFlow::Return(_) | KiControlFlow::Undefined => KiControlFlow::Undefined,
-                    KiControlFlow::Throw(_) => todo!(),
-                }
-            }
+            KiDomainRepr::StmtNotReturned(stmt_ki_repr) => match self.eval_ki_repr(stmt_ki_repr) {
+                KiControlFlow::Continue(_) => KiControlFlow::Continue(()),
+                KiControlFlow::LoopContinue => todo!(),
+                KiControlFlow::LoopExit(_) => todo!(),
+                KiControlFlow::Return(_) | KiControlFlow::Undefined => KiControlFlow::Undefined,
+                KiControlFlow::Throw(_) => todo!(),
+            },
             KiDomainRepr::ExprNotReturned(_) => todo!(),
         }
     }
 
-    fn eval_ki_repr(&self, ki_repr: KiRepr) -> DevsoulKiControlFlow<Devsoul> {
+    pub fn eval_ki_repr(&self, ki_repr: KiRepr) -> DevsoulKiControlFlow<Devsoul> {
+        todo!("set up dev eval context");
         // todo: consider domain
         let db = self.db();
         let result: DevsoulKiControlFlow<Devsoul> = match ki_repr.opn(db) {
@@ -247,12 +241,12 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             }
             KiOpn::Unwrap {} => {
                 use husky_print_utils::p;
-                let pedestal = Devsoul::dev_eval_context_local_key()
-                    .get()
-                    .expect("`DEV_EVAL_CONTEXT` not set")
-                    .pedestal();
-                p!(pedestal);
-                p!(ki_repr.source(db).debug_info(db));
+                // let pedestal = Devsoul::dev_eval_context_local_key()
+                //     .get()
+                //     .expect("`DEV_EVAL_CONTEXT` not set")
+                //     .pedestal();
+                // p!(pedestal);
+                // p!(ki_repr.source(db).debug_info(db));
                 todo!()
             }
             KiOpn::Index => {
@@ -337,6 +331,7 @@ fn ki_repr_eval_works() {
             continue;
         }
         let ki_repr = KiRepr::new_val_item(form_path, db);
-        runtime.eval_ki_repr_at_pedestal(ki_repr, DeprecatedInputId::from_index(0).into());
+        todo!("set up pedestal");
+        runtime.eval_ki_repr(ki_repr);
     }
 }

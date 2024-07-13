@@ -26,10 +26,9 @@ where
     ) -> Result<Self, ()> {
         let mut stalks: Vec<Stalk> = vec![];
         for i in 0..5 {
-            let input_id = __InputId::from_index(i);
-            if let Some(stalk) =
-                Self::from_features_aux(ki_domain_repr, input_id, arguments, label0)?
-            {
+            todo!("use IsMlTask");
+            // let input_id = __InputId::from_index(i);
+            if let Some(stalk) = Self::from_features_aux(ki_domain_repr, arguments, label0)? {
                 stalks.push(stalk)
             }
         }
@@ -38,11 +37,10 @@ where
 
     fn from_features_aux(
         ki_domain_repr: __ValDomainReprInterface,
-        input_id: __InputId,
         arguments: &[__KiReprInterface],
         label0: Label,
     ) -> Result<Option<Stalk>, ()> {
-        match __eval_ki_domain_repr_interface_at_input(ki_domain_repr, input_id) {
+        match __eval_ki_domain_repr_interface(ki_domain_repr) {
             KiControlFlow::Continue(_) => (),
             KiControlFlow::LoopContinue => todo!(),
             KiControlFlow::LoopExit(_) => todo!(),
@@ -52,7 +50,7 @@ where
         };
         let mut features: SmallVec<[NotNan<f32>; 4]> = smallvec![];
         for &argument in arguments {
-            let feature = match __eval_ki_repr_interface_at_input(argument, input_id, None) {
+            let feature = match __eval_ki_repr_interface(argument, None) {
                 KiControlFlow::Continue(feature) => feature,
                 KiControlFlow::LoopContinue => todo!(),
                 KiControlFlow::LoopExit(_) => todo!(),

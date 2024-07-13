@@ -42,16 +42,16 @@ pub trait IsDevsoul: 'static {
     }
 
     /// final
-    fn get_val_visual(
+    fn get_ki_visual(
         ki_repr: KiReprInterface,
-        pedestal: Self::Pedestal,
         runtime: &dyn IsDevRuntimeDyn<Self::LinkageImpl>,
         visual_synchrotron: &mut VisualSynchrotron,
         val_visual_cache: &mut ValVisualCache<Self::Pedestal>,
     ) -> Visual {
+        let pedestal = todo!();
         val_visual_cache.get_visual(ki_repr, pedestal, || {
             use husky_value_interface::IsValue;
-            match runtime.eval_ki_repr_interface_dyn(ki_repr, pedestal) {
+            match runtime.eval_ki_repr_interface_dyn(ki_repr) {
                 KiControlFlow::Continue(value) => value.visualize(visual_synchrotron),
                 KiControlFlow::LoopContinue => todo!(),
                 KiControlFlow::LoopExit(_) => todo!(),
@@ -65,10 +65,9 @@ pub trait IsDevsoul: 'static {
 
 pub trait IsRuntimeStorage<LinkageImpl: IsLinkageImpl>: Default + Send {
     // todo: consider caching policy
-    fn get_or_try_init_val_value(
+    fn get_or_try_init_ki_value(
         &self,
-        val: Ki,
-        pedestal: LinkageImpl::Pedestal,
+        ki: Ki,
         f: impl FnOnce() -> LinkageImplKiControlFlow<LinkageImpl>,
         db: &::salsa::Db,
     ) -> LinkageImplKiControlFlow<LinkageImpl>;
@@ -77,7 +76,6 @@ pub trait IsRuntimeStorage<LinkageImpl: IsLinkageImpl>: Default + Send {
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        pedestal: LinkageImpl::Pedestal,
         slf: &'static std::ffi::c_void,
         f: impl FnOnce(&'static std::ffi::c_void) -> LinkageImplKiControlFlow<LinkageImpl>,
     ) -> LinkageImplKiControlFlow<LinkageImpl>;
@@ -106,21 +104,17 @@ pub fn with_dev_eval_context<Devsoul: IsDevsoul, R>(
     r
 }
 
-pub fn with_runtime_and_base_point<
+pub fn with_runtime<
     Devsoul: IsDevsoul,
     Runtime: IsDevRuntime<<Devsoul::Linktime as IsLinktime>::LinkageImpl>,
     R,
 >(
     runtime: &Runtime,
-    base_point: <<Devsoul::Linktime as IsLinktime>::LinkageImpl as IsLinkageImpl>::Pedestal,
     f: impl FnOnce() -> R,
 ) -> R {
     let _local_dev_eval_context = Devsoul::dev_eval_context_local_key();
     with_dev_eval_context::<Devsoul, _>(
-        DevEvalContext::new(
-            unsafe { runtime.cast_to_static_self_static_ref() },
-            base_point,
-        ),
+        DevEvalContext::new(unsafe { runtime.cast_to_static_self_static_ref() }),
         f,
     )
 }
