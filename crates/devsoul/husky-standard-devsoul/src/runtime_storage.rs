@@ -96,22 +96,4 @@ impl IsRuntimeStorage<LinkageImpl> for StandardDevRuntimeStorage {
             }
         }
     }
-
-    fn debug_drop(self) {
-        println!("{}", self.ki_values.len());
-        self.ki_values.iter().for_each(|_| ());
-        // forget(self.val_item_values);
-        // forget(self.memo_field_values);
-        // todo!();
-        // for (key, mu) in self.val_item_values {
-        //     todo!();
-        //     let lock = &mu.lock().unwrap();
-        //     let (_, value) = lock.as_ref().unwrap();
-        //     todo!();
-        //     println!("{:?}", value);
-        //     todo!();
-        // }
-        // todo!();
-        // forget(self.memo_field_values);
-    }
 }
