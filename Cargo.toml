@@ -55,7 +55,7 @@ uninlined_format_args = "warn"
 blocks_in_if_conditions = "allow"
 
 [profile.dev]
-opt-level = 0
+opt-level = 1
 panic = "unwind"
 
 [profile.test]

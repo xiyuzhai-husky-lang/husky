@@ -2,7 +2,7 @@
 
 # Duration over which to change the brightness, in seconds
 DURATION=0.5
-MONITOR=XWAYLAND1
+MONITOR=HDMI-2
 
 # Define a cleanup function
 cleanup() {
