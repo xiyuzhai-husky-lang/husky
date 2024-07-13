@@ -5,6 +5,7 @@ authors = ["my_name"]
 edition = "2021"
 
 [dependencies]
+shifted-unsigned-int.workspace = true
 husky-core.workspace = true
 husky-linkage-impl.workspace = true
 husky-standard-devsoul-interface.workspace = true

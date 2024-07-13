@@ -1,8 +1,8 @@
 use self::op::history::{MnistOpHistory, OpTime};
 use super::*;
 use crate::op::frame::MnistOpFrame;
-use husky_standard_devsoul_interface::InputId;
-use mnist::dataset::MnistDataset;
+use husky_standard_devsoul_interface::DeprecatedInputId;
+use mnist::{dataset::MnistDataset, input_id::MnistInputId};
 
 pub struct MnistDb {
     input_visuals: Vec<Visual>,
@@ -16,7 +16,7 @@ impl MnistDb {
             .inputs()
             .map(|input| input.visualize(visual_synchrotron))
             .collect();
-        let input = dataset.input(InputId::from_index(0));
+        let input = dataset.input(MnistInputId::from_index(0));
         let op_histories = vec![MnistOpHistory::new(input, visual_synchrotron)];
         MnistDb {
             input_visuals,
@@ -27,15 +27,15 @@ impl MnistDb {
 
 /// # getters
 impl MnistDb {
-    pub fn op_frames(&self, input_id: InputId) -> &[MnistOpFrame] {
+    pub fn op_frames(&self, input_id: DeprecatedInputId) -> &[MnistOpFrame] {
         self.op_history(input_id).op_frames()
     }
 
-    pub(crate) fn input_visual(&self, input_id: InputId) -> Visual {
+    pub(crate) fn input_visual(&self, input_id: DeprecatedInputId) -> Visual {
         self.input_visuals[input_id.index()]
     }
 
-    pub fn op_history(&self, input_id: InputId) -> &MnistOpHistory {
+    pub fn op_history(&self, input_id: DeprecatedInputId) -> &MnistOpHistory {
         &self.op_histories[input_id.index()]
     }
 }

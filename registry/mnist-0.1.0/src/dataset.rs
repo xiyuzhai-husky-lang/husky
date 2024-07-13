@@ -31,22 +31,22 @@ impl MnistDataset {
         }
     }
 
-    pub fn input(&self, input_id: InputId) -> &BinaryImage28 {
+    pub fn input(&self, input_id: MnistInputId) -> &BinaryImage28 {
         &self.inputs[self.index(input_id)]
     }
 
-    pub fn label(&self, input_id: InputId) -> MnistLabel {
+    pub fn label(&self, input_id: MnistInputId) -> MnistLabel {
         self.labels[self.index(input_id)]
     }
 
-    fn index(&self, input_id: InputId) -> usize {
+    fn index(&self, input_id: MnistInputId) -> usize {
         self.permutation[input_id.index()] as usize
     }
 
     pub fn inputs(&self) -> impl Iterator<Item = &BinaryImage28> {
         (0..self.inputs.len())
             .into_iter()
-            .map(|index| InputId::from_index(index))
+            .map(|index| MnistInputId::from_index(index))
             .map(|input_id| self.input(input_id))
     }
 }

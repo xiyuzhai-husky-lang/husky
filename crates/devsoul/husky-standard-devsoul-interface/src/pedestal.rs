@@ -1,20 +1,20 @@
 #[cfg(feature = "egui")]
 mod egui;
 
-use super::InputId;
+use super::DeprecatedInputId;
 use super::*;
 use husky_devsoul_interface::pedestal::{IsPedestal, IsPedestalUiBuffer};
 
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 pub enum StandardPedestal {
-    Specific(InputId),
+    Specific(DeprecatedInputId),
     Generic,
 }
 
 impl Default for StandardPedestal {
     fn default() -> Self {
-        StandardPedestal::Specific(InputId::from_index(0))
+        StandardPedestal::Specific(DeprecatedInputId::from_index(0))
     }
 }
 
@@ -24,7 +24,7 @@ impl IsPedestal for StandardPedestal {
     fn init_ui_buffer(self) -> Self::UiBuffer {
         let base_input_id = match self {
             StandardPedestal::Specific(input_id) => input_id,
-            StandardPedestal::Generic => InputId::from_index(0),
+            StandardPedestal::Generic => DeprecatedInputId::from_index(0),
         };
         let input_id_to_be = base_input_id.index().to_string();
         MlPedestalUiBuffer {
@@ -43,7 +43,7 @@ impl IsPedestal for StandardPedestal {
 }
 
 impl StandardPedestal {
-    pub fn input_id(self) -> Option<InputId> {
+    pub fn input_id(self) -> Option<DeprecatedInputId> {
         match self {
             StandardPedestal::Specific(input_id) => Some(input_id),
             StandardPedestal::Generic => None,
@@ -52,7 +52,7 @@ impl StandardPedestal {
 }
 
 pub struct MlPedestalUiBuffer {
-    base_input_id: InputId,
+    base_input_id: DeprecatedInputId,
     input_id_to_be: String,
     error: Option<String>,
 }

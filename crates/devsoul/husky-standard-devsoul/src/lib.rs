@@ -1,6 +1,6 @@
 mod runtime_storage;
 
-use husky_standard_devsoul_interface::InputId;
+use husky_standard_devsoul_interface::DeprecatedInputId;
 pub use husky_standard_devsoul_interface::{pedestal::StandardPedestal, DEV_EVAL_CONTEXT};
 use husky_standard_trace_protocol::StandardTraceProtocol;
 
@@ -80,7 +80,7 @@ where
             }
             StandardPedestal::Generic => {
                 let pedestals = (0..49).into_iter().filter_map(|index| {
-                        let pedestal = StandardPedestal::Specific(InputId::from_index(index));
+                        let pedestal = StandardPedestal::Specific(DeprecatedInputId::from_index(index));
                         let Some(ki_domain_repr_interface) = domain else {
                             return Some(pedestal)
                         };
