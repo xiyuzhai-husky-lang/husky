@@ -35,25 +35,25 @@ macro_rules! init_crate {
                 .expect("`__HUSKY_JAR_INDEX` is not initialized")
         }
 
-        pub(crate) fn __eval_eager_val_item_with<T>(
+        pub(crate) fn __eval_eager_val_with<T>(
             ingredient_index: usize,
             f: fn() -> __KiControlFlow,
         ) -> T
         where
             T: __FromValue + 'static,
         {
-            <T as __FromValue>::from_value_static(__dev_eval_context().eval_eager_val_item_with(
+            <T as __FromValue>::from_value_static(__dev_eval_context().eval_eager_val_with(
                 __jar_index(),
                 __HuskyIngredientIndex::from_index(ingredient_index),
                 f,
             ))
         }
 
-        pub(crate) fn __eval_lazy_val_item<T>(ingredient_index: usize) -> T
+        pub(crate) fn __eval_lazy_val<T>(ingredient_index: usize) -> T
         where
             T: __FromValue + 'static,
         {
-            <T as __FromValue>::from_value_static(__dev_eval_context().eval_lazy_val_item(
+            <T as __FromValue>::from_value_static(__dev_eval_context().eval_lazy_val(
                 __jar_index(),
                 __HuskyIngredientIndex::from_index(ingredient_index),
             ))
@@ -126,14 +126,12 @@ pub type HuskyJarIndexOnceCell = OnceCell<HuskyJarIndex>;
 
 pub struct DevEvalContext<LinkageImpl: IsLinkageImpl> {
     runtime: &'static dyn IsDevRuntimeDyn<LinkageImpl>,
-    pedestal: LinkageImpl::Pedestal,
 }
 
 impl<LinkageImpl: IsLinkageImpl> Clone for DevEvalContext<LinkageImpl> {
     fn clone(&self) -> Self {
         Self {
             runtime: self.runtime,
-            pedestal: self.pedestal,
         }
     }
 }
@@ -141,71 +139,55 @@ impl<LinkageImpl: IsLinkageImpl> Clone for DevEvalContext<LinkageImpl> {
 impl<LinkageImpl: IsLinkageImpl> Copy for DevEvalContext<LinkageImpl> {}
 
 impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
-    pub fn new(
-        runtime: &'static dyn IsDevRuntimeDyn<LinkageImpl>,
-        pedestal: LinkageImpl::Pedestal,
-    ) -> Self {
-        Self { runtime, pedestal }
+    pub fn new(runtime: &'static dyn IsDevRuntimeDyn<LinkageImpl>) -> Self {
+        Self { runtime }
     }
 
-    /// builder pattern, returns a new context with the given pedestal
-    pub fn with_pedestal(&self, pedestal: LinkageImpl::Pedestal) -> Self {
-        Self {
-            runtime: self.runtime,
-            pedestal,
-        }
-    }
-
-    pub fn pedestal(&self) -> LinkageImpl::Pedestal {
-        self.pedestal
-    }
-
-    pub fn eval_eager_val_item_with(
+    pub fn eval_eager_val_with(
         self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
         f: fn() -> LinkageImplKiControlFlow<LinkageImpl>,
     ) -> LinkageImpl::Value {
         self.runtime
-            .eval_eager_val_item_dyn(jar_index, ingredient_index, self.pedestal, f)
+            .eval_eager_val_with_dyn(jar_index, ingredient_index, f)
             .unwrap()
     }
 
-    pub fn eval_lazy_val_item(
+    pub fn eval_lazy_val(
         self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
     ) -> LinkageImpl::Value {
         self.runtime
-            .eval_lazy_val_item_dyn(jar_index, ingredient_index, self.pedestal)
+            .eval_lazy_val_dyn(jar_index, ingredient_index)
             .unwrap()
     }
 
-    pub fn eval_ki_repr_interface_at_generic_pedestal_with(
-        &self,
-        ki_repr_interface: KiReprInterface,
-        generic_pedestal: fn(LinkageImpl::Pedestal) -> LinkageImpl::Pedestal,
-        gn_generic_wrapper: fn(
-            DevEvalContext<LinkageImpl>,
-            KiDomainReprInterface,
-            &[KiArgumentReprInterface],
-        ) -> LinkageImplKiControlFlow<LinkageImpl>,
-        val_argument_reprs: &[KiArgumentReprInterface],
-    ) -> LinkageImplKiControlFlow<LinkageImpl> {
-        self.runtime.eval_ki_repr_interface_at_generic_pedestal_dyn(
-            ki_repr_interface,
-            generic_pedestal(self.pedestal),
-            gn_generic_wrapper,
-            val_argument_reprs,
-        )
-    }
+    // pub fn eval_ki_repr_interface_at_generic_pedestal_with(
+    //     &self,
+    //     ki_repr_interface: KiReprInterface,
+    //     generic_pedestal: fn(LinkageImpl::Pedestal) -> LinkageImpl::Pedestal,
+    //     gn_generic_wrapper: fn(
+    //         DevEvalContext<LinkageImpl>,
+    //         KiDomainReprInterface,
+    //         &[KiArgumentReprInterface],
+    //     ) -> LinkageImplKiControlFlow<LinkageImpl>,
+    //     val_argument_reprs: &[KiArgumentReprInterface],
+    // ) -> LinkageImplKiControlFlow<LinkageImpl> {
+    //     self.runtime.eval_ki_repr_interface_at_generic_pedestal_dyn(
+    //         ki_repr_interface,
+    //         generic_pedestal(self.pedestal),
+    //         gn_generic_wrapper,
+    //         val_argument_reprs,
+    //     )
+    // }
 
     pub fn eval_ki_repr_interface(
         self,
         ki_repr_interface: KiReprInterface,
     ) -> LinkageImplKiControlFlow<LinkageImpl> {
-        self.runtime
-            .eval_ki_repr_interface_dyn(ki_repr_interface, self.pedestal)
+        self.runtime.eval_ki_repr_interface_dyn(ki_repr_interface)
     }
 
     pub fn eval_ki_domain_repr_interface(
@@ -213,7 +195,7 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         ki_domain_repr_interface: KiDomainReprInterface,
     ) -> KiControlFlow<(), Infallible, LinkageImpl::Exception> {
         self.runtime
-            .eval_ki_domain_repr_interface_dyn(ki_domain_repr_interface, self.pedestal)
+            .eval_ki_domain_repr_interface_dyn(ki_domain_repr_interface)
     }
 
     pub fn eval_memo_field_with<Slf>(
@@ -227,7 +209,7 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         let f: fn(&'static std::ffi::c_void) -> LinkageImplKiControlFlow<LinkageImpl> =
             unsafe { std::mem::transmute(f) };
         self.runtime
-            .eval_memo_field_with_dyn(jar_index, ingredient_index, self.pedestal, slf, f)
+            .eval_memo_field_with_dyn(jar_index, ingredient_index, slf, f)
             .unwrap()
     }
 
@@ -247,35 +229,31 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
 
     /// the computation is done by $f$,
     /// returns `Value` because there is guaranteed to be no control flow
-    fn eval_ingredient_at_pedestal_with(
+    fn eval_ingredient_with(
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        pedestal: LinkageImpl::Pedestal,
         f: impl FnOnce() -> LinkageImplKiControlFlow<LinkageImpl>,
     ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
     /// the computation is done by the runtime
     /// returns `Value` because there is guaranteed to be no control flow
-    fn eval_ingredient_at_pedestal(
+    fn eval_ingredient(
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        pedestal: LinkageImpl::Pedestal,
     ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
     /// the computation is done by the runtime
     /// returns `LinkageImplKiControlFlow<LinkageImpl>` because there is not guaranteed to be no control flow
-    fn eval_ki_repr_interface_at_pedestal(
+    fn eval_ki_repr_interface(
         &self,
         ki_repr: KiReprInterface,
-        pedestal: LinkageImpl::Pedestal,
     ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
-    fn eval_ki_domain_repr_interface_at_pedestal(
+    fn eval_ki_domain_repr_interface(
         &self,
         ki_domain_repr: KiDomainReprInterface,
-        pedestal: LinkageImpl::Pedestal,
     ) -> KiControlFlow<(), Infallible, LinkageImpl::Exception>;
 
     /// the computation is done by `f`
@@ -283,15 +261,13 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
     fn eval_ki_repr_with(
         &self,
         ki_repr: KiReprInterface,
-        pedestal: LinkageImpl::Pedestal,
         f: impl FnOnce(KiDomainReprInterface) -> LinkageImplKiControlFlow<LinkageImpl>,
     ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
-    fn eval_memo_field_with(
+    fn eval_memo_field(
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        pedestal: LinkageImpl::Pedestal,
         slf: &'static std::ffi::c_void,
         f: fn(&'static std::ffi::c_void) -> LinkageImplKiControlFlow<LinkageImpl>,
     ) -> LinkageImplKiControlFlow<LinkageImpl>;
@@ -303,50 +279,33 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
 }
 
 pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
-    fn eval_eager_val_item_dyn(
+    fn eval_eager_val_with_dyn(
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        pedestal: LinkageImpl::Pedestal,
         f: fn() -> LinkageImplKiControlFlow<LinkageImpl>,
     ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
-    fn eval_lazy_val_item_dyn(
+    fn eval_lazy_val_dyn(
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        pedestal: LinkageImpl::Pedestal,
     ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
     fn eval_ki_repr_interface_dyn(
         &self,
         ki_repr: KiReprInterface,
-        pedestal: LinkageImpl::Pedestal,
     ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
     fn eval_ki_domain_repr_interface_dyn(
         &self,
         ki_domain_repr: KiDomainReprInterface,
-        pedestal: LinkageImpl::Pedestal,
     ) -> KiControlFlow<(), Infallible, LinkageImpl::Exception>;
-
-    fn eval_ki_repr_interface_at_generic_pedestal_dyn(
-        &self,
-        ki_repr: KiReprInterface,
-        generic_pedestal: LinkageImpl::Pedestal,
-        gn_generic_wrapper: fn(
-            DevEvalContext<LinkageImpl>,
-            KiDomainReprInterface,
-            &[KiArgumentReprInterface],
-        ) -> LinkageImplKiControlFlow<LinkageImpl>,
-        val_argument_reprs: &[KiArgumentReprInterface],
-    ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
     fn eval_memo_field_with_dyn(
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        pedestal: LinkageImpl::Pedestal,
         slf: &'static std::ffi::c_void,
         f: fn(&'static std::ffi::c_void) -> LinkageImplKiControlFlow<LinkageImpl>,
     ) -> LinkageImplKiControlFlow<LinkageImpl>;
@@ -361,81 +320,75 @@ impl<LinkageImpl: IsLinkageImpl, Runtime> IsDevRuntimeDyn<LinkageImpl> for Runti
 where
     Runtime: IsDevRuntime<LinkageImpl>,
 {
-    fn eval_eager_val_item_dyn(
+    fn eval_eager_val_with_dyn(
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        pedestal: LinkageImpl::Pedestal,
         f: fn() -> LinkageImplKiControlFlow<LinkageImpl>,
     ) -> LinkageImplKiControlFlow<LinkageImpl> {
-        self.eval_ingredient_at_pedestal_with(jar_index, ingredient_index, pedestal, f)
+        self.eval_ingredient_with(jar_index, ingredient_index, f)
     }
 
-    fn eval_lazy_val_item_dyn(
+    fn eval_lazy_val_dyn(
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        pedestal: <LinkageImpl as IsLinkageImpl>::Pedestal,
     ) -> LinkageImplKiControlFlow<LinkageImpl> {
-        self.eval_ingredient_at_pedestal(jar_index, ingredient_index, pedestal)
+        self.eval_ingredient(jar_index, ingredient_index)
     }
 
     fn eval_ki_repr_interface_dyn(
         &self,
         ki_repr_interface: KiReprInterface,
-        pedestal: LinkageImpl::Pedestal,
     ) -> LinkageImplKiControlFlow<LinkageImpl> {
-        self.eval_ki_repr_interface_at_pedestal(ki_repr_interface, pedestal)
+        self.eval_ki_repr_interface(ki_repr_interface)
     }
 
     fn eval_ki_domain_repr_interface_dyn(
         &self,
         ki_domain_repr_interface: KiDomainReprInterface,
-        pedestal: LinkageImpl::Pedestal,
     ) -> KiControlFlow<(), Infallible, LinkageImpl::Exception> {
-        self.eval_ki_domain_repr_interface_at_pedestal(ki_domain_repr_interface, pedestal)
+        self.eval_ki_domain_repr_interface(ki_domain_repr_interface)
     }
 
-    fn eval_ki_repr_interface_at_generic_pedestal_dyn(
-        &self,
-        ki_repr_interface: KiReprInterface,
-        generic_pedestal: LinkageImpl::Pedestal,
-        gn_generic_wrapper: fn(
-            DevEvalContext<LinkageImpl>,
-            KiDomainReprInterface,
-            &[KiArgumentReprInterface],
-        ) -> LinkageImplKiControlFlow<LinkageImpl>,
-        val_argument_reprs: &[KiArgumentReprInterface],
-    ) -> LinkageImplKiControlFlow<LinkageImpl> {
-        self.eval_ki_repr_with(
-            ki_repr_interface,
-            generic_pedestal,
-            |ki_domain_repr: KiDomainReprInterface| {
-                gn_generic_wrapper(
-                    DevEvalContext {
-                        runtime: unsafe {
-                            std::mem::transmute::<_, &'static dyn IsDevRuntimeDyn<LinkageImpl>>(
-                                self as &dyn IsDevRuntimeDyn<LinkageImpl>,
-                            )
-                        },
-                        pedestal: generic_pedestal,
-                    },
-                    ki_domain_repr,
-                    val_argument_reprs,
-                )
-            },
-        )
-    }
+    // fn eval_ki_repr_interface_at_generic_pedestal_dyn(
+    //     &self,
+    //     ki_repr_interface: KiReprInterface,
+    //     gn_generic_wrapper: fn(
+    //         KiDomainReprInterface,
+    //         &[KiArgumentReprInterface],
+    //         LinkageImpl::Pedestal,
+    //     ) -> LinkageImplKiControlFlow<LinkageImpl>,
+    //     val_argument_reprs: &[KiArgumentReprInterface],
+    //     pedestal: LinkageImpl::Pedestal,
+    // ) -> LinkageImplKiControlFlow<LinkageImpl> {
+    //     self.eval_ki_repr_with(
+    //         ki_repr_interface,
+    //         generic_pedestal,
+    //         |ki_domain_repr: KiDomainReprInterface| {
+    //             gn_generic_wrapper(
+    //                 DevEvalContext {
+    //                     runtime: unsafe {
+    //                         std::mem::transmute::<_, &'static dyn IsDevRuntimeDyn<LinkageImpl>>(
+    //                             self as &dyn IsDevRuntimeDyn<LinkageImpl>,
+    //                         )
+    //                     },
+    //                 },
+    //                 ki_domain_repr,
+    //                 val_argument_reprs,
+    //             )
+    //         },
+    //     )
+    // }
 
     fn eval_memo_field_with_dyn(
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        pedestal: LinkageImpl::Pedestal,
         slf: &'static std::ffi::c_void,
         f: fn(&'static std::ffi::c_void) -> LinkageImplKiControlFlow<LinkageImpl>,
     ) -> LinkageImplKiControlFlow<LinkageImpl> {
-        self.eval_memo_field_with(jar_index, ingredient_index, pedestal, slf, f)
+        self.eval_memo_field(jar_index, ingredient_index, slf, f)
     }
 
     fn eval_val_runtime_constant_dyn(

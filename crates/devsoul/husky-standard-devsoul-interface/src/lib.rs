@@ -26,17 +26,6 @@ impl DeprecatedInputId {
     }
 }
 
-/// panics if dev eval context is empty
-#[track_caller]
-pub fn input_id() -> DeprecatedInputId {
-    DEV_EVAL_CONTEXT
-        .get()
-        .unwrap()
-        .pedestal()
-        .input_id()
-        .expect("pedestal is generic, no input id")
-}
-
 #[test]
 fn sample_id_size_works() {
     assert_eq!(
@@ -86,28 +75,6 @@ pub fn eval_ki_domain_repr_interface(
     ki_domain_repr_interface: KiDomainReprInterface,
 ) -> StandardLinkageImplKiControlFlow<(), Infallible> {
     dev_eval_context().eval_ki_domain_repr_interface(ki_domain_repr_interface)
-}
-
-pub fn eval_ki_repr_interface_at_input<T>(
-    ki_repr_interface: KiReprInterface,
-    input_id: DeprecatedInputId,
-    value_stands: Option<&mut __ValueStands>,
-) -> StandardLinkageImplKiControlFlow<T>
-where
-    T: FromValue + 'static,
-{
-    with_dev_eval_context(dev_eval_context().with_pedestal(input_id.into()), || {
-        eval_ki_repr_interface(ki_repr_interface, value_stands)
-    })
-}
-
-pub fn eval_ki_domain_repr_interface_at_input(
-    ki_domain_repr_interface: KiDomainReprInterface,
-    input_id: DeprecatedInputId,
-) -> StandardLinkageImplKiControlFlow<(), Infallible> {
-    with_dev_eval_context(dev_eval_context().with_pedestal(input_id.into()), || {
-        eval_ki_domain_repr_interface(ki_domain_repr_interface)
-    })
 }
 
 pub fn eval_val_runtime_constant<T>(val_runtime_constant: KiRuntimeConstantInterface) -> T

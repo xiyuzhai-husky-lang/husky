@@ -92,7 +92,7 @@ impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
         self.linktime.linkage_impl(linkage, self.db())
     }
 
-    pub fn ingredient_val(
+    pub fn ingredient_ki(
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,

@@ -78,58 +78,51 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinkageImpl> for DevRuntime<Devso
         &*(unsafe { self as *const _ })
     }
 
-    fn eval_ingredient_at_pedestal_with(
+    fn eval_ingredient_with(
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        base_point: Devsoul::Pedestal,
         f: impl FnOnce() -> DevsoulValueResult<Devsoul>,
     ) -> DevsoulKiControlFlow<Devsoul> {
-        self.storage.get_or_try_init_val_value(
-            self.comptime.ingredient_val(jar_index, ingredient_index),
-            base_point,
+        self.storage.get_or_try_init_ki_value(
+            self.comptime.ingredient_ki(jar_index, ingredient_index),
             f,
             self.db(),
         )
     }
 
-    fn eval_ingredient_at_pedestal(
+    fn eval_ingredient(
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        pedestal: Devsoul::Pedestal,
     ) -> DevsoulKiControlFlow<Devsoul> {
-        self.eval_ki_repr_at_pedestal(
+        self.eval_ki_repr(
             self.comptime
                 .ingredient_ki_repr(jar_index, ingredient_index),
-            pedestal,
         )
     }
 
-    fn eval_ki_repr_interface_at_pedestal(
+    fn eval_ki_repr_interface(
         &self,
         ki_repr_interface: KiReprInterface,
-        pedestal: Devsoul::Pedestal,
     ) -> DevsoulKiControlFlow<Devsoul> {
-        self.eval_ki_repr_at_pedestal(ki_repr_interface.into(), pedestal)
+        self.eval_ki_repr(ki_repr_interface.into())
     }
 
-    fn eval_ki_domain_repr_interface_at_pedestal(
+    fn eval_ki_domain_repr_interface(
         &self,
         ki_domain_repr: KiDomainReprInterface,
-        pedestal: Devsoul::Pedestal,
     ) -> husky_devsoul_interface::ki_control_flow::KiControlFlow<
         (),
         Infallible,
         DevsoulException<Devsoul>,
     > {
-        self.eval_ki_domain_repr_at_pedestal(ki_domain_repr.into(), pedestal)
+        self.eval_ki_domain_repr(ki_domain_repr.into())
     }
 
     fn eval_ki_repr_with(
         &self,
         ki_repr: KiReprInterface,
-        pedestal: Devsoul::Pedestal,
         f: impl FnOnce(KiDomainReprInterface) -> DevsoulKiControlFlow<Devsoul>,
     ) -> DevsoulKiControlFlow<Devsoul> {
         let db = self.db();
@@ -137,19 +130,18 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinkageImpl> for DevRuntime<Devso
         let ki_domain_repr: KiDomainReprInterface =
             unsafe { std::mem::transmute(ki_repr.ki_domain_repr(db)) };
         self.storage
-            .get_or_try_init_val_value(ki_repr.val(db), pedestal, || f(ki_domain_repr), db)
+            .get_or_try_init_ki_value(ki_repr.val(db), || f(ki_domain_repr), db)
     }
 
-    fn eval_memo_field_with(
+    fn eval_memo_field(
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        pedestal: Devsoul::Pedestal,
         slf: &'static std::ffi::c_void,
         f: fn(&'static std::ffi::c_void) -> DevsoulKiControlFlow<Devsoul>,
     ) -> DevsoulKiControlFlow<Devsoul> {
         self.storage
-            .get_or_try_init_memo_field_value(jar_index, ingredient_index, pedestal, slf, f)
+            .get_or_try_init_memo_field_value(jar_index, ingredient_index, slf, f)
     }
 
     fn eval_val_runtime_constant(

@@ -92,7 +92,7 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         if let Some(ki_repr) = trace.ki_repr(db) {
             TraceStalk::Ki(
                 self.runtime
-                    .eval_ki_repr_at_pedestal(ki_repr, pedestal)
+                    .eval_ki_repr(ki_repr)
                     .present(value_presenter_cache, value_presentation_synchrotron),
             )
         } else {

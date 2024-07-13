@@ -67,9 +67,8 @@ where
                     followed ,
                     accompanyings,
                     |ki_repr, visual_synchrotron| {
-                        Self::get_val_visual(
+                        Self::get_ki_visual(
                             ki_repr,
-                            pedestal,
                             runtime,
                             visual_synchrotron,
                             val_visual_cache,
@@ -86,7 +85,6 @@ where
                         };
                         match runtime.eval_ki_domain_repr_interface_dyn(
                             ki_domain_repr_interface,
-                            pedestal
                         ) {
                             KiControlFlow::Continue(_) => Some(pedestal),
                             KiControlFlow::LoopContinue => todo!(),
@@ -101,9 +99,8 @@ where
                     accompanyings,
                     pedestals,
                     |ki_repr, pedestal, visual_synchrotron| {
-                        Self::get_val_visual(
+                        Self::get_ki_visual(
                             ki_repr,
-                            pedestal,
                             runtime,
                             visual_synchrotron,
                             val_visual_cache,

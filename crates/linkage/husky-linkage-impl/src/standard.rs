@@ -96,14 +96,15 @@ where
                 gn_generic_wrapper,
                 gn_specific_wrapper,
             } => {
-                let value_at_generic_pedestal = ctx
-                    .eval_ki_repr_interface_at_generic_pedestal_with(
-                        ki_repr,
-                        generic_pedestal,
-                        gn_generic_wrapper,
-                        ki_argument_reprs,
-                    )?;
-                gn_specific_wrapper(ki_argument_reprs, value_at_generic_pedestal)
+                todo!()
+                // let value_at_generic_pedestal = ctx
+                //     .eval_ki_repr_interface_at_generic_pedestal_with(
+                //         ki_repr,
+                //         generic_pedestal,
+                //         gn_generic_wrapper,
+                //         ki_argument_reprs,
+                //     )?;
+                // gn_specific_wrapper(ki_argument_reprs, value_at_generic_pedestal)
             }
             LinkageImpl::EnumVariantConstructor { .. } => todo!(),
             LinkageImpl::EnumVariantDestructor { .. } => todo!(),
