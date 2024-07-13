@@ -1,0 +1,14 @@
+[package]
+name = "ad-hoc-devsoul-dependency"
+version.workspace = true
+authors = ["my_name"]
+edition = "2021"
+
+[dependencies]
+# vm
+husky-standard-value.workspace = true
+# linkage
+husky-linkage-impl = { workspace = true, features = ["standard"] }
+# devsoul
+husky-devsoul-interface.workspace = true
+husky-standard-devsoul-interface.workspace = true

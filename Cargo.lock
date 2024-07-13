@@ -94,13 +94,13 @@ dependencies = [
 ]
 
 [[package]]
-name = "ad-hoc-task-dependency"
+name = "ad-hoc-devsoul-dependency"
 version = "0.1.0"
 dependencies = [
+ "husky-devsoul-interface",
  "husky-linkage-impl",
- "husky-ml-task-interface",
+ "husky-standard-devsoul-interface",
  "husky-standard-value",
- "husky-task-interface",
 ]
 
 [[package]]
@@ -1419,36 +1419,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cbd0f76e066e64fdc5631e3bb46381254deab9ef1158292f27c8c57e3bf3fe59"
 
 [[package]]
-name = "cocoa"
-version = "0.25.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f6140449f97a6e97f9511815c5632d84c8aacf8ac271ad77c559218161a1373c"
-dependencies = [
- "bitflags 1.3.2",
- "block",
- "cocoa-foundation",
- "core-foundation",
- "core-graphics",
- "foreign-types 0.5.0",
- "libc",
- "objc",
-]
-
-[[package]]
-name = "cocoa-foundation"
-version = "0.1.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8c6234cbb2e4c785b456c0644748b1ac416dd045799740356f8363dfe00c93f7"
-dependencies = [
- "bitflags 1.3.2",
- "block",
- "core-foundation",
- "core-graphics-types",
- "libc",
- "objc",
-]
-
-[[package]]
 name = "codespan-reporting"
 version = "0.11.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1649,7 +1619,7 @@ version = "3.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7704b5fdd17b18ae31c4c1da5a2e0305a2bf17b5249300a9ee9ed7b72114c636"
 dependencies = [
- "dashmap",
+ "dashmap 5.5.3",
  "once_cell",
  "rustc-hash",
 ]
@@ -1910,6 +1880,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "dashmap"
+version = "6.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "804c8821570c3f8b70230c2ba75ffa5c0f9a4189b9a432b6656c536712acae28"
+dependencies = [
+ "cfg-if",
+ "crossbeam-utils",
+ "hashbrown 0.14.5",
+ "lock_api",
+ "once_cell",
+ "parking_lot_core",
+]
+
+[[package]]
 name = "data-encoding"
 version = "2.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2078,11 +2062,12 @@ dependencies = [
 
 [[package]]
 name = "ecolor"
-version = "0.27.2"
+version = "0.28.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "20930a432bbd57a6d55e07976089708d4893f3d556cf42a0d79e9e321fa73b10"
+checksum = "2e6b451ff1143f6de0f33fc7f1b68fecfd2c7de06e104de96c4514de3f5396f8"
 dependencies = [
  "bytemuck",
+ "emath",
  "serde",
 ]
 
@@ -2097,12 +2082,12 @@ dependencies = [
 
 [[package]]
 name = "eframe"
-version = "0.27.2"
+version = "0.28.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "020e2ccef6bbcec71dbc542f7eed64a5846fc3076727f5746da8fd307c91bab2"
+checksum = "6490ef800b2e41ee129b1f32f9ac15f713233fe3bc18e241a1afe1e4fb6811e0"
 dependencies = [
+ "ahash",
  "bytemuck",
- "cocoa",
  "document-features",
  "egui",
  "egui-wgpu",
@@ -2111,16 +2096,17 @@ dependencies = [
  "glow",
  "glutin",
  "glutin-winit",
- "image 0.24.9",
+ "image",
  "js-sys",
  "log",
- "objc",
+ "objc2 0.5.2",
+ "objc2-app-kit",
+ "objc2-foundation",
  "parking_lot",
  "percent-encoding",
  "raw-window-handle 0.5.2",
  "raw-window-handle 0.6.2",
  "static_assertions",
- "thiserror",
  "wasm-bindgen",
  "wasm-bindgen-futures",
  "web-sys",
@@ -2131,14 +2117,15 @@ dependencies = [
 
 [[package]]
 name = "egui"
-version = "0.27.2"
+version = "0.28.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "584c5d1bf9a67b25778a3323af222dbe1a1feb532190e103901187f92c7fe29a"
+checksum = "20c97e70a2768de630f161bb5392cbd3874fcf72868f14df0e002e82e06cb798"
 dependencies = [
  "accesskit",
  "ahash",
  "backtrace",
  "document-features",
+ "emath",
  "epaint",
  "log",
  "nohash-hasher",
@@ -2147,10 +2134,11 @@ dependencies = [
 
 [[package]]
 name = "egui-wgpu"
-version = "0.27.2"
+version = "0.28.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "469ff65843f88a702b731a1532b7d03b0e8e96d283e70f3a22b0e06c46cb9b37"
+checksum = "47c7a7c707877c3362a321ebb4f32be811c0b91f7aebf345fb162405c0218b4c"
 dependencies = [
+ "ahash",
  "bytemuck",
  "document-features",
  "egui",
@@ -2165,11 +2153,12 @@ dependencies = [
 
 [[package]]
 name = "egui-winit"
-version = "0.27.2"
+version = "0.28.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2e3da0cbe020f341450c599b35b92de4af7b00abde85624fd16f09c885573609"
+checksum = "fac4e066af341bf92559f60dbdf2020b2a03c963415349af5f3f8d79ff7a4926"
 dependencies = [
  "accesskit_winit",
+ "ahash",
  "arboard",
  "egui",
  "log",
@@ -2193,10 +2182,11 @@ dependencies = [
 
 [[package]]
 name = "egui_glow"
-version = "0.27.2"
+version = "0.28.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e0e5d975f3c86edc3d35b1db88bb27c15dde7c55d3b5af164968ab5ede3f44ca"
+checksum = "4e2bdc8b38cfa17cc712c4ae079e30c71c00cd4c2763c9e16dc7860a02769103"
 dependencies = [
+ "ahash",
  "bytemuck",
  "egui",
  "glow",
@@ -2245,9 +2235,9 @@ dependencies = [
 
 [[package]]
 name = "emath"
-version = "0.27.2"
+version = "0.28.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e4c3a552cfca14630702449d35f41c84a0d15963273771c6059175a803620f3f"
+checksum = "0a6a21708405ea88f63d8309650b4d77431f4bc28fb9d8e6f77d3963b51249e6"
 dependencies = [
  "bytemuck",
  "serde",
@@ -2379,9 +2369,9 @@ dependencies = [
 
 [[package]]
 name = "epaint"
-version = "0.27.2"
+version = "0.28.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b381f8b149657a4acf837095351839f32cd5c4aec1817fc4df84e18d76334176"
+checksum = "3f0dcc0a0771e7500e94cd1cb797bd13c9f23b9409bdc3c824e2cbc562b7fa01"
 dependencies = [
  "ab_glyph",
  "ahash",
@@ -3780,9 +3770,9 @@ dependencies = [
 
 [[package]]
 name = "gpu-descriptor"
-version = "0.2.4"
+version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cc11df1ace8e7e564511f53af41f3e42ddc95b56fd07b3f4445d2a6048bc682c"
+checksum = "9c08c1f623a8d0b722b8b99f821eb0ba672a1618f0d3b16ddbee1cedd2dd8557"
 dependencies = [
  "bitflags 2.5.0",
  "gpu-descriptor-types",
@@ -3791,9 +3781,9 @@ dependencies = [
 
 [[package]]
 name = "gpu-descriptor-types"
-version = "0.1.2"
+version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6bf0b36e6f090b7e1d8a4b49c0cb81c1f8376f72198c65dd3ad9ff3556b8b78c"
+checksum = "fdf242682df893b86f33a73828fb09ca4b2d3bb6cc95249707fc684d27484b91"
 dependencies = [
  "bitflags 2.5.0",
 ]
@@ -4034,7 +4024,7 @@ name = "husky-analyzer"
 version = "0.0.0"
 dependencies = [
  "crossbeam-channel",
- "dashmap",
+ "dashmap 6.0.1",
  "husky-ast",
  "husky-check-utils",
  "husky-code-lens",
@@ -4132,14 +4122,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-bc-base"
-version = "0.1.0"
-dependencies = [
- "husky-ndp-task",
- "shifted-unsigned-int",
-]
-
-[[package]]
 name = "husky-bindgen-utils"
 version = "0.1.0"
 dependencies = [
@@ -4150,38 +4132,17 @@ dependencies = [
 name = "husky-boot-linktime"
 version = "0.1.0"
 dependencies = [
- "dashmap",
+ "dashmap 6.0.1",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-linkage",
  "husky-linkage-impl",
  "husky-standard-value",
- "husky-task",
- "husky-task-interface",
  "husky-vfs",
  "salsa",
  "smallvec",
  "version-stamp",
 ]
-
-[[package]]
-name = "husky-boot-task"
-version = "0.1.0"
-dependencies = [
- "husky-boot-linktime",
- "husky-dev-comptime",
- "husky-linkage-impl",
- "husky-standard-value",
- "husky-task",
- "husky-trace-protocol",
- "husky-visual-protocol",
-]
-
-[[package]]
-name = "husky-boot-task-interface"
-version = "0.1.0"
-
-[[package]]
-name = "husky-boot-task-interface-macros"
-version = "0.1.0"
 
 [[package]]
 name = "husky-borrow-checker"
@@ -4407,8 +4368,8 @@ dependencies = [
 name = "husky-daniel-jackson-visual-protocol"
 version = "0.1.0"
 dependencies = [
- "husky-task",
- "husky-task-interface",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-trace-protocol",
  "husky-visual-protocol",
  "serde",
@@ -4527,7 +4488,7 @@ dependencies = [
 name = "husky-dev-comptime"
 version = "0.1.0"
 dependencies = [
- "dashmap",
+ "dashmap 6.0.1",
  "husky-ast",
  "husky-corgi-config",
  "husky-corgi-config-ast",
@@ -4535,6 +4496,8 @@ dependencies = [
  "husky-dec-signature",
  "husky-dec-term",
  "husky-dec-ty",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-entity-kind",
  "husky-entity-path",
  "husky-entity-tree",
@@ -4562,8 +4525,6 @@ dependencies = [
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
- "husky-task",
- "husky-task-interface",
  "husky-term-prelude",
  "husky-text",
  "husky-text-protocol",
@@ -4587,6 +4548,8 @@ dependencies = [
  "husky-check-utils",
  "husky-coword",
  "husky-dev-comptime",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-entity-kind",
  "husky-entity-path",
  "husky-entity-tree",
@@ -4598,15 +4561,13 @@ dependencies = [
  "husky-ki-repr",
  "husky-linkage",
  "husky-linkage-impl",
- "husky-ml-task",
- "husky-ml-task-interface",
  "husky-mono-linktime",
  "husky-opr",
  "husky-path-utils",
  "husky-print-utils",
+ "husky-standard-devsoul",
+ "husky-standard-devsoul-interface",
  "husky-sync-utils",
- "husky-task",
- "husky-task-interface",
  "husky-term-prelude",
  "husky-text-protocol",
  "husky-token",
@@ -4628,6 +4589,50 @@ name = "husky-dev-utils"
 version = "0.0.0"
 
 [[package]]
+name = "husky-devsoul"
+version = "0.1.0"
+dependencies = [
+ "enum-class",
+ "husky-devsoul-interface",
+ "husky-ki",
+ "husky-linkage",
+ "husky-linkage-impl",
+ "husky-trace-protocol",
+ "husky-value-interface",
+ "husky-vfs",
+ "husky-visual-protocol",
+ "salsa",
+ "smallvec",
+ "ui",
+]
+
+[[package]]
+name = "husky-devsoul-interface"
+version = "0.1.0"
+dependencies = [
+ "husky-decl-macro-utils",
+ "husky-devsoul-interface-macros",
+ "husky-value-interface",
+ "husky-value-protocol",
+ "husky-visual-protocol",
+ "once_cell",
+ "serde",
+ "serde-impl",
+ "shifted-unsigned-int",
+ "smallvec",
+]
+
+[[package]]
+name = "husky-devsoul-interface-macros"
+version = "0.1.0"
+dependencies = [
+ "husky-proc-macro-utils",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.66",
+]
+
+[[package]]
 name = "husky-devtime"
 version = "0.0.0"
 dependencies = [
@@ -4636,6 +4641,8 @@ dependencies = [
  "husky-coword",
  "husky-dev-comptime",
  "husky-dev-runtime",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-entity-kind",
  "husky-eth-signature",
  "husky-eth-term",
@@ -4646,8 +4653,6 @@ dependencies = [
  "husky-syn-defn",
  "husky-syn-expr",
  "husky-sync-utils",
- "husky-task",
- "husky-task-interface",
  "husky-text-protocol",
  "husky-trace",
  "husky-trace-protocol",
@@ -4764,6 +4769,7 @@ dependencies = [
  "husky-corgi-config-ast",
  "husky-coword",
  "husky-crate-decl-ast",
+ "husky-devsoul-interface",
  "husky-entity-kind",
  "husky-entity-path",
  "husky-entity-tree",
@@ -4777,7 +4783,6 @@ dependencies = [
  "husky-regional-token",
  "husky-scope",
  "husky-scope-expr",
- "husky-task-interface",
  "husky-term-prelude",
  "husky-text",
  "husky-text-protocol",
@@ -4995,19 +5000,15 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-gohan-shard"
-version = "0.1.0"
-
-[[package]]
 name = "husky-graphics2d-visual-protocol"
 version = "0.1.0"
 dependencies = [
  "egui",
  "enum-class",
  "husky-control-flow-utils",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-print-utils",
- "husky-task",
- "husky-task-interface",
  "husky-trace-protocol",
  "husky-visual-protocol",
  "serde",
@@ -5340,27 +5341,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-io-task"
-version = "0.1.0"
-dependencies = [
- "dashmap",
- "either",
- "husky-ki",
- "husky-mono-linktime",
- "husky-standard-value",
- "husky-task",
- "husky-vm",
-]
-
-[[package]]
-name = "husky-io-task-interface"
-version = "0.1.0"
-
-[[package]]
-name = "husky-io-task-interface-macros"
-version = "0.1.0"
-
-[[package]]
 name = "husky-io-utils"
 version = "0.0.0"
 dependencies = [
@@ -5461,11 +5441,11 @@ name = "husky-ki"
 version = "0.1.0"
 dependencies = [
  "husky-coword",
+ "husky-devsoul-interface",
  "husky-entity-path",
  "husky-hir-opr",
  "husky-ki",
  "husky-linkage",
- "husky-task-interface",
  "husky-term-prelude",
  "salsa",
  "smallvec",
@@ -5483,6 +5463,8 @@ dependencies = [
  "husky-dec-signature",
  "husky-dec-term",
  "husky-dec-ty",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-entity-kind",
  "husky-entity-path",
  "husky-entity-tree",
@@ -5503,17 +5485,15 @@ dependencies = [
  "husky-linkage",
  "husky-manifest",
  "husky-manifest-ast",
- "husky-ml-task",
  "husky-place",
  "husky-print-utils",
  "husky-regional-token",
  "husky-sem-expr",
  "husky-sem-place-contract",
+ "husky-standard-devsoul",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
- "husky-task",
- "husky-task-interface",
  "husky-term-prelude",
  "husky-text",
  "husky-token",
@@ -5562,6 +5542,7 @@ dependencies = [
  "husky-dec-signature",
  "husky-dec-term",
  "husky-dec-ty",
+ "husky-devsoul-interface",
  "husky-entity-kind",
  "husky-entity-path",
  "husky-entity-tree",
@@ -5585,7 +5566,6 @@ dependencies = [
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
- "husky-task-interface",
  "husky-term-prelude",
  "husky-text",
  "husky-token",
@@ -5608,8 +5588,8 @@ version = "0.1.0"
 dependencies = [
  "colored",
  "husky-decl-macro-utils",
+ "husky-devsoul-interface",
  "husky-standard-value",
- "husky-task-interface",
  "husky-value-protocol",
  "rustc_version",
  "smallvec",
@@ -5696,53 +5676,6 @@ name = "husky-mir-pass"
 version = "0.1.0"
 
 [[package]]
-name = "husky-ml-task"
-version = "0.1.0"
-dependencies = [
- "dashmap",
- "either",
- "husky-ki",
- "husky-linkage",
- "husky-linkage-impl",
- "husky-ml-task-interface",
- "husky-mono-linktime",
- "husky-rust-transpilation",
- "husky-standard-value",
- "husky-task",
- "husky-task-interface",
- "husky-trace-protocol",
- "husky-vfs",
- "husky-visual-protocol",
- "salsa",
- "serde",
-]
-
-[[package]]
-name = "husky-ml-task-interface"
-version = "0.1.0"
-dependencies = [
- "egui",
- "enum-class",
- "husky-linkage-impl",
- "husky-ml-task-interface-macros",
- "husky-standard-value",
- "husky-task-interface",
- "husky-trace-protocol",
- "serde",
- "shifted-unsigned-int",
-]
-
-[[package]]
-name = "husky-ml-task-interface-macros"
-version = "0.1.0"
-dependencies = [
- "husky-proc-macro-utils",
- "proc-macro2",
- "quote",
- "syn 2.0.66",
-]
-
-[[package]]
 name = "husky-mnist-classifier-developer"
 version = "0.1.0"
 dependencies = [
@@ -5750,7 +5683,7 @@ dependencies = [
  "husky-dev-comptime",
  "husky-devtime",
  "husky-graphics2d-visual-protocol",
- "husky-ml-task",
+ "husky-standard-devsoul",
 ]
 
 [[package]]
@@ -5761,13 +5694,13 @@ dependencies = [
  "egui",
  "enum-index",
  "expect-test",
+ "husky-devsoul-interface",
  "husky-graphics2d-visual-protocol",
- "husky-ml-task-interface",
  "husky-print-utils",
- "husky-task-interface",
+ "husky-standard-devsoul-interface",
  "husky-trace-protocol",
  "husky-visual-protocol",
- "image 0.25.1",
+ "image",
  "imageproc",
  "mnist",
  "ndarray",
@@ -5781,19 +5714,19 @@ dependencies = [
 name = "husky-mono-linktime"
 version = "0.1.0"
 dependencies = [
- "dashmap",
+ "dashmap 6.0.1",
  "fxhash",
  "husky-cargo-utils",
  "husky-corgi-config",
  "husky-dev-comptime",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-linkage",
  "husky-linkage-impl",
  "husky-manifest",
  "husky-print-utils",
  "husky-rust-transpilation",
  "husky-standard-value",
- "husky-task",
- "husky-task-interface",
  "husky-vfs",
  "libloading 0.8.3",
  "salsa",
@@ -5817,21 +5750,6 @@ name = "husky-namekian-grammar-rules"
 version = "0.1.0"
 
 [[package]]
-name = "husky-ndp-task"
-version = "0.1.0"
-dependencies = [
- "husky-ndp-task-interface",
-]
-
-[[package]]
-name = "husky-ndp-task-interface"
-version = "0.1.0"
-
-[[package]]
-name = "husky-ndp-task-interface-macros"
-version = "0.1.0"
-
-[[package]]
 name = "husky-notebook"
 version = "0.1.0"
 dependencies = [
@@ -5842,9 +5760,9 @@ dependencies = [
  "husky-code-editor",
  "husky-graphics2d-visual-protocol",
  "husky-gui",
- "husky-ml-task",
- "husky-ml-task-interface",
  "husky-print-utils",
+ "husky-standard-devsoul-interface",
+ "husky-standard-trace-protocol",
  "husky-token-protocol",
  "husky-trace-doc",
  "husky-trace-protocol",
@@ -6004,6 +5922,8 @@ dependencies = [
  "husky-dec-signature",
  "husky-dec-term",
  "husky-dec-ty",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-entity-kind",
  "husky-entity-path",
  "husky-entity-tree",
@@ -6032,8 +5952,6 @@ dependencies = [
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
- "husky-task",
- "husky-task-interface",
  "husky-term-prelude",
  "husky-text",
  "husky-token",
@@ -6359,15 +6277,72 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-standard-devsoul"
+version = "0.1.0"
+dependencies = [
+ "dashmap 6.0.1",
+ "either",
+ "husky-devsoul",
+ "husky-devsoul-interface",
+ "husky-ki",
+ "husky-linkage",
+ "husky-linkage-impl",
+ "husky-mono-linktime",
+ "husky-rust-transpilation",
+ "husky-standard-devsoul-interface",
+ "husky-standard-trace-protocol",
+ "husky-standard-value",
+ "husky-trace-protocol",
+ "husky-vfs",
+ "husky-visual-protocol",
+ "salsa",
+ "serde",
+]
+
+[[package]]
+name = "husky-standard-devsoul-interface"
+version = "0.1.0"
+dependencies = [
+ "egui",
+ "enum-class",
+ "husky-devsoul-interface",
+ "husky-linkage-impl",
+ "husky-standard-devsoul-interface-macros",
+ "husky-standard-value",
+ "husky-trace-protocol",
+ "serde",
+ "shifted-unsigned-int",
+]
+
+[[package]]
+name = "husky-standard-devsoul-interface-macros"
+version = "0.1.0"
+dependencies = [
+ "husky-proc-macro-utils",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.66",
+]
+
+[[package]]
+name = "husky-standard-trace-protocol"
+version = "0.1.0"
+dependencies = [
+ "husky-standard-devsoul-interface",
+ "husky-trace-protocol",
+ "serde",
+]
+
+[[package]]
 name = "husky-standard-value"
 version = "0.1.0"
 dependencies = [
  "husky-decl-macro-utils",
+ "husky-devsoul-interface",
  "husky-hir-prelude",
  "husky-literal-value",
  "husky-print-utils",
  "husky-standard-value-macros",
- "husky-task-interface",
  "husky-term-prelude",
  "husky-value-interface",
  "husky-value-protocol",
@@ -6524,60 +6499,16 @@ name = "husky-sync-utils"
 version = "0.0.0"
 
 [[package]]
-name = "husky-task"
-version = "0.1.0"
-dependencies = [
- "enum-class",
- "husky-ki",
- "husky-linkage",
- "husky-linkage-impl",
- "husky-task-interface",
- "husky-trace-protocol",
- "husky-value-interface",
- "husky-vfs",
- "husky-visual-protocol",
- "salsa",
- "smallvec",
- "ui",
-]
-
-[[package]]
-name = "husky-task-interface"
-version = "0.1.0"
-dependencies = [
- "husky-decl-macro-utils",
- "husky-task-interface-macros",
- "husky-value-interface",
- "husky-value-protocol",
- "husky-visual-protocol",
- "once_cell",
- "serde",
- "serde-impl",
- "shifted-unsigned-int",
- "smallvec",
-]
-
-[[package]]
-name = "husky-task-interface-macros"
-version = "0.1.0"
-dependencies = [
- "husky-proc-macro-utils",
- "proc-macro2",
- "quote",
- "syn 2.0.66",
-]
-
-[[package]]
 name = "husky-term-prelude"
 version = "0.1.0"
 dependencies = [
  "enum-class",
  "husky-coword",
+ "husky-devsoul-interface",
  "husky-entity-kind",
  "husky-entity-path",
  "husky-literal-value",
  "husky-print-utils",
- "husky-task-interface",
  "husky-term-prelude",
  "husky-vfs",
  "ordered-float 4.2.0",
@@ -6951,10 +6882,10 @@ dependencies = [
  "enum-class",
  "epaint",
  "husky-code-editor",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-gui",
  "husky-print-utils",
- "husky-task",
- "husky-task-interface",
  "husky-trace-protocol",
  "husky-value-protocol",
  "husky-visual-protocol",
@@ -6974,9 +6905,9 @@ dependencies = [
  "enum-class",
  "futures",
  "futures-util",
+ "husky-devsoul-interface",
  "husky-io-utils",
  "husky-print-utils",
- "husky-task-interface",
  "husky-token-protocol",
  "husky-trace-protocol",
  "husky-value-protocol",
@@ -7030,7 +6961,7 @@ name = "husky-vfs"
 version = "0.1.0"
 dependencies = [
  "crossbeam-channel",
- "dashmap",
+ "dashmap 5.5.3",
  "enum-class",
  "expect-test",
  "eyre",
@@ -7102,6 +7033,8 @@ dependencies = [
  "husky-dec-signature",
  "husky-dec-term",
  "husky-dec-ty",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-entity-path",
  "husky-entity-tree",
  "husky-eth-signature",
@@ -7124,8 +7057,6 @@ dependencies = [
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
- "husky-task",
- "husky-task-interface",
  "husky-term-prelude",
  "husky-text",
  "husky-token",
@@ -7153,6 +7084,8 @@ dependencies = [
  "husky-dec-signature",
  "husky-dec-term",
  "husky-dec-ty",
+ "husky-devsoul",
+ "husky-devsoul-interface",
  "husky-entity-kind",
  "husky-entity-path",
  "husky-entity-tree",
@@ -7183,8 +7116,6 @@ dependencies = [
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
- "husky-task",
- "husky-task-interface",
  "husky-term-prelude",
  "husky-text",
  "husky-token",
@@ -7368,19 +7299,6 @@ dependencies = [
 
 [[package]]
 name = "image"
-version = "0.24.9"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5690139d2f55868e080017335e4b94cb7414274c74f1669c84fb5feba2c9f69d"
-dependencies = [
- "bytemuck",
- "byteorder",
- "color_quant",
- "num-traits",
- "png",
-]
-
-[[package]]
-name = "image"
 version = "0.25.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fd54d660e773627692c524beaad361aca785a4f9f5730ce91f42aabe5bce3d11"
@@ -7421,7 +7339,7 @@ dependencies = [
  "ab_glyph",
  "approx 0.5.1",
  "getrandom",
- "image 0.25.1",
+ "image",
  "itertools 0.12.1",
  "nalgebra",
  "num",
@@ -7984,7 +7902,7 @@ dependencies = [
 name = "malamute"
 version = "0.1.0"
 dependencies = [
- "ad-hoc-task-dependency",
+ "ad-hoc-devsoul-dependency",
  "husky-core",
  "serde",
  "smallvec",
@@ -8120,9 +8038,9 @@ dependencies = [
 
 [[package]]
 name = "metal"
-version = "0.27.0"
+version = "0.28.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c43f73953f8cbe511f021b58f18c3ce1c3d1ae13fe953293e13345bf83217f25"
+checksum = "5637e166ea14be6063a3f8ba5ccb9a4159df7d8f6d61c02fc3d480b1f90dcfcb"
 dependencies = [
  "bitflags 2.5.0",
  "block",
@@ -8190,7 +8108,7 @@ dependencies = [
 name = "ml-task"
 version = "0.1.0"
 dependencies = [
- "ad-hoc-task-dependency",
+ "ad-hoc-devsoul-dependency",
  "husky-core",
 ]
 
@@ -8199,21 +8117,22 @@ name = "mnist"
 version = "0.1.0"
 dependencies = [
  "husky-core",
+ "husky-devsoul-interface",
  "husky-linkage-impl",
- "husky-ml-task-interface",
  "husky-rng-utils",
+ "husky-standard-devsoul-interface",
  "husky-standard-value",
- "husky-task-interface",
  "lazy_static",
  "serde",
 ]
 
 [[package]]
 name = "naga"
-version = "0.19.2"
+version = "0.20.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "50e3524642f53d9af419ab5e8dd29d3ba155708267667c2f3f06c88c9e130843"
+checksum = "e536ae46fcab0876853bd4a632ede5df4b1c2527a58f6c5a4150fe86be858231"
 dependencies = [
+ "arrayvec",
  "bit-set",
  "bitflags 2.5.0",
  "codespan-reporting",
@@ -8617,7 +8536,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "915b1b472bc21c53464d6c8461c9d3af805ba1ef837e1cac254428f4a77177b1"
 dependencies = [
  "malloc_buf",
- "objc_exception",
 ]
 
 [[package]]
@@ -8759,15 +8677,6 @@ dependencies = [
  "objc2 0.5.2",
  "objc2-foundation",
  "objc2-metal",
-]
-
-[[package]]
-name = "objc_exception"
-version = "0.1.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ad970fb455818ad6cba4c122ad012fae53ae8b4795f86378bce65e4f6bab2ca4"
-dependencies = [
- "cc",
 ]
 
 [[package]]
@@ -9941,7 +9850,7 @@ dependencies = [
  "arc-swap",
  "crossbeam",
  "crossbeam-utils",
- "dashmap",
+ "dashmap 6.0.1",
  "either",
  "enum-index",
  "expect-test",
@@ -11607,17 +11516,18 @@ dependencies = [
 
 [[package]]
 name = "webbrowser"
-version = "0.8.15"
+version = "1.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "db67ae75a9405634f5882791678772c94ff5f16a66535aae186e26aa0841fc8b"
+checksum = "425ba64c1e13b1c6e8c5d2541c8fac10022ca584f33da781db01b5756aef1f4e"
 dependencies = [
+ "block2 0.5.1",
  "core-foundation",
  "home",
  "jni",
  "log",
  "ndk-context",
- "objc",
- "raw-window-handle 0.5.2",
+ "objc2 0.5.2",
+ "objc2-foundation",
  "url",
  "web-sys",
 ]
@@ -11630,13 +11540,14 @@ checksum = "53a85b86a771b1c87058196170769dd264f66c0782acf1ae6cc51bfd64b39082"
 
 [[package]]
 name = "wgpu"
-version = "0.19.4"
+version = "0.20.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cbd7311dbd2abcfebaabf1841a2824ed7c8be443a0f29166e5d3c6a53a762c01"
+checksum = "90e37c7b9921b75dfd26dd973fdcbce36f13dfa6e2dc82aece584e0ed48c355c"
 dependencies = [
  "arrayvec",
  "cfg-if",
  "cfg_aliases",
+ "document-features",
  "js-sys",
  "log",
  "parking_lot",
@@ -11654,15 +11565,16 @@ dependencies = [
 
 [[package]]
 name = "wgpu-core"
-version = "0.19.4"
+version = "0.21.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "28b94525fc99ba9e5c9a9e24764f2bc29bad0911a7446c12f446a8277369bf3a"
+checksum = "d50819ab545b867d8a454d1d756b90cd5f15da1f2943334ca314af10583c9d39"
 dependencies = [
  "arrayvec",
  "bit-vec",
  "bitflags 2.5.0",
  "cfg_aliases",
  "codespan-reporting",
+ "document-features",
  "indexmap 2.2.6",
  "log",
  "naga",
@@ -11680,9 +11592,9 @@ dependencies = [
 
 [[package]]
 name = "wgpu-hal"
-version = "0.19.4"
+version = "0.21.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fc1a4924366df7ab41a5d8546d6534f1f33231aa5b3f72b9930e300f254e39c3"
+checksum = "172e490a87295564f3fcc0f165798d87386f6231b04d4548bca458cbbfd63222"
 dependencies = [
  "android_system_properties",
  "arrayvec",
@@ -11721,9 +11633,9 @@ dependencies = [
 
 [[package]]
 name = "wgpu-types"
-version = "0.19.2"
+version = "0.20.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b671ff9fb03f78b46ff176494ee1ebe7d603393f42664be55b64dc8d53969805"
+checksum = "1353d9a46bff7f955a680577f34c69122628cc2076e1d6f3a9be6ef00ae793ef"
 dependencies = [
  "bitflags 2.5.0",
  "js-sys",

@@ -19,9 +19,9 @@ enum-index.workspace = true
 husky-visual-protocol.workspace = true
 husky-trace-protocol.workspace = true
 husky-graphics2d-visual-protocol.workspace = true
-# tasks
-husky-task-interface.workspace = true
-husky-ml-task-interface.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
+husky-standard-devsoul-interface.workspace = true
 # utils
 husky-print-utils.workspace = true
 # registry

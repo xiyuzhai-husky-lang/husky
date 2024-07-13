@@ -38,9 +38,9 @@ husky-ast.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-decl.workspace = true
 husky-syn-defn.workspace = true
-# tasks
-husky-task.workspace = true
-husky-task-interface.workspace = true
+# devsoul
+husky-devsoul.workspace = true
+husky-devsoul-interface.workspace = true
 # utils
 husky-check-utils.workspace = true
 husky-print-utils.workspace = true

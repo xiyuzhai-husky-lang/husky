@@ -5,9 +5,9 @@ mod tests;
 use self::internal::MonoLinktimeInternal;
 #[cfg(test)]
 use self::tests::*;
+use husky_devsoul::linktime::IsLinktime;
+use husky_devsoul_interface::IsLinkageImpl;
 use husky_linkage::linkage::Linkage;
-use husky_task::linktime::IsLinktime;
-use husky_task_interface::IsLinkageImpl;
 use husky_vfs::path::linktime_target_path::LinktimeTargetPath;
 use std::collections::HashMap;
 

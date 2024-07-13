@@ -1,5 +1,5 @@
 use crate::TraceId;
-use husky_task_interface::{ki_repr::KiReprInterface, pedestal::IsPedestalFull};
+use husky_devsoul_interface::{ki_repr::KiReprInterface, pedestal::IsPedestalFull};
 use husky_visual_protocol::{
     synchrotron::VisualSynchrotron,
     visual::{image::ImageVisual, Visual},

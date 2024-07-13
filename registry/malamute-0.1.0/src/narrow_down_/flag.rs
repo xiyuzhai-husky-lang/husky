@@ -1,6 +1,6 @@
 use super::*;
-use ad_hoc_task_dependency::IsLabel;
-use ad_hoc_task_dependency::{ki_control_flow::KiControlFlow, ugly::__InputId};
+use ad_hoc_devsoul_dependency::IsLabel;
+use ad_hoc_devsoul_dependency::{ki_control_flow::KiControlFlow, ugly::__InputId};
 use smallvec::*;
 
 pub struct FlagVectorField<Label> {

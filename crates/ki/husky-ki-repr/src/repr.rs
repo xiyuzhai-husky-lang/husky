@@ -5,11 +5,11 @@ pub(crate) use self::domain_repr_guard::KiDomainReprGuard;
 
 use self::source::*;
 use crate::*;
+use husky_devsoul_interface::ki_repr::{KiDomainReprInterface, KiReprInterface};
 use husky_entity_path::path::major_item::form::MajorFormPath;
 use husky_hir_defn::defn::{major_item::form::MajorFormHirDefn, HasHirDefn};
 use husky_ki::{Ki, KiArgument, KiDomain, KiOpn, KiRuntimeConstant};
 use husky_linkage::linkage::Linkage;
-use husky_task_interface::ki_repr::{KiDomainReprInterface, KiReprInterface};
 use smallvec::{smallvec, SmallVec};
 
 #[salsa::tracked(db = KiReprDb, jar = KiReprJar, constructor = new_inner)]
@@ -58,7 +58,7 @@ pub enum KiArgumentRepr {
 
 #[test]
 fn val_argument_repr_size_works() {
-    use husky_task_interface::ki_repr::KiArgumentReprInterface;
+    use husky_devsoul_interface::ki_repr::KiArgumentReprInterface;
 
     assert_eq!(
         std::mem::size_of::<KiArgumentRepr>(),

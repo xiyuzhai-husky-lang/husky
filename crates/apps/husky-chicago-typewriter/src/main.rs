@@ -15,6 +15,6 @@ fn main() -> Result<(), eframe::Error> {
     eframe::run_native(
         "Husky Chicago Typewriter",
         options,
-        Box::new(|_cc| Box::new(ChicagoTypewriterApp::default())),
+        Box::new(|_cc| Ok(Box::new(ChicagoTypewriterApp::default()))),
     )
 }

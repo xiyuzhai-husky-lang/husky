@@ -1,0 +1,23 @@
+[package]
+name = "husky-standard-devsoul-interface"
+version.workspace = true
+edition = "2021"
+
+[dependencies]
+egui = { workspace = true, optional = true }
+# abstractions
+shifted-unsigned-int = { workspace = true, features = ["serde"] }
+enum-class.workspace = true
+serde.workspace = true
+# linkage
+husky-linkage-impl.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
+husky-standard-devsoul-interface-macros.workspace = true
+# protocols
+husky-trace-protocol = { workspace = true, optional = true }
+# vm
+husky-standard-value.workspace = true
+
+[features]
+egui = ["dep:egui", "dep:husky-trace-protocol"]

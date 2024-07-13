@@ -21,7 +21,7 @@ fn main() -> Result<(), eframe::Error> {
     eframe::run_native(
         "Husky Notebook",
         options,
-        Box::new(|_cc| Box::new(NotebookApp::default())),
+        Box::new(|_cc| Ok(Box::new(NotebookApp::default()))),
     )
 }
 
