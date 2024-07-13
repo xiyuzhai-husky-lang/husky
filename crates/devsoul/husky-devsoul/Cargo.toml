@@ -1,0 +1,25 @@
+[package]
+name = "husky-devsoul"
+version.workspace = true
+edition = "2021"
+
+[dependencies]
+smallvec.workspace = true
+# abstractions
+enum-class.workspace = true
+salsa.workspace = true
+ui = { workspace = true, features = ["egui"] }
+# fs
+husky-vfs.workspace = true
+# ki
+husky-ki.workspace = true
+# linkage
+husky-linkage.workspace = true
+husky-linkage-impl.workspace = true
+# protocols
+husky-visual-protocol.workspace = true
+husky-trace-protocol = { workspace = true, features = ["server"] }
+# devsoul
+husky-devsoul-interface.workspace = true
+# value
+husky-value-interface.workspace = true

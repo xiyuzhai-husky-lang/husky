@@ -38,9 +38,9 @@ husky-linkage.workspace = true
 husky-entity-kind.workspace = true
 husky-ast.workspace = true
 husky-opr.workspace = true
-# task
-husky-task-interface.workspace = true
-husky-task.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
+husky-devsoul.workspace = true
 # utils
 husky-check-utils.workspace = true
 husky-control-flow-utils.workspace = true

@@ -2,7 +2,7 @@ mod generic;
 mod specific;
 use self::{generic::GenericGraphics2dFigure, specific::SpecificGraphics2dFigure};
 use egui::{pos2, Color32, Rect, Ui, Vec2};
-use husky_task_interface::{
+use husky_devsoul_interface::{
     ki_repr::KiReprInterface,
     pedestal::{IsPedestal, IsPedestalFull},
 };

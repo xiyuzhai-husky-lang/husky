@@ -19,14 +19,14 @@ husky-manifest.workspace = true
 husky-corgi-config.workspace = true
 # kernel
 husky-standard-value.workspace = true
-husky-task.workspace = true
+husky-devsoul.workspace = true
 husky-vfs.workspace = true
 # linkage
 husky-linkage.workspace = true
 husky-linkage-impl.workspace = true
 # semantics
-# tasks
-husky-task-interface.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
 # utils
 husky-cargo-utils.workspace = true
 husky-print-utils.workspace = true

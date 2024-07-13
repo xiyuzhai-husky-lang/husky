@@ -6,8 +6,8 @@ pub mod standard;
 
 pub use self::any::AnyLinkageImpls;
 
-use husky_task_interface::{ki_control_flow::KiControlFlow, LinkageImplKiControlFlow};
-use husky_task_interface::{
+use husky_devsoul_interface::{ki_control_flow::KiControlFlow, LinkageImplKiControlFlow};
+use husky_devsoul_interface::{
     ki_repr::{KiArgumentReprInterface, KiReprInterface},
     DevEvalContext, IsLinkageImpl,
 };
@@ -35,7 +35,7 @@ pub trait IsFnLinkageImplSource<LinkageImpl: IsLinkageImpl, FnPointer> {
 macro_rules! linkage_impls {
     ($($linkage_impl: expr),* $(,)?) => {
         #[no_mangle]
-        pub extern "C" fn linkage_impls(jar_index: __TaskJarIndex) -> AnyLinkageImpls {
+        pub extern "C" fn linkage_impls(jar_index: __HuskyJarIndex) -> AnyLinkageImpls {
             __set_jar_index(jar_index);
             let linkages: Vec<__LinkageImpl> =
                 vec![

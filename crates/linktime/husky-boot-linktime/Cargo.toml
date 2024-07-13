@@ -10,11 +10,11 @@ smallvec.workspace = true
 salsa.workspace = true
 version-stamp.workspace = true
 # kernel
-husky-task.workspace = true
+husky-devsoul.workspace = true
 husky-standard-value.workspace = true
 husky-vfs.workspace = true
 # linkage
 husky-linkage.workspace = true
 husky-linkage-impl.workspace = true
-# tasks
-husky-task-interface.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true

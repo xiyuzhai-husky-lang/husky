@@ -3,10 +3,10 @@ use crate::{
     region::VmirRegion,
     stmt::{VmirStmtArena, VmirStmtIdx, VmirStmtIdxRange},
 };
+use husky_devsoul_interface::vm_control_flow::LinkageImplVmControlFlow;
+use husky_devsoul_interface::IsLinkageImpl;
 use husky_linkage::template_argument::qual::LinQual;
 use husky_place::place::idx::PlaceIdx;
-use husky_task_interface::vm_control_flow::LinkageImplVmControlFlow;
-use husky_task_interface::IsLinkageImpl;
 
 pub trait EvalVmir<'comptime, LinkageImpl: IsLinkageImpl> {
     fn db(&self) -> &'comptime ::salsa::Db;

@@ -6,7 +6,7 @@ use crate::{
     message::*, synchrotron::action::TraceSynchrotronToggleExpansion,
     view::action::TraceViewAction, *,
 };
-use husky_task_interface::pedestal::IsPedestal;
+use husky_devsoul_interface::pedestal::IsPedestal;
 use husky_websocket_utils::imgui_client::{
     ImmediateWebsocketClientConnection, WebsocketClientConnectionError,
 };
@@ -75,7 +75,7 @@ where
                     unreachable!()
                 };
                 trace_synchrotron.take_actions_diff(trace_synchrotron_actions_diff);
-                use husky_task_interface::pedestal::IsPedestalUiBuffer;
+                use husky_devsoul_interface::pedestal::IsPedestalUiBuffer;
                 pedestal_ui_buffer
                     .as_mut()
                     .unwrap()

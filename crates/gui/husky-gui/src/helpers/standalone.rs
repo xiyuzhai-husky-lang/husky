@@ -18,11 +18,11 @@ where
         "Standalone Ui Component",
         options,
         Box::new(|_cc| {
-            Box::new(StandaloneUiApp {
+            Ok(Box::new(StandaloneUiApp {
                 component,
                 settings: config,
                 action_buffer,
-            })
+            }))
         }),
     )
 }

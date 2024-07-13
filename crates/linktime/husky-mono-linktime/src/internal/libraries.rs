@@ -5,7 +5,7 @@ use husky_linkage_impl::AnyLinkageImpls;
 use husky_manifest::helpers::upstream::HasAllUpstreamPackages;
 use husky_rust_transpilation::transpile_to_fs::TranspileToFsFull;
 
-use husky_task_interface::TaskJarIndex;
+use husky_devsoul_interface::HuskyJarIndex;
 use husky_vfs::path::package_path::PackagePath;
 use libloading::Library;
 use std::path::PathBuf;
@@ -16,11 +16,11 @@ pub struct MonoLinkageLibraries {
 }
 
 #[salsa::derive_debug_with_db]
-pub struct Cdylib(TaskJarIndex, Library);
+pub struct Cdylib(HuskyJarIndex, Library);
 
 impl Cdylib {
     pub(crate) fn linkage_impls<LinkageImpl: IsLinkageImpl>(&self) -> Vec<LinkageImpl> {
-        let package_linkage_impls: libloading::Symbol<fn(TaskJarIndex) -> AnyLinkageImpls> =
+        let package_linkage_impls: libloading::Symbol<fn(HuskyJarIndex) -> AnyLinkageImpls> =
             unsafe { self.1.get(b"linkage_impls").unwrap() };
         package_linkage_impls(self.0).downcast()
     }
@@ -41,7 +41,7 @@ impl MonoLinkageLibraries {
             }
         }
         let rust_workspace_dir = target_path.rust_workspace_abs_dir(db);
-        let all_packages: HashMap<PathBuf, (TaskJarIndex, PackagePath)> = HashMap::from_iter(
+        let all_packages: HashMap<PathBuf, (HuskyJarIndex, PackagePath)> = HashMap::from_iter(
             target_path
                 .all_upstream_packages(db)
                 .unwrap()
@@ -54,7 +54,7 @@ impl MonoLinkageLibraries {
                         .join("linkages/Cargo.toml");
                     (
                         linkages_cargo_toml_path,
-                        (TaskJarIndex::from_index(i), package_path),
+                        (HuskyJarIndex::from_index(i), package_path),
                     )
                 }),
         );

@@ -1,8 +1,8 @@
 use super::*;
 use crate::helpers::paths::HasItemPaths;
+use husky_devsoul_interface::HuskyIngredientIndex;
 use husky_entity_kind::*;
 use husky_entity_path::path::{ItemPath, ItemPathId};
-use husky_task_interface::TaskIngredientIndex;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -95,14 +95,14 @@ impl IngredientPath {
 }
 
 pub trait HasIngredientIndex: Into<ItemPath> {
-    fn ingredient_index(self, db: &::salsa::Db) -> Option<TaskIngredientIndex>;
+    fn ingredient_index(self, db: &::salsa::Db) -> Option<HuskyIngredientIndex>;
 }
 
 impl<P> HasIngredientIndex for P
 where
     P: Into<ItemPath>,
 {
-    fn ingredient_index(self, db: &::salsa::Db) -> Option<TaskIngredientIndex> {
+    fn ingredient_index(self, db: &::salsa::Db) -> Option<HuskyIngredientIndex> {
         item_path_ingredient_index(db, *self.into())
     }
 }
@@ -111,11 +111,11 @@ where
 fn item_path_ingredient_index(
     db: &::salsa::Db,
     item_path_id: ItemPathId,
-) -> Option<TaskIngredientIndex> {
+) -> Option<HuskyIngredientIndex> {
     item_path_id
         .crate_path(db)
         .ingredient_paths(db)
         .iter()
         .position(|ingredient_path| *ingredient_path.item_path == item_path_id)
-        .map(|raw| TaskIngredientIndex::from_index(raw))
+        .map(|raw| HuskyIngredientIndex::from_index(raw))
 }

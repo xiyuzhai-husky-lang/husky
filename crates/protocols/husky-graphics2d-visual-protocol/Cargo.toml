@@ -10,12 +10,12 @@ serde.workspace = true
 enum-class.workspace = true
 ui.workspace = true
 # kernel
-husky-task.workspace = true
+husky-devsoul.workspace = true
 # protocols
 husky-visual-protocol = { workspace = true, features = ["egui"] }
 husky-trace-protocol.workspace = true
-# tasks
-husky-task-interface.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
 # utils
 husky-control-flow-utils.workspace = true
 husky-print-utils.workspace = true

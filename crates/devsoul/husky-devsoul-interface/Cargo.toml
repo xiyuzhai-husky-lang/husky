@@ -1,0 +1,21 @@
+[package]
+name = "husky-devsoul-interface"
+version.workspace = true
+edition = "2021"
+
+[dependencies]
+once_cell.workspace = true
+smallvec.workspace = true
+serde.workspace = true
+# abstractions
+shifted-unsigned-int.workspace = true
+serde-impl.workspace = true
+# protocols
+husky-value-protocol.workspace = true
+husky-visual-protocol.workspace = true
+# devsoul
+husky-devsoul-interface-macros.workspace = true
+# utils
+husky-decl-macro-utils.workspace = true
+# value
+husky-value-interface.workspace = true

@@ -7,7 +7,8 @@ use self::arena::*;
 use super::*;
 use husky_graphics2d_visual_protocol::figure::Graphics2dFigure;
 use husky_gui::helpers::repaint_signal::EguiRepaintSignal;
-use husky_ml_task::{MlPedestal, MlTraceProtocol};
+use husky_standard_devsoul_interface::pedestal::StandardPedestal;
+use husky_standard_trace_protocol::StandardTraceProtocol;
 use husky_trace_doc::doc::TraceDoc;
 use ui::component::UiComponent;
 
@@ -44,13 +45,14 @@ impl NotebookApp {
     pub fn add_default_docs(&mut self, ctx: &egui::Context) {
         self.add_doc(Doc {
             title: "mnist-classifier trace doc".to_string(),
-            component: UiComponent::new(
-                TraceDoc::<MlTraceProtocol<Graphics2dFigure<MlPedestal>>, _>::new(
-                    self.tokio_runtime.clone(),
-                    EguiRepaintSignal::new(ctx.clone()),
-                    ctx,
-                ),
-            ),
+            component: UiComponent::new(TraceDoc::<
+                StandardTraceProtocol<Graphics2dFigure<StandardPedestal>>,
+                _,
+            >::new(
+                self.tokio_runtime.clone(),
+                EguiRepaintSignal::new(ctx.clone()),
+                ctx,
+            )),
         });
     }
 

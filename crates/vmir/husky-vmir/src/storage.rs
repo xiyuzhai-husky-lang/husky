@@ -1,12 +1,12 @@
 use crate::region::{
     linkage_virtual_vmir_region, linkage_vmir_region, VirtualVmirRegion, VmirRegion,
 };
+use husky_devsoul::linktime::IsLinktime;
+use husky_devsoul_interface::IsLinkageImpl;
 use husky_linkage::{
     linkage::{virtual_linkage_impl::VirtualLinkageImpl, Linkage},
     version_stamp::LinkageVersionStamp,
 };
-use husky_task::linktime::IsLinktime;
-use husky_task_interface::IsLinkageImpl;
 use std::{
     collections::HashMap,
     sync::{Arc, Mutex},

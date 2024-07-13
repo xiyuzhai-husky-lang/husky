@@ -15,7 +15,7 @@ keywords.workspace = true
 # library
 husky-core.workspace = true
 # registry
-ad-hoc-task-dependency.workspace = true
+ad-hoc-devsoul-dependency.workspace = true
 
 [lints]
 workspace = true

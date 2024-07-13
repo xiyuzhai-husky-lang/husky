@@ -3,13 +3,13 @@
 version = 3
 
 [[package]]
-name = "ad-hoc-task-dependency"
+name = "ad-hoc-devsoul-dependency"
 version = "0.1.0"
 dependencies = [
+ "husky-devsoul-interface",
  "husky-linkage-impl",
- "husky-ml-task-interface",
+ "husky-standard-devsoul-interface",
  "husky-standard-value",
- "husky-task-interface",
 ]
 
 [[package]]
@@ -131,11 +131,12 @@ checksum = "22ec99545bb0ed0ea7bb9b8e1e9122ea386ff8a48c0922e43f36d45ab09e0e80"
 
 [[package]]
 name = "dashmap"
-version = "5.5.3"
+version = "6.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "978747c1d849a7d2ee5e8adc0159961c48fb7e5db2f06af6723b80123bb53856"
+checksum = "804c8821570c3f8b70230c2ba75ffa5c0f9a4189b9a432b6656c536712acae28"
 dependencies = [
  "cfg-if",
+ "crossbeam-utils",
  "hashbrown",
  "lock_api",
  "once_cell",
@@ -262,13 +263,39 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-devsoul-interface"
+version = "0.1.0"
+dependencies = [
+ "husky-decl-macro-utils",
+ "husky-devsoul-interface-macros",
+ "husky-value-interface",
+ "husky-value-protocol",
+ "husky-visual-protocol",
+ "once_cell",
+ "serde",
+ "serde-impl",
+ "shifted-unsigned-int",
+ "smallvec",
+]
+
+[[package]]
+name = "husky-devsoul-interface-macros"
+version = "0.1.0"
+dependencies = [
+ "husky-proc-macro-utils",
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
 name = "husky-linkage-impl"
 version = "0.1.0"
 dependencies = [
  "colored",
  "husky-decl-macro-utils",
+ "husky-devsoul-interface",
  "husky-standard-value",
- "husky-task-interface",
  "husky-value-protocol",
  "rustc_version",
  "smallvec",
@@ -290,29 +317,6 @@ dependencies = [
  "husky-print-utils",
  "salsa",
  "thiserror",
-]
-
-[[package]]
-name = "husky-ml-task-interface"
-version = "0.1.0"
-dependencies = [
- "enum-class",
- "husky-linkage-impl",
- "husky-ml-task-interface-macros",
- "husky-standard-value",
- "husky-task-interface",
- "serde",
- "shifted-unsigned-int",
-]
-
-[[package]]
-name = "husky-ml-task-interface-macros"
-version = "0.1.0"
-dependencies = [
- "husky-proc-macro-utils",
- "proc-macro2",
- "quote",
- "syn",
 ]
 
 [[package]]
@@ -350,14 +354,37 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-standard-devsoul-interface"
+version = "0.1.0"
+dependencies = [
+ "enum-class",
+ "husky-devsoul-interface",
+ "husky-linkage-impl",
+ "husky-standard-devsoul-interface-macros",
+ "husky-standard-value",
+ "serde",
+ "shifted-unsigned-int",
+]
+
+[[package]]
+name = "husky-standard-devsoul-interface-macros"
+version = "0.1.0"
+dependencies = [
+ "husky-proc-macro-utils",
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
 name = "husky-standard-value"
 version = "0.1.0"
 dependencies = [
  "husky-decl-macro-utils",
+ "husky-devsoul-interface",
  "husky-literal-value",
  "husky-print-utils",
  "husky-standard-value-macros",
- "husky-task-interface",
  "husky-value-interface",
  "husky-value-protocol",
  "husky-visual-protocol",
@@ -371,32 +398,6 @@ dependencies = [
 
 [[package]]
 name = "husky-standard-value-macros"
-version = "0.1.0"
-dependencies = [
- "husky-proc-macro-utils",
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
-name = "husky-task-interface"
-version = "0.1.0"
-dependencies = [
- "husky-decl-macro-utils",
- "husky-task-interface-macros",
- "husky-value-interface",
- "husky-value-protocol",
- "husky-visual-protocol",
- "once_cell",
- "serde",
- "serde-impl",
- "shifted-unsigned-int",
- "smallvec",
-]
-
-[[package]]
-name = "husky-task-interface-macros"
 version = "0.1.0"
 dependencies = [
  "husky-proc-macro-utils",
@@ -771,7 +772,7 @@ dependencies = [
 name = "syntax-basics"
 version = "0.1.0"
 dependencies = [
- "ad-hoc-task-dependency",
+ "ad-hoc-devsoul-dependency",
  "husky-core",
 ]
 
@@ -779,7 +780,7 @@ dependencies = [
 name = "syntax-basics-linkages"
 version = "0.1.0"
 dependencies = [
- "ad-hoc-task-dependency",
+ "ad-hoc-devsoul-dependency",
  "husky-core",
  "syntax-basics",
 ]

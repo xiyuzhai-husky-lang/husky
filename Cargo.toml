@@ -4,12 +4,11 @@ members = [
     "crates/apps/*",
     "crates/archs/*",
     "crates/benchmarks/*",
-    "crates/bc/*",
     "crates/comptime/*",
     "crates/corgi/*",
     "crates/cybertron/*",
     "crates/devtime/*",
-    "crates/devtools/*",
+    "crates/gadgets/*",
     "crates/fs/*",
     "crates/gui/*",
     "crates/ide/*",
@@ -26,7 +25,7 @@ members = [
     "crates/runtime/*",
     "crates/semantics/*",
     "crates/syntax/*",
-    "crates/tasks/*",
+    "crates/devsoul/*",
     "crates/tex/*",
     "crates/utils/*",
     "crates/value/*",
@@ -94,22 +93,17 @@ crossbeam-channel = "0.5.0"
 crossbeam-utils = { version = "0.8", default-features = false }
 ctrlc = "3.4.1"
 csv = "1"
-dashmap = "5.5.1"
+dashmap = "6.0.1"
 dirs = "5"
-ecolor = { version = "0.27.0", features = ["serde", "bytemuck"] }
+ecolor = { version = "0.28.1", features = ["serde", "bytemuck"] }
 ecow = { version = "0.2", features = ["serde"] }
-eframe = "0.27.0"
-egui = { version = "0.27.0", features = [
-    "callstack",
-    "extra_debug_asserts",
-    "extra_asserts",
-    "document-features"
-] }
+eframe = "0.28.1"
+egui = { version = "0.28.1", features = ["callstack", "document-features"] }
 either = "1.8.1"
 elsa = "=1.7.1"
 ena = "0.14.2"
 env_proxy = "0.4"
-epaint = "0.27.0"
+epaint = "0.28.1"
 expect-test = "1.4.1"
 futures = "0.3.28"
 futures-util = { version = "0.3", default-features = false, features = [
@@ -235,6 +229,10 @@ husky-toolchain-config = { path = "crates/fs/husky-toolchain-config" }
 husky-vfs = { path = "crates/fs/husky-vfs" }
 # gui
 egui_dock = { path = "crates/gui/egui-dock" }
+husky-code-editor = { path = "crates/gui/husky-code-editor" }
+husky-color = { path = "crates/gui/husky-color" }
+husky-gui = { path = "crates/gui/husky-gui" }
+husky-trace-doc = { path = "crates/gui/husky-trace-doc" }
 # hir
 husky-hir-decl = { path = "crates/hir/husky-hir-decl" }
 husky-hir-defn = { path = "crates/hir/husky-hir-defn" }
@@ -290,6 +288,7 @@ husky-graphics2d-visual-protocol = { path = "crates/protocols/husky-graphics2d-v
 husky-text-protocol = { path = "crates/protocols/husky-text-protocol" }
 husky-token-protocol = { path = "crates/protocols/husky-token-protocol" }
 husky-trace-protocol = { path = "crates/protocols/husky-trace-protocol" }
+husky-standard-trace-protocol = { path = "crates/protocols/husky-standard-trace-protocol" }
 husky-value-protocol = { path = "crates/protocols/husky-value-protocol" }
 husky-visual-protocol = { path = "crates/protocols/husky-visual-protocol" }
 # runtime
@@ -312,22 +311,13 @@ husky-syn-decl = { path = "crates/syntax/husky-syn-decl" }
 husky-syn-defn = { path = "crates/syntax/husky-syn-defn" }
 husky-syn-opr = { path = "crates/syntax/husky-syn-opr" }
 husky-entity-tree = { path = "crates/syntax/husky-entity-tree" }
-# tasks
-husky-boot-task = { path = "crates/tasks/husky-boot-task" }
-husky-boot-task-interface = { path = "crates/tasks/husky-boot-task-interface" }
-husky-boot-task-interface-macros = { path = "crates/tasks/husky-boot-task-interface-macros" }
-husky-ndp-task = { path = "crates/tasks/husky-ndp-task" }
-husky-ndp-task-interface = { path = "crates/tasks/husky-ndp-task-interface" }
-husky-ndp-task-interface-macros = { path = "crates/tasks/husky-ndp-task-interface-macros" }
-husky-io-task = { path = "crates/tasks/husky-io-task" }
-husky-io-task-interface = { path = "crates/tasks/husky-io-task-interface" }
-husky-io-task-interface-macros = { path = "crates/tasks/husky-io-task-interface-macros" }
-husky-ml-task = { path = "crates/tasks/husky-ml-task" }
-husky-ml-task-interface = { path = "crates/tasks/husky-ml-task-interface" }
-husky-ml-task-interface-macros = { path = "crates/tasks/husky-ml-task-interface-macros" }
-husky-task = { path = "crates/tasks/husky-task" }
-husky-task-interface = { path = "crates/tasks/husky-task-interface" }
-husky-task-interface-macros = { path = "crates/tasks/husky-task-interface-macros" }
+# devsoul
+husky-standard-devsoul = { path = "crates/devsoul/husky-standard-devsoul" }
+husky-standard-devsoul-interface = { path = "crates/devsoul/husky-standard-devsoul-interface" }
+husky-standard-devsoul-interface-macros = { path = "crates/devsoul/husky-standard-devsoul-interface-macros" }
+husky-devsoul = { path = "crates/devsoul/husky-devsoul" }
+husky-devsoul-interface = { path = "crates/devsoul/husky-devsoul-interface" }
+husky-devsoul-interface-macros = { path = "crates/devsoul/husky-devsoul-interface-macros" }
 # tex
 husky-tex-ast = { path = "crates/tex/husky-tex-ast" }
 husky-tex-command = { path = "crates/tex/husky-tex-command" }
@@ -380,6 +370,6 @@ husky-vmir = { path = "crates/vmir/husky-vmir" }
 # library
 husky-core = { path = "library/core" }
 # registry
-ad-hoc-task-dependency = { path = "registry/ad-hoc-task-dependency" }
+ad-hoc-devsoul-dependency = { path = "registry/ad-hoc-devsoul-dependency" }
 malamute = { path = "registry/malamute-0.1.0" }
-ml-task = { path = "registry/ml-task-0.1.0" }
+standard-devsoul = { path = "registry/standard-devsoul-0.1.0" }

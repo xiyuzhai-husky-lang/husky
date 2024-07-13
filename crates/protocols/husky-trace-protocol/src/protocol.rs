@@ -1,5 +1,5 @@
 use crate::*;
-use husky_task_interface::pedestal::IsPedestalFull;
+use husky_devsoul_interface::pedestal::IsPedestalFull;
 use std::path::{Path, PathBuf};
 
 pub trait IsTraceProtocol:

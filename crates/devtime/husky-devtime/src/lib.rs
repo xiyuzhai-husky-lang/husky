@@ -6,11 +6,7 @@ use husky_visual_protocol::synchrotron::VisualSynchrotron;
 
 use husky_dev_comptime::DevComptimeTarget;
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
-use husky_task::{
-    dev_ascension::IsDevAscension,
-    helpers::{TaskDevLinkTime, TaskTraceProtocol},
-    IsTask,
-};
+use husky_devsoul::devsoul::IsDevsoul;
 use husky_trace::{jar::TraceDb, trace::Trace};
 use husky_trace_protocol::{
     protocol::{IsTraceProtocol, TraceBundle},
@@ -24,18 +20,17 @@ use husky_value_protocol::presentation::{
 use husky_vfs::error::VfsResult;
 use std::path::Path;
 
-pub struct Devtime<Task: IsTask> {
-    runtime: DevRuntime<Task>,
+pub struct Devtime<Devsoul: IsDevsoul> {
+    runtime: DevRuntime<Devsoul>,
 }
 
-impl<Task: IsTask> Devtime<Task> {
+impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
     pub fn new(
-        task: Task,
         target_crate: &Path,
-        runtime_config: Option<DevRuntimeConfig<Task>>,
+        runtime_config: Option<DevRuntimeConfig<Devsoul>>,
     ) -> VfsResult<Self> {
         Ok(Self {
-            runtime: DevRuntime::new(task, target_crate, runtime_config)?,
+            runtime: DevRuntime::new(target_crate, runtime_config)?,
         })
     }
 
@@ -48,10 +43,10 @@ impl<Task: IsTask> Devtime<Task> {
     }
 }
 
-impl<Task: IsTask> Default for Devtime<Task>
+impl<Devsoul: IsDevsoul> Default for Devtime<Devsoul>
 where
-    Task: Default,
-    TaskDevLinkTime<Task>: Default,
+    Devsoul: Default,
+    Devsoul::Linktime: Default,
 {
     fn default() -> Self {
         Self {
@@ -60,10 +55,10 @@ where
     }
 }
 
-impl<Task: IsTask> IsTracetime for Devtime<Task> {
+impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
     type Trace = Trace;
 
-    type TraceProtocol = TaskTraceProtocol<Task>;
+    type TraceProtocol = Devsoul::TraceProtocol;
 
     type SerdeImpl = serde_impl::json::SerdeJson;
 
@@ -89,7 +84,7 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
         value_presenter_cache: &mut ValuePresenterCache,
         value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
     ) -> husky_trace_protocol::stalk::TraceStalk {
-        use husky_task_interface::pedestal::IsPedestal;
+        use husky_devsoul_interface::pedestal::IsPedestal;
         let db = self.runtime.db();
         if !pedestal.is_closed() {
             return TraceStalk::None;
@@ -132,7 +127,7 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
                 Some((trace.into(), trace.ki_repr(db)?.into()))
             })
             .collect::<Vec<_>>();
-        <Task::DevAscension as IsDevAscension>::calc_figure(
+        Devsoul::calc_figure(
             followed,
             accompanyings_except_followed,
             pedestal,

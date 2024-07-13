@@ -8,14 +8,14 @@ pub use husky_standard_value::{
 
 use super::*;
 use husky_decl_macro_utils::for_all_ritchie_tys;
-use husky_task_interface::{ki_repr::KiDomainReprInterface, VmArgumentValue};
+use husky_devsoul_interface::{ki_repr::KiDomainReprInterface, VmArgumentValue};
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
 
 // ad hoc
 pub type Error = ();
 
 pub type StandardLinkageImplKiControlFlow<C = Value, B = Value> =
-    husky_task_interface::ki_control_flow::KiControlFlow<C, B, Error>;
+    husky_devsoul_interface::ki_control_flow::KiControlFlow<C, B, Error>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum LinkageImpl<Pedestal>
@@ -132,7 +132,7 @@ where
         self,
         arguments: Vec<VmArgumentValue<Self>>,
         db: &dyn std::any::Any,
-    ) -> husky_task_interface::vm_control_flow::LinkageImplVmControlFlow<Self> {
+    ) -> husky_devsoul_interface::vm_control_flow::LinkageImplVmControlFlow<Self> {
         todo!()
     }
 

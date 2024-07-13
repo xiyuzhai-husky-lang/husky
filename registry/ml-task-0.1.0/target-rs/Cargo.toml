@@ -2,8 +2,8 @@
 members = ["ml-task/linkages"]
 resolver = "2"
 
-[workspace.dependencies.ad-hoc-task-dependency]
-path = "../../ad-hoc-task-dependency"
+[workspace.dependencies.ad-hoc-devsoul-dependency]
+path = "../../ad-hoc-devsoul-dependency"
 
 [workspace.dependencies.husky-core]
 path = "../../../library/core"
