@@ -22,17 +22,17 @@ use std::convert::Infallible;
 #[macro_export]
 macro_rules! init_crate {
     () => {
-        pub(crate) static __TASK_JAR_INDEX: __HuskyJarIndexOnceCell =
+        pub(crate) static __HUSKY_JAR_INDEX: __HuskyJarIndexOnceCell =
             __HuskyJarIndexOnceCell::new();
 
         pub fn __set_jar_index(jar_index: __HuskyJarIndex) {
-            __TASK_JAR_INDEX.set(jar_index).unwrap();
+            __HUSKY_JAR_INDEX.set(jar_index).unwrap();
         }
 
         pub(crate) fn __jar_index() -> __HuskyJarIndex {
-            *__TASK_JAR_INDEX
+            *__HUSKY_JAR_INDEX
                 .get()
-                .expect("`__TASK_JAR_INDEX` is not initialized")
+                .expect("`__HUSKY_JAR_INDEX` is not initialized")
         }
 
         pub(crate) fn __eval_eager_val_item_with<T>(

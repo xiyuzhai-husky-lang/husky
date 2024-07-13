@@ -320,7 +320,7 @@ fn ki_repr_eval_works() {
     use husky_entity_path::path::{major_item::MajorItemPath, ItemPath};
     use husky_entity_tree::helpers::paths::module_item_paths;
     use husky_path_utils::dev_paths::*;
-    use husky_standard_devsoul_interface::InputId;
+    use husky_standard_devsoul_interface::DeprecatedInputId;
 
     let dev_paths = HuskyLangDevPaths::new();
     let runtime: DevRuntime<StandardDevsoul<()>> =
@@ -337,6 +337,6 @@ fn ki_repr_eval_works() {
             continue;
         }
         let ki_repr = KiRepr::new_val_item(form_path, db);
-        runtime.eval_ki_repr_at_pedestal(ki_repr, InputId::from_index(0).into());
+        runtime.eval_ki_repr_at_pedestal(ki_repr, DeprecatedInputId::from_index(0).into());
     }
 }

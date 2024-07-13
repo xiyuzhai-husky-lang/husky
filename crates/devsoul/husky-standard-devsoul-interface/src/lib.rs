@@ -12,10 +12,11 @@ use serde::{Deserialize, Serialize};
 use shifted_unsigned_int::ShiftedU32;
 use std::{cell::Cell, convert::Infallible};
 
+#[deprecated]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize, Hash)]
-pub struct InputId(ShiftedU32);
+pub struct DeprecatedInputId(ShiftedU32);
 
-impl InputId {
+impl DeprecatedInputId {
     pub fn from_index(index: usize) -> Self {
         Self(index.into())
     }
@@ -27,7 +28,7 @@ impl InputId {
 
 /// panics if dev eval context is empty
 #[track_caller]
-pub fn input_id() -> InputId {
+pub fn input_id() -> DeprecatedInputId {
     DEV_EVAL_CONTEXT
         .get()
         .unwrap()
@@ -38,9 +39,12 @@ pub fn input_id() -> InputId {
 
 #[test]
 fn sample_id_size_works() {
-    assert_eq!(std::mem::size_of::<InputId>(), std::mem::size_of::<u32>());
     assert_eq!(
-        std::mem::size_of::<Option<InputId>>(),
+        std::mem::size_of::<DeprecatedInputId>(),
+        std::mem::size_of::<u32>()
+    );
+    assert_eq!(
+        std::mem::size_of::<Option<DeprecatedInputId>>(),
         std::mem::size_of::<u32>()
     )
 }
@@ -86,7 +90,7 @@ pub fn eval_ki_domain_repr_interface(
 
 pub fn eval_ki_repr_interface_at_input<T>(
     ki_repr_interface: KiReprInterface,
-    input_id: InputId,
+    input_id: DeprecatedInputId,
     value_stands: Option<&mut __ValueStands>,
 ) -> StandardLinkageImplKiControlFlow<T>
 where
@@ -99,7 +103,7 @@ where
 
 pub fn eval_ki_domain_repr_interface_at_input(
     ki_domain_repr_interface: KiDomainReprInterface,
-    input_id: InputId,
+    input_id: DeprecatedInputId,
 ) -> StandardLinkageImplKiControlFlow<(), Infallible> {
     with_dev_eval_context(dev_eval_context().with_pedestal(input_id.into()), || {
         eval_ki_domain_repr_interface(ki_domain_repr_interface)

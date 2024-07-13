@@ -7,7 +7,7 @@ pub mod skeleton;
 use crate::{op::history::OpTime, MnistDb, *};
 use enum_index::{bitset::EnumBitSet, IsEnumIndex};
 use husky_devsoul_interface::ki_repr::KiReprInterface;
-use husky_standard_devsoul_interface::InputId;
+use husky_standard_devsoul_interface::DeprecatedInputId;
 use husky_trace_protocol::id::TraceId;
 use husky_visual_protocol::visual::Visual;
 
@@ -72,7 +72,12 @@ fn trace_from_into_ki_repr_interface_works() {
 }
 
 impl Trace {
-    pub(crate) fn visual<'a>(self, db: &'a MnistDb, input_id: InputId, op_time: OpTime) -> Visual {
+    pub(crate) fn visual<'a>(
+        self,
+        db: &'a MnistDb,
+        input_id: DeprecatedInputId,
+        op_time: OpTime,
+    ) -> Visual {
         match self {
             Trace::Input => db.input_visual(input_id),
             Trace::Skeleton => db.op_history(input_id)[op_time].skeleton_visual(),

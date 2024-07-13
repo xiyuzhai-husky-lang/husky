@@ -1,10 +1,10 @@
 use super::*;
 use crate::op::history::OpTime;
 use egui::Slider;
-use husky_standard_devsoul_interface::{pedestal::StandardPedestal, InputId};
+use husky_standard_devsoul_interface::{pedestal::StandardPedestal, DeprecatedInputId};
 
 pub struct MnistControl {
-    input_id: InputId,
+    input_id: DeprecatedInputId,
     frame_idx: usize,
     number_of_frames: usize,
 }
@@ -12,7 +12,7 @@ pub struct MnistControl {
 /// # constructors
 impl MnistControl {
     pub(crate) fn new(db: &MnistDb) -> MnistControl {
-        let input_id = InputId::from_index(0);
+        let input_id = DeprecatedInputId::from_index(0);
         let number_of_frames = db.op_frames(input_id).len();
         Self {
             input_id,
@@ -45,7 +45,7 @@ impl egui::Widget for &mut MnistControl {
 }
 
 impl MnistApp {
-    pub fn input_id(&self) -> InputId {
+    pub fn input_id(&self) -> DeprecatedInputId {
         self.control.input_id
     }
 }

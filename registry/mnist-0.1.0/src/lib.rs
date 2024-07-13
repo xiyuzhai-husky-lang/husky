@@ -1,10 +1,12 @@
 pub mod dataset;
+pub mod input_id;
 pub mod task;
 
+use self::input_id::*;
 use dataset::MNIST_DATASET;
 use husky_core::*;
 use husky_linkage_impl::standard::ugly::*;
-use husky_standard_devsoul_interface::{input_id, label::IsLabel, ugly::*, InputId};
+use husky_standard_devsoul_interface::{label::IsLabel, ugly::*};
 
 use husky_devsoul_interface::{init_crate, ugly::*};
 
@@ -28,10 +30,6 @@ pub enum MnistLabel {
 impl IsLabel for MnistLabel {
     fn label() -> Self {
         MNIST_DATASET.label(input_id())
-    }
-
-    fn label_at_input(input_id: InputId) -> Self {
-        MNIST_DATASET.label(input_id)
     }
 }
 
@@ -116,9 +114,13 @@ impl std::ops::IndexMut<usize> for BinaryGrid28 {
 
 impl BinaryGrid28 {}
 
+thread_local! {
+    static __INPUT: std::cell::Cell<Option<&'static BinaryImage28>> = Default::default();
+}
+
 #[allow(non_snake_case)]
 pub fn INPUT() -> &'static BinaryImage28 {
-    MNIST_DATASET.input(input_id())
+    __INPUT.get().unwrap()
 }
 
 // ad hoc

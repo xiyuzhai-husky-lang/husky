@@ -8124,6 +8124,7 @@ dependencies = [
  "husky-standard-value",
  "lazy_static",
  "serde",
+ "shifted-unsigned-int",
 ]
 
 [[package]]
