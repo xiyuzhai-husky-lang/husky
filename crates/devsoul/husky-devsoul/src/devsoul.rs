@@ -8,6 +8,7 @@ use husky_devsoul_interface::{
 use husky_devsoul_interface::{
     HuskyIngredientIndex, HuskyJarIndex, IsLinkageImpl, LinkageImplKiControlFlow,
 };
+use husky_entity_path::path::ItemPath;
 use husky_ki::Ki;
 use husky_trace_protocol::{
     id::TraceId,
@@ -68,6 +69,7 @@ pub trait IsRuntimeStorage<LinkageImpl: IsLinkageImpl>: Default + Send {
     fn get_or_try_init_ki_value(
         &self,
         ki: Ki,
+        static_var_deps: &[ItemPath],
         f: impl FnOnce() -> LinkageImplKiControlFlow<LinkageImpl>,
         db: &::salsa::Db,
     ) -> LinkageImplKiControlFlow<LinkageImpl>;

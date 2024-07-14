@@ -26,6 +26,12 @@ impl KiStaticVarDeps {
     }
 }
 
+impl KiRepr {
+    pub fn static_var_deps(self, db: &::salsa::Db) -> KiStaticVarDeps {
+        todo!()
+    }
+}
+
 #[salsa::tracked]
 fn ki_repr_ki_static_var_deps(db: &::salsa::Db, ki_repr: KiRepr) -> KiStaticVarDeps {
     match ki_repr.source(db) {
