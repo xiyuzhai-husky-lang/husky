@@ -5490,6 +5490,7 @@ dependencies = [
  "husky-regional-token",
  "husky-sem-expr",
  "husky-sem-place-contract",
+ "husky-sem-static-var-deps",
  "husky-standard-devsoul",
  "husky-syn-decl",
  "husky-syn-defn",
@@ -5506,6 +5507,7 @@ dependencies = [
  "rustc-hash",
  "salsa",
  "smallvec",
+ "vec-like",
 ]
 
 [[package]]

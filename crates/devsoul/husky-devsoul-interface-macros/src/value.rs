@@ -176,12 +176,12 @@ pub(crate) fn value(
             ) -> KiControlFlow<Self, Value, E> {
                 match value_stands {
                     Some(value_stands) => values.map(
-                        |val_control_flow| val_control_flow.map(
+                        |ki_control_flow| ki_control_flow.map(
                             |v|__T::from_value_temp(v, value_stands)
                         )
                     ).collect(),
                     None => values.map(
-                        |val_control_flow| val_control_flow.map(
+                        |ki_control_flow| ki_control_flow.map(
                             |v|__T::from_value_static(v)
                         )
                     ).collect(),

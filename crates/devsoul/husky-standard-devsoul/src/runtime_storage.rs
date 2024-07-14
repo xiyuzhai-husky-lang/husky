@@ -10,7 +10,7 @@ use std::sync::{Arc, Mutex};
 #[derive(Debug, Default)]
 pub struct StandardDevRuntimeStorage {
     ki_values: DashMap<
-        StandardDevRuntimeValStorageKey,
+        StandardDevRuntimeKiStorageKey,
         Arc<Mutex<Option<(KiVersionStamp, StandardLinkageImplKiControlFlow)>>>,
     >,
     memo_field_values: DashMap<
@@ -20,7 +20,7 @@ pub struct StandardDevRuntimeStorage {
 }
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
-pub struct StandardDevRuntimeValStorageKey {
+pub struct StandardDevRuntimeKiStorageKey {
     ki: Ki,
     pedestal: StandardPedestal,
 }
@@ -46,21 +46,22 @@ impl IsRuntimeStorage<LinkageImpl> for StandardDevRuntimeStorage {
         f: impl FnOnce() -> StandardLinkageImplKiControlFlow,
         db: &::salsa::Db,
     ) -> StandardLinkageImplKiControlFlow {
+        let static_var_deps = ki.static_var_deps();
         let pedestal = todo!();
-        let key = StandardDevRuntimeValStorageKey { ki, pedestal };
+        let key = StandardDevRuntimeKiStorageKey { ki, pedestal };
         let mu = self.ki_values.entry(key).or_default().clone();
-        let mut opt_stored_val_control_flow_store_guard = mu.lock().expect("todo");
+        let mut opt_stored_ki_control_flow_store_guard = mu.lock().expect("todo");
         let new_version_stamp = key.ki.version_stamp(db);
         unsafe {
-            match *opt_stored_val_control_flow_store_guard {
-                Some((old_version_stamp, ref val_control_flow))
+            match *opt_stored_ki_control_flow_store_guard {
+                Some((old_version_stamp, ref ki_control_flow))
                     if old_version_stamp == new_version_stamp =>
                 {
-                    return val_control_flow.share_unchecked()
+                    return ki_control_flow.share_unchecked()
                 }
-                _ => *opt_stored_val_control_flow_store_guard = Some((new_version_stamp, f())),
+                _ => *opt_stored_ki_control_flow_store_guard = Some((new_version_stamp, f())),
             };
-            opt_stored_val_control_flow_store_guard
+            opt_stored_ki_control_flow_store_guard
                 .as_ref()
                 .expect("should be some")
                 .1
@@ -82,13 +83,13 @@ impl IsRuntimeStorage<LinkageImpl> for StandardDevRuntimeStorage {
             slf: AnyPointer(slf as _),
         };
         let mu = self.memo_field_values.entry(key).or_default().clone();
-        let mut opt_stored_val_control_flow_store_guard = mu.lock().expect("todo");
+        let mut opt_stored_ki_control_flow_store_guard = mu.lock().expect("todo");
         unsafe {
-            match *opt_stored_val_control_flow_store_guard {
-                Some(ref val_control_flow) => val_control_flow.share_unchecked(),
+            match *opt_stored_ki_control_flow_store_guard {
+                Some(ref ki_control_flow) => ki_control_flow.share_unchecked(),
                 None => {
-                    *opt_stored_val_control_flow_store_guard = Some(f(slf));
-                    opt_stored_val_control_flow_store_guard
+                    *opt_stored_ki_control_flow_store_guard = Some(f(slf));
+                    opt_stored_ki_control_flow_store_guard
                         .as_ref()
                         .expect("should be some")
                         .share_unchecked()

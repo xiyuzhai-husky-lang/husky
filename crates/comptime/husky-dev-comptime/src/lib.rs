@@ -28,7 +28,7 @@ pub struct DevComptime<Devsoul: IsDevsoul> {
     target: DevComptimeTarget,
     target_path: Option<LinktimeTargetPath>,
     linktime: Devsoul::Linktime,
-    ingredient_vals: Vec<(
+    ingredient_kis: Vec<(
         PackagePath,
         Vec<(IngredientPath, Option<KiRepr>, Option<Ki>)>,
     )>,
@@ -76,7 +76,7 @@ impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
             target,
             target_path,
             db,
-            ingredient_vals,
+            ingredient_kis: ingredient_vals,
         })
     }
 
@@ -97,7 +97,7 @@ impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
     ) -> Ki {
-        self.ingredient_vals[jar_index.index()].1[ingredient_index.index()]
+        self.ingredient_kis[jar_index.index()].1[ingredient_index.index()]
             .2
             .unwrap()
     }
@@ -107,7 +107,7 @@ impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
     ) -> KiRepr {
-        self.ingredient_vals[jar_index.index()].1[ingredient_index.index()]
+        self.ingredient_kis[jar_index.index()].1[ingredient_index.index()]
             .1
             .unwrap()
     }
@@ -183,7 +183,7 @@ where
             db: Default::default(),
             linktime: Default::default(),
             target_path: None,
-            ingredient_vals: vec![],
+            ingredient_kis: vec![],
         }
     }
 }
