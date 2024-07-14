@@ -130,8 +130,12 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinkageImpl> for DevRuntime<Devso
         let ki_repr: KiRepr = unsafe { std::mem::transmute(ki_repr) };
         let ki_domain_repr: KiDomainReprInterface =
             unsafe { std::mem::transmute(ki_repr.ki_domain_repr(db)) };
-        self.storage
-            .get_or_try_init_ki_value(ki_repr.ki(db), todo!(), || f(ki_domain_repr), db)
+        self.storage.get_or_try_init_ki_value(
+            ki_repr.ki(db),
+            &ki_repr.static_var_deps(db),
+            || f(ki_domain_repr),
+            db,
+        )
     }
 
     fn eval_memo_field(
