@@ -89,6 +89,7 @@
     },
     "husky-ki-repr": {
         "husky-ki",
+        "husky-sem-static-var-deps",
     },
     "husky-linkage": {
         "husky-javelin",

@@ -19,7 +19,8 @@ impl std::ops::Deref for KiStaticVarDeps {
 // ad hoc, maybe some other consideration about template arguments?
 impl From<&SemStaticVarDeps> for KiStaticVarDeps {
     fn from(value: &SemStaticVarDeps) -> Self {
-        Self((**value).clone())
+        // Self((**value).clone())
+        todo!()
     }
 }
 
