@@ -12,7 +12,7 @@ use husky_ki::{Ki, KiArgument, KiDomain, KiOpn, KiRuntimeConstant};
 use husky_linkage::linkage::Linkage;
 use smallvec::{smallvec, SmallVec};
 
-#[salsa::tracked(db = KiReprDb, jar = KiReprJar, constructor = new_inner)]
+#[salsa::tracked(constructor = new_inner)]
 pub struct KiRepr {
     pub ki_domain_repr: KiDomainRepr,
     pub opn: KiOpn,
@@ -106,7 +106,7 @@ impl KiRepr {
     }
 }
 
-#[salsa::tracked(jar = KiReprJar)]
+#[salsa::tracked]
 fn val_item_ki_repr(db: &::salsa::Db, path: MajorFormPath) -> KiRepr {
     let domain = KiDomainRepr::Omni;
     let MajorFormHirDefn::Val(hir_defn) = path.hir_defn(db).unwrap() else {
@@ -123,7 +123,7 @@ fn val_item_ki_repr(db: &::salsa::Db, path: MajorFormPath) -> KiRepr {
     KiRepr::new(domain, opn, opds, KiReprSource::ValItem(path), db)
 }
 
-#[salsa::tracked(jar = KiReprJar)]
+#[salsa::tracked]
 fn static_var_item_ki_repr(db: &::salsa::Db, path: MajorFormPath) -> KiRepr {
     let domain = KiDomainRepr::Omni;
     let MajorFormHirDefn::StaticVar(hir_defn) = path.hir_defn(db).unwrap() else {
@@ -185,7 +185,7 @@ impl KiRepr {
     }
 }
 
-#[salsa::tracked(jar = KiReprJar)]
+#[salsa::tracked]
 fn ki_repr_ki(db: &::salsa::Db, ki_repr: KiRepr) -> Ki {
     Ki::new(
         db,
@@ -240,7 +240,7 @@ impl KiDomainRepr {
 }
 
 #[cfg(test)]
-pub(crate) fn val_item_ki_reprs(
+pub(crate) fn val_ki_reprs(
     db: &::salsa::Db,
     module_path: ModulePath,
 ) -> Vec<(MajorFormPath, KiRepr)> {
@@ -261,10 +261,10 @@ pub(crate) fn val_item_ki_reprs(
 }
 
 #[test]
-fn val_item_ki_repr_works() {
+fn val_ki_repr_works() {
     let _db = DB::default();
     DB::ast_rich_test_debug_with_db(
-        val_item_ki_reprs,
+        val_ki_reprs,
         &AstTestConfig::new(
             "val_item_ki_reprs",
             FileExtensionConfig::Markdown,

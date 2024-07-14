@@ -23,7 +23,7 @@ use husky_ki::{KiOpn, KiPatternData, KiRuntimeConstant, KiRuntimeConstantData};
 use husky_linkage::{instantiation::LinInstantiation, linkage::Linkage};
 use smallvec::{smallvec, SmallVec};
 
-#[salsa::tracked(db = KiReprDb, jar = KiReprJar)]
+#[salsa::tracked]
 pub struct KiReprExpansion {
     #[return_ref]
     pub hir_lazy_variable_ki_repr_map: HirLazyVariableMap<KiRepr>,
@@ -41,7 +41,7 @@ impl KiRepr {
     }
 }
 
-#[salsa::tracked(jar = KiReprJar)]
+#[salsa::tracked]
 fn ki_repr_expansion(db: &::salsa::Db, ki_repr: KiRepr) -> Option<KiReprExpansion> {
     match ki_repr.opn(db) {
         KiOpn::ValItemLazilyDefined(form_path) => {
@@ -779,7 +779,7 @@ fn val_item_ki_repr_expansions(
     db: &::salsa::Db,
     module_path: ModulePath,
 ) -> Vec<(MajorFormPath, Option<KiReprExpansion>)> {
-    val_item_ki_reprs(db, module_path)
+    val_ki_reprs(db, module_path)
         .into_iter()
         .map(|(path, ki_repr)| (path, ki_repr.expansion(db)))
         .collect()
