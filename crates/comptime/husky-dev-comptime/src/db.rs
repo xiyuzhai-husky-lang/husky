@@ -42,6 +42,9 @@ use std::panic::RefUnwindSafe;
     // semantics
     husky_sem_expr::SemExprJar,
     husky_sem_place_contract::jar::SemPlaceContractJar,
+    husky_sem_item_path_deps::jar::SemItemPathDepsJar,
+    husky_sem_static_mut_deps::jar::SemStaticMutDepsJar,
+    husky_sem_static_var_deps::jar::SemStaticVarDepsJar,
     // syntax
     husky_ast::jar::AstJar,
     husky_toml_ast::TomlAstJar,

@@ -38,6 +38,8 @@ husky-regional-token.workspace = true
 husky-linkage.workspace = true
 # semantics
 husky-sem-expr.workspace = true
+husky-sem-item-path-deps.workspace = true
+husky-sem-static-mut-deps.workspace = true
 husky-sem-static-var-deps.workspace = true
 # syntax
 husky-entity-tree.workspace = true

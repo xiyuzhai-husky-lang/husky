@@ -110,7 +110,7 @@ fn item_sem_static_var_deps_initial_value(
                 MajorFormKind::TypeAlias => (),
                 MajorFormKind::TypeVar => (),
                 MajorFormKind::Val => (),
-                MajorFormKind::StaticVar => deps.insert(item_path),
+                MajorFormKind::StaticVar => deps.insert_item_path(item_path),
                 MajorFormKind::StaticMut => (),
                 MajorFormKind::Compterm => (),
                 MajorFormKind::Conceptual => (),

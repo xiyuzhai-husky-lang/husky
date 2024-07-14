@@ -2,11 +2,17 @@ use husky_entity_path::path::ItemPath;
 use vec_like::OrderedSmallVecSet;
 
 #[salsa::derive_debug_with_db]
+#[derive(Debug, Clone, Copy, PartialOrd, Ord, PartialEq, Eq)]
+pub enum SemStaticVarDep {
+    Item(ItemPath),
+}
+
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
-pub struct SemStaticVarDeps(OrderedSmallVecSet<ItemPath, 4>);
+pub struct SemStaticVarDeps(OrderedSmallVecSet<SemStaticVarDep, 4>);
 
 impl std::ops::Deref for SemStaticVarDeps {
-    type Target = OrderedSmallVecSet<ItemPath, 4>;
+    type Target = OrderedSmallVecSet<SemStaticVarDep, 4>;
 
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -14,7 +20,7 @@ impl std::ops::Deref for SemStaticVarDeps {
 }
 
 impl IntoIterator for &SemStaticVarDeps {
-    type Item = ItemPath;
+    type Item = SemStaticVarDep;
 
     type IntoIter = impl Iterator<Item = Self::Item>;
 
@@ -37,8 +43,8 @@ impl SemStaticVarDeps {
         }
     }
 
-    pub(crate) fn insert(&mut self, item_path: ItemPath) {
-        self.0.insert(item_path);
+    pub(crate) fn insert_item_path(&mut self, item_path: ItemPath) {
+        self.0.insert(SemStaticVarDep::Item(item_path));
     }
 }
 

@@ -47,6 +47,9 @@ husky-entity-tree.workspace = true
 # semantics
 husky-manifest.workspace = true
 husky-sem-expr.workspace = true
+husky-sem-item-path-deps.workspace = true
+husky-sem-static-mut-deps.workspace = true
+husky-sem-static-var-deps.workspace = true
 # utils
 husky-check-utils.workspace = true
 husky-print-utils.workspace = true
