@@ -1,10 +1,10 @@
 use crate::*;
 use dashmap::DashMap;
-use husky_linkage_impl::standard::StandardLinkageImplKiControlFlow;
-
 use husky_devsoul::devsoul::IsRuntimeStorage;
 use husky_devsoul_interface::{HuskyIngredientIndex, HuskyJarIndex};
+use husky_entity_path::path::ItemPath;
 use husky_ki::{version_stamp::KiVersionStamp, Ki};
+use husky_linkage_impl::standard::StandardLinkageImplKiControlFlow;
 use std::sync::{Arc, Mutex};
 
 #[derive(Debug, Default)]
@@ -43,10 +43,10 @@ impl IsRuntimeStorage<LinkageImpl> for StandardDevRuntimeStorage {
     fn get_or_try_init_ki_value(
         &self,
         ki: Ki,
+        static_var_deps: &[ItemPath],
         f: impl FnOnce() -> StandardLinkageImplKiControlFlow,
         db: &::salsa::Db,
     ) -> StandardLinkageImplKiControlFlow {
-        let static_var_deps = ki.ki_static_var_deps();
         let pedestal = todo!();
         let key = StandardDevRuntimeKiStorageKey { ki, pedestal };
         let mu = self.ki_values.entry(key).or_default().clone();

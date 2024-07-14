@@ -180,7 +180,7 @@ pub enum KiCachingClass {
 }
 
 impl KiRepr {
-    pub fn val(self, db: &::salsa::Db) -> Ki {
+    pub fn ki(self, db: &::salsa::Db) -> Ki {
         ki_repr_ki(db, self)
     }
 }
@@ -202,19 +202,19 @@ fn ki_repr_ki(db: &::salsa::Db, ki_repr: KiRepr) -> Ki {
 impl KiArgumentRepr {
     fn val_argument(&self, db: &::salsa::Db) -> KiArgument {
         match *self {
-            KiArgumentRepr::Simple(ki_repr) => KiArgument::Simple(ki_repr.val(db)),
+            KiArgumentRepr::Simple(ki_repr) => KiArgument::Simple(ki_repr.ki(db)),
             KiArgumentRepr::Keyed(ki_repr) => {
-                KiArgument::Keyed(ki_repr.map(|ki_repr| ki_repr.val(db)))
+                KiArgument::Keyed(ki_repr.map(|ki_repr| ki_repr.ki(db)))
             }
             KiArgumentRepr::Variadic(ref ki_reprs) => {
-                KiArgument::Variadic(ki_reprs.iter().map(|ki_repr| ki_repr.val(db)).collect())
+                KiArgument::Variadic(ki_reprs.iter().map(|ki_repr| ki_repr.ki(db)).collect())
             }
             KiArgumentRepr::Branch {
                 condition,
                 ref stmts,
             } => KiArgument::Branch {
-                condition: condition.map(|condition| condition.val(db)),
-                stmts: stmts.iter().map(|&stmt| stmt.val(db)).collect(),
+                condition: condition.map(|condition| condition.ki(db)),
+                stmts: stmts.iter().map(|&stmt| stmt.ki(db)).collect(),
             },
             KiArgumentRepr::RuntimeConstants(ref ki_reprs) => {
                 KiArgument::RuntimeConstants(ki_reprs.clone())
@@ -228,12 +228,12 @@ impl KiDomainRepr {
         match self {
             KiDomainRepr::Omni => KiDomain::Omni,
             KiDomainRepr::ConditionSatisfied(ki_repr) => {
-                KiDomain::ConditionSatisfied(ki_repr.val(db))
+                KiDomain::ConditionSatisfied(ki_repr.ki(db))
             }
             KiDomainRepr::ConditionNotSatisfied(ki_repr) => {
-                KiDomain::ConditionNotSatisfied(ki_repr.val(db))
+                KiDomain::ConditionNotSatisfied(ki_repr.ki(db))
             }
-            KiDomainRepr::StmtNotReturned(ki_repr) => KiDomain::StmtNotReturned(ki_repr.val(db)),
+            KiDomainRepr::StmtNotReturned(ki_repr) => KiDomain::StmtNotReturned(ki_repr.ki(db)),
             KiDomainRepr::ExprNotReturned(_) => todo!(),
         }
     }

@@ -4594,6 +4594,7 @@ version = "0.1.0"
 dependencies = [
  "enum-class",
  "husky-devsoul-interface",
+ "husky-entity-path",
  "husky-ki",
  "husky-linkage",
  "husky-linkage-impl",
@@ -6286,6 +6287,7 @@ dependencies = [
  "either",
  "husky-devsoul",
  "husky-devsoul-interface",
+ "husky-entity-path",
  "husky-ki",
  "husky-linkage",
  "husky-linkage-impl",

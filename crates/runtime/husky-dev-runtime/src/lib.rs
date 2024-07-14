@@ -86,6 +86,7 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinkageImpl> for DevRuntime<Devso
     ) -> DevsoulKiControlFlow<Devsoul> {
         self.storage.get_or_try_init_ki_value(
             self.comptime.ingredient_ki(jar_index, ingredient_index),
+            todo!(),
             f,
             self.db(),
         )
@@ -130,7 +131,7 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinkageImpl> for DevRuntime<Devso
         let ki_domain_repr: KiDomainReprInterface =
             unsafe { std::mem::transmute(ki_repr.ki_domain_repr(db)) };
         self.storage
-            .get_or_try_init_ki_value(ki_repr.val(db), || f(ki_domain_repr), db)
+            .get_or_try_init_ki_value(ki_repr.ki(db), todo!(), || f(ki_domain_repr), db)
     }
 
     fn eval_memo_field(
