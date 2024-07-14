@@ -1,7 +1,10 @@
 use crate::*;
 use husky_entity_path::path::ItemPath;
 use husky_ki::{Ki, KiArgument, KiOpn};
-use husky_sem_static_var_deps::static_var_deps::SemStaticVarDeps;
+use husky_sem_static_var_deps::{
+    item_sem_static_var_deps,
+    static_var_deps::{SemStaticVarDep, SemStaticVarDeps},
+};
 use source::KiReprExpansionSource;
 use vec_like::OrderedSmallVecSet;
 
@@ -19,8 +22,14 @@ impl std::ops::Deref for KiStaticVarDeps {
 // ad hoc, maybe some other consideration about template arguments?
 impl From<&SemStaticVarDeps> for KiStaticVarDeps {
     fn from(value: &SemStaticVarDeps) -> Self {
-        // Self((**value).clone())
-        todo!()
+        Self(
+            value
+                .iter()
+                .map(|&dep| match dep {
+                    SemStaticVarDep::Item(item_path) => item_path,
+                })
+                .collect(),
+        )
     }
 }
 
@@ -35,15 +44,15 @@ impl KiStaticVarDeps {
 }
 
 impl KiRepr {
-    pub fn static_var_deps(self, db: &::salsa::Db) -> KiStaticVarDeps {
-        todo!()
+    pub fn static_var_deps(self, db: &::salsa::Db) -> &KiStaticVarDeps {
+        ki_repr_ki_static_var_deps(db, self)
     }
 }
 
-#[salsa::tracked]
+#[salsa::tracked(return_ref)]
 fn ki_repr_ki_static_var_deps(db: &::salsa::Db, ki_repr: KiRepr) -> KiStaticVarDeps {
     match ki_repr.source(db) {
-        source::KiReprSource::Val(_) => todo!(),
+        source::KiReprSource::Val(val_path) => item_sem_static_var_deps(val_path, db).into(),
         source::KiReprSource::Expansion {
             parent_ki_repr,
             source,

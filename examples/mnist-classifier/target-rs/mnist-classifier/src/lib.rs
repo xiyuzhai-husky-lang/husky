@@ -5,12 +5,12 @@ use ad_hoc_devsoul_dependency::{*, ugly::*};
 ad_hoc_devsoul_dependency::init_crate!();
 
 pub mod connected_component;
-pub mod digits;
-pub mod fermi;
+pub mod raw_contour;
 pub mod geom2d;
 pub mod line_segment_sketch;
+pub mod fermi;
+pub mod digits;
 pub mod major;
-pub mod raw_contour;
 
 pub use self::connected_component::*;
 pub use self::raw_contour::*;

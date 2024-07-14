@@ -190,7 +190,7 @@ fn ingredient_ki_infos(
                         };
                         let ki = ki_repr.ki(db);
                         let caching_class = ki_repr.caching_class(db);
-                        let ki_static_var_deps = ki_repr.static_var_deps(db);
+                        let ki_static_var_deps = ki_repr.static_var_deps(db).clone();
                         let info = IngredientKiInfo {
                             ki_repr,
                             ki,

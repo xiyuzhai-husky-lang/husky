@@ -17,8 +17,8 @@ use self::tests::*;
 use husky_entity_path::path::ItemPath;
 
 pub fn item_sem_static_var_deps<'db>(
-    item_path: ItemPath,
+    item_path: impl Into<ItemPath>,
     db: &'db ::salsa::Db,
 ) -> &'db SemStaticVarDeps {
-    crate::graph_dynamics::item_sem_static_var_deps(db, *item_path)
+    crate::graph_dynamics::item_sem_static_var_deps(db, *item_path.into())
 }
