@@ -14,6 +14,16 @@ impl From<&SemStaticVarDeps> for KiStaticVarDeps {
     }
 }
 
+impl KiStaticVarDeps {
+    pub(crate) fn merge(&mut self, other: &Self) {
+        self.0.extend(&other.0);
+    }
+
+    pub(crate) fn insert(&mut self, item_path: ItemPath) {
+        self.0.insert(item_path);
+    }
+}
+
 pub trait HasKiStaticVarDeps: Copy {
     fn ki_static_var_deps(self, db: &::salsa::Db) -> &KiStaticVarDeps;
 }
