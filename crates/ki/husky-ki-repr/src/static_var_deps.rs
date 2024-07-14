@@ -8,6 +8,13 @@ use vec_like::OrderedSmallVecSet;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
 pub struct KiStaticVarDeps(OrderedSmallVecSet<ItemPath, 4>);
+impl std::ops::Deref for KiStaticVarDeps {
+    type Target = OrderedSmallVecSet<ItemPath, 4>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
 
 // ad hoc, maybe some other consideration about template arguments?
 impl From<&SemStaticVarDeps> for KiStaticVarDeps {
