@@ -46,7 +46,7 @@ impl IsRuntimeStorage<LinkageImpl> for StandardDevRuntimeStorage {
         f: impl FnOnce() -> StandardLinkageImplKiControlFlow,
         db: &::salsa::Db,
     ) -> StandardLinkageImplKiControlFlow {
-        let static_var_deps = ki.static_var_deps();
+        let static_var_deps = ki.ki_static_var_deps();
         let pedestal = todo!();
         let key = StandardDevRuntimeKiStorageKey { ki, pedestal };
         let mu = self.ki_values.entry(key).or_default().clone();

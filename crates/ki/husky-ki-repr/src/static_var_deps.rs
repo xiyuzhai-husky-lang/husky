@@ -1,6 +1,8 @@
+use crate::*;
 use husky_entity_path::path::ItemPath;
-use husky_ki::{Ki, KiOpn};
+use husky_ki::{Ki, KiArgument, KiOpn};
 use husky_sem_static_var_deps::static_var_deps::SemStaticVarDeps;
+use source::KiReprExpansionSource;
 use vec_like::OrderedSmallVecSet;
 
 #[salsa::derive_debug_with_db]
@@ -24,33 +26,22 @@ impl KiStaticVarDeps {
     }
 }
 
-pub trait HasKiStaticVarDeps: Copy {
-    fn ki_static_var_deps(self, db: &::salsa::Db) -> &KiStaticVarDeps;
-}
-
-impl HasKiStaticVarDeps for Ki {
-    fn ki_static_var_deps(self, db: &salsa::Db) -> &KiStaticVarDeps {
-        ki_ki_static_var_deps(db, self)
-    }
-}
-
-// ad hoc
-#[salsa::tracked(return_ref)]
-fn ki_ki_static_var_deps(db: &::salsa::Db, ki: Ki) -> KiStaticVarDeps {
-    match ki.opn(db) {
-        KiOpn::Return | KiOpn::Require | KiOpn::Assert => todo!(),
-        KiOpn::ValItemLazilyDefined(_) => todo!(),
-        KiOpn::FunctionRitchie(_) => todo!(),
-        KiOpn::Prefix(_) => todo!(),
-        KiOpn::Suffix(_) => todo!(),
-        KiOpn::Binary(_) => todo!(),
-        KiOpn::Linkage(_) => todo!(),
-        KiOpn::EvalDiscarded => todo!(),
-        KiOpn::Literal(_) => todo!(),
-        KiOpn::Branches => todo!(),
-        KiOpn::TypeVariant(_) => todo!(),
-        KiOpn::Be { pattern_data } => todo!(),
-        KiOpn::Unwrap {} => todo!(),
-        KiOpn::Index => todo!(),
+#[salsa::tracked]
+fn ki_repr_ki_static_var_deps(db: &::salsa::Db, ki_repr: KiRepr) -> KiStaticVarDeps {
+    match ki_repr.source(db) {
+        source::KiReprSource::Val(_) => todo!(),
+        source::KiReprSource::Expansion {
+            parent_ki_repr,
+            source,
+        } => match source {
+            KiReprExpansionSource::LetVariable { stmt, variable_idx } => todo!(),
+            KiReprExpansionSource::RequireDefault { stmt } => todo!(),
+            KiReprExpansionSource::RequireCondition { stmt } => todo!(),
+            KiReprExpansionSource::AssertCondition { stmt } => todo!(),
+            KiReprExpansionSource::IfCondition { stmt } => todo!(),
+            KiReprExpansionSource::ElifCondition { stmt, branch_idx } => todo!(),
+            KiReprExpansionSource::Expr { expr } => todo!(),
+            KiReprExpansionSource::Stmt { stmt } => todo!(),
+        },
     }
 }
