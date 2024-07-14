@@ -7,6 +7,7 @@ mod pattern;
 mod pattern_expr;
 mod region;
 pub mod source_map;
+pub mod static_var_deps;
 pub mod stmt;
 pub mod variable;
 
@@ -17,6 +18,7 @@ pub use self::region::*;
 pub use self::stmt::*;
 
 use self::builder::*;
+use self::jar::HirLazyExprJar as Jar;
 use self::jar::*;
 use self::variable::*;
 use husky_coword::*;
