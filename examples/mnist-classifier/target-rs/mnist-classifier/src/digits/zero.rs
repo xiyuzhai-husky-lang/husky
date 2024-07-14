@@ -1,7 +1,7 @@
 use super::*;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val_item(ingredient_index = 24, return_ref)]
+#[ad_hoc_devsoul_dependency::val(ingredient_index = 24, return_ref)]
 pub fn open_one_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![almost_closed])
 }
@@ -13,5 +13,5 @@ pub fn almost_closed(cc: Leash<crate::line_segment_sketch::concave_component::Co
 }
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val_item(ingredient_index = 25, lazy)]
+#[ad_hoc_devsoul_dependency::val(ingredient_index = 25, lazy)]
 pub fn is_zero() -> malamute::OneVsAll {}

@@ -20,7 +20,7 @@ pub struct TraceJar(
     crate::trace::trace_have_subtraces,
     crate::trace::trace_subtraces,
     crate::trace::trace_ki_repr_expansion,
-    crate::trace::submodule::submodule_contains_val_item,
+    crate::trace::submodule::submodule_contains_val,
     // helpers
     crate::trace::root_traces,
     crate::trace::trace_bundles,

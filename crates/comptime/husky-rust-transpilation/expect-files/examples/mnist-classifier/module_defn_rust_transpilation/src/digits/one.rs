@@ -1,13 +1,13 @@
 use super::*;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val_item(ingredient_index = 26, return_ref)]
+#[ad_hoc_devsoul_dependency::val(ingredient_index = 26, return_ref)]
 pub fn one_fermi_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![downmost, upmost, hat])
 }
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val_item(ingredient_index = 27, lazy)]
+#[ad_hoc_devsoul_dependency::val(ingredient_index = 27, lazy)]
 pub fn is_one() -> malamute::OneVsAll {}
 
 #[rustfmt::skip]

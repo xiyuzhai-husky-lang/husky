@@ -60,7 +60,7 @@ impl TranspileToRustWith for MajorValHirDefn {
             (HirExprIdx::Eager(_body), HirExprRegion::Eager(_hir_eager_expr_region)) => false,
             _ => true,
         };
-        builder.val_item_attr(
+        builder.val_attr(
             hir_decl.path(db).into(),
             is_lazy,
             hir_decl.return_ty(db).always_copyable(db),

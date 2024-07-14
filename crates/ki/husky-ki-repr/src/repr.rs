@@ -85,9 +85,9 @@ impl KiRepr {
     }
 
     // todo: general paths
-    pub fn new_val_item(path: MajorFormPath, db: &::salsa::Db) -> Self {
+    pub fn new_val(path: MajorFormPath, db: &::salsa::Db) -> Self {
         debug_assert_eq!(path.kind(db), husky_entity_kind::MajorFormKind::Val);
-        val_item_ki_repr(db, path)
+        val_ki_repr(db, path)
     }
 
     // todo: general paths
@@ -107,20 +107,20 @@ impl KiRepr {
 }
 
 #[salsa::tracked]
-fn val_item_ki_repr(db: &::salsa::Db, path: MajorFormPath) -> KiRepr {
+fn val_ki_repr(db: &::salsa::Db, path: MajorFormPath) -> KiRepr {
     let domain = KiDomainRepr::Omni;
     let MajorFormHirDefn::Val(hir_defn) = path.hir_defn(db).unwrap() else {
         use salsa::DebugWithDb;
         husky_print_utils::p!(path.debug(db));
         unreachable!()
     };
-    let opn = match Linkage::new_val_item(path, db) {
+    let opn = match Linkage::new_val(path, db) {
         Some(linkage) => KiOpn::Linkage(linkage),
-        None => KiOpn::ValItemLazilyDefined(path),
+        None => KiOpn::ValLazilyDefined(path),
     };
     let opds = smallvec![];
     let caching_class = KiCachingClass::Val;
-    KiRepr::new(domain, opn, opds, KiReprSource::ValItem(path), db)
+    KiRepr::new(domain, opn, opds, KiReprSource::Val(path), db)
 }
 
 #[salsa::tracked]
@@ -132,7 +132,7 @@ fn static_var_item_ki_repr(db: &::salsa::Db, path: MajorFormPath) -> KiRepr {
     let opn = KiOpn::Linkage(Linkage::new_static_var_item(path, db));
     let opds = smallvec![];
     let caching_class = KiCachingClass::StaticVar;
-    KiRepr::new(domain, opn, opds, KiReprSource::ValItem(path), db)
+    KiRepr::new(domain, opn, opds, KiReprSource::Val(path), db)
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -252,7 +252,7 @@ pub(crate) fn val_ki_reprs(
         .iter()
         .filter_map(|&path| match path {
             ItemPath::MajorItem(MajorItemPath::Form(path)) => match path.kind(db) {
-                MajorFormKind::Val => Some((path, KiRepr::new_val_item(path, db))),
+                MajorFormKind::Val => Some((path, KiRepr::new_val(path, db))),
                 _ => None,
             },
             _ => None,
@@ -266,7 +266,7 @@ fn val_ki_repr_works() {
     DB::ast_rich_test_debug_with_db(
         val_ki_reprs,
         &AstTestConfig::new(
-            "val_item_ki_reprs",
+            "val_ki_reprs",
             FileExtensionConfig::Markdown,
             TestDomainsConfig::VAL,
         ),

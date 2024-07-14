@@ -140,7 +140,7 @@ fn ingredient_kis(
                             ItemPath::MajorItem(MajorItemPath::Form(path))
                                 if path.kind(db) == MajorFormKind::Val =>
                             {
-                                Some(KiRepr::new_val_item(path, db))
+                                Some(KiRepr::new_val(path, db))
                             }
                             ItemPath::AssocItem(path) => match path {
                                 AssocItemPath::TypeItem(path) => match path.item_kind(db) {

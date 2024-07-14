@@ -51,7 +51,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                     },
                 ),
             },
@@ -62,7 +62,7 @@
                             value: 14,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 64,
@@ -209,7 +209,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -220,7 +220,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -318,7 +318,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                     },
                 ),
             },
@@ -329,7 +329,7 @@
                             value: 15,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 66,
@@ -361,7 +361,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -491,7 +491,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -550,7 +550,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -653,7 +653,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -756,7 +756,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -859,7 +859,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -918,7 +918,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -1021,7 +1021,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -1111,7 +1111,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -1122,7 +1122,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -1392,7 +1392,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -1671,7 +1671,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -1682,7 +1682,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -1834,7 +1834,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -2852,7 +2852,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -3166,7 +3166,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -3258,7 +3258,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -3269,7 +3269,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -3524,7 +3524,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -3616,7 +3616,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -3627,7 +3627,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -3882,7 +3882,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -4034,7 +4034,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -4045,7 +4045,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -4300,7 +4300,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -5091,7 +5091,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -5247,7 +5247,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -5258,7 +5258,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -5514,7 +5514,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -5525,7 +5525,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -5784,7 +5784,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -6145,7 +6145,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -6341,7 +6341,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -6725,7 +6725,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -6796,7 +6796,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -6807,7 +6807,7 @@
                             value: 80,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 67,
@@ -6954,7 +6954,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -6965,7 +6965,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -7063,7 +7063,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                     },
                 ),
             },
@@ -7074,7 +7074,7 @@
                             value: 81,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 68,
@@ -7106,7 +7106,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -7298,7 +7298,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -7309,7 +7309,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -7447,7 +7447,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                     },
                 ),
             },
@@ -7458,7 +7458,7 @@
                             value: 90,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 111,
@@ -7642,7 +7642,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -7921,7 +7921,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -7932,7 +7932,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -8084,7 +8084,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -8285,7 +8285,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -8344,7 +8344,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -8465,7 +8465,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -8740,7 +8740,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -8941,7 +8941,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9044,7 +9044,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9147,7 +9147,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9206,7 +9206,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9265,7 +9265,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9324,7 +9324,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9460,7 +9460,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9519,7 +9519,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9622,7 +9622,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9681,7 +9681,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9740,7 +9740,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9876,7 +9876,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9997,7 +9997,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10100,7 +10100,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10159,7 +10159,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10218,7 +10218,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10277,7 +10277,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10336,7 +10336,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10395,7 +10395,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10498,7 +10498,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10557,7 +10557,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10616,7 +10616,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10675,7 +10675,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10734,7 +10734,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10837,7 +10837,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10940,7 +10940,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -11016,7 +11016,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -11027,7 +11027,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -11174,7 +11174,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -11185,7 +11185,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -11283,7 +11283,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                     },
                 ),
             },
@@ -11294,7 +11294,7 @@
                             value: 125,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 73,
@@ -11441,7 +11441,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -11452,7 +11452,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -11550,7 +11550,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                     },
                 ),
             },
@@ -11561,7 +11561,7 @@
                             value: 126,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 74,
@@ -11593,7 +11593,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -11739,7 +11739,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -11750,7 +11750,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -11892,7 +11892,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -12072,7 +12072,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -12234,7 +12234,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -12245,7 +12245,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -12392,7 +12392,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -12548,7 +12548,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -12559,7 +12559,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -12703,7 +12703,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -12714,7 +12714,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -12861,7 +12861,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -13002,7 +13002,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13061,7 +13061,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13120,7 +13120,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13179,7 +13179,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13238,7 +13238,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13297,7 +13297,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13356,7 +13356,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13459,7 +13459,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13595,7 +13595,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13654,7 +13654,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13713,7 +13713,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13834,7 +13834,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -14142,7 +14142,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -14335,7 +14335,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -14346,7 +14346,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -14638,7 +14638,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -14754,7 +14754,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -14851,7 +14851,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -14862,7 +14862,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -15009,7 +15009,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -15538,7 +15538,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -15654,7 +15654,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -15969,7 +15969,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -16165,7 +16165,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -16236,7 +16236,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -16247,7 +16247,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -16394,7 +16394,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -16405,7 +16405,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -16503,7 +16503,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                     },
                 ),
             },
@@ -16514,7 +16514,7 @@
                             value: 177,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 78,
@@ -16600,7 +16600,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -16611,7 +16611,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -16758,7 +16758,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -16769,7 +16769,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -16968,7 +16968,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -16979,7 +16979,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -17178,7 +17178,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -17189,7 +17189,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -17388,7 +17388,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -17399,7 +17399,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -19232,7 +19232,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -19243,7 +19243,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -19584,7 +19584,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                     },
                 ),
             },
@@ -19595,7 +19595,7 @@
                             value: 229,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 82,
@@ -19742,7 +19742,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -19753,7 +19753,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -19851,7 +19851,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                     },
                 ),
             },
@@ -19862,7 +19862,7 @@
                             value: 230,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 84,
@@ -20009,7 +20009,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -20020,7 +20020,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -20118,7 +20118,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                     },
                 ),
             },
@@ -20129,7 +20129,7 @@
                             value: 231,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 85,
@@ -20276,7 +20276,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -20287,7 +20287,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -20385,7 +20385,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
                     },
                 ),
             },
@@ -20396,7 +20396,7 @@
                             value: 232,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 86,
@@ -20482,7 +20482,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                     },
                 ),
             },
@@ -20493,7 +20493,7 @@
                             value: 229,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 82,
@@ -20640,7 +20640,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                     },
                 ),
             },
@@ -20651,7 +20651,7 @@
                             value: 229,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 82,
@@ -20850,7 +20850,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -20861,7 +20861,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -21231,7 +21231,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                     },
                 ),
             },
@@ -21242,7 +21242,7 @@
                             value: 230,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 84,
@@ -21835,7 +21835,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -21846,7 +21846,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -21944,7 +21944,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -21955,7 +21955,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -23108,7 +23108,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                     },
                 ),
             },
@@ -23119,7 +23119,7 @@
                             value: 283,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 89,
@@ -23228,7 +23228,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                     },
                 ),
             },
@@ -23239,7 +23239,7 @@
                             value: 285,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 90,
@@ -23386,7 +23386,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -23397,7 +23397,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -23495,7 +23495,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
@@ -23506,7 +23506,7 @@
                             value: 286,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 92,
@@ -23653,7 +23653,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -23664,7 +23664,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -23762,7 +23762,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                     },
                 ),
             },
@@ -23773,7 +23773,7 @@
                             value: 287,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 95,
@@ -23859,7 +23859,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -23870,7 +23870,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -24069,7 +24069,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                     },
                 ),
             },
@@ -24080,7 +24080,7 @@
                             value: 285,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 90,
@@ -24838,7 +24838,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
@@ -24849,7 +24849,7 @@
                             value: 286,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 92,
@@ -25048,7 +25048,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
@@ -25059,7 +25059,7 @@
                             value: 286,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 92,
@@ -25278,7 +25278,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                     },
                 ),
             },
@@ -25289,7 +25289,7 @@
                             value: 315,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 96,
@@ -25436,7 +25436,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -25447,7 +25447,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -25545,7 +25545,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                     },
                 ),
             },
@@ -25556,7 +25556,7 @@
                             value: 316,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 97,
@@ -25694,7 +25694,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -25705,7 +25705,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -25803,7 +25803,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -25814,7 +25814,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -26091,7 +26091,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -26102,7 +26102,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -26333,7 +26333,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                     },
                 ),
             },
@@ -26344,7 +26344,7 @@
                             value: 329,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 99,
@@ -26491,7 +26491,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -26502,7 +26502,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -26600,7 +26600,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                     },
                 ),
             },
@@ -26611,7 +26611,7 @@
                             value: 330,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 100,
@@ -26758,7 +26758,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -26769,7 +26769,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -26867,7 +26867,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                     },
                 ),
             },
@@ -26878,7 +26878,7 @@
                             value: 331,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 101,
@@ -27016,7 +27016,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -27027,7 +27027,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -27397,7 +27397,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                     },
                 ),
             },
@@ -27408,7 +27408,7 @@
                             value: 329,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 99,
@@ -28001,7 +28001,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -28012,7 +28012,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -28110,7 +28110,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -28121,7 +28121,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -29274,7 +29274,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -29285,7 +29285,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -29432,7 +29432,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -29443,7 +29443,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -29541,7 +29541,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                     },
                 ),
             },
@@ -29552,7 +29552,7 @@
                             value: 377,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 108,
@@ -29690,7 +29690,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -29701,7 +29701,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -29900,7 +29900,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -29911,7 +29911,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -30281,7 +30281,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -30292,7 +30292,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -30491,7 +30491,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -30502,7 +30502,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -30701,7 +30701,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -30712,7 +30712,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -31021,7 +31021,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -31032,7 +31032,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -31130,7 +31130,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -31141,7 +31141,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -32604,7 +32604,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -32615,7 +32615,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -33071,7 +33071,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -33082,7 +33082,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -33489,7 +33489,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -33500,7 +33500,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -34003,7 +34003,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -34014,7 +34014,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -34262,7 +34262,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -34273,7 +34273,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -34420,7 +34420,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                     },
                 ),
             },
@@ -34431,7 +34431,7 @@
                             value: 90,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 111,
@@ -34746,7 +34746,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -34757,7 +34757,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -34975,7 +34975,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -34986,7 +34986,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -35295,7 +35295,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -35306,7 +35306,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -35618,7 +35618,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                     },
                 ),
             },
@@ -35629,7 +35629,7 @@
                             value: 431,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 112,
@@ -35715,7 +35715,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -35726,7 +35726,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -36038,7 +36038,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                     },
                 ),
             },
@@ -36049,7 +36049,7 @@
                             value: 432,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 113,
@@ -36135,7 +36135,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -36146,7 +36146,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -36458,7 +36458,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -36469,7 +36469,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -36555,7 +36555,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                     },
                 ),
             },
@@ -36566,7 +36566,7 @@
                             value: 432,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 113,
@@ -36713,7 +36713,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -36724,7 +36724,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -36810,7 +36810,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -36821,7 +36821,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -36968,7 +36968,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::main`, `Val`),
+                        val_path: FormPath(`mnist_classifier::main`, `Val`),
                     },
                 ),
             },
@@ -36979,7 +36979,7 @@
                             value: 3,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 8,
@@ -37065,7 +37065,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                     },
                 ),
             },
@@ -37076,7 +37076,7 @@
                             value: 81,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 68,
@@ -37108,7 +37108,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -37300,7 +37300,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -37311,7 +37311,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -37449,7 +37449,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                     },
                 ),
             },
@@ -37460,7 +37460,7 @@
                             value: 90,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 111,
@@ -37644,7 +37644,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -37923,7 +37923,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -37934,7 +37934,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -38086,7 +38086,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -38287,7 +38287,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -38346,7 +38346,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -38467,7 +38467,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -38742,7 +38742,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -38943,7 +38943,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39046,7 +39046,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39149,7 +39149,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39208,7 +39208,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39267,7 +39267,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39326,7 +39326,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39462,7 +39462,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39521,7 +39521,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39624,7 +39624,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39683,7 +39683,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39742,7 +39742,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39878,7 +39878,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39999,7 +39999,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40102,7 +40102,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40161,7 +40161,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40220,7 +40220,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40279,7 +40279,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40338,7 +40338,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40397,7 +40397,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40500,7 +40500,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40559,7 +40559,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40618,7 +40618,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40677,7 +40677,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40736,7 +40736,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40839,7 +40839,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40942,7 +40942,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -41044,7 +41044,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                     },
                 ),
             },
@@ -41055,7 +41055,7 @@
                             value: 126,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 74,
@@ -41087,7 +41087,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -41233,7 +41233,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -41244,7 +41244,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -41386,7 +41386,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -41566,7 +41566,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -41728,7 +41728,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -41739,7 +41739,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -41886,7 +41886,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -42042,7 +42042,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -42053,7 +42053,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -42197,7 +42197,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -42208,7 +42208,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -42355,7 +42355,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -42496,7 +42496,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -42555,7 +42555,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -42614,7 +42614,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -42673,7 +42673,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -42732,7 +42732,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -42791,7 +42791,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -42850,7 +42850,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -42953,7 +42953,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -43089,7 +43089,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -43148,7 +43148,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -43207,7 +43207,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -43328,7 +43328,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -43636,7 +43636,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -43829,7 +43829,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -43840,7 +43840,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -44132,7 +44132,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -44248,7 +44248,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -44345,7 +44345,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -44356,7 +44356,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -44503,7 +44503,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -45032,7 +45032,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -45148,7 +45148,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -45463,7 +45463,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -45659,7 +45659,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -45756,7 +45756,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                     },
                 ),
             },
@@ -45767,7 +45767,7 @@
                             value: 15,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 66,
@@ -45799,7 +45799,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -45929,7 +45929,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -45988,7 +45988,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -46091,7 +46091,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -46194,7 +46194,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -46297,7 +46297,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -46356,7 +46356,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -46459,7 +46459,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -46549,7 +46549,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -46560,7 +46560,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -46830,7 +46830,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -47109,7 +47109,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -47120,7 +47120,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -47272,7 +47272,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -48290,7 +48290,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -48604,7 +48604,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -48696,7 +48696,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -48707,7 +48707,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -48962,7 +48962,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -49054,7 +49054,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -49065,7 +49065,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -49320,7 +49320,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -49472,7 +49472,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -49483,7 +49483,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -49738,7 +49738,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -50529,7 +50529,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -50685,7 +50685,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -50696,7 +50696,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -50952,7 +50952,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -50963,7 +50963,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -51222,7 +51222,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -51583,7 +51583,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -51779,7 +51779,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -52163,7 +52163,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -52260,7 +52260,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                     },
                 ),
             },
@@ -52271,7 +52271,7 @@
                             value: 287,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 95,
@@ -52357,7 +52357,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -52368,7 +52368,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -52567,7 +52567,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                     },
                 ),
             },
@@ -52578,7 +52578,7 @@
                             value: 285,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 90,
@@ -53336,7 +53336,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
@@ -53347,7 +53347,7 @@
                             value: 286,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 92,
@@ -53546,7 +53546,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
@@ -53557,7 +53557,7 @@
                             value: 286,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 92,
@@ -53802,7 +53802,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                     },
                 ),
             },
@@ -53813,7 +53813,7 @@
                             value: 316,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 97,
@@ -53951,7 +53951,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -53962,7 +53962,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -54060,7 +54060,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -54071,7 +54071,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -54348,7 +54348,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -54359,7 +54359,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -54616,7 +54616,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                     },
                 ),
             },
@@ -54627,7 +54627,7 @@
                             value: 177,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 78,
@@ -54713,7 +54713,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -54724,7 +54724,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -54871,7 +54871,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -54882,7 +54882,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -55081,7 +55081,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -55092,7 +55092,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -55291,7 +55291,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -55302,7 +55302,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -55501,7 +55501,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -55512,7 +55512,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -57345,7 +57345,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -57356,7 +57356,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -57723,7 +57723,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                     },
                 ),
             },
@@ -57734,7 +57734,7 @@
                             value: 331,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 101,
@@ -57872,7 +57872,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -57883,7 +57883,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -58253,7 +58253,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                     },
                 ),
             },
@@ -58264,7 +58264,7 @@
                             value: 329,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 99,
@@ -58857,7 +58857,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -58868,7 +58868,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -58966,7 +58966,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -58977,7 +58977,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -60156,7 +60156,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                     },
                 ),
             },
@@ -60167,7 +60167,7 @@
                             value: 283,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 89,
@@ -60302,7 +60302,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                     },
                 ),
             },
@@ -60313,7 +60313,7 @@
                             value: 377,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 108,
@@ -60451,7 +60451,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -60462,7 +60462,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -60661,7 +60661,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -60672,7 +60672,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -61042,7 +61042,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -61053,7 +61053,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -61252,7 +61252,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -61263,7 +61263,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -61462,7 +61462,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -61473,7 +61473,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -61782,7 +61782,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -61793,7 +61793,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -61891,7 +61891,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -61902,7 +61902,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,

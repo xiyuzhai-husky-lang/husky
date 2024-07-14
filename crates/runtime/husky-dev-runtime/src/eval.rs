@@ -125,7 +125,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                 };
                 KiControlFlow::Continue(value)
             }
-            KiOpn::ValItemLazilyDefined(_path) => {
+            KiOpn::ValLazilyDefined(_path) => {
                 let expansion = ki_repr.expansion(db).unwrap();
                 self.eval_root_stmts(expansion.root_hir_lazy_stmt_ki_reprs(db))
             }
@@ -330,7 +330,7 @@ fn ki_repr_eval_works() {
         if form_path.kind(db) != MajorFormKind::Val {
             continue;
         }
-        let ki_repr = KiRepr::new_val_item(form_path, db);
+        let ki_repr = KiRepr::new_val(form_path, db);
         todo!("set up pedestal");
         runtime.eval_ki_repr(ki_repr);
     }

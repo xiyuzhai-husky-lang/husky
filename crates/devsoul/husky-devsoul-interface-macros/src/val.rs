@@ -2,12 +2,12 @@
 use super::*;
 use quote::quote;
 
-pub(crate) fn val_item(args: TokenStream, input: TokenStream) -> TokenStream {
-    let ValItemArgs {
+pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
+    let ValArgs {
         ingredient_index,
         lazy,
         return_ref,
-    } = syn::parse_macro_input!(args as ValItemArgs);
+    } = syn::parse_macro_input!(args as ValArgs);
     let ItemFn {
         attrs: _,
         vis,
@@ -76,7 +76,7 @@ pub(crate) fn val_item(args: TokenStream, input: TokenStream) -> TokenStream {
     }
 }
 
-struct ValItemArgs {
+struct ValArgs {
     ingredient_index: usize,
     // default false
     lazy: bool,
@@ -84,7 +84,7 @@ struct ValItemArgs {
     return_ref: bool,
 }
 
-impl syn::parse::Parse for ValItemArgs {
+impl syn::parse::Parse for ValArgs {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         let ident: syn::Ident = syn::Ident::parse_any(input)?;
         assert!(ident == "ingredient_index");
