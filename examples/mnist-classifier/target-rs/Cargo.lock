@@ -382,6 +382,7 @@ dependencies = [
  "husky-standard-value",
  "serde",
  "shifted-unsigned-int",
+ "vec-like",
 ]
 
 [[package]]

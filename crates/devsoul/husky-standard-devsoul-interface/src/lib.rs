@@ -1,5 +1,6 @@
 pub mod label;
 pub mod pedestal;
+pub mod static_var;
 pub mod ugly;
 
 use self::pedestal::StandardPedestal;

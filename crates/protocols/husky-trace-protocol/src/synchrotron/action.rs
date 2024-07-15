@@ -94,28 +94,30 @@ where
                 synchrotron.followed_trace_id = Some(trace_id)
             }
             &TraceSynchrotronAction::CacheStalk {
-                pedestal,
+                ref pedestal,
                 trace_id,
                 ref stalk,
             } => {
                 let trace_entry = &mut synchrotron[trace_id];
-                trace_entry.cache_stalk(pedestal, stalk.clone())
+                trace_entry.cache_stalk(pedestal.clone(), stalk.clone())
             }
             &TraceSynchrotronAction::CacheFigure {
-                pedestal,
+                ref pedestal,
                 followed_trace_id,
                 accompanying_trace_ids_except_followed: ref accompanying_trace_ids,
                 ref figure,
             } => synchrotron.cache_figure(
                 followed_trace_id,
                 accompanying_trace_ids.clone(),
-                pedestal,
+                pedestal.clone(),
                 figure.clone(),
             ),
             &TraceSynchrotronAction::ToggleAccompany { trace_id } => {
                 synchrotron.accompanying_trace_ids.toggle(trace_id)
             }
-            &TraceSynchrotronAction::SetPedestal { pedestal } => synchrotron.pedestal = pedestal,
+            &TraceSynchrotronAction::SetPedestal { ref pedestal } => {
+                synchrotron.pedestal = pedestal.clone()
+            }
         }
     }
 }

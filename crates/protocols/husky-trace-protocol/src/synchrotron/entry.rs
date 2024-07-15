@@ -37,12 +37,12 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotronEntry<TraceProtocol> {
         self.expanded
     }
 
-    pub(crate) fn has_stalk(&self, pedestal: TraceProtocol::Pedestal) -> bool {
-        self.stalks.contains_key(&pedestal)
+    pub(crate) fn has_stalk(&self, pedestal: &TraceProtocol::Pedestal) -> bool {
+        self.stalks.contains_key(pedestal)
     }
 
-    pub fn stalk(&self, pedestal: TraceProtocol::Pedestal) -> &TraceStalk {
-        &self.stalks[&pedestal]
+    pub fn stalk(&self, pedestal: &TraceProtocol::Pedestal) -> &TraceStalk {
+        &self.stalks[pedestal]
     }
 
     pub(super) fn toggle_expansion(&mut self) {

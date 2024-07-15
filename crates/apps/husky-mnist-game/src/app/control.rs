@@ -29,7 +29,8 @@ impl MnistControl {
     }
 
     pub(crate) fn pedestal(&self) -> StandardPedestal {
-        StandardPedestal::Specific(self.input_id)
+        todo!()
+        // StandardPedestal::Specific(self.input_id)
     }
 }
 

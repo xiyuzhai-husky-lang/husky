@@ -7,7 +7,7 @@ use self::view::action::TraceViewActionBuffer;
 
 pub trait PedestalUi<Ui: IsUi>: IsPedestalFull {
     fn pedestal_ui<TraceProtocol>(
-        self,
+        &self,
         ui: &mut Ui,
         pedestal_buffer: &mut Self::UiBuffer,
         action_buffer: &mut TraceViewActionBuffer<TraceProtocol>,

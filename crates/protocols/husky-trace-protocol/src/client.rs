@@ -172,8 +172,11 @@ where
                     .accompanying_trace_ids_except_followed()
                     .clone();
                 let pedestal = trace_synchrotron.pedestal();
-                let (has_figure, _) =
-                    trace_synchrotron.has_figure(Some(trace_id), pedestal, accompanying_trace_ids);
+                let (has_figure, _) = trace_synchrotron.has_figure(
+                    Some(trace_id),
+                    pedestal.clone(),
+                    accompanying_trace_ids,
+                );
                 if !has_figure {
                     return None;
                 }
@@ -189,7 +192,7 @@ where
                     accompanying_trace_ids.toggle(trace_id);
                     let (has_figure, _) = trace_synchrotron.has_figure(
                         trace_synchrotron.followed_trace_id(),
-                        pedestal,
+                        pedestal.clone(),
                         AccompanyingTraceIdsExceptFollowed::new(
                             trace_synchrotron.followed_trace_id(),
                             accompanying_trace_ids,
@@ -201,7 +204,7 @@ where
                 }
                 Some(TraceSynchrotronAction::ToggleAccompany { trace_id })
             }
-            TraceViewAction::SetPedestal { pedestal } => {
+            TraceViewAction::SetPedestal { ref pedestal } => {
                 let trace_synchrotron = self.trace_synchrotron();
                 {
                     // see if setting pedestal will affect stalk
@@ -219,14 +222,16 @@ where
                         trace_synchrotron.accompanying_trace_ids_except_followed();
                     let (has_figure, _) = trace_synchrotron.has_figure(
                         trace_synchrotron.followed_trace_id(),
-                        pedestal,
+                        pedestal.clone(),
                         accompanying_trace_ids_expect_followed,
                     );
                     if !has_figure {
                         return None;
                     }
                 }
-                Some(TraceSynchrotronAction::SetPedestal { pedestal })
+                Some(TraceSynchrotronAction::SetPedestal {
+                    pedestal: pedestal.clone(),
+                })
             }
         }
     }
