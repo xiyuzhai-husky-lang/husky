@@ -7,8 +7,8 @@ mod pattern;
 mod pattern_expr;
 mod region;
 pub mod source_map;
-pub mod static_var_deps;
 pub mod stmt;
+pub mod var_deps;
 pub mod variable;
 
 pub use self::expr::*;

@@ -54,7 +54,7 @@ husky-sem-expr.workspace = true
 husky-sem-place-contract.workspace = true
 husky-sem-item-path-deps.workspace = true
 husky-sem-static-mut-deps.workspace = true
-husky-sem-static-var-deps.workspace = true
+husky-sem-var-deps.workspace = true
 # syntax
 husky-ast.workspace = true
 husky-toml-ast.workspace = true

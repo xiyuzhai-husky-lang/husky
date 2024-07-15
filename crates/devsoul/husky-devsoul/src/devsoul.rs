@@ -69,9 +69,7 @@ pub trait IsRuntimeStorage<LinkageImpl: IsLinkageImpl>: Default + Send {
     fn get_or_try_init_ki_value(
         &self,
         ki: Ki,
-        static_var_deps: impl Iterator<
-            Item = (ItemPath, <LinkageImpl::Pedestal as IsPedestal>::StaticVarId),
-        >,
+        var_deps: impl Iterator<Item = (ItemPath, <LinkageImpl::Pedestal as IsPedestal>::StaticVarId)>,
         f: impl FnOnce() -> LinkageImplKiControlFlow<LinkageImpl>,
         db: &::salsa::Db,
     ) -> LinkageImplKiControlFlow<LinkageImpl>;

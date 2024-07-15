@@ -35,7 +35,7 @@ husky-entity-tree = { workspace = true, optional = true }
 # semantics
 husky-sem-item-path-deps.workspace = true
 husky-sem-static-mut-deps.workspace = true
-husky-sem-static-var-deps.workspace = true
+husky-sem-var-deps.workspace = true
 
 [dev-dependencies]
 # fs

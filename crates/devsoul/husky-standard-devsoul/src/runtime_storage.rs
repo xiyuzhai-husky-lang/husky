@@ -47,14 +47,14 @@ where
     fn get_or_try_init_ki_value(
         &self,
         ki: Ki,
-        static_var_deps: impl Iterator<Item = (ItemPath, StandardStaticVarId)>,
+        var_deps: impl Iterator<Item = (ItemPath, StandardStaticVarId)>,
         f: impl FnOnce() -> StandardLinkageImplKiControlFlow,
         db: &::salsa::Db,
     ) -> StandardLinkageImplKiControlFlow {
         use husky_devsoul_interface::pedestal::IsPedestal;
 
         let pedestal = <LinkageImpl as IsLinkageImpl>::Pedestal::from_ids(
-            static_var_deps.map(|(path, id)| (unsafe { std::mem::transmute(*path) }, id)),
+            var_deps.map(|(path, id)| (unsafe { std::mem::transmute(*path) }, id)),
         );
         let key = StandardDevRuntimeKiStorageKey { ki, pedestal };
         let mu = self.ki_values.entry(key.clone()).or_default().clone();

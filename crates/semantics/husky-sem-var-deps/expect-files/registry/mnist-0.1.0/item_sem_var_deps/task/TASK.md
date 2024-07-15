@@ -1,0 +1,11 @@
+```rust
+Some(
+    SemStaticVarDeps(
+        [
+            SemStaticVarDep::Item(
+                ItemPath(`mnist::TASK`),
+            ),
+        ],
+    ),
+)
+```

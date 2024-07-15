@@ -4055,7 +4055,7 @@ dependencies = [
  "husky-sem-item-path-deps",
  "husky-sem-place-contract",
  "husky-sem-static-mut-deps",
- "husky-sem-static-var-deps",
+ "husky-sem-var-deps",
  "husky-semantic-token",
  "husky-syn-decl",
  "husky-syn-defn",
@@ -4219,7 +4219,7 @@ dependencies = [
  "husky-sem-item-path-deps",
  "husky-sem-place-contract",
  "husky-sem-static-mut-deps",
- "husky-sem-static-var-deps",
+ "husky-sem-var-deps",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -4524,7 +4524,7 @@ dependencies = [
  "husky-sem-item-path-deps",
  "husky-sem-place-contract",
  "husky-sem-static-mut-deps",
- "husky-sem-static-var-deps",
+ "husky-sem-var-deps",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -5496,7 +5496,7 @@ dependencies = [
  "husky-sem-item-path-deps",
  "husky-sem-place-contract",
  "husky-sem-static-mut-deps",
- "husky-sem-static-var-deps",
+ "husky-sem-var-deps",
  "husky-standard-devsoul",
  "husky-syn-decl",
  "husky-syn-defn",
@@ -6201,7 +6201,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-sem-static-var-deps"
+name = "husky-sem-var-deps"
 version = "0.1.0"
 dependencies = [
  "graph-dynamics",
@@ -6869,7 +6869,7 @@ dependencies = [
  "husky-sem-item-path-deps",
  "husky-sem-place-contract",
  "husky-sem-static-mut-deps",
- "husky-sem-static-var-deps",
+ "husky-sem-var-deps",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",

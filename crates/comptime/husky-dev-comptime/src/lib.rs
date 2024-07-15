@@ -11,7 +11,7 @@ use husky_entity_tree::helpers::ingredient::{HasIngredientPaths, IngredientPath}
 use husky_ki::Ki;
 use husky_ki_repr::{
     repr::{KiCachingClass, KiRepr},
-    static_var_deps::KiStaticVarDeps,
+    var_deps::KiStaticVarDeps,
 };
 use husky_linkage::linkage::Linkage;
 use husky_manifest::helpers::upstream::HasAllUpstreamPackages;
@@ -40,7 +40,7 @@ pub struct IngredientKiInfo {
     ki_repr: KiRepr,
     ki: Ki,
     caching_class: KiCachingClass,
-    ki_static_var_deps: KiStaticVarDeps,
+    ki_var_deps: KiStaticVarDeps,
 }
 
 impl IngredientKiInfo {
@@ -56,8 +56,8 @@ impl IngredientKiInfo {
         self.caching_class
     }
 
-    pub fn ki_static_var_deps(&self) -> &KiStaticVarDeps {
-        &self.ki_static_var_deps
+    pub fn ki_var_deps(&self) -> &KiStaticVarDeps {
+        &self.ki_var_deps
     }
 }
 
@@ -119,7 +119,7 @@ impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
         self.linktime.linkage_impl(linkage, self.db())
     }
 
-    pub fn ingredient_ki_and_static_var_deps(
+    pub fn ingredient_ki_and_var_deps(
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
@@ -129,10 +129,7 @@ impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
         .1
         .as_ref()
         .unwrap();
-        (
-            ingredient_ki_info.ki(),
-            ingredient_ki_info.ki_static_var_deps(),
-        )
+        (ingredient_ki_info.ki(), ingredient_ki_info.ki_var_deps())
     }
 
     pub fn ingredient_ki_repr(
@@ -194,12 +191,12 @@ fn ingredient_ki_infos(
                         };
                         let ki = ki_repr.ki(db);
                         let caching_class = ki_repr.caching_class(db);
-                        let ki_static_var_deps = ki_repr.static_var_deps(db).clone();
+                        let ki_var_deps = ki_repr.var_deps(db).clone();
                         let info = IngredientKiInfo {
                             ki_repr,
                             ki,
                             caching_class,
-                            ki_static_var_deps,
+                            ki_var_deps,
                         };
                         (ingredient_path, Some(info))
                     })
