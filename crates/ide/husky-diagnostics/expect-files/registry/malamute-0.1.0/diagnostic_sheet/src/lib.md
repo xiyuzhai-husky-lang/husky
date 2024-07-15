@@ -7,7 +7,13 @@ DiagnosticSheet {
         diagnostics: [],
     },
     ast_diagnostic_sheet: AstDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "expected identifier or `[` after `#` for attribute or sorcery",
+                severity: Error,
+                range: [40:1, 40:2),
+            },
+        ],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [],
