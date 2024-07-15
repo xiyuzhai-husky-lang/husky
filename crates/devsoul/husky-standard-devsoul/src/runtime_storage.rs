@@ -1,7 +1,7 @@
 use crate::*;
 use dashmap::DashMap;
 use husky_devsoul::devsoul::IsRuntimeStorage;
-use husky_devsoul_interface::{HuskyIngredientIndex, HuskyJarIndex};
+use husky_devsoul_interface::{HuskyIngredientIndex, HuskyJarIndex, IsLinkageImpl};
 use husky_entity_path::path::ItemPath;
 use husky_ki::{version_stamp::KiVersionStamp, Ki};
 use husky_linkage_impl::standard::StandardLinkageImplKiControlFlow;
@@ -39,7 +39,10 @@ pub struct AnyPointer(*const std::ffi::c_void);
 
 unsafe impl Send for AnyPointer {}
 
-impl IsRuntimeStorage<LinkageImpl> for StandardDevRuntimeStorage {
+impl IsRuntimeStorage<LinkageImpl> for StandardDevRuntimeStorage
+where
+    LinkageImpl: IsLinkageImpl,
+{
     fn get_or_try_init_ki_value(
         &self,
         ki: Ki,

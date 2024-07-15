@@ -99,7 +99,7 @@ macro_rules! impl_is_fn_linkage_impl_source {
         #[allow(non_snake_case, unused_mut)]
         impl<Pedestal, F, $($input,)* $output> IsFnLinkageImplSource<LinkageImpl<Pedestal>, fn($($input,)*) -> $output> for FnLinkageImplSource<LinkageImpl<Pedestal>, F>
         where
-            Pedestal: std::fmt::Debug+Clone+'static,
+            Pedestal: IsPedestalFull,
             F: Fn($($input,)*) -> $output,
             $($input: Send + FromValue, )*
             $output: Send,
@@ -229,7 +229,7 @@ macro_rules! impl_is_unveil_linkage_impl_source {
             fn(Target, ($($runtime_constant,)*)) -> std::ops::ControlFlow<B, $output>
         > for UnveilFnLinkageImplSource<LinkageImpl<Pedestal>, F>
         where
-            Pedestal: std::fmt::Debug + Clone + 'static,
+            Pedestal: IsPedestalFull,
             F: Fn(Target, ($($runtime_constant,)*)) -> std::ops::ControlFlow<B, $output>,
             B: IntoValue, // no need to use ValueLeashTest because B is definitely not leashed
             Target: Send + FromValue,
