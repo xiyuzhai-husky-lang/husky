@@ -31,7 +31,9 @@ pub trait IsFnLinkageImplSource<LinkageImpl: IsLinkageImpl, FnPointer> {
     ) -> LinkageImplKiControlFlow<LinkageImpl, Self::FnOutput>;
 }
 
-/// generates the function to acquire linkage impls accessed through dynamic library
+/// generates the function to acquire linkage impls accessed through dynamic library,
+///
+/// it also set up the jar index.
 #[macro_export]
 macro_rules! linkage_impls {
     ($($linkage_impl: expr),* $(,)?) => {

@@ -137,7 +137,7 @@ impl Linkage {
         }
     }
 
-    pub fn new_static_var_item(path: MajorFormPath, db: &::salsa::Db) -> Self {
+    pub fn new_static_var(path: MajorFormPath, db: &::salsa::Db) -> Self {
         Self::new(
             db,
             LinkageData::MajorStaticVar {

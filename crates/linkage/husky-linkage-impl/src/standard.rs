@@ -1,4 +1,5 @@
 pub mod r#enum;
+pub mod static_var;
 pub mod r#struct;
 pub mod ugly;
 
@@ -65,12 +66,17 @@ where
         enum_variant_field_wrapper: fn(Value) -> Value,
     },
     /// used to get the json value of an enum u8-represented given only the index
-    EnumUnitValuePresenter { presenter: EnumUnitValuePresenter },
+    EnumUnitValuePresenter {
+        presenter: EnumUnitValuePresenter,
+    },
     StructDestructor {
         struct_destructor_wrapper: fn(Value) -> Vec<Value>,
     },
     StructField {
         struct_field_wrapper: fn(Value) -> Value,
+    },
+    StaticVar {
+        set_up_for_testing: fn(usize),
     },
 }
 
@@ -126,6 +132,7 @@ where
                 let owner = ctx.eval_ki_repr_interface(owner)?;
                 StandardLinkageImplKiControlFlow::Continue(struct_field_wrapper(owner))
             }
+            LinkageImpl::StaticVar { set_up_for_testing } => todo!(),
         }
     }
 

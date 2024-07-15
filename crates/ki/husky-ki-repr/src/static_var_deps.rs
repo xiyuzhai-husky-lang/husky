@@ -19,6 +19,16 @@ impl std::ops::Deref for KiStaticVarDeps {
     }
 }
 
+impl IntoIterator for &KiStaticVarDeps {
+    type Item = ItemPath;
+
+    type IntoIter = impl Iterator<Item = ItemPath>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.iter().copied()
+    }
+}
+
 // ad hoc, maybe some other consideration about template arguments?
 impl From<&SemStaticVarDeps> for KiStaticVarDeps {
     fn from(value: &SemStaticVarDeps) -> Self {
