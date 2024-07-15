@@ -17,18 +17,16 @@ impl<Pedestal: IsPedestalFull> GenericGraphics2dFigure<Pedestal> {
         GenericGraphics2dFigure {
             specifics: pedestals
                 .map(|pedestal| {
-                    (
-                        pedestal,
-                        SpecificGraphics2dFigure::new(
-                            followed_visual
-                                .map(|(trace_id, ki_repr_interface)| (trace_id, ki_repr_interface)),
-                            accompanyings,
-                            |ki_repr_interface, visual_synchrotron| {
-                                f(ki_repr_interface, pedestal, visual_synchrotron)
-                            },
-                            visual_synchrotron,
-                        ),
-                    )
+                    let specific_graphics2d_figure = SpecificGraphics2dFigure::new(
+                        followed_visual
+                            .map(|(trace_id, ki_repr_interface)| (trace_id, ki_repr_interface)),
+                        accompanyings,
+                        |ki_repr_interface, visual_synchrotron| {
+                            f(ki_repr_interface, pedestal.clone(), visual_synchrotron)
+                        },
+                        visual_synchrotron,
+                    );
+                    (pedestal, specific_graphics2d_figure)
                 })
                 .collect(),
         }

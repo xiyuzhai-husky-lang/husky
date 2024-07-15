@@ -4,7 +4,7 @@ use husky_value_protocol::presentation::EnumUnitValuePresenter;
 use serde::Serialize;
 
 pub trait IsLinkageImpl: Send + Copy + 'static {
-    type Pedestal: std::fmt::Debug + Copy + 'static;
+    type Pedestal: std::fmt::Debug + 'static;
     type Value: IsValue;
     type Exception: std::fmt::Debug + Serialize;
 

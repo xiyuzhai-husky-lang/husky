@@ -84,12 +84,11 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinkageImpl> for DevRuntime<Devso
         ingredient_index: HuskyIngredientIndex,
         f: impl FnOnce() -> DevsoulValueResult<Devsoul>,
     ) -> DevsoulKiControlFlow<Devsoul> {
-        self.storage.get_or_try_init_ki_value(
-            self.comptime.ingredient_ki(jar_index, ingredient_index),
-            todo!(),
-            f,
-            self.db(),
-        )
+        let (ki, ki_static_var_deps) = self
+            .comptime
+            .ingredient_ki_and_static_var_deps(jar_index, ingredient_index);
+        self.storage
+            .get_or_try_init_ki_value(ki, &ki_static_var_deps, f, self.db())
     }
 
     fn eval_ingredient(

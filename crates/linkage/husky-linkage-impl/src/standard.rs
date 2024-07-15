@@ -21,10 +21,10 @@ pub type Error = ();
 pub type StandardLinkageImplKiControlFlow<C = Value, B = Value> =
     husky_devsoul_interface::ki_control_flow::KiControlFlow<C, B, Error>;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum StandardLinkageImpl<Pedestal>
 where
-    Pedestal: std::fmt::Debug + Copy + 'static,
+    Pedestal: std::fmt::Debug + Clone + 'static,
 {
     RitchieFn {
         /// it's the wrapper's responsibility to properly set ctx
@@ -83,9 +83,14 @@ where
     },
 }
 
+impl<Pedestal> Copy for StandardLinkageImpl<Pedestal> where
+    Pedestal: std::fmt::Debug + Clone + 'static
+{
+}
+
 impl<Pedestal> IsLinkageImpl for StandardLinkageImpl<Pedestal>
 where
-    Pedestal: std::fmt::Debug + Copy + 'static,
+    Pedestal: std::fmt::Debug + Clone + 'static,
 {
     type Pedestal = Pedestal;
     type Value = Value;

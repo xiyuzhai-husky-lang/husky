@@ -61,54 +61,55 @@ where
             ),
             None => (None, None),
         };
-        match pedestal {
-            StandardPedestal::Specific(_) => {
-                <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure<StandardPedestal>>::new_specific(
-                    followed ,
-                    accompanyings,
-                    |ki_repr, visual_synchrotron| {
-                        Self::get_ki_visual(
-                            ki_repr,
-                            runtime,
-                            visual_synchrotron,
-                            val_visual_cache,
-                        )
-                    },
-                    visual_synchrotron,
-                )
-            }
-            StandardPedestal::Generic => {
-                let pedestals = (0..49).into_iter().filter_map(|index| {
-                        let pedestal = StandardPedestal::Specific(DeprecatedInputId::from_index(index));
-                        let Some(ki_domain_repr_interface) = domain else {
-                            return Some(pedestal)
-                        };
-                        match runtime.eval_ki_domain_repr_interface_dyn(
-                            ki_domain_repr_interface,
-                        ) {
-                            KiControlFlow::Continue(_) => Some(pedestal),
-                            KiControlFlow::LoopContinue => todo!(),
-                            KiControlFlow::LoopExit(_) => todo!(),
-                            KiControlFlow::Return(_) => todo!(),
-                            KiControlFlow::Undefined => todo!(),
-                            KiControlFlow::Throw(_) => todo!(),
-                        }
-                    });
-                <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure<StandardPedestal>>::new_generic(
-                    followed,
-                    accompanyings,
-                    pedestals,
-                    |ki_repr, pedestal, visual_synchrotron| {
-                        Self::get_ki_visual(
-                            ki_repr,
-                            runtime,
-                            visual_synchrotron,
-                            val_visual_cache,
-                        )
-                    },
-                    visual_synchrotron,
-                )
-            }
-        }
+        todo!()
+        // match pedestal {
+        //     StandardPedestal::Specific(_) => {
+        //         <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure<StandardPedestal>>::new_specific(
+        //             followed ,
+        //             accompanyings,
+        //             |ki_repr, visual_synchrotron| {
+        //                 Self::get_ki_visual(
+        //                     ki_repr,
+        //                     runtime,
+        //                     visual_synchrotron,
+        //                     val_visual_cache,
+        //                 )
+        //             },
+        //             visual_synchrotron,
+        //         )
+        //     }
+        //     StandardPedestal::Generic => {
+        //         let pedestals = (0..49).into_iter().filter_map(|index| {
+        //                 let pedestal = StandardPedestal::Specific(DeprecatedInputId::from_index(index));
+        //                 let Some(ki_domain_repr_interface) = domain else {
+        //                     return Some(pedestal)
+        //                 };
+        //                 match runtime.eval_ki_domain_repr_interface_dyn(
+        //                     ki_domain_repr_interface,
+        //                 ) {
+        //                     KiControlFlow::Continue(_) => Some(pedestal),
+        //                     KiControlFlow::LoopContinue => todo!(),
+        //                     KiControlFlow::LoopExit(_) => todo!(),
+        //                     KiControlFlow::Return(_) => todo!(),
+        //                     KiControlFlow::Undefined => todo!(),
+        //                     KiControlFlow::Throw(_) => todo!(),
+        //                 }
+        //             });
+        //         <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure<StandardPedestal>>::new_generic(
+        //             followed,
+        //             accompanyings,
+        //             pedestals,
+        //             |ki_repr, pedestal, visual_synchrotron| {
+        //                 Self::get_ki_visual(
+        //                     ki_repr,
+        //                     runtime,
+        //                     visual_synchrotron,
+        //                     val_visual_cache,
+        //                 )
+        //             },
+        //             visual_synchrotron,
+        //         )
+        //     }
+        // }
     }
 }

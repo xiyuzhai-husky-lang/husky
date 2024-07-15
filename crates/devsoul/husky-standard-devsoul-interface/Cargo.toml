@@ -9,6 +9,7 @@ egui = { workspace = true, optional = true }
 shifted-unsigned-int = { workspace = true, features = ["serde"] }
 enum-class.workspace = true
 serde.workspace = true
+vec-like.workspace = true
 # linkage
 husky-linkage-impl.workspace = true
 # devsoul

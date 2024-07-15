@@ -80,7 +80,7 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
     fn get_trace_stalk(
         &self,
         trace: Self::Trace,
-        pedestal: <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
+        pedestal: &<Self::TraceProtocol as IsTraceProtocol>::Pedestal,
         value_presenter_cache: &mut ValuePresenterCache,
         value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
     ) -> husky_trace_protocol::stalk::TraceStalk {

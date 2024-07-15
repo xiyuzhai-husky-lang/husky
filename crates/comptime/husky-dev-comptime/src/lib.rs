@@ -119,16 +119,20 @@ impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
         self.linktime.linkage_impl(linkage, self.db())
     }
 
-    pub fn ingredient_ki(
+    pub fn ingredient_ki_and_static_var_deps(
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-    ) -> Ki {
-        self.ingredient_ki_infos[jar_index.index()].1[ingredient_index.index()]
-            .1
-            .as_ref()
-            .unwrap()
-            .ki()
+    ) -> (Ki, &KiStaticVarDeps) {
+        let ingredient_ki_info = &self.ingredient_ki_infos[jar_index.index()].1
+            [ingredient_index.index()]
+        .1
+        .as_ref()
+        .unwrap();
+        (
+            ingredient_ki_info.ki(),
+            ingredient_ki_info.ki_static_var_deps(),
+        )
     }
 
     pub fn ingredient_ki_repr(

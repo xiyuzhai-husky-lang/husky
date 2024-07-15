@@ -19,7 +19,7 @@ pub struct StandardDevRuntimeStorage {
     >,
 }
 
-#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Hash)]
 pub struct StandardDevRuntimeKiStorageKey {
     ki: Ki,
     pedestal: StandardPedestal,

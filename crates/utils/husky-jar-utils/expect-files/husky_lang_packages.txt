@@ -2556,6 +2556,7 @@
             "husky-value-protocol",
             "rustc_version",
             "smallvec",
+            "husky-standard-devsoul-interface",
         ],
     },
     PackageSummary {
@@ -2584,6 +2585,32 @@
     PackageSummary {
         name: "husky-standard-value-macros",
         relative_path: "crates/value/husky-standard-value-macros",
+        dependencies: [
+            "husky-proc-macro-utils",
+            "proc-macro2",
+            "quote",
+            "syn",
+        ],
+    },
+    PackageSummary {
+        name: "husky-standard-devsoul-interface",
+        relative_path: "crates/devsoul/husky-standard-devsoul-interface",
+        dependencies: [
+            "egui",
+            "enum-class",
+            "husky-devsoul-interface",
+            "husky-linkage-impl",
+            "husky-standard-devsoul-interface-macros",
+            "husky-standard-value",
+            "husky-trace-protocol",
+            "serde",
+            "shifted-unsigned-int",
+            "vec-like",
+        ],
+    },
+    PackageSummary {
+        name: "husky-standard-devsoul-interface-macros",
+        relative_path: "crates/devsoul/husky-standard-devsoul-interface-macros",
         dependencies: [
             "husky-proc-macro-utils",
             "proc-macro2",
@@ -2826,31 +2853,6 @@
             "husky-token-data",
             "husky-toml-ast",
             "husky-toml-token",
-        ],
-    },
-    PackageSummary {
-        name: "husky-standard-devsoul-interface",
-        relative_path: "crates/devsoul/husky-standard-devsoul-interface",
-        dependencies: [
-            "egui",
-            "enum-class",
-            "husky-devsoul-interface",
-            "husky-linkage-impl",
-            "husky-standard-devsoul-interface-macros",
-            "husky-standard-value",
-            "husky-trace-protocol",
-            "serde",
-            "shifted-unsigned-int",
-        ],
-    },
-    PackageSummary {
-        name: "husky-standard-devsoul-interface-macros",
-        relative_path: "crates/devsoul/husky-standard-devsoul-interface-macros",
-        dependencies: [
-            "husky-proc-macro-utils",
-            "proc-macro2",
-            "quote",
-            "syn",
         ],
     },
     PackageSummary {

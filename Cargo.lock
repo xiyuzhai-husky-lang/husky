@@ -5597,6 +5597,8 @@ dependencies = [
  "colored",
  "husky-decl-macro-utils",
  "husky-devsoul-interface",
+ "husky-linkage-impl",
+ "husky-standard-devsoul-interface",
  "husky-standard-value",
  "husky-value-protocol",
  "rustc_version",
@@ -6321,6 +6323,7 @@ dependencies = [
  "husky-trace-protocol",
  "serde",
  "shifted-unsigned-int",
+ "vec-like",
 ]
 
 [[package]]

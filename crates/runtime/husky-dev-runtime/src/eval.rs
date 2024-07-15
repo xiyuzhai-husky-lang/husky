@@ -324,28 +324,30 @@ fn ki_repr_eval_works() {
     let DevComptimeTarget::SingleCrate(crate_path) = runtime.comptime_target() else {
         unreachable!()
     };
-    for &item_path in module_item_paths(db, crate_path.root_module_path(db)) {
-        let ItemPath::MajorItem(MajorItemPath::Form(form_path)) = item_path else {
-            continue;
-        };
-        if form_path.kind(db) != MajorFormKind::Val {
-            continue;
-        }
-        let ki_repr = KiRepr::new_val(form_path, db);
-        for path in ki_repr.static_var_deps(db) {
-            let ItemPath::MajorItem(MajorItemPath::Form(path)) = path else {
-                todo!()
+    with_runtime::<StandardDevsoul<()>, _, _>(&runtime, || {
+        for &item_path in module_item_paths(db, crate_path.root_module_path(db)) {
+            let ItemPath::MajorItem(MajorItemPath::Form(form_path)) = item_path else {
+                continue;
             };
-            let StandardLinkageImpl::StaticVar {
-                set_up_for_testing, ..
-            } = runtime
-                .comptime
-                .linkage_impl(Linkage::new_static_var(path, db))
-            else {
-                unreachable!()
-            };
-            set_up_for_testing(0)
+            if form_path.kind(db) != MajorFormKind::Val {
+                continue;
+            }
+            let ki_repr = KiRepr::new_val(form_path, db);
+            for path in ki_repr.static_var_deps(db) {
+                let ItemPath::MajorItem(MajorItemPath::Form(path)) = path else {
+                    todo!()
+                };
+                let StandardLinkageImpl::StaticVar {
+                    set_up_for_testing, ..
+                } = runtime
+                    .comptime
+                    .linkage_impl(Linkage::new_static_var(path, db))
+                else {
+                    unreachable!()
+                };
+                set_up_for_testing(0)
+            }
+            runtime.eval_ki_repr(ki_repr);
         }
-        runtime.eval_ki_repr(ki_repr);
-    }
+    })
 }
