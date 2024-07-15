@@ -8,6 +8,7 @@ use husky_devsoul_interface::{ki_control_flow::KiControlFlow, IsLinkageImpl};
 use husky_hir_opr::binary::HirBinaryOpr;
 use husky_ki::{KiOpn, KiPatternData};
 use husky_ki_repr::repr::{KiArgumentRepr, KiDomainRepr, KiRepr};
+use husky_linkage_impl::standard::LinkageImpl;
 use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr};
 use husky_standard_devsoul::StandardDevsoul;
 use husky_term_prelude::literal::Literal;
@@ -331,7 +332,20 @@ fn ki_repr_eval_works() {
             continue;
         }
         let ki_repr = KiRepr::new_val(form_path, db);
-        todo!("set up pedestal");
+        for path in ki_repr.static_var_deps(db) {
+            let ItemPath::MajorItem(MajorItemPath::Form(path)) = path else {
+                todo!()
+            };
+            let LinkageImpl::StaticVar {
+                set_up_for_testing, ..
+            } = runtime
+                .comptime
+                .linkage_impl(Linkage::new_static_var(path, db))
+            else {
+                unreachable!()
+            };
+            set_up_for_testing(0)
+        }
         runtime.eval_ki_repr(ki_repr);
     }
 }
