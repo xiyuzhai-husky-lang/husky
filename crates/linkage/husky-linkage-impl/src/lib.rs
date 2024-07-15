@@ -31,6 +31,7 @@ pub trait IsFnLinkageImplSource<LinkageImpl: IsLinkageImpl, FnPointer> {
     ) -> LinkageImplKiControlFlow<LinkageImpl, Self::FnOutput>;
 }
 
+/// generates the function to acquire linkage impls accessed through dynamic library
 #[macro_export]
 macro_rules! linkage_impls {
     ($($linkage_impl: expr),* $(,)?) => {
