@@ -183,12 +183,18 @@ impl<'a> AstParser<'a> {
                     },
                     _ => AstData::Err {
                         token_verse_idx,
-                        error: OriginalAstError::ExpectedLboxOrIdentAfterPoundForAttrOrSorce.into(),
+                        error: OriginalAstError::ExpectedLboxOrIdentAfterPoundForAttrOrSorc(
+                            token_verse_idx,
+                        )
+                        .into(),
                     },
                 },
                 None => AstData::Err {
                     token_verse_idx,
-                    error: OriginalAstError::ExpectedLboxOrIdentAfterPoundForAttrOrSorce.into(),
+                    error: OriginalAstError::ExpectedLboxOrIdentAfterPoundForAttrOrSorc(
+                        token_verse_idx,
+                    )
+                    .into(),
                 },
             },
             TokenData::Punctuation(_)

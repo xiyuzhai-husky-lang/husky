@@ -1432,6 +1432,11 @@ TokenSheetData {
                 ),
             ),
         ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Pound,
+            ),
+        ),
         TokenData::Keyword(
             Keyword::Pub,
         ),
@@ -1834,6 +1839,14 @@ TokenSheetData {
                     start: TokenVerseStart(
                         TokenIdx(
                             314,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            315,
                         ),
                     ),
                     indent: 0,

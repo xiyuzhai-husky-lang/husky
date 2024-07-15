@@ -685,16 +685,30 @@ AstSheet {
                     ),
                 ),
             },
-            AstData::Identifiable {
+            AstData::Err {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
                     raw: 30,
+                },
+                error: AstError::Original(
+                    OriginalAstError::ExpectedLboxOrIdentAfterPoundForAttrOrSorc(
+                        TokenVerseIdx {
+                            lcurl: None,
+                            raw: 30,
+                        },
+                    ),
+                ),
+            },
+            AstData::Identifiable {
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: 31,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                314,
+                                315,
                             ),
                         },
                     },
@@ -711,13 +725,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `narrow_down`,
                     token_idx: TokenIdx(
-                        316,
+                        317,
                     ),
                 },
                 is_generic: true,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        317,
+                        318,
                     ),
                     drained: false,
                 },
@@ -731,7 +745,7 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        22..33,
+        22..34,
     ),
     nested_top_level_asts: [],
     siblings: [
@@ -790,7 +804,7 @@ AstSheet {
             22..22,
         ),
         ArenaIdxRange(
-            22..33,
+            22..34,
         ),
     ],
 }

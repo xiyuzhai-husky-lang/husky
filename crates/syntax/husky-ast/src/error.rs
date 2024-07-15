@@ -117,7 +117,7 @@ pub enum OriginalAstError {
     #[error("VisibilityExprError")]
     VisibilityExprError(#[from] OriginalVisibilityExprError),
     #[error("ExpectedLboxOrIdentAfterPoundForAttrOrSorce")]
-    ExpectedLboxOrIdentAfterPoundForAttrOrSorce,
+    ExpectedLboxOrIdentAfterPoundForAttrOrSorc(TokenVerseIdx),
     #[error("UnexpectedMemoUnderModule")]
     UnexpectedMemoUnderModule,
     #[error("UnexpectedMemoUnderForm")]

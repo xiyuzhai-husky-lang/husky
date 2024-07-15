@@ -192,11 +192,11 @@ EntityTreePresheet {
                             )`, (0)),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 32,
+                        ast_idx: 33,
                         ident_token: IdentToken {
                             ident: `narrow_down`,
                             token_idx: TokenIdx(
-                                316,
+                                317,
                             ),
                         },
                         block: DefnBlock::Form {
