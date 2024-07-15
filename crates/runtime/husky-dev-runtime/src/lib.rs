@@ -8,7 +8,7 @@ pub use self::config::*;
 use husky_dev_comptime::{DevComptime, DevComptimeTarget};
 use husky_devsoul::{
     devsoul::IsDevsoul,
-    helpers::{DevsoulException, DevsoulValue},
+    helpers::{DevsoulException, DevsoulStaticVarId, DevsoulValue},
 };
 use husky_devsoul::{
     devsoul::IsRuntimeStorage,
@@ -18,6 +18,7 @@ use husky_devsoul_interface::{
     ki_repr::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface},
     HuskyIngredientIndex, HuskyJarIndex, IsDevRuntime, IsLinkageImpl, LinkageImplKiControlFlow,
 };
+use husky_entity_path::path::{major_item::MajorItemPath, ItemPath};
 use husky_ki::{KiRuntimeConstant, KiRuntimeConstantData};
 use husky_ki_repr::repr::KiRepr;
 use husky_linkage::linkage::Linkage;
@@ -56,6 +57,32 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     pub fn linktime_target_path(&self) -> Option<LinktimeTargetPath> {
         self.comptime.linktime_target_path()
     }
+
+    fn get_or_try_init_ki_value(
+        &self,
+        ki: husky_ki::Ki,
+        static_var_deps: &husky_ki_repr::static_var_deps::KiStaticVarDeps,
+        f: impl FnOnce() -> LinkageImplKiControlFlow<Devsoul::LinkageImpl>,
+    ) -> LinkageImplKiControlFlow<Devsoul::LinkageImpl> {
+        self.storage.get_or_try_init_ki_value(
+            ki,
+            static_var_deps
+                .iter()
+                .map(|&path| (path, self.get_static_var_id(path))),
+            f,
+            self.db(),
+        )
+    }
+
+    fn get_static_var_id(&self, path: ItemPath) -> DevsoulStaticVarId<Devsoul> {
+        let db = self.db();
+        let ItemPath::MajorItem(MajorItemPath::Form(path)) = path else {
+            todo!()
+        };
+        let linkage = Linkage::new_static_var(path, db);
+        let linkage_impl = self.comptime.linkage_impl(linkage);
+        linkage_impl.get_static_var_id()
+    }
 }
 
 impl<Devsoul: IsDevsoul> Default for DevRuntime<Devsoul>
@@ -84,11 +111,10 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinkageImpl> for DevRuntime<Devso
         ingredient_index: HuskyIngredientIndex,
         f: impl FnOnce() -> DevsoulValueResult<Devsoul>,
     ) -> DevsoulKiControlFlow<Devsoul> {
-        let (ki, ki_static_var_deps) = self
+        let (ki, static_var_deps) = self
             .comptime
             .ingredient_ki_and_static_var_deps(jar_index, ingredient_index);
-        self.storage
-            .get_or_try_init_ki_value(ki, &ki_static_var_deps, f, self.db())
+        self.get_or_try_init_ki_value(ki, static_var_deps, f)
     }
 
     fn eval_ingredient(
@@ -129,12 +155,9 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinkageImpl> for DevRuntime<Devso
         let ki_repr: KiRepr = unsafe { std::mem::transmute(ki_repr) };
         let ki_domain_repr: KiDomainReprInterface =
             unsafe { std::mem::transmute(ki_repr.ki_domain_repr(db)) };
-        self.storage.get_or_try_init_ki_value(
-            ki_repr.ki(db),
-            &ki_repr.static_var_deps(db),
-            || f(ki_domain_repr),
-            db,
-        )
+        self.get_or_try_init_ki_value(ki_repr.ki(db), ki_repr.static_var_deps(db), || {
+            f(ki_domain_repr)
+        })
     }
 
     fn eval_memo_field(

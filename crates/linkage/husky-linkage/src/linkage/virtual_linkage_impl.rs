@@ -1,6 +1,6 @@
 use super::*;
 use husky_devsoul_interface::{
-    vm_control_flow::LinkageImplVmControlFlow, IsLinkageImpl, VmArgumentValue,
+    pedestal::IsPedestal, vm_control_flow::LinkageImplVmControlFlow, IsLinkageImpl, VmArgumentValue,
 };
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
 use husky_virtual_value::value::Value;
@@ -116,6 +116,10 @@ impl IsLinkageImpl for VirtualLinkageImpl {
     }
 
     fn enum_index_value_presenter(self) -> EnumUnitValuePresenter {
+        todo!()
+    }
+
+    fn get_static_var_id(self) -> <Self::Pedestal as IsPedestal>::StaticVarId {
         todo!()
     }
 }

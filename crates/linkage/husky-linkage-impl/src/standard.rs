@@ -13,7 +13,9 @@ use self::StandardLinkageImpl as __LinkageImpl;
 use super::*;
 use husky_decl_macro_utils::for_all_ritchie_tys;
 use husky_devsoul_interface::{
-    ki_repr::KiDomainReprInterface, pedestal::IsPedestalFull, VmArgumentValue,
+    ki_repr::KiDomainReprInterface,
+    pedestal::{IsPedestal, IsPedestalFull},
+    VmArgumentValue,
 };
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
 
@@ -71,9 +73,7 @@ where
         enum_variant_field_wrapper: fn(Value) -> Value,
     },
     /// used to get the json value of an enum u8-represented given only the index
-    EnumUnitValuePresenter {
-        presenter: EnumUnitValuePresenter,
-    },
+    EnumUnitValuePresenter { presenter: EnumUnitValuePresenter },
     StructDestructor {
         struct_destructor_wrapper: fn(Value) -> Vec<Value>,
     },
@@ -82,6 +82,8 @@ where
     },
     StaticVar {
         set_up_for_testing: fn(usize),
+        get_id: fn() -> Pedestal::StaticVarId,
+        set_id: fn(Pedestal::StaticVarId),
     },
 }
 
@@ -143,7 +145,11 @@ where
                 let owner = ctx.eval_ki_repr_interface(owner)?;
                 StandardLinkageImplKiControlFlow::Continue(struct_field_wrapper(owner))
             }
-            StandardLinkageImpl::StaticVar { set_up_for_testing } => todo!(),
+            StandardLinkageImpl::StaticVar {
+                set_up_for_testing,
+                get_id,
+                set_id,
+            } => todo!(),
         }
     }
 
@@ -160,6 +166,18 @@ where
             StandardLinkageImpl::EnumUnitValuePresenter { presenter } => presenter,
             _ => unreachable!(),
         }
+    }
+
+    fn get_static_var_id(self) -> <Self::Pedestal as IsPedestal>::StaticVarId {
+        let StandardLinkageImpl::StaticVar {
+            set_up_for_testing,
+            get_id,
+            set_id,
+        } = self
+        else {
+            unreachable!()
+        };
+        get_id()
     }
 }
 

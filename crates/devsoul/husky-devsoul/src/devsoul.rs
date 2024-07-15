@@ -2,7 +2,7 @@ use crate::*;
 use husky_devsoul_interface::{
     ki_control_flow::KiControlFlow,
     ki_repr::{KiDomainReprInterface, KiReprInterface},
-    pedestal::IsPedestalFull,
+    pedestal::{IsPedestal, IsPedestalFull},
     DevEvalContext, IsDevRuntime, IsDevRuntimeDyn,
 };
 use husky_devsoul_interface::{
@@ -69,7 +69,9 @@ pub trait IsRuntimeStorage<LinkageImpl: IsLinkageImpl>: Default + Send {
     fn get_or_try_init_ki_value(
         &self,
         ki: Ki,
-        static_var_deps: &[ItemPath],
+        static_var_deps: impl Iterator<
+            Item = (ItemPath, <LinkageImpl::Pedestal as IsPedestal>::StaticVarId),
+        >,
         f: impl FnOnce() -> LinkageImplKiControlFlow<LinkageImpl>,
         db: &::salsa::Db,
     ) -> LinkageImplKiControlFlow<LinkageImpl>;

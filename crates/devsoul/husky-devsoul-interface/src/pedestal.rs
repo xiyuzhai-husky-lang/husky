@@ -3,8 +3,10 @@ use serde::{Deserialize, Serialize};
 pub trait IsPedestal:
     std::fmt::Debug + Default + PartialEq + Eq + Clone + Send + Sync + std::hash::Hash + 'static
 {
-    type StaticVarId;
+    type StaticVarId: Clone + Copy;
     type UiBuffer: IsPedestalUiBuffer<Pedestal = Self>;
+
+    fn from_ids(ids: impl Iterator<Item = (u32, Self::StaticVarId)>) -> Self;
 
     fn init_ui_buffer(&self) -> Self::UiBuffer;
 
@@ -27,6 +29,10 @@ impl IsPedestal for () {
     type StaticVarId = ();
 
     type UiBuffer = ();
+
+    fn from_ids(ids: impl Iterator<Item = (u32, Self::StaticVarId)>) -> Self {
+        ()
+    }
 
     fn init_ui_buffer(&self) -> () {
         ()
