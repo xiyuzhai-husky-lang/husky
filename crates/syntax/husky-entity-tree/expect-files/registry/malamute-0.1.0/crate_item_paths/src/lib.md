@@ -14,6 +14,7 @@
     ItemPath(`malamute::OneVsAllResult::ConfidentNo`),
     ItemPath(`malamute::OneVsAllResult::Unconfident`),
     ItemPath(`malamute::narrow_down`),
+    ItemPath(`malamute::narrow_down::#deps(0)`),
     ItemPath(`malamute::OneVsAll as core::default::Default(0)`),
     ItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`),
     ItemPath(`malamute::Class as core::ops::Unveil(0)`),

@@ -1437,6 +1437,26 @@ TokenSheetData {
                 PunctuationMapped::Pound,
             ),
         ),
+        TokenData::Ident(
+            `deps`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::LeftDelimiter(
+                    Delimiter::Par,
+                ),
+            ),
+        ),
+        TokenData::Ident(
+            `Task`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::RightDelimiter(
+                    Delimiter::Par,
+                ),
+            ),
+        ),
         TokenData::Keyword(
             Keyword::Pub,
         ),
@@ -1846,7 +1866,7 @@ TokenSheetData {
                 TokenVerseData {
                     start: TokenVerseStart(
                         TokenIdx(
-                            315,
+                            319,
                         ),
                     ),
                     indent: 0,

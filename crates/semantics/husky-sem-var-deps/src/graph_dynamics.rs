@@ -11,6 +11,7 @@ use husky_entity_path::{
     region::RegionPath,
 };
 use husky_eth_signature::signature::attr::AttrEthTemplate;
+use husky_eth_term::term::EthTerm;
 use husky_sem_item_path_deps::{
     helpers::graph_dynamics::{
         item_sem_item_path_cycle_group_itd, item_sem_item_path_full_deps_cropped,
@@ -18,6 +19,7 @@ use husky_sem_item_path_deps::{
     },
     item_path_deps::item_sem_item_path_deps,
 };
+use husky_term_prelude::ItemPathTerm;
 use propagate::PropagationResult;
 use propagate::PropagationResultRef;
 use salsa::DebugWithDb;
@@ -129,7 +131,37 @@ fn item_sem_var_deps_initial_value(db: &::salsa::Db, item_path_id: ItemPathId) -
         let AttrEthTemplate::Deps(deps_eth_template) = attr_path.eth_template(db).unwrap() else {
             continue;
         };
-        todo!()
+        for shard in deps_eth_template.shards(db) {
+            match shard.dep_term(db) {
+                EthTerm::Literal(_) => todo!(),
+                EthTerm::SymbolicVariable(_) => todo!(),
+                EthTerm::LambdaVariable(_) => todo!(),
+                EthTerm::ItemPath(path) => match path {
+                    ItemPathTerm::Form(path) => match path.kind(db) {
+                        MajorFormKind::Ritchie(_) => (),
+                        MajorFormKind::TypeAlias => (),
+                        MajorFormKind::TypeVar => (),
+                        MajorFormKind::Val => (),
+                        MajorFormKind::StaticMut => todo!(),
+                        MajorFormKind::StaticVar => (),
+                        MajorFormKind::Compterm => (),
+                        MajorFormKind::Conceptual => (),
+                    },
+                    ItemPathTerm::Trait(_) => todo!(),
+                    ItemPathTerm::TypeOntology(_) => todo!(),
+                    ItemPathTerm::TypeInstance(_) => todo!(),
+                    ItemPathTerm::TypeVariant(_) => todo!(),
+                },
+                EthTerm::Sort(_) => todo!(),
+                EthTerm::Universe(_) => todo!(),
+                EthTerm::Curry(_) => todo!(),
+                EthTerm::Ritchie(_) => todo!(),
+                EthTerm::Abstraction(_) => todo!(),
+                EthTerm::Application(_) => todo!(),
+                EthTerm::TypeAsTraitItem(_) => todo!(),
+                EthTerm::TraitConstraint(_) => todo!(),
+            }
+        }
     }
     deps
 }

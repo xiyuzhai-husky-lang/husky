@@ -43,7 +43,7 @@ fn attr_dec_template(db: &::salsa::Db, path: AttrItemPath) -> DecSignatureResult
         AttrSynDecl::Backprop(decl) => {
             BackpropAttrDecTemplate::from_decl(path, decl, db).map(Into::into)
         }
-        AttrSynDecl::Deps(decl) => DepsAttrDecTemplate::from_decl(decl, db).map(Into::into),
+        AttrSynDecl::Deps(decl) => DepsAttrDecTemplate::from_decl(path, decl, db).map(Into::into),
         AttrSynDecl::Derive(decl) => DeriveAttrDecTemplate::from_decl(decl, db).map(Into::into),
         AttrSynDecl::Projection(decl) => {
             ProjectionAttrDecTemplate::from_decl(decl, db).map(Into::into)

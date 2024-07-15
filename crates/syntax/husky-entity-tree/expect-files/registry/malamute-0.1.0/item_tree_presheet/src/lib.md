@@ -196,7 +196,7 @@ EntityTreePresheet {
                         ident_token: IdentToken {
                             ident: `narrow_down`,
                             token_idx: TokenIdx(
-                                317,
+                                321,
                             ),
                         },
                         block: DefnBlock::Form {

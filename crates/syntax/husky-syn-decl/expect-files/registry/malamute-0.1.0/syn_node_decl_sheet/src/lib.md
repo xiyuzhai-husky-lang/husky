@@ -1264,7 +1264,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 39,
+                                                                    value: 40,
                                                                 },
                                                             ),
                                                         ),

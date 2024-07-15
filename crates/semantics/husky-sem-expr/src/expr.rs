@@ -596,6 +596,11 @@ impl<'a> SemExprBuilder<'a> {
                     self.infer_expr_term(sem_expr_idx);
                     sem_expr_idx
                 }
+                SynExprRootKind::Dep => {
+                    let sem_expr_idx = self.build_sem_expr(root.syn_expr_idx(), ExpectAnyOriginal);
+                    self.infer_expr_term(sem_expr_idx);
+                    sem_expr_idx
+                }
                 SynExprRootKind::RootBody
                 | SynExprRootKind::ValExpr
                 | SynExprRootKind::StaticExpr => match self.return_ty() {
@@ -615,8 +620,7 @@ impl<'a> SemExprBuilder<'a> {
                         _ => todo!(),
                     }
                 }
-                SynExprRootKind::Dep
-                | SynExprRootKind::ReturnExpr
+                SynExprRootKind::ReturnExpr
                 | SynExprRootKind::Condition
                 | SynExprRootKind::HtmlArgumentExpr
                 | SynExprRootKind::LetStmtType

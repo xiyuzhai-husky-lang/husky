@@ -445,6 +445,30 @@
         None,
     ),
     (
+        ItemSynNodePath::Attr(
+            Room32,
+            AttrSynNodePath(
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::Attr(
+                        AttrSynNodePathData {
+                            parent_syn_node_path: ItemSynNodePath::MajorItem(
+                                MajorItemSynNodePath::Form(
+                                    MajorFormSynNodePath(`malamute::narrow_down`, `Ritchie(
+                                        Gn,
+                                    )`, (0)),
+                                ),
+                            ),
+                            attr_item_path_result: Ok(
+                                AttrItemPath(`malamute::narrow_down::#deps(0)`),
+                            ),
+                        },
+                    ),
+                },
+            ),
+        ),
+        None,
+    ),
+    (
         ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
