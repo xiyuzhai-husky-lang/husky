@@ -5,6 +5,8 @@ macro_rules! static_var_linkage_impl {
     ($static_var: path) => {
         __LinkageImpl::StaticVar {
             set_up_for_testing: <$static_var>::set_up_for_testing,
+            get_id: <$static_var>::get_id,
+            set_id: <$static_var>::set_id,
         }
     };
 }
@@ -17,8 +19,16 @@ fn static_var_linkage_impl_works() {
     struct STATIC_VAR_A {}
 
     impl STATIC_VAR_A {
-        fn set_up_for_testing(index: usize) {
+        pub fn set_up_for_testing(index: usize) {
             STATIC_VAR_A.set(index.try_into().unwrap())
+        }
+
+        pub fn get_id() -> () {
+            ()
+        }
+
+        pub fn set_id(id: ()) {
+            ()
         }
     }
 
@@ -27,8 +37,11 @@ fn static_var_linkage_impl_works() {
         static STATIC_VAR_A: std::cell::Cell<i32> = Default::default();
     }
 
-    let LinkageImpl::<()>::StaticVar { set_up_for_testing } =
-        static_var_linkage_impl!(STATIC_VAR_A)
+    let LinkageImpl::<()>::StaticVar {
+        set_up_for_testing,
+        get_id,
+        set_id,
+    } = static_var_linkage_impl!(STATIC_VAR_A)
     else {
         unreachable!()
     };

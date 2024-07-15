@@ -6,7 +6,7 @@ use self::input_id::*;
 use dataset::MNIST_DATASET;
 use husky_core::*;
 use husky_linkage_impl::standard::ugly::*;
-use husky_standard_devsoul_interface::{label::IsLabel, ugly::*};
+use husky_standard_devsoul_interface::{label::IsLabel, static_var::StandardStaticVarId, ugly::*};
 
 use husky_devsoul_interface::{init_crate, ugly::*};
 
@@ -130,6 +130,14 @@ impl INPUT {
         // todo: check range!
         set_input_id(MnistInputId::from_index(index))
     }
+
+    pub fn get_id() -> StandardStaticVarId {
+        input_id().index().into()
+    }
+
+    pub fn set_id(id: StandardStaticVarId) {
+        todo!()
+    }
 }
 
 // ad hoc
@@ -140,6 +148,14 @@ pub struct TASK {}
 
 impl TASK {
     pub fn set_up_for_testing(index: usize) {
+        todo!()
+    }
+
+    pub fn get_id() -> StandardStaticVarId {
+        todo!()
+    }
+
+    pub fn set_id(id: StandardStaticVarId) {
         todo!()
     }
 }

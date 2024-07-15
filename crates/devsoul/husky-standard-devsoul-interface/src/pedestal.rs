@@ -9,12 +9,18 @@ use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 
 #[derive(Debug, Default, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 pub struct StandardPedestal {
-    static_var_ids: OrderedSmallVecPairMap<usize, StandardStaticVarId, 2>,
+    static_var_ids: OrderedSmallVecPairMap<u32, StandardStaticVarId, 2>,
 }
 
 impl IsPedestal for StandardPedestal {
     type StaticVarId = StandardStaticVarId;
     type UiBuffer = MlPedestalUiBuffer;
+
+    fn from_ids(ids: impl Iterator<Item = (u32, Self::StaticVarId)>) -> Self {
+        Self {
+            static_var_ids: ids.collect(),
+        }
+    }
 
     fn init_ui_buffer(&self) -> Self::UiBuffer {
         todo!()
