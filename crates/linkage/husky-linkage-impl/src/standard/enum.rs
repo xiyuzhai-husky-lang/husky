@@ -68,7 +68,7 @@ macro_rules! enum_variant_destructor_linkage_impl {
                 _ => unreachable!(),
             }
         }
-        LinkageImpl::EnumVariantDestructor {
+        __LinkageImpl::EnumVariantDestructor {
             enum_variant_destructor_wrapper,
         }
     }};
@@ -84,7 +84,7 @@ macro_rules! enum_variant_destructor_linkage_impl {
                 _ => unreachable!(),
             }
         }
-        LinkageImpl::EnumVariantDestructor {
+        __LinkageImpl::EnumVariantDestructor {
             enum_variant_destructor_wrapper,
         }
     }};
@@ -98,10 +98,11 @@ fn enum_props_variant_destructor_linkage_impl_works() {
         Cat { height: i32, weight: i32 },
     }
 
-    let _: LinkageImpl<()> =
+    let _: StandardLinkageImpl<()> =
         enum_variant_destructor_linkage_impl!(Animal, Animal::Cat, { height, weight });
 
-    let _: LinkageImpl<()> = enum_variant_destructor_linkage_impl!(Animal, Animal::Dog, { weight });
+    let _: StandardLinkageImpl<()> =
+        enum_variant_destructor_linkage_impl!(Animal, Animal::Dog, { weight });
 }
 
 #[test]
@@ -112,10 +113,11 @@ fn enum_tuple_variant_destructor_linkage_impl_works() {
         Cat(i32, i32),
     }
 
-    let _: LinkageImpl<()> =
+    let _: StandardLinkageImpl<()> =
         enum_variant_destructor_linkage_impl!(Animal, Animal::Cat, (height, weight));
 
-    let _: LinkageImpl<()> = enum_variant_destructor_linkage_impl!(Animal, Animal::Dog, (weight));
+    let _: StandardLinkageImpl<()> =
+        enum_variant_destructor_linkage_impl!(Animal, Animal::Dog, (weight));
 }
 
 /// # discriminator
@@ -141,7 +143,7 @@ macro_rules! enum_variant_discriminator_linkage_impl {
                 _ => unreachable!(),
             }
         }
-        LinkageImpl::EnumVariantDiscriminator {
+        __LinkageImpl::EnumVariantDiscriminator {
             enum_variant_discriminator_wrapper,
         }
     }};
@@ -167,7 +169,7 @@ macro_rules! enum_variant_discriminator_linkage_impl {
                 _ => unreachable!(),
             }
         }
-        LinkageImpl::EnumVariantDiscriminator {
+        __LinkageImpl::EnumVariantDiscriminator {
             enum_variant_discriminator_wrapper,
         }
     }};
@@ -190,7 +192,7 @@ macro_rules! enum_variant_discriminator_linkage_impl {
                 _ => unreachable!(),
             }
         }
-        LinkageImpl::EnumVariantDiscriminator {
+        __LinkageImpl::EnumVariantDiscriminator {
             enum_variant_discriminator_wrapper,
         }
     }};
@@ -204,9 +206,12 @@ fn enum_props_variant_discriminator_linkage_impl_works() {
         Cat { height: i32, weight: i32 },
     }
 
-    let _: LinkageImpl<()> = enum_variant_discriminator_linkage_impl!(Animal, Animal::Frog, {});
-    let _: LinkageImpl<()> = enum_variant_discriminator_linkage_impl!(Animal, Animal::Dog, {});
-    let _: LinkageImpl<()> = enum_variant_discriminator_linkage_impl!(Animal, Animal::Cat, {});
+    let _: StandardLinkageImpl<()> =
+        enum_variant_discriminator_linkage_impl!(Animal, Animal::Frog, {});
+    let _: StandardLinkageImpl<()> =
+        enum_variant_discriminator_linkage_impl!(Animal, Animal::Dog, {});
+    let _: StandardLinkageImpl<()> =
+        enum_variant_discriminator_linkage_impl!(Animal, Animal::Cat, {});
 }
 
 #[test]
@@ -217,9 +222,12 @@ fn enum_tuple_variant_discriminator_linkage_impl_works() {
         Cat(i32, i32),
     }
 
-    let _: LinkageImpl<()> = enum_variant_discriminator_linkage_impl!(Animal, Animal::Frog, ());
-    let _: LinkageImpl<()> = enum_variant_discriminator_linkage_impl!(Animal, Animal::Dog, ());
-    let _: LinkageImpl<()> = enum_variant_discriminator_linkage_impl!(Animal, Animal::Cat, ());
+    let _: StandardLinkageImpl<()> =
+        enum_variant_discriminator_linkage_impl!(Animal, Animal::Frog, ());
+    let _: StandardLinkageImpl<()> =
+        enum_variant_discriminator_linkage_impl!(Animal, Animal::Dog, ());
+    let _: StandardLinkageImpl<()> =
+        enum_variant_discriminator_linkage_impl!(Animal, Animal::Cat, ());
 }
 
 /// # field
@@ -250,7 +258,7 @@ macro_rules! enum_variant_field_linkage_impl {
                 _ => unreachable!(),
             }
         }
-        LinkageImpl::EnumVariantField {
+        __LinkageImpl::EnumVariantField {
             enum_variant_field_wrapper,
         }
     }};
@@ -277,7 +285,7 @@ macro_rules! enum_variant_field_linkage_impl {
                 _ => unreachable!(),
             }
         }
-        LinkageImpl::EnumVariantField {
+        __LinkageImpl::EnumVariantField {
             enum_variant_field_wrapper,
         }
     }};
@@ -304,7 +312,7 @@ macro_rules! enum_variant_field_linkage_impl {
                 _ => unreachable!(),
             }
         }
-        LinkageImpl::EnumVariantField {
+        __LinkageImpl::EnumVariantField {
             enum_variant_field_wrapper,
         }
     }};
@@ -332,7 +340,7 @@ macro_rules! enum_variant_field_linkage_impl {
                 _ => unreachable!(),
             }
         }
-        LinkageImpl::EnumVariantField {
+        __LinkageImpl::EnumVariantField {
             enum_variant_field_wrapper,
         }
     }};
@@ -348,7 +356,8 @@ fn enum_props_variant_field_linkage_impl_works() {
         Cat { height: i32, weight: i32 },
     }
 
-    let _: LinkageImpl<()> = enum_variant_field_linkage_impl!(Animal, Animal::Cat, { weight });
+    let _: StandardLinkageImpl<()> =
+        enum_variant_field_linkage_impl!(Animal, Animal::Cat, { weight });
 }
 
 #[test]
@@ -361,7 +370,7 @@ fn enum_tuple_variant_field_linkage_impl_works() {
         Cat(i32, i32),
     }
 
-    let _: LinkageImpl<()> = enum_variant_field_linkage_impl!(Animal, Animal::Dog, (v0));
-    let _: LinkageImpl<()> = enum_variant_field_linkage_impl!(Animal, Animal::Cat, (v0));
-    let _: LinkageImpl<()> = enum_variant_field_linkage_impl!(Animal, Animal::Cat, (v1));
+    let _: StandardLinkageImpl<()> = enum_variant_field_linkage_impl!(Animal, Animal::Dog, (v0));
+    let _: StandardLinkageImpl<()> = enum_variant_field_linkage_impl!(Animal, Animal::Cat, (v0));
+    let _: StandardLinkageImpl<()> = enum_variant_field_linkage_impl!(Animal, Animal::Cat, (v1));
 }

@@ -123,6 +123,23 @@ pub fn INPUT() -> &'static BinaryImage28 {
     __INPUT.get().unwrap()
 }
 
+pub struct INPUT {}
+
+impl INPUT {
+    pub fn set_up_for_testing(index: usize) {
+        // todo: check range!
+        set_input_id(MnistInputId::from_index(index))
+    }
+}
+
 // ad hoc
 #[allow(non_snake_case)]
 pub fn TASK() {}
+
+pub struct TASK {}
+
+impl TASK {
+    pub fn set_up_for_testing(index: usize) {
+        todo!()
+    }
+}

@@ -24,7 +24,7 @@ pub struct StandardDevsoul<Figure>(PhantomData<Figure>)
 where
     Figure: IsFigure<StandardPedestal>;
 
-type LinkageImpl = husky_linkage_impl::standard::LinkageImpl<StandardPedestal>;
+type LinkageImpl = husky_linkage_impl::standard::StandardLinkageImpl<StandardPedestal>;
 
 impl<Figure> IsDevsoul for StandardDevsoul<Figure>
 where

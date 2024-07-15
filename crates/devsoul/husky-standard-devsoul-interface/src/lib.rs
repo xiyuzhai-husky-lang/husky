@@ -39,7 +39,7 @@ fn sample_id_size_works() {
 }
 
 pub type DevEvalContext = husky_devsoul_interface::DevEvalContext<
-    husky_linkage_impl::standard::LinkageImpl<StandardPedestal>,
+    husky_linkage_impl::standard::StandardLinkageImpl<StandardPedestal>,
 >;
 
 thread_local! {
