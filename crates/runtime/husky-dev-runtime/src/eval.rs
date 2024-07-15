@@ -8,7 +8,7 @@ use husky_devsoul_interface::{ki_control_flow::KiControlFlow, IsLinkageImpl};
 use husky_hir_opr::binary::HirBinaryOpr;
 use husky_ki::{KiOpn, KiPatternData};
 use husky_ki_repr::repr::{KiArgumentRepr, KiDomainRepr, KiRepr};
-use husky_linkage_impl::standard::LinkageImpl;
+use husky_linkage_impl::standard::StandardLinkageImpl;
 use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr};
 use husky_standard_devsoul::StandardDevsoul;
 use husky_term_prelude::literal::Literal;
@@ -63,7 +63,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     }
 
     pub fn eval_ki_repr(&self, ki_repr: KiRepr) -> DevsoulKiControlFlow<Devsoul> {
-        todo!("set up dev eval context");
+        // todo!("set up dev eval context");
         // todo: consider domain
         let db = self.db();
         let result: DevsoulKiControlFlow<Devsoul> = match ki_repr.opn(db) {
@@ -336,7 +336,7 @@ fn ki_repr_eval_works() {
             let ItemPath::MajorItem(MajorItemPath::Form(path)) = path else {
                 todo!()
             };
-            let LinkageImpl::StaticVar {
+            let StandardLinkageImpl::StaticVar {
                 set_up_for_testing, ..
             } = runtime
                 .comptime
