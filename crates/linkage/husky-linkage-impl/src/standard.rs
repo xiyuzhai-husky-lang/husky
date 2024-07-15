@@ -47,7 +47,6 @@ where
         fn_pointer: fn(),
     },
     RitchieGn {
-        generic_pedestal: fn(Pedestal) -> Pedestal,
         /// it's the wrapper's responsibility to properly set ctx to that with generic pedestal
         gn_generic_wrapper: fn(
             DevEvalContext<StandardLinkageImpl<Pedestal>>,
@@ -111,7 +110,6 @@ where
                 fn_wrapper(ctx, ki_argument_reprs)
             }
             StandardLinkageImpl::RitchieGn {
-                generic_pedestal,
                 gn_generic_wrapper,
                 gn_specific_wrapper,
             } => {
@@ -254,7 +252,6 @@ macro_rules! gn_linkage_impl {
         }
         __LinkageImpl::RitchieGn {
             // ad hoc
-            generic_pedestal: <$gn_item as __IsGnItem>::generic_pedestal,
             gn_generic_wrapper,
             gn_specific_wrapper,
         }
