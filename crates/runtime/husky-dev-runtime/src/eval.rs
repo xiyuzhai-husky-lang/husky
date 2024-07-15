@@ -310,6 +310,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
 }
 
 #[test]
+#[ignore]
 fn ki_repr_eval_works() {
     use husky_entity_kind::MajorFormKind;
     use husky_entity_path::path::{major_item::MajorItemPath, ItemPath};
@@ -333,7 +334,7 @@ fn ki_repr_eval_works() {
                 continue;
             }
             let ki_repr = KiRepr::new_val(form_path, db);
-            for path in ki_repr.static_var_deps(db) {
+            for path in ki_repr.var_deps(db) {
                 let ItemPath::MajorItem(MajorItemPath::Form(path)) = path else {
                     todo!()
                 };

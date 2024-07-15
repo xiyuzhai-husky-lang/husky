@@ -2,9 +2,9 @@
 pub mod expansion;
 pub mod jar;
 pub mod repr;
-pub mod static_var_deps;
 #[cfg(test)]
 mod tests;
+pub mod var_deps;
 
 use self::expansion::*;
 use self::jar::KiReprJar as Jar;

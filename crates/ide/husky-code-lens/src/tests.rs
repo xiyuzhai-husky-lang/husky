@@ -31,7 +31,7 @@ pub(crate) use husky_ast::test_utils::*;
     husky_sem_place_contract::jar::SemPlaceContractJar,
     husky_sem_item_path_deps::jar::SemItemPathDepsJar,
     husky_sem_static_mut_deps::jar::SemStaticMutDepsJar,
-    husky_sem_static_var_deps::jar::SemStaticVarDepsJar,
+    husky_sem_var_deps::jar::SemVarDepsJar,
     Jar
 )]
 pub(crate) struct DB;

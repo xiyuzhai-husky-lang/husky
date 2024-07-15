@@ -40,7 +40,7 @@ husky-linkage.workspace = true
 husky-sem-expr.workspace = true
 husky-sem-item-path-deps.workspace = true
 husky-sem-static-mut-deps.workspace = true
-husky-sem-static-var-deps.workspace = true
+husky-sem-var-deps.workspace = true
 # syntax
 husky-entity-tree.workspace = true
 husky-syn-defn.workspace = true

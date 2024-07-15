@@ -41,7 +41,7 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
+                source: KiReprSource::Val(
                     FormPath(`mnist::INPUT`, `StaticVar`),
                 ),
                 caching_class: Val,

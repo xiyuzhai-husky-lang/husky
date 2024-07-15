@@ -382,6 +382,7 @@ dependencies = [
  "husky-standard-value",
  "serde",
  "shifted-unsigned-int",
+ "vec-like",
 ]
 
 [[package]]
@@ -523,6 +524,7 @@ dependencies = [
  "husky-standard-value",
  "lazy_static",
  "serde",
+ "shifted-unsigned-int",
 ]
 
 [[package]]
