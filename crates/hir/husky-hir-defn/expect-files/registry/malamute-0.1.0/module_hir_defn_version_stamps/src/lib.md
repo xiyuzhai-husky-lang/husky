@@ -275,6 +275,19 @@
         ),
     ),
     (
+        Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 163,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         ImplBlock(
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
@@ -302,7 +315,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 163,
+                            value: 164,
                         },
                     ),
                 ),
@@ -346,7 +359,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 164,
+                            value: 165,
                         },
                     ),
                 ),
@@ -368,7 +381,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 165,
+                            value: 166,
                         },
                     ),
                 ),
@@ -412,7 +425,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 166,
+                            value: 167,
                         },
                     ),
                 ),
@@ -434,7 +447,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 167,
+                            value: 168,
                         },
                     ),
                 ),

@@ -685,19 +685,12 @@ AstSheet {
                     ),
                 ),
             },
-            AstData::Err {
+            AstData::Attr {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
                     raw: 30,
                 },
-                error: AstError::Original(
-                    OriginalAstError::ExpectedLboxOrIdentAfterPoundForAttrOrSorc(
-                        TokenVerseIdx {
-                            lcurl: None,
-                            raw: 30,
-                        },
-                    ),
-                ),
+                ident: `deps`,
             },
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
@@ -708,7 +701,7 @@ AstSheet {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                315,
+                                319,
                             ),
                         },
                     },
@@ -725,13 +718,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `narrow_down`,
                     token_idx: TokenIdx(
-                        317,
+                        321,
                     ),
                 },
                 is_generic: true,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        318,
+                        322,
                     ),
                     drained: false,
                 },

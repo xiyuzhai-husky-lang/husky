@@ -57,6 +57,10 @@
         None,
     ),
     (
+        ItemPath(`malamute::narrow_down::#deps(0)`),
+        None,
+    ),
+    (
         ItemPath(`malamute::OneVsAll as core::default::Default(0)`),
         None,
     ),

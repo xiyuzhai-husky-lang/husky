@@ -580,18 +580,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 323;\n\ntoken_line_group_idx = 31\n\ntoken = TokenData::Ident(\n    `label`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::TemplateParameter(\n            1,\n        ),\n        data: TokenInfoData::CurrentVariable {\n            current_variable_idx: 1,\n            current_variable_kind: CurrentVariableKind::TemplateParameter {\n                template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {\n                    ident_token: IdentRegionalToken {\n                        ident: `label`,\n                        regional_token_idx: RegionalTokenIdx(\n                            10,\n                        ),\n                    },\n                },\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nCurrentVariableEntry {\n    modifier: Compterm,\n    access_start: RegionalTokenIdx(\n        13,\n    ),\n    access_end: None,\n    data: CurrentVariableData::TemplateParameter {\n        syn_attrs: TemplateParameterSynAttrs {\n            syn_attrs: [\n                Runtime(\n                    PoundRegionalToken(\n                        RegionalTokenIdx(\n                            7,\n                        ),\n                    ),\n                    PolyRegionalToken {\n                        token_idx: RegionalTokenIdx(\n                            8,\n                        ),\n                    },\n                ),\n            ],\n        },\n        annotated_variance_token: None,\n        data: CurrentTemplateVariableData::Constant {\n            ident_token: IdentRegionalToken {\n                ident: `label`,\n                regional_token_idx: RegionalTokenIdx(\n                    10,\n                ),\n            },\n            ty_expr_idx: 0,\n        },\n    },\n}\n",
+                            value: "\ntoken_idx = 323;\n\ntoken_line_group_idx = 31\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Comma,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
                                 line: 40,
-                                character: 41,
+                                character: 24,
                             },
                             end: Position {
                                 line: 40,
-                                character: 46,
+                                character: 25,
                             },
                         },
                     ),
@@ -610,18 +610,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 340;\n\ntoken_line_group_idx = 31\n\ntoken = TokenData::Literal(\n    LiteralTokenData::Integer(\n        UnspecifiedRegular(\n            5,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 340;\n\ntoken_line_group_idx = 31\n\ntoken = TokenData::Ident(\n    `skip`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::Pattern(\n            0,\n        ),\n        data: TokenInfoData::CurrentVariable {\n            current_variable_idx: 3,\n            current_variable_kind: CurrentVariableKind::SimpleParenateParameter {\n                pattern_variable_idx: 0,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nCurrentVariableEntry {\n    modifier: Pure,\n    access_start: RegionalTokenIdx(\n        24,\n    ),\n    access_end: None,\n    data: CurrentVariableData::SimpleParenateParameter {\n        ident: `skip`,\n        pattern_variable_idx: 0,\n    },\n}\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
                                 line: 42,
-                                character: 22,
+                                character: 10,
                             },
                             end: Position {
                                 line: 42,
-                                character: 23,
+                                character: 14,
                             },
                         },
                     ),

@@ -685,7 +685,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 41,
+                                                value: 42,
                                             },
                                         ),
                                     ),
@@ -716,6 +716,97 @@
                     ),
                 },
             ),
+        ),
+    ),
+    HirDecl::Attr(
+        AttrHirDecl::Deps(
+            DepsAttrHirDecl {
+                path: AttrItemPath(`malamute::narrow_down::#deps(0)`),
+                deps: [
+                    ItemPathTerm::Form(
+                        FormPath(`core::task::Task`, `TypeVar`),
+                    ),
+                ],
+                hir_eager_expr_region: HirEagerExprRegion {
+                    region_path: RegionPath::ItemDecl(
+                        ItemPath(`malamute::narrow_down::#deps(0)`),
+                    ),
+                    expr_arena: Arena {
+                        data: [],
+                    },
+                    stmt_arena: Arena {
+                        data: [],
+                    },
+                    pattern_arena: Arena {
+                        data: [],
+                    },
+                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        arena: Arena {
+                            data: [
+                                HirEagerComptimeVariableEntry {
+                                    name: HirEagerComptimeVariableName::Ident(
+                                        `Label`,
+                                    ),
+                                    data: Inherited,
+                                    hir_comptime_symbol: HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
+                                                class: Mono,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                },
+                                HirEagerComptimeVariableEntry {
+                                    name: HirEagerComptimeVariableName::Ident(
+                                        `label`,
+                                    ),
+                                    data: Inherited,
+                                    hir_comptime_symbol: HirTemplateVariable::Compterm(
+                                        HirComptermTemplateVariable {
+                                            ty: HirType::Variable(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
+                                                        class: Mono,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            index: HirComptermTemplateVariableIndex::Other {
+                                                attrs: HirTemplateVariableAttrs {
+                                                    class: Poly,
+                                                },
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
+                            ],
+                        },
+                    },
+                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        arena: Arena {
+                            data: [
+                                HirEagerRuntimeVariableEntry {
+                                    name: HirEagerRuntimeVariableName::Ident(
+                                        `f`,
+                                    ),
+                                    data: HirEagerRuntimeVariableData::ParenateParameter,
+                                },
+                                HirEagerRuntimeVariableEntry {
+                                    name: HirEagerRuntimeVariableName::Ident(
+                                        `skip`,
+                                    ),
+                                    data: HirEagerRuntimeVariableData::ParenateParameter,
+                                },
+                            ],
+                        },
+                        self_value_variable: None,
+                    },
+                },
+            },
         ),
     ),
     HirDecl::ImplBlock(
