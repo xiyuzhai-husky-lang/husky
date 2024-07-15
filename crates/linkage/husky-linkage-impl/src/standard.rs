@@ -12,7 +12,9 @@ use self::StandardLinkageImpl as LinkageImpl;
 use self::StandardLinkageImpl as __LinkageImpl;
 use super::*;
 use husky_decl_macro_utils::for_all_ritchie_tys;
-use husky_devsoul_interface::{ki_repr::KiDomainReprInterface, VmArgumentValue};
+use husky_devsoul_interface::{
+    ki_repr::KiDomainReprInterface, pedestal::IsPedestalFull, VmArgumentValue,
+};
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
 
 // ad hoc
@@ -24,7 +26,7 @@ pub type StandardLinkageImplKiControlFlow<C = Value, B = Value> =
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum StandardLinkageImpl<Pedestal>
 where
-    Pedestal: std::fmt::Debug + Clone + 'static,
+    Pedestal: IsPedestalFull,
 {
     RitchieFn {
         /// it's the wrapper's responsibility to properly set ctx
@@ -83,14 +85,11 @@ where
     },
 }
 
-impl<Pedestal> Copy for StandardLinkageImpl<Pedestal> where
-    Pedestal: std::fmt::Debug + Clone + 'static
-{
-}
+impl<Pedestal> Copy for StandardLinkageImpl<Pedestal> where Pedestal: IsPedestalFull {}
 
 impl<Pedestal> IsLinkageImpl for StandardLinkageImpl<Pedestal>
 where
-    Pedestal: std::fmt::Debug + Clone + 'static,
+    Pedestal: IsPedestalFull,
 {
     type Pedestal = Pedestal;
     type Value = Value;

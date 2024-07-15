@@ -1,10 +1,11 @@
 use self::vm_control_flow::LinkageImplVmControlFlow;
 use crate::*;
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
+use pedestal::{IsPedestal, IsPedestalFull};
 use serde::Serialize;
 
 pub trait IsLinkageImpl: Send + Copy + 'static {
-    type Pedestal: std::fmt::Debug + 'static;
+    type Pedestal: IsPedestalFull;
     type Value: IsValue;
     type Exception: std::fmt::Debug + Serialize;
 
