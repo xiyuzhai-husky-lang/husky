@@ -56,6 +56,11 @@
             self_ty: Some(
                 EthTerm(`Self`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -112,6 +117,11 @@
             },
             return_ty: None,
             self_ty: None,
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -134,7 +144,7 @@
                                     path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`core::task::Task`, `TypeVar`),
+                                            MajorFormPath(`core::task::Task`, `TypeVar`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,
@@ -258,6 +268,11 @@
             },
             return_ty: None,
             self_ty: None,
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
 ]

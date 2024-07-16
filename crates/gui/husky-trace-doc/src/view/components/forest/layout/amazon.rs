@@ -99,7 +99,7 @@ where
 
     fn render_trace_view(
         &mut self,
-        pedestal: <TraceProtocol as IsTraceProtocol>::Pedestal,
+        pedestal: &<TraceProtocol as IsTraceProtocol>::Pedestal,
         trace_id: TraceId,
         entry: &TraceSynchrotronEntry<TraceProtocol>,
         ui: &mut egui::Ui,

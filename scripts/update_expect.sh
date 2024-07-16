@@ -2,7 +2,7 @@
 
 # Duration over which to change the brightness, in seconds
 DURATION=0.5
-MONITOR=XWAYLAND1
+MONITOR=HDMI-2
 
 # Define a cleanup function
 cleanup() {
@@ -15,7 +15,7 @@ cleanup() {
 trap cleanup EXIT
 
 # Set the screen brightness to very low
-scripts/adjust_screen_brightness.sh 0.2 $MONITOR $DURATION
+scripts/adjust_screen_brightness.sh 0.0 $MONITOR $DURATION
 
 # Format the Rust project
 cargo fmt

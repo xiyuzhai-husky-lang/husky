@@ -283,7 +283,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                     body: Some(
                         FormBody {
                             ast_idx_range: ArenaIdxRange(
@@ -324,7 +324,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                     body: Some(
                         FormBody {
                             ast_idx_range: ArenaIdxRange(
@@ -388,7 +388,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                     body: Some(
                         FormBody {
                             ast_idx_range: ArenaIdxRange(
@@ -431,7 +431,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
                         Fn,
                     )`),
                     body: Some(
@@ -476,7 +476,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
                         Fn,
                     )`),
                     body: Some(

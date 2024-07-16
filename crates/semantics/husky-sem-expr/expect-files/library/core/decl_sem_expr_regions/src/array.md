@@ -180,6 +180,11 @@
             self_ty: Some(
                 EthTerm(`Array L E`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
 ]

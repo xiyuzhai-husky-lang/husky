@@ -178,7 +178,9 @@ impl Diagnose for (TokenVerseIdx, &OriginalAstError) {
                 format!("submodule file not found")
             }
             OriginalAstError::UnexpectedTraitInsideImplBlock => todo!(),
-            OriginalAstError::ExpectedLboxOrIdentAfterPoundForAttrOrSorce => todo!(),
+            OriginalAstError::ExpectedLboxOrIdentAfterPoundForAttrOrSorc(_) => {
+                format!("expected identifier or `[` after `#` for attribute or sorcery")
+            }
             OriginalAstError::UnexpectedMemoUnderModule => todo!(),
             OriginalAstError::UnexpectedMemoUnderForm => todo!(),
             OriginalAstError::UnexpectedConst => todo!(),
@@ -248,7 +250,9 @@ impl Diagnose for (TokenVerseIdx, &OriginalAstError) {
                 ctx.token_idx_text_range(ident_token.token_idx())
             }
             OriginalAstError::UnexpectedTraitInsideImplBlock => todo!(),
-            OriginalAstError::ExpectedLboxOrIdentAfterPoundForAttrOrSorce => todo!(),
+            &OriginalAstError::ExpectedLboxOrIdentAfterPoundForAttrOrSorc(token_verse_idx) => {
+                ctx.token_verse_text_range(token_verse_idx)
+            }
             OriginalAstError::UnexpectedMemoUnderModule => todo!(),
             OriginalAstError::UnexpectedMemoUnderForm => todo!(),
             OriginalAstError::UnexpectedConst => todo!(),

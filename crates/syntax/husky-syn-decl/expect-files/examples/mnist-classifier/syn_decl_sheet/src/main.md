@@ -63,7 +63,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Val(
                         MajorValSynDecl {
-                            path: FormPath(`mnist_classifier::main`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::main`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 2,
                             },
@@ -147,9 +147,7 @@ SynDeclSheet {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },

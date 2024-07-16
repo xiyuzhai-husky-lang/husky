@@ -26,6 +26,7 @@ pub enum MajorFormKind {
     Val,
     StaticMut,
     StaticVar,
+    /// todo: maybe split this into var and other things
     Compterm,
     Conceptual,
 }

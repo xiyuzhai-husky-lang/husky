@@ -57,6 +57,10 @@
         None,
     ),
     (
+        ItemPath(`malamute::narrow_down::#deps(0)`),
+        None,
+    ),
+    (
         ItemPath(`malamute::OneVsAll as core::default::Default(0)`),
         None,
     ),
@@ -215,9 +219,7 @@
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: ArenaMap {
-                                                        data: [],
-                                                    },
+                                                    pattern_expr_contracts: [],
                                                     pattern_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -386,9 +388,7 @@
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -469,13 +469,7 @@
                                     path_expr_idx: 1,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 6,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::OneVsAll::No`),
                                         ),
                                     ),
                                 },
@@ -520,13 +514,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 6,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::OneVsAll::No`),
                                         ),
                                     ),
                                 },
@@ -546,9 +534,7 @@
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [],
-                            },
+                            pattern_expr_contracts: [],
                             pattern_symbol_arena: Arena {
                                 data: [],
                             },
@@ -859,9 +845,7 @@
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: ArenaMap {
-                                                        data: [],
-                                                    },
+                                                    pattern_expr_contracts: [],
                                                     pattern_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -1167,11 +1151,9 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -1313,13 +1295,7 @@
                                     path_expr_idx: 5,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 112,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`core::ops::ControlFlow::Break`),
                                         ),
                                     ),
                                 },
@@ -1327,13 +1303,7 @@
                                     path_expr_idx: 7,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 2,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::Class::Known`),
                                         ),
                                     ),
                                 },
@@ -1385,13 +1355,7 @@
                                     path_expr_idx: 13,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 111,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`core::ops::ControlFlow::Continue`),
                                         ),
                                     ),
                                 },
@@ -1460,13 +1424,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 5,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                                         ),
                                     ),
                                 },
@@ -1544,13 +1502,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 112,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`core::ops::ControlFlow::Break`),
                                         ),
                                     ),
                                 },
@@ -1586,13 +1538,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 2,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::Class::Known`),
                                         ),
                                     ),
                                 },
@@ -1628,13 +1574,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 6,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::OneVsAll::No`),
                                         ),
                                     ),
                                 },
@@ -1712,13 +1652,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 111,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`core::ops::ControlFlow::Continue`),
                                         ),
                                     ),
                                 },
@@ -1822,32 +1756,18 @@
                                 data: [
                                     SynPatternData::UnitTypeVariant {
                                         path_expr_idx: 1,
-                                        path: TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 5,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeVariantPath(`malamute::OneVsAll::Yes`),
                                     },
                                     SynPatternData::UnitTypeVariant {
                                         path_expr_idx: 9,
-                                        path: TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 6,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeVariantPath(`malamute::OneVsAll::No`),
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Pure,
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Pure,
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [],
                             },
@@ -2201,9 +2121,7 @@
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: ArenaMap {
-                                                        data: [],
-                                                    },
+                                                    pattern_expr_contracts: [],
                                                     pattern_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -2522,11 +2440,9 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -2668,13 +2584,7 @@
                                     path_expr_idx: 5,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 112,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`core::ops::ControlFlow::Break`),
                                         ),
                                     ),
                                 },
@@ -2682,13 +2592,7 @@
                                     path_expr_idx: 7,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 5,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                                         ),
                                     ),
                                 },
@@ -2712,13 +2616,7 @@
                                     path_expr_idx: 13,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 112,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`core::ops::ControlFlow::Break`),
                                         ),
                                     ),
                                 },
@@ -2726,13 +2624,7 @@
                                     path_expr_idx: 15,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 6,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::OneVsAll::No`),
                                         ),
                                     ),
                                 },
@@ -2756,13 +2648,7 @@
                                     path_expr_idx: 21,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 111,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`core::ops::ControlFlow::Continue`),
                                         ),
                                     ),
                                 },
@@ -2831,13 +2717,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 8,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::OneVsAllResult::ConfidentYes`),
                                         ),
                                     ),
                                 },
@@ -2915,13 +2795,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 112,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`core::ops::ControlFlow::Break`),
                                         ),
                                     ),
                                 },
@@ -2957,13 +2831,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 5,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                                         ),
                                     ),
                                 },
@@ -2999,13 +2867,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 9,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::OneVsAllResult::ConfidentNo`),
                                         ),
                                     ),
                                 },
@@ -3083,13 +2945,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 112,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`core::ops::ControlFlow::Break`),
                                         ),
                                     ),
                                 },
@@ -3125,13 +2981,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 6,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::OneVsAll::No`),
                                         ),
                                     ),
                                 },
@@ -3167,13 +3017,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 10,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::OneVsAllResult::Unconfident`),
                                         ),
                                     ),
                                 },
@@ -3251,13 +3095,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 111,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`core::ops::ControlFlow::Continue`),
                                         ),
                                     ),
                                 },
@@ -3396,43 +3234,23 @@
                                 data: [
                                     SynPatternData::UnitTypeVariant {
                                         path_expr_idx: 1,
-                                        path: TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 8,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentYes`),
                                     },
                                     SynPatternData::UnitTypeVariant {
                                         path_expr_idx: 9,
-                                        path: TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 9,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentNo`),
                                     },
                                     SynPatternData::UnitTypeVariant {
                                         path_expr_idx: 17,
-                                        path: TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 10,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeVariantPath(`malamute::OneVsAllResult::Unconfident`),
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [],
                             },

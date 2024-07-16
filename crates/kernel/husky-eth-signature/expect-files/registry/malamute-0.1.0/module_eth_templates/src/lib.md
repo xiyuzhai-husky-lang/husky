@@ -86,7 +86,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`malamute::narrow_down`, `Ritchie(
+                            path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -112,7 +112,7 @@
                                 parameter_contracted_tys: [
                                     EtherealRitchieParameter::Variadic(
                                         EtherealRitchieVariadicParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: EthTerm(`f32`),
                                         },
                                     ),
@@ -121,7 +121,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 41,
+                                                        value: 42,
                                                     },
                                                 ),
                                             ),
@@ -131,7 +131,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 18,
+                                                                value: 19,
                                                             },
                                                         ),
                                                     ),

@@ -120,7 +120,7 @@ pub enum LinkageField {
 
 impl Linkage {
     /// gives a linkage if the item is eagerly defined or extern
-    pub fn new_val_item(path: MajorFormPath, db: &::salsa::Db) -> Option<Self> {
+    pub fn new_val(path: MajorFormPath, db: &::salsa::Db) -> Option<Self> {
         let MajorFormHirDefn::Val(hir_defn) = path.hir_defn(db).unwrap() else {
             unreachable!()
         };
@@ -137,7 +137,7 @@ impl Linkage {
         }
     }
 
-    pub fn new_static_var_item(path: MajorFormPath, db: &::salsa::Db) -> Self {
+    pub fn new_static_var(path: MajorFormPath, db: &::salsa::Db) -> Self {
         Self::new(
             db,
             LinkageData::MajorStaticVar {

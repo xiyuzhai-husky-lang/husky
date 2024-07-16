@@ -4,7 +4,7 @@ use husky_trace_protocol::{pedestal::PedestalUi, view::action::TraceViewAction};
 
 impl PedestalUi<Ui> for StandardPedestal {
     fn pedestal_ui<TraceProtocol>(
-        self,
+        &self,
         ui: &mut Ui,
         pedestal_ui_buffer: &mut Self::UiBuffer,
         action_buffer: &mut husky_trace_protocol::view::action::TraceViewActionBuffer<
@@ -14,10 +14,11 @@ impl PedestalUi<Ui> for StandardPedestal {
         TraceProtocol: husky_trace_protocol::protocol::IsTraceProtocol<Pedestal = Self>,
     {
         // todo: style this
-        let text = match self {
-            StandardPedestal::Specific(_) => "SPECIFIC",
-            StandardPedestal::Generic => "GENERIC",
-        };
+        // let text = match self {
+        //     // StandardPedestal::Specific(_) => "SPECIFIC",
+        //     // StandardPedestal::Generic => "GENERIC",
+        // };
+        let text: &str = todo!();
         let glyph_width =
             ui.fonts(|f| f.glyph_width(&TextStyle::Monospace.resolve(ui.style()), ' '));
         ui.vertical(|ui| {
@@ -32,12 +33,12 @@ impl PedestalUi<Ui> for StandardPedestal {
                     .clicked()
                 {
                     action_buffer.push(TraceViewAction::SetPedestal {
-                        pedestal: match self {
-                            StandardPedestal::Specific(_) => StandardPedestal::Generic,
-                            StandardPedestal::Generic => {
-                                StandardPedestal::Specific(pedestal_ui_buffer.base_input_id)
-                            }
-                        },
+                        pedestal: todo!(), // match self {
+                                           //     StandardPedestal::Specific(_) => StandardPedestal::Generic,
+                                           //     StandardPedestal::Generic => {
+                                           //         StandardPedestal::Specific(pedestal_ui_buffer.base_input_id)
+                                           //     }
+                                           // },
                     })
                 };
                 ui.label("input id = ");
@@ -47,17 +48,18 @@ impl PedestalUi<Ui> for StandardPedestal {
                 {
                     match pedestal_ui_buffer.input_id_to_be.parse::<usize>() {
                         Ok(index) => {
-                            let input_id = InputId::from_index(index);
-                            match self {
-                                StandardPedestal::Specific(_) => {
-                                    action_buffer.push(TraceViewAction::SetPedestal {
-                                        pedestal: StandardPedestal::Specific(input_id),
-                                    })
-                                }
-                                StandardPedestal::Generic => {
-                                    pedestal_ui_buffer.base_input_id = input_id
-                                }
-                            }
+                            let input_id = DeprecatedInputId::from_index(index);
+                            todo!()
+                            // match self {
+                            //     StandardPedestal::Specific(_) => {
+                            //         action_buffer.push(TraceViewAction::SetPedestal {
+                            //             pedestal: StandardPedestal::Specific(input_id),
+                            //         })
+                            //     }
+                            //     StandardPedestal::Generic => {
+                            //         pedestal_ui_buffer.base_input_id = input_id
+                            //     }
+                            // }
                         }
                         Err(e) => pedestal_ui_buffer.error = Some(e.to_string()),
                     }

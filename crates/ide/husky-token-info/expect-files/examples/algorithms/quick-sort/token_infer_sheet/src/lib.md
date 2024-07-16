@@ -193,7 +193,7 @@ Ok(
                         0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                MajorFormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -202,7 +202,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                MajorFormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -555,7 +555,7 @@ Ok(
                         0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`quick_sort::partition`, `Ritchie(
+                                MajorFormPath(`quick_sort::partition`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -564,7 +564,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`quick_sort::partition`, `Ritchie(
+                                MajorFormPath(`quick_sort::partition`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -648,7 +648,7 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                MajorFormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -657,7 +657,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                MajorFormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -743,7 +743,7 @@ Ok(
                         2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                MajorFormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -752,7 +752,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                MajorFormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                     Fn,
                                 )`),
                             ),

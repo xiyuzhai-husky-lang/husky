@@ -580,18 +580,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 323;\n\ntoken_line_group_idx = 30\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Colon,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 323;\n\ntoken_line_group_idx = 31\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Comma,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
-                                line: 39,
-                                character: 46,
+                                line: 40,
+                                character: 24,
                             },
                             end: Position {
-                                line: 39,
-                                character: 47,
+                                line: 40,
+                                character: 25,
                             },
                         },
                     ),
@@ -610,18 +610,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 340;\n\ntoken_line_group_idx = 30\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Comma,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\ntoken_idx = 340;\n\ntoken_line_group_idx = 31\n\ntoken = TokenData::Ident(\n    `skip`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::Pattern(\n            0,\n        ),\n        data: TokenInfoData::CurrentVariable {\n            current_variable_idx: 3,\n            current_variable_kind: CurrentVariableKind::SimpleParenateParameter {\n                pattern_variable_idx: 0,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nCurrentVariableEntry {\n    modifier: Pure,\n    access_start: RegionalTokenIdx(\n        24,\n    ),\n    access_end: None,\n    data: CurrentVariableData::SimpleParenateParameter {\n        ident: `skip`,\n        pattern_variable_idx: 0,\n    },\n}\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
-                                line: 41,
-                                character: 23,
+                                line: 42,
+                                character: 10,
                             },
                             end: Position {
-                                line: 41,
-                                character: 24,
+                                line: 42,
+                                character: 14,
                             },
                         },
                     ),

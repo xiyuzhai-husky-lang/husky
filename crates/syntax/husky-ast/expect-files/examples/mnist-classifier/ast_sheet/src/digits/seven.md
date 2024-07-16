@@ -316,7 +316,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                     body: Some(
                         FormBody {
                             ast_idx_range: ArenaIdxRange(
@@ -359,7 +359,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
                         Fn,
                     )`),
                     body: Some(
@@ -402,7 +402,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     body: Some(
                         FormBody {
                             ast_idx_range: ArenaIdxRange(
@@ -445,7 +445,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
                         Fn,
                     )`),
                     body: Some(
@@ -490,7 +490,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
                         Fn,
                     )`),
                     body: Some(
@@ -556,7 +556,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                     body: Some(
                         FormBody {
                             ast_idx_range: ArenaIdxRange(

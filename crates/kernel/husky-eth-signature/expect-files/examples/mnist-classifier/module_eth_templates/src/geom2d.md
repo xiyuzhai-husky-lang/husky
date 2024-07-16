@@ -30,13 +30,13 @@
                                 parameter_contracted_tys: [
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: EthTerm(`f32`),
                                         },
                                     ),
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: EthTerm(`f32`),
                                         },
                                     ),
@@ -79,13 +79,13 @@
                                 parameter_contracted_tys: [
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: EthTerm(`f32`),
                                         },
                                     ),
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: EthTerm(`f32`),
                                         },
                                     ),
@@ -128,13 +128,13 @@
                                 parameter_contracted_tys: [
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: EthTerm(`f32`),
                                         },
                                     ),
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: EthTerm(`f32`),
                                         },
                                     ),
@@ -177,13 +177,13 @@
                                 parameter_contracted_tys: [
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: EthTerm(`f32`),
                                         },
                                     ),
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: EthTerm(`f32`),
                                         },
                                     ),
@@ -226,13 +226,13 @@
                                 parameter_contracted_tys: [
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: EthTerm(`ClosedRange`),
                                         },
                                     ),
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: EthTerm(`ClosedRange`),
                                         },
                                     ),
@@ -275,13 +275,13 @@
                                 parameter_contracted_tys: [
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: EthTerm(`ClosedRange`),
                                         },
                                     ),
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: EthTerm(`ClosedRange`),
                                         },
                                     ),

@@ -1,4 +1,5 @@
 pub mod r#enum;
+pub mod static_var;
 pub mod r#struct;
 pub mod ugly;
 
@@ -6,9 +7,16 @@ pub use husky_standard_value::{
     frozen::ValueStands, value_conversion, FromValue, IntoValue, Value, ValueLeashTest,
 };
 
+use self::StandardLinkageImpl as LinkageImpl;
+#[cfg(test)]
+use self::StandardLinkageImpl as __LinkageImpl;
 use super::*;
 use husky_decl_macro_utils::for_all_ritchie_tys;
-use husky_devsoul_interface::{ki_repr::KiDomainReprInterface, VmArgumentValue};
+use husky_devsoul_interface::{
+    ki_repr::KiDomainReprInterface,
+    pedestal::{IsPedestal, IsPedestalFull},
+    VmArgumentValue,
+};
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
 
 // ad hoc
@@ -17,15 +25,15 @@ pub type Error = ();
 pub type StandardLinkageImplKiControlFlow<C = Value, B = Value> =
     husky_devsoul_interface::ki_control_flow::KiControlFlow<C, B, Error>;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum LinkageImpl<Pedestal>
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum StandardLinkageImpl<Pedestal>
 where
-    Pedestal: std::fmt::Debug + Copy + 'static,
+    Pedestal: IsPedestalFull,
 {
     RitchieFn {
         /// it's the wrapper's responsibility to properly set ctx
         fn_ki_wrapper: fn(
-            DevEvalContext<LinkageImpl<Pedestal>>,
+            DevEvalContext<StandardLinkageImpl<Pedestal>>,
             &[KiArgumentReprInterface],
         ) -> StandardLinkageImplKiControlFlow,
         fn_ki_pointer: fn(),
@@ -33,16 +41,15 @@ where
     RitchieUnveilFn {
         /// it's the wrapper's responsibility to properly set ctx
         fn_wrapper: fn(
-            DevEvalContext<LinkageImpl<Pedestal>>,
+            DevEvalContext<StandardLinkageImpl<Pedestal>>,
             &[KiArgumentReprInterface],
         ) -> StandardLinkageImplKiControlFlow,
         fn_pointer: fn(),
     },
     RitchieGn {
-        generic_pedestal: fn(Pedestal) -> Pedestal,
         /// it's the wrapper's responsibility to properly set ctx to that with generic pedestal
         gn_generic_wrapper: fn(
-            DevEvalContext<LinkageImpl<Pedestal>>,
+            DevEvalContext<StandardLinkageImpl<Pedestal>>,
             KiDomainReprInterface,
             &[KiArgumentReprInterface],
         ) -> StandardLinkageImplKiControlFlow,
@@ -52,7 +59,7 @@ where
     },
     EnumVariantConstructor {
         enum_variant_constructor_ki_wrapper:
-            fn(DevEvalContext<LinkageImpl<Pedestal>>, &[KiArgumentReprInterface]) -> Value,
+            fn(DevEvalContext<StandardLinkageImpl<Pedestal>>, &[KiArgumentReprInterface]) -> Value,
         enum_variant_constructor_vm_wrapper: fn(Vec<Value>) -> Value,
     },
     EnumVariantDestructor {
@@ -72,11 +79,18 @@ where
     StructField {
         struct_field_wrapper: fn(Value) -> Value,
     },
+    StaticVar {
+        set_up_for_testing: fn(usize),
+        get_id: fn() -> Pedestal::StaticVarId,
+        set_id: fn(Pedestal::StaticVarId),
+    },
 }
 
-impl<Pedestal> IsLinkageImpl for LinkageImpl<Pedestal>
+impl<Pedestal> Copy for StandardLinkageImpl<Pedestal> where Pedestal: IsPedestalFull {}
+
+impl<Pedestal> IsLinkageImpl for StandardLinkageImpl<Pedestal>
 where
-    Pedestal: std::fmt::Debug + Copy + 'static,
+    Pedestal: IsPedestalFull,
 {
     type Pedestal = Pedestal;
     type Value = Value;
@@ -89,33 +103,37 @@ where
         ki_argument_reprs: &[KiArgumentReprInterface],
     ) -> StandardLinkageImplKiControlFlow {
         match self {
-            LinkageImpl::RitchieFn { fn_ki_wrapper, .. } => fn_ki_wrapper(ctx, ki_argument_reprs),
-            LinkageImpl::RitchieUnveilFn { fn_wrapper, .. } => fn_wrapper(ctx, ki_argument_reprs),
-            LinkageImpl::RitchieGn {
-                generic_pedestal,
+            StandardLinkageImpl::RitchieFn { fn_ki_wrapper, .. } => {
+                fn_ki_wrapper(ctx, ki_argument_reprs)
+            }
+            StandardLinkageImpl::RitchieUnveilFn { fn_wrapper, .. } => {
+                fn_wrapper(ctx, ki_argument_reprs)
+            }
+            StandardLinkageImpl::RitchieGn {
                 gn_generic_wrapper,
                 gn_specific_wrapper,
             } => {
-                let value_at_generic_pedestal = ctx
-                    .eval_ki_repr_interface_at_generic_pedestal_with(
-                        ki_repr,
-                        generic_pedestal,
-                        gn_generic_wrapper,
-                        ki_argument_reprs,
-                    )?;
-                gn_specific_wrapper(ki_argument_reprs, value_at_generic_pedestal)
+                todo!()
+                // let value_at_generic_pedestal = ctx
+                //     .eval_ki_repr_interface_at_generic_pedestal_with(
+                //         ki_repr,
+                //         generic_pedestal,
+                //         gn_generic_wrapper,
+                //         ki_argument_reprs,
+                //     )?;
+                // gn_specific_wrapper(ki_argument_reprs, value_at_generic_pedestal)
             }
-            LinkageImpl::EnumVariantConstructor { .. } => todo!(),
-            LinkageImpl::EnumVariantDestructor { .. } => todo!(),
-            LinkageImpl::EnumVariantDiscriminator { .. } => todo!(),
-            LinkageImpl::EnumVariantField { .. } => todo!(),
-            LinkageImpl::EnumUnitValuePresenter { .. } => {
+            StandardLinkageImpl::EnumVariantConstructor { .. } => todo!(),
+            StandardLinkageImpl::EnumVariantDestructor { .. } => todo!(),
+            StandardLinkageImpl::EnumVariantDiscriminator { .. } => todo!(),
+            StandardLinkageImpl::EnumVariantField { .. } => todo!(),
+            StandardLinkageImpl::EnumUnitValuePresenter { .. } => {
                 unreachable!("this linkage is not meant to be evaluated like this")
             }
-            LinkageImpl::StructDestructor {
+            StandardLinkageImpl::StructDestructor {
                 struct_destructor_wrapper,
             } => todo!(),
-            LinkageImpl::StructField {
+            StandardLinkageImpl::StructField {
                 struct_field_wrapper,
             } => {
                 debug_assert_eq!(ki_argument_reprs.len(), 1);
@@ -125,6 +143,11 @@ where
                 let owner = ctx.eval_ki_repr_interface(owner)?;
                 StandardLinkageImplKiControlFlow::Continue(struct_field_wrapper(owner))
             }
+            StandardLinkageImpl::StaticVar {
+                set_up_for_testing,
+                get_id,
+                set_id,
+            } => todo!(),
         }
     }
 
@@ -138,9 +161,21 @@ where
 
     fn enum_index_value_presenter(self) -> EnumUnitValuePresenter {
         match self {
-            LinkageImpl::EnumUnitValuePresenter { presenter } => presenter,
+            StandardLinkageImpl::EnumUnitValuePresenter { presenter } => presenter,
             _ => unreachable!(),
         }
+    }
+
+    fn get_static_var_id(self) -> <Self::Pedestal as IsPedestal>::StaticVarId {
+        let StandardLinkageImpl::StaticVar {
+            set_up_for_testing,
+            get_id,
+            set_id,
+        } = self
+        else {
+            unreachable!()
+        };
+        get_id()
     }
 }
 
@@ -217,7 +252,6 @@ macro_rules! gn_linkage_impl {
         }
         __LinkageImpl::RitchieGn {
             // ad hoc
-            generic_pedestal: <$gn_item as __IsGnItem>::generic_pedestal,
             gn_generic_wrapper,
             gn_specific_wrapper,
         }

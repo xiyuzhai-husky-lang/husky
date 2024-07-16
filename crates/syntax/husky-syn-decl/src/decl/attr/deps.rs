@@ -74,7 +74,7 @@ pub struct DepsAttrSynDecl {
     #[id]
     pub path: AttrItemPath,
     #[return_ref]
-    pub deps: Vec<SynExprIdx>,
+    pub deps: SmallVec<[DepSyndicate; 4]>,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -85,6 +85,7 @@ impl DepsAttrSynDecl {
         db: &::salsa::Db,
     ) -> SynDeclResult<Self> {
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
-        Ok(Self::new(db, path, todo!(), syn_expr_region))
+        let deps = SmallVec::from(syn_node_decl.deps(db).as_ref()?.elements());
+        Ok(Self::new(db, path, deps, syn_expr_region))
     }
 }

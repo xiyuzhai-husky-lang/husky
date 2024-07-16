@@ -32,6 +32,7 @@ use self::abstraction::*;
 use self::name::DecSymbolicVariableNameMap;
 use crate::*;
 
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum DecTerm {

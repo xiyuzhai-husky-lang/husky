@@ -1,6 +1,7 @@
 use super::*;
 use husky_hir_lazy_expr::{
-    helpers::hir_lazy_expr_source_map_from_syn, HirLazyExprIdx, HirLazyStmtIdx,
+    helpers::hir_lazy_expr_source_map_from_syn, variable::HirLazyVariableIdx, HirLazyExprIdx,
+    HirLazyStmtIdx,
 };
 use husky_regional_token::RegionalTokenIdxRange;
 use husky_sem_expr::{helpers::range::sem_expr_range_region, SemExprDb};
@@ -10,7 +11,7 @@ use salsa::DebugWithDb;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum KiReprSource {
-    ValItem(MajorFormPath),
+    Val(MajorFormPath),
     Expansion {
         parent_ki_repr: KiRepr,
         source: KiReprExpansionSource,
@@ -21,7 +22,7 @@ impl KiReprSource {
     pub fn debug_info(self, db: &::salsa::Db) -> String {
         // ad hoc
         let extra = match self {
-            KiReprSource::ValItem(_) => "".to_string(),
+            KiReprSource::Val(_) => "".to_string(),
             KiReprSource::Expansion {
                 parent_ki_repr,
                 source,
@@ -39,14 +40,14 @@ impl KiReprSource {
 
     pub fn regional_token_idx_range(self, db: &::salsa::Db) -> RegionalTokenIdxRange {
         match self {
-            KiReprSource::ValItem(_) => todo!(),
+            KiReprSource::Val(_) => todo!(),
             KiReprSource::Expansion {
                 parent_ki_repr,
                 source,
             } => match parent_ki_repr.opn(db) {
                 KiOpn::Require => todo!(),
                 KiOpn::Assert => todo!(),
-                KiOpn::ValItemLazilyDefined(path) => {
+                KiOpn::ValLazilyDefined(path) => {
                     let ItemSynDefn {
                         syn_expr_region, ..
                     } = item_syn_defn(db, path.into()).unwrap();
@@ -56,7 +57,7 @@ impl KiReprSource {
                     let source_map_data =
                         hir_lazy_expr_source_map_from_syn(syn_expr_region, db).data(db);
                     match source {
-                        KiReprExpansionSource::LetVariable { stmt } => todo!(),
+                        KiReprExpansionSource::LetVariable { stmt, variable_idx } => todo!(),
                         KiReprExpansionSource::RequireDefault { stmt } => todo!(),
                         KiReprExpansionSource::RequireCondition { stmt } => todo!(),
                         KiReprExpansionSource::AssertCondition { stmt } => todo!(),
@@ -80,6 +81,7 @@ impl KiReprSource {
 pub enum KiReprExpansionSource {
     LetVariable {
         stmt: HirLazyStmtIdx,
+        variable_idx: HirLazyVariableIdx,
     },
     RequireDefault {
         stmt: HirLazyStmtIdx,
@@ -108,7 +110,7 @@ pub enum KiReprExpansionSource {
 impl KiReprSource {
     pub(crate) fn caching_class(self) -> KiCachingClass {
         match self {
-            KiReprSource::ValItem(_) => KiCachingClass::Val,
+            KiReprSource::Val(_) => KiCachingClass::Val,
             KiReprSource::Expansion { source, .. } => source.caching_class(),
         }
     }

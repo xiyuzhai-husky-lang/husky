@@ -4,11 +4,11 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
                 MajorFunctionRitchieHirDefn {
-                    path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                         Fn,
                     )`),
                     hir_decl: MajorFunctionRitchieHirDecl {
-                        path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                        path: MajorFormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                             Fn,
                         )`),
                         ritchie_item_kind: RitchieItemKind::Fn,

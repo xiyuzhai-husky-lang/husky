@@ -144,6 +144,13 @@
             },
             return_ty: None,
             self_ty: None,
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: Some(
+                        EthTerm(`MnistTask`),
+                    ),
+                },
+            },
         },
     },
     SemExprRegion {
@@ -217,7 +224,7 @@
                                                 path: TypeItemPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 182,
+                                                            value: 183,
                                                         },
                                                     ),
                                                 ),
@@ -256,7 +263,7 @@
                                                             TypeItemPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 182,
+                                                                        value: 183,
                                                                     },
                                                                 ),
                                                             ),
@@ -532,6 +539,13 @@
             },
             return_ty: None,
             self_ty: None,
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: Some(
+                        EthTerm(`MnistTask`),
+                    ),
+                },
+            },
         },
     },
 ]

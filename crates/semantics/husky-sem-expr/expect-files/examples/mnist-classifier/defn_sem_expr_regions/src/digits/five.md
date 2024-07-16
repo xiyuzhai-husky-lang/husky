@@ -19,13 +19,7 @@
                                 SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 1,
                                     path: PrincipalEntityPath::TypeVariant(
-                                        TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 265,
-                                                },
-                                            ),
-                                        ),
+                                        TypeVariantPath(`malamute::OneVsAll::Yes`),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
@@ -296,7 +290,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Move,
+                                        contract: Contract::Move,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
@@ -409,7 +403,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Move,
+                                        contract: Contract::Move,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
@@ -456,6 +450,13 @@
                 EthTerm(`OneVsAll MnistLabel Five`),
             ),
             self_ty: None,
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: Some(
+                        EthTerm(`MnistTask`),
+                    ),
+                },
+            },
         },
     },
 ]

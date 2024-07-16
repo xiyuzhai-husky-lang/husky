@@ -78,7 +78,7 @@ EntityTreeSheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`core::task::Task`, `TypeVar`),
+                            path: MajorFormPath(`core::task::Task`, `TypeVar`),
                             body: None,
                         },
                     },
@@ -106,7 +106,7 @@ EntityTreeSheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`core::task::TASK`, `StaticVar`),
+                            path: MajorFormPath(`core::task::TASK`, `StaticVar`),
                             body: None,
                         },
                     },
@@ -137,7 +137,7 @@ EntityTreeSheet {
                 visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Form(
-                        FormPath(`core::task::Task`, `TypeVar`),
+                        MajorFormPath(`core::task::Task`, `TypeVar`),
                     ),
                 },
             },
@@ -146,7 +146,7 @@ EntityTreeSheet {
                 visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Form(
-                        FormPath(`core::task::TASK`, `StaticVar`),
+                        MajorFormPath(`core::task::TASK`, `StaticVar`),
                     ),
                 },
             },

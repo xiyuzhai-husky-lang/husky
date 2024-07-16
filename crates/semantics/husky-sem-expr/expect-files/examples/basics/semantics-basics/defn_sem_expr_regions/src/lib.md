@@ -199,7 +199,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Move,
+                                        contract: Contract::Move,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
@@ -234,7 +234,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Move,
+                                        contract: Contract::Move,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
@@ -275,6 +275,11 @@
                 EthTerm(`Array 3 f32`),
             ),
             self_ty: None,
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
 ]

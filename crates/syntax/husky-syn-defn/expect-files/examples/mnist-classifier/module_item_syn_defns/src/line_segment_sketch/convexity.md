@@ -129,12 +129,10 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -2025,20 +2023,18 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Move,
-                                    Pure,
-                                    Pure,
-                                    Move,
-                                    Pure,
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Move,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Move,
+                                Contract::Pure,
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(

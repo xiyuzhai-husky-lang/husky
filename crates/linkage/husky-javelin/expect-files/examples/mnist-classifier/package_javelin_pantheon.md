@@ -2260,7 +2260,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::Form(
-                        FormPath(`malamute::narrow_down`, `Ritchie(
+                        MajorFormPath(`malamute::narrow_down`, `Ritchie(
                             Gn,
                         )`),
                     ),
@@ -4381,7 +4381,7 @@ ValkyrieJavelinPantheon {
             Javelin {
                 data: JavelinData::PathLeading {
                     path: JavPath::Form(
-                        FormPath(`malamute::narrow_down`, `Ritchie(
+                        MajorFormPath(`malamute::narrow_down`, `Ritchie(
                             Gn,
                         )`),
                     ),

@@ -4,9 +4,9 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
                 MajorValHirDefn {
-                    path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                     hir_decl: MajorValHirDecl {
-                        path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+                        path: MajorFormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -62,9 +62,9 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
                 MajorValHirDefn {
-                    path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                     hir_decl: MajorValHirDecl {
-                        path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                        path: MajorFormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
@@ -120,11 +120,11 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
                 MajorFunctionRitchieHirDefn {
-                    path: FormPath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                         Fn,
                     )`),
                     hir_decl: MajorFunctionRitchieHirDecl {
-                        path: FormPath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
+                        path: MajorFormPath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                             Fn,
                         )`),
                         ritchie_item_kind: RitchieItemKind::Fn,

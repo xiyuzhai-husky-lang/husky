@@ -8,15 +8,9 @@
                     MajorFormDecTemplate::TypeVar(
                         TypeVarDecTemplate {
                             default: Some(
-                                EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 16,
-                                                },
-                                            ),
-                                        ),
+                                DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist::task::MnistTask`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -33,15 +27,9 @@
                 MajorItemDecTemplate::Form(
                     MajorFormDecTemplate::StaticVar(
                         MajorStaticVarDecTemplate {
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist::task::MnistTask`, `Extern`),
                                 ),
                             ),
                         },

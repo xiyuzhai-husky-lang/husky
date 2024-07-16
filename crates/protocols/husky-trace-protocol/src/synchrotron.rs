@@ -100,11 +100,9 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
     pub fn figure(&self) -> &TraceProtocol::Figure {
         #[cfg(test)]
         {
-            use husky_print_utils::p;
-            p!(self.actions);
             if !self.figures.contains_key(&(
                 self.followed_trace_id,
-                self.pedestal,
+                self.pedestal.clone(),
                 self.accompanying_trace_ids_except_followed(),
             )) {
                 husky_io_utils::diff_write(
@@ -117,7 +115,7 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
         }
         &self.figures[&(
             self.followed_trace_id,
-            self.pedestal,
+            self.pedestal.clone(),
             self.accompanying_trace_ids_except_followed(),
         )]
     }
@@ -183,8 +181,8 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
         }
     }
 
-    pub fn pedestal(&self) -> TraceProtocol::Pedestal {
-        self.pedestal
+    pub fn pedestal(&self) -> &TraceProtocol::Pedestal {
+        &self.pedestal
     }
 
     pub(crate) fn value_presentation_synchrotron_mut(

@@ -7,7 +7,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Val(
                         MajorValEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                             return_ty: EthTerm(`OneVsAll MnistLabel Five`),
                         },
                     ),

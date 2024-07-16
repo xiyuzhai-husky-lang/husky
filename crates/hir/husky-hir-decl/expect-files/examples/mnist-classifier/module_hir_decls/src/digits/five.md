@@ -4,7 +4,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Val(
                 MajorValHirDecl {
-                    path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
                             ty_path: TypePath(`malamute::OneVsAll`, `Enum`),

@@ -43,13 +43,7 @@
                                 },
                             ),
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 91,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: TypeVariantPath(`core::result::Result::Ok`),
                                 disambiguator: 0,
                             },
                         },
@@ -81,13 +75,7 @@
                                 },
                             ),
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 92,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: TypeVariantPath(`core::result::Result::Err`),
                                 disambiguator: 0,
                             },
                         },

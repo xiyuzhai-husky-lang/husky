@@ -7,7 +7,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
                         MajorFunctionRitchieSynDecl {
-                            path: FormPath(`quick_sort::quick_sort`, `Ritchie(
+                            path: MajorFormPath(`quick_sort::quick_sort`, `Ritchie(
                                 Fn,
                             )`),
                             ritchie_item_kind: RitchieItemKind::Fn,
@@ -169,11 +169,9 @@ SynDeclSheet {
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                BorrowMut,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::BorrowMut,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -297,7 +295,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
                         MajorFunctionRitchieSynDecl {
-                            path: FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                            path: MajorFormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                 Fn,
                             )`),
                             ritchie_item_kind: RitchieItemKind::Fn,
@@ -567,13 +565,11 @@ SynDeclSheet {
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                BorrowMut,
-                                                Pure,
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::BorrowMut,
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -785,7 +781,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
                         MajorFunctionRitchieSynDecl {
-                            path: FormPath(`quick_sort::partition`, `Ritchie(
+                            path: MajorFormPath(`quick_sort::partition`, `Ritchie(
                                 Fn,
                             )`),
                             ritchie_item_kind: RitchieItemKind::Fn,
@@ -1084,13 +1080,11 @@ SynDeclSheet {
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                BorrowMut,
-                                                Pure,
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::BorrowMut,
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -1306,7 +1300,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
                         MajorFunctionRitchieSynDecl {
-                            path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                            path: MajorFormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                                 Fn,
                             )`),
                             ritchie_item_kind: RitchieItemKind::Fn,
@@ -1338,9 +1332,7 @@ SynDeclSheet {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -1378,7 +1370,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
                         MajorFunctionRitchieSynDecl {
-                            path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                            path: MajorFormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                                 Fn,
                             )`),
                             ritchie_item_kind: RitchieItemKind::Fn,
@@ -1410,9 +1402,7 @@ SynDeclSheet {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },

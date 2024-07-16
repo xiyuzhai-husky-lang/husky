@@ -4,9 +4,9 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
                 MajorValHirDefn {
-                    path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                     hir_decl: MajorValHirDecl {
-                        path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                        path: MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::vec::Vec`, `Extern`),
@@ -72,9 +72,9 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
                 MajorValHirDefn {
-                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     hir_decl: MajorValHirDecl {
-                        path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::mem::Leash`, `Extern`),
@@ -140,9 +140,9 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
                 MajorValHirDefn {
-                    path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                     hir_decl: MajorValHirDecl {
-                        path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                        path: MajorFormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
@@ -198,9 +198,9 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
                 MajorValHirDefn {
-                    path: FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                     hir_decl: MajorValHirDecl {
-                        path: FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                        path: MajorFormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::mem::Leash`, `Extern`),
@@ -276,9 +276,9 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
                 MajorValHirDefn {
-                    path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                     hir_decl: MajorValHirDecl {
-                        path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                        path: MajorFormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::mem::Leash`, `Extern`),
@@ -344,9 +344,9 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
                 MajorValHirDefn {
-                    path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     hir_decl: MajorValHirDecl {
-                        path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::mem::Leash`, `Extern`),
@@ -412,9 +412,9 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
                 MajorValHirDefn {
-                    path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     hir_decl: MajorValHirDecl {
-                        path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::mem::Leash`, `Extern`),

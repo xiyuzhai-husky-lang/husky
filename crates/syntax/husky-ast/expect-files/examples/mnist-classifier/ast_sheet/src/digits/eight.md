@@ -155,7 +155,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                     body: Some(
                         FormBody {
                             ast_idx_range: ArenaIdxRange(
@@ -219,7 +219,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                     body: Some(
                         FormBody {
                             ast_idx_range: ArenaIdxRange(
@@ -262,7 +262,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                         Fn,
                     )`),
                     body: Some(

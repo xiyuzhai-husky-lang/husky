@@ -66,7 +66,7 @@
                                 parameter_contracted_tys: [
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: EthTerm(`Leash CyclicSlice Point2d`),
                                         },
                                     ),
@@ -109,13 +109,13 @@
                                 parameter_contracted_tys: [
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: EthTerm(`Leash RawContour`),
                                         },
                                     ),
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: EthTerm(`Vec LineSegmentStroke`),
                                         },
                                     ),
@@ -135,7 +135,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -150,13 +150,13 @@
                                 parameter_contracted_tys: [
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: EthTerm(`Vector2d`),
                                         },
                                     ),
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: EthTerm(`f32`),
                                         },
                                     ),
@@ -176,7 +176,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -191,13 +191,13 @@
                                 parameter_contracted_tys: [
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: EthTerm(`Vector2d`),
                                         },
                                     ),
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: EthTerm(`f32`),
                                         },
                                     ),
@@ -217,7 +217,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -232,19 +232,19 @@
                                 parameter_contracted_tys: [
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: EthTerm(`Leash RawContour`),
                                         },
                                     ),
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: EthTerm(`i32`),
                                         },
                                     ),
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: EthTerm(`f32`),
                                         },
                                     ),
@@ -264,7 +264,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -279,25 +279,25 @@
                                 parameter_contracted_tys: [
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: EthTerm(`Leash RawContour`),
                                         },
                                     ),
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: EthTerm(`i32`),
                                         },
                                     ),
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: EthTerm(`i32`),
                                         },
                                     ),
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: EthTerm(`f32`),
                                         },
                                     ),
@@ -317,7 +317,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -332,13 +332,13 @@
                                 parameter_contracted_tys: [
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: EthTerm(`Leash RawContour`),
                                         },
                                     ),
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: EthTerm(`f32`),
                                         },
                                     ),

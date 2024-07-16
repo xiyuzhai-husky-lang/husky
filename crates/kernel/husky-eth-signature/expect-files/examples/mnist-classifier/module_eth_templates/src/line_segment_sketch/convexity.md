@@ -7,7 +7,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -22,13 +22,13 @@
                                 parameter_contracted_tys: [
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: EthTerm(`LineSegmentSketch`),
                                         },
                                     ),
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: EthTerm(`i32`),
                                         },
                                     ),

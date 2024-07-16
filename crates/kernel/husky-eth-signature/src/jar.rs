@@ -82,6 +82,7 @@ pub struct EthSignatureJar(
     crate::signature::attr::attr_eth_template,
     crate::signature::attr::backprop::BackpropAttrEthTemplate,
     crate::signature::attr::deps::DepsAttrEthTemplate,
+    crate::signature::attr::deps::DepsAttrShardEthTemplate,
     crate::signature::attr::derive::ty_path_derive_attr_eth_templates_map,
     crate::signature::attr::derive::DeriveAttrEthTemplate,
     crate::signature::attr::derive::DeriveAttrShardEthTemplate,

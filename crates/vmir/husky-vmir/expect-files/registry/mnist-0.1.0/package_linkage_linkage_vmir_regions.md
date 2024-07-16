@@ -15,13 +15,7 @@
                     ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 3,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Zero`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -37,13 +31,7 @@
                     ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 3,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Zero`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -59,13 +47,7 @@
                     ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 4,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::One`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -81,13 +63,7 @@
                     ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 4,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::One`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -103,13 +79,7 @@
                     ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 5,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Two`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -125,13 +95,7 @@
                     ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 5,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Two`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -147,13 +111,7 @@
                     ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 6,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Three`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -169,13 +127,7 @@
                     ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 6,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Three`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -191,13 +143,7 @@
                     ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 7,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Four`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -213,13 +159,7 @@
                     ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 7,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Four`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -235,13 +175,7 @@
                     ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 8,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Five`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -257,13 +191,7 @@
                     ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 8,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Five`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -279,13 +207,7 @@
                     ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 9,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Six`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -301,13 +223,7 @@
                     ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 9,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Six`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -323,13 +239,7 @@
                     ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 10,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Seven`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -345,13 +255,7 @@
                     ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 10,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Seven`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -367,13 +271,7 @@
                     ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 11,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Eight`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -389,13 +287,7 @@
                     ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 11,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Eight`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -411,13 +303,7 @@
                     ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 12,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Nine`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -433,13 +319,7 @@
                     ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 12,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Nine`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -451,7 +331,7 @@
     (
         Linkage {
             data: LinkageData::MajorStaticVar {
-                path: FormPath(`mnist::INPUT`, `StaticVar`),
+                path: MajorFormPath(`mnist::INPUT`, `StaticVar`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -526,7 +406,7 @@
     (
         Linkage {
             data: LinkageData::MajorStaticVar {
-                path: FormPath(`mnist::TASK`, `StaticVar`),
+                path: MajorFormPath(`mnist::TASK`, `StaticVar`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,

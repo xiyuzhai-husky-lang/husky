@@ -44,9 +44,7 @@ SynDeclSheet {
                                     pattern_expr_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_contracts: ArenaMap {
-                                        data: [],
-                                    },
+                                    pattern_expr_contracts: [],
                                     pattern_symbol_arena: Arena {
                                         data: [],
                                     },
@@ -83,7 +81,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::TypeVar(
                         TypeVarSynDecl {
-                            path: FormPath(`core::task::Task`, `TypeVar`),
+                            path: MajorFormPath(`core::task::Task`, `TypeVar`),
                             default: None,
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -108,9 +106,7 @@ SynDeclSheet {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -148,7 +144,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::StaticVar(
                         MajorStaticVarSynDecl {
-                            path: FormPath(`core::task::TASK`, `StaticVar`),
+                            path: MajorFormPath(`core::task::TASK`, `StaticVar`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 0,
                             },
@@ -170,7 +166,7 @@ SynDeclSheet {
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Form(
-                                                            FormPath(`core::task::Task`, `TypeVar`),
+                                                            MajorFormPath(`core::task::Task`, `TypeVar`),
                                                         ),
                                                     ),
                                                 ),
@@ -190,7 +186,7 @@ SynDeclSheet {
                                                 ),
                                                 principal_entity_path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`core::task::Task`, `TypeVar`),
+                                                        MajorFormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 ),
                                             },
@@ -203,9 +199,7 @@ SynDeclSheet {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },

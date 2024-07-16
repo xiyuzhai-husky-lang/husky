@@ -9,7 +9,10 @@ use husky_entity_kind::{MajorFormKind, TraitItemKind, TypeItemKind};
 use husky_entity_path::path::{assoc_item::AssocItemPath, major_item::MajorItemPath, ItemPath};
 use husky_entity_tree::helpers::ingredient::{HasIngredientPaths, IngredientPath};
 use husky_ki::Ki;
-use husky_ki_repr::repr::KiRepr;
+use husky_ki_repr::{
+    repr::{KiCachingClass, KiRepr},
+    var_deps::KiStaticVarDeps,
+};
 use husky_linkage::linkage::Linkage;
 use husky_manifest::helpers::upstream::HasAllUpstreamPackages;
 use husky_toolchain_config::toolchain_config;
@@ -28,10 +31,34 @@ pub struct DevComptime<Devsoul: IsDevsoul> {
     target: DevComptimeTarget,
     target_path: Option<LinktimeTargetPath>,
     linktime: Devsoul::Linktime,
-    ingredient_vals: Vec<(
-        PackagePath,
-        Vec<(IngredientPath, Option<KiRepr>, Option<Ki>)>,
-    )>,
+    /// first index by jar index,
+    /// second index by ingredient index
+    ingredient_ki_infos: Vec<(PackagePath, Vec<(IngredientPath, Option<IngredientKiInfo>)>)>,
+}
+
+pub struct IngredientKiInfo {
+    ki_repr: KiRepr,
+    ki: Ki,
+    caching_class: KiCachingClass,
+    ki_var_deps: KiStaticVarDeps,
+}
+
+impl IngredientKiInfo {
+    pub fn ki_repr(&self) -> KiRepr {
+        self.ki_repr
+    }
+
+    pub fn ki(&self) -> Ki {
+        self.ki
+    }
+
+    pub fn caching_class(&self) -> KiCachingClass {
+        self.caching_class
+    }
+
+    pub fn ki_var_deps(&self) -> &KiStaticVarDeps {
+        &self.ki_var_deps
+    }
 }
 
 #[salsa::derive_debug_with_db]
@@ -64,8 +91,8 @@ impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
                 &db,
             )),
         };
-        let ingredient_vals = target_path
-            .map(|target_path| ingredient_kis(target_path, &db))
+        let ingredient_ki_infos = target_path
+            .map(|target_path| ingredient_ki_infos(target_path, &db))
             .unwrap_or_default();
         Ok(Self {
             linktime: IsLinktime::new_linktime(
@@ -76,7 +103,7 @@ impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
             target,
             target_path,
             db,
-            ingredient_vals,
+            ingredient_ki_infos,
         })
     }
 
@@ -92,14 +119,17 @@ impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
         self.linktime.linkage_impl(linkage, self.db())
     }
 
-    pub fn ingredient_val(
+    pub fn ingredient_ki_and_var_deps(
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-    ) -> Ki {
-        self.ingredient_vals[jar_index.index()].1[ingredient_index.index()]
-            .2
-            .unwrap()
+    ) -> (Ki, &KiStaticVarDeps) {
+        let ingredient_ki_info = &self.ingredient_ki_infos[jar_index.index()].1
+            [ingredient_index.index()]
+        .1
+        .as_ref()
+        .unwrap();
+        (ingredient_ki_info.ki(), ingredient_ki_info.ki_var_deps())
     }
 
     pub fn ingredient_ki_repr(
@@ -107,19 +137,18 @@ impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
     ) -> KiRepr {
-        self.ingredient_vals[jar_index.index()].1[ingredient_index.index()]
+        self.ingredient_ki_infos[jar_index.index()].1[ingredient_index.index()]
             .1
+            .as_ref()
             .unwrap()
+            .ki_repr()
     }
 }
 
-fn ingredient_kis(
+fn ingredient_ki_infos(
     target_path: LinktimeTargetPath,
     db: &::salsa::Db,
-) -> Vec<(
-    PackagePath,
-    Vec<(IngredientPath, Option<KiRepr>, Option<Ki>)>,
-)> {
+) -> Vec<(PackagePath, Vec<(IngredientPath, Option<IngredientKiInfo>)>)> {
     target_path
         .all_upstream_packages(db)
         .unwrap()
@@ -135,12 +164,12 @@ fn ingredient_kis(
                     .ingredient_paths(db)
                     .iter()
                     .map(|&ingredient_path| {
-                        let ki_repr = match ingredient_path.item_path() {
+                        let Some(ki_repr) = (match ingredient_path.item_path() {
                             // todo: consider StaticVar, StaticMut?
                             ItemPath::MajorItem(MajorItemPath::Form(path))
                                 if path.kind(db) == MajorFormKind::Val =>
                             {
-                                Some(KiRepr::new_val_item(path, db))
+                                Some(KiRepr::new_val(path, db))
                             }
                             ItemPath::AssocItem(path) => match path {
                                 AssocItemPath::TypeItem(path) => match path.item_kind(db) {
@@ -157,9 +186,19 @@ fn ingredient_kis(
                                 },
                             },
                             _ => None,
+                        }) else {
+                            return (ingredient_path, None);
                         };
-                        let val = ki_repr.map(|ki_repr| ki_repr.val(db));
-                        (ingredient_path, ki_repr, val)
+                        let ki = ki_repr.ki(db);
+                        let caching_class = ki_repr.caching_class(db);
+                        let ki_var_deps = ki_repr.var_deps(db).clone();
+                        let info = IngredientKiInfo {
+                            ki_repr,
+                            ki,
+                            caching_class,
+                            ki_var_deps,
+                        };
+                        (ingredient_path, Some(info))
                     })
                     .collect(),
             )
@@ -183,7 +222,7 @@ where
             db: Default::default(),
             linktime: Default::default(),
             target_path: None,
-            ingredient_vals: vec![],
+            ingredient_ki_infos: vec![],
         }
     }
 }

@@ -1,10 +1,12 @@
 pub mod dataset;
+pub mod input_id;
 pub mod task;
 
+use self::input_id::*;
 use dataset::MNIST_DATASET;
 use husky_core::*;
 use husky_linkage_impl::standard::ugly::*;
-use husky_standard_devsoul_interface::{input_id, label::IsLabel, ugly::*, InputId};
+use husky_standard_devsoul_interface::{label::IsLabel, static_var::StandardStaticVarId, ugly::*};
 
 use husky_devsoul_interface::{init_crate, ugly::*};
 
@@ -28,10 +30,6 @@ pub enum MnistLabel {
 impl IsLabel for MnistLabel {
     fn label() -> Self {
         MNIST_DATASET.label(input_id())
-    }
-
-    fn label_at_input(input_id: InputId) -> Self {
-        MNIST_DATASET.label(input_id)
     }
 }
 
@@ -116,11 +114,48 @@ impl std::ops::IndexMut<usize> for BinaryGrid28 {
 
 impl BinaryGrid28 {}
 
+thread_local! {
+    static __INPUT: std::cell::Cell<Option<&'static BinaryImage28>> = Default::default();
+}
+
 #[allow(non_snake_case)]
 pub fn INPUT() -> &'static BinaryImage28 {
-    MNIST_DATASET.input(input_id())
+    __INPUT.get().unwrap()
+}
+
+pub struct INPUT {}
+
+impl INPUT {
+    pub fn set_up_for_testing(index: usize) {
+        // todo: check range!
+        set_input_id(MnistInputId::from_index(index))
+    }
+
+    pub fn get_id() -> StandardStaticVarId {
+        input_id().index().into()
+    }
+
+    pub fn set_id(id: StandardStaticVarId) {
+        todo!()
+    }
 }
 
 // ad hoc
 #[allow(non_snake_case)]
 pub fn TASK() {}
+
+pub struct TASK {}
+
+impl TASK {
+    pub fn set_up_for_testing(index: usize) {
+        todo!()
+    }
+
+    pub fn get_id() -> StandardStaticVarId {
+        todo!()
+    }
+
+    pub fn set_id(id: StandardStaticVarId) {
+        todo!()
+    }
+}

@@ -349,7 +349,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::main`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::main`, `Val`),
                             body: Some(
                                 FormBody {
                                     ast_idx_range: ArenaIdxRange(

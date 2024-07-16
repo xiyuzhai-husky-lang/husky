@@ -74,6 +74,11 @@
             self_ty: Some(
                 EthTerm(`Class Label`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -269,6 +274,11 @@
             self_ty: Some(
                 EthTerm(`OneVsAll Label label`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -464,6 +474,11 @@
             self_ty: Some(
                 EthTerm(`OneVsAllResult Label label`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -1182,7 +1197,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Move,
+                                        contract: Contract::Move,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
@@ -1429,6 +1444,11 @@
             },
             return_ty: None,
             self_ty: None,
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -2163,6 +2183,11 @@
             self_ty: Some(
                 EthTerm(`OneVsAll Label label`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -2340,6 +2365,11 @@
             self_ty: Some(
                 EthTerm(`OneVsAll Label label`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -3404,6 +3434,11 @@
             self_ty: Some(
                 EthTerm(`Class Label`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -3584,6 +3619,11 @@
             self_ty: Some(
                 EthTerm(`Class Label`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -4568,6 +4608,11 @@
             self_ty: Some(
                 EthTerm(`Class Label`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -5826,6 +5871,11 @@
             self_ty: Some(
                 EthTerm(`OneVsAll Label label`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -6006,6 +6056,11 @@
             self_ty: Some(
                 EthTerm(`OneVsAll Label label`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -6990,6 +7045,11 @@
             self_ty: Some(
                 EthTerm(`OneVsAll Label label`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
 ]

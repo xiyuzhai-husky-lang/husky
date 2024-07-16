@@ -28,6 +28,7 @@ impl MethodFlyInstanceDispatch {
     }
 }
 
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq)]
 pub enum MethodFlySignature {

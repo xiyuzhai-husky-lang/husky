@@ -4,7 +4,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Val(
                 MajorValHirDecl {
-                    path: FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -45,7 +45,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
                 MajorFunctionRitchieHirDecl {
-                    path: FormPath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
                         Fn,
                     )`),
                     ritchie_item_kind: RitchieItemKind::Fn,
@@ -111,7 +111,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Val(
                 MajorValHirDecl {
-                    path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
                             ty_path: TypePath(`malamute::OneVsAll`, `Enum`),

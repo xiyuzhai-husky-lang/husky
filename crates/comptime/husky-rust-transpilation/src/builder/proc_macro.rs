@@ -3,7 +3,7 @@ use husky_entity_path::path::ItemPath;
 use husky_entity_tree::helpers::ingredient::HasIngredientIndex;
 
 impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
-    pub(crate) fn val_item_attr(
+    pub(crate) fn val_attr(
         &mut self,
         path: ItemPath,
         is_lazy: bool,
@@ -18,7 +18,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
         let return_ref = !is_return_ty_always_copyable;
         write!(
             self.result,
-            "#[{}::val_item(ingredient_index = {}{}{})]\n",
+            "#[{}::val(ingredient_index = {}{}{})]\n",
             task_dependency_ident,
             path.ingredient_index(db).unwrap().index(),
             is_lazy.then_some(", lazy").unwrap_or_default(),

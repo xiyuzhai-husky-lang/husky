@@ -1,5 +1,6 @@
 pub mod label;
 pub mod pedestal;
+pub mod static_var;
 pub mod ugly;
 
 use self::pedestal::StandardPedestal;
@@ -12,10 +13,11 @@ use serde::{Deserialize, Serialize};
 use shifted_unsigned_int::ShiftedU32;
 use std::{cell::Cell, convert::Infallible};
 
+#[deprecated]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize, Hash)]
-pub struct InputId(ShiftedU32);
+pub struct DeprecatedInputId(ShiftedU32);
 
-impl InputId {
+impl DeprecatedInputId {
     pub fn from_index(index: usize) -> Self {
         Self(index.into())
     }
@@ -25,28 +27,20 @@ impl InputId {
     }
 }
 
-/// panics if dev eval context is empty
-#[track_caller]
-pub fn input_id() -> InputId {
-    DEV_EVAL_CONTEXT
-        .get()
-        .unwrap()
-        .pedestal()
-        .input_id()
-        .expect("pedestal is generic, no input id")
-}
-
 #[test]
 fn sample_id_size_works() {
-    assert_eq!(std::mem::size_of::<InputId>(), std::mem::size_of::<u32>());
     assert_eq!(
-        std::mem::size_of::<Option<InputId>>(),
+        std::mem::size_of::<DeprecatedInputId>(),
+        std::mem::size_of::<u32>()
+    );
+    assert_eq!(
+        std::mem::size_of::<Option<DeprecatedInputId>>(),
         std::mem::size_of::<u32>()
     )
 }
 
 pub type DevEvalContext = husky_devsoul_interface::DevEvalContext<
-    husky_linkage_impl::standard::LinkageImpl<StandardPedestal>,
+    husky_linkage_impl::standard::StandardLinkageImpl<StandardPedestal>,
 >;
 
 thread_local! {
@@ -82,28 +76,6 @@ pub fn eval_ki_domain_repr_interface(
     ki_domain_repr_interface: KiDomainReprInterface,
 ) -> StandardLinkageImplKiControlFlow<(), Infallible> {
     dev_eval_context().eval_ki_domain_repr_interface(ki_domain_repr_interface)
-}
-
-pub fn eval_ki_repr_interface_at_input<T>(
-    ki_repr_interface: KiReprInterface,
-    input_id: InputId,
-    value_stands: Option<&mut __ValueStands>,
-) -> StandardLinkageImplKiControlFlow<T>
-where
-    T: FromValue + 'static,
-{
-    with_dev_eval_context(dev_eval_context().with_pedestal(input_id.into()), || {
-        eval_ki_repr_interface(ki_repr_interface, value_stands)
-    })
-}
-
-pub fn eval_ki_domain_repr_interface_at_input(
-    ki_domain_repr_interface: KiDomainReprInterface,
-    input_id: InputId,
-) -> StandardLinkageImplKiControlFlow<(), Infallible> {
-    with_dev_eval_context(dev_eval_context().with_pedestal(input_id.into()), || {
-        eval_ki_domain_repr_interface(ki_domain_repr_interface)
-    })
 }
 
 pub fn eval_val_runtime_constant<T>(val_runtime_constant: KiRuntimeConstantInterface) -> T

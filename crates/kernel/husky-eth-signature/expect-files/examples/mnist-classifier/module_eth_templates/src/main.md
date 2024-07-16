@@ -63,7 +63,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Val(
                         MajorValEthTemplate {
-                            path: FormPath(`mnist_classifier::main`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::main`, `Val`),
                             return_ty: EthTerm(`Class MnistLabel`),
                         },
                     ),

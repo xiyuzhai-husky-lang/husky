@@ -71,9 +71,7 @@
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -120,7 +118,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -132,7 +130,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist::INPUT`, `StaticVar`),
+                                                MajorFormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         ),
                                     ),
@@ -173,7 +171,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -190,7 +188,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist::INPUT`, `StaticVar`),
+                                            MajorFormPath(`mnist::INPUT`, `StaticVar`),
                                         ),
                                     ),
                                 },
@@ -210,9 +208,7 @@
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [],
-                            },
+                            pattern_expr_contracts: [],
                             pattern_symbol_arena: Arena {
                                 data: [],
                             },
@@ -316,9 +312,7 @@
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -389,7 +383,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -439,7 +433,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -572,7 +566,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -622,7 +616,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                                         ),
                                     ),
                                 },
@@ -637,7 +631,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                                         ),
                                     ),
                                 },
@@ -652,7 +646,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                                         ),
                                     ),
                                 },
@@ -885,13 +879,11 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Move,
-                                    Move,
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
@@ -1143,9 +1135,7 @@
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -1206,7 +1196,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -1256,7 +1246,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -1323,7 +1313,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -1380,7 +1370,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                                         ),
                                     ),
                                 },
@@ -1395,7 +1385,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                                         ),
                                     ),
                                 },
@@ -1410,7 +1400,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                 },
@@ -1529,11 +1519,9 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Move,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Move,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
@@ -1723,9 +1711,7 @@
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -1772,7 +1758,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -1809,7 +1795,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                 },
@@ -1829,9 +1815,7 @@
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [],
-                            },
+                            pattern_expr_contracts: [],
                             pattern_symbol_arena: Arena {
                                 data: [],
                             },
@@ -1935,9 +1919,7 @@
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -1984,7 +1966,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -2046,7 +2028,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2066,9 +2048,7 @@
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [],
-                            },
+                            pattern_expr_contracts: [],
                             pattern_symbol_arena: Arena {
                                 data: [],
                             },
@@ -2172,9 +2152,7 @@
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -2221,7 +2199,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -2258,7 +2236,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2278,9 +2256,7 @@
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [],
-                            },
+                            pattern_expr_contracts: [],
                             pattern_symbol_arena: Arena {
                                 data: [],
                             },
@@ -2397,9 +2373,7 @@
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -2446,7 +2420,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -2483,7 +2457,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2503,9 +2477,7 @@
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [],
-                            },
+                            pattern_expr_contracts: [],
                             pattern_symbol_arena: Arena {
                                 data: [],
                             },

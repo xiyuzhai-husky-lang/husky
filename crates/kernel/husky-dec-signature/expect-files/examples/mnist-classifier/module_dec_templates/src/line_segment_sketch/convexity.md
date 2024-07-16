@@ -15,47 +15,29 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 41,
-                                                            },
-                                                        ),
-                                                    ),
+                                            contract: Contract::Pure,
+                                            ty: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                 ),
                                             ),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 122,
-                                                            },
-                                                        ),
-                                                    ),
+                                            contract: Contract::Pure,
+                                            ty: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`core::num::i32`, `Extern`),
                                                 ),
                                             ),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 119,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::basic::bool`, `Extern`),
                                 ),
                             ),
                         },

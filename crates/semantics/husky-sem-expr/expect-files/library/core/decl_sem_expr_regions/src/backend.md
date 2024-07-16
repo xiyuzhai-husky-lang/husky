@@ -56,6 +56,11 @@
             self_ty: Some(
                 EthTerm(`Self`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -114,6 +119,11 @@
             self_ty: Some(
                 EthTerm(`MlBackend`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
 ]

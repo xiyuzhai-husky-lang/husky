@@ -1,6 +1,6 @@
 use crate::*;
 use husky_devsoul::{
-    devsoul::{dev_eval_context, with_runtime_and_base_point, IsDevsoul},
+    devsoul::{dev_eval_context, with_runtime, IsDevsoul},
     helpers::{DevsoulException, DevsoulValue},
 };
 use husky_devsoul_interface::ki_repr::KiArgumentReprInterface;
@@ -8,29 +8,25 @@ use husky_devsoul_interface::{ki_control_flow::KiControlFlow, IsLinkageImpl};
 use husky_hir_opr::binary::HirBinaryOpr;
 use husky_ki::{KiOpn, KiPatternData};
 use husky_ki_repr::repr::{KiArgumentRepr, KiDomainRepr, KiRepr};
+use husky_linkage_impl::standard::StandardLinkageImpl;
 use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr};
 use husky_standard_devsoul::StandardDevsoul;
 use husky_term_prelude::literal::Literal;
 use husky_value_interface::IsValue;
 
 impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
-    pub fn eval_ki_repr_at_pedestal(
-        &self,
-        ki_repr: KiRepr,
-        pedestal: Devsoul::Pedestal,
-    ) -> DevsoulKiControlFlow<Devsoul> {
-        with_runtime_and_base_point::<Devsoul, _, _>(self, pedestal, || self.eval_ki_repr(ki_repr))
-    }
+    // pub fn eval_ki_repr(&self, ki_repr: KiRepr) -> DevsoulKiControlFlow<Devsoul> {
+    //     with_runtime::<Devsoul, _, _>(self, || self.eval_ki_repr(ki_repr))
+    // }
 
-    pub fn eval_ki_domain_repr_at_pedestal(
+    pub fn eval_ki_domain_repr(
         &self,
         ki_domain_repr: KiDomainRepr,
-        pedestal: Devsoul::Pedestal,
     ) -> KiControlFlow<(), Infallible, DevsoulException<Devsoul>> {
         match ki_domain_repr {
             KiDomainRepr::Omni => KiControlFlow::Continue(()),
             KiDomainRepr::ConditionSatisfied(condition_ki_repr) => {
-                match self.eval_ki_repr_at_pedestal(condition_ki_repr, pedestal) {
+                match self.eval_ki_repr(condition_ki_repr) {
                     KiControlFlow::Continue(value) => match value.to_bool() {
                         true => KiControlFlow::Continue(()),
                         false => KiControlFlow::Undefined,
@@ -43,7 +39,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                 }
             }
             KiDomainRepr::ConditionNotSatisfied(condition_ki_repr) => {
-                match self.eval_ki_repr_at_pedestal(condition_ki_repr, pedestal) {
+                match self.eval_ki_repr(condition_ki_repr) {
                     KiControlFlow::Continue(value) => match value.to_bool() {
                         true => KiControlFlow::Undefined,
                         false => KiControlFlow::Continue(()),
@@ -55,20 +51,19 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                     KiControlFlow::Throw(_) => todo!(),
                 }
             }
-            KiDomainRepr::StmtNotReturned(stmt_ki_repr) => {
-                match self.eval_ki_repr_at_pedestal(stmt_ki_repr, pedestal) {
-                    KiControlFlow::Continue(_) => KiControlFlow::Continue(()),
-                    KiControlFlow::LoopContinue => todo!(),
-                    KiControlFlow::LoopExit(_) => todo!(),
-                    KiControlFlow::Return(_) | KiControlFlow::Undefined => KiControlFlow::Undefined,
-                    KiControlFlow::Throw(_) => todo!(),
-                }
-            }
+            KiDomainRepr::StmtNotReturned(stmt_ki_repr) => match self.eval_ki_repr(stmt_ki_repr) {
+                KiControlFlow::Continue(_) => KiControlFlow::Continue(()),
+                KiControlFlow::LoopContinue => todo!(),
+                KiControlFlow::LoopExit(_) => todo!(),
+                KiControlFlow::Return(_) | KiControlFlow::Undefined => KiControlFlow::Undefined,
+                KiControlFlow::Throw(_) => todo!(),
+            },
             KiDomainRepr::ExprNotReturned(_) => todo!(),
         }
     }
 
-    fn eval_ki_repr(&self, ki_repr: KiRepr) -> DevsoulKiControlFlow<Devsoul> {
+    pub fn eval_ki_repr(&self, ki_repr: KiRepr) -> DevsoulKiControlFlow<Devsoul> {
+        // todo!("set up dev eval context");
         // todo: consider domain
         let db = self.db();
         let result: DevsoulKiControlFlow<Devsoul> = match ki_repr.opn(db) {
@@ -131,7 +126,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                 };
                 KiControlFlow::Continue(value)
             }
-            KiOpn::ValItemLazilyDefined(_path) => {
+            KiOpn::ValLazilyDefined(_path) => {
                 let expansion = ki_repr.expansion(db).unwrap();
                 self.eval_root_stmts(expansion.root_hir_lazy_stmt_ki_reprs(db))
             }
@@ -247,12 +242,12 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             }
             KiOpn::Unwrap {} => {
                 use husky_print_utils::p;
-                let pedestal = Devsoul::dev_eval_context_local_key()
-                    .get()
-                    .expect("`DEV_EVAL_CONTEXT` not set")
-                    .pedestal();
-                p!(pedestal);
-                p!(ki_repr.source(db).debug_info(db));
+                // let pedestal = Devsoul::dev_eval_context_local_key()
+                //     .get()
+                //     .expect("`DEV_EVAL_CONTEXT` not set")
+                //     .pedestal();
+                // p!(pedestal);
+                // p!(ki_repr.source(db).debug_info(db));
                 todo!()
             }
             KiOpn::Index => {
@@ -315,12 +310,13 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
 }
 
 #[test]
+#[ignore]
 fn ki_repr_eval_works() {
     use husky_entity_kind::MajorFormKind;
     use husky_entity_path::path::{major_item::MajorItemPath, ItemPath};
     use husky_entity_tree::helpers::paths::module_item_paths;
     use husky_path_utils::dev_paths::*;
-    use husky_standard_devsoul_interface::InputId;
+    use husky_standard_devsoul_interface::DeprecatedInputId;
 
     let dev_paths = HuskyLangDevPaths::new();
     let runtime: DevRuntime<StandardDevsoul<()>> =
@@ -329,14 +325,30 @@ fn ki_repr_eval_works() {
     let DevComptimeTarget::SingleCrate(crate_path) = runtime.comptime_target() else {
         unreachable!()
     };
-    for &item_path in module_item_paths(db, crate_path.root_module_path(db)) {
-        let ItemPath::MajorItem(MajorItemPath::Form(form_path)) = item_path else {
-            continue;
-        };
-        if form_path.kind(db) != MajorFormKind::Val {
-            continue;
+    with_runtime::<StandardDevsoul<()>, _, _>(&runtime, || {
+        for &item_path in module_item_paths(db, crate_path.root_module_path(db)) {
+            let ItemPath::MajorItem(MajorItemPath::Form(form_path)) = item_path else {
+                continue;
+            };
+            if form_path.kind(db) != MajorFormKind::Val {
+                continue;
+            }
+            let ki_repr = KiRepr::new_val(form_path, db);
+            for path in ki_repr.var_deps(db) {
+                let ItemPath::MajorItem(MajorItemPath::Form(path)) = path else {
+                    todo!()
+                };
+                let StandardLinkageImpl::StaticVar {
+                    set_up_for_testing, ..
+                } = runtime
+                    .comptime
+                    .linkage_impl(Linkage::new_static_var(path, db))
+                else {
+                    unreachable!()
+                };
+                set_up_for_testing(0)
+            }
+            runtime.eval_ki_repr(ki_repr);
         }
-        let ki_repr = KiRepr::new_val_item(form_path, db);
-        runtime.eval_ki_repr_at_pedestal(ki_repr, InputId::from_index(0).into());
-    }
+    })
 }

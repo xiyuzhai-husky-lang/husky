@@ -62,9 +62,7 @@
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -111,7 +109,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -123,7 +121,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -133,7 +131,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -198,7 +196,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -215,7 +213,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                         ),
                                     ),
                                 },
@@ -230,7 +228,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -252,9 +250,7 @@
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [],
-                            },
+                            pattern_expr_contracts: [],
                             pattern_symbol_arena: Arena {
                                 data: [],
                             },
@@ -408,11 +404,9 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -683,11 +677,9 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
@@ -844,9 +836,7 @@
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -893,7 +883,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -905,7 +895,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -915,7 +905,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -927,7 +917,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -1000,7 +990,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -1017,7 +1007,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                         ),
                                     ),
                                 },
@@ -1032,7 +1022,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -1049,7 +1039,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -1071,9 +1061,7 @@
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [],
-                            },
+                            pattern_expr_contracts: [],
                             pattern_symbol_arena: Arena {
                                 data: [],
                             },
@@ -1227,11 +1215,9 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -1589,11 +1575,9 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
@@ -1807,11 +1791,9 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -2280,12 +2262,10 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Pure,
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Pure,
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
@@ -2479,13 +2459,7 @@
                                                 path_expr_idx: 3,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::TypeVariant(
-                                                        TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 284,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        TypeVariantPath(`mnist::MnistLabel::Seven`),
                                                     ),
                                                 ),
                                             },
@@ -2559,13 +2533,7 @@
                                                 ),
                                                 path: Ok(
                                                     PrincipalEntityPath::TypeVariant(
-                                                        TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 284,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        TypeVariantPath(`mnist::MnistLabel::Seven`),
                                                     ),
                                                 ),
                                             },
@@ -2578,9 +2546,7 @@
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -2627,7 +2593,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -2673,7 +2639,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                                                MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -2729,7 +2695,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                                                MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -2792,7 +2758,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -2802,7 +2768,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -2880,7 +2846,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                                                MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -3016,13 +2982,7 @@
                                     path_expr_idx: 8,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 265,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                                         ),
                                     ),
                                 },
@@ -3065,7 +3025,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -3075,7 +3035,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -3152,13 +3112,7 @@
                                     path_expr_idx: 12,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 265,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                                         ),
                                     ),
                                 },
@@ -3167,7 +3121,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                                                MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -3230,7 +3184,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                                                MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -3259,13 +3213,7 @@
                                     path_expr_idx: 17,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 265,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                                         ),
                                     ),
                                 },
@@ -3289,7 +3237,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                 },
@@ -3304,7 +3252,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                                            MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                                         ),
                                     ),
                                 },
@@ -3319,7 +3267,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                                            MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                                         ),
                                     ),
                                 },
@@ -3333,13 +3281,7 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::TypeVariant(
-                                        TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 217,
-                                                },
-                                            ),
-                                        ),
+                                        TypeVariantPath(`core::option::Option::Some`),
                                     ),
                                 },
                                 SynPrincipalEntityPathExpr::Root {
@@ -3353,7 +3295,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                 },
@@ -3368,7 +3310,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                 },
@@ -3383,7 +3325,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                                            MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                                         ),
                                     ),
                                 },
@@ -3419,13 +3361,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 265,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                                         ),
                                     ),
                                 },
@@ -3440,7 +3376,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                 },
@@ -3455,7 +3391,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                 },
@@ -3491,13 +3427,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 265,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                                         ),
                                     ),
                                 },
@@ -3512,7 +3442,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                                            MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                                         ),
                                     ),
                                 },
@@ -3526,13 +3456,7 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::TypeVariant(
-                                        TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 217,
-                                                },
-                                            ),
-                                        ),
+                                        TypeVariantPath(`core::option::Option::Some`),
                                     ),
                                 },
                                 SynPrincipalEntityPathExpr::Root {
@@ -3546,7 +3470,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                                            MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                                         ),
                                     ),
                                 },
@@ -3582,13 +3506,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 265,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                                         ),
                                     ),
                                 },
@@ -3937,13 +3855,7 @@
                                     },
                                     SynPatternData::TupleTypeVariant {
                                         path_expr_idx: 3,
-                                        path: TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 217,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeVariantPath(`core::option::Option::Some`),
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 27,
@@ -4011,13 +3923,7 @@
                                     },
                                     SynPatternData::TupleTypeVariant {
                                         path_expr_idx: 14,
-                                        path: TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 217,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeVariantPath(`core::option::Option::Some`),
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 106,
@@ -4049,20 +3955,18 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(

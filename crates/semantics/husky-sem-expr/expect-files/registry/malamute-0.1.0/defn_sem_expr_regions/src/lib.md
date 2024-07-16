@@ -19,13 +19,7 @@
                                 SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 1,
                                     path: PrincipalEntityPath::TypeVariant(
-                                        TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 6,
-                                                },
-                                            ),
-                                        ),
+                                        TypeVariantPath(`malamute::OneVsAll::No`),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
@@ -328,7 +322,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Move,
+                                        contract: Contract::Move,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
@@ -441,7 +435,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Move,
+                                        contract: Contract::Move,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
@@ -490,6 +484,11 @@
             self_ty: Some(
                 EthTerm(`OneVsAll Label label`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -556,13 +555,7 @@
                                 SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 5,
                                     path: PrincipalEntityPath::TypeVariant(
-                                        TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 112,
-                                                },
-                                            ),
-                                        ),
+                                        TypeVariantPath(`core::ops::ControlFlow::Break`),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
@@ -632,13 +625,7 @@
                                 SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 7,
                                     path: PrincipalEntityPath::TypeVariant(
-                                        TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 2,
-                                                },
-                                            ),
-                                        ),
+                                        TypeVariantPath(`malamute::Class::Known`),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
@@ -745,7 +732,7 @@
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieArgument::Simple(
                                             FlyRitchieSimpleParameter {
-                                                contract: Move,
+                                                contract: Contract::Move,
                                                 ty: FlyTerm {
                                                     place: None,
                                                     base: FlyTermBase::Hol(
@@ -817,7 +804,7 @@
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieArgument::Simple(
                                             FlyRitchieSimpleParameter {
-                                                contract: Move,
+                                                contract: Contract::Move,
                                                 ty: FlyTerm {
                                                     place: None,
                                                     base: FlyTermBase::Hol(
@@ -878,13 +865,7 @@
                                 SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 13,
                                     path: PrincipalEntityPath::TypeVariant(
-                                        TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 111,
-                                                },
-                                            ),
-                                        ),
+                                        TypeVariantPath(`core::ops::ControlFlow::Continue`),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
@@ -996,7 +977,7 @@
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieArgument::Simple(
                                             FlyRitchieSimpleParameter {
-                                                contract: Move,
+                                                contract: Contract::Move,
                                                 ty: FlyTerm {
                                                     place: None,
                                                     base: FlyTermBase::Hol(
@@ -1165,7 +1146,7 @@
                                     match_opd: SemExprIdx(
                                         0,
                                     ),
-                                    match_contract: Pure,
+                                    match_contract: Contract::Pure,
                                     eol_with_token: EolWithRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             3,
@@ -1466,7 +1447,7 @@
                                     params: [
                                         FlyRitchieParameter::Simple(
                                             FlyRitchieSimpleParameter {
-                                                contract: Move,
+                                                contract: Contract::Move,
                                                 ty: FlyTerm {
                                                     place: None,
                                                     base: FlyTermBase::Hol(
@@ -1557,7 +1538,7 @@
                                     params: [
                                         FlyRitchieParameter::Simple(
                                             FlyRitchieSimpleParameter {
-                                                contract: Move,
+                                                contract: Contract::Move,
                                                 ty: FlyTerm {
                                                     place: None,
                                                     base: FlyTermBase::Hol(
@@ -1681,7 +1662,7 @@
                                     params: [
                                         FlyRitchieParameter::Simple(
                                             FlyRitchieSimpleParameter {
-                                                contract: Move,
+                                                contract: Contract::Move,
                                                 ty: FlyTerm {
                                                     place: None,
                                                     base: FlyTermBase::Hol(
@@ -1783,7 +1764,7 @@
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Simple(
                                                                 FlyRitchieSimpleParameter {
-                                                                    contract: Move,
+                                                                    contract: Contract::Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
                                                                         base: FlyTermBase::Hol(
@@ -1841,7 +1822,7 @@
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Simple(
                                                                 FlyRitchieSimpleParameter {
-                                                                    contract: Move,
+                                                                    contract: Contract::Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
                                                                         base: FlyTermBase::Hol(
@@ -1863,7 +1844,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Move,
+                                        contract: Contract::Move,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Hol(
@@ -1906,7 +1887,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Move,
+                                        contract: Contract::Move,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Hol(
@@ -1949,7 +1930,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Move,
+                                        contract: Contract::Move,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
@@ -2098,7 +2079,7 @@
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Simple(
                                                                 FlyRitchieSimpleParameter {
-                                                                    contract: Move,
+                                                                    contract: Contract::Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
                                                                         base: FlyTermBase::Hol(
@@ -2120,7 +2101,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Move,
+                                        contract: Contract::Move,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Hol(
@@ -2161,7 +2142,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Move,
+                                        contract: Contract::Move,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
@@ -2274,7 +2255,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Move,
+                                        contract: Contract::Move,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
@@ -2323,6 +2304,11 @@
             self_ty: Some(
                 EthTerm(`Class Label`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -2389,13 +2375,7 @@
                                 SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 5,
                                     path: PrincipalEntityPath::TypeVariant(
-                                        TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 112,
-                                                },
-                                            ),
-                                        ),
+                                        TypeVariantPath(`core::ops::ControlFlow::Break`),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
@@ -2465,13 +2445,7 @@
                                 SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 7,
                                     path: PrincipalEntityPath::TypeVariant(
-                                        TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 5,
-                                                },
-                                            ),
-                                        ),
+                                        TypeVariantPath(`malamute::OneVsAll::Yes`),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
@@ -2552,7 +2526,7 @@
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieArgument::Simple(
                                             FlyRitchieSimpleParameter {
-                                                contract: Move,
+                                                contract: Contract::Move,
                                                 ty: FlyTerm {
                                                     place: None,
                                                     base: FlyTermBase::Hol(
@@ -2613,13 +2587,7 @@
                                 SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 13,
                                     path: PrincipalEntityPath::TypeVariant(
-                                        TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 112,
-                                                },
-                                            ),
-                                        ),
+                                        TypeVariantPath(`core::ops::ControlFlow::Break`),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
@@ -2689,13 +2657,7 @@
                                 SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 15,
                                     path: PrincipalEntityPath::TypeVariant(
-                                        TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 6,
-                                                },
-                                            ),
-                                        ),
+                                        TypeVariantPath(`malamute::OneVsAll::No`),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
@@ -2776,7 +2738,7 @@
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieArgument::Simple(
                                             FlyRitchieSimpleParameter {
-                                                contract: Move,
+                                                contract: Contract::Move,
                                                 ty: FlyTerm {
                                                     place: None,
                                                     base: FlyTermBase::Hol(
@@ -2837,13 +2799,7 @@
                                 SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 21,
                                     path: PrincipalEntityPath::TypeVariant(
-                                        TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 111,
-                                                },
-                                            ),
-                                        ),
+                                        TypeVariantPath(`core::ops::ControlFlow::Continue`),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
@@ -2955,7 +2911,7 @@
                                     ritchie_parameter_argument_matches: [
                                         SemaRitchieArgument::Simple(
                                             FlyRitchieSimpleParameter {
-                                                contract: Move,
+                                                contract: Contract::Move,
                                                 ty: FlyTerm {
                                                     place: None,
                                                     base: FlyTermBase::Hol(
@@ -3155,7 +3111,7 @@
                                     match_opd: SemExprIdx(
                                         0,
                                     ),
-                                    match_contract: Pure,
+                                    match_contract: Contract::Pure,
                                     eol_with_token: EolWithRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             3,
@@ -3503,7 +3459,7 @@
                                     params: [
                                         FlyRitchieParameter::Simple(
                                             FlyRitchieSimpleParameter {
-                                                contract: Move,
+                                                contract: Contract::Move,
                                                 ty: FlyTerm {
                                                     place: None,
                                                     base: FlyTermBase::Hol(
@@ -3720,7 +3676,7 @@
                                     params: [
                                         FlyRitchieParameter::Simple(
                                             FlyRitchieSimpleParameter {
-                                                contract: Move,
+                                                contract: Contract::Move,
                                                 ty: FlyTerm {
                                                     place: None,
                                                     base: FlyTermBase::Hol(
@@ -3933,7 +3889,7 @@
                                     params: [
                                         FlyRitchieParameter::Simple(
                                             FlyRitchieSimpleParameter {
-                                                contract: Move,
+                                                contract: Contract::Move,
                                                 ty: FlyTerm {
                                                     place: None,
                                                     base: FlyTermBase::Hol(
@@ -4035,7 +3991,7 @@
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Simple(
                                                                 FlyRitchieSimpleParameter {
-                                                                    contract: Move,
+                                                                    contract: Contract::Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
                                                                         base: FlyTermBase::Hol(
@@ -4057,7 +4013,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Move,
+                                        contract: Contract::Move,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Hol(
@@ -4100,7 +4056,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Move,
+                                        contract: Contract::Move,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
@@ -4321,7 +4277,7 @@
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Simple(
                                                                 FlyRitchieSimpleParameter {
-                                                                    contract: Move,
+                                                                    contract: Contract::Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
                                                                         base: FlyTermBase::Hol(
@@ -4343,7 +4299,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Move,
+                                        contract: Contract::Move,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Hol(
@@ -4386,7 +4342,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Move,
+                                        contract: Contract::Move,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
@@ -4607,7 +4563,7 @@
                                                         parameter_contracted_tys: [
                                                             FlyRitchieParameter::Simple(
                                                                 FlyRitchieSimpleParameter {
-                                                                    contract: Move,
+                                                                    contract: Contract::Move,
                                                                     ty: FlyTerm {
                                                                         place: None,
                                                                         base: FlyTermBase::Hol(
@@ -4629,7 +4585,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Move,
+                                        contract: Contract::Move,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Hol(
@@ -4670,7 +4626,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Move,
+                                        contract: Contract::Move,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
@@ -4783,7 +4739,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Move,
+                                        contract: Contract::Move,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
@@ -4832,6 +4788,11 @@
             self_ty: Some(
                 EthTerm(`OneVsAll Label label`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
 ]

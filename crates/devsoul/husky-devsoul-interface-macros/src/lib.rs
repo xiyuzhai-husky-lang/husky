@@ -1,6 +1,6 @@
 mod memo_field;
 mod utils;
-mod val_item;
+mod val;
 mod value;
 
 use self::utils::*;
@@ -12,8 +12,8 @@ pub fn value(args: TokenStream, input: TokenStream) -> TokenStream {
 }
 
 #[proc_macro_attribute]
-pub fn val_item(args: TokenStream, input: TokenStream) -> TokenStream {
-    val_item::val_item(args, input)
+pub fn val(args: TokenStream, input: TokenStream) -> TokenStream {
+    val::val(args, input)
 }
 
 #[proc_macro_attribute]

@@ -4,7 +4,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                    MajorFormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -19,7 +19,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                    MajorFormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                         Fn,
                     )`),
                 ),

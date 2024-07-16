@@ -153,12 +153,10 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -1063,14 +1061,12 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
@@ -1417,12 +1413,10 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -2327,14 +2321,12 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
@@ -2722,13 +2714,11 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                                Pure,
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -3349,7 +3339,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -3405,7 +3395,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -3823,7 +3813,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -3879,7 +3869,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -4294,7 +4284,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -4311,7 +4301,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -4328,7 +4318,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -4345,7 +4335,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -5040,20 +5030,18 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Move,
-                                    Move,
-                                    Pure,
-                                    Pure,
-                                    Move,
-                                    Move,
-                                    Move,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
@@ -5747,14 +5735,12 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                                Pure,
-                                                Pure,
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -6444,7 +6430,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -6500,7 +6486,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -6851,7 +6837,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -6907,7 +6893,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -7492,7 +7478,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -7509,7 +7495,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -7526,7 +7512,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -7543,7 +7529,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -8354,20 +8340,18 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Move,
-                                    Move,
-                                    Pure,
-                                    Move,
-                                    Move,
-                                    Move,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Pure,
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
@@ -9008,12 +8992,10 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -9281,7 +9263,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -10026,7 +10008,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -11738,7 +11720,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -11785,7 +11767,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -12875,29 +12857,27 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Move,
-                                    Move,
-                                    Move,
-                                    Move,
-                                    Pure,
-                                    Move,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Move,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Pure,
+                                Contract::Move,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Move,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
@@ -13852,9 +13832,7 @@
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: ArenaMap {
-                                                        data: [],
-                                                    },
+                                                    pattern_expr_contracts: [],
                                                     pattern_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -13956,9 +13934,7 @@
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -14142,9 +14118,7 @@
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [],
-                            },
+                            pattern_expr_contracts: [],
                             pattern_symbol_arena: Arena {
                                 data: [],
                             },
@@ -14266,9 +14240,7 @@
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: ArenaMap {
-                                                        data: [],
-                                                    },
+                                                    pattern_expr_contracts: [],
                                                     pattern_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -14476,13 +14448,11 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                                Pure,
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -14880,9 +14850,7 @@
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [],
-                            },
+                            pattern_expr_contracts: [],
                             pattern_symbol_arena: Arena {
                                 data: [],
                             },
@@ -15015,9 +14983,7 @@
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: ArenaMap {
-                                                        data: [],
-                                                    },
+                                                    pattern_expr_contracts: [],
                                                     pattern_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -15115,9 +15081,7 @@
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -15260,9 +15224,7 @@
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [],
-                            },
+                            pattern_expr_contracts: [],
                             pattern_symbol_arena: Arena {
                                 data: [],
                             },
@@ -15401,9 +15363,7 @@
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: ArenaMap {
-                                                        data: [],
-                                                    },
+                                                    pattern_expr_contracts: [],
                                                     pattern_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -15505,9 +15465,7 @@
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -15628,9 +15586,7 @@
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [],
-                            },
+                            pattern_expr_contracts: [],
                             pattern_symbol_arena: Arena {
                                 data: [],
                             },
@@ -15744,9 +15700,7 @@
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: ArenaMap {
-                                                        data: [],
-                                                    },
+                                                    pattern_expr_contracts: [],
                                                     pattern_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -15855,9 +15809,7 @@
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -15920,7 +15872,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -15968,7 +15920,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -15990,9 +15942,7 @@
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [],
-                            },
+                            pattern_expr_contracts: [],
                             pattern_symbol_arena: Arena {
                                 data: [],
                             },
@@ -16102,9 +16052,7 @@
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: ArenaMap {
-                                                        data: [],
-                                                    },
+                                                    pattern_expr_contracts: [],
                                                     pattern_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -16200,9 +16148,7 @@
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -17360,16 +17306,14 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Pure,
-                                    Move,
-                                    Move,
-                                    Move,
-                                    Move,
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Pure,
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
@@ -17759,9 +17703,7 @@
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: ArenaMap {
-                                                        data: [],
-                                                    },
+                                                    pattern_expr_contracts: [],
                                                     pattern_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -17935,12 +17877,10 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -18120,7 +18060,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -18230,7 +18170,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -18252,9 +18192,7 @@
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [],
-                            },
+                            pattern_expr_contracts: [],
                             pattern_symbol_arena: Arena {
                                 data: [],
                             },

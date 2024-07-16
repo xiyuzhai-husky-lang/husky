@@ -7,7 +7,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::TypeVar(
                         TypeVarSynDecl {
-                            path: FormPath(`mnist::Task`, `TypeVar`),
+                            path: MajorFormPath(`mnist::Task`, `TypeVar`),
                             default: Some(
                                 0,
                             ),
@@ -61,9 +61,7 @@ SynDeclSheet {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -106,7 +104,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::StaticVar(
                         MajorStaticVarSynDecl {
-                            path: FormPath(`mnist::TASK`, `StaticVar`),
+                            path: MajorFormPath(`mnist::TASK`, `StaticVar`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 0,
                             },
@@ -248,9 +246,7 @@ SynDeclSheet {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },

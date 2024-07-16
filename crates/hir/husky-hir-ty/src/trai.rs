@@ -23,7 +23,7 @@ impl HirTrait {
             EthTerm::SymbolicVariable(_) => todo!(),
             EthTerm::LambdaVariable(_) => todo!(),
             EthTerm::ItemPath(path) => match path {
-                ItemPathTerm::Form(_) => todo!(),
+                ItemPathTerm::MajorForm(_) => todo!(),
                 ItemPathTerm::Trait(trai_path) => Self::new(db, trai_path, smallvec![]),
                 ItemPathTerm::TypeOntology(_) => todo!(),
                 ItemPathTerm::TypeInstance(_) => todo!(),

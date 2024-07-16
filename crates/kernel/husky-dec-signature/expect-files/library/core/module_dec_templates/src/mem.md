@@ -160,24 +160,47 @@
                                 },
                             ],
                         },
-                        trai: EntityPath(
-                            Trait(
-                                TraitPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 46,
-                                        },
-                                    ),
-                                ),
+                        trai: DecTerm::EntityPath(
+                            DecItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
                             ),
                         ),
                         self_ty: DeclarativeSelfType::Path(
-                            Application(
-                                DecApplication(
-                                    Id {
-                                        value: 12,
-                                    },
-                                ),
+                            DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`core::mem::Leash`, `Extern`),
+                                        ),
+                                    ),
+                                    argument: DecTerm::SymbolicVariable(
+                                        DecSymbolicVariable {
+                                            toolchain: Toolchain {
+                                                data: ToolchainData::Local {
+                                                    library_path: "../../../library",
+                                                },
+                                            },
+                                            ty: Ok(
+                                                Category(
+                                                    Sort {
+                                                        universe: Universe(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
+                                            index: DecSymbolicVariableIndex(
+                                                Type {
+                                                    attrs: DeclarativeTemplateVariableAttrs {
+                                                        class: Mono,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                     },

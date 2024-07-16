@@ -7,7 +7,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
                         MajorFunctionRitchieSynDecl {
-                            path: FormPath(`semantics_basics::some_neural_network`, `Ritchie(
+                            path: MajorFormPath(`semantics_basics::some_neural_network`, `Ritchie(
                                 Gn,
                             )`),
                             ritchie_item_kind: RitchieItemKind::Gn,
@@ -182,11 +182,9 @@ SynDeclSheet {
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(

@@ -963,13 +963,7 @@ AstSheet {
                     lcurl: None,
                     raw: 62,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 84,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`core::ops::ControlFlow::Continue`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         452,
@@ -993,13 +987,7 @@ AstSheet {
                     lcurl: None,
                     raw: 63,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 85,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`core::ops::ControlFlow::Break`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         457,

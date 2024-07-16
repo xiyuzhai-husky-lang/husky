@@ -76,9 +76,7 @@ SynNodeDeclSheet {
                                     pattern_expr_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_contracts: ArenaMap {
-                                        data: [],
-                                    },
+                                    pattern_expr_contracts: [],
                                     pattern_symbol_arena: Arena {
                                         data: [],
                                     },
@@ -147,9 +145,7 @@ SynNodeDeclSheet {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -225,7 +221,7 @@ SynNodeDeclSheet {
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Form(
-                                                            FormPath(`core::task::Task`, `TypeVar`),
+                                                            MajorFormPath(`core::task::Task`, `TypeVar`),
                                                         ),
                                                     ),
                                                 ),
@@ -245,7 +241,7 @@ SynNodeDeclSheet {
                                                 ),
                                                 principal_entity_path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`core::task::Task`, `TypeVar`),
+                                                        MajorFormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 ),
                                             },
@@ -258,9 +254,7 @@ SynNodeDeclSheet {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },

@@ -146,7 +146,7 @@
                                     self_argument: SemExprIdx(
                                         1,
                                     ),
-                                    self_contract: Pure,
+                                    self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
@@ -170,71 +170,34 @@
                                                 place_idx: None,
                                             },
                                         },
-                                        signature: TraitForTypeMethodRitchie(
+                                        signature: MethodFlySignature::TraitForTypeMethodRitchie(
                                             TraitForTypeMethodRitchieFlySignature {
                                                 path: TraitForTypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 431,
-                                                        },
+                                                    `<#derive _ as core::visual::Visualize(0)>::visualize`,
+                                                    TraitItemKind::MethodRitchie(
+                                                        RitchieItemKind::Fn,
                                                     ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
-                                                    contract: Pure,
+                                                    contract: Contract::Pure,
                                                     ty: FlyTerm {
                                                         place: None,
-                                                        base: Eth(
-                                                            Application(
-                                                                EthApplication(
-                                                                    Id {
-                                                                        value: 50,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                        base: FlyTermBase::Eth(
+                                                            EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
                                                 return_ty: FlyTerm {
                                                     place: None,
-                                                    base: Eth(
-                                                        ItemPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 154,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`Visual`),
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ImplBlock(
-                                                        TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlockPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 260,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    ),
+                                                    path: ItemPath(`#derive _ as core::visual::Visualize(0)`),
                                                     task_ty: Some(
-                                                        ItemPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 290,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                        EthTerm(`MnistTask`),
                                                     ),
                                                     env: MethodFn {
                                                         self_place: Leashed {
@@ -243,22 +206,12 @@
                                                     },
                                                     symbol_map: [
                                                         (
-                                                            EthSymbolicVariable(
-                                                                Id {
-                                                                    value: 3,
-                                                                },
-                                                            ),
-                                                            Explicit(
+                                                            EthSymbolicVariable(`Self`),
+                                                            FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     place: None,
-                                                                    base: Eth(
-                                                                        Application(
-                                                                            EthApplication(
-                                                                                Id {
-                                                                                    value: 50,
-                                                                                },
-                                                                            ),
-                                                                        ),
+                                                                    base: FlyTermBase::Eth(
+                                                                        EthTerm(`CyclicSlice LineSegmentStroke`),
                                                                     ),
                                                                 },
                                                             ),
@@ -471,7 +424,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Move,
+                                        contract: Contract::Move,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
@@ -510,7 +463,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Move,
+                                        contract: Contract::Move,
                                         ty_expected: FlyTerm {
                                             place: None,
                                             base: FlyTermBase::Eth(
@@ -557,6 +510,13 @@
             self_ty: Some(
                 EthTerm(`ConvexComponent`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: Some(
+                        EthTerm(`MnistTask`),
+                    ),
+                },
+            },
         },
     },
 ]

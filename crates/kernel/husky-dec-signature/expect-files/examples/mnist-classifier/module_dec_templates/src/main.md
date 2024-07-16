@@ -49,12 +49,19 @@
                 MajorItemDecTemplate::Form(
                     MajorFormDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 3,
-                                    },
-                                ),
+                            return_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`malamute::Class`, `Enum`),
+                                        ),
+                                    ),
+                                    argument: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                        ),
+                                    ),
+                                },
                             ),
                         },
                     ),

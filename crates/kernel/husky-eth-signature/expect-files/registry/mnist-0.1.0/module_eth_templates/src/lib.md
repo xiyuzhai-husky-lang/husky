@@ -66,7 +66,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::StaticVar(
                         MajorStaticVarEthTemplate {
-                            path: FormPath(`mnist::INPUT`, `StaticVar`),
+                            path: MajorFormPath(`mnist::INPUT`, `StaticVar`),
                             return_ty: EthTerm(`BinaryImage28`),
                         },
                     ),

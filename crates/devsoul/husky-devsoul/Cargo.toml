@@ -11,6 +11,8 @@ salsa.workspace = true
 ui = { workspace = true, features = ["egui"] }
 # fs
 husky-vfs.workspace = true
+# kernel
+husky-entity-path.workspace = true
 # ki
 husky-ki.workspace = true
 # linkage

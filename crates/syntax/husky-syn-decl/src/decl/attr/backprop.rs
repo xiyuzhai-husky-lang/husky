@@ -132,8 +132,8 @@ impl BackpropAttrSynDecl {
         path: AttrItemPath,
         syn_node_decl: BackpropAttrSynNodeDecl,
     ) -> SynDeclResult<Self> {
-        let trais = SmallVec::from(syn_node_decl.arguments(db).as_ref()?.elements());
+        let arguments = SmallVec::from(syn_node_decl.arguments(db).as_ref()?.elements());
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
-        Ok(Self::new(db, path, trais, syn_expr_region))
+        Ok(Self::new(db, path, arguments, syn_expr_region))
     }
 }

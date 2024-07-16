@@ -56,7 +56,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`semantics_basics::some_neural_network`, `Ritchie(
+                    path: MajorFormPath(`semantics_basics::some_neural_network`, `Ritchie(
                         Gn,
                     )`),
                     body: Some(

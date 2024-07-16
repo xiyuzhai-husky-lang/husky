@@ -31,6 +31,9 @@ pub trait IsFnLinkageImplSource<LinkageImpl: IsLinkageImpl, FnPointer> {
     ) -> LinkageImplKiControlFlow<LinkageImpl, Self::FnOutput>;
 }
 
+/// generates the function to acquire linkage impls accessed through dynamic library,
+///
+/// it also set up the jar index.
 #[macro_export]
 macro_rules! linkage_impls {
     ($($linkage_impl: expr),* $(,)?) => {
@@ -72,6 +75,21 @@ macro_rules! fn_linkage_impl {
     }};
 }
 
+#[test]
+fn fn_linkage_impl_works() {
+    use husky_devsoul_interface::ugly::*;
+    use husky_standard_devsoul_interface::ugly::*;
+
+    // avoid using crate here, because they are different, although with the same name
+    use husky_linkage_impl::standard::{ugly::*, *};
+    use husky_linkage_impl::IsFnLinkageImplSource;
+
+    type __LinkageImpl = husky_linkage_impl::standard::StandardLinkageImpl<__Pedestal>;
+    type __DevEvalContext = DevEvalContext<__LinkageImpl>;
+
+    fn_linkage_impl!(|| ());
+}
+
 /// meant to be used in `LinkageImpl` definition
 #[macro_export]
 macro_rules! impl_is_fn_linkage_impl_source {
@@ -81,7 +99,7 @@ macro_rules! impl_is_fn_linkage_impl_source {
         #[allow(non_snake_case, unused_mut)]
         impl<Pedestal, F, $($input,)* $output> IsFnLinkageImplSource<LinkageImpl<Pedestal>, fn($($input,)*) -> $output> for FnLinkageImplSource<LinkageImpl<Pedestal>, F>
         where
-            Pedestal: std::fmt::Debug + Copy + 'static,
+            Pedestal: IsPedestalFull,
             F: Fn($($input,)*) -> $output,
             $($input: Send + FromValue, )*
             $output: Send,
@@ -211,7 +229,7 @@ macro_rules! impl_is_unveil_linkage_impl_source {
             fn(Target, ($($runtime_constant,)*)) -> std::ops::ControlFlow<B, $output>
         > for UnveilFnLinkageImplSource<LinkageImpl<Pedestal>, F>
         where
-            Pedestal: std::fmt::Debug + Copy + 'static,
+            Pedestal: IsPedestalFull,
             F: Fn(Target, ($($runtime_constant,)*)) -> std::ops::ControlFlow<B, $output>,
             B: IntoValue, // no need to use ValueLeashTest because B is definitely not leashed
             Target: Send + FromValue,

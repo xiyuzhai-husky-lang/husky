@@ -10,44 +10,26 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 51,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                 ),
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
                                     ident: `start`,
-                                    ty: EntityPath(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 30,
-                                                    },
-                                                ),
-                                            ),
+                                    ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         ),
                                     ),
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
                                     ident: `end`,
-                                    ty: EntityPath(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 30,
-                                                    },
-                                                ),
-                                            ),
+                                    ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         ),
                                     ),
                                     has_initialization: false,
@@ -62,46 +44,28 @@
                                 params: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Move,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 30,
-                                                            },
-                                                        ),
-                                                    ),
+                                            contract: Contract::Move,
+                                            ty: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 ),
                                             ),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Move,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 30,
-                                                            },
-                                                        ),
-                                                    ),
+                                            contract: Contract::Move,
+                                            ty: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 ),
                                             ),
                                         },
                                     ),
                                 ],
-                                return_ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 51,
-                                                },
-                                            ),
-                                        ),
+                                return_ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                     ),
                                 ),
                             },
@@ -120,15 +84,9 @@
                         template_parameters: DecTemplateParameters {
                             data: [],
                         },
-                        ty: EntityPath(
-                            Type(
-                                TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 51,
-                                        },
-                                    ),
-                                ),
+                        ty: DecTerm::EntityPath(
+                            DecItemPath::Type(
+                                TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                             ),
                         ),
                     },
@@ -153,58 +111,34 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 51,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                     ),
                                 ),
                             },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 51,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                 ),
                             ),
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 51,
-                                                },
-                                            ),
-                                        ),
+                                contract: Contract::Pure,
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                     ),
                                 ),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 32,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ),
                             ),
                         },
@@ -230,43 +164,25 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 51,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                     ),
                                 ),
                             },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 51,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                 ),
                             ),
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 51,
-                                                },
-                                            ),
-                                        ),
+                                contract: Contract::Pure,
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                     ),
                                 ),
                             },
@@ -274,31 +190,19 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 30,
-                                                            },
-                                                        ),
-                                                    ),
+                                            contract: Contract::Pure,
+                                            ty: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 ),
                                             ),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 138,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         },

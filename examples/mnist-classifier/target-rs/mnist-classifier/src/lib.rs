@@ -24,7 +24,7 @@ use malamute::*;
 use mnist::*;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val_item(ingredient_index = 0)]
+#[ad_hoc_devsoul_dependency::val(ingredient_index = 0)]
 pub fn main() -> malamute::Class<mnist::MnistLabel> {
     unveil!(malamute::Class<mnist::MnistLabel>, is_one(), (mnist::MnistLabel::One, ));
     unveil!(malamute::Class<mnist::MnistLabel>, is_six(), (mnist::MnistLabel::Six, ));

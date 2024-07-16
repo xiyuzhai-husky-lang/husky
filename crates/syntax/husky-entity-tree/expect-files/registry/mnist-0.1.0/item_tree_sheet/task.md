@@ -18,7 +18,7 @@ EntityTreeSheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist::Task`, `TypeVar`),
+                            path: MajorFormPath(`mnist::Task`, `TypeVar`),
                             body: None,
                         },
                     },
@@ -46,7 +46,7 @@ EntityTreeSheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist::TASK`, `StaticVar`),
+                            path: MajorFormPath(`mnist::TASK`, `StaticVar`),
                             body: None,
                         },
                     },
@@ -68,7 +68,7 @@ EntityTreeSheet {
                 visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Form(
-                        FormPath(`mnist::Task`, `TypeVar`),
+                        MajorFormPath(`mnist::Task`, `TypeVar`),
                     ),
                 },
             },
@@ -77,7 +77,7 @@ EntityTreeSheet {
                 visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Form(
-                        FormPath(`mnist::TASK`, `StaticVar`),
+                        MajorFormPath(`mnist::TASK`, `StaticVar`),
                     ),
                 },
             },

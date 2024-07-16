@@ -30,13 +30,13 @@
                                 parameter_contracted_tys: [
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: EthTerm(`Point2d`),
                                         },
                                     ),
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: EthTerm(`Point2d`),
                                         },
                                     ),

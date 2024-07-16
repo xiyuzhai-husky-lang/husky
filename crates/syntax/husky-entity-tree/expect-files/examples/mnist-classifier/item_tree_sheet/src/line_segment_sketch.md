@@ -318,7 +318,7 @@ EntityTreeSheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
@@ -362,7 +362,7 @@ EntityTreeSheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
@@ -406,7 +406,7 @@ EntityTreeSheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
@@ -450,7 +450,7 @@ EntityTreeSheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
@@ -494,7 +494,7 @@ EntityTreeSheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
@@ -584,7 +584,7 @@ EntityTreeSheet {
                 ),
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Form(
-                        FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                        MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -597,7 +597,7 @@ EntityTreeSheet {
                 ),
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Form(
-                        FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                        MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -610,7 +610,7 @@ EntityTreeSheet {
                 ),
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Form(
-                        FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                        MajorFormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -623,7 +623,7 @@ EntityTreeSheet {
                 ),
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Form(
-                        FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                        MajorFormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -636,7 +636,7 @@ EntityTreeSheet {
                 ),
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Form(
-                        FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                        MajorFormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -670,14 +670,14 @@ EntityTreeSheet {
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
                         },
                         path: PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                     Fn,
                                 )`),
                             ),

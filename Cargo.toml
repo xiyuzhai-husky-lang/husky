@@ -55,7 +55,7 @@ uninlined_format_args = "warn"
 blocks_in_if_conditions = "allow"
 
 [profile.dev]
-opt-level = 0
+opt-level = 1
 panic = "unwind"
 
 [profile.test]
@@ -299,7 +299,7 @@ husky-sem-opr = { path = "crates/semantics/husky-sem-opr" }
 husky-sem-place-contract = { path = "crates/semantics/husky-sem-place-contract" }
 husky-sem-item-path-deps = { path = "crates/semantics/husky-sem-item-path-deps" }
 husky-sem-static-mut-deps = { path = "crates/semantics/husky-sem-static-mut-deps" }
-husky-sem-static-var-deps = { path = "crates/semantics/husky-sem-static-var-deps" }
+husky-sem-var-deps = { path = "crates/semantics/husky-sem-var-deps" }
 # syntax
 husky-ast = { path = "crates/syntax/husky-ast" }
 husky-crate-decl-ast = { path = "crates/syntax/husky-crate-decl-ast" }

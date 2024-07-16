@@ -51,7 +51,9 @@ fn attr_eth_template(db: &::salsa::Db, path: AttrItemPath) -> EthSignatureResult
         AttrDecTemplate::Backprop(dec_template) => {
             BackpropAttrEthTemplate::from_dec(path, dec_template, db).map(Into::into)
         }
-        AttrDecTemplate::Deps(_) => todo!(),
+        AttrDecTemplate::Deps(dec_template) => {
+            DepsAttrEthTemplate::from_dec(path, dec_template, db).map(Into::into)
+        }
         AttrDecTemplate::Derive(dec_template) => {
             DeriveAttrEthTemplate::from_dec(db, path, dec_template).map(Into::into)
         }

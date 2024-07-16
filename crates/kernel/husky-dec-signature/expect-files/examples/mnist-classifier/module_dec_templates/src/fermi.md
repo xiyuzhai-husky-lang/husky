@@ -10,37 +10,86 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 52,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                 ),
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
                                     ident: `matches`,
-                                    ty: Application(
-                                        DecApplication(
-                                            Id {
-                                                value: 23,
-                                            },
-                                        ),
+                                    ty: DecTerm::Application(
+                                        DecApplication {
+                                            function: DecTerm::List(
+                                                DecList {
+                                                    toolchain: Toolchain {
+                                                        data: ToolchainData::Local {
+                                                            library_path: "../../../library",
+                                                        },
+                                                    },
+                                                    items: [],
+                                                },
+                                            ),
+                                            argument: DecTerm::Application(
+                                                DecApplication {
+                                                    function: DecTerm::EntityPath(
+                                                        DecItemPath::Type(
+                                                            TypePath(`core::option::Option`, `Enum`),
+                                                        ),
+                                                    ),
+                                                    argument: DecTerm::Application(
+                                                        DecApplication {
+                                                            function: DecTerm::LeashOrBitNot(
+                                                                Toolchain {
+                                                                    data: ToolchainData::Local {
+                                                                        library_path: "../../../library",
+                                                                    },
+                                                                },
+                                                            ),
+                                                            argument: DecTerm::EntityPath(
+                                                                DecItemPath::Type(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
                                     ident: `others`,
-                                    ty: Application(
-                                        DecApplication(
-                                            Id {
-                                                value: 24,
-                                            },
-                                        ),
+                                    ty: DecTerm::Application(
+                                        DecApplication {
+                                            function: DecTerm::List(
+                                                DecList {
+                                                    toolchain: Toolchain {
+                                                        data: ToolchainData::Local {
+                                                            library_path: "../../../library",
+                                                        },
+                                                    },
+                                                    items: [],
+                                                },
+                                            ),
+                                            argument: DecTerm::Application(
+                                                DecApplication {
+                                                    function: DecTerm::LeashOrBitNot(
+                                                        Toolchain {
+                                                            data: ToolchainData::Local {
+                                                                library_path: "../../../library",
+                                                            },
+                                                        },
+                                                    ),
+                                                    argument: DecTerm::EntityPath(
+                                                        DecItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                     has_initialization: false,
                                 },
@@ -54,38 +103,87 @@
                                 params: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Move,
-                                            ty: Application(
-                                                DecApplication(
-                                                    Id {
-                                                        value: 23,
-                                                    },
-                                                ),
+                                            contract: Contract::Move,
+                                            ty: DecTerm::Application(
+                                                DecApplication {
+                                                    function: DecTerm::List(
+                                                        DecList {
+                                                            toolchain: Toolchain {
+                                                                data: ToolchainData::Local {
+                                                                    library_path: "../../../library",
+                                                                },
+                                                            },
+                                                            items: [],
+                                                        },
+                                                    ),
+                                                    argument: DecTerm::Application(
+                                                        DecApplication {
+                                                            function: DecTerm::EntityPath(
+                                                                DecItemPath::Type(
+                                                                    TypePath(`core::option::Option`, `Enum`),
+                                                                ),
+                                                            ),
+                                                            argument: DecTerm::Application(
+                                                                DecApplication {
+                                                                    function: DecTerm::LeashOrBitNot(
+                                                                        Toolchain {
+                                                                            data: ToolchainData::Local {
+                                                                                library_path: "../../../library",
+                                                                            },
+                                                                        },
+                                                                    ),
+                                                                    argument: DecTerm::EntityPath(
+                                                                        DecItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Move,
-                                            ty: Application(
-                                                DecApplication(
-                                                    Id {
-                                                        value: 24,
-                                                    },
-                                                ),
+                                            contract: Contract::Move,
+                                            ty: DecTerm::Application(
+                                                DecApplication {
+                                                    function: DecTerm::List(
+                                                        DecList {
+                                                            toolchain: Toolchain {
+                                                                data: ToolchainData::Local {
+                                                                    library_path: "../../../library",
+                                                                },
+                                                            },
+                                                            items: [],
+                                                        },
+                                                    ),
+                                                    argument: DecTerm::Application(
+                                                        DecApplication {
+                                                            function: DecTerm::LeashOrBitNot(
+                                                                Toolchain {
+                                                                    data: ToolchainData::Local {
+                                                                        library_path: "../../../library",
+                                                                    },
+                                                                },
+                                                            ),
+                                                            argument: DecTerm::EntityPath(
+                                                                DecItemPath::Type(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                     ),
                                 ],
-                                return_ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 52,
-                                                },
-                                            ),
-                                        ),
+                                return_ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                     ),
                                 ),
                             },
@@ -110,39 +208,113 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
-                                            ty: Application(
-                                                DecApplication(
-                                                    Id {
-                                                        value: 26,
-                                                    },
-                                                ),
+                                            contract: Contract::Pure,
+                                            ty: DecTerm::Application(
+                                                DecApplication {
+                                                    function: DecTerm::LeashOrBitNot(
+                                                        Toolchain {
+                                                            data: ToolchainData::Local {
+                                                                library_path: "../../../library",
+                                                            },
+                                                        },
+                                                    ),
+                                                    argument: DecTerm::Application(
+                                                        DecApplication {
+                                                            function: DecTerm::List(
+                                                                DecList {
+                                                                    toolchain: Toolchain {
+                                                                        data: ToolchainData::Local {
+                                                                            library_path: "../../../library",
+                                                                        },
+                                                                    },
+                                                                    items: [],
+                                                                },
+                                                            ),
+                                                            argument: DecTerm::EntityPath(
+                                                                DecItemPath::Type(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
-                                            ty: ApplicationOrRitchieCall(
-                                                DecApplicationOrRitchieCall(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
+                                            contract: Contract::Pure,
+                                            ty: DecTerm::ApplicationOrRitchieCall(
+                                                DecApplicationOrRitchieCall {
+                                                    function: DecTerm::List(
+                                                        DecList {
+                                                            toolchain: Toolchain {
+                                                                data: ToolchainData::Local {
+                                                                    library_path: "../../../library",
+                                                                },
+                                                            },
+                                                            items: [],
+                                                        },
+                                                    ),
+                                                    template_arguments: [],
+                                                    items: [
+                                                        DecTerm::Ritchie(
+                                                            DecRitchie {
+                                                                ritchie_kind: RitchieKind::Type(
+                                                                    RitchieTypeKind::Item(
+                                                                        RitchieItemKind::Fn,
+                                                                    ),
+                                                                ),
+                                                                params: [
+                                                                    DeclarativeRitchieParameter::Simple(
+                                                                        DeclarativeRitchieSimpleParameter {
+                                                                            contract: Contract::Pure,
+                                                                            ty: DecTerm::Application(
+                                                                                DecApplication {
+                                                                                    function: DecTerm::LeashOrBitNot(
+                                                                                        Toolchain {
+                                                                                            data: ToolchainData::Local {
+                                                                                                library_path: "../../../library",
+                                                                                            },
+                                                                                        },
+                                                                                    ),
+                                                                                    argument: DecTerm::EntityPath(
+                                                                                        DecItemPath::Type(
+                                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                        ),
+                                                                                    ),
+                                                                                },
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                ],
+                                                                return_ty: DecTerm::Application(
+                                                                    DecApplication {
+                                                                        function: DecTerm::EntityPath(
+                                                                            DecItemPath::Type(
+                                                                                TypePath(`core::option::Option`, `Enum`),
+                                                                            ),
+                                                                        ),
+                                                                        argument: DecTerm::EntityPath(
+                                                                            DecItemPath::Type(
+                                                                                TypePath(`core::num::f32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ],
+                                                    extra_comma: false,
+                                                },
                                             ),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 52,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                 ),
                             ),
                         },
@@ -160,15 +332,9 @@
                         template_parameters: DecTemplateParameters {
                             data: [],
                         },
-                        ty: EntityPath(
-                            Type(
-                                TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 52,
-                                        },
-                                    ),
-                                ),
+                        ty: DecTerm::EntityPath(
+                            DecItemPath::Type(
+                                TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                             ),
                         ),
                     },
@@ -191,27 +357,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 52,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 138,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         },
@@ -235,27 +389,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 52,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 138,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         },
@@ -279,27 +421,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 52,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 138,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         },
