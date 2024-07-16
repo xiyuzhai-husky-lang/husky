@@ -15,7 +15,7 @@ pub fn item_path_menu(db: &::salsa::Db, toolchain: Toolchain) -> ItemPathMenu {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct ItemPathMenu {
-    task_major_form_path: MajorFormPath,
+    task_ty_var_path: MajorFormPath,
     // core::ops::Add	The addition operator +.
     add_trai_path: TraitPath,
     // core::ops::AddAssign	The addition assignment operator +=.
@@ -186,7 +186,7 @@ impl ItemPathMenu {
             }};
         }
         Self {
-            task_major_form_path: mk!(core_task, type var Task),
+            task_ty_var_path: mk!(core_task, type var Task),
             unit_ty_path: mk!(core_basic, extern unit),
             never_ty_path: mk!(core_basic, extern never),
             bool_ty_path: mk!(core_basic, extern bool),
@@ -509,8 +509,8 @@ impl ItemPathMenu {
         self.visual_ty_path
     }
 
-    pub fn task_major_form_path(&self) -> MajorFormPath {
-        self.task_major_form_path
+    pub fn task_ty_var_path(&self) -> MajorFormPath {
+        self.task_ty_var_path
     }
 }
 

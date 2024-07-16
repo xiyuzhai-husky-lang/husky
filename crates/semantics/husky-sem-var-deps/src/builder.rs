@@ -3,6 +3,7 @@ use crate::{
     var_deps::{EffectiveMergeCounter, SemControlFlowVarDeps, SemVarDeps},
 };
 use husky_entity_path::{
+    menu::{item_path_menu, ItemPathMenu},
     path::{ItemPath, PrincipalEntityPath},
     region::RegionPath,
 };
@@ -29,6 +30,7 @@ where
     F: Fn(ItemPath) -> &'a SemVarDeps,
 {
     db: &'db ::salsa::Db,
+    item_path_menu: &'db ItemPathMenu,
     syn_expr_region_data: &'db SynExprRegionData,
     sem_expr_region_data: &'db SemExprRegionData,
     expr_value_var_deps_table: SemExprMap<SemVarDeps>,
@@ -53,6 +55,7 @@ where
         let sem_expr_region_data = sem_expr_region.data(db);
         Some(Self {
             db,
+            item_path_menu: item_path_menu(db, region_path.toolchain(db)),
             syn_expr_region_data,
             sem_expr_region_data,
             expr_value_var_deps_table: SemExprMap::new(sem_expr_region_data.sem_expr_arena()),
@@ -91,17 +94,30 @@ where
         deps
     }
 
-    fn calc_path(&self, path: impl Into<ItemPath>) -> &'a SemVarDeps {
-        (self.f)(path.into())
+    fn calc_path(&self, path: impl Into<ItemPath>) -> SemVarDeps {
+        /// todo: make this expr dependent, because of possible overrides
+        let mut deps = (self.f)(path.into()).clone();
+        let db = self.db;
+        match self
+            .sem_expr_region_data
+            .context_itd()
+            .context(db)
+            .task_ty()
+        {
+            Some(_) => deps.remove_item_path(self.item_path_menu.task_ty_var_path()),
+            None => (),
+        }
+        deps
     }
 
+    // todo: move this out of this module
     fn calc_expr_value(&mut self, expr: SemExprIdx) -> SemVarDeps {
         match *expr.data(self.sem_expr_region_data.sem_expr_arena()) {
             SemExprData::Literal(_, _) | SemExprData::Unit { .. } => Default::default(),
             SemExprData::PrincipalEntityPath { path, .. } => match path {
                 PrincipalEntityPath::Module(_) => todo!(),
-                PrincipalEntityPath::MajorItem(path) => self.calc_path(path).clone(),
-                PrincipalEntityPath::TypeVariant(path) => self.calc_path(path).clone(),
+                PrincipalEntityPath::MajorItem(path) => self.calc_path(path),
+                PrincipalEntityPath::TypeVariant(path) => self.calc_path(path),
             },
             SemExprData::MajorItemPathAssocItem {
                 parent_path,
@@ -167,7 +183,7 @@ where
             } => {
                 let mut deps = self.expr_value_var_deps_table[opd].clone();
                 let path_deps = self.calc_path(unveil_assoc_fn_path);
-                deps.merge(path_deps);
+                deps.merge(&path_deps);
                 deps
             }
             SemExprData::Unwrap { opd, .. } => self.expr_value_var_deps_table[opd].clone(),
@@ -234,7 +250,7 @@ where
                     FieldFlySignature::PropsStruct { .. } => (),
                     FieldFlySignature::Memoized { path, .. } => {
                         let path_deps = self.calc_path(path);
-                        deps.merge(path_deps);
+                        deps.merge(&path_deps);
                     }
                 }
                 deps
@@ -349,6 +365,7 @@ where
         }
     }
 
+    // todo: move this out of this module
     fn calc_expr_control_flow(&mut self, expr: SemExprIdx) -> SemControlFlowVarDeps {
         match *expr.data(self.sem_expr_region_data.sem_expr_arena()) {
             SemExprData::Literal(_, _)
@@ -389,7 +406,7 @@ where
                 let mut deps = self.expr_control_flow_var_deps_table[opd].clone();
                 deps.merge_with_value(&self.expr_value_var_deps_table[opd]);
                 let path_deps = self.calc_path(unveil_assoc_fn_path);
-                deps.merge_with_value(path_deps);
+                deps.merge_with_value(&path_deps);
                 deps
             }
             SemExprData::Unwrap { opd, .. } => {

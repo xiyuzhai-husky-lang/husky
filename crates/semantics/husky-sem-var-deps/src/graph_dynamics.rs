@@ -23,6 +23,7 @@ use husky_term_prelude::ItemPathTerm;
 use propagate::PropagationResult;
 use propagate::PropagationResultRef;
 use salsa::DebugWithDb;
+use var_deps::SemVarDep;
 
 pub struct SemStaticVarDepsGraphDynamicsScheme {}
 
@@ -107,11 +108,11 @@ fn item_sem_var_deps_initial_value(db: &::salsa::Db, item_path_id: ItemPathId) -
             MajorItemPath::Form(major_form_path) => match major_form_path.kind(db) {
                 MajorFormKind::Ritchie(_) => (),
                 MajorFormKind::TypeAlias => (),
-                MajorFormKind::TypeVar => (),
+                MajorFormKind::TypeVar => deps.insert_item_path(item_path),
                 MajorFormKind::Val => (),
                 MajorFormKind::StaticVar => deps.insert_item_path(item_path),
                 MajorFormKind::StaticMut => (),
-                MajorFormKind::Compterm => (),
+                MajorFormKind::Compterm => todo!(),
                 MajorFormKind::Conceptual => (),
             },
         },
@@ -136,17 +137,20 @@ fn item_sem_var_deps_initial_value(db: &::salsa::Db, item_path_id: ItemPathId) -
                 EthTerm::Literal(_) => todo!(),
                 EthTerm::SymbolicVariable(_) => todo!(),
                 EthTerm::LambdaVariable(_) => todo!(),
-                EthTerm::ItemPath(path) => match path {
-                    ItemPathTerm::Form(path) => match path.kind(db) {
-                        MajorFormKind::Ritchie(_) => (),
-                        MajorFormKind::TypeAlias => (),
-                        MajorFormKind::TypeVar => (),
-                        MajorFormKind::Val => (),
-                        MajorFormKind::StaticMut => todo!(),
-                        MajorFormKind::StaticVar => (),
-                        MajorFormKind::Compterm => (),
-                        MajorFormKind::Conceptual => (),
-                    },
+                EthTerm::ItemPath(dep_item_path_term) => match dep_item_path_term {
+                    ItemPathTerm::MajorForm(dep_major_form_path) => {
+                        match dep_major_form_path.kind(db) {
+                            MajorFormKind::Ritchie(_) => (),
+                            MajorFormKind::TypeAlias => (),
+                            MajorFormKind::TypeVar | MajorFormKind::StaticVar => {
+                                deps.insert_item_path(dep_major_form_path.into())
+                            }
+                            MajorFormKind::Val => (),
+                            MajorFormKind::StaticMut => (),
+                            MajorFormKind::Compterm => todo!(),
+                            MajorFormKind::Conceptual => (),
+                        }
+                    }
                     ItemPathTerm::Trait(_) => todo!(),
                     ItemPathTerm::TypeOntology(_) => todo!(),
                     ItemPathTerm::TypeInstance(_) => todo!(),

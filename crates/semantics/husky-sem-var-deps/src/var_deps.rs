@@ -50,6 +50,10 @@ impl SemVarDeps {
     pub(crate) fn insert_item_path(&mut self, item_path: ItemPath) {
         self.0.insert(SemVarDep::Item(item_path));
     }
+
+    pub(crate) fn remove_item_path(&mut self, item_path: impl Into<ItemPath>) {
+        self.0.remove(SemVarDep::Item(item_path.into()))
+    }
 }
 
 /// None indicates no control flow

@@ -99,10 +99,10 @@ fn item_sem_static_mut_deps_initial_value(
     let item_path = item_path_id.item_path(db);
     match item_path {
         ItemPath::Submodule(_, _) => (),
-        ItemPath::MajorItem(major_item_path) => match major_item_path {
+        ItemPath::MajorItem(dep_major_item_path) => match dep_major_item_path {
             MajorItemPath::Type(_) => (),
             MajorItemPath::Trait(_) => (),
-            MajorItemPath::Form(major_form_path) => match major_form_path.kind(db) {
+            MajorItemPath::Form(dep_major_form_path) => match dep_major_form_path.kind(db) {
                 MajorFormKind::Ritchie(_) => (),
                 MajorFormKind::TypeAlias => (),
                 MajorFormKind::TypeVar => (),
@@ -135,7 +135,7 @@ fn item_sem_static_mut_deps_initial_value(
                 EthTerm::SymbolicVariable(_) => todo!(),
                 EthTerm::LambdaVariable(_) => todo!(),
                 EthTerm::ItemPath(path) => match path {
-                    ItemPathTerm::Form(path) => match path.kind(db) {
+                    ItemPathTerm::MajorForm(path) => match path.kind(db) {
                         MajorFormKind::Ritchie(_) => (),
                         MajorFormKind::TypeAlias => (),
                         MajorFormKind::TypeVar => (),

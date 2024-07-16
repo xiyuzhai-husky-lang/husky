@@ -388,7 +388,7 @@ impl FlyInstantiate for EthTerm {
         let db = engine.db();
         if let Some(task_ty) = instantiation.task_ty {
             match self {
-                EthTerm::ItemPath(ItemPathTerm::Form(form_path))
+                EthTerm::ItemPath(ItemPathTerm::MajorForm(form_path))
                     if form_path.refine(db) == Left(PreludeMajorFormPath::TaskType) =>
                 {
                     return task_ty.into()

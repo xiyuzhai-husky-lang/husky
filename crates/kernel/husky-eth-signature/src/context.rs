@@ -25,6 +25,7 @@ impl EthSignatureBuilderContextItd {
     }
 }
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct EthSignatureBuilderContext {
     task_ty: Option<EthTerm>,
@@ -39,6 +40,10 @@ impl EthSignatureBuilderContext {
         let package_path = region_path.package_path(db);
         let task_ty = package_path.eth_signature(db)?.data(db).task_ty();
         Ok(Self { task_ty })
+    }
+
+    pub fn task_ty(&self) -> Option<EthTerm> {
+        self.task_ty
     }
 }
 

@@ -1,7 +1,11 @@
 ```rust
 Some(
     SemVarDeps(
-        [],
+        [
+            SemVarDep::Item(
+                ItemPath(`core::task::Task`),
+            ),
+        ],
     ),
 )
 ```

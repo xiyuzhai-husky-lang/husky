@@ -45,7 +45,7 @@ impl HirType {
                 HirTypeTemplateVariable::from_eth(symbol, db).map(Into::into)
             }
             EthTerm::ItemPath(path) => match path {
-                ItemPathTerm::Form(path) => match path.kind(db) {
+                ItemPathTerm::MajorForm(path) => match path.kind(db) {
                     MajorFormKind::Ritchie(_) => todo!(),
                     MajorFormKind::TypeAlias => todo!(),
                     MajorFormKind::TypeVar => Some(HirType::TypeVar(path)),
