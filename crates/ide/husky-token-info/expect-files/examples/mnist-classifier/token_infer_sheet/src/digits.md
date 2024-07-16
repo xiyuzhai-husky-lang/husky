@@ -279,7 +279,7 @@ Ok(
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
                                     major_item_path: MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                        MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                     ),
                                 },
                             ),
@@ -345,7 +345,7 @@ Ok(
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
                                     major_item_path: MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                        MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                     ),
                                 },
                             ),
@@ -411,7 +411,7 @@ Ok(
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
                                     major_item_path: MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                        MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                     ),
                                 },
                             ),
@@ -477,7 +477,7 @@ Ok(
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
                                     major_item_path: MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                        MajorFormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                                     ),
                                 },
                             ),
@@ -543,7 +543,7 @@ Ok(
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
                                     major_item_path: MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                        MajorFormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                                     ),
                                 },
                             ),
@@ -609,7 +609,7 @@ Ok(
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
                                     major_item_path: MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                        MajorFormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                                     ),
                                 },
                             ),
@@ -675,7 +675,7 @@ Ok(
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
                                     major_item_path: MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                        MajorFormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                     ),
                                 },
                             ),
@@ -741,7 +741,7 @@ Ok(
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
                                     major_item_path: MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                        MajorFormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                     ),
                                 },
                             ),
@@ -807,7 +807,7 @@ Ok(
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
                                     major_item_path: MajorItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                        MajorFormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                     ),
                                 },
                             ),

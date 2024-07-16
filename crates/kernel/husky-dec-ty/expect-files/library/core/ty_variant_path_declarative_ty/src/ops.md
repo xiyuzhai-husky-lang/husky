@@ -4,25 +4,13 @@
         TypePath(`core::ops::ControlFlow`, `Enum`),
         [
             (
-                TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 84,
-                        },
-                    ),
-                ),
+                TypeVariantPath(`core::ops::ControlFlow::Continue`),
                 Ok(
                     DecTerm(`(independent (s: Type) -> (independent (t: Type) -> fn((t) -> core::ops::ControlFlow s t`),
                 ),
             ),
             (
-                TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 85,
-                        },
-                    ),
-                ),
+                TypeVariantPath(`core::ops::ControlFlow::Break`),
                 Ok(
                     DecTerm(`(independent (s: Type) -> (independent (t: Type) -> fn((s) -> core::ops::ControlFlow s t`),
                 ),

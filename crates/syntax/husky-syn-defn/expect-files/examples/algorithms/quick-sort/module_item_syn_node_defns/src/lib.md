@@ -286,7 +286,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                                MajorFormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -422,7 +422,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                            MajorFormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -1045,7 +1045,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`quick_sort::partition`, `Ritchie(
+                                                MajorFormPath(`quick_sort::partition`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -1119,7 +1119,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                                MajorFormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -1213,7 +1213,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                                MajorFormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -1322,7 +1322,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`quick_sort::partition`, `Ritchie(
+                                            MajorFormPath(`quick_sort::partition`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -1339,7 +1339,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                            MajorFormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -1356,7 +1356,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                            MajorFormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),

@@ -184,13 +184,7 @@
     HirDecl::TypeVariant(
         TypeVariantHirDecl::Unit(
             EnumUnitTypeVariantHirDecl {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 17,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist_classifier::raw_contour::Direction::Up`),
@@ -222,13 +216,7 @@
     HirDecl::TypeVariant(
         TypeVariantHirDecl::Unit(
             EnumUnitTypeVariantHirDecl {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 18,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist_classifier::raw_contour::Direction::Left`),
@@ -260,13 +248,7 @@
     HirDecl::TypeVariant(
         TypeVariantHirDecl::Unit(
             EnumUnitTypeVariantHirDecl {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 19,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist_classifier::raw_contour::Direction::Down`),
@@ -298,13 +280,7 @@
     HirDecl::TypeVariant(
         TypeVariantHirDecl::Unit(
             EnumUnitTypeVariantHirDecl {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 20,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist_classifier::raw_contour::Direction::Right`),
@@ -337,7 +313,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
                 MajorFunctionRitchieHirDecl {
-                    path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                         Fn,
                     )`),
                     ritchie_item_kind: RitchieItemKind::Fn,
@@ -394,7 +370,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
                 MajorFunctionRitchieHirDecl {
-                    path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
                         Fn,
                     )`),
                     ritchie_item_kind: RitchieItemKind::Fn,
@@ -451,7 +427,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
                 MajorFunctionRitchieHirDecl {
-                    path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
                         Fn,
                     )`),
                     ritchie_item_kind: RitchieItemKind::Fn,
@@ -508,7 +484,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
                 MajorFunctionRitchieHirDecl {
-                    path: FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                         Fn,
                     )`),
                     ritchie_item_kind: RitchieItemKind::Fn,
@@ -576,7 +552,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
                 MajorFunctionRitchieHirDecl {
-                    path: FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                         Fn,
                     )`),
                     ritchie_item_kind: RitchieItemKind::Fn,
@@ -633,7 +609,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
                 MajorFunctionRitchieHirDecl {
-                    path: FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                         Fn,
                     )`),
                     ritchie_item_kind: RitchieItemKind::Fn,
@@ -786,7 +762,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
                 MajorFunctionRitchieHirDecl {
-                    path: FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                         Fn,
                     )`),
                     ritchie_item_kind: RitchieItemKind::Fn,
@@ -842,7 +818,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
                 MajorFunctionRitchieHirDecl {
-                    path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                         Fn,
                     )`),
                     ritchie_item_kind: RitchieItemKind::Fn,

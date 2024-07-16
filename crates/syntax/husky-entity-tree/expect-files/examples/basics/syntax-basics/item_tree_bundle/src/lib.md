@@ -821,7 +821,7 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                                 block: DefnBlock::Form {
-                                    path: FormPath(`syntax_basics::expr::nested`, `Ritchie(
+                                    path: MajorFormPath(`syntax_basics::expr::nested`, `Ritchie(
                                         Fn,
                                     )`),
                                     body: Some(
@@ -865,7 +865,7 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                                 block: DefnBlock::Form {
-                                    path: FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                                    path: MajorFormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                                         Fn,
                                     )`),
                                     body: Some(
@@ -909,7 +909,7 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                                 block: DefnBlock::Form {
-                                    path: FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                                    path: MajorFormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                                         Fn,
                                     )`),
                                     body: Some(
@@ -945,7 +945,7 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Form(
-                                FormPath(`syntax_basics::expr::nested`, `Ritchie(
+                                MajorFormPath(`syntax_basics::expr::nested`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -958,7 +958,7 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Form(
-                                FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                                MajorFormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -971,7 +971,7 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Form(
-                                FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                                MajorFormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                                     Fn,
                                 )`),
                             ),

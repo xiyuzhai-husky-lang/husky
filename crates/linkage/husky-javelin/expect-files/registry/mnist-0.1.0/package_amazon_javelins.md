@@ -17,7 +17,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist::INPUT`, `StaticVar`),
+                    MajorFormPath(`mnist::INPUT`, `StaticVar`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -126,7 +126,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist::TASK`, `StaticVar`),
+                    MajorFormPath(`mnist::TASK`, `StaticVar`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],

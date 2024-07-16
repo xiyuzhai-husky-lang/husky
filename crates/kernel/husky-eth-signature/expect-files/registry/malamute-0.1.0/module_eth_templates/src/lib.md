@@ -86,7 +86,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`malamute::narrow_down`, `Ritchie(
+                            path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -131,7 +131,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 18,
+                                                                value: 19,
                                                             },
                                                         ),
                                                     ),

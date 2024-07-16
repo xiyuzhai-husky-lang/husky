@@ -124,7 +124,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -136,7 +136,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist::INPUT`, `StaticVar`),
+                                                MajorFormPath(`mnist::INPUT`, `StaticVar`),
                                             ),
                                         ),
                                     ),
@@ -177,7 +177,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -194,7 +194,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist::INPUT`, `StaticVar`),
+                                            MajorFormPath(`mnist::INPUT`, `StaticVar`),
                                         ),
                                     ),
                                 },
@@ -397,7 +397,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -447,7 +447,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -580,7 +580,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -630,7 +630,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                                         ),
                                     ),
                                 },
@@ -645,7 +645,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                                         ),
                                     ),
                                 },
@@ -660,7 +660,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                                         ),
                                     ),
                                 },
@@ -1218,7 +1218,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -1268,7 +1268,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -1335,7 +1335,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -1392,7 +1392,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                                         ),
                                     ),
                                 },
@@ -1407,7 +1407,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                                         ),
                                     ),
                                 },
@@ -1422,7 +1422,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                 },
@@ -1788,7 +1788,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -1825,7 +1825,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2004,7 +2004,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -2066,7 +2066,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2245,7 +2245,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -2282,7 +2282,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2474,7 +2474,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -2511,7 +2511,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                         ),
                                     ),
                                 },

@@ -56,7 +56,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {

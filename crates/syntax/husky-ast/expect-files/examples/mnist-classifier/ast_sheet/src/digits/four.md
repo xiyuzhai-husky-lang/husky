@@ -311,7 +311,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                     body: Some(
                         FormBody {
                             ast_idx_range: ArenaIdxRange(
@@ -354,7 +354,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
                         Fn,
                     )`),
                     body: Some(
@@ -397,7 +397,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                     body: Some(
                         FormBody {
                             ast_idx_range: ArenaIdxRange(
@@ -438,7 +438,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                     body: Some(
                         FormBody {
                             ast_idx_range: ArenaIdxRange(
@@ -479,7 +479,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::four::is_four`, `Val`),
                     body: Some(
                         FormBody {
                             ast_idx_range: ArenaIdxRange(
@@ -522,7 +522,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
                         Fn,
                     )`),
                     body: Some(
@@ -567,7 +567,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
                         Fn,
                     )`),
                     body: Some(

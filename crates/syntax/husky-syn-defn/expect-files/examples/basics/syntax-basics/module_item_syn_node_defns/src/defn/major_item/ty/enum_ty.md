@@ -43,13 +43,7 @@
                                 },
                             ),
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 10,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::UnitVariant`),
                                 disambiguator: 0,
                             },
                         },
@@ -81,13 +75,7 @@
                                 },
                             ),
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 11,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithOneField`),
                                 disambiguator: 0,
                             },
                         },
@@ -119,13 +107,7 @@
                                 },
                             ),
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 12,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithTwoFields`),
                                 disambiguator: 0,
                             },
                         },
@@ -157,13 +139,7 @@
                                 },
                             ),
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithOneField`),
                                 disambiguator: 0,
                             },
                         },
@@ -195,13 +171,7 @@
                                 },
                             ),
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 14,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithTwoFields`),
                                 disambiguator: 0,
                             },
                         },

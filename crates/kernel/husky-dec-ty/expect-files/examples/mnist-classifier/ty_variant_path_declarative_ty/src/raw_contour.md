@@ -8,49 +8,25 @@
         TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
         [
             (
-                TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 17,
-                        },
-                    ),
-                ),
+                TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                 Ok(
                     DecTerm(`mnist_classifier::raw_contour::Direction`),
                 ),
             ),
             (
-                TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 18,
-                        },
-                    ),
-                ),
+                TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                 Ok(
                     DecTerm(`mnist_classifier::raw_contour::Direction`),
                 ),
             ),
             (
-                TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 19,
-                        },
-                    ),
-                ),
+                TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                 Ok(
                     DecTerm(`mnist_classifier::raw_contour::Direction`),
                 ),
             ),
             (
-                TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 20,
-                        },
-                    ),
-                ),
+                TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                 Ok(
                     DecTerm(`mnist_classifier::raw_contour::Direction`),
                 ),

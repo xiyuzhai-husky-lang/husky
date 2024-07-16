@@ -220,7 +220,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                     body: Some(
                         FormBody {
                             ast_idx_range: ArenaIdxRange(
@@ -263,7 +263,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
                         Fn,
                     )`),
                     body: Some(
@@ -329,7 +329,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                     body: Some(
                         FormBody {
                             ast_idx_range: ArenaIdxRange(

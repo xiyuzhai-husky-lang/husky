@@ -231,7 +231,7 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                                 block: DefnBlock::Form {
-                                    path: FormPath(`mnist::INPUT`, `StaticVar`),
+                                    path: MajorFormPath(`mnist::INPUT`, `StaticVar`),
                                     body: None,
                                 },
                             },
@@ -287,7 +287,7 @@ EntityTreeCrateBundle {
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Form(
-                                FormPath(`mnist::INPUT`, `StaticVar`),
+                                MajorFormPath(`mnist::INPUT`, `StaticVar`),
                             ),
                         },
                     },

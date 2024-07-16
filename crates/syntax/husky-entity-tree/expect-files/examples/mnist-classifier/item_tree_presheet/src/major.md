@@ -18,7 +18,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                             body: Some(
                                 FormBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -52,7 +52,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             body: Some(
                                 FormBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -86,7 +86,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                             body: Some(
                                 FormBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -120,7 +120,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                             body: Some(
                                 FormBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -154,7 +154,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                             body: Some(
                                 FormBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -188,7 +188,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             body: Some(
                                 FormBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -222,7 +222,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             body: Some(
                                 FormBody {
                                     ast_idx_range: ArenaIdxRange(

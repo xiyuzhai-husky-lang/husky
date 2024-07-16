@@ -4,11 +4,11 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
                 MajorFunctionRitchieHirDefn {
-                    path: FormPath(`syntax_basics::expr::nested`, `Ritchie(
+                    path: MajorFormPath(`syntax_basics::expr::nested`, `Ritchie(
                         Fn,
                     )`),
                     hir_decl: MajorFunctionRitchieHirDecl {
-                        path: FormPath(`syntax_basics::expr::nested`, `Ritchie(
+                        path: MajorFormPath(`syntax_basics::expr::nested`, `Ritchie(
                             Fn,
                         )`),
                         ritchie_item_kind: RitchieItemKind::Fn,
@@ -57,11 +57,11 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
                 MajorFunctionRitchieHirDefn {
-                    path: FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                    path: MajorFormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                         Fn,
                     )`),
                     hir_decl: MajorFunctionRitchieHirDecl {
-                        path: FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                        path: MajorFormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                             Fn,
                         )`),
                         ritchie_item_kind: RitchieItemKind::Fn,
@@ -110,11 +110,11 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
                 MajorFunctionRitchieHirDefn {
-                    path: FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                    path: MajorFormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                         Fn,
                     )`),
                     hir_decl: MajorFunctionRitchieHirDecl {
-                        path: FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                        path: MajorFormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                             Fn,
                         )`),
                         ritchie_item_kind: RitchieItemKind::Fn,

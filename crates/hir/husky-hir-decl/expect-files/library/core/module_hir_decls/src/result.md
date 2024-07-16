@@ -102,13 +102,7 @@
     HirDecl::TypeVariant(
         TypeVariantHirDecl::Tuple(
             EnumTupleVariantHirDecl {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 91,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`core::result::Result::Ok`),
                 fields: [
                     EnumTupleVariantField {
                         ty: HirType::Variable(
@@ -184,13 +178,7 @@
     HirDecl::TypeVariant(
         TypeVariantHirDecl::Tuple(
             EnumTupleVariantHirDecl {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 92,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`core::result::Result::Err`),
                 fields: [
                     EnumTupleVariantField {
                         ty: HirType::Variable(

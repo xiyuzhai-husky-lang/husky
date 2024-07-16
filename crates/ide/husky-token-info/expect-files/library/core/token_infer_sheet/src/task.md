@@ -185,14 +185,14 @@ Ok(
                         0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`core::task::Task`, `TypeVar`),
+                                MajorFormPath(`core::task::Task`, `TypeVar`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`core::task::Task`, `TypeVar`),
+                                MajorFormPath(`core::task::Task`, `TypeVar`),
                             ),
                         ),
                     ),

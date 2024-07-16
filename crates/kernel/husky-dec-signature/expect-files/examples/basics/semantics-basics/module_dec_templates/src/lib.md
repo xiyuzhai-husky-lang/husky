@@ -16,23 +16,63 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
-                                            ty: Application(
-                                                DecApplication(
-                                                    Id {
-                                                        value: 3,
-                                                    },
-                                                ),
+                                            ty: DecTerm::Application(
+                                                DecApplication {
+                                                    function: DecTerm::List(
+                                                        DecList {
+                                                            toolchain: Toolchain {
+                                                                data: ToolchainData::Local {
+                                                                    library_path: "../../../library",
+                                                                },
+                                                            },
+                                                            items: [
+                                                                DecTerm::Literal(
+                                                                    DecLiteral::Unresolved(
+                                                                        UnresolvedDecLiteral::RegularInteger(
+                                                                            3,
+                                                                        ),
+                                                                    ),
+                                                                ),
+                                                            ],
+                                                        },
+                                                    ),
+                                                    argument: DecTerm::EntityPath(
+                                                        DecItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 4,
-                                    },
-                                ),
+                            return_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::List(
+                                        DecList {
+                                            toolchain: Toolchain {
+                                                data: ToolchainData::Local {
+                                                    library_path: "../../../library",
+                                                },
+                                            },
+                                            items: [
+                                                DecTerm::Literal(
+                                                    DecLiteral::Unresolved(
+                                                        UnresolvedDecLiteral::RegularInteger(
+                                                            3,
+                                                        ),
+                                                    ),
+                                                ),
+                                            ],
+                                        },
+                                    ),
+                                    argument: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`core::num::f32`, `Extern`),
+                                        ),
+                                    ),
+                                },
                             ),
                         },
                     ),

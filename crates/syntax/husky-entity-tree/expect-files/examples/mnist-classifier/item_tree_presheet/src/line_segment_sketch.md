@@ -318,7 +318,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
@@ -362,7 +362,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
@@ -406,7 +406,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
@@ -450,7 +450,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
@@ -494,7 +494,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(

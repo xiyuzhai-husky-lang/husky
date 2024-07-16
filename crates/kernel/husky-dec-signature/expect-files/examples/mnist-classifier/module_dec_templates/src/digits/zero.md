@@ -7,15 +7,9 @@
                 MajorItemDecTemplate::Form(
                     MajorFormDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 52,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                 ),
                             ),
                         },
@@ -40,23 +34,39 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
-                                            ty: Application(
-                                                DecApplication(
-                                                    Id {
-                                                        value: 12,
-                                                    },
-                                                ),
+                                            ty: DecTerm::Application(
+                                                DecApplication {
+                                                    function: DecTerm::LeashOrBitNot(
+                                                        Toolchain {
+                                                            data: ToolchainData::Local {
+                                                                library_path: "../../../library",
+                                                            },
+                                                        },
+                                                    ),
+                                                    argument: DecTerm::EntityPath(
+                                                        DecItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 7,
-                                    },
-                                ),
+                            return_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`core::option::Option`, `Enum`),
+                                        ),
+                                    ),
+                                    argument: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`core::num::f32`, `Extern`),
+                                        ),
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -71,12 +81,28 @@
                 MajorItemDecTemplate::Form(
                     MajorFormDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 21,
-                                    },
-                                ),
+                            return_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::Application(
+                                        DecApplication {
+                                            function: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                            ),
+                                            argument: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`mnist::MnistLabel`, `Enum`),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    argument: DecTerm::EntityPath(
+                                        DecItemPath::TypeVariant(
+                                            TypeVariantPath(`mnist::MnistLabel::Zero`),
+                                        ),
+                                    ),
+                                },
                             ),
                         },
                     ),

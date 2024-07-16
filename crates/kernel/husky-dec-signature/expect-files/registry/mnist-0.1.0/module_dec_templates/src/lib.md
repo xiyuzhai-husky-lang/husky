@@ -16,15 +16,9 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 2,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist::MnistLabel`, `Enum`),
                                 ),
                             ),
                         },
@@ -72,15 +66,9 @@
                 MajorItemDecTemplate::Form(
                     MajorFormDecTemplate::StaticVar(
                         MajorStaticVarDecTemplate {
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                 ),
                             ),
                         },
@@ -98,27 +86,15 @@
                         template_parameters: DecTemplateParameters {
                             data: [],
                         },
-                        trai: EntityPath(
-                            Trait(
-                                TraitPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 82,
-                                        },
-                                    ),
-                                ),
+                        trai: DecTerm::EntityPath(
+                            DecItemPath::Trait(
+                                TraitPath(`core::visual::Visualize`),
                             ),
                         ),
                         self_ty: DeclarativeSelfType::Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                            DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                 ),
                             ),
                         ),
@@ -134,15 +110,9 @@
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodRitchie(
                         TraitForTypeMethodRitchieDecTemplate {
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                 ),
                             ),
                             template_parameters: DecTemplateParameters {
@@ -150,30 +120,18 @@
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 13,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist::BinaryImage28`, `Extern`),
                                     ),
                                 ),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 55,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::visual::Visual`, `Extern`),
                                 ),
                             ),
                         },
@@ -191,15 +149,9 @@
                         template_parameters: DecTemplateParameters {
                             data: [],
                         },
-                        ty: EntityPath(
-                            Type(
-                                TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
+                        ty: DecTerm::EntityPath(
+                            DecItemPath::Type(
+                                TypePath(`mnist::BinaryImage28`, `Extern`),
                             ),
                         ),
                     },
@@ -220,15 +172,9 @@
                                     RitchieItemKind::Fn,
                                 ),
                             ),
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                 ),
                             ),
                             template_parameters: DecTemplateParameters {
@@ -237,15 +183,9 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                 ),
                             ),
                         },
@@ -263,27 +203,15 @@
                         template_parameters: DecTemplateParameters {
                             data: [],
                         },
-                        trai: EntityPath(
-                            Trait(
-                                TraitPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 68,
-                                        },
-                                    ),
-                                ),
+                        trai: DecTerm::EntityPath(
+                            DecItemPath::Trait(
+                                TraitPath(`core::ops::IntIndex`),
                             ),
                         ),
                         self_ty: DeclarativeSelfType::Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
+                            DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                 ),
                             ),
                         ),
@@ -306,15 +234,9 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            ty_term: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 35,
-                                            },
-                                        ),
-                                    ),
+                            ty_term: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
                             ),
                         },
@@ -332,27 +254,15 @@
                         template_parameters: DecTemplateParameters {
                             data: [],
                         },
-                        trai: EntityPath(
-                            Trait(
-                                TraitPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 82,
-                                        },
-                                    ),
-                                ),
+                        trai: DecTerm::EntityPath(
+                            DecItemPath::Trait(
+                                TraitPath(`core::visual::Visualize`),
                             ),
                         ),
                         self_ty: DeclarativeSelfType::Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                            DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                 ),
                             ),
                         ),
@@ -368,15 +278,9 @@
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodRitchie(
                         TraitForTypeMethodRitchieDecTemplate {
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                 ),
                             ),
                             template_parameters: DecTemplateParameters {
@@ -384,30 +288,18 @@
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 14,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist::BinaryGrid28`, `Extern`),
                                     ),
                                 ),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 55,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::visual::Visual`, `Extern`),
                                 ),
                             ),
                         },
@@ -425,15 +317,9 @@
                         template_parameters: DecTemplateParameters {
                             data: [],
                         },
-                        ty: EntityPath(
-                            Type(
-                                TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 14,
-                                        },
-                                    ),
-                                ),
+                        ty: DecTerm::EntityPath(
+                            DecItemPath::Type(
+                                TypePath(`mnist::BinaryGrid28`, `Extern`),
                             ),
                         ),
                     },
@@ -454,15 +340,9 @@
                                     RitchieItemKind::Fn,
                                 ),
                             ),
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                 ),
                             ),
                             template_parameters: DecTemplateParameters {
@@ -471,15 +351,9 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                 ),
                             ),
                         },
@@ -497,27 +371,15 @@
                         template_parameters: DecTemplateParameters {
                             data: [],
                         },
-                        trai: EntityPath(
-                            Trait(
-                                TraitPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 68,
-                                        },
-                                    ),
-                                ),
+                        trai: DecTerm::EntityPath(
+                            DecItemPath::Trait(
+                                TraitPath(`core::ops::IntIndex`),
                             ),
                         ),
                         self_ty: DeclarativeSelfType::Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 14,
-                                            },
-                                        ),
-                                    ),
+                            DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist::BinaryGrid28`, `Extern`),
                                 ),
                             ),
                         ),
@@ -540,15 +402,9 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            ty_term: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 35,
-                                            },
-                                        ),
-                                    ),
+                            ty_term: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
                             ),
                         },

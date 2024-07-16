@@ -115,7 +115,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -189,7 +189,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -230,7 +230,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {

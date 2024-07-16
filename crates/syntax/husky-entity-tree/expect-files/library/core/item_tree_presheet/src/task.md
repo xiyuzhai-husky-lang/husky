@@ -78,7 +78,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`core::task::Task`, `TypeVar`),
+                            path: MajorFormPath(`core::task::Task`, `TypeVar`),
                             body: None,
                         },
                     },
@@ -106,7 +106,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`core::task::TASK`, `StaticVar`),
+                            path: MajorFormPath(`core::task::TASK`, `StaticVar`),
                             body: None,
                         },
                     },

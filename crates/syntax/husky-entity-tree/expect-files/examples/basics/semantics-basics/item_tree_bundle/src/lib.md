@@ -24,7 +24,7 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                                 block: DefnBlock::Form {
-                                    path: FormPath(`semantics_basics::some_neural_network`, `Ritchie(
+                                    path: MajorFormPath(`semantics_basics::some_neural_network`, `Ritchie(
                                         Gn,
                                     )`),
                                     body: Some(
@@ -60,7 +60,7 @@ EntityTreeCrateBundle {
                         ),
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Form(
-                                FormPath(`semantics_basics::some_neural_network`, `Ritchie(
+                                MajorFormPath(`semantics_basics::some_neural_network`, `Ritchie(
                                     Gn,
                                 )`),
                             ),

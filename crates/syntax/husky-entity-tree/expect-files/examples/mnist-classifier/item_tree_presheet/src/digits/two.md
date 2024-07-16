@@ -20,7 +20,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             body: Some(
                                 FormBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -60,7 +60,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
@@ -104,7 +104,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
@@ -148,7 +148,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
@@ -190,7 +190,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                             body: Some(
                                 FormBody {
                                     ast_idx_range: ArenaIdxRange(

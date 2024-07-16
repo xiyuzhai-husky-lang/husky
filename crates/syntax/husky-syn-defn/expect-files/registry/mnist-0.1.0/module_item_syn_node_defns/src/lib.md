@@ -61,13 +61,7 @@
                                 },
                             ),
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 3,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: TypeVariantPath(`mnist::MnistLabel::Zero`),
                                 disambiguator: 0,
                             },
                         },
@@ -99,13 +93,7 @@
                                 },
                             ),
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 4,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: TypeVariantPath(`mnist::MnistLabel::One`),
                                 disambiguator: 0,
                             },
                         },
@@ -137,13 +125,7 @@
                                 },
                             ),
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 5,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: TypeVariantPath(`mnist::MnistLabel::Two`),
                                 disambiguator: 0,
                             },
                         },
@@ -175,13 +157,7 @@
                                 },
                             ),
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 6,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: TypeVariantPath(`mnist::MnistLabel::Three`),
                                 disambiguator: 0,
                             },
                         },
@@ -213,13 +189,7 @@
                                 },
                             ),
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 7,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: TypeVariantPath(`mnist::MnistLabel::Four`),
                                 disambiguator: 0,
                             },
                         },
@@ -251,13 +221,7 @@
                                 },
                             ),
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 8,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: TypeVariantPath(`mnist::MnistLabel::Five`),
                                 disambiguator: 0,
                             },
                         },
@@ -289,13 +253,7 @@
                                 },
                             ),
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 9,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: TypeVariantPath(`mnist::MnistLabel::Six`),
                                 disambiguator: 0,
                             },
                         },
@@ -327,13 +285,7 @@
                                 },
                             ),
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 10,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: TypeVariantPath(`mnist::MnistLabel::Seven`),
                                 disambiguator: 0,
                             },
                         },
@@ -365,13 +317,7 @@
                                 },
                             ),
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 11,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: TypeVariantPath(`mnist::MnistLabel::Eight`),
                                 disambiguator: 0,
                             },
                         },
@@ -403,13 +349,7 @@
                                 },
                             ),
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 12,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: TypeVariantPath(`mnist::MnistLabel::Nine`),
                                 disambiguator: 0,
                             },
                         },

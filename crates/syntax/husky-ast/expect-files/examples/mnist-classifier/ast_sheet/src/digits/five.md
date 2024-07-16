@@ -76,7 +76,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                     body: Some(
                         FormBody {
                             ast_idx_range: ArenaIdxRange(

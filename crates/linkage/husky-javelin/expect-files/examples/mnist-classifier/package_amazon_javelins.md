@@ -4,7 +4,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::main`, `Val`),
+                    MajorFormPath(`mnist_classifier::main`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -43,7 +43,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -71,7 +71,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -86,7 +86,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -311,7 +311,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -326,7 +326,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -341,7 +341,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -356,7 +356,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -371,7 +371,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -386,7 +386,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -414,7 +414,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -429,7 +429,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1140,7 +1140,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1155,7 +1155,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1170,7 +1170,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1185,7 +1185,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1200,7 +1200,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1324,7 +1324,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1580,7 +1580,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1661,7 +1661,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1730,7 +1730,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -1743,7 +1743,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1758,7 +1758,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -1771,7 +1771,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -1784,7 +1784,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -1797,7 +1797,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::digits::one::upmost`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1812,7 +1812,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::digits::one::downmost`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1827,7 +1827,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::one::hat`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::digits::one::hat`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1842,7 +1842,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -1855,7 +1855,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -1868,7 +1868,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -1881,7 +1881,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::digits::six::upmost`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1896,7 +1896,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1911,7 +1911,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -1924,7 +1924,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -1937,7 +1937,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::three::uparc`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::digits::three::uparc`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1952,7 +1952,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::three::downarc`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::digits::three::downarc`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1967,7 +1967,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::three::back`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::digits::three::back`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1982,7 +1982,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -1995,7 +1995,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -2010,7 +2010,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -2023,7 +2023,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -2036,7 +2036,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::four::is_four`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -2049,7 +2049,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -2064,7 +2064,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -2079,7 +2079,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -2092,7 +2092,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -2105,7 +2105,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -2120,7 +2120,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -2133,7 +2133,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -2148,7 +2148,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -2163,7 +2163,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -2176,7 +2176,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -2189,7 +2189,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -2202,7 +2202,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -2217,7 +2217,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -2230,7 +2230,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -2243,7 +2243,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -2256,7 +2256,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -2271,7 +2271,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -2286,7 +2286,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -2299,7 +2299,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -2314,7 +2314,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -2329,7 +2329,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
+                    MajorFormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -2344,7 +2344,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                    MajorFormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -2357,7 +2357,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                    MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -2370,7 +2370,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -2383,7 +2383,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                    MajorFormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -2396,7 +2396,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                    MajorFormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -2409,7 +2409,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                    MajorFormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -2422,7 +2422,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                    MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],
@@ -2435,7 +2435,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],

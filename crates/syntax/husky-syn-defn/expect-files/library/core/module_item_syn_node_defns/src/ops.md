@@ -1496,13 +1496,7 @@
                                 },
                             ),
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 84,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: TypeVariantPath(`core::ops::ControlFlow::Continue`),
                                 disambiguator: 0,
                             },
                         },
@@ -1534,13 +1528,7 @@
                                 },
                             ),
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 85,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: TypeVariantPath(`core::ops::ControlFlow::Break`),
                                 disambiguator: 0,
                             },
                         },

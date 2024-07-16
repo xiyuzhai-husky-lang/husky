@@ -7,12 +7,24 @@
                 MajorItemDecTemplate::Form(
                     MajorFormDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 36,
-                                    },
-                                ),
+                            return_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::List(
+                                        DecList {
+                                            toolchain: Toolchain {
+                                                data: ToolchainData::Local {
+                                                    library_path: "../../../library",
+                                                },
+                                            },
+                                            items: [],
+                                        },
+                                    ),
+                                    argument: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -27,12 +39,21 @@
                 MajorItemDecTemplate::Form(
                     MajorFormDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 37,
-                                    },
-                                ),
+                            return_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::LeashOrBitNot(
+                                        Toolchain {
+                                            data: ToolchainData::Local {
+                                                library_path: "../../../library",
+                                            },
+                                        },
+                                    ),
+                                    argument: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -47,15 +68,9 @@
                 MajorItemDecTemplate::Form(
                     MajorFormDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 138,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         },
@@ -71,12 +86,35 @@
                 MajorItemDecTemplate::Form(
                     MajorFormDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 39,
-                                    },
-                                ),
+                            return_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::LeashOrBitNot(
+                                        Toolchain {
+                                            data: ToolchainData::Local {
+                                                library_path: "../../../library",
+                                            },
+                                        },
+                                    ),
+                                    argument: DecTerm::Application(
+                                        DecApplication {
+                                            function: DecTerm::List(
+                                                DecList {
+                                                    toolchain: Toolchain {
+                                                        data: ToolchainData::Local {
+                                                            library_path: "../../../library",
+                                                        },
+                                                    },
+                                                    items: [],
+                                                },
+                                            ),
+                                            argument: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -91,12 +129,21 @@
                 MajorItemDecTemplate::Form(
                     MajorFormDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 4,
-                                    },
-                                ),
+                            return_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::LeashOrBitNot(
+                                        Toolchain {
+                                            data: ToolchainData::Local {
+                                                library_path: "../../../library",
+                                            },
+                                        },
+                                    ),
+                                    argument: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        ),
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -111,12 +158,21 @@
                 MajorItemDecTemplate::Form(
                     MajorFormDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 27,
-                                    },
-                                ),
+                            return_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::LeashOrBitNot(
+                                        Toolchain {
+                                            data: ToolchainData::Local {
+                                                library_path: "../../../library",
+                                            },
+                                        },
+                                    ),
+                                    argument: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        ),
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -131,12 +187,35 @@
                 MajorItemDecTemplate::Form(
                     MajorFormDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 41,
-                                    },
-                                ),
+                            return_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::LeashOrBitNot(
+                                        Toolchain {
+                                            data: ToolchainData::Local {
+                                                library_path: "../../../library",
+                                            },
+                                        },
+                                    ),
+                                    argument: DecTerm::Application(
+                                        DecApplication {
+                                            function: DecTerm::List(
+                                                DecList {
+                                                    toolchain: Toolchain {
+                                                        data: ToolchainData::Local {
+                                                            library_path: "../../../library",
+                                                        },
+                                                    },
+                                                    items: [],
+                                                },
+                                            ),
+                                            argument: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     ),

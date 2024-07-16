@@ -3389,7 +3389,7 @@ Ok(
                         0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -3398,7 +3398,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -3481,7 +3481,7 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -3490,7 +3490,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -3620,25 +3620,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         3,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                         ),
                     ),
                 },
@@ -3671,25 +3659,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         5,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                         ),
                     ),
                 },
@@ -3748,25 +3724,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         7,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                         ),
                     ),
                 },
@@ -3820,25 +3784,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         9,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                         ),
                     ),
                 },
@@ -3873,25 +3825,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         11,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                         ),
                     ),
                 },
@@ -3924,25 +3864,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         13,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                         ),
                     ),
                 },
@@ -4024,25 +3952,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         15,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                         ),
                     ),
                 },
@@ -4075,25 +3991,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         17,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                         ),
                     ),
                 },
@@ -4696,7 +4600,7 @@ Ok(
                         0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -4705,7 +4609,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -4788,7 +4692,7 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -4797,7 +4701,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -4925,25 +4829,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         3,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                         ),
                     ),
                 },
@@ -4978,25 +4870,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         5,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                         ),
                     ),
                 },
@@ -5076,25 +4956,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         7,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                         ),
                     ),
                 },
@@ -5127,25 +4995,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         9,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                         ),
                     ),
                 },
@@ -5197,25 +5053,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         11,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                         ),
                     ),
                 },
@@ -5246,25 +5090,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         13,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                         ),
                     ),
                 },
@@ -5295,25 +5127,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         15,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                         ),
                     ),
                 },
@@ -5344,25 +5164,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         17,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                         ),
                     ),
                 },
@@ -5421,25 +5229,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         19,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                         ),
                     ),
                 },
@@ -5523,25 +5319,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         21,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                         ),
                     ),
                 },
@@ -5593,25 +5377,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         23,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                         ),
                     ),
                 },
@@ -5642,25 +5414,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         25,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                         ),
                     ),
                 },
@@ -5691,25 +5451,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         27,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                         ),
                     ),
                 },
@@ -5740,25 +5488,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         29,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                         ),
                     ),
                 },
@@ -5866,25 +5602,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         31,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                         ),
                     ),
                 },
@@ -5917,25 +5641,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         33,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                         ),
                     ),
                 },
@@ -7496,7 +7208,7 @@ Ok(
                         3,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -7505,7 +7217,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -7919,7 +7631,7 @@ Ok(
                         4,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -7928,7 +7640,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -8045,7 +7757,7 @@ Ok(
                         5,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -8054,7 +7766,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -8362,7 +8074,7 @@ Ok(
                         6,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -8371,7 +8083,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -9306,25 +9018,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         12,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                         ),
                     ),
                 },
@@ -9488,25 +9188,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         14,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                         ),
                     ),
                 },
@@ -9668,25 +9356,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         16,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 18,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                         ),
                     ),
                 },
@@ -9753,25 +9429,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         18,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                         ),
                     ),
                 },
