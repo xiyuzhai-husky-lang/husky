@@ -1,9 +1,0 @@
-```rust
-Some(
-    Ok(
-        [
-            ItemPath(`std::ops::Add::Output`),
-        ],
-    ),
-)
-```

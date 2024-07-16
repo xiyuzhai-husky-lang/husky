@@ -1,9 +1,0 @@
-```rust
-Some(
-    SemStaticVarDeps(
-        [
-            ItemPath(`core::task::task`),
-        ],
-    ),
-)
-```
