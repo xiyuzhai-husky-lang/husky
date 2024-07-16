@@ -1,6 +1,6 @@
 use crate::{
     region::SemStaticVarDepsRegion,
-    var_deps::{EffectiveMergeCounter, SemStaticVarDeps},
+    var_deps::{EffectiveMergeCounter, SemControlFlowStaticVarDeps, SemStaticVarDeps},
 };
 use husky_entity_path::{
     path::{ItemPath, PrincipalEntityPath},
@@ -32,9 +32,9 @@ where
     syn_expr_region_data: &'db SynExprRegionData,
     sem_expr_region_data: &'db SemExprRegionData,
     expr_value_var_deps_table: SemExprMap<SemStaticVarDeps>,
-    expr_control_flow_var_deps_table: SemExprMap<SemStaticVarDeps>,
+    expr_control_flow_var_deps_table: SemExprMap<SemControlFlowStaticVarDeps>,
     stmt_value_var_deps_table: SemStmtMap<SemStaticVarDeps>,
-    stmt_control_flow_var_deps_table: SemStmtMap<SemStaticVarDeps>,
+    stmt_control_flow_var_deps_table: SemStmtMap<SemControlFlowStaticVarDeps>,
     self_value_var_deps: SemStaticVarDeps,
     variable_var_deps_table: VariableMap<SemStaticVarDeps>,
     counter: EffectiveMergeCounter,
@@ -349,7 +349,7 @@ where
         }
     }
 
-    fn calc_expr_control_flow(&mut self, expr: SemExprIdx) -> SemStaticVarDeps {
+    fn calc_expr_control_flow(&mut self, expr: SemExprIdx) -> SemControlFlowStaticVarDeps {
         match *expr.data(self.sem_expr_region_data.sem_expr_arena()) {
             SemExprData::Literal(_, _)
             | SemExprData::Unit { .. }
@@ -387,14 +387,14 @@ where
                 return_ty,
             } => {
                 let mut deps = self.expr_control_flow_var_deps_table[opd].clone();
-                deps.merge(&self.expr_value_var_deps_table[opd]);
+                deps.merge_with_value(&self.expr_value_var_deps_table[opd]);
                 let path_deps = self.calc_path(unveil_assoc_fn_path);
-                deps.merge(path_deps);
+                deps.merge_with_value(path_deps);
                 deps
             }
             SemExprData::Unwrap { opd, .. } => {
                 let mut deps = self.expr_control_flow_var_deps_table[opd].clone();
-                deps.merge(&self.expr_value_var_deps_table[opd]);
+                deps.merge_with_value(&self.expr_value_var_deps_table[opd]);
                 deps
             }
             SemExprData::FunctionApplication { function, argument } => todo!(),
@@ -416,9 +416,9 @@ where
                             }
                         }
                         SemaRitchieArgument::Keyed(_, arg) => match arg {
-                            Some(arg) => {
-                                deps.merge(&self.expr_value_var_deps_table[arg.argument_expr_idx()])
-                            }
+                            Some(arg) => deps.merge(
+                                &self.expr_control_flow_var_deps_table[arg.argument_expr_idx()],
+                            ),
                             None => (),
                         },
                     }
@@ -501,7 +501,7 @@ where
                 rbox_regional_token_idx,
             } => todo!(),
             SemExprData::NewList { ref items, .. } => {
-                let mut deps = SemStaticVarDeps::default();
+                let mut deps = SemControlFlowStaticVarDeps::default();
                 for item in items {
                     deps.merge(&self.expr_control_flow_var_deps_table[item.sem_expr_idx]);
                 }
@@ -512,7 +512,7 @@ where
             | SemExprData::ArrayFunctor { .. } => Default::default(),
             SemExprData::Block { stmts } | SemExprData::NestedBlock { stmts, .. } => {
                 let mut deps = Default::default();
-                self.calc_stmts_control_flow(stmts, &mut deps);
+                self.calc_stmts_control_flow(None, stmts, &mut deps);
                 deps
             }
             SemExprData::EmptyHtmlTag {
@@ -521,9 +521,9 @@ where
                 ref arguments,
                 empty_html_ket,
             } => {
-                let mut deps = SemStaticVarDeps::default();
+                let mut deps = SemControlFlowStaticVarDeps::default();
                 for argument in arguments {
-                    deps.merge(&self.expr_value_var_deps_table[argument.expr()])
+                    deps.merge(&self.expr_control_flow_var_deps_table[argument.expr()])
                 }
                 deps
             }
@@ -612,25 +612,25 @@ where
         }
     }
 
-    fn calc_stmt_control_flow(&mut self, stmt: SemStmtIdx) -> SemStaticVarDeps {
+    fn calc_stmt_control_flow(&mut self, stmt: SemStmtIdx) -> SemControlFlowStaticVarDeps {
         match *stmt.data(self.sem_expr_region_data.sem_stmt_arena()) {
             SemStmtData::Let { initial_value, .. } => {
                 self.expr_control_flow_var_deps_table[initial_value].clone()
             }
             SemStmtData::Return { result, .. } => {
                 let mut deps = self.expr_control_flow_var_deps_table[result].clone();
-                deps.merge(&self.expr_value_var_deps_table[result]);
+                deps.merge_with_value(&self.expr_value_var_deps_table[result]);
                 deps
             }
             SemStmtData::Require { condition, .. } => {
                 // todo: consider deps of Default::default
                 let mut deps = self.calc_condition_control_flow(condition);
-                deps.merge(&self.calc_condition_value(condition));
+                deps.merge_with_value(&self.calc_condition_value(condition));
                 deps
             }
             SemStmtData::Assert { condition, .. } => {
                 let mut deps = self.calc_condition_control_flow(condition);
-                deps.merge(&self.calc_condition_value(condition));
+                deps.merge_with_value(&self.calc_condition_value(condition));
                 deps
             }
             SemStmtData::Break { break_token } => Default::default(),
@@ -640,7 +640,7 @@ where
                 stmts,
                 ..
             } => {
-                let mut deps = SemStaticVarDeps::default();
+                let mut deps = SemControlFlowStaticVarDeps::default();
                 if let Some(bound_expr) = particulars.range().initial_boundary.bound_expr {
                     self.expr_control_flow_var_deps_table[bound_expr].clone();
                 }
@@ -658,7 +658,7 @@ where
                 eol_colon,
                 stmts,
             } => {
-                let mut deps = SemStaticVarDeps::default();
+                let mut deps = SemControlFlowStaticVarDeps::default();
                 todo!();
                 // if let Some(bound_expr) = t
                 // self.expr_control_flow_var_deps_table[bound_expr].clone();
@@ -696,16 +696,17 @@ where
                 ref elif_branches,
                 ref else_branch,
             } => {
-                let mut deps = SemStaticVarDeps::default();
-                let mut t = |stmts| {
-                    self.calc_stmts_control_flow(stmts, &mut deps);
+                let mut deps = SemControlFlowStaticVarDeps::default();
+                let mut t = |condition: Option<SemCondition>, stmts| {
+                    let condition = condition.map(|condition| self.calc_condition_value(condition));
+                    self.calc_stmts_control_flow(condition, stmts, &mut deps);
                 };
-                t(if_branch.stmts);
+                t(Some(if_branch.condition), if_branch.stmts);
                 for elif_branch in elif_branches {
-                    t(elif_branch.stmts)
+                    t(Some(elif_branch.condition), elif_branch.stmts)
                 }
                 if let Some(else_branch) = else_branch {
-                    t(else_branch.stmts)
+                    t(None, else_branch.stmts)
                 }
                 deps
             }
@@ -718,7 +719,17 @@ where
             } => {
                 let mut deps = self.expr_control_flow_var_deps_table[match_opd].clone();
                 for case_branch in case_branches {
-                    self.calc_stmts_control_flow(case_branch.stmts, &mut deps)
+                    let mut condition_value_deps =
+                        self.expr_value_var_deps_table[match_opd].clone();
+                    if let Some(condition) = case_branch.condition() {
+                        condition_value_deps.merge(&self.calc_condition_value(condition));
+                        condition_value_deps.merge(&self.calc_condition_control_flow(condition));
+                    }
+                    self.calc_stmts_control_flow(
+                        Some(condition_value_deps),
+                        case_branch.stmts,
+                        &mut deps,
+                    )
                 }
                 deps
             }
@@ -727,9 +738,26 @@ where
         }
     }
 
-    fn calc_stmts_control_flow(&mut self, stmts: SemStmtIdxRange, deps: &mut SemStaticVarDeps) {
-        for stmt in stmts {
-            deps.merge(&self.stmt_control_flow_var_deps_table[stmt]);
+    fn calc_stmts_control_flow(
+        &mut self,
+        condition_var_deps: Option<SemStaticVarDeps>,
+        stmts: SemStmtIdxRange,
+        deps: &mut SemControlFlowStaticVarDeps,
+    ) {
+        match condition_var_deps {
+            Some(condition_var_deps) if condition_var_deps.len() > 0 => {
+                let mut stmts_deps = SemControlFlowStaticVarDeps::default();
+                for stmt in stmts {
+                    stmts_deps.merge(&self.stmt_control_flow_var_deps_table[stmt]);
+                }
+                stmts_deps.merge_with_condition(&condition_var_deps);
+                deps.merge(&stmts_deps)
+            }
+            _ => {
+                for stmt in stmts {
+                    deps.merge(&self.stmt_control_flow_var_deps_table[stmt]);
+                }
+            }
         }
     }
 
@@ -740,17 +768,20 @@ where
                 be_regional_token_idx,
                 target,
             } => {
-                let deps = self.expr_control_flow_var_deps_table[src].clone();
+                let deps = self.expr_value_var_deps_table[src].clone();
                 self.populate_into_current_variables(target.variables(), &deps);
                 deps
             }
             SemCondition::Other {
                 sem_expr_idx: src, ..
-            } => self.expr_control_flow_var_deps_table[src].clone(),
+            } => self.expr_value_var_deps_table[src].clone(),
         }
     }
 
-    fn calc_condition_control_flow(&mut self, condition: SemCondition) -> SemStaticVarDeps {
+    fn calc_condition_control_flow(
+        &mut self,
+        condition: SemCondition,
+    ) -> SemControlFlowStaticVarDeps {
         match condition {
             SemCondition::Be { src, .. } => self.expr_control_flow_var_deps_table[src].clone(),
             SemCondition::Other {
