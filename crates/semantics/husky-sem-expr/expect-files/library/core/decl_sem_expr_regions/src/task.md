@@ -144,7 +144,7 @@
                                     path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`core::task::Task`, `TypeVar`),
+                                            MajorFormPath(`core::task::Task`, `TypeVar`),
                                         ),
                                     ),
                                     ty_path_disambiguation: OntologyConstructor,

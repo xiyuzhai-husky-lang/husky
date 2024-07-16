@@ -104,7 +104,10 @@ where
             .context(db)
             .task_ty()
         {
-            Some(_) => deps.remove_item_path(self.item_path_menu.task_ty_var_path()),
+            Some(_) => {
+                deps.remove_item_path(self.item_path_menu.task_ty_var_path());
+                deps.remove_item_path(self.item_path_menu.task_static_var_path());
+            }
             None => (),
         }
         deps

@@ -111,7 +111,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -123,7 +123,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -133,7 +133,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -145,7 +145,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -218,7 +218,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -235,7 +235,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                         ),
                                     ),
                                 },
@@ -250,7 +250,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -267,7 +267,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -769,7 +769,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -781,7 +781,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -791,7 +791,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -856,7 +856,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -873,7 +873,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                         ),
                                     ),
                                 },
@@ -888,7 +888,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -1062,7 +1062,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -1074,7 +1074,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -1084,7 +1084,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -1149,7 +1149,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -1166,7 +1166,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                         ),
                                     ),
                                 },
@@ -1181,7 +1181,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -1296,13 +1296,7 @@
                                                 path_expr_idx: 3,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::TypeVariant(
-                                                        TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 281,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        TypeVariantPath(`mnist::MnistLabel::Four`),
                                                     ),
                                                 ),
                                             },
@@ -1376,13 +1370,7 @@
                                                 ),
                                                 path: Ok(
                                                     PrincipalEntityPath::TypeVariant(
-                                                        TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 281,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        TypeVariantPath(`mnist::MnistLabel::Four`),
                                                     ),
                                                 ),
                                             },
@@ -1444,7 +1432,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
+                                                MajorFormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -1507,7 +1495,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
+                                                MajorFormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -1570,7 +1558,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -1655,7 +1643,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                                                MajorFormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -1777,7 +1765,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -1787,7 +1775,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -1928,7 +1916,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -1978,7 +1966,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                                                MajorFormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -2051,7 +2039,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                                                MajorFormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -2097,7 +2085,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -2107,7 +2095,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -2151,7 +2139,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                                                MajorFormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -2357,7 +2345,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                                                MajorFormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -2403,7 +2391,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -2515,13 +2503,7 @@
                                     path_expr_idx: 22,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 265,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                                         ),
                                     ),
                                 },
@@ -2529,13 +2511,7 @@
                                     path_expr_idx: 24,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 265,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                                         ),
                                     ),
                                 },
@@ -2559,7 +2535,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
+                                            MajorFormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2573,13 +2549,7 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::TypeVariant(
-                                        TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 217,
-                                                },
-                                            ),
-                                        ),
+                                        TypeVariantPath(`core::option::Option::Some`),
                                     ),
                                 },
                                 SynPrincipalEntityPathExpr::Root {
@@ -2593,7 +2563,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
+                                            MajorFormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2607,13 +2577,7 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::TypeVariant(
-                                        TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 217,
-                                                },
-                                            ),
-                                        ),
+                                        TypeVariantPath(`core::option::Option::Some`),
                                     ),
                                 },
                                 SynPrincipalEntityPathExpr::Root {
@@ -2627,7 +2591,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2641,13 +2605,7 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::TypeVariant(
-                                        TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 218,
-                                                },
-                                            ),
-                                        ),
+                                        TypeVariantPath(`core::option::Option::None`),
                                     ),
                                 },
                                 SynPrincipalEntityPathExpr::Root {
@@ -2661,7 +2619,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                                            MajorFormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2675,13 +2633,7 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::TypeVariant(
-                                        TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 217,
-                                                },
-                                            ),
-                                        ),
+                                        TypeVariantPath(`core::option::Option::Some`),
                                     ),
                                 },
                                 SynPrincipalEntityPathExpr::Root {
@@ -2695,7 +2647,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2710,7 +2662,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2724,13 +2676,7 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::TypeVariant(
-                                        TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 218,
-                                                },
-                                            ),
-                                        ),
+                                        TypeVariantPath(`core::option::Option::None`),
                                     ),
                                 },
                                 SynPrincipalEntityPathExpr::Root {
@@ -2744,7 +2690,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2759,7 +2705,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                                            MajorFormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2773,13 +2719,7 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::TypeVariant(
-                                        TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 217,
-                                                },
-                                            ),
-                                        ),
+                                        TypeVariantPath(`core::option::Option::Some`),
                                     ),
                                 },
                                 SynPrincipalEntityPathExpr::Root {
@@ -2793,7 +2733,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                                            MajorFormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2808,7 +2748,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2823,7 +2763,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2838,7 +2778,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                                            MajorFormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2852,13 +2792,7 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::TypeVariant(
-                                        TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 217,
-                                                },
-                                            ),
-                                        ),
+                                        TypeVariantPath(`core::option::Option::Some`),
                                     ),
                                 },
                                 SynPrincipalEntityPathExpr::Root {
@@ -2872,7 +2806,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                                            MajorFormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2887,7 +2821,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2923,13 +2857,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 265,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                                         ),
                                     ),
                                 },
@@ -2965,13 +2893,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 265,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                                         ),
                                     ),
                                 },
@@ -3377,13 +3299,7 @@
                                     },
                                     SynPatternData::TupleTypeVariant {
                                         path_expr_idx: 1,
-                                        path: TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 217,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeVariantPath(`core::option::Option::Some`),
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 10,
@@ -3415,13 +3331,7 @@
                                     },
                                     SynPatternData::TupleTypeVariant {
                                         path_expr_idx: 3,
-                                        path: TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 217,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeVariantPath(`core::option::Option::Some`),
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 22,
@@ -3453,13 +3363,7 @@
                                     },
                                     SynPatternData::UnitTypeVariant {
                                         path_expr_idx: 5,
-                                        path: TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 218,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeVariantPath(`core::option::Option::None`),
                                     },
                                     SynPatternData::Ident {
                                         symbol_modifier_tokens: None,
@@ -3481,13 +3385,7 @@
                                     },
                                     SynPatternData::TupleTypeVariant {
                                         path_expr_idx: 7,
-                                        path: TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 217,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeVariantPath(`core::option::Option::Some`),
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 53,
@@ -3528,13 +3426,7 @@
                                     },
                                     SynPatternData::UnitTypeVariant {
                                         path_expr_idx: 10,
-                                        path: TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 218,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeVariantPath(`core::option::Option::None`),
                                     },
                                     SynPatternData::Ident {
                                         symbol_modifier_tokens: None,
@@ -3556,13 +3448,7 @@
                                     },
                                     SynPatternData::TupleTypeVariant {
                                         path_expr_idx: 13,
-                                        path: TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 217,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeVariantPath(`core::option::Option::Some`),
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 112,
@@ -3612,13 +3498,7 @@
                                     },
                                     SynPatternData::TupleTypeVariant {
                                         path_expr_idx: 18,
-                                        path: TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 217,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeVariantPath(`core::option::Option::Some`),
                                         lpar: LparRegionalToken(
                                             RegionalTokenIdx(
                                                 144,

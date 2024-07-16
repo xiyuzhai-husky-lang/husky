@@ -10,74 +10,44 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                 ),
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
                                     ident: `row_start`,
-                                    ty: EntityPath(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 122,
-                                                    },
-                                                ),
-                                            ),
+                                    ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`core::num::i32`, `Extern`),
                                         ),
                                     ),
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
                                     ident: `row_end`,
-                                    ty: EntityPath(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 122,
-                                                    },
-                                                ),
-                                            ),
+                                    ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`core::num::i32`, `Extern`),
                                         ),
                                     ),
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
                                     ident: `upper_mass`,
-                                    ty: EntityPath(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 122,
-                                                    },
-                                                ),
-                                            ),
+                                    ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`core::num::i32`, `Extern`),
                                         ),
                                     ),
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
                                     ident: `lower_mass`,
-                                    ty: EntityPath(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 122,
-                                                    },
-                                                ),
-                                            ),
+                                    ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`core::num::i32`, `Extern`),
                                         ),
                                     ),
                                     has_initialization: false,
@@ -93,15 +63,9 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Move,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 122,
-                                                            },
-                                                        ),
-                                                    ),
+                                            ty: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`core::num::i32`, `Extern`),
                                                 ),
                                             ),
                                         },
@@ -109,15 +73,9 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Move,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 122,
-                                                            },
-                                                        ),
-                                                    ),
+                                            ty: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`core::num::i32`, `Extern`),
                                                 ),
                                             ),
                                         },
@@ -125,15 +83,9 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Move,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 122,
-                                                            },
-                                                        ),
-                                                    ),
+                                            ty: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`core::num::i32`, `Extern`),
                                                 ),
                                             ),
                                         },
@@ -141,29 +93,17 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Move,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 122,
-                                                            },
-                                                        ),
-                                                    ),
+                                            ty: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`core::num::i32`, `Extern`),
                                                 ),
                                             ),
                                         },
                                     ),
                                 ],
-                                return_ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 9,
-                                                },
-                                            ),
-                                        ),
+                                return_ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                     ),
                                 ),
                             },
@@ -183,26 +123,52 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                 ),
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
                                     ident: `matches`,
-                                    ty: Application(
-                                        DecApplication(
-                                            Id {
-                                                value: 6,
-                                            },
-                                        ),
+                                    ty: DecTerm::Application(
+                                        DecApplication {
+                                            function: DecTerm::List(
+                                                DecList {
+                                                    toolchain: Toolchain {
+                                                        data: ToolchainData::Local {
+                                                            library_path: "../../../library",
+                                                        },
+                                                    },
+                                                    items: [],
+                                                },
+                                            ),
+                                            argument: DecTerm::Application(
+                                                DecApplication {
+                                                    function: DecTerm::EntityPath(
+                                                        DecItemPath::Type(
+                                                            TypePath(`core::option::Option`, `Enum`),
+                                                        ),
+                                                    ),
+                                                    argument: DecTerm::Application(
+                                                        DecApplication {
+                                                            function: DecTerm::LeashOrBitNot(
+                                                                Toolchain {
+                                                                    data: ToolchainData::Local {
+                                                                        library_path: "../../../library",
+                                                                    },
+                                                                },
+                                                            ),
+                                                            argument: DecTerm::EntityPath(
+                                                                DecItemPath::Type(
+                                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                     has_initialization: false,
                                 },
@@ -217,25 +183,51 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Move,
-                                            ty: Application(
-                                                DecApplication(
-                                                    Id {
-                                                        value: 6,
-                                                    },
-                                                ),
+                                            ty: DecTerm::Application(
+                                                DecApplication {
+                                                    function: DecTerm::List(
+                                                        DecList {
+                                                            toolchain: Toolchain {
+                                                                data: ToolchainData::Local {
+                                                                    library_path: "../../../library",
+                                                                },
+                                                            },
+                                                            items: [],
+                                                        },
+                                                    ),
+                                                    argument: DecTerm::Application(
+                                                        DecApplication {
+                                                            function: DecTerm::EntityPath(
+                                                                DecItemPath::Type(
+                                                                    TypePath(`core::option::Option`, `Enum`),
+                                                                ),
+                                                            ),
+                                                            argument: DecTerm::Application(
+                                                                DecApplication {
+                                                                    function: DecTerm::LeashOrBitNot(
+                                                                        Toolchain {
+                                                                            data: ToolchainData::Local {
+                                                                                library_path: "../../../library",
+                                                                            },
+                                                                        },
+                                                                    ),
+                                                                    argument: DecTerm::EntityPath(
+                                                                        DecItemPath::Type(
+                                                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                     ),
                                 ],
-                                return_ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 10,
-                                                },
-                                            ),
-                                        ),
+                                return_ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                     ),
                                 ),
                             },
@@ -261,23 +253,39 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
-                                            ty: Application(
-                                                DecApplication(
-                                                    Id {
-                                                        value: 4,
-                                                    },
-                                                ),
+                                            ty: DecTerm::Application(
+                                                DecApplication {
+                                                    function: DecTerm::LeashOrBitNot(
+                                                        Toolchain {
+                                                            data: ToolchainData::Local {
+                                                                library_path: "../../../library",
+                                                            },
+                                                        },
+                                                    ),
+                                                    argument: DecTerm::EntityPath(
+                                                        DecItemPath::Type(
+                                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 7,
-                                    },
-                                ),
+                            return_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`core::option::Option`, `Enum`),
+                                        ),
+                                    ),
+                                    argument: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`core::num::f32`, `Extern`),
+                                        ),
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -295,29 +303,17 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 ),
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
                                     ident: `mask`,
-                                    ty: EntityPath(
-                                        Type(
-                                            TypePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 287,
-                                                    },
-                                                ),
-                                            ),
+                                    ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist::BinaryImage28`, `Extern`),
                                         ),
                                     ),
                                     has_initialization: false,
@@ -333,29 +329,17 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Move,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 287,
-                                                            },
-                                                        ),
-                                                    ),
+                                            ty: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                                 ),
                                             ),
                                         },
                                     ),
                                 ],
-                                return_ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 12,
-                                                },
-                                            ),
-                                        ),
+                                return_ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                 ),
                             },
@@ -381,15 +365,9 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 134,
-                                                            },
-                                                        ),
-                                                    ),
+                                            ty: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                                 ),
                                             ),
                                         },
@@ -397,30 +375,18 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 134,
-                                                            },
-                                                        ),
-                                                    ),
+                                            ty: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                                 ),
                                             ),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 134,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
                             ),
                         },
@@ -445,27 +411,33 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 287,
-                                                            },
-                                                        ),
-                                                    ),
+                                            ty: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`mnist::BinaryImage28`, `Extern`),
                                                 ),
                                             ),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
+                            return_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::List(
+                                        DecList {
+                                            toolchain: Toolchain {
+                                                data: ToolchainData::Local {
+                                                    library_path: "../../../library",
+                                                },
+                                            },
+                                            items: [],
+                                        },
+                                    ),
+                                    argument: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -482,27 +454,15 @@
                         template_parameters: DecTemplateParameters {
                             data: [],
                         },
-                        trai: EntityPath(
-                            Trait(
-                                TraitPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 181,
-                                        },
-                                    ),
-                                ),
+                        trai: DecTerm::EntityPath(
+                            DecItemPath::Trait(
+                                TraitPath(`core::visual::Visualize`),
                             ),
                         ),
                         self_ty: DeclarativeSelfType::Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                            DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 ),
                             ),
                         ),
@@ -518,15 +478,9 @@
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodRitchie(
                         TraitForTypeMethodRitchieDecTemplate {
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 ),
                             ),
                             template_parameters: DecTemplateParameters {
@@ -534,30 +488,18 @@
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 12,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                 ),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 154,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::visual::Visual`, `Extern`),
                                 ),
                             ),
                         },
@@ -575,15 +517,9 @@
                         template_parameters: DecTemplateParameters {
                             data: [],
                         },
-                        ty: EntityPath(
-                            Type(
-                                TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 12,
-                                        },
-                                    ),
-                                ),
+                        ty: DecTerm::EntityPath(
+                            DecItemPath::Type(
+                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             ),
                         ),
                     },
@@ -606,24 +542,30 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 12,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 9,
-                                    },
-                                ),
+                            return_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::List(
+                                        DecList {
+                                            toolchain: Toolchain {
+                                                data: ToolchainData::Local {
+                                                    library_path: "../../../library",
+                                                },
+                                            },
+                                            items: [],
+                                        },
+                                    ),
+                                    argument: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        ),
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -646,27 +588,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 12,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 10,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                 ),
                             ),
                         },
@@ -690,27 +620,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 12,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 138,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         },
@@ -734,27 +652,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 12,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 138,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         },
@@ -778,27 +684,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 12,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 138,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         },
@@ -822,27 +716,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 12,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                 ),
                             ),
                         },
@@ -866,27 +748,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 12,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 138,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         },
@@ -910,27 +780,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 12,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 138,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         },
@@ -956,27 +814,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 12,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 ),
                             ),
                             template_parameters: DecTemplateParameters {
@@ -984,15 +830,9 @@
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 12,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                 ),
                             },
@@ -1001,30 +841,18 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 122,
-                                                            },
-                                                        ),
-                                                    ),
+                                            ty: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`core::num::i32`, `Extern`),
                                                 ),
                                             ),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 138,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         },
@@ -1050,27 +878,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 12,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 12,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 ),
                             ),
                             template_parameters: DecTemplateParameters {
@@ -1078,15 +894,9 @@
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 12,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                 ),
                             },
@@ -1095,30 +905,18 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 122,
-                                                            },
-                                                        ),
-                                                    ),
+                                            ty: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`core::num::i32`, `Extern`),
                                                 ),
                                             ),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 138,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         },

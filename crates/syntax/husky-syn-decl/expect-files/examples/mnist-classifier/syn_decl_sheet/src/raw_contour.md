@@ -368,7 +368,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
                         MajorFunctionRitchieSynDecl {
-                            path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                 Fn,
                             )`),
                             ritchie_item_kind: RitchieItemKind::Fn,
@@ -684,7 +684,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
                         MajorFunctionRitchieSynDecl {
-                            path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
                                 Fn,
                             )`),
                             ritchie_item_kind: RitchieItemKind::Fn,
@@ -1000,7 +1000,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
                         MajorFunctionRitchieSynDecl {
-                            path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
                                 Fn,
                             )`),
                             ritchie_item_kind: RitchieItemKind::Fn,
@@ -1316,7 +1316,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
                         MajorFunctionRitchieSynDecl {
-                            path: FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                                 Fn,
                             )`),
                             ritchie_item_kind: RitchieItemKind::Fn,
@@ -1731,7 +1731,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
                         MajorFunctionRitchieSynDecl {
-                            path: FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                                 Fn,
                             )`),
                             ritchie_item_kind: RitchieItemKind::Fn,
@@ -2047,7 +2047,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
                         MajorFunctionRitchieSynDecl {
-                            path: FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                                 Fn,
                             )`),
                             ritchie_item_kind: RitchieItemKind::Fn,
@@ -2824,7 +2824,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
                         MajorFunctionRitchieSynDecl {
-                            path: FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                                 Fn,
                             )`),
                             ritchie_item_kind: RitchieItemKind::Fn,
@@ -3054,7 +3054,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
                         MajorFunctionRitchieSynDecl {
-                            path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                                 Fn,
                             )`),
                             ritchie_item_kind: RitchieItemKind::Fn,

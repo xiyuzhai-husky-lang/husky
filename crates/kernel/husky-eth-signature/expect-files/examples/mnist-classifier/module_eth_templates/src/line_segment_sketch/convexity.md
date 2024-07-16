@@ -7,7 +7,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {

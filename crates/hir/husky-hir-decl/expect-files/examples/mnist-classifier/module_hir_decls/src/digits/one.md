@@ -4,7 +4,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Val(
                 MajorValHirDecl {
-                    path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -45,7 +45,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Val(
                 MajorValHirDecl {
-                    path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
                             ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
@@ -86,7 +86,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
                 MajorFunctionRitchieHirDecl {
-                    path: FormPath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::one::upmost`, `Ritchie(
                         Fn,
                     )`),
                     ritchie_item_kind: RitchieItemKind::Fn,
@@ -152,7 +152,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
                 MajorFunctionRitchieHirDecl {
-                    path: FormPath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::one::downmost`, `Ritchie(
                         Fn,
                     )`),
                     ritchie_item_kind: RitchieItemKind::Fn,
@@ -218,7 +218,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
                 MajorFunctionRitchieHirDecl {
-                    path: FormPath(`mnist_classifier::digits::one::hat`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::one::hat`, `Ritchie(
                         Fn,
                     )`),
                     ritchie_item_kind: RitchieItemKind::Fn,

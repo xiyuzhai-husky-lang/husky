@@ -1,15 +1,15 @@
 ```rust
 [
     (
-        FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+        MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
         None,
     ),
     (
-        FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+        MajorFormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
         None,
     ),
     (
-        FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+        MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
         Some(
             KiReprExpansion {
                 hir_lazy_variable_ki_repr_map: ArenaMap {
@@ -85,7 +85,7 @@
                         opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                    path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -95,7 +95,7 @@
                         ),
                         arguments: [],
                         source: KiReprSource::Val(
-                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -133,11 +133,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -161,11 +161,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -198,11 +198,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -235,11 +235,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -255,7 +255,7 @@
                         opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                    path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -265,7 +265,7 @@
                         ),
                         arguments: [],
                         source: KiReprSource::Val(
-                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -308,11 +308,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -327,7 +327,7 @@
                         opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                    path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -337,7 +337,7 @@
                         ),
                         arguments: [],
                         source: KiReprSource::Val(
-                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -380,11 +380,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -399,7 +399,7 @@
                         opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                    path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -409,7 +409,7 @@
                         ),
                         arguments: [],
                         source: KiReprSource::Val(
-                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -452,11 +452,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -499,11 +499,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -552,11 +552,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -607,11 +607,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -641,11 +641,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -684,11 +684,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -703,7 +703,7 @@
                         opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                    path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -713,7 +713,7 @@
                         ),
                         arguments: [],
                         source: KiReprSource::Val(
-                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -756,11 +756,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -775,7 +775,7 @@
                         opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                    path: MajorFormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -785,7 +785,7 @@
                         ),
                         arguments: [],
                         source: KiReprSource::Val(
-                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                            MajorFormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -828,11 +828,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -860,11 +860,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -885,7 +885,7 @@
                         opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorFunctionRitchie {
-                                    path: FormPath(`malamute::narrow_down`, `Ritchie(
+                                    path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
                                     instantiation: LinInstantiation {
@@ -956,11 +956,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -1012,11 +1012,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -1031,7 +1031,7 @@
                         opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                    path: MajorFormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -1041,7 +1041,7 @@
                         ),
                         arguments: [],
                         source: KiReprSource::Val(
-                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                            MajorFormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -1085,11 +1085,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -1119,11 +1119,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -1162,11 +1162,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -1205,11 +1205,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -1242,11 +1242,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -1300,11 +1300,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -1358,11 +1358,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -1413,11 +1413,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -1450,11 +1450,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -1487,11 +1487,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -1545,11 +1545,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -1599,11 +1599,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -1618,7 +1618,7 @@
                         opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                    path: MajorFormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -1628,7 +1628,7 @@
                         ),
                         arguments: [],
                         source: KiReprSource::Val(
-                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                            MajorFormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -1672,11 +1672,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -1691,7 +1691,7 @@
                         opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                    path: MajorFormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -1701,7 +1701,7 @@
                         ),
                         arguments: [],
                         source: KiReprSource::Val(
-                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                            MajorFormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -1744,11 +1744,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -1781,11 +1781,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -1828,11 +1828,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -1871,11 +1871,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -1926,11 +1926,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -1964,11 +1964,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -2002,11 +2002,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -2049,11 +2049,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -2068,7 +2068,7 @@
                         opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                    path: MajorFormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -2078,7 +2078,7 @@
                         ),
                         arguments: [],
                         source: KiReprSource::Val(
-                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                            MajorFormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -2105,11 +2105,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -2152,11 +2152,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -2206,11 +2206,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -2239,11 +2239,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -2264,7 +2264,7 @@
                         opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorFunctionRitchie {
-                                    path: FormPath(`malamute::narrow_down`, `Ritchie(
+                                    path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
                                     instantiation: LinInstantiation {
@@ -2330,11 +2330,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -2386,11 +2386,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -2409,24 +2409,18 @@
                             ),
                         ),
                         opn: KiOpn::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 265,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                         ),
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -2441,7 +2435,7 @@
                         opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                    path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -2451,7 +2445,7 @@
                         ),
                         arguments: [],
                         source: KiReprSource::Val(
-                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -2494,11 +2488,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -2531,11 +2525,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -2568,11 +2562,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -2626,11 +2620,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -2691,11 +2685,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -2745,11 +2739,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -2765,7 +2759,7 @@
                         opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                    path: MajorFormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -2775,7 +2769,7 @@
                         ),
                         arguments: [],
                         source: KiReprSource::Val(
-                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                            MajorFormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -2812,11 +2806,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -2832,7 +2826,7 @@
                         opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                    path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -2842,7 +2836,7 @@
                         ),
                         arguments: [],
                         source: KiReprSource::Val(
-                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -2864,11 +2858,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -2929,11 +2923,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -2961,11 +2955,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -2986,7 +2980,7 @@
                         opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorFunctionRitchie {
-                                    path: FormPath(`malamute::narrow_down`, `Ritchie(
+                                    path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
                                     instantiation: LinInstantiation {
@@ -3067,11 +3061,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -3123,11 +3117,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -3188,11 +3182,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -3243,11 +3237,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -3280,11 +3274,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -3327,11 +3321,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -3350,24 +3344,18 @@
                             ),
                         ),
                         opn: KiOpn::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 265,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                         ),
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -3386,24 +3374,18 @@
                             ),
                         ),
                         opn: KiOpn::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 265,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                         ),
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -3418,7 +3400,7 @@
                         opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                    path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -3428,7 +3410,7 @@
                         ),
                         arguments: [],
                         source: KiReprSource::Val(
-                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -3471,11 +3453,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -3503,11 +3485,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -3528,7 +3510,7 @@
                         opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorFunctionRitchie {
-                                    path: FormPath(`malamute::narrow_down`, `Ritchie(
+                                    path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
                                     instantiation: LinInstantiation {
@@ -3594,11 +3576,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -3650,11 +3632,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -3669,7 +3651,7 @@
                         opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                    path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -3679,7 +3661,7 @@
                         ),
                         arguments: [],
                         source: KiReprSource::Val(
-                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -3722,11 +3704,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -3759,11 +3741,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -3806,11 +3788,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -3825,7 +3807,7 @@
                         opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                    path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -3835,7 +3817,7 @@
                         ),
                         arguments: [],
                         source: KiReprSource::Val(
-                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -3878,11 +3860,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -3915,11 +3897,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -3962,11 +3944,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -4015,11 +3997,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -4070,11 +4052,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -4104,11 +4086,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -4147,11 +4129,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -4183,11 +4165,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -4236,11 +4218,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -4294,11 +4276,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -4331,11 +4313,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -4378,11 +4360,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -4431,11 +4413,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -4486,11 +4468,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -4520,11 +4502,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -4563,11 +4545,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -4616,11 +4598,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -4671,11 +4653,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -4705,11 +4687,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -4748,11 +4730,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -4784,11 +4766,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -4837,11 +4819,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -4895,11 +4877,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -4932,11 +4914,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -4979,11 +4961,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -5026,11 +5008,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -5064,11 +5046,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -5111,11 +5093,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -5134,24 +5116,18 @@
                             ),
                         ),
                         opn: KiOpn::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 265,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                         ),
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -5192,11 +5168,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -5235,11 +5211,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -5271,11 +5247,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -5307,11 +5283,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -5350,11 +5326,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -5410,11 +5386,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -5455,11 +5431,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -5491,11 +5467,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -5534,11 +5510,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -5577,11 +5553,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -5614,11 +5590,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -5684,11 +5660,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -5729,11 +5705,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -5772,11 +5748,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -5817,11 +5793,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -5860,11 +5836,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -5899,11 +5875,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -5969,11 +5945,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -6025,11 +6001,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -6070,11 +6046,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -6113,11 +6089,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -6158,11 +6134,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -6201,11 +6177,11 @@
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },
@@ -6224,24 +6200,18 @@
                             ),
                         ),
                         opn: KiOpn::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 265,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                         ),
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
                                 opn: KiOpn::ValLazilyDefined(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::Val(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 caching_class: Val,
                             },

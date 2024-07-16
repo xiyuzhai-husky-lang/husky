@@ -202,7 +202,7 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                                 block: DefnBlock::Form {
-                                    path: FormPath(`malamute::narrow_down`, `Ritchie(
+                                    path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
                                     body: None,
@@ -255,7 +255,7 @@ EntityTreeCrateBundle {
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Form(
-                                FormPath(`malamute::narrow_down`, `Ritchie(
+                                MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                     Gn,
                                 )`),
                             ),

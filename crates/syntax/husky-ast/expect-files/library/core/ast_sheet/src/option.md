@@ -7,13 +7,7 @@ AstSheet {
                     lcurl: None,
                     raw: 4,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 87,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`core::option::Option::Some`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         29,
@@ -37,13 +31,7 @@ AstSheet {
                     lcurl: None,
                     raw: 5,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 88,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`core::option::Option::None`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         34,

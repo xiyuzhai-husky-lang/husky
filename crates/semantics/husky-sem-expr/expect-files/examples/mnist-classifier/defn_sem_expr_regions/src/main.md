@@ -20,7 +20,7 @@
                                     path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -135,7 +135,7 @@
                                     path_expr_idx: 1,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -250,7 +250,7 @@
                                     path_expr_idx: 2,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -365,7 +365,7 @@
                                     path_expr_idx: 3,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                            MajorFormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -480,7 +480,7 @@
                                     path_expr_idx: 4,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                            MajorFormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -595,7 +595,7 @@
                                     path_expr_idx: 5,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                            MajorFormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -710,7 +710,7 @@
                                     path_expr_idx: 6,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                            MajorFormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -825,7 +825,7 @@
                                     path_expr_idx: 7,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                            MajorFormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -940,7 +940,7 @@
                                     path_expr_idx: 8,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                            MajorFormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -1054,13 +1054,7 @@
                                 SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 10,
                                     path: PrincipalEntityPath::TypeVariant(
-                                        TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 263,
-                                                },
-                                            ),
-                                        ),
+                                        TypeVariantPath(`malamute::Class::Unknown`),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(

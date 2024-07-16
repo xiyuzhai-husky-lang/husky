@@ -20,12 +20,41 @@
                                     },
                                 ],
                             },
-                            self_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 42,
-                                    },
-                                ),
+                            self_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`core::option::Option`, `Enum`),
+                                        ),
+                                    ),
+                                    argument: DecTerm::SymbolicVariable(
+                                        DecSymbolicVariable {
+                                            toolchain: Toolchain {
+                                                data: ToolchainData::Local {
+                                                    library_path: "../../../library",
+                                                },
+                                            },
+                                            ty: Ok(
+                                                Category(
+                                                    Sort {
+                                                        universe: Universe(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
+                                            index: DecSymbolicVariableIndex(
+                                                Type {
+                                                    attrs: DeclarativeTemplateVariableAttrs {
+                                                        class: Mono,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     ),

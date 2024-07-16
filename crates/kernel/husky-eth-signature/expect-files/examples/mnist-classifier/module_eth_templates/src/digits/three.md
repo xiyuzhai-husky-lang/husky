@@ -7,7 +7,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Val(
                         MajorValEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             return_ty: EthTerm(`FermiMatchResult`),
                         },
                     ),
@@ -22,7 +22,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Val(
                         MajorValEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                             return_ty: EthTerm(`OneVsAll MnistLabel Three`),
                         },
                     ),
@@ -37,7 +37,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::three::uparc`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::digits::three::uparc`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -72,7 +72,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::three::downarc`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::digits::three::downarc`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -107,7 +107,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::three::back`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::digits::three::back`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {

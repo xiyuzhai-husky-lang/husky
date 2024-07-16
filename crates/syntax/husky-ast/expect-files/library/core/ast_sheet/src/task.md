@@ -146,7 +146,7 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`core::task::Task`, `TypeVar`),
+                    path: MajorFormPath(`core::task::Task`, `TypeVar`),
                     body: None,
                 },
             },
@@ -185,7 +185,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`core::task::TASK`, `StaticVar`),
+                    path: MajorFormPath(`core::task::TASK`, `StaticVar`),
                     body: None,
                 },
             },

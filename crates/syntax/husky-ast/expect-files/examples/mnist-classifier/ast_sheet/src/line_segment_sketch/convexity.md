@@ -237,7 +237,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                         Fn,
                     )`),
                     body: Some(

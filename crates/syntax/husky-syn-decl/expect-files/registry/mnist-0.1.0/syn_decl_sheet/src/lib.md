@@ -249,7 +249,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::StaticVar(
                         MajorStaticVarSynDecl {
-                            path: FormPath(`mnist::INPUT`, `StaticVar`),
+                            path: MajorFormPath(`mnist::INPUT`, `StaticVar`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 0,
                             },

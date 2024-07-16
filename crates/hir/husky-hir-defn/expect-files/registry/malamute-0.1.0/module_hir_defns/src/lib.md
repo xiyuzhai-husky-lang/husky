@@ -75,21 +75,9 @@
     HirDefn::TypeVariant(
         TypeVariantHirDefn::Tuple(
             EnumTupleVariantHirDefn {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 2,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`malamute::Class::Known`),
                 hir_decl: EnumTupleVariantHirDecl {
-                    path: TypeVariantPath(
-                        ItemPathId(
-                            Id {
-                                value: 2,
-                            },
-                        ),
-                    ),
+                    path: TypeVariantPath(`malamute::Class::Known`),
                     fields: [
                         EnumTupleVariantField {
                             ty: HirType::Variable(
@@ -151,21 +139,9 @@
     HirDefn::TypeVariant(
         TypeVariantHirDefn::Unit(
             EnumUnitVariantHirDefn {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 3,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`malamute::Class::Unknown`),
                 hir_decl: EnumUnitTypeVariantHirDecl {
-                    path: TypeVariantPath(
-                        ItemPathId(
-                            Id {
-                                value: 3,
-                            },
-                        ),
-                    ),
+                    path: TypeVariantPath(`malamute::Class::Unknown`),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`malamute::Class::Unknown`),
@@ -254,21 +230,9 @@
     HirDefn::TypeVariant(
         TypeVariantHirDefn::Unit(
             EnumUnitVariantHirDefn {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 5,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`malamute::OneVsAll::Yes`),
                 hir_decl: EnumUnitTypeVariantHirDecl {
-                    path: TypeVariantPath(
-                        ItemPathId(
-                            Id {
-                                value: 5,
-                            },
-                        ),
-                    ),
+                    path: TypeVariantPath(`malamute::OneVsAll::Yes`),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`malamute::OneVsAll::Yes`),
@@ -301,21 +265,9 @@
     HirDefn::TypeVariant(
         TypeVariantHirDefn::Unit(
             EnumUnitVariantHirDefn {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 6,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`malamute::OneVsAll::No`),
                 hir_decl: EnumUnitTypeVariantHirDecl {
-                    path: TypeVariantPath(
-                        ItemPathId(
-                            Id {
-                                value: 6,
-                            },
-                        ),
-                    ),
+                    path: TypeVariantPath(`malamute::OneVsAll::No`),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`malamute::OneVsAll::No`),
@@ -388,21 +340,9 @@
     HirDefn::TypeVariant(
         TypeVariantHirDefn::Unit(
             EnumUnitVariantHirDefn {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 8,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentYes`),
                 hir_decl: EnumUnitTypeVariantHirDecl {
-                    path: TypeVariantPath(
-                        ItemPathId(
-                            Id {
-                                value: 8,
-                            },
-                        ),
-                    ),
+                    path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentYes`),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`malamute::OneVsAllResult::ConfidentYes`),
@@ -435,21 +375,9 @@
     HirDefn::TypeVariant(
         TypeVariantHirDefn::Unit(
             EnumUnitVariantHirDefn {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 9,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentNo`),
                 hir_decl: EnumUnitTypeVariantHirDecl {
-                    path: TypeVariantPath(
-                        ItemPathId(
-                            Id {
-                                value: 9,
-                            },
-                        ),
-                    ),
+                    path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentNo`),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`malamute::OneVsAllResult::ConfidentNo`),
@@ -482,21 +410,9 @@
     HirDefn::TypeVariant(
         TypeVariantHirDefn::Unit(
             EnumUnitVariantHirDefn {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 10,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`malamute::OneVsAllResult::Unconfident`),
                 hir_decl: EnumUnitTypeVariantHirDecl {
-                    path: TypeVariantPath(
-                        ItemPathId(
-                            Id {
-                                value: 10,
-                            },
-                        ),
-                    ),
+                    path: TypeVariantPath(`malamute::OneVsAllResult::Unconfident`),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`malamute::OneVsAllResult::Unconfident`),
@@ -530,11 +446,11 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
                 MajorFunctionRitchieHirDefn {
-                    path: FormPath(`malamute::narrow_down`, `Ritchie(
+                    path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                         Gn,
                     )`),
                     hir_decl: MajorFunctionRitchieHirDecl {
-                        path: FormPath(`malamute::narrow_down`, `Ritchie(
+                        path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                             Gn,
                         )`),
                         ritchie_item_kind: RitchieItemKind::Gn,
@@ -765,13 +681,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 6,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    TypeVariantPath(`malamute::OneVsAll::No`),
                                                 ),
                                             ),
                                             contracted_quary: HirContractedQuary {
@@ -1301,13 +1211,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeVariantConstructorCall {
-                                                path: TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 2,
-                                                        },
-                                                    ),
-                                                ),
+                                                path: TypeVariantPath(`malamute::Class::Known`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
                                                         (
@@ -1371,13 +1275,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeVariantConstructorCall {
-                                                path: TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 112,
-                                                        },
-                                                    ),
-                                                ),
+                                                path: TypeVariantPath(`core::ops::ControlFlow::Break`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
                                                         (
@@ -1486,13 +1384,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeVariantConstructorCall {
-                                                path: TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 111,
-                                                        },
-                                                    ),
-                                                ),
+                                                path: TypeVariantPath(`core::ops::ControlFlow::Continue`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
                                                         (
@@ -1649,13 +1541,7 @@
                                         HirEagerPatternEntry {
                                             data: HirEagerPatternData::UnitPath(
                                                 PatternPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 5,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    TypeVariantPath(`malamute::OneVsAll::Yes`),
                                                 ),
                                             ),
                                             contract: Pure,
@@ -1663,13 +1549,7 @@
                                         HirEagerPatternEntry {
                                             data: HirEagerPatternData::UnitPath(
                                                 PatternPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 6,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    TypeVariantPath(`malamute::OneVsAll::No`),
                                                 ),
                                             ),
                                             contract: Pure,
@@ -1999,13 +1879,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 5,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    TypeVariantPath(`malamute::OneVsAll::Yes`),
                                                 ),
                                             ),
                                             contracted_quary: HirContractedQuary {
@@ -2019,13 +1893,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeVariantConstructorCall {
-                                                path: TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 112,
-                                                        },
-                                                    ),
-                                                ),
+                                                path: TypeVariantPath(`core::ops::ControlFlow::Break`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
                                                         (
@@ -2108,13 +1976,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
                                                 PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 6,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    TypeVariantPath(`malamute::OneVsAll::No`),
                                                 ),
                                             ),
                                             contracted_quary: HirContractedQuary {
@@ -2128,13 +1990,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeVariantConstructorCall {
-                                                path: TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 112,
-                                                        },
-                                                    ),
-                                                ),
+                                                path: TypeVariantPath(`core::ops::ControlFlow::Break`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
                                                         (
@@ -2231,13 +2087,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeVariantConstructorCall {
-                                                path: TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 111,
-                                                        },
-                                                    ),
-                                                ),
+                                                path: TypeVariantPath(`core::ops::ControlFlow::Continue`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
                                                         (
@@ -2399,13 +2249,7 @@
                                         HirEagerPatternEntry {
                                             data: HirEagerPatternData::UnitPath(
                                                 PatternPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 8,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    TypeVariantPath(`malamute::OneVsAllResult::ConfidentYes`),
                                                 ),
                                             ),
                                             contract: Pure,
@@ -2413,13 +2257,7 @@
                                         HirEagerPatternEntry {
                                             data: HirEagerPatternData::UnitPath(
                                                 PatternPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 9,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    TypeVariantPath(`malamute::OneVsAllResult::ConfidentNo`),
                                                 ),
                                             ),
                                             contract: Pure,
@@ -2427,13 +2265,7 @@
                                         HirEagerPatternEntry {
                                             data: HirEagerPatternData::UnitPath(
                                                 PatternPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 10,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    TypeVariantPath(`malamute::OneVsAllResult::Unconfident`),
                                                 ),
                                             ),
                                             contract: Pure,

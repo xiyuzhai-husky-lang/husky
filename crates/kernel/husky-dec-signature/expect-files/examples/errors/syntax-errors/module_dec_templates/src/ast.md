@@ -10,15 +10,9 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`syntax_errors::ast::A`, `Struct`),
                                 ),
                             ),
                             fields: [],
@@ -29,15 +23,9 @@
                                     ),
                                 ),
                                 params: [],
-                                return_ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 3,
-                                                },
-                                            ),
-                                        ),
+                                return_ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`syntax_errors::ast::A`, `Struct`),
                                     ),
                                 ),
                             },
@@ -56,15 +44,9 @@
                         template_parameters: DecTemplateParameters {
                             data: [],
                         },
-                        ty: EntityPath(
-                            Type(
-                                TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 3,
-                                        },
-                                    ),
-                                ),
+                        ty: DecTerm::EntityPath(
+                            DecItemPath::Type(
+                                TypePath(`syntax_errors::ast::A`, `Struct`),
                             ),
                         ),
                     },

@@ -192,13 +192,7 @@ SynNodeDeclSheet {
                                                 path_expr_idx: 3,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::TypeVariant(
-                                                        TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 285,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        TypeVariantPath(`mnist::MnistLabel::Eight`),
                                                     ),
                                                 ),
                                             },
@@ -272,13 +266,7 @@ SynNodeDeclSheet {
                                                 ),
                                                 path: Ok(
                                                     PrincipalEntityPath::TypeVariant(
-                                                        TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 285,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        TypeVariantPath(`mnist::MnistLabel::Eight`),
                                                     ),
                                                 ),
                                             },

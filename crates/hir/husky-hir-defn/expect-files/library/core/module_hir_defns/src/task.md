@@ -42,11 +42,11 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::StaticVar(
                 MajorStaticVarHirDefn {
-                    path: FormPath(`core::task::TASK`, `StaticVar`),
+                    path: MajorFormPath(`core::task::TASK`, `StaticVar`),
                     hir_decl: MajorStaticVarHirDecl {
-                        path: FormPath(`core::task::TASK`, `StaticVar`),
+                        path: MajorFormPath(`core::task::TASK`, `StaticVar`),
                         return_ty: HirType::TypeVar(
-                            FormPath(`core::task::Task`, `TypeVar`),
+                            MajorFormPath(`core::task::Task`, `TypeVar`),
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::ItemDecl(

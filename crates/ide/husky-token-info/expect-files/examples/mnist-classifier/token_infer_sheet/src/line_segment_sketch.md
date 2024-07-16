@@ -1610,7 +1610,7 @@ Ok(
                         0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -1619,7 +1619,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -2729,7 +2729,7 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -2738,7 +2738,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -4868,7 +4868,7 @@ Ok(
                         0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -4877,7 +4877,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -4961,7 +4961,7 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -4970,7 +4970,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -5403,7 +5403,7 @@ Ok(
                         2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -5412,7 +5412,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -5495,7 +5495,7 @@ Ok(
                         3,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -5504,7 +5504,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -6557,7 +6557,7 @@ Ok(
                         0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -6566,7 +6566,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -6650,7 +6650,7 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -6659,7 +6659,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -7076,7 +7076,7 @@ Ok(
                         2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -7085,7 +7085,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -7168,7 +7168,7 @@ Ok(
                         3,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -7177,7 +7177,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -8032,7 +8032,7 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -8041,7 +8041,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -8766,7 +8766,7 @@ Ok(
                         4,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -8775,7 +8775,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                                     Fn,
                                 )`),
                             ),

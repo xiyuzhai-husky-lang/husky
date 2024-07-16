@@ -678,13 +678,7 @@
                                 SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 3,
                                     path: PrincipalEntityPath::TypeVariant(
-                                        TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 277,
-                                                },
-                                            ),
-                                        ),
+                                        TypeVariantPath(`mnist::MnistLabel::Zero`),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(

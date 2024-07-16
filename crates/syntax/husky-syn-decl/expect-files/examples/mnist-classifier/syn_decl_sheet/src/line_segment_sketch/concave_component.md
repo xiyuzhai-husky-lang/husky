@@ -313,7 +313,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
                         MajorFunctionRitchieSynDecl {
-                            path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                 Fn,
                             )`),
                             ritchie_item_kind: RitchieItemKind::Fn,

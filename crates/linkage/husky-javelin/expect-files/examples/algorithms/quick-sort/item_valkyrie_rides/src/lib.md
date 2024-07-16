@@ -74,7 +74,7 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::Form(
-                            FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                            MajorFormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                 Fn,
                             )`),
                         ),
@@ -145,7 +145,7 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         path: JavPath::Form(
-                            FormPath(`quick_sort::partition`, `Ritchie(
+                            MajorFormPath(`quick_sort::partition`, `Ritchie(
                                 Fn,
                             )`),
                         ),
@@ -181,7 +181,7 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::Form(
-                            FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                            MajorFormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                 Fn,
                             )`),
                         ),

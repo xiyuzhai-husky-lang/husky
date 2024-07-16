@@ -7,7 +7,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Val(
                         MajorValEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             return_ty: EthTerm(`FermiMatchResult`),
                         },
                     ),
@@ -22,7 +22,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -57,7 +57,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -92,7 +92,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -127,7 +127,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Val(
                         MajorValEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                             return_ty: EthTerm(`OneVsAll MnistLabel Two`),
                         },
                     ),

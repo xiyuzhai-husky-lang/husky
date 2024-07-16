@@ -7,7 +7,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Val(
                         MajorValEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                             return_ty: EthTerm(`FermiMatchResult`),
                         },
                     ),
@@ -22,7 +22,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Val(
                         MajorValEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                             return_ty: EthTerm(`OneVsAll MnistLabel One`),
                         },
                     ),
@@ -37,7 +37,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::digits::one::upmost`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -72,7 +72,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::digits::one::downmost`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -107,7 +107,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::one::hat`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::digits::one::hat`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {

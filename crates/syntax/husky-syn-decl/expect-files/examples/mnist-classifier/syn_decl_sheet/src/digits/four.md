@@ -7,7 +7,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Val(
                         MajorValSynDecl {
-                            path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 0,
                             },
@@ -107,7 +107,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
                         MajorFunctionRitchieSynDecl {
-                            path: FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
                                 Fn,
                             )`),
                             ritchie_item_kind: RitchieItemKind::Fn,
@@ -338,7 +338,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Val(
                         MajorValSynDecl {
-                            path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 0,
                             },
@@ -438,7 +438,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Val(
                         MajorValSynDecl {
-                            path: FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 0,
                             },
@@ -538,7 +538,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Val(
                         MajorValSynDecl {
-                            path: FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::four::is_four`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 4,
                             },
@@ -583,13 +583,7 @@ SynDeclSheet {
                                                 path_expr_idx: 3,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::TypeVariant(
-                                                        TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 281,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        TypeVariantPath(`mnist::MnistLabel::Four`),
                                                     ),
                                                 ),
                                             },
@@ -663,13 +657,7 @@ SynDeclSheet {
                                                 ),
                                                 path: Ok(
                                                     PrincipalEntityPath::TypeVariant(
-                                                        TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 281,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        TypeVariantPath(`mnist::MnistLabel::Four`),
                                                     ),
                                                 ),
                                             },
@@ -727,7 +715,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
                         MajorFunctionRitchieSynDecl {
-                            path: FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
                                 Fn,
                             )`),
                             ritchie_item_kind: RitchieItemKind::Fn,
@@ -958,7 +946,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
                         MajorFunctionRitchieSynDecl {
-                            path: FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
                                 Fn,
                             )`),
                             ritchie_item_kind: RitchieItemKind::Fn,

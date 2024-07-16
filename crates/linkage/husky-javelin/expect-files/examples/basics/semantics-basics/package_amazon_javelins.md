@@ -4,7 +4,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`semantics_basics::some_neural_network`, `Ritchie(
+                    MajorFormPath(`semantics_basics::some_neural_network`, `Ritchie(
                         Gn,
                     )`),
                 ),

@@ -1199,21 +1199,9 @@
     HirDefn::TypeVariant(
         TypeVariantHirDefn::Tuple(
             EnumTupleVariantHirDefn {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 84,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`core::ops::ControlFlow::Continue`),
                 hir_decl: EnumTupleVariantHirDecl {
-                    path: TypeVariantPath(
-                        ItemPathId(
-                            Id {
-                                value: 84,
-                            },
-                        ),
-                    ),
+                    path: TypeVariantPath(`core::ops::ControlFlow::Continue`),
                     fields: [
                         EnumTupleVariantField {
                             ty: HirType::Variable(
@@ -1290,21 +1278,9 @@
     HirDefn::TypeVariant(
         TypeVariantHirDefn::Tuple(
             EnumTupleVariantHirDefn {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 85,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`core::ops::ControlFlow::Break`),
                 hir_decl: EnumTupleVariantHirDecl {
-                    path: TypeVariantPath(
-                        ItemPathId(
-                            Id {
-                                value: 85,
-                            },
-                        ),
-                    ),
+                    path: TypeVariantPath(`core::ops::ControlFlow::Break`),
                     fields: [
                         EnumTupleVariantField {
                             ty: HirType::Variable(

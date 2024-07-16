@@ -3457,7 +3457,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -3513,7 +3513,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -3931,7 +3931,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -3987,7 +3987,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -4402,7 +4402,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -4419,7 +4419,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -4436,7 +4436,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -4453,7 +4453,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -6558,7 +6558,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -6614,7 +6614,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -6965,7 +6965,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -7021,7 +7021,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -7606,7 +7606,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -7623,7 +7623,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -7640,7 +7640,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -7657,7 +7657,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -9401,7 +9401,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -10146,7 +10146,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -11858,7 +11858,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -11905,7 +11905,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -16204,7 +16204,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -16252,7 +16252,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -18446,7 +18446,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -18556,7 +18556,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),

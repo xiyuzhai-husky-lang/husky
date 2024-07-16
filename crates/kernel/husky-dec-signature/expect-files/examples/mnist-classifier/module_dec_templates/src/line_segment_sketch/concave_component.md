@@ -10,37 +10,58 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 47,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                 ),
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
                                     ident: `line_segment_sketch`,
-                                    ty: Application(
-                                        DecApplication(
-                                            Id {
-                                                value: 27,
-                                            },
-                                        ),
+                                    ty: DecTerm::Application(
+                                        DecApplication {
+                                            function: DecTerm::LeashOrBitNot(
+                                                Toolchain {
+                                                    data: ToolchainData::Local {
+                                                        library_path: "../../../library",
+                                                    },
+                                                },
+                                            ),
+                                            argument: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                ),
+                                            ),
+                                        },
                                     ),
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
                                     ident: `strokes`,
-                                    ty: Application(
-                                        DecApplication(
-                                            Id {
-                                                value: 29,
-                                            },
-                                        ),
+                                    ty: DecTerm::Application(
+                                        DecApplication {
+                                            function: DecTerm::LeashOrBitNot(
+                                                Toolchain {
+                                                    data: ToolchainData::Local {
+                                                        library_path: "../../../library",
+                                                    },
+                                                },
+                                            ),
+                                            argument: DecTerm::Application(
+                                                DecApplication {
+                                                    function: DecTerm::EntityPath(
+                                                        DecItemPath::Type(
+                                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                        ),
+                                                    ),
+                                                    argument: DecTerm::EntityPath(
+                                                        DecItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                     has_initialization: false,
                                 },
@@ -55,37 +76,58 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Move,
-                                            ty: Application(
-                                                DecApplication(
-                                                    Id {
-                                                        value: 27,
-                                                    },
-                                                ),
+                                            ty: DecTerm::Application(
+                                                DecApplication {
+                                                    function: DecTerm::LeashOrBitNot(
+                                                        Toolchain {
+                                                            data: ToolchainData::Local {
+                                                                library_path: "../../../library",
+                                                            },
+                                                        },
+                                                    ),
+                                                    argument: DecTerm::EntityPath(
+                                                        DecItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Move,
-                                            ty: Application(
-                                                DecApplication(
-                                                    Id {
-                                                        value: 29,
-                                                    },
-                                                ),
+                                            ty: DecTerm::Application(
+                                                DecApplication {
+                                                    function: DecTerm::LeashOrBitNot(
+                                                        Toolchain {
+                                                            data: ToolchainData::Local {
+                                                                library_path: "../../../library",
+                                                            },
+                                                        },
+                                                    ),
+                                                    argument: DecTerm::Application(
+                                                        DecApplication {
+                                                            function: DecTerm::EntityPath(
+                                                                DecItemPath::Type(
+                                                                    TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                                ),
+                                                            ),
+                                                            argument: DecTerm::EntityPath(
+                                                                DecItemPath::Type(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                     ),
                                 ],
-                                return_ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 47,
-                                                },
-                                            ),
-                                        ),
+                                return_ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 ),
                             },
@@ -111,23 +153,44 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
-                                            ty: Application(
-                                                DecApplication(
-                                                    Id {
-                                                        value: 27,
-                                                    },
-                                                ),
+                                            ty: DecTerm::Application(
+                                                DecApplication {
+                                                    function: DecTerm::LeashOrBitNot(
+                                                        Toolchain {
+                                                            data: ToolchainData::Local {
+                                                                library_path: "../../../library",
+                                                            },
+                                                        },
+                                                    ),
+                                                    argument: DecTerm::EntityPath(
+                                                        DecItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 30,
-                                    },
-                                ),
+                            return_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::List(
+                                        DecList {
+                                            toolchain: Toolchain {
+                                                data: ToolchainData::Local {
+                                                    library_path: "../../../library",
+                                                },
+                                            },
+                                            items: [],
+                                        },
+                                    ),
+                                    argument: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ),
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -144,27 +207,15 @@
                         template_parameters: DecTemplateParameters {
                             data: [],
                         },
-                        trai: EntityPath(
-                            Trait(
-                                TraitPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 181,
-                                        },
-                                    ),
-                                ),
+                        trai: DecTerm::EntityPath(
+                            DecItemPath::Trait(
+                                TraitPath(`core::visual::Visualize`),
                             ),
                         ),
                         self_ty: DeclarativeSelfType::Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 47,
-                                            },
-                                        ),
-                                    ),
+                            DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                 ),
                             ),
                         ),
@@ -180,15 +231,9 @@
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodRitchie(
                         TraitForTypeMethodRitchieDecTemplate {
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 47,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                 ),
                             ),
                             template_parameters: DecTemplateParameters {
@@ -196,30 +241,18 @@
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 47,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 ),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 154,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::visual::Visual`, `Extern`),
                                 ),
                             ),
                         },
@@ -237,15 +270,9 @@
                         template_parameters: DecTemplateParameters {
                             data: [],
                         },
-                        ty: EntityPath(
-                            Type(
-                                TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 47,
-                                        },
-                                    ),
-                                ),
+                        ty: DecTerm::EntityPath(
+                            DecItemPath::Type(
+                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                             ),
                         ),
                     },
@@ -268,27 +295,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 47,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 138,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         },
@@ -312,27 +327,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 47,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 138,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         },
@@ -356,27 +359,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 47,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 138,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         },
@@ -400,27 +391,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 47,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 138,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         },
@@ -444,27 +423,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 47,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 34,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 ),
                             ),
                         },
@@ -488,27 +455,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 47,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 35,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 ),
                             ),
                         },
@@ -534,27 +489,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 47,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 47,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                 ),
                             ),
                             template_parameters: DecTemplateParameters {
@@ -562,30 +505,18 @@
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 47,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 ),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 51,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                 ),
                             ),
                         },
@@ -611,27 +542,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 47,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 47,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                 ),
                             ),
                             template_parameters: DecTemplateParameters {
@@ -639,30 +558,18 @@
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 47,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 ),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 30,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 ),
                             ),
                         },
@@ -688,27 +595,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 47,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 47,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                 ),
                             ),
                             template_parameters: DecTemplateParameters {
@@ -716,30 +611,18 @@
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 47,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 ),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 30,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 ),
                             ),
                         },
@@ -765,27 +648,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 47,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 47,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                 ),
                             ),
                             template_parameters: DecTemplateParameters {
@@ -793,30 +664,18 @@
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 47,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 ),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 32,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ),
                             ),
                         },
@@ -842,27 +701,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 47,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 47,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                 ),
                             ),
                             template_parameters: DecTemplateParameters {
@@ -870,30 +717,18 @@
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 47,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 ),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 32,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ),
                             ),
                         },
@@ -919,27 +754,15 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 47,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 47,
-                                            },
-                                        ),
-                                    ),
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                 ),
                             ),
                             template_parameters: DecTemplateParameters {
@@ -947,30 +770,18 @@
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 47,
-                                                },
-                                            ),
-                                        ),
+                                ty: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                 ),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 32,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ),
                             ),
                         },

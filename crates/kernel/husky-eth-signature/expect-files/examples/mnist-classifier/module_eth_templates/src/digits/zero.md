@@ -7,7 +7,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Val(
                         MajorValEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                             return_ty: EthTerm(`FermiMatchResult`),
                         },
                     ),
@@ -22,7 +22,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -57,7 +57,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Val(
                         MajorValEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                             return_ty: EthTerm(`OneVsAll MnistLabel Zero`),
                         },
                     ),

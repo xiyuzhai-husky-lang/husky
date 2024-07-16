@@ -7,7 +7,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Val(
                         MajorValSynDecl {
-                            path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 4,
                             },
@@ -52,13 +52,7 @@ SynDeclSheet {
                                                 path_expr_idx: 3,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::TypeVariant(
-                                                        TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 282,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        TypeVariantPath(`mnist::MnistLabel::Five`),
                                                     ),
                                                 ),
                                             },
@@ -132,13 +126,7 @@ SynDeclSheet {
                                                 ),
                                                 path: Ok(
                                                     PrincipalEntityPath::TypeVariant(
-                                                        TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 282,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        TypeVariantPath(`mnist::MnistLabel::Five`),
                                                     ),
                                                 ),
                                             },

@@ -48,13 +48,7 @@
                                                 path_expr_idx: 3,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::TypeVariant(
-                                                        TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 282,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        TypeVariantPath(`mnist::MnistLabel::Five`),
                                                     ),
                                                 ),
                                             },
@@ -128,13 +122,7 @@
                                                 ),
                                                 path: Ok(
                                                     PrincipalEntityPath::TypeVariant(
-                                                        TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 282,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        TypeVariantPath(`mnist::MnistLabel::Five`),
                                                     ),
                                                 ),
                                             },
@@ -195,13 +183,7 @@
                                     path_expr_idx: 1,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 265,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                                         ),
                                     ),
                                 },
@@ -246,13 +228,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 265,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                                         ),
                                     ),
                                 },

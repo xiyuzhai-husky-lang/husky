@@ -573,7 +573,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
                         MajorFunctionRitchieSynDecl {
-                            path: FormPath(`malamute::narrow_down`, `Ritchie(
+                            path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             ritchie_item_kind: RitchieItemKind::Gn,

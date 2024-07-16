@@ -132,7 +132,7 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         path: JavPath::Form(
-                            FormPath(`malamute::narrow_down`, `Ritchie(
+                            MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                         ),
@@ -186,7 +186,7 @@
                                                 TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 283,
+                                                            value: 284,
                                                         },
                                                     ),
                                                 ),

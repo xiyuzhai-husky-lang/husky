@@ -457,13 +457,7 @@ AstSheet {
                     lcurl: None,
                     raw: 43,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 103,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         414,
@@ -487,13 +481,7 @@ AstSheet {
                     lcurl: None,
                     raw: 44,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 104,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         416,
@@ -517,13 +505,7 @@ AstSheet {
                     lcurl: None,
                     raw: 45,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 105,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         418,
@@ -547,13 +529,7 @@ AstSheet {
                     lcurl: None,
                     raw: 46,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 106,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         420,
@@ -2011,7 +1987,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                         Fn,
                     )`),
                     body: Some(
@@ -2056,7 +2032,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
                         Fn,
                     )`),
                     body: Some(
@@ -2101,7 +2077,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
                         Fn,
                     )`),
                     body: Some(
@@ -2146,7 +2122,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                         Fn,
                     )`),
                     body: Some(
@@ -2191,7 +2167,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                         Fn,
                     )`),
                     body: Some(
@@ -2236,7 +2212,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                         Fn,
                     )`),
                     body: Some(
@@ -2316,7 +2292,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                         Fn,
                     )`),
                     body: Some(
@@ -2365,7 +2341,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                         Fn,
                     )`),
                     body: Some(

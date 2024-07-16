@@ -7,13 +7,7 @@
                     ty_path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 10,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::UnitVariant`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -29,13 +23,7 @@
                     ty_path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 10,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::UnitVariant`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -51,13 +39,7 @@
                     ty_path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 11,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithOneField`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -73,13 +55,7 @@
                     ty_path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 11,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithOneField`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -95,13 +71,7 @@
                     ty_path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 11,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithOneField`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -113,13 +83,7 @@
     (
         Linkage {
             data: LinkageData::EnumVariantField {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 11,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithOneField`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -144,13 +108,7 @@
                     ty_path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 12,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithTwoFields`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -166,13 +124,7 @@
                     ty_path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 12,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithTwoFields`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -188,13 +140,7 @@
                     ty_path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 12,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithTwoFields`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -206,13 +152,7 @@
     (
         Linkage {
             data: LinkageData::EnumVariantField {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 12,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithTwoFields`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -233,13 +173,7 @@
     (
         Linkage {
             data: LinkageData::EnumVariantField {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 12,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithTwoFields`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -264,13 +198,7 @@
                     ty_path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 13,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithOneField`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -286,13 +214,7 @@
                     ty_path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 13,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithOneField`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -308,13 +230,7 @@
                     ty_path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 13,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithOneField`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -326,13 +242,7 @@
     (
         Linkage {
             data: LinkageData::EnumVariantField {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 13,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithOneField`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -351,13 +261,7 @@
                     ty_path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 14,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithTwoFields`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -373,13 +277,7 @@
                     ty_path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 14,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithTwoFields`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -395,13 +293,7 @@
                     ty_path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
                     template_arguments: [],
                 },
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 14,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithTwoFields`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -413,13 +305,7 @@
     (
         Linkage {
             data: LinkageData::EnumVariantField {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 14,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithTwoFields`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -434,13 +320,7 @@
     (
         Linkage {
             data: LinkageData::EnumVariantField {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 14,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithTwoFields`),
                 instantiation: LinInstantiation {
                     symbol_resolutions: [],
                     separator: None,
@@ -455,7 +335,7 @@
     (
         Linkage {
             data: LinkageData::MajorFunctionRitchie {
-                path: FormPath(`syntax_basics::expr::nested`, `Ritchie(
+                path: MajorFormPath(`syntax_basics::expr::nested`, `Ritchie(
                     Fn,
                 )`),
                 instantiation: LinInstantiation {
@@ -468,7 +348,7 @@
             VmirRegion {
                 linkage: Linkage {
                     data: LinkageData::MajorFunctionRitchie {
-                        path: FormPath(`syntax_basics::expr::nested`, `Ritchie(
+                        path: MajorFormPath(`syntax_basics::expr::nested`, `Ritchie(
                             Fn,
                         )`),
                         instantiation: LinInstantiation {
@@ -538,7 +418,7 @@
     (
         Linkage {
             data: LinkageData::MajorFunctionRitchie {
-                path: FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                path: MajorFormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                     Fn,
                 )`),
                 instantiation: LinInstantiation {
@@ -551,7 +431,7 @@
             VmirRegion {
                 linkage: Linkage {
                     data: LinkageData::MajorFunctionRitchie {
-                        path: FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                        path: MajorFormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                             Fn,
                         )`),
                         instantiation: LinInstantiation {
@@ -600,7 +480,7 @@
     (
         Linkage {
             data: LinkageData::MajorFunctionRitchie {
-                path: FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                path: MajorFormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                     Fn,
                 )`),
                 instantiation: LinInstantiation {
@@ -613,7 +493,7 @@
             VmirRegion {
                 linkage: Linkage {
                     data: LinkageData::MajorFunctionRitchie {
-                        path: FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                        path: MajorFormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                             Fn,
                         )`),
                         instantiation: LinInstantiation {

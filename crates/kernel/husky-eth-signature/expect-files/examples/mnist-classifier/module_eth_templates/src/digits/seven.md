@@ -7,7 +7,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Val(
                         MajorValEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                             return_ty: EthTerm(`FermiMatchResult`),
                         },
                     ),
@@ -22,7 +22,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -57,7 +57,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Val(
                         MajorValEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                             return_ty: EthTerm(`FermiMatchResult`),
                         },
                     ),
@@ -72,7 +72,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -107,7 +107,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -142,7 +142,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Val(
                         MajorValEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                             return_ty: EthTerm(`OneVsAll MnistLabel Seven`),
                         },
                     ),

@@ -50,21 +50,9 @@
     HirDefn::TypeVariant(
         TypeVariantHirDefn::Unit(
             EnumUnitVariantHirDefn {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 3,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Zero`),
                 hir_decl: EnumUnitTypeVariantHirDecl {
-                    path: TypeVariantPath(
-                        ItemPathId(
-                            Id {
-                                value: 3,
-                            },
-                        ),
-                    ),
+                    path: TypeVariantPath(`mnist::MnistLabel::Zero`),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist::MnistLabel::Zero`),
@@ -97,21 +85,9 @@
     HirDefn::TypeVariant(
         TypeVariantHirDefn::Unit(
             EnumUnitVariantHirDefn {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 4,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::One`),
                 hir_decl: EnumUnitTypeVariantHirDecl {
-                    path: TypeVariantPath(
-                        ItemPathId(
-                            Id {
-                                value: 4,
-                            },
-                        ),
-                    ),
+                    path: TypeVariantPath(`mnist::MnistLabel::One`),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist::MnistLabel::One`),
@@ -144,21 +120,9 @@
     HirDefn::TypeVariant(
         TypeVariantHirDefn::Unit(
             EnumUnitVariantHirDefn {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 5,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Two`),
                 hir_decl: EnumUnitTypeVariantHirDecl {
-                    path: TypeVariantPath(
-                        ItemPathId(
-                            Id {
-                                value: 5,
-                            },
-                        ),
-                    ),
+                    path: TypeVariantPath(`mnist::MnistLabel::Two`),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist::MnistLabel::Two`),
@@ -191,21 +155,9 @@
     HirDefn::TypeVariant(
         TypeVariantHirDefn::Unit(
             EnumUnitVariantHirDefn {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 6,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Three`),
                 hir_decl: EnumUnitTypeVariantHirDecl {
-                    path: TypeVariantPath(
-                        ItemPathId(
-                            Id {
-                                value: 6,
-                            },
-                        ),
-                    ),
+                    path: TypeVariantPath(`mnist::MnistLabel::Three`),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist::MnistLabel::Three`),
@@ -238,21 +190,9 @@
     HirDefn::TypeVariant(
         TypeVariantHirDefn::Unit(
             EnumUnitVariantHirDefn {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 7,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Four`),
                 hir_decl: EnumUnitTypeVariantHirDecl {
-                    path: TypeVariantPath(
-                        ItemPathId(
-                            Id {
-                                value: 7,
-                            },
-                        ),
-                    ),
+                    path: TypeVariantPath(`mnist::MnistLabel::Four`),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist::MnistLabel::Four`),
@@ -285,21 +225,9 @@
     HirDefn::TypeVariant(
         TypeVariantHirDefn::Unit(
             EnumUnitVariantHirDefn {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 8,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Five`),
                 hir_decl: EnumUnitTypeVariantHirDecl {
-                    path: TypeVariantPath(
-                        ItemPathId(
-                            Id {
-                                value: 8,
-                            },
-                        ),
-                    ),
+                    path: TypeVariantPath(`mnist::MnistLabel::Five`),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist::MnistLabel::Five`),
@@ -332,21 +260,9 @@
     HirDefn::TypeVariant(
         TypeVariantHirDefn::Unit(
             EnumUnitVariantHirDefn {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 9,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Six`),
                 hir_decl: EnumUnitTypeVariantHirDecl {
-                    path: TypeVariantPath(
-                        ItemPathId(
-                            Id {
-                                value: 9,
-                            },
-                        ),
-                    ),
+                    path: TypeVariantPath(`mnist::MnistLabel::Six`),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist::MnistLabel::Six`),
@@ -379,21 +295,9 @@
     HirDefn::TypeVariant(
         TypeVariantHirDefn::Unit(
             EnumUnitVariantHirDefn {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 10,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Seven`),
                 hir_decl: EnumUnitTypeVariantHirDecl {
-                    path: TypeVariantPath(
-                        ItemPathId(
-                            Id {
-                                value: 10,
-                            },
-                        ),
-                    ),
+                    path: TypeVariantPath(`mnist::MnistLabel::Seven`),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist::MnistLabel::Seven`),
@@ -426,21 +330,9 @@
     HirDefn::TypeVariant(
         TypeVariantHirDefn::Unit(
             EnumUnitVariantHirDefn {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 11,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Eight`),
                 hir_decl: EnumUnitTypeVariantHirDecl {
-                    path: TypeVariantPath(
-                        ItemPathId(
-                            Id {
-                                value: 11,
-                            },
-                        ),
-                    ),
+                    path: TypeVariantPath(`mnist::MnistLabel::Eight`),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist::MnistLabel::Eight`),
@@ -473,21 +365,9 @@
     HirDefn::TypeVariant(
         TypeVariantHirDefn::Unit(
             EnumUnitVariantHirDefn {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 12,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`mnist::MnistLabel::Nine`),
                 hir_decl: EnumUnitTypeVariantHirDecl {
-                    path: TypeVariantPath(
-                        ItemPathId(
-                            Id {
-                                value: 12,
-                            },
-                        ),
-                    ),
+                    path: TypeVariantPath(`mnist::MnistLabel::Nine`),
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist::MnistLabel::Nine`),
@@ -601,9 +481,9 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::StaticVar(
                 MajorStaticVarHirDefn {
-                    path: FormPath(`mnist::INPUT`, `StaticVar`),
+                    path: MajorFormPath(`mnist::INPUT`, `StaticVar`),
                     hir_decl: MajorStaticVarHirDecl {
-                        path: FormPath(`mnist::INPUT`, `StaticVar`),
+                        path: MajorFormPath(`mnist::INPUT`, `StaticVar`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),

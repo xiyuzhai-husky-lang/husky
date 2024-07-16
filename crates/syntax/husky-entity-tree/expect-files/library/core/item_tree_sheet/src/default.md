@@ -1877,12 +1877,12 @@ EntityTreeSheet {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             major_item_path: MajorItemPath::Form(
-                                                FormPath(`core::task::Task`, `TypeVar`),
+                                                MajorFormPath(`core::task::Task`, `TypeVar`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`core::task::Task`, `TypeVar`),
+                                                MajorFormPath(`core::task::Task`, `TypeVar`),
                                             ),
                                         ),
                                         visibility: Scope::Pub,
@@ -1892,7 +1892,7 @@ EntityTreeSheet {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::Task`, `TypeVar`),
+                                        MajorFormPath(`core::task::Task`, `TypeVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -1904,7 +1904,7 @@ EntityTreeSheet {
                         ),
                         path: PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`core::task::Task`, `TypeVar`),
+                                MajorFormPath(`core::task::Task`, `TypeVar`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1928,12 +1928,12 @@ EntityTreeSheet {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             major_item_path: MajorItemPath::Form(
-                                                FormPath(`core::task::TASK`, `StaticVar`),
+                                                MajorFormPath(`core::task::TASK`, `StaticVar`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`core::task::TASK`, `StaticVar`),
+                                                MajorFormPath(`core::task::TASK`, `StaticVar`),
                                             ),
                                         ),
                                         visibility: Scope::Pub,
@@ -1943,7 +1943,7 @@ EntityTreeSheet {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::TASK`, `StaticVar`),
+                                        MajorFormPath(`core::task::TASK`, `StaticVar`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -1955,7 +1955,7 @@ EntityTreeSheet {
                         ),
                         path: PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`core::task::TASK`, `StaticVar`),
+                                MajorFormPath(`core::task::TASK`, `StaticVar`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -2286,22 +2286,10 @@ EntityTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::TypeVariant {
-                                                    ty_variant_path: TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 87,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ty_variant_path: TypeVariantPath(`core::option::Option::Some`),
                                                 },
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 87,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    TypeVariantPath(`core::option::Option::Some`),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 3,
@@ -2309,13 +2297,7 @@ EntityTreeSheet {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 87,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`core::option::Option::Some`),
                                         ),
                                         visibility: Scope::Pub,
                                         ast_idx: 9,
@@ -2323,13 +2305,7 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
+                                    TypeVariantPath(`core::option::Option::Some`),
                                 ),
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core`),
@@ -2339,13 +2315,7 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 87,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`core::option::Option::Some`),
                         ),
                         visibility: Scope::PubUnder(
                             ModulePath(`core::default`),
@@ -2369,22 +2339,10 @@ EntityTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::TypeVariant {
-                                                    ty_variant_path: TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 88,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ty_variant_path: TypeVariantPath(`core::option::Option::None`),
                                                 },
                                                 path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 88,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    TypeVariantPath(`core::option::Option::None`),
                                                 ),
                                                 visibility: Scope::Pub,
                                                 ast_idx: 3,
@@ -2392,13 +2350,7 @@ EntityTreeSheet {
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 88,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`core::option::Option::None`),
                                         ),
                                         visibility: Scope::Pub,
                                         ast_idx: 9,
@@ -2406,13 +2358,7 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 88,
-                                            },
-                                        ),
-                                    ),
+                                    TypeVariantPath(`core::option::Option::None`),
                                 ),
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core`),
@@ -2422,13 +2368,7 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 88,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`core::option::Option::None`),
                         ),
                         visibility: Scope::PubUnder(
                             ModulePath(`core::default`),

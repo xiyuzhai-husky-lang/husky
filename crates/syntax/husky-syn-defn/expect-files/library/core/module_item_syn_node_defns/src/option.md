@@ -78,13 +78,7 @@
                                 },
                             ),
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 87,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: TypeVariantPath(`core::option::Option::Some`),
                                 disambiguator: 0,
                             },
                         },
@@ -116,13 +110,7 @@
                                 },
                             ),
                             disambiguated_item_path: DisambiguatedItemPath {
-                                maybe_ambiguous_item_path: TypeVariantPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 88,
-                                        },
-                                    ),
-                                ),
+                                maybe_ambiguous_item_path: TypeVariantPath(`core::option::Option::None`),
                                 disambiguator: 0,
                             },
                         },

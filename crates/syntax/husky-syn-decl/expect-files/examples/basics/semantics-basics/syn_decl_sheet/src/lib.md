@@ -7,7 +7,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
                         MajorFunctionRitchieSynDecl {
-                            path: FormPath(`semantics_basics::some_neural_network`, `Ritchie(
+                            path: MajorFormPath(`semantics_basics::some_neural_network`, `Ritchie(
                                 Gn,
                             )`),
                             ritchie_item_kind: RitchieItemKind::Gn,

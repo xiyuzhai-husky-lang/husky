@@ -39,7 +39,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Val(
                 MajorValHirDecl {
-                    path: FormPath(`mnist_classifier::main`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::main`, `Val`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
                             ty_path: TypePath(`malamute::Class`, `Enum`),

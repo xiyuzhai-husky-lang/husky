@@ -3,7 +3,7 @@
     (
         Linkage {
             data: LinkageData::MajorFunctionRitchie {
-                path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                path: MajorFormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                     Fn,
                 )`),
                 instantiation: LinInstantiation {
@@ -16,7 +16,7 @@
             VmirRegion {
                 linkage: Linkage {
                     data: LinkageData::MajorFunctionRitchie {
-                        path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                        path: MajorFormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                             Fn,
                         )`),
                         instantiation: LinInstantiation {
@@ -149,7 +149,7 @@
     (
         Linkage {
             data: LinkageData::MajorFunctionRitchie {
-                path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                path: MajorFormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                     Fn,
                 )`),
                 instantiation: LinInstantiation {
@@ -162,7 +162,7 @@
             VmirRegion {
                 linkage: Linkage {
                     data: LinkageData::MajorFunctionRitchie {
-                        path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                        path: MajorFormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                             Fn,
                         )`),
                         instantiation: LinInstantiation {

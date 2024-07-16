@@ -225,7 +225,7 @@ SynNodeDeclSheet {
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Form(
-                                                            FormPath(`core::task::Task`, `TypeVar`),
+                                                            MajorFormPath(`core::task::Task`, `TypeVar`),
                                                         ),
                                                     ),
                                                 ),
@@ -245,7 +245,7 @@ SynNodeDeclSheet {
                                                 ),
                                                 principal_entity_path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`core::task::Task`, `TypeVar`),
+                                                        MajorFormPath(`core::task::Task`, `TypeVar`),
                                                     ),
                                                 ),
                                             },

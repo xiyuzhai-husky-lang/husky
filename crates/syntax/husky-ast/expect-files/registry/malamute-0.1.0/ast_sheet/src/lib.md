@@ -7,13 +7,7 @@ AstSheet {
                     lcurl: None,
                     raw: 3,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 2,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`malamute::Class::Known`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         28,
@@ -37,13 +31,7 @@ AstSheet {
                     lcurl: None,
                     raw: 4,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 3,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`malamute::Class::Unknown`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         33,
@@ -67,13 +55,7 @@ AstSheet {
                     lcurl: None,
                     raw: 7,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 5,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`malamute::OneVsAll::Yes`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         59,
@@ -97,13 +79,7 @@ AstSheet {
                     lcurl: None,
                     raw: 8,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 6,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`malamute::OneVsAll::No`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         61,
@@ -280,13 +256,7 @@ AstSheet {
                     lcurl: None,
                     raw: 20,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 8,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentYes`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         204,
@@ -310,13 +280,7 @@ AstSheet {
                     lcurl: None,
                     raw: 21,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 9,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentNo`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         206,
@@ -340,13 +304,7 @@ AstSheet {
                     lcurl: None,
                     raw: 22,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 10,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`malamute::OneVsAllResult::Unconfident`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         208,
@@ -729,7 +687,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`malamute::narrow_down`, `Ritchie(
+                    path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                         Gn,
                     )`),
                     body: None,

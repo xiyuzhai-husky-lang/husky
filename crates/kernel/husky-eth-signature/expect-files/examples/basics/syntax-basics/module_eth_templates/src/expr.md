@@ -7,7 +7,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`syntax_basics::expr::nested`, `Ritchie(
+                            path: MajorFormPath(`syntax_basics::expr::nested`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -35,7 +35,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                            path: MajorFormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -63,7 +63,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                            path: MajorFormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {

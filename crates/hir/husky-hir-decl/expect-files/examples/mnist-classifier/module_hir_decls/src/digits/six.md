@@ -4,7 +4,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Val(
                 MajorValHirDecl {
-                    path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -45,7 +45,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Val(
                 MajorValHirDecl {
-                    path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -86,7 +86,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Val(
                 MajorValHirDecl {
-                    path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
                             ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
@@ -127,7 +127,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
                 MajorFunctionRitchieHirDecl {
-                    path: FormPath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::six::upmost`, `Ritchie(
                         Fn,
                     )`),
                     ritchie_item_kind: RitchieItemKind::Fn,
@@ -193,7 +193,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
                 MajorFunctionRitchieHirDecl {
-                    path: FormPath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
                         Fn,
                     )`),
                     ritchie_item_kind: RitchieItemKind::Fn,

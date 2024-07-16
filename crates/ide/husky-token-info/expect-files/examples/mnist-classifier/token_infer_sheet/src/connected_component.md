@@ -871,7 +871,7 @@ Ok(
                         0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -880,7 +880,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -1137,7 +1137,7 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -1146,7 +1146,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -1218,7 +1218,7 @@ Ok(
                         2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -1227,7 +1227,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -1299,7 +1299,7 @@ Ok(
                         3,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -1308,7 +1308,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -4826,7 +4826,7 @@ Ok(
                         2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -4835,7 +4835,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -5099,7 +5099,7 @@ Ok(
                         3,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -5108,7 +5108,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -5457,7 +5457,7 @@ Ok(
                         4,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -5466,7 +5466,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                     Fn,
                                 )`),
                             ),

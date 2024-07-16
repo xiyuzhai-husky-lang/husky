@@ -26,26 +26,49 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: BorrowMut,
-                                            ty: Application(
-                                                DecApplication(
-                                                    Id {
-                                                        value: 3,
-                                                    },
-                                                ),
+                                            ty: DecTerm::Application(
+                                                DecApplication {
+                                                    function: DecTerm::EntityPath(
+                                                        DecItemPath::Type(
+                                                            TypePath(`core::slice::Slice`, `Extern`),
+                                                        ),
+                                                    ),
+                                                    argument: DecTerm::SymbolicVariable(
+                                                        DecSymbolicVariable {
+                                                            toolchain: Toolchain {
+                                                                data: ToolchainData::Local {
+                                                                    library_path: "../../../library",
+                                                                },
+                                                            },
+                                                            ty: Ok(
+                                                                Category(
+                                                                    Sort {
+                                                                        universe: Universe(
+                                                                            1,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            index: DecSymbolicVariableIndex(
+                                                                Type {
+                                                                    attrs: DeclarativeTemplateVariableAttrs {
+                                                                        class: Mono,
+                                                                    },
+                                                                    variance: None,
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         },
@@ -80,11 +103,50 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: BorrowMut,
-                                            ty: Application(
-                                                DecApplication(
-                                                    Id {
-                                                        value: 3,
-                                                    },
+                                            ty: DecTerm::Application(
+                                                DecApplication {
+                                                    function: DecTerm::EntityPath(
+                                                        DecItemPath::Type(
+                                                            TypePath(`core::slice::Slice`, `Extern`),
+                                                        ),
+                                                    ),
+                                                    argument: DecTerm::SymbolicVariable(
+                                                        DecSymbolicVariable {
+                                                            toolchain: Toolchain {
+                                                                data: ToolchainData::Local {
+                                                                    library_path: "../../../library",
+                                                                },
+                                                            },
+                                                            ty: Ok(
+                                                                Category(
+                                                                    Sort {
+                                                                        universe: Universe(
+                                                                            1,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            index: DecSymbolicVariableIndex(
+                                                                Type {
+                                                                    attrs: DeclarativeTemplateVariableAttrs {
+                                                                        class: Mono,
+                                                                    },
+                                                                    variance: None,
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                    DeclarativeRitchieParameter::Simple(
+                                        DeclarativeRitchieSimpleParameter {
+                                            contract: Pure,
+                                            ty: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`core::num::isize`, `Extern`),
                                                 ),
                                             ),
                                         },
@@ -92,46 +154,18 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 15,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    DeclarativeRitchieParameter::Simple(
-                                        DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 15,
-                                                            },
-                                                        ),
-                                                    ),
+                                            ty: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`core::num::isize`, `Extern`),
                                                 ),
                                             ),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         },
@@ -166,11 +200,50 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: BorrowMut,
-                                            ty: Application(
-                                                DecApplication(
-                                                    Id {
-                                                        value: 3,
-                                                    },
+                                            ty: DecTerm::Application(
+                                                DecApplication {
+                                                    function: DecTerm::EntityPath(
+                                                        DecItemPath::Type(
+                                                            TypePath(`core::slice::Slice`, `Extern`),
+                                                        ),
+                                                    ),
+                                                    argument: DecTerm::SymbolicVariable(
+                                                        DecSymbolicVariable {
+                                                            toolchain: Toolchain {
+                                                                data: ToolchainData::Local {
+                                                                    library_path: "../../../library",
+                                                                },
+                                                            },
+                                                            ty: Ok(
+                                                                Category(
+                                                                    Sort {
+                                                                        universe: Universe(
+                                                                            1,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            index: DecSymbolicVariableIndex(
+                                                                Type {
+                                                                    attrs: DeclarativeTemplateVariableAttrs {
+                                                                        class: Mono,
+                                                                    },
+                                                                    variance: None,
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                    DeclarativeRitchieParameter::Simple(
+                                        DeclarativeRitchieSimpleParameter {
+                                            contract: Pure,
+                                            ty: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`core::num::isize`, `Extern`),
                                                 ),
                                             ),
                                         },
@@ -178,46 +251,18 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Pure,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 15,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    DeclarativeRitchieParameter::Simple(
-                                        DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 15,
-                                                            },
-                                                        ),
-                                                    ),
+                                            ty: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`core::num::isize`, `Extern`),
                                                 ),
                                             ),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 15,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::num::isize`, `Extern`),
                                 ),
                             ),
                         },
@@ -240,15 +285,9 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         },
@@ -271,15 +310,9 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 7,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         },

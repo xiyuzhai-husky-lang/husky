@@ -380,7 +380,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -580,7 +580,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -1000,7 +1000,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -1017,7 +1017,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
