@@ -67,7 +67,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::raw_bits::r32`, `Extern`),
@@ -78,7 +78,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
@@ -131,7 +131,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::raw_bits::r32`, `Extern`),
@@ -184,7 +184,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::raw_bits::r32`, `Extern`),
@@ -237,7 +237,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::raw_bits::r32`, `Extern`),
@@ -290,7 +290,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::raw_bits::r32`, `Extern`),

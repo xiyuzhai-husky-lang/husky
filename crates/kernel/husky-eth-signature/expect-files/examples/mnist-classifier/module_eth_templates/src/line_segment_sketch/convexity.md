@@ -22,13 +22,13 @@
                                 parameter_contracted_tys: [
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: EthTerm(`LineSegmentSketch`),
                                         },
                                     ),
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: EthTerm(`i32`),
                                         },
                                     ),

@@ -87,7 +87,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::Application(
                                                 DecApplication {
                                                     function: DecTerm::LeashOrBitNot(
@@ -143,7 +143,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::Application(
                                                 DecApplication {
                                                     function: DecTerm::LeashOrBitNot(

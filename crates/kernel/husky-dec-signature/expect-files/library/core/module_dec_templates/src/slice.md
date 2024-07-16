@@ -220,7 +220,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::Application(
                                     DecApplication {
                                         function: DecTerm::EntityPath(
@@ -386,7 +386,7 @@
                                 ],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: BorrowMut,
+                                contract: Contract::BorrowMut,
                                 ty: DecTerm::Application(
                                     DecApplication {
                                         function: DecTerm::EntityPath(
@@ -428,7 +428,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::usize`, `Extern`),
@@ -438,7 +438,7 @@
                                     ),
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::usize`, `Extern`),
@@ -737,7 +737,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::Application(
                                     DecApplication {
                                         function: DecTerm::EntityPath(
@@ -893,7 +893,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::Application(
                                     DecApplication {
                                         function: DecTerm::EntityPath(
@@ -1049,7 +1049,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::Application(
                                     DecApplication {
                                         function: DecTerm::EntityPath(
@@ -1205,7 +1205,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::Application(
                                     DecApplication {
                                         function: DecTerm::EntityPath(
@@ -1403,7 +1403,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::Application(
                                     DecApplication {
                                         function: DecTerm::EntityPath(

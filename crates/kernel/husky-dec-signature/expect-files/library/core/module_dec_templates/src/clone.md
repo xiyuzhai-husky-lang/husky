@@ -106,7 +106,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::SymbolicVariable(
                                     DecSymbolicVariable {
                                         toolchain: Toolchain {

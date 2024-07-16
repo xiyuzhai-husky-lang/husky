@@ -112,7 +112,7 @@
                                 parameter_contracted_tys: [
                                     EtherealRitchieParameter::Variadic(
                                         EtherealRitchieVariadicParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: EthTerm(`f32`),
                                         },
                                     ),

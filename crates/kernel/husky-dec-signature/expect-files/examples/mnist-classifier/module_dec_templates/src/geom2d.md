@@ -44,7 +44,7 @@
                                 params: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::f32`, `Extern`),
@@ -54,7 +54,7 @@
                                     ),
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::f32`, `Extern`),
@@ -119,7 +119,7 @@
                                 params: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::f32`, `Extern`),
@@ -129,7 +129,7 @@
                                     ),
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::f32`, `Extern`),
@@ -194,7 +194,7 @@
                                 params: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::f32`, `Extern`),
@@ -204,7 +204,7 @@
                                     ),
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::f32`, `Extern`),
@@ -269,7 +269,7 @@
                                 params: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::f32`, `Extern`),
@@ -279,7 +279,7 @@
                                     ),
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::f32`, `Extern`),
@@ -344,7 +344,7 @@
                                 params: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -354,7 +354,7 @@
                                     ),
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -419,7 +419,7 @@
                                 params: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -429,7 +429,7 @@
                                     ),
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -494,7 +494,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
@@ -504,7 +504,7 @@
                                     ),
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
@@ -557,7 +557,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -610,7 +610,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -621,7 +621,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -674,7 +674,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -727,7 +727,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -738,7 +738,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -810,7 +810,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -863,7 +863,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -874,7 +874,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -927,7 +927,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -980,7 +980,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -991,7 +991,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -1044,7 +1044,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -1055,7 +1055,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -1108,7 +1108,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -1119,7 +1119,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::basic::bool`, `Extern`),
@@ -1172,7 +1172,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -1183,7 +1183,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -1236,7 +1236,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -1247,7 +1247,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -1257,7 +1257,7 @@
                                     ),
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::basic::bool`, `Extern`),
@@ -1329,7 +1329,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -1340,7 +1340,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -1393,7 +1393,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -1404,7 +1404,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::f32`, `Extern`),
@@ -1476,7 +1476,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -1487,7 +1487,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -1540,7 +1540,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -1551,7 +1551,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -1604,7 +1604,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -1657,7 +1657,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -1710,7 +1710,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -1763,7 +1763,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -1835,7 +1835,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -1888,7 +1888,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -1941,7 +1941,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -1994,7 +1994,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
