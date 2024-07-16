@@ -50,7 +50,7 @@ impl HirTemplateArgument {
             EthTerm::SymbolicVariable(symbol) => HirTemplateVariable::from_eth(symbol, db)?.into(),
             EthTerm::LambdaVariable(_) => todo!(),
             EthTerm::ItemPath(path) => match path {
-                ItemPathTerm::Form(_path) => todo!(),
+                ItemPathTerm::MajorForm(_path) => todo!(),
                 ItemPathTerm::Trait(_) => todo!(),
                 ItemPathTerm::TypeOntology(ty_path) => {
                     let always_copyable = is_ty_term_always_copyable(argument, db).unwrap()?;

@@ -723,7 +723,7 @@
             DepsAttrHirDecl {
                 path: AttrItemPath(`malamute::narrow_down::#deps(0)`),
                 deps: [
-                    ItemPathTerm::Form(
+                    ItemPathTerm::MajorForm(
                         FormPath(`core::task::Task`, `TypeVar`),
                     ),
                 ],

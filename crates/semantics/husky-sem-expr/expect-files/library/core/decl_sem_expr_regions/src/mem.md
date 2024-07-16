@@ -90,6 +90,11 @@
             self_ty: Some(
                 EthTerm(`Ref 'a E`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -182,6 +187,11 @@
             self_ty: Some(
                 EthTerm(`RefMut 'a E`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -258,6 +268,11 @@
             self_ty: Some(
                 EthTerm(`Leash E`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -350,6 +365,11 @@
             self_ty: Some(
                 EthTerm(`At 'α E`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -775,6 +795,11 @@
             self_ty: Some(
                 EthTerm(`Leash E`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
 ]

@@ -150,7 +150,7 @@ fn prelude_major_form_path(db: &::salsa::Db, path: MajorFormPath) -> Option<Prel
         return None;
     }
     Some(match path {
-        path if path == menu.task_major_form_path() => PreludeMajorFormPath::TaskType,
+        path if path == menu.task_ty_var_path() => PreludeMajorFormPath::TaskType,
         _ => return None,
     })
 }

@@ -9,7 +9,7 @@ use salsa::DisplayWithDb;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db]
 pub enum ItemPathTerm {
-    Form(MajorFormPath),
+    MajorForm(MajorFormPath),
     Trait(TraitPath),
     TypeOntology(TypePath),
     TypeInstance(TypePath),
@@ -28,7 +28,7 @@ impl ItemPathTerm {
     pub fn ty_ontology(self) -> Option<TypePath> {
         match self {
             ItemPathTerm::TypeOntology(path) => Some(path),
-            ItemPathTerm::Form(_)
+            ItemPathTerm::MajorForm(_)
             | ItemPathTerm::Trait(_)
             | ItemPathTerm::TypeInstance(_)
             | ItemPathTerm::TypeVariant(_) => None,
@@ -37,7 +37,7 @@ impl ItemPathTerm {
 
     pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
         match self {
-            ItemPathTerm::Form(path) => path.toolchain(db),
+            ItemPathTerm::MajorForm(path) => path.toolchain(db),
             ItemPathTerm::Trait(path) => path.toolchain(db),
             ItemPathTerm::TypeOntology(path) => path.toolchain(db),
             ItemPathTerm::TypeInstance(path) => path.toolchain(db),
@@ -47,7 +47,7 @@ impl ItemPathTerm {
 
     pub fn ident(self, db: &::salsa::Db) -> Ident {
         match self {
-            ItemPathTerm::Form(path) => path.ident(db),
+            ItemPathTerm::MajorForm(path) => path.ident(db),
             ItemPathTerm::Trait(path) => path.ident(db),
             ItemPathTerm::TypeOntology(path) => path.ident(db),
             ItemPathTerm::TypeInstance(path) => path.ident(db),
@@ -58,7 +58,7 @@ impl ItemPathTerm {
 
 impl From<MajorFormPath> for ItemPathTerm {
     fn from(value: MajorFormPath) -> Self {
-        ItemPathTerm::Form(value)
+        ItemPathTerm::MajorForm(value)
     }
 }
 

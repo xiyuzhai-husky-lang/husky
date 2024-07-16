@@ -10,7 +10,7 @@ impl EthTerm {
                 FinalDestination::AnyOriginal
             }
             EthTerm::ItemPath(path) => match path {
-                ItemPathTerm::Form(path) => match path.kind(db) {
+                ItemPathTerm::MajorForm(path) => match path.kind(db) {
                     MajorFormKind::TypeAlias => todo!(),
                     MajorFormKind::TypeVar => todo!(),
                     MajorFormKind::Ritchie(_)

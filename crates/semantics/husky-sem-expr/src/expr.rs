@@ -1744,7 +1744,7 @@ impl<'a> SemExprBuilder<'a> {
                 }
                 .into(),
                 MajorItemPath::Trait(trai_path) => ItemPathTerm::Trait(trai_path).into(),
-                MajorItemPath::Form(form_path) => ItemPathTerm::Form(form_path).into(),
+                MajorItemPath::Form(form_path) => ItemPathTerm::MajorForm(form_path).into(),
             },
             // todo: generics
             PrincipalEntityPath::TypeVariant(ty_variant_path) => {

@@ -56,6 +56,11 @@
             self_ty: Some(
                 EthTerm(`Self`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -114,6 +119,11 @@
             self_ty: Some(
                 EthTerm(`Cv2dFrontend`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -172,6 +182,11 @@
             self_ty: Some(
                 EthTerm(`Cv3dFrontend`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -230,6 +245,11 @@
             self_ty: Some(
                 EthTerm(`NlpFrontend`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -288,6 +308,11 @@
             self_ty: Some(
                 EthTerm(`Rl2dFrontend`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
 ]
