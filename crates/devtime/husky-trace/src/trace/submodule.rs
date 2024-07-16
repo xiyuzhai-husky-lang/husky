@@ -12,7 +12,7 @@ pub struct SubmoduleTracePathData {
 
 impl Trace {
     pub fn new_submodule(submodule_item_path: SubmoduleItemPath, db: &::salsa::Db) -> Option<Self> {
-        if !submodule_contains_val_item(db, submodule_item_path) {
+        if !submodule_contains_val(db, submodule_item_path) {
             return None;
         }
         Some(Trace::new(
@@ -64,14 +64,14 @@ impl SubmoduleTraceData {
 }
 
 #[salsa::tracked(jar = TraceJar)]
-pub(super) fn submodule_contains_val_item(
+pub(super) fn submodule_contains_val(
     db: &::salsa::Db,
     submodule_item_path: SubmoduleItemPath,
 ) -> bool {
     for &subitem_path in module_item_paths(db, submodule_item_path.self_module_path(db)) {
         match subitem_path {
             ItemPath::Submodule(_, subitem_submodule_item_path) => {
-                if submodule_contains_val_item(db, subitem_submodule_item_path) {
+                if submodule_contains_val(db, subitem_submodule_item_path) {
                     return true;
                 }
             }

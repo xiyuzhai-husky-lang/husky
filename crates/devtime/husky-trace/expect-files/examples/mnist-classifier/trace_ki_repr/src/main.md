@@ -51,7 +51,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                     },
                 ),
             },
@@ -62,7 +62,7 @@
                             value: 14,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 64,
@@ -78,7 +78,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -87,8 +87,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -209,7 +209,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -220,7 +220,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -236,7 +236,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -245,8 +245,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -318,7 +318,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                     },
                 ),
             },
@@ -329,7 +329,7 @@
                             value: 15,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 66,
@@ -342,12 +342,12 @@
         Some(
             KiRepr {
                 ki_domain_repr: Omni,
-                opn: KiOpn::ValItemLazilyDefined(
-                    FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                opn: KiOpn::ValLazilyDefined(
+                    MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -361,7 +361,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -463,12 +463,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -491,7 +491,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -550,7 +550,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -625,12 +625,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -653,7 +653,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -728,12 +728,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -756,7 +756,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -831,12 +831,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -859,7 +859,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -918,7 +918,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -993,12 +993,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -1021,7 +1021,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -1089,12 +1089,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -1111,7 +1111,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -1122,7 +1122,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -1138,7 +1138,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -1147,8 +1147,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -1238,12 +1238,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -1367,12 +1367,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -1392,7 +1392,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -1505,7 +1505,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -1537,17 +1537,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
+                        variable_idx: 2,
                     },
                 },
                 caching_class: Variable,
@@ -1617,7 +1618,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -1649,12 +1650,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -1671,7 +1672,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -1682,7 +1683,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -1698,7 +1699,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -1707,8 +1708,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -1777,7 +1778,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -1809,12 +1810,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -1834,7 +1835,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -1940,7 +1941,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`malamute::narrow_down`, `Ritchie(
+                            path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -2015,12 +2016,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -2095,7 +2096,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -2127,17 +2128,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
+                        variable_idx: 2,
                     },
                 },
                 caching_class: Variable,
@@ -2234,12 +2236,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -2314,7 +2316,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -2346,17 +2348,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
+                        variable_idx: 2,
                     },
                 },
                 caching_class: Variable,
@@ -2453,12 +2456,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -2533,7 +2536,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -2565,17 +2568,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
+                        variable_idx: 2,
                     },
                 },
                 caching_class: Variable,
@@ -2672,12 +2676,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -2752,7 +2756,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`malamute::narrow_down`, `Ritchie(
+                            path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -2827,12 +2831,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -2852,7 +2856,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -2922,12 +2926,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -3002,7 +3006,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -3034,17 +3038,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
+                        variable_idx: 2,
                     },
                 },
                 caching_class: Variable,
@@ -3141,12 +3146,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -3166,7 +3171,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -3236,12 +3241,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -3258,7 +3263,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -3269,7 +3274,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -3285,7 +3290,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -3294,8 +3299,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -3391,12 +3396,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -3499,12 +3504,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -3524,7 +3529,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -3594,12 +3599,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -3616,7 +3621,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -3627,7 +3632,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -3643,7 +3648,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -3652,8 +3657,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -3749,12 +3754,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -3857,12 +3862,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -3882,7 +3887,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -4012,17 +4017,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 13,
+                        variable_idx: 3,
                     },
                 },
                 caching_class: Variable,
@@ -4034,7 +4040,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -4045,7 +4051,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -4061,7 +4067,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -4070,8 +4076,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -4167,12 +4173,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -4275,12 +4281,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -4300,7 +4306,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -4434,17 +4440,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 14,
+                        variable_idx: 4,
                     },
                 },
                 caching_class: Variable,
@@ -4531,17 +4538,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 13,
+                        variable_idx: 3,
                     },
                 },
                 caching_class: Variable,
@@ -4638,12 +4646,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -4750,12 +4758,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -4847,17 +4855,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 13,
+                        variable_idx: 3,
                     },
                 },
                 caching_class: Variable,
@@ -4954,12 +4963,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -5066,12 +5075,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -5091,7 +5100,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -5225,17 +5234,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 15,
+                        variable_idx: 5,
                     },
                 },
                 caching_class: Variable,
@@ -5247,7 +5257,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -5258,7 +5268,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -5274,7 +5284,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -5283,8 +5293,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -5380,12 +5390,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -5492,12 +5502,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -5514,7 +5524,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -5525,7 +5535,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -5541,7 +5551,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -5550,8 +5560,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -5647,12 +5657,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -5759,12 +5769,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -5784,7 +5794,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -5918,17 +5928,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 16,
+                        variable_idx: 6,
                     },
                 },
                 caching_class: Variable,
@@ -6019,17 +6030,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 14,
+                        variable_idx: 4,
                     },
                 },
                 caching_class: Variable,
@@ -6120,17 +6132,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 15,
+                        variable_idx: 5,
                     },
                 },
                 caching_class: Variable,
@@ -6145,7 +6158,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -6215,12 +6228,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -6316,17 +6329,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 16,
+                        variable_idx: 6,
                     },
                 },
                 caching_class: Variable,
@@ -6341,7 +6355,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -6481,17 +6495,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 18,
+                        variable_idx: 7,
                     },
                 },
                 caching_class: Variable,
@@ -6561,7 +6576,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -6593,17 +6608,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
+                        variable_idx: 2,
                     },
                 },
                 caching_class: Variable,
@@ -6700,12 +6716,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -6725,7 +6741,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -6796,7 +6812,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -6807,7 +6823,7 @@
                             value: 80,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 67,
@@ -6823,7 +6839,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -6832,8 +6848,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -6954,7 +6970,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -6965,7 +6981,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -6981,7 +6997,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -6990,8 +7006,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -7063,7 +7079,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                     },
                 ),
             },
@@ -7074,7 +7090,7 @@
                             value: 81,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 68,
@@ -7087,12 +7103,12 @@
         Some(
             KiRepr {
                 ki_domain_repr: Omni,
-                opn: KiOpn::ValItemLazilyDefined(
-                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                opn: KiOpn::ValLazilyDefined(
+                    MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -7106,7 +7122,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -7206,7 +7222,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`malamute::narrow_down`, `Ritchie(
+                            path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -7276,12 +7292,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -7298,7 +7314,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -7309,7 +7325,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -7325,7 +7341,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -7334,8 +7350,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -7425,12 +7441,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -7447,7 +7463,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                     },
                 ),
             },
@@ -7458,7 +7474,7 @@
                             value: 90,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 111,
@@ -7474,7 +7490,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -7483,8 +7499,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -7547,7 +7563,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`malamute::narrow_down`, `Ritchie(
+                            path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -7617,12 +7633,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -7642,7 +7658,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -7755,7 +7771,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -7787,17 +7803,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 42,
+                        variable_idx: 0,
                     },
                 },
                 caching_class: Variable,
@@ -7867,7 +7884,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -7899,12 +7916,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -7921,7 +7938,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -7932,7 +7949,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -7948,7 +7965,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -7957,8 +7974,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -8027,7 +8044,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -8059,12 +8076,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -8084,7 +8101,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -8257,12 +8274,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -8285,7 +8302,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -8344,7 +8361,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -8437,12 +8454,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -8465,7 +8482,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -8576,7 +8593,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -8608,17 +8625,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 42,
+                        variable_idx: 0,
                     },
                 },
                 caching_class: Variable,
@@ -8715,12 +8733,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -8740,7 +8758,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -8913,12 +8931,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -8941,7 +8959,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9016,12 +9034,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -9044,7 +9062,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9119,12 +9137,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -9147,7 +9165,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9206,7 +9224,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9265,7 +9283,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9324,7 +9342,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9432,12 +9450,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -9460,7 +9478,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9519,7 +9537,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9594,12 +9612,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -9622,7 +9640,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9681,7 +9699,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9740,7 +9758,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9848,12 +9866,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -9876,7 +9894,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -9969,12 +9987,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -9997,7 +10015,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10072,12 +10090,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -10100,7 +10118,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10159,7 +10177,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10218,7 +10236,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10277,7 +10295,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10336,7 +10354,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10395,7 +10413,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10470,12 +10488,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -10498,7 +10516,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10557,7 +10575,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10616,7 +10634,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10675,7 +10693,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10734,7 +10752,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10809,12 +10827,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -10837,7 +10855,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -10912,12 +10930,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -10940,7 +10958,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -11016,7 +11034,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -11027,7 +11045,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -11043,7 +11061,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -11052,8 +11070,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -11174,7 +11192,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -11185,7 +11203,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -11201,7 +11219,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -11210,8 +11228,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -11283,7 +11301,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                     },
                 ),
             },
@@ -11294,7 +11312,7 @@
                             value: 125,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 73,
@@ -11310,7 +11328,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -11319,8 +11337,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -11441,7 +11459,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -11452,7 +11470,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -11468,7 +11486,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -11477,8 +11495,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -11550,7 +11568,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                     },
                 ),
             },
@@ -11561,7 +11579,7 @@
                             value: 126,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 74,
@@ -11574,12 +11592,12 @@
         Some(
             KiRepr {
                 ki_domain_repr: Omni,
-                opn: KiOpn::ValItemLazilyDefined(
-                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                opn: KiOpn::ValLazilyDefined(
+                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -11593,7 +11611,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -11717,17 +11735,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 19,
+                        variable_idx: 0,
                     },
                 },
                 caching_class: Variable,
@@ -11739,7 +11758,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -11750,7 +11769,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -11766,7 +11785,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -11775,8 +11794,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -11867,12 +11886,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -11892,7 +11911,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -11956,12 +11975,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -12047,17 +12066,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 19,
+                        variable_idx: 0,
                     },
                 },
                 caching_class: Variable,
@@ -12072,7 +12092,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -12212,17 +12232,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 21,
+                        variable_idx: 1,
                     },
                 },
                 caching_class: Variable,
@@ -12234,7 +12255,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -12245,7 +12266,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -12261,7 +12282,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -12270,8 +12291,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -12367,12 +12388,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -12392,7 +12413,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -12526,17 +12547,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 22,
+                        variable_idx: 2,
                     },
                 },
                 caching_class: Variable,
@@ -12548,7 +12570,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -12559,7 +12581,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -12575,7 +12597,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -12584,8 +12606,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -12681,12 +12703,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -12703,7 +12725,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -12714,7 +12736,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -12730,7 +12752,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -12739,8 +12761,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -12836,12 +12858,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -12861,7 +12883,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -12974,12 +12996,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -13002,7 +13024,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13061,7 +13083,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13120,7 +13142,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13179,7 +13201,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13238,7 +13260,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13297,7 +13319,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13356,7 +13378,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13431,12 +13453,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -13459,7 +13481,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13567,12 +13589,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -13595,7 +13617,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13654,7 +13676,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13713,7 +13735,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13806,12 +13828,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -13834,7 +13856,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -13902,12 +13924,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -14009,17 +14031,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 21,
+                        variable_idx: 1,
                     },
                 },
                 caching_class: Variable,
@@ -14117,12 +14140,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -14142,7 +14165,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -14248,7 +14271,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`malamute::narrow_down`, `Ritchie(
+                            path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -14313,12 +14336,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -14335,7 +14358,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -14346,7 +14369,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -14362,7 +14385,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -14371,8 +14394,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -14468,12 +14491,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -14548,7 +14571,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`malamute::narrow_down`, `Ritchie(
+                            path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -14613,12 +14636,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -14638,7 +14661,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -14726,12 +14749,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -14754,7 +14777,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -14829,12 +14852,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -14851,7 +14874,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -14862,7 +14885,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -14878,7 +14901,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -14887,8 +14910,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -14984,12 +15007,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -15009,7 +15032,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -15079,12 +15102,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -15186,17 +15209,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 21,
+                        variable_idx: 1,
                     },
                 },
                 caching_class: Variable,
@@ -15294,12 +15318,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -15401,12 +15425,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -15513,12 +15537,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -15538,7 +15562,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -15626,12 +15650,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -15654,7 +15678,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -15729,12 +15753,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -15836,17 +15860,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 21,
+                        variable_idx: 1,
                     },
                 },
                 caching_class: Variable,
@@ -15944,12 +15969,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -15969,7 +15994,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -16039,12 +16064,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -16140,17 +16165,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 22,
+                        variable_idx: 2,
                     },
                 },
                 caching_class: Variable,
@@ -16165,7 +16191,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -16236,7 +16262,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -16247,7 +16273,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -16263,7 +16289,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -16272,8 +16298,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -16394,7 +16420,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -16405,7 +16431,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -16421,7 +16447,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -16430,8 +16456,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -16503,7 +16529,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                     },
                 ),
             },
@@ -16514,7 +16540,7 @@
                             value: 177,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 78,
@@ -16530,7 +16556,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -16539,8 +16565,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -16600,7 +16626,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -16611,7 +16637,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -16627,7 +16653,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -16636,8 +16662,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -16758,7 +16784,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -16769,7 +16795,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -16785,7 +16811,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -16794,8 +16820,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -16968,7 +16994,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -16979,7 +17005,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -16995,7 +17021,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -17004,8 +17030,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -17178,7 +17204,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -17189,7 +17215,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -17205,7 +17231,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -17214,8 +17240,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -17388,7 +17414,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -17399,7 +17425,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -17415,7 +17441,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -17424,8 +17450,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -19232,7 +19258,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -19243,7 +19269,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -19259,7 +19285,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -19268,8 +19294,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -19584,7 +19610,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                     },
                 ),
             },
@@ -19595,7 +19621,7 @@
                             value: 229,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 82,
@@ -19611,7 +19637,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -19620,8 +19646,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -19742,7 +19768,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -19753,7 +19779,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -19769,7 +19795,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -19778,8 +19804,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -19851,7 +19877,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                     },
                 ),
             },
@@ -19862,7 +19888,7 @@
                             value: 230,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 84,
@@ -19878,7 +19904,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -19887,8 +19913,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -20009,7 +20035,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -20020,7 +20046,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -20036,7 +20062,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -20045,8 +20071,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -20118,7 +20144,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                     },
                 ),
             },
@@ -20129,7 +20155,7 @@
                             value: 231,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 85,
@@ -20145,7 +20171,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -20154,8 +20180,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -20276,7 +20302,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -20287,7 +20313,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -20303,7 +20329,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -20312,8 +20338,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -20385,7 +20411,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::four::is_four`, `Val`),
                     },
                 ),
             },
@@ -20396,7 +20422,7 @@
                             value: 232,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 86,
@@ -20412,7 +20438,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::four::is_four`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -20421,8 +20447,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::four::is_four`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -20482,7 +20508,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                     },
                 ),
             },
@@ -20493,7 +20519,7 @@
                             value: 229,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 82,
@@ -20509,7 +20535,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -20518,8 +20544,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -20640,7 +20666,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                     },
                 ),
             },
@@ -20651,7 +20677,7 @@
                             value: 229,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 82,
@@ -20667,7 +20693,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -20676,8 +20702,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -20850,7 +20876,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -20861,7 +20887,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -20877,7 +20903,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -20886,8 +20912,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -21231,7 +21257,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                     },
                 ),
             },
@@ -21242,7 +21268,7 @@
                             value: 230,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 84,
@@ -21258,7 +21284,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -21267,8 +21293,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -21835,7 +21861,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -21846,7 +21872,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -21862,7 +21888,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -21871,8 +21897,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -21944,7 +21970,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -21955,7 +21981,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -21971,7 +21997,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -21980,8 +22006,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -23108,7 +23134,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                     },
                 ),
             },
@@ -23119,7 +23145,7 @@
                             value: 283,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 89,
@@ -23135,7 +23161,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -23144,8 +23170,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -23228,7 +23254,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                     },
                 ),
             },
@@ -23239,7 +23265,7 @@
                             value: 285,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 90,
@@ -23255,7 +23281,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -23264,8 +23290,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -23386,7 +23412,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -23397,7 +23423,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -23413,7 +23439,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -23422,8 +23448,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -23495,7 +23521,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
@@ -23506,7 +23532,7 @@
                             value: 286,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 92,
@@ -23522,7 +23548,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -23531,8 +23557,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -23653,7 +23679,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -23664,7 +23690,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -23680,7 +23706,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -23689,8 +23715,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -23762,7 +23788,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                     },
                 ),
             },
@@ -23773,7 +23799,7 @@
                             value: 287,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 95,
@@ -23789,7 +23815,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -23798,8 +23824,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -23859,7 +23885,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -23870,7 +23896,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -23886,7 +23912,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -23895,8 +23921,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -24069,7 +24095,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                     },
                 ),
             },
@@ -24080,7 +24106,7 @@
                             value: 285,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 90,
@@ -24096,7 +24122,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -24105,8 +24131,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -24838,7 +24864,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
@@ -24849,7 +24875,7 @@
                             value: 286,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 92,
@@ -24865,7 +24891,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -24874,8 +24900,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -25048,7 +25074,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
@@ -25059,7 +25085,7 @@
                             value: 286,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 92,
@@ -25075,7 +25101,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -25084,8 +25110,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -25278,7 +25304,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                     },
                 ),
             },
@@ -25289,7 +25315,7 @@
                             value: 315,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 96,
@@ -25305,7 +25331,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -25314,8 +25340,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -25436,7 +25462,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -25447,7 +25473,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -25463,7 +25489,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -25472,8 +25498,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -25545,7 +25571,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                     },
                 ),
             },
@@ -25556,7 +25582,7 @@
                             value: 316,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 97,
@@ -25572,7 +25598,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -25581,8 +25607,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -25694,7 +25720,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -25705,7 +25731,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -25721,7 +25747,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -25730,8 +25756,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -25803,7 +25829,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -25814,7 +25840,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -25830,7 +25856,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -25839,8 +25865,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -26091,7 +26117,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -26102,7 +26128,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -26118,7 +26144,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -26127,8 +26153,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -26333,7 +26359,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                     },
                 ),
             },
@@ -26344,7 +26370,7 @@
                             value: 329,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 99,
@@ -26360,7 +26386,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -26369,8 +26395,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -26491,7 +26517,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -26502,7 +26528,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -26518,7 +26544,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -26527,8 +26553,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -26600,7 +26626,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                     },
                 ),
             },
@@ -26611,7 +26637,7 @@
                             value: 330,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 100,
@@ -26627,7 +26653,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -26636,8 +26662,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -26758,7 +26784,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -26769,7 +26795,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -26785,7 +26811,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -26794,8 +26820,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -26867,7 +26893,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                     },
                 ),
             },
@@ -26878,7 +26904,7 @@
                             value: 331,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 101,
@@ -26894,7 +26920,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -26903,8 +26929,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -27016,7 +27042,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -27027,7 +27053,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -27043,7 +27069,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -27052,8 +27078,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -27397,7 +27423,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                     },
                 ),
             },
@@ -27408,7 +27434,7 @@
                             value: 329,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 99,
@@ -27424,7 +27450,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -27433,8 +27459,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -28001,7 +28027,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -28012,7 +28038,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -28028,7 +28054,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -28037,8 +28063,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -28110,7 +28136,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -28121,7 +28147,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -28137,7 +28163,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -28146,8 +28172,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -29274,7 +29300,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -29285,7 +29311,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -29301,7 +29327,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -29310,8 +29336,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -29432,7 +29458,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -29443,7 +29469,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -29459,7 +29485,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -29468,8 +29494,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -29541,7 +29567,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                     },
                 ),
             },
@@ -29552,7 +29578,7 @@
                             value: 377,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 108,
@@ -29568,7 +29594,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -29577,8 +29603,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -29690,7 +29716,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -29701,7 +29727,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -29717,7 +29743,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -29726,8 +29752,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -29900,7 +29926,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -29911,7 +29937,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -29927,7 +29953,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -29936,8 +29962,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -30281,7 +30307,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -30292,7 +30318,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -30308,7 +30334,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -30317,8 +30343,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -30491,7 +30517,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -30502,7 +30528,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -30518,7 +30544,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -30527,8 +30553,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -30701,7 +30727,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -30712,7 +30738,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -30728,7 +30754,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -30737,8 +30763,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -31021,7 +31047,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -31032,7 +31058,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -31048,7 +31074,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -31057,8 +31083,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -31130,7 +31156,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -31141,7 +31167,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -31157,7 +31183,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -31166,8 +31192,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -32604,7 +32630,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -32615,7 +32641,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -32631,7 +32657,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -32640,8 +32666,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -32862,7 +32888,7 @@
             path: TracePath {
                 data: TracePathData::StaticVarItem(
                     StaticVarTracePathData {
-                        static_var_item_path: FormPath(`mnist::INPUT`, `StaticVar`),
+                        static_var_item_path: MajorFormPath(`mnist::INPUT`, `StaticVar`),
                     },
                 ),
             },
@@ -32876,7 +32902,7 @@
                     static_var_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
-                                value: 289,
+                                value: 290,
                             },
                         ),
                     ),
@@ -32889,7 +32915,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorStaticVar {
-                            path: FormPath(`mnist::INPUT`, `StaticVar`),
+                            path: MajorFormPath(`mnist::INPUT`, `StaticVar`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -32898,8 +32924,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist::INPUT`, `StaticVar`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist::INPUT`, `StaticVar`),
                 ),
                 caching_class: Val,
             },
@@ -33071,7 +33097,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -33082,7 +33108,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -33098,7 +33124,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -33107,8 +33133,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -33489,7 +33515,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -33500,7 +33526,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -33516,7 +33542,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -33525,8 +33551,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -34003,7 +34029,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -34014,7 +34040,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -34030,7 +34056,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -34039,8 +34065,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -34171,7 +34197,7 @@
                                 TypeItemPath(
                                     ItemPathId(
                                         Id {
-                                            value: 396,
+                                            value: 397,
                                         },
                                     ),
                                 ),
@@ -34197,7 +34223,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 396,
+                                        value: 397,
                                     },
                                 ),
                             ),
@@ -34262,7 +34288,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -34273,7 +34299,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -34289,7 +34315,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -34298,8 +34324,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -34420,7 +34446,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                     },
                 ),
             },
@@ -34431,7 +34457,7 @@
                             value: 90,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 111,
@@ -34447,7 +34473,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -34456,8 +34482,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -34746,7 +34772,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -34757,7 +34783,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -34773,7 +34799,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -34782,8 +34808,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -34975,7 +35001,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -34986,7 +35012,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -35002,7 +35028,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -35011,8 +35037,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -35143,7 +35169,7 @@
                                 TypeItemPath(
                                     ItemPathId(
                                         Id {
-                                            value: 396,
+                                            value: 397,
                                         },
                                     ),
                                 ),
@@ -35169,7 +35195,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 396,
+                                        value: 397,
                                     },
                                 ),
                             ),
@@ -35295,7 +35321,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -35306,7 +35332,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -35322,7 +35348,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -35331,8 +35357,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -35618,7 +35644,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                     },
                 ),
             },
@@ -35629,7 +35655,7 @@
                             value: 431,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 112,
@@ -35645,7 +35671,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -35654,8 +35680,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -35715,7 +35741,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -35726,7 +35752,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -35742,7 +35768,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -35751,8 +35777,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -36038,7 +36064,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                     },
                 ),
             },
@@ -36049,7 +36075,7 @@
                             value: 432,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 113,
@@ -36065,7 +36091,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -36074,8 +36100,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -36135,7 +36161,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -36146,7 +36172,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -36162,7 +36188,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -36171,8 +36197,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -36458,7 +36484,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -36469,7 +36495,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -36485,7 +36511,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -36494,8 +36520,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -36555,7 +36581,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                     },
                 ),
             },
@@ -36566,7 +36592,7 @@
                             value: 432,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 113,
@@ -36582,7 +36608,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -36591,8 +36617,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -36713,7 +36739,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -36724,7 +36750,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -36740,7 +36766,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -36749,8 +36775,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -36810,7 +36836,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -36821,7 +36847,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -36837,7 +36863,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -36846,8 +36872,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -36968,7 +36994,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::main`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::main`, `Val`),
                     },
                 ),
             },
@@ -36979,7 +37005,7 @@
                             value: 3,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 8,
@@ -36995,7 +37021,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::main`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::main`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -37004,8 +37030,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::main`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::main`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -37065,7 +37091,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                     },
                 ),
             },
@@ -37076,7 +37102,7 @@
                             value: 81,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 68,
@@ -37089,12 +37115,12 @@
         Some(
             KiRepr {
                 ki_domain_repr: Omni,
-                opn: KiOpn::ValItemLazilyDefined(
-                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                opn: KiOpn::ValLazilyDefined(
+                    MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -37108,7 +37134,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -37208,7 +37234,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`malamute::narrow_down`, `Ritchie(
+                            path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -37278,12 +37304,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -37300,7 +37326,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -37311,7 +37337,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -37327,7 +37353,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -37336,8 +37362,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -37427,12 +37453,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -37449,7 +37475,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                     },
                 ),
             },
@@ -37460,7 +37486,7 @@
                             value: 90,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 111,
@@ -37476,7 +37502,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -37485,8 +37511,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -37549,7 +37575,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`malamute::narrow_down`, `Ritchie(
+                            path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -37619,12 +37645,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -37644,7 +37670,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -37757,7 +37783,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -37789,17 +37815,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 42,
+                        variable_idx: 0,
                     },
                 },
                 caching_class: Variable,
@@ -37869,7 +37896,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -37901,12 +37928,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -37923,7 +37950,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -37934,7 +37961,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -37950,7 +37977,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -37959,8 +37986,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -38029,7 +38056,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -38061,12 +38088,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -38086,7 +38113,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -38259,12 +38286,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -38287,7 +38314,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -38346,7 +38373,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -38439,12 +38466,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -38467,7 +38494,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -38578,7 +38605,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -38610,17 +38637,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 42,
+                        variable_idx: 0,
                     },
                 },
                 caching_class: Variable,
@@ -38717,12 +38745,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -38742,7 +38770,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -38915,12 +38943,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -38943,7 +38971,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39018,12 +39046,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -39046,7 +39074,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39121,12 +39149,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -39149,7 +39177,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39208,7 +39236,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39267,7 +39295,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39326,7 +39354,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39434,12 +39462,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -39462,7 +39490,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39521,7 +39549,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39596,12 +39624,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -39624,7 +39652,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39683,7 +39711,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39742,7 +39770,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39850,12 +39878,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -39878,7 +39906,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -39971,12 +39999,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -39999,7 +40027,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40074,12 +40102,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -40102,7 +40130,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40161,7 +40189,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40220,7 +40248,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40279,7 +40307,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40338,7 +40366,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40397,7 +40425,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40472,12 +40500,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -40500,7 +40528,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40559,7 +40587,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40618,7 +40646,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40677,7 +40705,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40736,7 +40764,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40811,12 +40839,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -40839,7 +40867,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -40914,12 +40942,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -40942,7 +40970,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -41044,7 +41072,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                     },
                 ),
             },
@@ -41055,7 +41083,7 @@
                             value: 126,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 74,
@@ -41068,12 +41096,12 @@
         Some(
             KiRepr {
                 ki_domain_repr: Omni,
-                opn: KiOpn::ValItemLazilyDefined(
-                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                opn: KiOpn::ValLazilyDefined(
+                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -41087,7 +41115,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -41211,17 +41239,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 19,
+                        variable_idx: 0,
                     },
                 },
                 caching_class: Variable,
@@ -41233,7 +41262,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -41244,7 +41273,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -41260,7 +41289,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -41269,8 +41298,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -41361,12 +41390,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -41386,7 +41415,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -41450,12 +41479,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -41541,17 +41570,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 19,
+                        variable_idx: 0,
                     },
                 },
                 caching_class: Variable,
@@ -41566,7 +41596,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -41706,17 +41736,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 21,
+                        variable_idx: 1,
                     },
                 },
                 caching_class: Variable,
@@ -41728,7 +41759,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -41739,7 +41770,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -41755,7 +41786,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -41764,8 +41795,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -41861,12 +41892,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -41886,7 +41917,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -42020,17 +42051,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 22,
+                        variable_idx: 2,
                     },
                 },
                 caching_class: Variable,
@@ -42042,7 +42074,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -42053,7 +42085,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -42069,7 +42101,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -42078,8 +42110,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -42175,12 +42207,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -42197,7 +42229,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -42208,7 +42240,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -42224,7 +42256,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -42233,8 +42265,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -42330,12 +42362,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -42355,7 +42387,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -42468,12 +42500,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -42496,7 +42528,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -42555,7 +42587,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -42614,7 +42646,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -42673,7 +42705,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -42732,7 +42764,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -42791,7 +42823,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -42850,7 +42882,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -42925,12 +42957,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -42953,7 +42985,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -43061,12 +43093,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -43089,7 +43121,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -43148,7 +43180,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -43207,7 +43239,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -43300,12 +43332,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -43328,7 +43360,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -43396,12 +43428,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -43503,17 +43535,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 21,
+                        variable_idx: 1,
                     },
                 },
                 caching_class: Variable,
@@ -43611,12 +43644,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -43636,7 +43669,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -43742,7 +43775,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`malamute::narrow_down`, `Ritchie(
+                            path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -43807,12 +43840,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -43829,7 +43862,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -43840,7 +43873,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -43856,7 +43889,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -43865,8 +43898,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -43962,12 +43995,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -44042,7 +44075,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`malamute::narrow_down`, `Ritchie(
+                            path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -44107,12 +44140,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -44132,7 +44165,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -44220,12 +44253,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -44248,7 +44281,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -44323,12 +44356,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -44345,7 +44378,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -44356,7 +44389,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -44372,7 +44405,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -44381,8 +44414,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -44478,12 +44511,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -44503,7 +44536,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -44573,12 +44606,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -44680,17 +44713,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 21,
+                        variable_idx: 1,
                     },
                 },
                 caching_class: Variable,
@@ -44788,12 +44822,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -44895,12 +44929,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -45007,12 +45041,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -45032,7 +45066,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -45120,12 +45154,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -45148,7 +45182,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -45223,12 +45257,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -45330,17 +45364,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 21,
+                        variable_idx: 1,
                     },
                 },
                 caching_class: Variable,
@@ -45438,12 +45473,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -45463,7 +45498,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -45533,12 +45568,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -45634,17 +45669,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 22,
+                        variable_idx: 2,
                     },
                 },
                 caching_class: Variable,
@@ -45659,7 +45695,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -45756,7 +45792,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                     },
                 ),
             },
@@ -45767,7 +45803,7 @@
                             value: 15,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 66,
@@ -45780,12 +45816,12 @@
         Some(
             KiRepr {
                 ki_domain_repr: Omni,
-                opn: KiOpn::ValItemLazilyDefined(
-                    FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                opn: KiOpn::ValLazilyDefined(
+                    MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -45799,7 +45835,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -45901,12 +45937,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -45929,7 +45965,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -45988,7 +46024,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -46063,12 +46099,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -46091,7 +46127,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -46166,12 +46202,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -46194,7 +46230,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -46269,12 +46305,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -46297,7 +46333,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -46356,7 +46392,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -46431,12 +46467,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -46459,7 +46495,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValTracePathData {
-                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -46527,12 +46563,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -46549,7 +46585,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -46560,7 +46596,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -46576,7 +46612,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -46585,8 +46621,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -46676,12 +46712,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -46805,12 +46841,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -46830,7 +46866,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -46943,7 +46979,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -46975,17 +47011,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
+                        variable_idx: 2,
                     },
                 },
                 caching_class: Variable,
@@ -47055,7 +47092,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -47087,12 +47124,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -47109,7 +47146,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -47120,7 +47157,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -47136,7 +47173,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -47145,8 +47182,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -47215,7 +47252,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -47247,12 +47284,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -47272,7 +47309,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -47378,7 +47415,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`malamute::narrow_down`, `Ritchie(
+                            path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -47453,12 +47490,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -47533,7 +47570,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -47565,17 +47602,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
+                        variable_idx: 2,
                     },
                 },
                 caching_class: Variable,
@@ -47672,12 +47710,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -47752,7 +47790,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -47784,17 +47822,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
+                        variable_idx: 2,
                     },
                 },
                 caching_class: Variable,
@@ -47891,12 +47930,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -47971,7 +48010,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -48003,17 +48042,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
+                        variable_idx: 2,
                     },
                 },
                 caching_class: Variable,
@@ -48110,12 +48150,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -48190,7 +48230,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`malamute::narrow_down`, `Ritchie(
+                            path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
@@ -48265,12 +48305,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -48290,7 +48330,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -48360,12 +48400,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -48440,7 +48480,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -48472,17 +48512,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
+                        variable_idx: 2,
                     },
                 },
                 caching_class: Variable,
@@ -48579,12 +48620,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -48604,7 +48645,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -48674,12 +48715,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -48696,7 +48737,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -48707,7 +48748,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -48723,7 +48764,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -48732,8 +48773,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -48829,12 +48870,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -48937,12 +48978,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -48962,7 +49003,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -49032,12 +49073,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -49054,7 +49095,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -49065,7 +49106,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -49081,7 +49122,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -49090,8 +49131,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -49187,12 +49228,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -49295,12 +49336,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -49320,7 +49361,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -49450,17 +49491,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 13,
+                        variable_idx: 3,
                     },
                 },
                 caching_class: Variable,
@@ -49472,7 +49514,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -49483,7 +49525,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -49499,7 +49541,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -49508,8 +49550,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -49605,12 +49647,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -49713,12 +49755,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -49738,7 +49780,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -49872,17 +49914,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 14,
+                        variable_idx: 4,
                     },
                 },
                 caching_class: Variable,
@@ -49969,17 +50012,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 13,
+                        variable_idx: 3,
                     },
                 },
                 caching_class: Variable,
@@ -50076,12 +50120,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -50188,12 +50232,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -50285,17 +50329,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 13,
+                        variable_idx: 3,
                     },
                 },
                 caching_class: Variable,
@@ -50392,12 +50437,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -50504,12 +50549,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -50529,7 +50574,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -50663,17 +50708,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 15,
+                        variable_idx: 5,
                     },
                 },
                 caching_class: Variable,
@@ -50685,7 +50731,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -50696,7 +50742,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -50712,7 +50758,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -50721,8 +50767,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -50818,12 +50864,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -50930,12 +50976,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -50952,7 +50998,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -50963,7 +51009,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -50979,7 +51025,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -50988,8 +51034,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -51085,12 +51131,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -51197,12 +51243,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -51222,7 +51268,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -51356,17 +51402,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 16,
+                        variable_idx: 6,
                     },
                 },
                 caching_class: Variable,
@@ -51457,17 +51504,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 14,
+                        variable_idx: 4,
                     },
                 },
                 caching_class: Variable,
@@ -51558,17 +51606,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 15,
+                        variable_idx: 5,
                     },
                 },
                 caching_class: Variable,
@@ -51583,7 +51632,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -51653,12 +51702,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -51754,17 +51803,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 16,
+                        variable_idx: 6,
                     },
                 },
                 caching_class: Variable,
@@ -51779,7 +51829,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -51919,17 +51969,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 18,
+                        variable_idx: 7,
                     },
                 },
                 caching_class: Variable,
@@ -51999,7 +52050,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorFunctionRitchie {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
@@ -52031,17 +52082,18 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
                     source: LetVariable {
                         stmt: 8,
+                        variable_idx: 2,
                     },
                 },
                 caching_class: Variable,
@@ -52138,12 +52190,12 @@
                 source: KiReprSource::Expansion {
                     parent_ki_repr: KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::ValItemLazilyDefined(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         arguments: [],
-                        source: KiReprSource::ValItem(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                         caching_class: Val,
                     },
@@ -52163,7 +52215,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValTracePathData {
-                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -52260,7 +52312,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                     },
                 ),
             },
@@ -52271,7 +52323,7 @@
                             value: 287,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 95,
@@ -52287,7 +52339,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -52296,8 +52348,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -52357,7 +52409,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -52368,7 +52420,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -52384,7 +52436,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -52393,8 +52445,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -52567,7 +52619,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                     },
                 ),
             },
@@ -52578,7 +52630,7 @@
                             value: 285,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 90,
@@ -52594,7 +52646,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -52603,8 +52655,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -53336,7 +53388,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
@@ -53347,7 +53399,7 @@
                             value: 286,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 92,
@@ -53363,7 +53415,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -53372,8 +53424,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -53546,7 +53598,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
@@ -53557,7 +53609,7 @@
                             value: 286,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 92,
@@ -53573,7 +53625,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -53582,8 +53634,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -53802,7 +53854,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                     },
                 ),
             },
@@ -53813,7 +53865,7 @@
                             value: 316,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 97,
@@ -53829,7 +53881,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -53838,8 +53890,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -53951,7 +54003,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -53962,7 +54014,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -53978,7 +54030,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -53987,8 +54039,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -54060,7 +54112,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -54071,7 +54123,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -54087,7 +54139,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -54096,8 +54148,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -54348,7 +54400,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -54359,7 +54411,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -54375,7 +54427,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -54384,8 +54436,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -54616,7 +54668,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                     },
                 ),
             },
@@ -54627,7 +54679,7 @@
                             value: 177,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 78,
@@ -54643,7 +54695,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -54652,8 +54704,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -54713,7 +54765,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -54724,7 +54776,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -54740,7 +54792,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -54749,8 +54801,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -54871,7 +54923,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -54882,7 +54934,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -54898,7 +54950,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -54907,8 +54959,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -55081,7 +55133,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -55092,7 +55144,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -55108,7 +55160,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -55117,8 +55169,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -55291,7 +55343,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -55302,7 +55354,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -55318,7 +55370,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -55327,8 +55379,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -55501,7 +55553,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -55512,7 +55564,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -55528,7 +55580,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -55537,8 +55589,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -57345,7 +57397,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -57356,7 +57408,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -57372,7 +57424,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -57381,8 +57433,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -57723,7 +57775,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                     },
                 ),
             },
@@ -57734,7 +57786,7 @@
                             value: 331,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 101,
@@ -57750,7 +57802,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -57759,8 +57811,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -57872,7 +57924,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -57883,7 +57935,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -57899,7 +57951,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -57908,8 +57960,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -58253,7 +58305,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                     },
                 ),
             },
@@ -58264,7 +58316,7 @@
                             value: 329,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 99,
@@ -58280,7 +58332,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -58289,8 +58341,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -58857,7 +58909,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -58868,7 +58920,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -58884,7 +58936,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -58893,8 +58945,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -58966,7 +59018,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -58977,7 +59029,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -58993,7 +59045,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -59002,8 +59054,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -60156,7 +60208,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                     },
                 ),
             },
@@ -60167,7 +60219,7 @@
                             value: 283,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 89,
@@ -60183,7 +60235,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -60192,8 +60244,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -60302,7 +60354,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                     },
                 ),
             },
@@ -60313,7 +60365,7 @@
                             value: 377,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 108,
@@ -60329,7 +60381,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -60338,8 +60390,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -60451,7 +60503,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -60462,7 +60514,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -60478,7 +60530,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -60487,8 +60539,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -60661,7 +60713,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -60672,7 +60724,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -60688,7 +60740,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -60697,8 +60749,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -61042,7 +61094,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -61053,7 +61105,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -61069,7 +61121,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -61078,8 +61130,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -61252,7 +61304,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -61263,7 +61315,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -61279,7 +61331,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -61288,8 +61340,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -61462,7 +61514,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -61473,7 +61525,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -61489,7 +61541,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -61498,8 +61550,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -61782,7 +61834,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -61793,7 +61845,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -61809,7 +61861,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -61818,8 +61870,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },
@@ -61891,7 +61943,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValTracePathData {
-                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -61902,7 +61954,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: MajorFormPath(
+                    val_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -61918,7 +61970,7 @@
                 opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -61927,8 +61979,8 @@
                     },
                 ),
                 arguments: [],
-                source: KiReprSource::ValItem(
-                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                source: KiReprSource::Val(
+                    MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
                 caching_class: Val,
             },

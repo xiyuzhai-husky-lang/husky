@@ -530,11 +530,11 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
                 MajorFunctionRitchieHirDefn {
-                    path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                         Fn,
                     )`),
                     hir_decl: MajorFunctionRitchieHirDecl {
-                        path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                        path: MajorFormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                             Fn,
                         )`),
                         ritchie_item_kind: RitchieItemKind::Fn,
@@ -606,11 +606,11 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
                 MajorFunctionRitchieHirDefn {
-                    path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                         Fn,
                     )`),
                     hir_decl: MajorFunctionRitchieHirDecl {
-                        path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                        path: MajorFormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                             Fn,
                         )`),
                         ritchie_item_kind: RitchieItemKind::Fn,
@@ -682,11 +682,11 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
                 MajorFunctionRitchieHirDefn {
-                    path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                         Fn,
                     )`),
                     hir_decl: MajorFunctionRitchieHirDecl {
-                        path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                        path: MajorFormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                             Fn,
                         )`),
                         ritchie_item_kind: RitchieItemKind::Fn,
@@ -779,11 +779,11 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
                 MajorFunctionRitchieHirDefn {
-                    path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                         Fn,
                     )`),
                     hir_decl: MajorFunctionRitchieHirDecl {
-                        path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                        path: MajorFormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                             Fn,
                         )`),
                         ritchie_item_kind: RitchieItemKind::Fn,
@@ -887,11 +887,11 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
                 MajorFunctionRitchieHirDefn {
-                    path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                         Fn,
                     )`),
                     hir_decl: MajorFunctionRitchieHirDecl {
-                        path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                        path: MajorFormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                             Fn,
                         )`),
                         ritchie_item_kind: RitchieItemKind::Fn,
@@ -2764,7 +2764,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::FunctionRitchieCall {
-                                                path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                                path: MajorFormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                                     Fn,
                                                 )`),
                                                 instantiation: HirInstantiation {
@@ -4942,7 +4942,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::FunctionRitchieCall {
-                                                path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                                                path: MajorFormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                                                     Fn,
                                                 )`),
                                                 instantiation: HirInstantiation {

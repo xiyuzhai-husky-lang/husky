@@ -53,9 +53,7 @@ SynDeclSheet {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -131,9 +129,7 @@ SynDeclSheet {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -209,9 +205,7 @@ SynDeclSheet {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -249,7 +243,7 @@ SynDeclSheet {
                 MajorItemSynDecl::Form(
                     FormSynDecl::StaticVar(
                         MajorStaticVarSynDecl {
-                            path: FormPath(`mnist::INPUT`, `StaticVar`),
+                            path: MajorFormPath(`mnist::INPUT`, `StaticVar`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 0,
                             },
@@ -304,9 +298,7 @@ SynDeclSheet {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -443,9 +435,7 @@ SynDeclSheet {
                                     pattern_expr_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_contracts: ArenaMap {
-                                        data: [],
-                                    },
+                                    pattern_expr_contracts: [],
                                     pattern_symbol_arena: Arena {
                                         data: [],
                                     },
@@ -594,9 +584,7 @@ SynDeclSheet {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: ArenaMap {
-                                                        data: [],
-                                                    },
+                                                    pattern_expr_contracts: [],
                                                     pattern_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -698,9 +686,7 @@ SynDeclSheet {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -807,9 +793,7 @@ SynDeclSheet {
                                     pattern_expr_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_contracts: ArenaMap {
-                                        data: [],
-                                    },
+                                    pattern_expr_contracts: [],
                                     pattern_symbol_arena: Arena {
                                         data: [],
                                     },
@@ -927,9 +911,7 @@ SynDeclSheet {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: ArenaMap {
-                                                        data: [],
-                                                    },
+                                                    pattern_expr_contracts: [],
                                                     pattern_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -1006,9 +988,7 @@ SynDeclSheet {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -1187,9 +1167,7 @@ SynDeclSheet {
                                     pattern_expr_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_contracts: ArenaMap {
-                                        data: [],
-                                    },
+                                    pattern_expr_contracts: [],
                                     pattern_symbol_arena: Arena {
                                         data: [],
                                     },
@@ -1371,9 +1349,7 @@ SynDeclSheet {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: ArenaMap {
-                                                        data: [],
-                                                    },
+                                                    pattern_expr_contracts: [],
                                                     pattern_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -1473,9 +1449,7 @@ SynDeclSheet {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -1612,9 +1586,7 @@ SynDeclSheet {
                                     pattern_expr_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_contracts: ArenaMap {
-                                        data: [],
-                                    },
+                                    pattern_expr_contracts: [],
                                     pattern_symbol_arena: Arena {
                                         data: [],
                                     },
@@ -1763,9 +1735,7 @@ SynDeclSheet {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: ArenaMap {
-                                                        data: [],
-                                                    },
+                                                    pattern_expr_contracts: [],
                                                     pattern_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -1867,9 +1837,7 @@ SynDeclSheet {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -1976,9 +1944,7 @@ SynDeclSheet {
                                     pattern_expr_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_contracts: ArenaMap {
-                                        data: [],
-                                    },
+                                    pattern_expr_contracts: [],
                                     pattern_symbol_arena: Arena {
                                         data: [],
                                     },
@@ -2096,9 +2062,7 @@ SynDeclSheet {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: ArenaMap {
-                                                        data: [],
-                                                    },
+                                                    pattern_expr_contracts: [],
                                                     pattern_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -2175,9 +2139,7 @@ SynDeclSheet {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -2356,9 +2318,7 @@ SynDeclSheet {
                                     pattern_expr_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_contracts: ArenaMap {
-                                        data: [],
-                                    },
+                                    pattern_expr_contracts: [],
                                     pattern_symbol_arena: Arena {
                                         data: [],
                                     },
@@ -2540,9 +2500,7 @@ SynDeclSheet {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: ArenaMap {
-                                                        data: [],
-                                                    },
+                                                    pattern_expr_contracts: [],
                                                     pattern_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -2642,9 +2600,7 @@ SynDeclSheet {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },

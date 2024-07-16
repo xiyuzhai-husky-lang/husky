@@ -90,6 +90,11 @@
             self_ty: Some(
                 EthTerm(`Result T E`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -1266,6 +1271,11 @@
             self_ty: Some(
                 EthTerm(`Result T1 E1`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -1488,6 +1498,11 @@
             self_ty: Some(
                 EthTerm(`Result T1 E1`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -2506,6 +2521,11 @@
             self_ty: Some(
                 EthTerm(`Result T1 E1`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
 ]

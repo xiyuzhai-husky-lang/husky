@@ -5,7 +5,7 @@
   ],
   "husky-code-lens": [
     "husky-sem-place-contract",
-    "husky-sem-static-var-deps"
+    "husky-sem-var-deps"
   ],
   "husky-completion": [
     "husky-syn-expr"
@@ -88,7 +88,8 @@
     "husky-linkage"
   ],
   "husky-ki-repr": [
-    "husky-ki"
+    "husky-ki",
+    "husky-sem-var-deps"
   ],
   "husky-linkage": [
     "husky-javelin"
@@ -120,7 +121,7 @@
   "husky-sem-static-mut-deps": [
     "husky-sem-item-path-deps"
   ],
-  "husky-sem-static-var-deps": [
+  "husky-sem-var-deps": [
     "husky-sem-static-mut-deps"
   ],
   "husky-semantic-token": [

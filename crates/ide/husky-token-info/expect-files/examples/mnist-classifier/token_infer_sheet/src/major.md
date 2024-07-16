@@ -92,7 +92,7 @@ Ok(
                         0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -101,7 +101,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -125,14 +125,14 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist::INPUT`, `StaticVar`),
+                                MajorFormPath(`mnist::INPUT`, `StaticVar`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist::INPUT`, `StaticVar`),
+                                MajorFormPath(`mnist::INPUT`, `StaticVar`),
                             ),
                         ),
                     ),
@@ -259,14 +259,14 @@ Ok(
                         0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                             ),
                         ),
                     ),
@@ -308,14 +308,14 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                             ),
                         ),
                     ),
@@ -458,14 +458,14 @@ Ok(
                         2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                             ),
                         ),
                     ),
@@ -572,14 +572,14 @@ Ok(
                         0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                             ),
                         ),
                     ),
@@ -622,14 +622,14 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                             ),
                         ),
                     ),
@@ -688,14 +688,14 @@ Ok(
                         2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                         ),
                     ),
@@ -789,14 +789,14 @@ Ok(
                         0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                         ),
                     ),
@@ -870,14 +870,14 @@ Ok(
                         0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                         ),
                     ),
@@ -954,14 +954,14 @@ Ok(
                         0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                             ),
                         ),
                     ),
@@ -1055,14 +1055,14 @@ Ok(
                         0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             ),
                         ),
                     ),

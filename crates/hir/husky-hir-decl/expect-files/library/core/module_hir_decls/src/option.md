@@ -142,13 +142,7 @@
     HirDecl::TypeVariant(
         TypeVariantHirDecl::Tuple(
             EnumTupleVariantHirDecl {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 87,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`core::option::Option::Some`),
                 fields: [
                     EnumTupleVariantField {
                         ty: HirType::Variable(
@@ -209,13 +203,7 @@
     HirDecl::TypeVariant(
         TypeVariantHirDecl::Unit(
             EnumUnitTypeVariantHirDecl {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 88,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`core::option::Option::None`),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`core::option::Option::None`),

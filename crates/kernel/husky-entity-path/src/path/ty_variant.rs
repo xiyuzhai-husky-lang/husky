@@ -1,7 +1,6 @@
 use super::{major_item::ty::TypePath, *};
 use rustc_index::Idx;
 
-#[salsa::derive_debug_with_db]
 #[salsa::as_id(jar = EntityPathJar)]
 #[salsa::deref_id]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -115,6 +114,19 @@ impl TypeVariantPathData {
         self.parent_ty_path.show_aux(f, db)?;
         f.write_str("::")?;
         f.write_str(self.ident.data(db))
+    }
+}
+
+impl salsa::DebugWithDb for TypeVariantPath {
+    fn debug_fmt_with_db(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
+        let data = self.data(db);
+        f.write_str("TypeVariantPath(`")?;
+        data.show_aux(f, db)?;
+        f.write_str("`)")
     }
 }
 

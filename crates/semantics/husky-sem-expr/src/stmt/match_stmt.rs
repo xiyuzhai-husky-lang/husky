@@ -8,6 +8,14 @@ pub struct SemCaseBranch {
     pub case_pattern_sem_obelisk: CaseVariableObelisk,
     pub heavy_arrow_token: HeavyArrowRegionalToken,
     pub stmts: SemStmtIdxRange,
+    // todo: condition
+}
+
+impl SemCaseBranch {
+    pub fn condition(&self) -> Option<SemCondition> {
+        // ad hoc
+        None
+    }
 }
 
 impl<'a> SemExprBuilder<'a> {

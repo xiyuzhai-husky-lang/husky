@@ -4,9 +4,9 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
                 MajorValHirDefn {
-                    path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                     hir_decl: MajorValHirDecl {
-                        path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                        path: MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -62,9 +62,9 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
                 MajorValHirDefn {
-                    path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                     hir_decl: MajorValHirDecl {
-                        path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
@@ -120,11 +120,11 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
                 MajorFunctionRitchieHirDefn {
-                    path: FormPath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::one::upmost`, `Ritchie(
                         Fn,
                     )`),
                     hir_decl: MajorFunctionRitchieHirDecl {
-                        path: FormPath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+                        path: MajorFormPath(`mnist_classifier::digits::one::upmost`, `Ritchie(
                             Fn,
                         )`),
                         ritchie_item_kind: RitchieItemKind::Fn,
@@ -205,11 +205,11 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
                 MajorFunctionRitchieHirDefn {
-                    path: FormPath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::one::downmost`, `Ritchie(
                         Fn,
                     )`),
                     hir_decl: MajorFunctionRitchieHirDecl {
-                        path: FormPath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+                        path: MajorFormPath(`mnist_classifier::digits::one::downmost`, `Ritchie(
                             Fn,
                         )`),
                         ritchie_item_kind: RitchieItemKind::Fn,
@@ -290,11 +290,11 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
                 MajorFunctionRitchieHirDefn {
-                    path: FormPath(`mnist_classifier::digits::one::hat`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::one::hat`, `Ritchie(
                         Fn,
                     )`),
                     hir_decl: MajorFunctionRitchieHirDecl {
-                        path: FormPath(`mnist_classifier::digits::one::hat`, `Ritchie(
+                        path: MajorFormPath(`mnist_classifier::digits::one::hat`, `Ritchie(
                             Fn,
                         )`),
                         ritchie_item_kind: RitchieItemKind::Fn,

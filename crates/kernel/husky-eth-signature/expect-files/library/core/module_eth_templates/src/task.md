@@ -28,7 +28,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::TypeVar(
                         MajorTypeVarEthTemplate {
-                            path: FormPath(`core::task::Task`, `TypeVar`),
+                            path: MajorFormPath(`core::task::Task`, `TypeVar`),
                         },
                     ),
                 ),
@@ -42,7 +42,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::StaticVar(
                         MajorStaticVarEthTemplate {
-                            path: FormPath(`core::task::TASK`, `StaticVar`),
+                            path: MajorFormPath(`core::task::TASK`, `StaticVar`),
                             return_ty: EthTerm(`Task`),
                         },
                     ),

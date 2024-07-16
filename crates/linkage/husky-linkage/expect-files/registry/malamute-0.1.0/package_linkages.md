@@ -11,13 +11,7 @@
                 ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                 template_arguments: [],
             },
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 5,
-                    },
-                ),
-            ),
+            path: TypeVariantPath(`malamute::OneVsAll::Yes`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
                 separator: None,
@@ -30,13 +24,7 @@
                 ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                 template_arguments: [],
             },
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 5,
-                    },
-                ),
-            ),
+            path: TypeVariantPath(`malamute::OneVsAll::Yes`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
                 separator: None,
@@ -49,13 +37,7 @@
                 ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                 template_arguments: [],
             },
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 6,
-                    },
-                ),
-            ),
+            path: TypeVariantPath(`malamute::OneVsAll::No`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
                 separator: None,
@@ -68,13 +50,7 @@
                 ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                 template_arguments: [],
             },
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 6,
-                    },
-                ),
-            ),
+            path: TypeVariantPath(`malamute::OneVsAll::No`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
                 separator: None,
@@ -92,13 +68,7 @@
                 ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                 template_arguments: [],
             },
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 8,
-                    },
-                ),
-            ),
+            path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentYes`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
                 separator: None,
@@ -111,13 +81,7 @@
                 ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                 template_arguments: [],
             },
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 8,
-                    },
-                ),
-            ),
+            path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentYes`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
                 separator: None,
@@ -130,13 +94,7 @@
                 ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                 template_arguments: [],
             },
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 9,
-                    },
-                ),
-            ),
+            path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentNo`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
                 separator: None,
@@ -149,13 +107,7 @@
                 ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                 template_arguments: [],
             },
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 9,
-                    },
-                ),
-            ),
+            path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentNo`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
                 separator: None,
@@ -168,13 +120,7 @@
                 ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                 template_arguments: [],
             },
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 10,
-                    },
-                ),
-            ),
+            path: TypeVariantPath(`malamute::OneVsAllResult::Unconfident`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
                 separator: None,
@@ -187,13 +133,7 @@
                 ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                 template_arguments: [],
             },
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 10,
-                    },
-                ),
-            ),
+            path: TypeVariantPath(`malamute::OneVsAllResult::Unconfident`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
                 separator: None,
@@ -275,13 +215,7 @@
                     ),
                 ],
             },
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 111,
-                    },
-                ),
-            ),
+            path: TypeVariantPath(`core::ops::ControlFlow::Continue`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
                     (
@@ -356,13 +290,7 @@
                     ),
                 ],
             },
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 111,
-                    },
-                ),
-            ),
+            path: TypeVariantPath(`core::ops::ControlFlow::Continue`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
                     (
@@ -437,13 +365,7 @@
                     ),
                 ],
             },
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 111,
-                    },
-                ),
-            ),
+            path: TypeVariantPath(`core::ops::ControlFlow::Continue`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
                     (
@@ -497,13 +419,7 @@
     },
     Linkage {
         data: LinkageData::EnumVariantField {
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 111,
-                    },
-                ),
-            ),
+            path: TypeVariantPath(`core::ops::ControlFlow::Continue`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
                     (
@@ -581,13 +497,7 @@
                     ),
                 ],
             },
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 112,
-                    },
-                ),
-            ),
+            path: TypeVariantPath(`core::ops::ControlFlow::Break`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
                     (
@@ -662,13 +572,7 @@
                     ),
                 ],
             },
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 112,
-                    },
-                ),
-            ),
+            path: TypeVariantPath(`core::ops::ControlFlow::Break`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
                     (
@@ -743,13 +647,7 @@
                     ),
                 ],
             },
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 112,
-                    },
-                ),
-            ),
+            path: TypeVariantPath(`core::ops::ControlFlow::Break`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
                     (
@@ -803,13 +701,7 @@
     },
     Linkage {
         data: LinkageData::EnumVariantField {
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 112,
-                    },
-                ),
-            ),
+            path: TypeVariantPath(`core::ops::ControlFlow::Break`),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
                     (

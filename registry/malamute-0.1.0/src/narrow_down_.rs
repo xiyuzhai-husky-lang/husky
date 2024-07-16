@@ -80,7 +80,8 @@ where
     type LinkageImpl = __LinkageImpl;
 
     fn generic_pedestal(generic_pedestal: __Pedestal) -> __Pedestal {
-        __Pedestal::Generic
+        todo!()
+        // __Pedestal::Generic
     }
 
     type ValueAtGenericPedestal = NarrowDownInternal<Label>;

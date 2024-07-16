@@ -598,6 +598,7 @@ impl<'a> SemExprBuilder<'a> {
             self.fly_term_region,
             self.return_ty,
             self.self_ty,
+            self.context_itd,
             self.db,
         )
     }

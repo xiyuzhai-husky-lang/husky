@@ -87,3 +87,9 @@ captured groups!!
 ## The path attribute
 
 https://doc.rust-lang.org/reference/items/modules.html
+
+## ld.lld: error: unable to find library -lstdc++
+
+sudo apt install libstdc++-14-dev
+
+or some other version

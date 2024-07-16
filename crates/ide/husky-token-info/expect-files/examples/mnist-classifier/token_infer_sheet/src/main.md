@@ -550,14 +550,14 @@ Ok(
                         0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                             ),
                         ),
                     ),
@@ -570,14 +570,14 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                             ),
                         ),
                     ),
@@ -590,14 +590,14 @@ Ok(
                         2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                             ),
                         ),
                     ),
@@ -610,14 +610,14 @@ Ok(
                         3,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                             ),
                         ),
                     ),
@@ -630,14 +630,14 @@ Ok(
                         4,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                             ),
                         ),
                     ),
@@ -650,14 +650,14 @@ Ok(
                         5,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                             ),
                         ),
                     ),
@@ -670,14 +670,14 @@ Ok(
                         6,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                             ),
                         ),
                     ),
@@ -690,14 +690,14 @@ Ok(
                         7,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                             ),
                         ),
                     ),
@@ -710,14 +710,14 @@ Ok(
                         8,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                             ),
                         ),
                     ),
@@ -749,25 +749,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         10,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 263,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`malamute::Class::Unknown`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 263,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`malamute::Class::Unknown`),
                         ),
                     ),
                 },

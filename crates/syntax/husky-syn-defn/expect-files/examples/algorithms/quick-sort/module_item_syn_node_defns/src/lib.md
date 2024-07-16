@@ -122,11 +122,9 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                BorrowMut,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::BorrowMut,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -286,7 +284,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                                MajorFormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -422,7 +420,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                            MajorFormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -498,11 +496,9 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
@@ -791,13 +787,11 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                BorrowMut,
-                                                Pure,
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::BorrowMut,
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -1045,7 +1039,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`quick_sort::partition`, `Ritchie(
+                                                MajorFormPath(`quick_sort::partition`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -1119,7 +1113,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                                MajorFormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -1213,7 +1207,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                                MajorFormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -1322,7 +1316,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`quick_sort::partition`, `Ritchie(
+                                            MajorFormPath(`quick_sort::partition`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -1339,7 +1333,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                            MajorFormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -1356,7 +1350,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                            MajorFormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -1447,11 +1441,9 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
@@ -1781,13 +1773,11 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                BorrowMut,
-                                                Pure,
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::BorrowMut,
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -3086,13 +3076,11 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Pure,
-                                    Move,
-                                    Move,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Pure,
+                                Contract::Move,
+                                Contract::Move,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
@@ -3344,9 +3332,7 @@
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -3690,11 +3676,9 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Move,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Move,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
@@ -3853,9 +3837,7 @@
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -4073,11 +4055,9 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Move,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Move,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(

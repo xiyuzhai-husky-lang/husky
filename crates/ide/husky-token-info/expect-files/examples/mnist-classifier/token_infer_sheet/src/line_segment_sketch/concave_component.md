@@ -3830,7 +3830,7 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -3839,7 +3839,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -4061,7 +4061,7 @@ Ok(
                         2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -4070,7 +4070,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                                     Fn,
                                 )`),
                             ),

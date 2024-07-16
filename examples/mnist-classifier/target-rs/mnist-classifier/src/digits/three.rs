@@ -1,13 +1,13 @@
 use super::*;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val_item(ingredient_index = 31, return_ref)]
+#[ad_hoc_devsoul_dependency::val(ingredient_index = 31, return_ref)]
 pub fn three_fermi_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![downarc, uparc, back])
 }
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val_item(ingredient_index = 32)]
+#[ad_hoc_devsoul_dependency::val(ingredient_index = 32)]
 pub fn is_three() -> malamute::OneVsAll {
     require!(major_concave_components().ilen() >= 2);
     require!(major_concave_components().ilen() <= 4);

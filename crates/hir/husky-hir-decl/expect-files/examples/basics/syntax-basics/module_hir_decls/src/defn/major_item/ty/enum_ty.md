@@ -40,13 +40,7 @@
     HirDecl::TypeVariant(
         TypeVariantHirDecl::Unit(
             EnumUnitTypeVariantHirDecl {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 10,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::UnitVariant`),
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::UnitVariant`),
@@ -78,13 +72,7 @@
     HirDecl::TypeVariant(
         TypeVariantHirDecl::Props(
             EnumPropsVariantHirDecl {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 11,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithOneField`),
                 fields: [
                     EnumPropsVariantField {
                         ident: `x`,
@@ -135,13 +123,7 @@
     HirDecl::TypeVariant(
         TypeVariantHirDecl::Props(
             EnumPropsVariantHirDecl {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 12,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithTwoFields`),
                 fields: [
                     EnumPropsVariantField {
                         ident: `x`,
@@ -208,13 +190,7 @@
     HirDecl::TypeVariant(
         TypeVariantHirDecl::Tuple(
             EnumTupleVariantHirDecl {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 13,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithOneField`),
                 fields: [
                     EnumTupleVariantField {
                         ty: HirType::PathLeading(
@@ -257,13 +233,7 @@
     HirDecl::TypeVariant(
         TypeVariantHirDecl::Tuple(
             EnumTupleVariantHirDecl {
-                path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 14,
-                        },
-                    ),
-                ),
+                path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithTwoFields`),
                 fields: [
                     EnumTupleVariantField {
                         ty: HirType::PathLeading(

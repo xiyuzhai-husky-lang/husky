@@ -4,9 +4,9 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
                 MajorValHirDefn {
-                    path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     hir_decl: MajorValHirDecl {
-                        path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -62,11 +62,11 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
                 MajorFunctionRitchieHirDefn {
-                    path: FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
                         Fn,
                     )`),
                     hir_decl: MajorFunctionRitchieHirDecl {
-                        path: FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
+                        path: MajorFormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
                             Fn,
                         )`),
                         ritchie_item_kind: RitchieItemKind::Fn,
@@ -147,11 +147,11 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
                 MajorFunctionRitchieHirDefn {
-                    path: FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
                         Fn,
                     )`),
                     hir_decl: MajorFunctionRitchieHirDecl {
-                        path: FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
+                        path: MajorFormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
                             Fn,
                         )`),
                         ritchie_item_kind: RitchieItemKind::Fn,
@@ -232,11 +232,11 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
                 MajorFunctionRitchieHirDefn {
-                    path: FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
                         Fn,
                     )`),
                     hir_decl: MajorFunctionRitchieHirDecl {
-                        path: FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
+                        path: MajorFormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
                             Fn,
                         )`),
                         ritchie_item_kind: RitchieItemKind::Fn,
@@ -317,9 +317,9 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
                 MajorValHirDefn {
-                    path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                     hir_decl: MajorValHirDecl {
-                        path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                        path: MajorFormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`malamute::OneVsAll`, `Enum`),

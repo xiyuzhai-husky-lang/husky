@@ -4,7 +4,7 @@ use crate::{
 };
 use smallvec::{smallvec, Array, SmallVec};
 
-#[derive(PartialEq, Eq, Clone, Hash, Serialize, Deserialize)]
+#[derive(PartialEq, Eq, Clone, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 pub struct OrderedSmallVecMap<E, const N: usize>
 where
     [E; N]: Array<Item = E>,

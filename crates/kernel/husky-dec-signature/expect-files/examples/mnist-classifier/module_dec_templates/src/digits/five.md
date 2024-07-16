@@ -7,12 +7,28 @@
                 MajorItemDecTemplate::Form(
                     MajorFormDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 13,
-                                    },
-                                ),
+                            return_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::Application(
+                                        DecApplication {
+                                            function: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                            ),
+                                            argument: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`mnist::MnistLabel`, `Enum`),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    argument: DecTerm::EntityPath(
+                                        DecItemPath::TypeVariant(
+                                            TypeVariantPath(`mnist::MnistLabel::Five`),
+                                        ),
+                                    ),
+                                },
                             ),
                         },
                     ),

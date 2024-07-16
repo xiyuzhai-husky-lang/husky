@@ -20,7 +20,7 @@ EntityTreeSheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`quick_sort::quick_sort`, `Ritchie(
+                            path: MajorFormPath(`quick_sort::quick_sort`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
@@ -62,7 +62,7 @@ EntityTreeSheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                            path: MajorFormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
@@ -106,7 +106,7 @@ EntityTreeSheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`quick_sort::partition`, `Ritchie(
+                            path: MajorFormPath(`quick_sort::partition`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
@@ -150,7 +150,7 @@ EntityTreeSheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                            path: MajorFormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
@@ -194,7 +194,7 @@ EntityTreeSheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                            path: MajorFormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
@@ -228,7 +228,7 @@ EntityTreeSheet {
                 visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Form(
-                        FormPath(`quick_sort::quick_sort`, `Ritchie(
+                        MajorFormPath(`quick_sort::quick_sort`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -241,7 +241,7 @@ EntityTreeSheet {
                 ),
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Form(
-                        FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                        MajorFormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -254,7 +254,7 @@ EntityTreeSheet {
                 ),
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Form(
-                        FormPath(`quick_sort::partition`, `Ritchie(
+                        MajorFormPath(`quick_sort::partition`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -267,7 +267,7 @@ EntityTreeSheet {
                 ),
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Form(
-                        FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                        MajorFormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -280,7 +280,7 @@ EntityTreeSheet {
                 ),
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Form(
-                        FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                        MajorFormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                             Fn,
                         )`),
                     ),

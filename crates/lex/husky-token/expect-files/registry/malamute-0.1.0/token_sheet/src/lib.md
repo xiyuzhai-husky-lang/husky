@@ -1432,6 +1432,31 @@ TokenSheetData {
                 ),
             ),
         ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Pound,
+            ),
+        ),
+        TokenData::Ident(
+            `deps`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::LeftDelimiter(
+                    Delimiter::Par,
+                ),
+            ),
+        ),
+        TokenData::Ident(
+            `Task`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::RightDelimiter(
+                    Delimiter::Par,
+                ),
+            ),
+        ),
         TokenData::Keyword(
             Keyword::Pub,
         ),
@@ -1834,6 +1859,14 @@ TokenSheetData {
                     start: TokenVerseStart(
                         TokenIdx(
                             314,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            319,
                         ),
                     ),
                     indent: 0,

@@ -67,15 +67,9 @@
                                 },
                             ],
                         },
-                        trai: EntityPath(
-                            Trait(
-                                TraitPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 46,
-                                        },
-                                    ),
-                                ),
+                        trai: DecTerm::EntityPath(
+                            DecItemPath::Trait(
+                                TraitPath(`core::marker::Copy`),
                             ),
                         ),
                         self_ty: DeclarativeSelfType::DerivedAny(

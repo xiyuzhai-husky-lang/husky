@@ -16,18 +16,19 @@ impl MnistChannel {
         visual_synchrotron: &mut VisualSynchrotron,
     ) -> Figure {
         let accompanyings_except_followed = self.accompanyings_except_followed();
-        match pedestal {
-            StandardPedestal::Specific(input_id) => Figure::new_specific(
-                None,
-                &accompanyings_except_followed,
-                |ki_repr_interface, _visual_synchrotron| {
-                    let trace: Trace = ki_repr_interface.into();
-                    trace.visual(db, input_id, op_time)
-                },
-                visual_synchrotron,
-            ),
-            StandardPedestal::Generic => todo!(),
-        }
+        todo!()
+        // match pedestal {
+        //     StandardPedestal::Specific(input_id) => Figure::new_specific(
+        //         None,
+        //         &accompanyings_except_followed,
+        //         |ki_repr_interface, _visual_synchrotron| {
+        //             let trace: Trace = ki_repr_interface.into();
+        //             trace.visual(db, input_id, op_time)
+        //         },
+        //         visual_synchrotron,
+        //     ),
+        //     StandardPedestal::Generic => todo!(),
+        // }
     }
 
     pub(in super::super) fn accompanyings_except_followed(

@@ -172,7 +172,7 @@ pub enum JarIndex {
     SemExprJar,
     SemItemPathDepsJar,
     SemPlaceContractJar,
-    SemStaticVarDepsJar,
+    SemVarDepsJar,
     SemStaticMutDepsJar,
     // super
     SuperNodeJar,

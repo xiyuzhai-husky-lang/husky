@@ -22,9 +22,9 @@ impl DeriveAttrEthTemplate {
     pub(super) fn from_dec(
         db: &::salsa::Db,
         path: AttrItemPath,
-        declarative_template: DeriveAttrDecTemplate,
+        dec_template: DeriveAttrDecTemplate,
     ) -> EthSignatureResult<Self> {
-        let shards = declarative_template
+        let shards = dec_template
             .shards(db)
             .iter()
             .map(|&shard| DeriveAttrShardEthTemplate::from_dec(shard, db))
@@ -35,14 +35,14 @@ impl DeriveAttrEthTemplate {
 
 impl DeriveAttrShardEthTemplate {
     fn from_dec(
-        declarative_template: DeriveAttrShardDecTemplate,
+        dec_template: DeriveAttrShardDecTemplate,
         db: &::salsa::Db,
     ) -> EthSignatureResult<Self> {
         Ok(Self::new(
             db,
             EthTerm::from_dec(
                 db,
-                declarative_template.trai_term(db),
+                dec_template.trai_term(db),
                 TypeFinalDestinationExpectation::Any,
             )?,
         ))

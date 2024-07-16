@@ -99,7 +99,7 @@ impl EthTerm {
                 EthLambdaVariable::from_dec(db, declarative_term)?.into()
             }
             DecTerm::EntityPath(declarative_term) => match declarative_term {
-                DecItemPath::Form(path) => ItemPathTerm::Form(path).into(),
+                DecItemPath::Form(path) => ItemPathTerm::MajorForm(path).into(),
                 DecItemPath::Trait(path) => ItemPathTerm::Trait(path).into(),
                 DecItemPath::Type(path) => match ty_expectation {
                     TypeFinalDestinationExpectation::EqsSort => {
@@ -218,7 +218,7 @@ impl EthTerm {
             )
             | EthTerm::Sort(_)
             | EthTerm::Universe(_) => self,
-            EthTerm::ItemPath(ItemPathTerm::Form(_)) => todo!(),
+            EthTerm::ItemPath(ItemPathTerm::MajorForm(_)) => todo!(),
             EthTerm::Curry(_) => self,
             EthTerm::Ritchie(slf) => slf.reduce(db).into(),
             EthTerm::Abstraction(_) => todo!(),
@@ -404,7 +404,7 @@ impl EthInstantiate for EthTerm {
     ) -> Self::Output {
         if let Some(task_ty) = instantiation.task_ty() {
             match self {
-                EthTerm::ItemPath(ItemPathTerm::Form(form_path))
+                EthTerm::ItemPath(ItemPathTerm::MajorForm(form_path))
                     if form_path.refine(db) == Left(PreludeMajorFormPath::TaskType) =>
                 {
                     return task_ty

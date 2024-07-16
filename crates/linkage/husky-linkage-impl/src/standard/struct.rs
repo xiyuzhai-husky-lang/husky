@@ -17,7 +17,7 @@ macro_rules! struct_destructor_linkage_impl {
                 _ => unreachable!(),
             }
         }
-        LinkageImpl::StructDestructor {
+        __LinkageImpl::StructDestructor {
             struct_destructor_wrapper,
         }
     }};
@@ -45,7 +45,7 @@ macro_rules! struct_field_linkage_impl {
                 _ => unreachable!(),
             }
         }
-        LinkageImpl::StructField {
+        __LinkageImpl::StructField {
             struct_field_wrapper,
         }
     }};
@@ -58,5 +58,5 @@ fn struct_field_linkage_impl_works() {
         x: i32,
     }
 
-    let _: LinkageImpl<()> = struct_field_linkage_impl!(A, x);
+    let _: StandardLinkageImpl<()> = struct_field_linkage_impl!(A, x);
 }

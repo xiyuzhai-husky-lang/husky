@@ -72,7 +72,7 @@ Ok(
                         0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -81,7 +81,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -105,14 +105,14 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             ),
                         ),
                     ),
@@ -126,7 +126,7 @@ Ok(
                         2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -135,7 +135,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -403,7 +403,7 @@ Ok(
                         0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -412,7 +412,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -436,14 +436,14 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             ),
                         ),
                     ),
@@ -457,7 +457,7 @@ Ok(
                         2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -466,7 +466,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -481,7 +481,7 @@ Ok(
                         3,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -490,7 +490,7 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
+                                MajorFormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -1166,25 +1166,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         3,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 284,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist::MnistLabel::Seven`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 284,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`mnist::MnistLabel::Seven`),
                         ),
                     ),
                 },
@@ -1197,14 +1185,14 @@ Ok(
                         0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                         ),
                     ),
@@ -1245,14 +1233,14 @@ Ok(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                             ),
                         ),
                     ),
@@ -1296,14 +1284,14 @@ Ok(
                         2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                             ),
                         ),
                     ),
@@ -1329,25 +1317,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         3,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 217,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`core::option::Option::Some`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 217,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`core::option::Option::Some`),
                         ),
                     ),
                 },
@@ -1377,14 +1353,14 @@ Ok(
                         4,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                         ),
                     ),
@@ -1408,14 +1384,14 @@ Ok(
                         5,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                         ),
                     ),
@@ -1474,14 +1450,14 @@ Ok(
                         6,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                             ),
                         ),
                     ),
@@ -1604,25 +1580,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         8,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 265,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 265,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                         ),
                     ),
                 },
@@ -1669,14 +1633,14 @@ Ok(
                         9,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                         ),
                     ),
@@ -1700,14 +1664,14 @@ Ok(
                         10,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                         ),
                     ),
@@ -1769,25 +1733,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         12,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 265,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 265,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                         ),
                     ),
                 },
@@ -1799,14 +1751,14 @@ Ok(
                         13,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                             ),
                         ),
                     ),
@@ -1832,25 +1784,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         14,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 217,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`core::option::Option::Some`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 217,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`core::option::Option::Some`),
                         ),
                     ),
                 },
@@ -1880,14 +1820,14 @@ Ok(
                         15,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                                MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                             ),
                         ),
                     ),
@@ -1931,25 +1871,13 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         17,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 265,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
                             Room32,
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 265,
-                                    },
-                                ),
-                            ),
+                            TypeVariantPath(`malamute::OneVsAll::Yes`),
                         ),
                     ),
                 },

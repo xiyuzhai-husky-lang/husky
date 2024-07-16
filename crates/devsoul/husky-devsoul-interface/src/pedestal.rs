@@ -1,14 +1,18 @@
 use serde::{Deserialize, Serialize};
 
 pub trait IsPedestal:
-    std::fmt::Debug + Default + PartialEq + Eq + Clone + Copy + Send + Sync + std::hash::Hash + 'static
+    std::fmt::Debug + Default + PartialEq + Eq + Clone + Send + Sync + std::hash::Hash + 'static
 {
+    type StaticVarId: Clone + Copy;
     type UiBuffer: IsPedestalUiBuffer<Pedestal = Self>;
 
-    fn init_ui_buffer(self) -> Self::UiBuffer;
+    fn from_ids(ids: impl Iterator<Item = (u32, Self::StaticVarId)>) -> Self;
+
+    fn init_ui_buffer(&self) -> Self::UiBuffer;
 
     /// a closed point in algebraic geometry is a minimal prime point locally
-    fn is_closed(self) -> bool;
+    #[deprecated]
+    fn is_closed(&self) -> bool;
 }
 
 pub trait IsPedestalFull: IsPedestal + Serialize + for<'a> Deserialize<'a> {}
@@ -18,17 +22,23 @@ impl<T> IsPedestalFull for T where T: IsPedestal + Serialize + for<'a> Deseriali
 pub trait IsPedestalUiBuffer {
     type Pedestal;
 
-    fn update(&mut self, pedestal: Self::Pedestal);
+    fn update(&mut self, pedestal: &Self::Pedestal);
 }
 
 impl IsPedestal for () {
+    type StaticVarId = ();
+
     type UiBuffer = ();
 
-    fn init_ui_buffer(self) -> () {
+    fn from_ids(ids: impl Iterator<Item = (u32, Self::StaticVarId)>) -> Self {
         ()
     }
 
-    fn is_closed(self) -> bool {
+    fn init_ui_buffer(&self) -> () {
+        ()
+    }
+
+    fn is_closed(&self) -> bool {
         true
     }
 }
@@ -36,5 +46,5 @@ impl IsPedestal for () {
 impl IsPedestalUiBuffer for () {
     type Pedestal = ();
 
-    fn update(&mut self, _pedestal: Self::Pedestal) {}
+    fn update(&mut self, _pedestal: &Self::Pedestal) {}
 }

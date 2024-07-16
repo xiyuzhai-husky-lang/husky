@@ -43,15 +43,9 @@
                                 },
                             ],
                         },
-                        trai: EntityPath(
-                            Trait(
-                                TraitPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 34,
-                                        },
-                                    ),
-                                ),
+                        trai: DecTerm::EntityPath(
+                            DecItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
                             ),
                         ),
                         self_ty: DeclarativeSelfType::DerivedAny(
@@ -87,35 +81,77 @@
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodRitchie(
                         TraitForTypeMethodRitchieDecTemplate {
-                            self_ty: SymbolicVariable(
-                                DecSymbolicVariable(
-                                    Id {
-                                        value: 5,
+                            self_ty: DecTerm::SymbolicVariable(
+                                DecSymbolicVariable {
+                                    toolchain: Toolchain {
+                                        data: ToolchainData::Local {
+                                            library_path: "../../../library",
+                                        },
                                     },
-                                ),
+                                    ty: Ok(
+                                        Category(
+                                            Sort {
+                                                universe: Universe(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                    index: DecSymbolicVariableIndex(
+                                        SelfType,
+                                    ),
+                                },
                             ),
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
-                                ty: SymbolicVariable(
-                                    DecSymbolicVariable(
-                                        Id {
-                                            value: 5,
+                                contract: Contract::Pure,
+                                ty: DecTerm::SymbolicVariable(
+                                    DecSymbolicVariable {
+                                        toolchain: Toolchain {
+                                            data: ToolchainData::Local {
+                                                library_path: "../../../library",
+                                            },
                                         },
-                                    ),
+                                        ty: Ok(
+                                            Category(
+                                                Sort {
+                                                    universe: Universe(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                        index: DecSymbolicVariableIndex(
+                                            SelfType,
+                                        ),
+                                    },
                                 ),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: SymbolicVariable(
-                                DecSymbolicVariable(
-                                    Id {
-                                        value: 5,
+                            return_ty: DecTerm::SymbolicVariable(
+                                DecSymbolicVariable {
+                                    toolchain: Toolchain {
+                                        data: ToolchainData::Local {
+                                            library_path: "../../../library",
+                                        },
                                     },
-                                ),
+                                    ty: Ok(
+                                        Category(
+                                            Sort {
+                                                universe: Universe(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                    index: DecSymbolicVariableIndex(
+                                        SelfType,
+                                    ),
+                                },
                             ),
                         },
                     ),

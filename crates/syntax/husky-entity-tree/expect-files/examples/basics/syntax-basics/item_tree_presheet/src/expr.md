@@ -22,7 +22,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`syntax_basics::expr::nested`, `Ritchie(
+                            path: MajorFormPath(`syntax_basics::expr::nested`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
@@ -66,7 +66,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                            path: MajorFormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
@@ -110,7 +110,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                            path: MajorFormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(

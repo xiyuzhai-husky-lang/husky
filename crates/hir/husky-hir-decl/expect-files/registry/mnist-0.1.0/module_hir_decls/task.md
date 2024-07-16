@@ -4,7 +4,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::StaticVar(
                 MajorStaticVarHirDecl {
-                    path: FormPath(`mnist::TASK`, `StaticVar`),
+                    path: MajorFormPath(`mnist::TASK`, `StaticVar`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist::task::MnistTask`, `Extern`),

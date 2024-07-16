@@ -4055,7 +4055,7 @@ dependencies = [
  "husky-sem-item-path-deps",
  "husky-sem-place-contract",
  "husky-sem-static-mut-deps",
- "husky-sem-static-var-deps",
+ "husky-sem-var-deps",
  "husky-semantic-token",
  "husky-syn-decl",
  "husky-syn-defn",
@@ -4219,7 +4219,7 @@ dependencies = [
  "husky-sem-item-path-deps",
  "husky-sem-place-contract",
  "husky-sem-static-mut-deps",
- "husky-sem-static-var-deps",
+ "husky-sem-var-deps",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -4521,7 +4521,10 @@ dependencies = [
  "husky-print-utils",
  "husky-rust-transpilation",
  "husky-sem-expr",
+ "husky-sem-item-path-deps",
  "husky-sem-place-contract",
+ "husky-sem-static-mut-deps",
+ "husky-sem-var-deps",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -4594,6 +4597,7 @@ version = "0.1.0"
 dependencies = [
  "enum-class",
  "husky-devsoul-interface",
+ "husky-entity-path",
  "husky-ki",
  "husky-linkage",
  "husky-linkage-impl",
@@ -5489,7 +5493,10 @@ dependencies = [
  "husky-print-utils",
  "husky-regional-token",
  "husky-sem-expr",
+ "husky-sem-item-path-deps",
  "husky-sem-place-contract",
+ "husky-sem-static-mut-deps",
+ "husky-sem-var-deps",
  "husky-standard-devsoul",
  "husky-syn-decl",
  "husky-syn-defn",
@@ -5506,6 +5513,7 @@ dependencies = [
  "rustc-hash",
  "salsa",
  "smallvec",
+ "vec-like",
 ]
 
 [[package]]
@@ -5589,6 +5597,8 @@ dependencies = [
  "colored",
  "husky-decl-macro-utils",
  "husky-devsoul-interface",
+ "husky-linkage-impl",
+ "husky-standard-devsoul-interface",
  "husky-standard-value",
  "husky-value-protocol",
  "rustc_version",
@@ -6191,7 +6201,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-sem-static-var-deps"
+name = "husky-sem-var-deps"
 version = "0.1.0"
 dependencies = [
  "graph-dynamics",
@@ -6284,6 +6294,7 @@ dependencies = [
  "either",
  "husky-devsoul",
  "husky-devsoul-interface",
+ "husky-entity-path",
  "husky-ki",
  "husky-linkage",
  "husky-linkage-impl",
@@ -6312,6 +6323,7 @@ dependencies = [
  "husky-trace-protocol",
  "serde",
  "shifted-unsigned-int",
+ "vec-like",
 ]
 
 [[package]]
@@ -6854,7 +6866,10 @@ dependencies = [
  "husky-print-utils",
  "husky-regional-token",
  "husky-sem-expr",
+ "husky-sem-item-path-deps",
  "husky-sem-place-contract",
+ "husky-sem-static-mut-deps",
+ "husky-sem-var-deps",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -8124,6 +8139,7 @@ dependencies = [
  "husky-standard-value",
  "lazy_static",
  "serde",
+ "shifted-unsigned-int",
 ]
 
 [[package]]

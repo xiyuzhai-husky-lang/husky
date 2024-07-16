@@ -87,6 +87,7 @@ pub struct DecSignatureJar(
     crate::signature::attr::attr_dec_template,
     crate::signature::attr::backprop::BackpropAttrDecTemplate,
     crate::signature::attr::deps::DepsAttrDecTemplate,
+    crate::signature::attr::deps::DepsAttrShardDecTemplate,
     crate::signature::attr::derive::DeriveAttrDecTemplate,
     crate::signature::attr::derive::DeriveAttrShardDecTemplate,
     crate::signature::attr::projection::ProjectionAttrDecTemplate,

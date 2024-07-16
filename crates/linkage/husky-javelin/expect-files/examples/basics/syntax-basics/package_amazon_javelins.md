@@ -17,7 +17,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`syntax_basics::expr::nested`, `Ritchie(
+                    MajorFormPath(`syntax_basics::expr::nested`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -32,7 +32,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                    MajorFormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -47,7 +47,7 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Form(
-                    FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                    MajorFormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                         Fn,
                     )`),
                 ),

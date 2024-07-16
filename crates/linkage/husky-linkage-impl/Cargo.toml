@@ -16,6 +16,10 @@ husky-devsoul-interface.workspace = true
 # utils
 husky-decl-macro-utils.workspace = true
 
+[dev-dependencies]
+husky-standard-devsoul-interface.workspace = true
+husky-linkage-impl = { path = ".", features = ["standard"] }
+
 [features]
 default = ["standard"]
 standard = []

@@ -74,7 +74,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(

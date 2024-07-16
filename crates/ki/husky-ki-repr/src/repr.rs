@@ -12,7 +12,7 @@ use husky_ki::{Ki, KiArgument, KiDomain, KiOpn, KiRuntimeConstant};
 use husky_linkage::linkage::Linkage;
 use smallvec::{smallvec, SmallVec};
 
-#[salsa::tracked(db = KiReprDb, jar = KiReprJar, constructor = new_inner)]
+#[salsa::tracked(constructor = new_inner)]
 pub struct KiRepr {
     pub ki_domain_repr: KiDomainRepr,
     pub opn: KiOpn,
@@ -85,9 +85,9 @@ impl KiRepr {
     }
 
     // todo: general paths
-    pub fn new_val_item(path: MajorFormPath, db: &::salsa::Db) -> Self {
+    pub fn new_val(path: MajorFormPath, db: &::salsa::Db) -> Self {
         debug_assert_eq!(path.kind(db), husky_entity_kind::MajorFormKind::Val);
-        val_item_ki_repr(db, path)
+        val_ki_repr(db, path)
     }
 
     // todo: general paths
@@ -106,33 +106,33 @@ impl KiRepr {
     }
 }
 
-#[salsa::tracked(jar = KiReprJar)]
-fn val_item_ki_repr(db: &::salsa::Db, path: MajorFormPath) -> KiRepr {
+#[salsa::tracked]
+fn val_ki_repr(db: &::salsa::Db, path: MajorFormPath) -> KiRepr {
     let domain = KiDomainRepr::Omni;
     let MajorFormHirDefn::Val(hir_defn) = path.hir_defn(db).unwrap() else {
         use salsa::DebugWithDb;
         husky_print_utils::p!(path.debug(db));
         unreachable!()
     };
-    let opn = match Linkage::new_val_item(path, db) {
+    let opn = match Linkage::new_val(path, db) {
         Some(linkage) => KiOpn::Linkage(linkage),
-        None => KiOpn::ValItemLazilyDefined(path),
+        None => KiOpn::ValLazilyDefined(path),
     };
     let opds = smallvec![];
     let caching_class = KiCachingClass::Val;
-    KiRepr::new(domain, opn, opds, KiReprSource::ValItem(path), db)
+    KiRepr::new(domain, opn, opds, KiReprSource::Val(path), db)
 }
 
-#[salsa::tracked(jar = KiReprJar)]
+#[salsa::tracked]
 fn static_var_item_ki_repr(db: &::salsa::Db, path: MajorFormPath) -> KiRepr {
     let domain = KiDomainRepr::Omni;
     let MajorFormHirDefn::StaticVar(hir_defn) = path.hir_defn(db).unwrap() else {
         unreachable!()
     };
-    let opn = KiOpn::Linkage(Linkage::new_static_var_item(path, db));
+    let opn = KiOpn::Linkage(Linkage::new_static_var(path, db));
     let opds = smallvec![];
     let caching_class = KiCachingClass::StaticVar;
-    KiRepr::new(domain, opn, opds, KiReprSource::ValItem(path), db)
+    KiRepr::new(domain, opn, opds, KiReprSource::Val(path), db)
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -180,12 +180,12 @@ pub enum KiCachingClass {
 }
 
 impl KiRepr {
-    pub fn val(self, db: &::salsa::Db) -> Ki {
+    pub fn ki(self, db: &::salsa::Db) -> Ki {
         ki_repr_ki(db, self)
     }
 }
 
-#[salsa::tracked(jar = KiReprJar)]
+#[salsa::tracked]
 fn ki_repr_ki(db: &::salsa::Db, ki_repr: KiRepr) -> Ki {
     Ki::new(
         db,
@@ -202,19 +202,19 @@ fn ki_repr_ki(db: &::salsa::Db, ki_repr: KiRepr) -> Ki {
 impl KiArgumentRepr {
     fn val_argument(&self, db: &::salsa::Db) -> KiArgument {
         match *self {
-            KiArgumentRepr::Simple(ki_repr) => KiArgument::Simple(ki_repr.val(db)),
+            KiArgumentRepr::Simple(ki_repr) => KiArgument::Simple(ki_repr.ki(db)),
             KiArgumentRepr::Keyed(ki_repr) => {
-                KiArgument::Keyed(ki_repr.map(|ki_repr| ki_repr.val(db)))
+                KiArgument::Keyed(ki_repr.map(|ki_repr| ki_repr.ki(db)))
             }
             KiArgumentRepr::Variadic(ref ki_reprs) => {
-                KiArgument::Variadic(ki_reprs.iter().map(|ki_repr| ki_repr.val(db)).collect())
+                KiArgument::Variadic(ki_reprs.iter().map(|ki_repr| ki_repr.ki(db)).collect())
             }
             KiArgumentRepr::Branch {
                 condition,
                 ref stmts,
             } => KiArgument::Branch {
-                condition: condition.map(|condition| condition.val(db)),
-                stmts: stmts.iter().map(|&stmt| stmt.val(db)).collect(),
+                condition: condition.map(|condition| condition.ki(db)),
+                stmts: stmts.iter().map(|&stmt| stmt.ki(db)).collect(),
             },
             KiArgumentRepr::RuntimeConstants(ref ki_reprs) => {
                 KiArgument::RuntimeConstants(ki_reprs.clone())
@@ -228,19 +228,19 @@ impl KiDomainRepr {
         match self {
             KiDomainRepr::Omni => KiDomain::Omni,
             KiDomainRepr::ConditionSatisfied(ki_repr) => {
-                KiDomain::ConditionSatisfied(ki_repr.val(db))
+                KiDomain::ConditionSatisfied(ki_repr.ki(db))
             }
             KiDomainRepr::ConditionNotSatisfied(ki_repr) => {
-                KiDomain::ConditionNotSatisfied(ki_repr.val(db))
+                KiDomain::ConditionNotSatisfied(ki_repr.ki(db))
             }
-            KiDomainRepr::StmtNotReturned(ki_repr) => KiDomain::StmtNotReturned(ki_repr.val(db)),
+            KiDomainRepr::StmtNotReturned(ki_repr) => KiDomain::StmtNotReturned(ki_repr.ki(db)),
             KiDomainRepr::ExprNotReturned(_) => todo!(),
         }
     }
 }
 
 #[cfg(test)]
-pub(crate) fn val_item_ki_reprs(
+pub(crate) fn val_ki_reprs(
     db: &::salsa::Db,
     module_path: ModulePath,
 ) -> Vec<(MajorFormPath, KiRepr)> {
@@ -252,7 +252,7 @@ pub(crate) fn val_item_ki_reprs(
         .iter()
         .filter_map(|&path| match path {
             ItemPath::MajorItem(MajorItemPath::Form(path)) => match path.kind(db) {
-                MajorFormKind::Val => Some((path, KiRepr::new_val_item(path, db))),
+                MajorFormKind::Val => Some((path, KiRepr::new_val(path, db))),
                 _ => None,
             },
             _ => None,
@@ -261,12 +261,12 @@ pub(crate) fn val_item_ki_reprs(
 }
 
 #[test]
-fn val_item_ki_repr_works() {
+fn val_ki_repr_works() {
     let _db = DB::default();
     DB::ast_rich_test_debug_with_db(
-        val_item_ki_reprs,
+        val_ki_reprs,
         &AstTestConfig::new(
-            "val_item_ki_reprs",
+            "val_ki_reprs",
             FileExtensionConfig::Markdown,
             TestDomainsConfig::VAL,
         ),

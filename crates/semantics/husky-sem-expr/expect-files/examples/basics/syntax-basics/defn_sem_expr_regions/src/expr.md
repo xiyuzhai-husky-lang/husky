@@ -187,7 +187,7 @@
                                         colon_token: None,
                                         ty_sem_expr_idx: None,
                                     },
-                                    contract: Pure,
+                                    contract: Contract::Pure,
                                     eq_token: EqRegionalToken(
                                         RegionalTokenIdx(
                                             3,
@@ -422,6 +422,11 @@
             },
             return_ty: None,
             self_ty: None,
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -754,7 +759,7 @@
                                         colon_token: None,
                                         ty_sem_expr_idx: None,
                                     },
-                                    contract: Pure,
+                                    contract: Contract::Pure,
                                     eq_token: EqRegionalToken(
                                         RegionalTokenIdx(
                                             3,
@@ -825,7 +830,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 24,
+                                                    value: 25,
                                                 },
                                             ),
                                         ),
@@ -867,7 +872,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 24,
+                                                            value: 25,
                                                         },
                                                     ),
                                                 ),
@@ -1067,7 +1072,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Pure,
+                                        contract: Contract::Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableOnStack {
@@ -1193,6 +1198,11 @@
             },
             return_ty: None,
             self_ty: None,
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
     SemExprRegion {
@@ -1586,7 +1596,7 @@
                                         colon_token: None,
                                         ty_sem_expr_idx: None,
                                     },
-                                    contract: Pure,
+                                    contract: Contract::Pure,
                                     eq_token: EqRegionalToken(
                                         RegionalTokenIdx(
                                             3,
@@ -1657,7 +1667,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 24,
+                                                    value: 25,
                                                 },
                                             ),
                                         ),
@@ -1699,7 +1709,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 24,
+                                                            value: 25,
                                                         },
                                                     ),
                                                 ),
@@ -1899,7 +1909,7 @@
                             FlyTermExpectationEntry {
                                 expectation: Expectation::Coercion(
                                     ExpectCoercion {
-                                        contract: Pure,
+                                        contract: Contract::Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
                                                 ImmutableOnStack {
@@ -2050,6 +2060,11 @@
             },
             return_ty: None,
             self_ty: None,
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
 ]

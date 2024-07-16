@@ -23,7 +23,7 @@ use husky_ki::{KiOpn, KiPatternData, KiRuntimeConstant, KiRuntimeConstantData};
 use husky_linkage::{instantiation::LinInstantiation, linkage::Linkage};
 use smallvec::{smallvec, SmallVec};
 
-#[salsa::tracked(db = KiReprDb, jar = KiReprJar)]
+#[salsa::tracked]
 pub struct KiReprExpansion {
     #[return_ref]
     pub hir_lazy_variable_ki_repr_map: HirLazyVariableMap<KiRepr>,
@@ -41,10 +41,10 @@ impl KiRepr {
     }
 }
 
-#[salsa::tracked(jar = KiReprJar)]
+#[salsa::tracked]
 fn ki_repr_expansion(db: &::salsa::Db, ki_repr: KiRepr) -> Option<KiReprExpansion> {
     match ki_repr.opn(db) {
-        KiOpn::ValItemLazilyDefined(form_path) => {
+        KiOpn::ValLazilyDefined(form_path) => {
             let MajorFormHirDefn::Val(hir_defn) = form_path.hir_defn(db)? else {
                 unreachable!()
             };
@@ -187,12 +187,16 @@ impl<'a> KiReprExpansionBuilder<'a> {
                     HirLazyPatternData::Literal(_) => todo!(),
                     HirLazyPatternData::Ident { ident: _ } => {
                         debug_assert_eq!(pattern.variables().len(), 1);
+                        let variable_idx = pattern.variables()[0];
                         self.hir_lazy_variable_ki_repr_map.insert_new(
-                            pattern.variables()[0],
+                            variable_idx,
                             initial_value_ki_repr.with_source(
                                 KiReprSource::Expansion {
                                     parent_ki_repr: self.parent_ki_repr,
-                                    source: KiReprExpansionSource::LetVariable { stmt },
+                                    source: KiReprExpansionSource::LetVariable {
+                                        stmt,
+                                        variable_idx,
+                                    },
                                 },
                                 self.db,
                             ),
@@ -371,7 +375,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
                     MajorItemPath::Trait(_) => todo!(),
                     MajorItemPath::Form(path) => match path.kind(db) {
                         MajorFormKind::Ritchie(_) => todo!(),
-                        MajorFormKind::Val => return KiRepr::new_val_item(path, db),
+                        MajorFormKind::Val => return KiRepr::new_val(path, db),
                         MajorFormKind::TypeAlias
                         | MajorFormKind::TypeVar
                         | MajorFormKind::Conceptual => unreachable!(),
@@ -775,24 +779,24 @@ fn runtime_constants(
 }
 
 #[cfg(test)]
-fn val_item_ki_repr_expansions(
+fn val_ki_repr_expansions(
     db: &::salsa::Db,
     module_path: ModulePath,
 ) -> Vec<(MajorFormPath, Option<KiReprExpansion>)> {
-    val_item_ki_reprs(db, module_path)
+    val_ki_reprs(db, module_path)
         .into_iter()
         .map(|(path, ki_repr)| (path, ki_repr.expansion(db)))
         .collect()
 }
 
 #[test]
-fn val_item_ki_repr_expansions_works() {
+fn val_ki_repr_expansions_works() {
     // todo: why compiler needs this line to work?
     use husky_ast::test_utils::AstTestUtils;
     DB::ast_rich_test_debug_with_db(
-        val_item_ki_repr_expansions,
+        val_ki_repr_expansions,
         &AstTestConfig::new(
-            "val_item_ki_repr_expansions",
+            "val_ki_repr_expansions",
             FileExtensionConfig::Markdown,
             TestDomainsConfig::VAL,
         ),

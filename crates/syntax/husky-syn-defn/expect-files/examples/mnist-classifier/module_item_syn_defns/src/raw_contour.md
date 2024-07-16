@@ -157,12 +157,10 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -413,9 +411,7 @@
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [],
-                            },
+                            pattern_expr_contracts: [],
                             pattern_symbol_arena: Arena {
                                 data: [],
                             },
@@ -596,12 +592,10 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -823,9 +817,7 @@
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [],
-                            },
+                            pattern_expr_contracts: [],
                             pattern_symbol_arena: Arena {
                                 data: [],
                             },
@@ -1006,12 +998,10 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -1262,9 +1252,7 @@
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [],
-                            },
+                            pattern_expr_contracts: [],
                             pattern_symbol_arena: Arena {
                                 data: [],
                             },
@@ -1479,13 +1467,11 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                                Pure,
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -1673,7 +1659,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -1729,7 +1715,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -1804,13 +1790,7 @@
                                     path_expr_idx: 3,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 18,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                                         ),
                                     ),
                                 },
@@ -1818,13 +1798,7 @@
                                     path_expr_idx: 5,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 17,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                                         ),
                                     ),
                                 },
@@ -1837,13 +1811,7 @@
                                     path_expr_idx: 7,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                                         ),
                                     ),
                                 },
@@ -1861,13 +1829,7 @@
                                     path_expr_idx: 9,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 20,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                                         ),
                                     ),
                                 },
@@ -1875,13 +1837,7 @@
                                     path_expr_idx: 11,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 18,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                                         ),
                                     ),
                                 },
@@ -1889,13 +1845,7 @@
                                     path_expr_idx: 13,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 17,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                                         ),
                                     ),
                                 },
@@ -1918,13 +1868,7 @@
                                     path_expr_idx: 15,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 20,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                                         ),
                                     ),
                                 },
@@ -1932,13 +1876,7 @@
                                     path_expr_idx: 17,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 17,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                                         ),
                                     ),
                                 },
@@ -1972,7 +1910,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -1989,7 +1927,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -2027,13 +1965,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 18,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                                         ),
                                     ),
                                 },
@@ -2069,13 +2001,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 17,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                                         ),
                                     ),
                                 },
@@ -2111,13 +2037,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                                         ),
                                     ),
                                 },
@@ -2153,13 +2073,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 20,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                                         ),
                                     ),
                                 },
@@ -2195,13 +2109,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 18,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                                         ),
                                     ),
                                 },
@@ -2237,13 +2145,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 17,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                                         ),
                                     ),
                                 },
@@ -2279,13 +2181,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 20,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                                         ),
                                     ),
                                 },
@@ -2321,13 +2217,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 17,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                                         ),
                                     ),
                                 },
@@ -3237,33 +3127,31 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
@@ -3779,12 +3667,10 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -4457,17 +4343,15 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
@@ -4817,14 +4701,12 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                                Pure,
-                                                Pure,
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -5056,7 +4938,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -5112,7 +4994,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -5187,13 +5069,7 @@
                                     path_expr_idx: 3,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                                         ),
                                     ),
                                 },
@@ -5201,13 +5077,7 @@
                                     path_expr_idx: 5,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 18,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                                         ),
                                     ),
                                 },
@@ -5230,13 +5100,7 @@
                                     path_expr_idx: 7,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 20,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                                         ),
                                     ),
                                 },
@@ -5244,13 +5108,7 @@
                                     path_expr_idx: 9,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                                         ),
                                     ),
                                 },
@@ -5268,13 +5126,7 @@
                                     path_expr_idx: 13,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 18,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                                         ),
                                     ),
                                 },
@@ -5282,13 +5134,7 @@
                                     path_expr_idx: 17,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 20,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                                         ),
                                     ),
                                 },
@@ -5301,13 +5147,7 @@
                                     path_expr_idx: 19,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 18,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                                         ),
                                     ),
                                 },
@@ -5330,13 +5170,7 @@
                                     path_expr_idx: 21,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 17,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                                         ),
                                     ),
                                 },
@@ -5354,13 +5188,7 @@
                                     path_expr_idx: 25,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 17,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                                         ),
                                     ),
                                 },
@@ -5368,13 +5196,7 @@
                                     path_expr_idx: 29,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                                         ),
                                     ),
                                 },
@@ -5402,13 +5224,7 @@
                                     path_expr_idx: 31,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 20,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                                         ),
                                     ),
                                 },
@@ -5416,13 +5232,7 @@
                                     path_expr_idx: 33,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                                         ),
                                     ),
                                 },
@@ -5456,7 +5266,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -5473,7 +5283,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -5511,13 +5321,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                                         ),
                                     ),
                                 },
@@ -5553,13 +5357,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 18,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                                         ),
                                     ),
                                 },
@@ -5595,13 +5393,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 20,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                                         ),
                                     ),
                                 },
@@ -5637,13 +5429,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                                         ),
                                     ),
                                 },
@@ -5679,13 +5465,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                                         ),
                                     ),
                                 },
@@ -5721,13 +5501,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 18,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                                         ),
                                     ),
                                 },
@@ -5763,13 +5537,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 17,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                                         ),
                                     ),
                                 },
@@ -5805,13 +5573,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 20,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                                         ),
                                     ),
                                 },
@@ -5847,13 +5609,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 18,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                                         ),
                                     ),
                                 },
@@ -5889,13 +5645,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 17,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                                         ),
                                     ),
                                 },
@@ -5931,13 +5681,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 18,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                                         ),
                                     ),
                                 },
@@ -5973,13 +5717,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 17,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                                         ),
                                     ),
                                 },
@@ -6015,13 +5753,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 20,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                                         ),
                                     ),
                                 },
@@ -6057,13 +5789,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                                         ),
                                     ),
                                 },
@@ -6099,13 +5825,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 20,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                                         ),
                                     ),
                                 },
@@ -6141,13 +5861,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                                         ),
                                     ),
                                 },
@@ -7319,23 +7033,11 @@
                                     },
                                     SynPatternData::UnitTypeVariant {
                                         path_expr_idx: 11,
-                                        path: TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                                     },
                                     SynPatternData::UnitTypeVariant {
                                         path_expr_idx: 15,
-                                        path: TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 17,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                                     },
                                     SynPatternData::Ident {
                                         symbol_modifier_tokens: None,
@@ -7445,23 +7147,11 @@
                                     },
                                     SynPatternData::UnitTypeVariant {
                                         path_expr_idx: 23,
-                                        path: TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 18,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                                     },
                                     SynPatternData::UnitTypeVariant {
                                         path_expr_idx: 27,
-                                        path: TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 20,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                                     },
                                     SynPatternData::Ident {
                                         symbol_modifier_tokens: None,
@@ -7561,44 +7251,42 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
@@ -8272,11 +7960,9 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -8878,13 +8564,11 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
@@ -9168,11 +8852,9 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -10079,7 +9761,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -10390,7 +10072,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -10482,7 +10164,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -10932,7 +10614,7 @@
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
+                                                MajorFormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -12795,7 +12477,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -12812,7 +12494,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -12829,7 +12511,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -12846,7 +12528,7 @@
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
-                                            FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
+                                            MajorFormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -12944,13 +12626,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 17,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                                         ),
                                     ),
                                 },
@@ -12986,13 +12662,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 19,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                                         ),
                                     ),
                                 },
@@ -13028,13 +12698,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 18,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                                         ),
                                     ),
                                 },
@@ -13070,13 +12734,7 @@
                                     ),
                                     path: Ok(
                                         PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 20,
-                                                    },
-                                                ),
-                                            ),
+                                            TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                                         ),
                                     ),
                                 },
@@ -14733,77 +14391,51 @@
                                     },
                                     SynPatternData::UnitTypeVariant {
                                         path_expr_idx: 12,
-                                        path: TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 17,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
                                     },
                                     SynPatternData::UnitTypeVariant {
                                         path_expr_idx: 14,
-                                        path: TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 19,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
                                     },
                                     SynPatternData::UnitTypeVariant {
                                         path_expr_idx: 16,
-                                        path: TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 18,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
                                     },
                                     SynPatternData::UnitTypeVariant {
                                         path_expr_idx: 18,
-                                        path: TypeVariantPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 20,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Move,
-                                    Move,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Move,
-                                    Move,
-                                    Move,
-                                    Move,
-                                    Move,
-                                    Move,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Move,
-                                    Move,
-                                    Move,
-                                    Move,
-                                    Move,
-                                    Move,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
@@ -16069,9 +15701,7 @@
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: ArenaMap {
-                                                        data: [],
-                                                    },
+                                                    pattern_expr_contracts: [],
                                                     pattern_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -16173,9 +15803,7 @@
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -16318,9 +15946,7 @@
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [],
-                            },
+                            pattern_expr_contracts: [],
                             pattern_symbol_arena: Arena {
                                 data: [],
                             },
@@ -16438,9 +16064,7 @@
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: ArenaMap {
-                                                        data: [],
-                                                    },
+                                                    pattern_expr_contracts: [],
                                                     pattern_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -16536,9 +16160,7 @@
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -16696,9 +16318,7 @@
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [],
-                            },
+                            pattern_expr_contracts: [],
                             pattern_symbol_arena: Arena {
                                 data: [],
                             },
@@ -16808,9 +16428,7 @@
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: ArenaMap {
-                                                        data: [],
-                                                    },
+                                                    pattern_expr_contracts: [],
                                                     pattern_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -16906,9 +16524,7 @@
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -18042,16 +17658,14 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Pure,
-                                    Move,
-                                    Move,
-                                    Move,
-                                    Move,
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Pure,
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Move,
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
@@ -18441,9 +18055,7 @@
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: ArenaMap {
-                                                        data: [],
-                                                    },
+                                                    pattern_expr_contracts: [],
                                                     pattern_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -18539,9 +18151,7 @@
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -18731,9 +18341,7 @@
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [],
-                            },
+                            pattern_expr_contracts: [],
                             pattern_symbol_arena: Arena {
                                 data: [],
                             },
@@ -18843,9 +18451,7 @@
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: ArenaMap {
-                                                        data: [],
-                                                    },
+                                                    pattern_expr_contracts: [],
                                                     pattern_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -18941,9 +18547,7 @@
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
+                                        pattern_expr_contracts: [],
                                         pattern_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -20012,15 +19616,13 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Move,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Move,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(
@@ -20363,9 +19965,7 @@
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
-                                                    pattern_expr_contracts: ArenaMap {
-                                                        data: [],
-                                                    },
+                                                    pattern_expr_contracts: [],
                                                     pattern_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -20532,12 +20132,10 @@
                                                 },
                                             ],
                                         },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                                Pure,
-                                            ],
-                                        },
+                                        pattern_expr_contracts: [
+                                            Contract::Pure,
+                                            Contract::Pure,
+                                        ],
                                         pattern_symbol_arena: Arena {
                                             data: [
                                                 PatternVariable::Atom(
@@ -21037,13 +20635,11 @@
                                     },
                                 ],
                             },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [
-                                    Pure,
-                                    Pure,
-                                    Pure,
-                                ],
-                            },
+                            pattern_expr_contracts: [
+                                Contract::Pure,
+                                Contract::Pure,
+                                Contract::Pure,
+                            ],
                             pattern_symbol_arena: Arena {
                                 data: [
                                     PatternVariable::Atom(

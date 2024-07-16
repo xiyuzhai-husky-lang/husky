@@ -7,13 +7,7 @@ AstSheet {
                     lcurl: None,
                     raw: 3,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 91,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`core::result::Result::Ok`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         18,
@@ -37,13 +31,7 @@ AstSheet {
                     lcurl: None,
                     raw: 4,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 92,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`core::result::Result::Err`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         23,

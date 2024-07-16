@@ -4,9 +4,9 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
                 MajorValHirDefn {
-                    path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     hir_decl: MajorValHirDecl {
-                        path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -62,9 +62,9 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
                 MajorValHirDefn {
-                    path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                     hir_decl: MajorValHirDecl {
-                        path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                        path: MajorFormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -120,9 +120,9 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
                 MajorValHirDefn {
-                    path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                    path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                     hir_decl: MajorValHirDecl {
-                        path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        path: MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
@@ -178,11 +178,11 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
                 MajorFunctionRitchieHirDefn {
-                    path: FormPath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::six::upmost`, `Ritchie(
                         Fn,
                     )`),
                     hir_decl: MajorFunctionRitchieHirDecl {
-                        path: FormPath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                        path: MajorFormPath(`mnist_classifier::digits::six::upmost`, `Ritchie(
                             Fn,
                         )`),
                         ritchie_item_kind: RitchieItemKind::Fn,
@@ -263,11 +263,11 @@
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
                 MajorFunctionRitchieHirDefn {
-                    path: FormPath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
+                    path: MajorFormPath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
                         Fn,
                     )`),
                     hir_decl: MajorFunctionRitchieHirDecl {
-                        path: FormPath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
+                        path: MajorFormPath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
                             Fn,
                         )`),
                         ritchie_item_kind: RitchieItemKind::Fn,

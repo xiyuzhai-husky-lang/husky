@@ -7,13 +7,7 @@ AstSheet {
                     lcurl: None,
                     raw: 1,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 7,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::UnitVariant`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         3,
@@ -37,13 +31,7 @@ AstSheet {
                     lcurl: None,
                     raw: 2,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 8,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithOneField`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         5,
@@ -67,13 +55,7 @@ AstSheet {
                     lcurl: None,
                     raw: 3,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 9,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithTwoFields`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         12,
@@ -97,13 +79,7 @@ AstSheet {
                     lcurl: None,
                     raw: 4,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 10,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithOneField`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         23,
@@ -127,13 +103,7 @@ AstSheet {
                     lcurl: None,
                     raw: 5,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 11,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithTwoFields`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         28,

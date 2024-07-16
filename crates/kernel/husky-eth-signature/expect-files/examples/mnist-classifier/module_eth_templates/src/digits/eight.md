@@ -7,7 +7,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Val(
                         MajorValEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                             return_ty: EthTerm(`FermiMatchResult`),
                         },
                     ),
@@ -22,7 +22,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Val(
                         MajorValEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                             return_ty: EthTerm(`OneVsAll MnistLabel Eight`),
                         },
                     ),
@@ -37,7 +37,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                                 Fn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -52,7 +52,7 @@
                                 parameter_contracted_tys: [
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: EthTerm(`Leash ConcaveComponent`),
                                         },
                                     ),

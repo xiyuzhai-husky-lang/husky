@@ -7,7 +7,7 @@ impl EthTerm {
         match self {
             EthTerm::Application(term) => term.application_expansion(db),
             EthTerm::ItemPath(path) => match path {
-                ItemPathTerm::Form(path) => match path.kind(db) {
+                ItemPathTerm::MajorForm(path) => match path.kind(db) {
                     MajorFormKind::Ritchie(_) => todo!(),
                     MajorFormKind::TypeAlias => todo!(),
                     MajorFormKind::TypeVar => ApplicationExpansion {

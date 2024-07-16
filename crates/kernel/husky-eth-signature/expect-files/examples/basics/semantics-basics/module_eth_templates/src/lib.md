@@ -7,7 +7,7 @@
                 MajorItemEthTemplate::Form(
                     FormEthTemplate::Ritchie(
                         MajorFunctionRitchieEthTemplate {
-                            path: FormPath(`semantics_basics::some_neural_network`, `Ritchie(
+                            path: MajorFormPath(`semantics_basics::some_neural_network`, `Ritchie(
                                 Gn,
                             )`),
                             template_parameters: EthTemplateParameters {
@@ -22,7 +22,7 @@
                                 parameter_contracted_tys: [
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: EthTerm(`Array 3 f32`),
                                         },
                                     ),

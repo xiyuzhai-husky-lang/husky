@@ -75,12 +75,41 @@
                                 },
                             ],
                         },
-                        ty: Application(
-                            DecApplication(
-                                Id {
-                                    value: 53,
-                                },
-                            ),
+                        ty: DecTerm::Application(
+                            DecApplication {
+                                function: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`core::slice::Slice`, `Extern`),
+                                    ),
+                                ),
+                                argument: DecTerm::SymbolicVariable(
+                                    DecSymbolicVariable {
+                                        toolchain: Toolchain {
+                                            data: ToolchainData::Local {
+                                                library_path: "../../../library",
+                                            },
+                                        },
+                                        ty: Ok(
+                                            Category(
+                                                Sort {
+                                                    universe: Universe(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                        index: DecSymbolicVariableIndex(
+                                            Type {
+                                                attrs: DeclarativeTemplateVariableAttrs {
+                                                    class: Mono,
+                                                },
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
+                                ),
+                            },
                         ),
                     },
                 ),
@@ -114,46 +143,127 @@
                                         },
                                     ],
                                 },
-                                ty: Application(
-                                    DecApplication(
-                                        Id {
-                                            value: 53,
-                                        },
-                                    ),
-                                ),
-                            },
-                            self_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 53,
+                                ty: DecTerm::Application(
+                                    DecApplication {
+                                        function: DecTerm::EntityPath(
+                                            DecItemPath::Type(
+                                                TypePath(`core::slice::Slice`, `Extern`),
+                                            ),
+                                        ),
+                                        argument: DecTerm::SymbolicVariable(
+                                            DecSymbolicVariable {
+                                                toolchain: Toolchain {
+                                                    data: ToolchainData::Local {
+                                                        library_path: "../../../library",
+                                                    },
+                                                },
+                                                ty: Ok(
+                                                    Category(
+                                                        Sort {
+                                                            universe: Universe(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                                index: DecSymbolicVariableIndex(
+                                                    Type {
+                                                        attrs: DeclarativeTemplateVariableAttrs {
+                                                            class: Mono,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            },
+                                        ),
                                     },
                                 ),
+                            },
+                            self_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`core::slice::Slice`, `Extern`),
+                                        ),
+                                    ),
+                                    argument: DecTerm::SymbolicVariable(
+                                        DecSymbolicVariable {
+                                            toolchain: Toolchain {
+                                                data: ToolchainData::Local {
+                                                    library_path: "../../../library",
+                                                },
+                                            },
+                                            ty: Ok(
+                                                Category(
+                                                    Sort {
+                                                        universe: Universe(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
+                                            index: DecSymbolicVariableIndex(
+                                                Type {
+                                                    attrs: DeclarativeTemplateVariableAttrs {
+                                                        class: Mono,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
-                                ty: Application(
-                                    DecApplication(
-                                        Id {
-                                            value: 53,
-                                        },
-                                    ),
+                                contract: Contract::Pure,
+                                ty: DecTerm::Application(
+                                    DecApplication {
+                                        function: DecTerm::EntityPath(
+                                            DecItemPath::Type(
+                                                TypePath(`core::slice::Slice`, `Extern`),
+                                            ),
+                                        ),
+                                        argument: DecTerm::SymbolicVariable(
+                                            DecSymbolicVariable {
+                                                toolchain: Toolchain {
+                                                    data: ToolchainData::Local {
+                                                        library_path: "../../../library",
+                                                    },
+                                                },
+                                                ty: Ok(
+                                                    Category(
+                                                        Sort {
+                                                            universe: Universe(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                                index: DecSymbolicVariableIndex(
+                                                    Type {
+                                                        attrs: DeclarativeTemplateVariableAttrs {
+                                                            class: Mono,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    },
                                 ),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 63,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::num::usize`, `Extern`),
                                 ),
                             ),
                         },
@@ -189,20 +299,78 @@
                                         },
                                     ],
                                 },
-                                ty: Application(
-                                    DecApplication(
-                                        Id {
-                                            value: 53,
-                                        },
-                                    ),
-                                ),
-                            },
-                            self_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 53,
+                                ty: DecTerm::Application(
+                                    DecApplication {
+                                        function: DecTerm::EntityPath(
+                                            DecItemPath::Type(
+                                                TypePath(`core::slice::Slice`, `Extern`),
+                                            ),
+                                        ),
+                                        argument: DecTerm::SymbolicVariable(
+                                            DecSymbolicVariable {
+                                                toolchain: Toolchain {
+                                                    data: ToolchainData::Local {
+                                                        library_path: "../../../library",
+                                                    },
+                                                },
+                                                ty: Ok(
+                                                    Category(
+                                                        Sort {
+                                                            universe: Universe(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                                index: DecSymbolicVariableIndex(
+                                                    Type {
+                                                        attrs: DeclarativeTemplateVariableAttrs {
+                                                            class: Mono,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            },
+                                        ),
                                     },
                                 ),
+                            },
+                            self_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`core::slice::Slice`, `Extern`),
+                                        ),
+                                    ),
+                                    argument: DecTerm::SymbolicVariable(
+                                        DecSymbolicVariable {
+                                            toolchain: Toolchain {
+                                                data: ToolchainData::Local {
+                                                    library_path: "../../../library",
+                                                },
+                                            },
+                                            ty: Ok(
+                                                Category(
+                                                    Sort {
+                                                        universe: Universe(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
+                                            index: DecSymbolicVariableIndex(
+                                                Type {
+                                                    attrs: DeclarativeTemplateVariableAttrs {
+                                                        class: Mono,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                             template_parameters: DecTemplateParameters {
                                 data: [
@@ -218,60 +386,71 @@
                                 ],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: BorrowMut,
-                                ty: Application(
-                                    DecApplication(
-                                        Id {
-                                            value: 53,
-                                        },
-                                    ),
+                                contract: Contract::BorrowMut,
+                                ty: DecTerm::Application(
+                                    DecApplication {
+                                        function: DecTerm::EntityPath(
+                                            DecItemPath::Type(
+                                                TypePath(`core::slice::Slice`, `Extern`),
+                                            ),
+                                        ),
+                                        argument: DecTerm::SymbolicVariable(
+                                            DecSymbolicVariable {
+                                                toolchain: Toolchain {
+                                                    data: ToolchainData::Local {
+                                                        library_path: "../../../library",
+                                                    },
+                                                },
+                                                ty: Ok(
+                                                    Category(
+                                                        Sort {
+                                                            universe: Universe(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                                index: DecSymbolicVariableIndex(
+                                                    Type {
+                                                        attrs: DeclarativeTemplateVariableAttrs {
+                                                            class: Mono,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    },
                                 ),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 63,
-                                                            },
-                                                        ),
-                                                    ),
+                                            contract: Contract::Pure,
+                                            ty: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`core::num::usize`, `Extern`),
                                                 ),
                                             ),
                                         },
                                     ),
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 63,
-                                                            },
-                                                        ),
-                                                    ),
+                                            contract: Contract::Pure,
+                                            ty: DecTerm::EntityPath(
+                                                DecItemPath::Type(
+                                                    TypePath(`core::num::usize`, `Extern`),
                                                 ),
                                             ),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 28,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         },
@@ -299,24 +478,47 @@
                                 },
                             ],
                         },
-                        trai: EntityPath(
-                            Trait(
-                                TraitPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 76,
-                                        },
-                                    ),
-                                ),
+                        trai: DecTerm::EntityPath(
+                            DecItemPath::Trait(
+                                TraitPath(`core::ops::IntIndex`),
                             ),
                         ),
                         self_ty: DeclarativeSelfType::Path(
-                            Application(
-                                DecApplication(
-                                    Id {
-                                        value: 54,
-                                    },
-                                ),
+                            DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                        ),
+                                    ),
+                                    argument: DecTerm::SymbolicVariable(
+                                        DecSymbolicVariable {
+                                            toolchain: Toolchain {
+                                                data: ToolchainData::Local {
+                                                    library_path: "../../../library",
+                                                },
+                                            },
+                                            ty: Ok(
+                                                Category(
+                                                    Sort {
+                                                        universe: Universe(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
+                                            index: DecSymbolicVariableIndex(
+                                                Type {
+                                                    attrs: DeclarativeTemplateVariableAttrs {
+                                                        class: Mono,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                     },
@@ -338,12 +540,32 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            ty_term: SymbolicVariable(
-                                DecSymbolicVariable(
-                                    Id {
-                                        value: 10,
+                            ty_term: DecTerm::SymbolicVariable(
+                                DecSymbolicVariable {
+                                    toolchain: Toolchain {
+                                        data: ToolchainData::Local {
+                                            library_path: "../../../library",
+                                        },
                                     },
-                                ),
+                                    ty: Ok(
+                                        Category(
+                                            Sort {
+                                                universe: Universe(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                    index: DecSymbolicVariableIndex(
+                                        Type {
+                                            attrs: DeclarativeTemplateVariableAttrs {
+                                                class: Mono,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -370,12 +592,41 @@
                                 },
                             ],
                         },
-                        ty: Application(
-                            DecApplication(
-                                Id {
-                                    value: 54,
-                                },
-                            ),
+                        ty: DecTerm::Application(
+                            DecApplication {
+                                function: DecTerm::EntityPath(
+                                    DecItemPath::Type(
+                                        TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                    ),
+                                ),
+                                argument: DecTerm::SymbolicVariable(
+                                    DecSymbolicVariable {
+                                        toolchain: Toolchain {
+                                            data: ToolchainData::Local {
+                                                library_path: "../../../library",
+                                            },
+                                        },
+                                        ty: Ok(
+                                            Category(
+                                                Sort {
+                                                    universe: Universe(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                        index: DecSymbolicVariableIndex(
+                                            Type {
+                                                attrs: DeclarativeTemplateVariableAttrs {
+                                                    class: Mono,
+                                                },
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
+                                ),
+                            },
                         ),
                     },
                 ),
@@ -409,46 +660,127 @@
                                         },
                                     ],
                                 },
-                                ty: Application(
-                                    DecApplication(
-                                        Id {
-                                            value: 54,
-                                        },
-                                    ),
-                                ),
-                            },
-                            self_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 54,
+                                ty: DecTerm::Application(
+                                    DecApplication {
+                                        function: DecTerm::EntityPath(
+                                            DecItemPath::Type(
+                                                TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                            ),
+                                        ),
+                                        argument: DecTerm::SymbolicVariable(
+                                            DecSymbolicVariable {
+                                                toolchain: Toolchain {
+                                                    data: ToolchainData::Local {
+                                                        library_path: "../../../library",
+                                                    },
+                                                },
+                                                ty: Ok(
+                                                    Category(
+                                                        Sort {
+                                                            universe: Universe(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                                index: DecSymbolicVariableIndex(
+                                                    Type {
+                                                        attrs: DeclarativeTemplateVariableAttrs {
+                                                            class: Mono,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            },
+                                        ),
                                     },
                                 ),
+                            },
+                            self_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                        ),
+                                    ),
+                                    argument: DecTerm::SymbolicVariable(
+                                        DecSymbolicVariable {
+                                            toolchain: Toolchain {
+                                                data: ToolchainData::Local {
+                                                    library_path: "../../../library",
+                                                },
+                                            },
+                                            ty: Ok(
+                                                Category(
+                                                    Sort {
+                                                        universe: Universe(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
+                                            index: DecSymbolicVariableIndex(
+                                                Type {
+                                                    attrs: DeclarativeTemplateVariableAttrs {
+                                                        class: Mono,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
-                                ty: Application(
-                                    DecApplication(
-                                        Id {
-                                            value: 54,
-                                        },
-                                    ),
+                                contract: Contract::Pure,
+                                ty: DecTerm::Application(
+                                    DecApplication {
+                                        function: DecTerm::EntityPath(
+                                            DecItemPath::Type(
+                                                TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                            ),
+                                        ),
+                                        argument: DecTerm::SymbolicVariable(
+                                            DecSymbolicVariable {
+                                                toolchain: Toolchain {
+                                                    data: ToolchainData::Local {
+                                                        library_path: "../../../library",
+                                                    },
+                                                },
+                                                ty: Ok(
+                                                    Category(
+                                                        Sort {
+                                                            universe: Universe(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                                index: DecSymbolicVariableIndex(
+                                                    Type {
+                                                        attrs: DeclarativeTemplateVariableAttrs {
+                                                            class: Mono,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    },
                                 ),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 54,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::num::i32`, `Extern`),
                                 ),
                             ),
                         },
@@ -484,46 +816,127 @@
                                         },
                                     ],
                                 },
-                                ty: Application(
-                                    DecApplication(
-                                        Id {
-                                            value: 54,
-                                        },
-                                    ),
-                                ),
-                            },
-                            self_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 54,
+                                ty: DecTerm::Application(
+                                    DecApplication {
+                                        function: DecTerm::EntityPath(
+                                            DecItemPath::Type(
+                                                TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                            ),
+                                        ),
+                                        argument: DecTerm::SymbolicVariable(
+                                            DecSymbolicVariable {
+                                                toolchain: Toolchain {
+                                                    data: ToolchainData::Local {
+                                                        library_path: "../../../library",
+                                                    },
+                                                },
+                                                ty: Ok(
+                                                    Category(
+                                                        Sort {
+                                                            universe: Universe(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                                index: DecSymbolicVariableIndex(
+                                                    Type {
+                                                        attrs: DeclarativeTemplateVariableAttrs {
+                                                            class: Mono,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            },
+                                        ),
                                     },
                                 ),
+                            },
+                            self_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                        ),
+                                    ),
+                                    argument: DecTerm::SymbolicVariable(
+                                        DecSymbolicVariable {
+                                            toolchain: Toolchain {
+                                                data: ToolchainData::Local {
+                                                    library_path: "../../../library",
+                                                },
+                                            },
+                                            ty: Ok(
+                                                Category(
+                                                    Sort {
+                                                        universe: Universe(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
+                                            index: DecSymbolicVariableIndex(
+                                                Type {
+                                                    attrs: DeclarativeTemplateVariableAttrs {
+                                                        class: Mono,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
-                                ty: Application(
-                                    DecApplication(
-                                        Id {
-                                            value: 54,
-                                        },
-                                    ),
+                                contract: Contract::Pure,
+                                ty: DecTerm::Application(
+                                    DecApplication {
+                                        function: DecTerm::EntityPath(
+                                            DecItemPath::Type(
+                                                TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                            ),
+                                        ),
+                                        argument: DecTerm::SymbolicVariable(
+                                            DecSymbolicVariable {
+                                                toolchain: Toolchain {
+                                                    data: ToolchainData::Local {
+                                                        library_path: "../../../library",
+                                                    },
+                                                },
+                                                ty: Ok(
+                                                    Category(
+                                                        Sort {
+                                                            universe: Universe(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                                index: DecSymbolicVariableIndex(
+                                                    Type {
+                                                        attrs: DeclarativeTemplateVariableAttrs {
+                                                            class: Mono,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    },
                                 ),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 54,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::num::i32`, `Extern`),
                                 ),
                             ),
                         },
@@ -559,46 +972,127 @@
                                         },
                                     ],
                                 },
-                                ty: Application(
-                                    DecApplication(
-                                        Id {
-                                            value: 54,
-                                        },
-                                    ),
-                                ),
-                            },
-                            self_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 54,
+                                ty: DecTerm::Application(
+                                    DecApplication {
+                                        function: DecTerm::EntityPath(
+                                            DecItemPath::Type(
+                                                TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                            ),
+                                        ),
+                                        argument: DecTerm::SymbolicVariable(
+                                            DecSymbolicVariable {
+                                                toolchain: Toolchain {
+                                                    data: ToolchainData::Local {
+                                                        library_path: "../../../library",
+                                                    },
+                                                },
+                                                ty: Ok(
+                                                    Category(
+                                                        Sort {
+                                                            universe: Universe(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                                index: DecSymbolicVariableIndex(
+                                                    Type {
+                                                        attrs: DeclarativeTemplateVariableAttrs {
+                                                            class: Mono,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            },
+                                        ),
                                     },
                                 ),
+                            },
+                            self_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                        ),
+                                    ),
+                                    argument: DecTerm::SymbolicVariable(
+                                        DecSymbolicVariable {
+                                            toolchain: Toolchain {
+                                                data: ToolchainData::Local {
+                                                    library_path: "../../../library",
+                                                },
+                                            },
+                                            ty: Ok(
+                                                Category(
+                                                    Sort {
+                                                        universe: Universe(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
+                                            index: DecSymbolicVariableIndex(
+                                                Type {
+                                                    attrs: DeclarativeTemplateVariableAttrs {
+                                                        class: Mono,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
-                                ty: Application(
-                                    DecApplication(
-                                        Id {
-                                            value: 54,
-                                        },
-                                    ),
+                                contract: Contract::Pure,
+                                ty: DecTerm::Application(
+                                    DecApplication {
+                                        function: DecTerm::EntityPath(
+                                            DecItemPath::Type(
+                                                TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                            ),
+                                        ),
+                                        argument: DecTerm::SymbolicVariable(
+                                            DecSymbolicVariable {
+                                                toolchain: Toolchain {
+                                                    data: ToolchainData::Local {
+                                                        library_path: "../../../library",
+                                                    },
+                                                },
+                                                ty: Ok(
+                                                    Category(
+                                                        Sort {
+                                                            universe: Universe(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                                index: DecSymbolicVariableIndex(
+                                                    Type {
+                                                        attrs: DeclarativeTemplateVariableAttrs {
+                                                            class: Mono,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    },
                                 ),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 54,
-                                            },
-                                        ),
-                                    ),
+                            return_ty: DecTerm::EntityPath(
+                                DecItemPath::Type(
+                                    TypePath(`core::num::i32`, `Extern`),
                                 ),
                             ),
                         },
@@ -634,43 +1128,170 @@
                                         },
                                     ],
                                 },
-                                ty: Application(
-                                    DecApplication(
-                                        Id {
-                                            value: 54,
-                                        },
-                                    ),
-                                ),
-                            },
-                            self_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 54,
+                                ty: DecTerm::Application(
+                                    DecApplication {
+                                        function: DecTerm::EntityPath(
+                                            DecItemPath::Type(
+                                                TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                            ),
+                                        ),
+                                        argument: DecTerm::SymbolicVariable(
+                                            DecSymbolicVariable {
+                                                toolchain: Toolchain {
+                                                    data: ToolchainData::Local {
+                                                        library_path: "../../../library",
+                                                    },
+                                                },
+                                                ty: Ok(
+                                                    Category(
+                                                        Sort {
+                                                            universe: Universe(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                                index: DecSymbolicVariableIndex(
+                                                    Type {
+                                                        attrs: DeclarativeTemplateVariableAttrs {
+                                                            class: Mono,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            },
+                                        ),
                                     },
                                 ),
+                            },
+                            self_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                        ),
+                                    ),
+                                    argument: DecTerm::SymbolicVariable(
+                                        DecSymbolicVariable {
+                                            toolchain: Toolchain {
+                                                data: ToolchainData::Local {
+                                                    library_path: "../../../library",
+                                                },
+                                            },
+                                            ty: Ok(
+                                                Category(
+                                                    Sort {
+                                                        universe: Universe(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
+                                            index: DecSymbolicVariableIndex(
+                                                Type {
+                                                    attrs: DeclarativeTemplateVariableAttrs {
+                                                        class: Mono,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
-                                ty: Application(
-                                    DecApplication(
-                                        Id {
-                                            value: 54,
-                                        },
-                                    ),
+                                contract: Contract::Pure,
+                                ty: DecTerm::Application(
+                                    DecApplication {
+                                        function: DecTerm::EntityPath(
+                                            DecItemPath::Type(
+                                                TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                            ),
+                                        ),
+                                        argument: DecTerm::SymbolicVariable(
+                                            DecSymbolicVariable {
+                                                toolchain: Toolchain {
+                                                    data: ToolchainData::Local {
+                                                        library_path: "../../../library",
+                                                    },
+                                                },
+                                                ty: Ok(
+                                                    Category(
+                                                        Sort {
+                                                            universe: Universe(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                                index: DecSymbolicVariableIndex(
+                                                    Type {
+                                                        attrs: DeclarativeTemplateVariableAttrs {
+                                                            class: Mono,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    },
                                 ),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 56,
-                                    },
-                                ),
+                            return_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`core::option::Option`, `Enum`),
+                                        ),
+                                    ),
+                                    argument: DecTerm::Application(
+                                        DecApplication {
+                                            function: DecTerm::LeashOrBitNot(
+                                                Toolchain {
+                                                    data: ToolchainData::Local {
+                                                        library_path: "../../../library",
+                                                    },
+                                                },
+                                            ),
+                                            argument: DecTerm::SymbolicVariable(
+                                                DecSymbolicVariable {
+                                                    toolchain: Toolchain {
+                                                        data: ToolchainData::Local {
+                                                            library_path: "../../../library",
+                                                        },
+                                                    },
+                                                    ty: Ok(
+                                                        Category(
+                                                            Sort {
+                                                                universe: Universe(
+                                                                    1,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
+                                                    index: DecSymbolicVariableIndex(
+                                                        Type {
+                                                            attrs: DeclarativeTemplateVariableAttrs {
+                                                                class: Mono,
+                                                            },
+                                                            variance: None,
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -705,43 +1326,170 @@
                                         },
                                     ],
                                 },
-                                ty: Application(
-                                    DecApplication(
-                                        Id {
-                                            value: 54,
-                                        },
-                                    ),
-                                ),
-                            },
-                            self_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 54,
+                                ty: DecTerm::Application(
+                                    DecApplication {
+                                        function: DecTerm::EntityPath(
+                                            DecItemPath::Type(
+                                                TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                            ),
+                                        ),
+                                        argument: DecTerm::SymbolicVariable(
+                                            DecSymbolicVariable {
+                                                toolchain: Toolchain {
+                                                    data: ToolchainData::Local {
+                                                        library_path: "../../../library",
+                                                    },
+                                                },
+                                                ty: Ok(
+                                                    Category(
+                                                        Sort {
+                                                            universe: Universe(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                                index: DecSymbolicVariableIndex(
+                                                    Type {
+                                                        attrs: DeclarativeTemplateVariableAttrs {
+                                                            class: Mono,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            },
+                                        ),
                                     },
                                 ),
+                            },
+                            self_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                        ),
+                                    ),
+                                    argument: DecTerm::SymbolicVariable(
+                                        DecSymbolicVariable {
+                                            toolchain: Toolchain {
+                                                data: ToolchainData::Local {
+                                                    library_path: "../../../library",
+                                                },
+                                            },
+                                            ty: Ok(
+                                                Category(
+                                                    Sort {
+                                                        universe: Universe(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
+                                            index: DecSymbolicVariableIndex(
+                                                Type {
+                                                    attrs: DeclarativeTemplateVariableAttrs {
+                                                        class: Mono,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
-                                ty: Application(
-                                    DecApplication(
-                                        Id {
-                                            value: 54,
-                                        },
-                                    ),
+                                contract: Contract::Pure,
+                                ty: DecTerm::Application(
+                                    DecApplication {
+                                        function: DecTerm::EntityPath(
+                                            DecItemPath::Type(
+                                                TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                            ),
+                                        ),
+                                        argument: DecTerm::SymbolicVariable(
+                                            DecSymbolicVariable {
+                                                toolchain: Toolchain {
+                                                    data: ToolchainData::Local {
+                                                        library_path: "../../../library",
+                                                    },
+                                                },
+                                                ty: Ok(
+                                                    Category(
+                                                        Sort {
+                                                            universe: Universe(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                                index: DecSymbolicVariableIndex(
+                                                    Type {
+                                                        attrs: DeclarativeTemplateVariableAttrs {
+                                                            class: Mono,
+                                                        },
+                                                        variance: None,
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    },
                                 ),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: Application(
-                                DecApplication(
-                                    Id {
-                                        value: 56,
-                                    },
-                                ),
+                            return_ty: DecTerm::Application(
+                                DecApplication {
+                                    function: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`core::option::Option`, `Enum`),
+                                        ),
+                                    ),
+                                    argument: DecTerm::Application(
+                                        DecApplication {
+                                            function: DecTerm::LeashOrBitNot(
+                                                Toolchain {
+                                                    data: ToolchainData::Local {
+                                                        library_path: "../../../library",
+                                                    },
+                                                },
+                                            ),
+                                            argument: DecTerm::SymbolicVariable(
+                                                DecSymbolicVariable {
+                                                    toolchain: Toolchain {
+                                                        data: ToolchainData::Local {
+                                                            library_path: "../../../library",
+                                                        },
+                                                    },
+                                                    ty: Ok(
+                                                        Category(
+                                                            Sort {
+                                                                universe: Universe(
+                                                                    1,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
+                                                    index: DecSymbolicVariableIndex(
+                                                        Type {
+                                                            attrs: DeclarativeTemplateVariableAttrs {
+                                                                class: Mono,
+                                                            },
+                                                            variance: None,
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                },
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     ),

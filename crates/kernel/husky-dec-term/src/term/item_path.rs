@@ -19,7 +19,7 @@ pub enum DecItemPath {
 impl From<ItemPathTerm> for DecItemPath {
     fn from(path: ItemPathTerm) -> Self {
         match path {
-            ItemPathTerm::Form(path) => DecItemPath::Form(path),
+            ItemPathTerm::MajorForm(path) => DecItemPath::Form(path),
             ItemPathTerm::Trait(path) => DecItemPath::Trait(path),
             ItemPathTerm::TypeOntology(path) | ItemPathTerm::TypeInstance(path) => {
                 DecItemPath::Type(path)

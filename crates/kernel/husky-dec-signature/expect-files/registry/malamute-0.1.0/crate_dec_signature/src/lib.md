@@ -18,12 +18,20 @@ Ok(
             },
             default_const_excludes: Some(
                 [
-                    TypeAsTraitItem(
-                        DecTypeAsTraitItem(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                    DecTerm::TypeAsTraitItem(
+                        DecTypeAsTraitItem {
+                            self_ty: DecTerm::EntityPath(
+                                DecItemPath::Form(
+                                    MajorFormPath(`core::task::Task`, `TypeVar`),
+                                ),
+                            ),
+                            trai: DecTerm::EntityPath(
+                                DecItemPath::Trait(
+                                    TraitPath(`ml_task::IsMlTask`),
+                                ),
+                            ),
+                            ident: `INPUT`,
+                        },
                     ),
                 ],
             ),

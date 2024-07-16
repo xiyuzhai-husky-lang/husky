@@ -194,15 +194,15 @@ EntityTreeCrateBundle {
                                     )`, (0)),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 32,
+                                ast_idx: 33,
                                 ident_token: IdentToken {
                                     ident: `narrow_down`,
                                     token_idx: TokenIdx(
-                                        316,
+                                        321,
                                     ),
                                 },
                                 block: DefnBlock::Form {
-                                    path: FormPath(`malamute::narrow_down`, `Ritchie(
+                                    path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
                                     body: None,
@@ -255,7 +255,7 @@ EntityTreeCrateBundle {
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Form(
-                                FormPath(`malamute::narrow_down`, `Ritchie(
+                                MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                     Gn,
                                 )`),
                             ),

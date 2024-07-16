@@ -4,25 +4,13 @@
         TypePath(`malamute::Class`, `Enum`),
         [
             (
-                TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 2,
-                        },
-                    ),
-                ),
+                TypeVariantPath(`malamute::Class::Known`),
                 Ok(
                     DecTerm(`(independent (t: Type) -> fn((t) -> malamute::Class t`),
                 ),
             ),
             (
-                TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 3,
-                        },
-                    ),
-                ),
+                TypeVariantPath(`malamute::Class::Unknown`),
                 Ok(
                     DecTerm(`(independent (t: Type) -> malamute::Class t`),
                 ),
@@ -33,25 +21,13 @@
         TypePath(`malamute::OneVsAll`, `Enum`),
         [
             (
-                TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 5,
-                        },
-                    ),
-                ),
+                TypeVariantPath(`malamute::OneVsAll::Yes`),
                 Ok(
                     DecTerm(`(independent (s: Type) -> (independent (a: s) -> malamute::OneVsAll s a`),
                 ),
             ),
             (
-                TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 6,
-                        },
-                    ),
-                ),
+                TypeVariantPath(`malamute::OneVsAll::No`),
                 Ok(
                     DecTerm(`(independent (s: Type) -> (independent (a: s) -> malamute::OneVsAll s a`),
                 ),
@@ -62,37 +38,19 @@
         TypePath(`malamute::OneVsAllResult`, `Enum`),
         [
             (
-                TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 8,
-                        },
-                    ),
-                ),
+                TypeVariantPath(`malamute::OneVsAllResult::ConfidentYes`),
                 Ok(
                     DecTerm(`(independent (s: Type) -> (independent (a: s) -> malamute::OneVsAllResult s a`),
                 ),
             ),
             (
-                TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 9,
-                        },
-                    ),
-                ),
+                TypeVariantPath(`malamute::OneVsAllResult::ConfidentNo`),
                 Ok(
                     DecTerm(`(independent (s: Type) -> (independent (a: s) -> malamute::OneVsAllResult s a`),
                 ),
             ),
             (
-                TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 10,
-                        },
-                    ),
-                ),
+                TypeVariantPath(`malamute::OneVsAllResult::Unconfident`),
                 Ok(
                     DecTerm(`(independent (s: Type) -> (independent (a: s) -> malamute::OneVsAllResult s a`),
                 ),

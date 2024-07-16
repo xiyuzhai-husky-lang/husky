@@ -129,7 +129,7 @@ impl EthTerm {
             EthTerm::SymbolicVariable(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
             EthTerm::LambdaVariable(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
             EthTerm::ItemPath(slf) => match slf {
-                ItemPathTerm::Form(path) => {
+                ItemPathTerm::MajorForm(path) => {
                     RawType::Declarative(form_path_declarative_ty(db, path)?)
                 }
                 ItemPathTerm::Trait(path) => {

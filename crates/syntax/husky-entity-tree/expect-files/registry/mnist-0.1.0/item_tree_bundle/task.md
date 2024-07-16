@@ -20,7 +20,7 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                                 block: DefnBlock::Form {
-                                    path: FormPath(`mnist::Task`, `TypeVar`),
+                                    path: MajorFormPath(`mnist::Task`, `TypeVar`),
                                     body: None,
                                 },
                             },
@@ -48,7 +48,7 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                                 block: DefnBlock::Form {
-                                    path: FormPath(`mnist::TASK`, `StaticVar`),
+                                    path: MajorFormPath(`mnist::TASK`, `StaticVar`),
                                     body: None,
                                 },
                             },
@@ -70,7 +70,7 @@ EntityTreeCrateBundle {
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Form(
-                                FormPath(`mnist::Task`, `TypeVar`),
+                                MajorFormPath(`mnist::Task`, `TypeVar`),
                             ),
                         },
                     },
@@ -79,7 +79,7 @@ EntityTreeCrateBundle {
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Form(
-                                FormPath(`mnist::TASK`, `StaticVar`),
+                                MajorFormPath(`mnist::TASK`, `StaticVar`),
                             ),
                         },
                     },

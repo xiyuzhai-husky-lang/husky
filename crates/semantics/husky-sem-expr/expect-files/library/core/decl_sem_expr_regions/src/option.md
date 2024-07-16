@@ -74,6 +74,11 @@
             self_ty: Some(
                 EthTerm(`Option T`),
             ),
+            context_itd: EthSignatureBuilderContextItd {
+                context: EthSignatureBuilderContext {
+                    task_ty: None,
+                },
+            },
         },
     },
 ]

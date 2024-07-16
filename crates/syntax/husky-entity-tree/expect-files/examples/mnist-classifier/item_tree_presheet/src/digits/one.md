@@ -20,7 +20,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                             body: Some(
                                 FormBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -56,7 +56,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            path: MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                             body: Some(
                                 FormBody {
                                     ast_idx_range: ArenaIdxRange(
@@ -94,7 +94,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::digits::one::upmost`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
@@ -138,7 +138,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::digits::one::downmost`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
@@ -182,7 +182,7 @@ EntityTreePresheet {
                             ),
                         },
                         block: DefnBlock::Form {
-                            path: FormPath(`mnist_classifier::digits::one::hat`, `Ritchie(
+                            path: MajorFormPath(`mnist_classifier::digits::one::hat`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(

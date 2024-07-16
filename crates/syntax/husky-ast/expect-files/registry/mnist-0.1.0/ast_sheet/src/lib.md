@@ -7,13 +7,7 @@ AstSheet {
                     lcurl: None,
                     raw: 2,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 3,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`mnist::MnistLabel::Zero`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         7,
@@ -37,13 +31,7 @@ AstSheet {
                     lcurl: None,
                     raw: 3,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 4,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`mnist::MnistLabel::One`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         9,
@@ -67,13 +55,7 @@ AstSheet {
                     lcurl: None,
                     raw: 4,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 5,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`mnist::MnistLabel::Two`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         11,
@@ -97,13 +79,7 @@ AstSheet {
                     lcurl: None,
                     raw: 5,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 6,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`mnist::MnistLabel::Three`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         13,
@@ -127,13 +103,7 @@ AstSheet {
                     lcurl: None,
                     raw: 6,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 7,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`mnist::MnistLabel::Four`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         15,
@@ -157,13 +127,7 @@ AstSheet {
                     lcurl: None,
                     raw: 7,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 8,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`mnist::MnistLabel::Five`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         17,
@@ -187,13 +151,7 @@ AstSheet {
                     lcurl: None,
                     raw: 8,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 9,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`mnist::MnistLabel::Six`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         19,
@@ -217,13 +175,7 @@ AstSheet {
                     lcurl: None,
                     raw: 9,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 10,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`mnist::MnistLabel::Seven`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         21,
@@ -247,13 +199,7 @@ AstSheet {
                     lcurl: None,
                     raw: 10,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 11,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`mnist::MnistLabel::Eight`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         23,
@@ -277,13 +223,7 @@ AstSheet {
                     lcurl: None,
                     raw: 11,
                 },
-                variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 12,
-                        },
-                    ),
-                ),
+                variant_path: TypeVariantPath(`mnist::MnistLabel::Nine`),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         25,
@@ -804,7 +744,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`mnist::INPUT`, `StaticVar`),
+                    path: MajorFormPath(`mnist::INPUT`, `StaticVar`),
                     body: None,
                 },
             },

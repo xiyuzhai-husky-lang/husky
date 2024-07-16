@@ -21,7 +21,7 @@ impl DepsAttrHirDecl {
         let deps = syn_decl
             .deps(db)
             .iter()
-            .map(|&dep| match builder.eth_term(dep) {
+            .map(|&dep| match builder.eth_term(dep.syn_expr_idx()) {
                 Some(dep_term) => match dep_term {
                     EthTerm::Literal(_) => todo!(),
                     EthTerm::SymbolicVariable(_) => todo!(),
