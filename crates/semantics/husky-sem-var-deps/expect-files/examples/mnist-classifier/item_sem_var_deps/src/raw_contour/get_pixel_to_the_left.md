@@ -1,6 +1,6 @@
 ```rust
 Some(
-    SemStaticVarDeps(
+    SemVarDeps(
         [],
     ),
 )

@@ -3,24 +3,24 @@ use vec_like::OrderedSmallVecSet;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialOrd, Ord, PartialEq, Eq)]
-pub enum SemStaticVarDep {
+pub enum SemVarDep {
     Item(ItemPath),
 }
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
-pub struct SemStaticVarDeps(OrderedSmallVecSet<SemStaticVarDep, 4>);
+pub struct SemVarDeps(OrderedSmallVecSet<SemVarDep, 4>);
 
-impl std::ops::Deref for SemStaticVarDeps {
-    type Target = OrderedSmallVecSet<SemStaticVarDep, 4>;
+impl std::ops::Deref for SemVarDeps {
+    type Target = OrderedSmallVecSet<SemVarDep, 4>;
 
     fn deref(&self) -> &Self::Target {
         &self.0
     }
 }
 
-impl IntoIterator for &SemStaticVarDeps {
-    type Item = SemStaticVarDep;
+impl IntoIterator for &SemVarDeps {
+    type Item = SemVarDep;
 
     type IntoIter = impl Iterator<Item = Self::Item>;
 
@@ -29,15 +29,15 @@ impl IntoIterator for &SemStaticVarDeps {
     }
 }
 
-impl SemStaticVarDeps {
-    pub(crate) fn merge(&mut self, other: &[SemStaticVarDep]) {
+impl SemVarDeps {
+    pub(crate) fn merge(&mut self, other: &[SemVarDep]) {
         self.0.extend(other);
     }
 
     /// this is used when caching, to see whether there is any effective change
     pub(crate) fn merge_counted(
         &mut self,
-        other: &[SemStaticVarDep],
+        other: &[SemVarDep],
         counter: &mut EffectiveMergeCounter,
     ) {
         let old_len = self.0.len();
@@ -48,25 +48,32 @@ impl SemStaticVarDeps {
     }
 
     pub(crate) fn insert_item_path(&mut self, item_path: ItemPath) {
-        self.0.insert(SemStaticVarDep::Item(item_path));
+        self.0.insert(SemVarDep::Item(item_path));
     }
 }
 
 /// None indicates no control flow
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
-pub struct SemControlFlowStaticVarDeps(Option<OrderedSmallVecSet<SemStaticVarDep, 4>>);
+pub struct SemControlFlowVarDeps(Option<OrderedSmallVecSet<SemVarDep, 4>>);
 
 #[test]
 fn sem_control_flow_static_var_deps_default_works() {
     assert_eq!(
-        SemControlFlowStaticVarDeps::default(),
-        SemControlFlowStaticVarDeps(None)
+        SemControlFlowVarDeps::default(),
+        SemControlFlowVarDeps(None)
     );
 }
 
-impl std::ops::Deref for SemControlFlowStaticVarDeps {
-    type Target = [SemStaticVarDep];
+impl SemControlFlowVarDeps {
+    /// a deps that represents a control flow that happens without any dependencies
+    pub(crate) fn new_empty() -> Self {
+        Self(Some(Default::default()))
+    }
+}
+
+impl std::ops::Deref for SemControlFlowVarDeps {
+    type Target = [SemVarDep];
 
     fn deref(&self) -> &Self::Target {
         match self.0 {
@@ -76,7 +83,7 @@ impl std::ops::Deref for SemControlFlowStaticVarDeps {
     }
 }
 
-impl SemControlFlowStaticVarDeps {
+impl SemControlFlowVarDeps {
     pub(crate) fn merge(&mut self, other: &Self) {
         match self.0 {
             Some(ref mut slf) => slf.extend(other),
@@ -90,14 +97,14 @@ impl SemControlFlowStaticVarDeps {
     /// use this when some control flow is caused by the value
     ///
     /// this will result in .0 always being Some
-    pub(crate) fn merge_with_value(&mut self, other: &SemStaticVarDeps) {
+    pub(crate) fn merge_with_value(&mut self, other: &SemVarDeps) {
         match self.0 {
             Some(ref mut slf) => slf.extend(other),
             None => self.0 = Some(other.0.clone()),
         }
     }
 
-    pub(crate) fn merge_with_condition(&mut self, other: &SemStaticVarDeps) {
+    pub(crate) fn compose_with_value(&mut self, other: &SemVarDeps) {
         match self.0 {
             Some(ref mut slf) => slf.extend(other),
             None => (), // doing nothing because if the thing doesn't have a control flow, so does its conditional version
