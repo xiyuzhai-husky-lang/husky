@@ -1,9 +1,0 @@
-```rust
-Some(
-    SemStaticVarDeps(
-        [
-            ItemPath(`mnist::INPUT`),
-        ],
-    ),
-)
-```

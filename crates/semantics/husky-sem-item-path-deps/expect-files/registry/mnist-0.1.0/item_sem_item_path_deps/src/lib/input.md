@@ -1,9 +1,0 @@
-```rust
-Some(
-    Ok(
-        [
-            ItemPath(`mnist::BinaryImage28`),
-        ],
-    ),
-)
-```
