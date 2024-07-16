@@ -3,7 +3,7 @@ use husky_entity_path::path::ItemPath;
 use husky_ki::{Ki, KiArgument, KiOpn};
 use husky_sem_var_deps::{
     item_sem_var_deps,
-    var_deps::{SemStaticVarDep, SemStaticVarDeps},
+    var_deps::{SemVarDep, SemVarDeps},
 };
 use source::KiReprExpansionSource;
 use vec_like::OrderedSmallVecSet;
@@ -30,13 +30,13 @@ impl IntoIterator for &KiStaticVarDeps {
 }
 
 // ad hoc, maybe some other consideration about template arguments?
-impl From<&SemStaticVarDeps> for KiStaticVarDeps {
-    fn from(value: &SemStaticVarDeps) -> Self {
+impl From<&SemVarDeps> for KiStaticVarDeps {
+    fn from(value: &SemVarDeps) -> Self {
         Self(
             value
                 .iter()
                 .map(|&dep| match dep {
-                    SemStaticVarDep::Item(item_path) => item_path,
+                    SemVarDep::Item(item_path) => item_path,
                 })
                 .collect(),
         )

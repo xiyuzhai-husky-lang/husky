@@ -15,12 +15,12 @@ pub mod var_deps;
 use self::jar::SemVarDepsJar as Jar;
 #[cfg(test)]
 use self::tests::*;
-use self::var_deps::SemStaticVarDeps;
+use self::var_deps::SemVarDeps;
 use husky_entity_path::path::ItemPath;
 
 pub fn item_sem_var_deps<'db>(
     item_path: impl Into<ItemPath>,
     db: &'db ::salsa::Db,
-) -> &'db SemStaticVarDeps {
+) -> &'db SemVarDeps {
     crate::graph_dynamics::item_sem_var_deps(db, *item_path.into())
 }

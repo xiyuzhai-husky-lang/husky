@@ -6,7 +6,7 @@ use code_lens::CodeLensData;
 use husky_entity_path::region::RegionPath;
 use husky_entity_tree::helpers::tokra_region::HasRegionalTokenIdxBase;
 use husky_sem_static_mut_deps::item_sem_static_mut_deps;
-use husky_sem_var_deps::{item_sem_var_deps, var_deps::SemStaticVarDep};
+use husky_sem_var_deps::{item_sem_var_deps, var_deps::SemVarDep};
 use husky_token::{RangedTokenSheet, TokenDb};
 use husky_vfs::path::module_path::ModulePath;
 use salsa::DisplayWithDb;
@@ -74,7 +74,7 @@ impl CodeLens {
                         title.push_str(", ");
                     }
                     match dep {
-                        SemStaticVarDep::Item(item_path) => {
+                        SemVarDep::Item(item_path) => {
                             title.push_str(&item_path.display_with(db).to_string())
                         }
                     }

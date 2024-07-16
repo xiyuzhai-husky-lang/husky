@@ -1,8 +1,8 @@
 ```rust
 Some(
-    SemStaticVarDeps(
+    SemVarDeps(
         [
-            SemStaticVarDep::Item(
+            SemVarDep::Item(
                 ItemPath(`mnist::INPUT`),
             ),
         ],
