@@ -275,7 +275,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::i8`, `Extern`),
@@ -328,7 +328,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::i8`, `Extern`),
@@ -339,7 +339,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i8`, `Extern`),
@@ -411,7 +411,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::i8`, `Extern`),
@@ -422,7 +422,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i8`, `Extern`),
@@ -494,7 +494,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::i16`, `Extern`),
@@ -547,7 +547,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::i16`, `Extern`),
@@ -558,7 +558,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i16`, `Extern`),
@@ -630,7 +630,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::i16`, `Extern`),
@@ -641,7 +641,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
@@ -713,7 +713,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::i32`, `Extern`),
@@ -766,7 +766,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::i32`, `Extern`),
@@ -777,7 +777,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
@@ -830,7 +830,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::i32`, `Extern`),
@@ -841,7 +841,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
@@ -913,7 +913,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::i32`, `Extern`),
@@ -924,7 +924,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
@@ -996,7 +996,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::i64`, `Extern`),
@@ -1068,7 +1068,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::i64`, `Extern`),
@@ -1079,7 +1079,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i64`, `Extern`),
@@ -1151,7 +1151,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::i128`, `Extern`),
@@ -1223,7 +1223,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::i128`, `Extern`),
@@ -1234,7 +1234,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i128`, `Extern`),
@@ -1306,7 +1306,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::isize`, `Extern`),
@@ -1378,7 +1378,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::isize`, `Extern`),
@@ -1389,7 +1389,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::isize`, `Extern`),
@@ -1461,7 +1461,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::u8`, `Extern`),
@@ -1533,7 +1533,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::u8`, `Extern`),
@@ -1544,7 +1544,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::u8`, `Extern`),
@@ -1616,7 +1616,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::u16`, `Extern`),
@@ -1688,7 +1688,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::u16`, `Extern`),
@@ -1699,7 +1699,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::u16`, `Extern`),
@@ -1771,7 +1771,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::u32`, `Extern`),
@@ -1843,7 +1843,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::u32`, `Extern`),
@@ -1854,7 +1854,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::u32`, `Extern`),
@@ -1926,7 +1926,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::u64`, `Extern`),
@@ -1998,7 +1998,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::u64`, `Extern`),
@@ -2009,7 +2009,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::u64`, `Extern`),
@@ -2081,7 +2081,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::u128`, `Extern`),
@@ -2153,7 +2153,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::u128`, `Extern`),
@@ -2164,7 +2164,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::u128`, `Extern`),
@@ -2236,7 +2236,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::usize`, `Extern`),
@@ -2308,7 +2308,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::usize`, `Extern`),
@@ -2319,7 +2319,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::usize`, `Extern`),
@@ -2391,7 +2391,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::f32`, `Extern`),
@@ -2444,7 +2444,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::f32`, `Extern`),
@@ -2497,7 +2497,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::f32`, `Extern`),
@@ -2508,7 +2508,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::f32`, `Extern`),
@@ -2561,7 +2561,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::f32`, `Extern`),
@@ -2572,7 +2572,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::f32`, `Extern`),
@@ -2625,7 +2625,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::f32`, `Extern`),
@@ -2678,7 +2678,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::f32`, `Extern`),
@@ -2731,7 +2731,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::f32`, `Extern`),
@@ -2784,7 +2784,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::f32`, `Extern`),
@@ -2856,7 +2856,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::f32`, `Extern`),
@@ -2867,7 +2867,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::f32`, `Extern`),
@@ -2939,7 +2939,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::f64`, `Extern`),
@@ -2992,7 +2992,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::f64`, `Extern`),
@@ -3064,7 +3064,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::EntityPath(
                                     DecItemPath::Type(
                                         TypePath(`core::num::f64`, `Extern`),
@@ -3075,7 +3075,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::f64`, `Extern`),

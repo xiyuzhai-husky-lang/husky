@@ -192,7 +192,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
+                                contract: Contract::Pure,
                                 ty: DecTerm::Application(
                                     DecApplication {
                                         function: DecTerm::EntityPath(
@@ -358,7 +358,7 @@
                                 ],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: BorrowMut,
+                                contract: Contract::BorrowMut,
                                 ty: DecTerm::Application(
                                     DecApplication {
                                         function: DecTerm::EntityPath(
@@ -400,7 +400,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Move,
+                                            contract: Contract::Move,
                                             ty: DecTerm::SymbolicVariable(
                                                 DecSymbolicVariable {
                                                     toolchain: Toolchain {
@@ -557,7 +557,7 @@
                                 ],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: At,
+                                contract: Contract::At,
                                 ty: DecTerm::Application(
                                     DecApplication {
                                         function: DecTerm::EntityPath(
@@ -792,7 +792,7 @@
                                 ],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: At,
+                                contract: Contract::At,
                                 ty: DecTerm::Application(
                                     DecApplication {
                                         function: DecTerm::EntityPath(
@@ -1027,7 +1027,7 @@
                                 ],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: BorrowMut,
+                                contract: Contract::BorrowMut,
                                 ty: DecTerm::Application(
                                     DecApplication {
                                         function: DecTerm::EntityPath(
@@ -1214,7 +1214,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Leash,
+                                contract: Contract::Leash,
                                 ty: DecTerm::Application(
                                     DecApplication {
                                         function: DecTerm::EntityPath(
@@ -1417,7 +1417,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Leash,
+                                contract: Contract::Leash,
                                 ty: DecTerm::Application(
                                     DecApplication {
                                         function: DecTerm::EntityPath(
@@ -1459,7 +1459,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
@@ -1469,7 +1469,7 @@
                                     ),
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
@@ -1646,7 +1646,7 @@
                                 ],
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: BorrowMut,
+                                contract: Contract::BorrowMut,
                                 ty: DecTerm::Application(
                                     DecApplication {
                                         function: DecTerm::EntityPath(
@@ -1688,7 +1688,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::Ritchie(
                                                 DecRitchie {
                                                     ritchie_kind: RitchieKind::Type(
@@ -1699,7 +1699,7 @@
                                                     params: [
                                                         DeclarativeRitchieParameter::Simple(
                                                             DeclarativeRitchieSimpleParameter {
-                                                                contract: Pure,
+                                                                contract: Contract::Pure,
                                                                 ty: DecTerm::SymbolicVariable(
                                                                     DecSymbolicVariable {
                                                                         toolchain: Toolchain {

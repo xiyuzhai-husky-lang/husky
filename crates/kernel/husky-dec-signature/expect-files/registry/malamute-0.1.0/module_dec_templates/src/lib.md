@@ -298,7 +298,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Variadic(
                                         DeclarativeRitchieVariadicParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::f32`, `Extern`),
@@ -309,7 +309,7 @@
                                     DeclarativeRitchieParameter::Keyed(
                                         DeclarativeRitchieKeyedParameter {
                                             key: `skip`,
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
@@ -870,7 +870,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::Application(
                                                 DecApplication {
                                                     function: DecTerm::Application(
@@ -1280,7 +1280,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::Application(
                                                 DecApplication {
                                                     function: DecTerm::Application(

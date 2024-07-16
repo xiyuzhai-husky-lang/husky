@@ -25,7 +25,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: BorrowMut,
+                                            contract: Contract::BorrowMut,
                                             ty: DecTerm::Application(
                                                 DecApplication {
                                                     function: DecTerm::EntityPath(
@@ -102,7 +102,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: BorrowMut,
+                                            contract: Contract::BorrowMut,
                                             ty: DecTerm::Application(
                                                 DecApplication {
                                                     function: DecTerm::EntityPath(
@@ -143,7 +143,7 @@
                                     ),
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::isize`, `Extern`),
@@ -153,7 +153,7 @@
                                     ),
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::isize`, `Extern`),
@@ -199,7 +199,7 @@
                                 data: [
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: BorrowMut,
+                                            contract: Contract::BorrowMut,
                                             ty: DecTerm::Application(
                                                 DecApplication {
                                                     function: DecTerm::EntityPath(
@@ -240,7 +240,7 @@
                                     ),
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::isize`, `Extern`),
@@ -250,7 +250,7 @@
                                     ),
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
+                                            contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::isize`, `Extern`),
