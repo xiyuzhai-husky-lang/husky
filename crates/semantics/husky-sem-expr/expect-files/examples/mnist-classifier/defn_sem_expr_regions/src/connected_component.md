@@ -120,9 +120,11 @@
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath(`mnist_classifier::raw_contour::RawContour(0)::contour_len`),
-                                                task_ty: Some(
-                                                    EthTerm(`MnistTask`),
-                                                ),
+                                                context_itd: EthTermContextItd {
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
+                                                },
                                                 env: MemoizedField,
                                                 symbol_map: [],
                                                 separator: Some(
@@ -1019,12 +1021,10 @@
                 EthTerm(`Option f32`),
             ),
             self_ty: None,
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -6048,12 +6048,10 @@
                 EthTerm(`r32`),
             ),
             self_ty: None,
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -6358,9 +6356,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`#derive _ as core::clone::Clone(0)`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: StackPure {
                                                             place: Idx(
@@ -6963,9 +6963,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::raw_bits::r32(0)::ctz`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: ImmutableOnStack {
                                                             place: Idx(
@@ -7080,18 +7082,10 @@
                                                             ),
                                                         ),
                                                     ),
-                                                    task_ty: Some(
-                                                        ItemPath(
-                                                            TypeOntology(
-                                                                TypePath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 291,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        ),
+                                                    context_itd: EthTermContextItd(
+                                                        Id {
+                                                            value: 1,
+                                                        },
                                                     ),
                                                     env: AssocRitchie,
                                                     symbol_map: [],
@@ -7371,9 +7365,11 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -8527,9 +8523,11 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -10199,9 +10197,11 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -12043,9 +12043,11 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -12256,9 +12258,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::vec::Vec(0)::push`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
                                                             place: Idx(
@@ -19073,12 +19077,10 @@
                 EthTerm(`Vec ConnectedComponent`),
             ),
             self_ty: None,
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -19278,9 +19280,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`mnist::BinaryImage28 as core::visual::Visualize(0)`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: StackPure {
                                                             place: Idx(
@@ -19582,12 +19586,10 @@
             self_ty: Some(
                 EthTerm(`ConnectedComponent`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -19622,9 +19624,11 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`mnist_classifier::raw_contour::find_raw_contours`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -20041,12 +20045,10 @@
             self_ty: Some(
                 EthTerm(`ConnectedComponent`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -20170,9 +20172,11 @@
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`),
-                                                task_ty: Some(
-                                                    EthTerm(`MnistTask`),
-                                                ),
+                                                context_itd: EthTermContextItd {
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
+                                                },
                                                 env: MemoizedField,
                                                 symbol_map: [],
                                                 separator: Some(
@@ -20271,9 +20275,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::vec::Vec(0)::collect_leashes`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: Some(
@@ -20588,9 +20594,11 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`mnist_classifier::connected_component::hole_tmpl`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -20686,9 +20694,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::vec::Vec(0)::pop_with_largest_opt_f32`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
                                                             place: Idx(
@@ -20882,9 +20892,11 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`mnist_classifier::connected_component::hole_tmpl`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -20980,9 +20992,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::vec::Vec(0)::pop_with_largest_opt_f32`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
                                                             place: Idx(
@@ -21139,9 +21153,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::vec::Vec(0)::push`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
                                                             place: Idx(
@@ -21335,9 +21351,11 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`mnist_classifier::connected_component::hole_tmpl`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -21433,9 +21451,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::vec::Vec(0)::pop_with_largest_opt_f32`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
                                                             place: Idx(
@@ -21592,9 +21612,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::vec::Vec(0)::push`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
                                                             place: Idx(
@@ -21696,9 +21718,11 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`mnist_classifier::connected_component::EffHoles`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -23226,12 +23250,10 @@
             self_ty: Some(
                 EthTerm(`ConnectedComponent`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -23404,9 +23426,11 @@
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`),
-                                                task_ty: Some(
-                                                    EthTerm(`MnistTask`),
-                                                ),
+                                                context_itd: EthTermContextItd {
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
+                                                },
                                                 env: MemoizedField,
                                                 symbol_map: [],
                                                 separator: Some(
@@ -23591,9 +23615,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::vec::Vec(0)::ilen`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: Some(
@@ -24011,9 +24037,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::vec::Vec(0)::ilen`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: Some(
@@ -25921,12 +25949,10 @@
             self_ty: Some(
                 EthTerm(`ConnectedComponent`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -26557,9 +26583,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::raw_bits::r32(0)::span`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: Some(
@@ -26673,9 +26701,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::num::i32(0)::max`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
                                                             place: Idx(
@@ -27998,12 +28028,10 @@
             self_ty: Some(
                 EthTerm(`ConnectedComponent`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -28564,9 +28592,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::raw_bits::r32(0)::span`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: Some(
@@ -29753,12 +29783,10 @@
             self_ty: Some(
                 EthTerm(`ConnectedComponent`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -31695,9 +31723,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::raw_bits::r32(0)::co`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: Some(
@@ -32447,9 +32477,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::raw_bits::r32(0)::co`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: Some(
@@ -32553,9 +32585,11 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -36468,12 +36502,10 @@
             self_ty: Some(
                 EthTerm(`ConnectedComponent`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -36622,9 +36654,11 @@
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
-                                                task_ty: Some(
-                                                    EthTerm(`MnistTask`),
-                                                ),
+                                                context_itd: EthTermContextItd {
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
+                                                },
                                                 env: MemoizedField,
                                                 symbol_map: [],
                                                 separator: Some(
@@ -37127,12 +37161,10 @@
             self_ty: Some(
                 EthTerm(`ConnectedComponent`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -37281,9 +37313,11 @@
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
-                                                task_ty: Some(
-                                                    EthTerm(`MnistTask`),
-                                                ),
+                                                context_itd: EthTermContextItd {
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
+                                                },
                                                 env: MemoizedField,
                                                 symbol_map: [],
                                                 separator: Some(
@@ -37786,12 +37820,10 @@
             self_ty: Some(
                 EthTerm(`ConnectedComponent`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -38976,9 +39008,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::raw_bits::r32(0)::span`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: StackPure {
                                                             place: Idx(
@@ -40872,12 +40906,10 @@
             self_ty: Some(
                 EthTerm(`ConnectedComponent`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -42062,9 +42094,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::raw_bits::r32(0)::right_mass`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: StackPure {
                                                             place: Idx(
@@ -43958,12 +43992,10 @@
             self_ty: Some(
                 EthTerm(`ConnectedComponent`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },

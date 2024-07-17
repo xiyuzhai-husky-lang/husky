@@ -15,7 +15,7 @@ use crate::parameter::EtherealParenateParameters;
 use crate::*;
 use husky_dec_signature::signature::{HasDecSignature, HasDecTemplate};
 use husky_entity_path::path::{submodule::SubmoduleItemPath, ItemPath};
-use husky_eth_term::fmt::with_eth_term_fmt_context;
+use husky_eth_term::{context::EthTermContextItd, fmt::with_eth_term_fmt_context};
 use salsa::fmt::WithFmtContext;
 
 #[salsa::derive_debug_with_db]

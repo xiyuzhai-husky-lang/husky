@@ -56,12 +56,10 @@
             self_ty: Some(
                 EthTerm(`MnistLabel`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -121,12 +119,10 @@
             self_ty: Some(
                 EthTerm(`BinaryImage28`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -186,12 +182,10 @@
             self_ty: Some(
                 EthTerm(`BinaryGrid28`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -339,12 +333,10 @@
             },
             return_ty: None,
             self_ty: None,
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -574,12 +566,10 @@
             self_ty: Some(
                 EthTerm(`BinaryImage28`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -731,12 +721,10 @@
             self_ty: Some(
                 EthTerm(`BinaryImage28`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -886,12 +874,10 @@
             self_ty: Some(
                 EthTerm(`BinaryImage28`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -1036,12 +1022,10 @@
             self_ty: Some(
                 EthTerm(`BinaryImage28`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -1271,12 +1255,10 @@
             self_ty: Some(
                 EthTerm(`BinaryImage28`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -1426,12 +1408,10 @@
             self_ty: Some(
                 EthTerm(`BinaryImage28`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -1661,12 +1641,10 @@
             self_ty: Some(
                 EthTerm(`BinaryGrid28`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -1818,12 +1796,10 @@
             self_ty: Some(
                 EthTerm(`BinaryGrid28`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -1973,12 +1949,10 @@
             self_ty: Some(
                 EthTerm(`BinaryGrid28`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -2123,12 +2097,10 @@
             self_ty: Some(
                 EthTerm(`BinaryGrid28`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -2358,12 +2330,10 @@
             self_ty: Some(
                 EthTerm(`BinaryGrid28`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -2513,12 +2483,10 @@
             self_ty: Some(
                 EthTerm(`BinaryGrid28`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },

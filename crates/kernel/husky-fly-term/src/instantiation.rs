@@ -5,8 +5,8 @@ use husky_entity_path::path::{
     major_item::ty::{PreludeIndirectionTypePath, PreludeTypePath},
     ItemPath, PrincipalItemPath,
 };
-use husky_eth_signature::context::EthSignatureBuilderContextItd;
-use husky_eth_term::instantiation::IsEthInstantiationContext;
+use husky_eth_term::context::EthTermContextItd;
+use husky_eth_term::instantiation::IsEthTermContextRef;
 use husky_eth_term::{
     instantiation::EthInstantiation,
     term::{
@@ -17,13 +17,13 @@ use husky_eth_term::{
 };
 use path::major_item::form::PreludeMajorFormPath;
 use salsa::fmt::WithFmtContext;
-use vec_like::{SmallVecMap, SmallVecPairMap};
+use vec_like::{ordered_small_vec_map::OrderedSmallVecPairMap, SmallVecMap, SmallVecPairMap};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FlyInstantiation {
     path: ItemPath,
-    task_ty: Option<EthTerm>,
+    context_itd: EthTermContextItd,
     env: FlyInstantiationEnvironment,
     symbol_map: SmallVecPairMap<EthSymbolicVariable, FlyTermSymbolResolution, 4>,
     separator: Option<u8>,
@@ -77,7 +77,7 @@ impl FlyInstantiation {
         template_parameters1: &[EthTemplateParameter],
         template_parameters2: Option<&[EthTemplateParameter]>,
         terms: &mut FlyTerms,
-        context_itd: EthSignatureBuilderContextItd,
+        context_itd: EthTermContextItd,
         db: &'db ::salsa::Db,
     ) -> Self {
         let separator = template_parameters2
@@ -85,7 +85,7 @@ impl FlyInstantiation {
             .then_some(template_parameters1.len().try_into().unwrap());
         Self {
             path: path.into(),
-            task_ty: context_itd.context(db).task_ty(),
+            context_itd,
             env,
             symbol_map: template_parameters1
                 .iter()
@@ -119,7 +119,7 @@ impl FlyInstantiation {
         determined_trai_arguments: SmallVec<[FlyTerm; 2]>,
         template_parameters2: &[EthTemplateParameter],
         terms: &mut FlyTerms,
-        context_itd: EthSignatureBuilderContextItd,
+        context_itd: EthTermContextItd,
         db: &'db ::salsa::Db,
     ) -> Self {
         let separator = Some(template_parameters1.len().try_into().unwrap());
@@ -163,7 +163,7 @@ impl FlyInstantiation {
             .expect("it should be guaranteed that the keys are unique");
         Self {
             path: path.into().into(),
-            task_ty: context_itd.context(db).task_ty(),
+            context_itd,
             env,
             symbol_map,
             separator,
@@ -176,7 +176,7 @@ impl FlyInstantiation {
     ) -> Self {
         FlyInstantiation {
             path: instantiation.path(),
-            task_ty: instantiation.task_ty(),
+            context_itd: instantiation.context_itd(),
             env,
             symbol_map: instantiation
                 .symbol_map()
@@ -185,6 +185,12 @@ impl FlyInstantiation {
                 .collect(),
             separator: instantiation.separator(),
         }
+    }
+}
+
+impl FlyInstantiation {
+    pub fn task_ty(&self, db: &::salsa::Db) -> Option<EthTerm> {
+        self.context_itd.task_ty(db)
     }
 
     pub fn symbol_map(&self) -> &[(EthSymbolicVariable, FlyTermSymbolResolution)] {
@@ -260,7 +266,7 @@ pub(crate) trait FlyInstantiateRef {
 
 pub struct FlyTermInstantiationBuilder {
     path: ItemPath,
-    task_ty: Option<EthTerm>,
+    context_itd: EthTermContextItd,
     env: FlyInstantiationEnvironment,
     symbol_map: SmallVecPairMap<EthSymbolicVariable, Option<FlyTermSymbolResolution>, 4>,
     separator: Option<u8>,
@@ -280,12 +286,12 @@ impl FlyTermInstantiationBuilder {
         env: FlyInstantiationEnvironment,
         impl_block_template_parameters: &[EthTemplateParameter],
         assoc_item_template_parameters: &[EthTemplateParameter],
-        context_itd: EthSignatureBuilderContextItd,
+        context_itd: EthTermContextItd,
         db: &'db ::salsa::Db,
     ) -> Self {
         Self {
             path: path.into().into(),
-            task_ty: context_itd.context(db).task_ty(),
+            context_itd,
             env,
             symbol_map: impl_block_template_parameters
                 .iter()
@@ -364,8 +370,8 @@ impl FlyTermInstantiationBuilder {
     pub(crate) fn finish(self, db: &::salsa::Db) -> FlyInstantiation {
         FlyInstantiation {
             path: self.path,
-            task_ty: self.task_ty,
             env: self.env,
+            context_itd: self.context_itd,
             symbol_map: self
                 .symbol_map
                 .into_iter()
@@ -386,7 +392,7 @@ impl FlyInstantiate for EthTerm {
         instantiation: &FlyInstantiation,
     ) -> Self::Target {
         let db = engine.db();
-        if let Some(task_ty) = instantiation.task_ty {
+        if let Some(task_ty) = instantiation.task_ty(db) {
             match self {
                 EthTerm::ItemPath(ItemPathTerm::MajorForm(form_path))
                     if form_path.refine(db) == Left(PreludeMajorFormPath::TaskType) =>

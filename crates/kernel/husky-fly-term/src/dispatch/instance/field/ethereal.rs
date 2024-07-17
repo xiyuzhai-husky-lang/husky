@@ -1,7 +1,7 @@
 use super::*;
 use husky_entity_path::path::major_item::ty::{PreludeIndirectionTypePath, PreludeTypePath};
 use husky_eth_signature::{
-    context::{EthSignatureBuilderContext, EthSignatureBuilderContextItd},
+    context::EthTermContextRef,
     error::EthSignatureResult,
     signature::{
         assoc_item::ty_item::memo_field::HasTypeMemoizedFieldEthSignature,
@@ -15,7 +15,7 @@ pub(super) fn ethereal_ty_field_dispatch<'db>(
     ty_term: EthTerm,
     ident: Ident,
     indirections: FlyIndirections,
-    ctx: &EthSignatureBuilderContext,
+    ctx: EthTermContextRef,
 ) -> FlyTermMaybeResult<FlyFieldInstanceDispatch> {
     // divide into cases for memoization
     match ty_term {
@@ -34,7 +34,7 @@ pub(crate) fn ethereal_ty_ontology_path_ty_field_dispatch<'db>(
     ty_path: TypePath,
     ident: Ident,
     indirections: FlyIndirections,
-    ctx: &EthSignatureBuilderContext,
+    ctx: EthTermContextRef,
 ) -> FlyTermMaybeResult<FlyFieldInstanceDispatch> {
     ethereal_ty_field_dispatch_aux(db, ty_path, &[], ident, indirections, ctx)
 }
@@ -44,7 +44,7 @@ pub(crate) fn ethereal_term_application_ty_field_dispatch<'db>(
     ty_term: EthApplication,
     ident: Ident,
     indirections: FlyIndirections,
-    ctx: &EthSignatureBuilderContext,
+    ctx: EthTermContextRef,
 ) -> FlyTermMaybeResult<FlyFieldInstanceDispatch> {
     let application_expansion = ty_term.application_expansion(db);
     match application_expansion.function() {
@@ -67,7 +67,7 @@ fn ethereal_ty_field_dispatch_aux<'db>(
     arguments: &'db [EthTerm],
     ident: Ident,
     mut indirections: FlyIndirections,
-    ctx: &EthSignatureBuilderContext,
+    ctx: EthTermContextRef,
 ) -> FlyTermMaybeResult<FlyFieldInstanceDispatch> {
     match ty_path.refine(db) {
         Left(PreludeTypePath::Indirection(prelude_indirection_ty_path)) => {

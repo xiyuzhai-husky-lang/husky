@@ -27,9 +27,11 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`mnist_classifier::digits::one::is_one`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -81,9 +83,11 @@
                                         ),
                                         instantiation: EthInstantiation {
                                             path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             symbol_map: [
                                                 (
                                                     EthSymbolicVariable(`Label`),
@@ -142,9 +146,11 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`mnist_classifier::digits::six::is_six`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -196,9 +202,11 @@
                                         ),
                                         instantiation: EthInstantiation {
                                             path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             symbol_map: [
                                                 (
                                                     EthSymbolicVariable(`Label`),
@@ -257,9 +265,11 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`mnist_classifier::digits::zero::is_zero`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -311,9 +321,11 @@
                                         ),
                                         instantiation: EthInstantiation {
                                             path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             symbol_map: [
                                                 (
                                                     EthSymbolicVariable(`Label`),
@@ -372,9 +384,11 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`mnist_classifier::digits::seven::is_seven`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -426,9 +440,11 @@
                                         ),
                                         instantiation: EthInstantiation {
                                             path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             symbol_map: [
                                                 (
                                                     EthSymbolicVariable(`Label`),
@@ -487,9 +503,11 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`mnist_classifier::digits::eight::is_eight`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -541,9 +559,11 @@
                                         ),
                                         instantiation: EthInstantiation {
                                             path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             symbol_map: [
                                                 (
                                                     EthSymbolicVariable(`Label`),
@@ -602,9 +622,11 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`mnist_classifier::digits::three::is_three`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -656,9 +678,11 @@
                                         ),
                                         instantiation: EthInstantiation {
                                             path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             symbol_map: [
                                                 (
                                                     EthSymbolicVariable(`Label`),
@@ -717,9 +741,11 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`mnist_classifier::digits::nine::is_nine`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -771,9 +797,11 @@
                                         ),
                                         instantiation: EthInstantiation {
                                             path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             symbol_map: [
                                                 (
                                                     EthSymbolicVariable(`Label`),
@@ -832,9 +860,11 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`mnist_classifier::digits::five::is_five`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -886,9 +916,11 @@
                                         ),
                                         instantiation: EthInstantiation {
                                             path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             symbol_map: [
                                                 (
                                                     EthSymbolicVariable(`Label`),
@@ -947,9 +979,11 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`mnist_classifier::digits::two::is_two`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -1001,9 +1035,11 @@
                                         ),
                                         instantiation: EthInstantiation {
                                             path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             symbol_map: [
                                                 (
                                                     EthSymbolicVariable(`Label`),
@@ -1060,9 +1096,11 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`malamute::Class::Unknown`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -2272,12 +2310,10 @@
                 EthTerm(`Class MnistLabel`),
             ),
             self_ty: None,
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },

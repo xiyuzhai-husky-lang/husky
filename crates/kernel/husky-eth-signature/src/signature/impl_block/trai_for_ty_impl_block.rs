@@ -48,7 +48,7 @@ impl EthInstantiate for EtherealSelfTypeInTraitImpl {
     fn instantiate(
         self,
         instantiation: &EthInstantiation,
-        ctx: &impl IsEthInstantiationContext,
+        ctx: impl IsEthTermContextRef,
         db: &::salsa::Db,
     ) -> Self::Output {
         match self {
@@ -128,7 +128,7 @@ pub type TraitForTypeImplBlockSignatureTemplates = SmallVec<[TraitForTypeImplBlo
 pub struct EthTraitForTypeImplBlockSignatureBuilderItd {
     pub template: TraitForTypeImplBlockEthTemplate,
     pub instantiation_builder: EthInstantiationBuilder,
-    pub context_itd: EthSignatureBuilderContextItd,
+    pub context_itd: EthTermContextItd,
 }
 
 impl TraitForTypeImplBlockEthTemplate {
@@ -139,13 +139,13 @@ impl TraitForTypeImplBlockEthTemplate {
         self,
         target_ty_arguments: &'db [EthTerm],
         target_ty_term: EthTerm,
-        context_itd: EthSignatureBuilderContextItd,
+        context_itd: EthTermContextItd,
         db: &'db ::salsa::Db,
     ) -> EthSignatureMaybeResult<EthTraitForTypeImplBlockSignatureBuilderItd> {
         let mut builder = self.template_parameters(db).empty_instantiation_builder(
             self.path(db).into(),
             true,
-            context_itd.context(db),
+            context_itd.context_ref(db),
         );
         match self.self_ty_refined(db) {
             EtherealSelfTypeInTraitImpl::PathLeading(self_ty_term) => {
@@ -175,7 +175,7 @@ impl TraitForTypeImplBlockEthTemplate {
 impl EthTraitForTypeImplBlockSignatureBuilderItd {
     pub fn try_into_signature(self, db: &::salsa::Db) -> Option<TraitForTypeImplBlockEthSignature> {
         let instantiation = &self.instantiation_builder(db).try_into_instantiation()?;
-        let ctx = self.context_itd(db).context(db);
+        let ctx = self.context_itd(db).context_ref(db);
         let template = self.template(db);
         Some(TraitForTypeImplBlockEthSignature {
             path: template.path(db),

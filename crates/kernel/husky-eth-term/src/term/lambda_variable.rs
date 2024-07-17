@@ -61,7 +61,7 @@ impl EthInstantiate for EthLambdaVariable {
     fn instantiate(
         self,
         instantiation: &EthInstantiation,
-        ctx: &impl IsEthInstantiationContext,
+        ctx: impl IsEthTermContextRef,
         db: &::salsa::Db,
     ) -> Self::Output {
         // it's assumed that all symbols will be replaced by its map

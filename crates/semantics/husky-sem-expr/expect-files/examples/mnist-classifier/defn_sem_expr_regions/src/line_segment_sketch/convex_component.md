@@ -196,9 +196,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`#derive _ as core::visual::Visualize(0)`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: None,
@@ -510,12 +512,10 @@
             self_ty: Some(
                 EthTerm(`ConvexComponent`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
