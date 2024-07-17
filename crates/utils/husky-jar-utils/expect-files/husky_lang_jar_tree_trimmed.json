@@ -72,7 +72,8 @@
   ],
   "husky-hir-ty": [
     "husky-hir-prelude",
-    "husky-sem-place-contract"
+    "husky-sem-place-contract",
+    "husky-sem-var-deps"
   ],
   "husky-hover": [
     "husky-token-info"
@@ -88,8 +89,7 @@
     "husky-linkage"
   ],
   "husky-ki-repr": [
-    "husky-ki",
-    "husky-sem-var-deps"
+    "husky-ki"
   ],
   "husky-linkage": [
     "husky-javelin"
