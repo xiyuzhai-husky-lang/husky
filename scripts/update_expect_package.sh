@@ -21,6 +21,9 @@ scripts/adjust_screen_brightness.sh 0.0 HDMI-1-0 $DURATION
 # Format the Rust project
 cargo fmt
 
+# update jar tree information
+UPDATE_EXPECT=1 cargo test -p husky-jar-utils
+
 # Check the Rust project, including tests
 cargo check --tests
 

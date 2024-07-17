@@ -80,7 +80,7 @@ impl EthInstantiate for EthCurry {
     fn instantiate(
         self,
         instantiation: &EthInstantiation,
-        ctx: &impl IsEthInstantiationContext,
+        ctx: impl IsEthTermContextRef,
         db: &::salsa::Db,
     ) -> Self::Output {
         Self::new(

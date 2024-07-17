@@ -18,7 +18,7 @@ use husky_entity_tree::{
     helpers::trai_side_path_leading_trai_for_ty_impl_block_paths_map,
     helpers::ty_side_trai_for_ty_impl_block_paths_map,
 };
-use husky_eth_term::term::application::TermFunctionReduced;
+use husky_eth_term::{context::EthTermContextItd, term::application::TermFunctionReduced};
 use husky_term_prelude::ritchie::{RitchieKind, RitchieTypeKind};
 use signature::package::PackageEthSignatureData;
 
@@ -64,7 +64,7 @@ pub fn trai_path_for_ty_term_impl_block_eth_signature_builders<'db>(
     db: &'db ::salsa::Db,
     trai_path: TraitPath,
     ty_term: EthTerm,
-    context_itd: EthSignatureBuilderContextItd,
+    context_itd: EthTermContextItd,
 ) -> EthSignatureResult<SmallVec<[EthTraitForTypeImplBlockSignatureBuilderItd; 2]>> {
     let application_expansion = ty_term.application_expansion(db);
     let arguments = application_expansion.arguments(db);
@@ -87,7 +87,7 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'db>(
     db: &'db ::salsa::Db,
     trai_path: TraitPath,
     ty_term: EthTerm,
-    context_itd: EthSignatureBuilderContextItd,
+    context_itd: EthTermContextItd,
 ) -> EthSignatureResult<bool> {
     match ty_term {
         EthTerm::SymbolicVariable(_) => return Ok(false), // ad hoc
@@ -155,7 +155,7 @@ pub fn is_ty_term_always_copyable<'db>(
     ty_term: EthTerm,
     db: &'db ::salsa::Db,
 ) -> EthSignatureResult<Option<bool>> {
-    let context_itd = EthSignatureBuilderContextItd::new_generic(db);
+    let context_itd = EthTermContextItd::new_generic(db);
     let Some(item_path_menu) = ty_term.item_path_menu(db) else {
         return Ok(None);
     };

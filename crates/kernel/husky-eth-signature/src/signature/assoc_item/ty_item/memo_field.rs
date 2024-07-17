@@ -32,7 +32,7 @@ impl TypeMemoizedFieldEthTemplate {
     fn try_instantiate<'db>(
         self,
         target_self_ty_arguments: &[EthTerm],
-        ctx: &EthSignatureBuilderContext,
+        ctx: EthTermContextRef,
         db: &'db ::salsa::Db,
     ) -> EthSignatureMaybeResult<TypeMemoizedFieldEthSignature> {
         let self_ty = self.impl_block(db).self_ty(db);
@@ -102,7 +102,7 @@ pub trait HasTypeMemoizedFieldEthSignature: Copy {
         self,
         arguments: &'db [EthTerm],
         ident: Ident,
-        ctx: &EthSignatureBuilderContext,
+        ctx: EthTermContextRef,
         db: &'db ::salsa::Db,
     ) -> EthSignatureMaybeResult<TypeMemoizedFieldEthSignature>;
 }
@@ -112,7 +112,7 @@ impl HasTypeMemoizedFieldEthSignature for TypePath {
         self,
         arguments: &'db [EthTerm],
         ident: Ident,
-        ctx: &EthSignatureBuilderContext,
+        ctx: EthTermContextRef,
         db: &'db ::salsa::Db,
     ) -> EthSignatureMaybeResult<TypeMemoizedFieldEthSignature> {
         let TypeItemEthTemplates::MemoizedField(tmpls) = self.ty_item_eth_templates(db, ident)?

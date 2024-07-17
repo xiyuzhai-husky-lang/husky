@@ -15,14 +15,17 @@ use husky_entity_tree::{
     region_path::SynNodeRegionPath,
 };
 use husky_eth_signature::{
-    context::EthSignatureBuilderContextItd,
+    context::EthTermContextRef,
     error::EthSignatureResult,
     signature::{
         package::{PackageEthSignature, PackageEthSignatureData},
         HasEthSignature, HasEthTemplate,
     },
 };
-use husky_eth_term::term::{symbolic_variable::EthSymbolicVariable, EthTerm};
+use husky_eth_term::{
+    instantiation::IsEthTermContextRef,
+    term::{symbolic_variable::EthSymbolicVariable, EthTerm},
+};
 use husky_fly_term::quary::FlyQuary;
 use husky_place::{PlaceInfo, PlaceRegistry};
 use husky_regional_token::{RegionalTokenIdx, RegionalTokensData};
@@ -47,7 +50,7 @@ pub(crate) struct SemExprBuilder<'db> {
     syn_expr_region_data: &'db SynExprRegionData,
     regional_tokens_data: RegionalTokensData<'db>,
     dec_term_region: &'db SynExprDecTermRegion,
-    context_itd: EthSignatureBuilderContextItd,
+    context_ref: EthTermContextRef,
     place_registry: PlaceRegistry,
     sem_expr_arena: SemExprArena,
     sem_stmt_arena: SemStmtArena,
@@ -118,8 +121,7 @@ impl<'a> SemExprBuilder<'a> {
             db,
             &mut stack_location_registry,
         );
-        let context_itd =
-            EthSignatureBuilderContextItd::new(region_path, db).expect("todo: handle error");
+        let context_ref = EthTermContextRef::new(region_path, db).expect("todo: handle error");
         // module_path
         //     .package_path(db)
         //     .eth_signature(db)
@@ -200,7 +202,7 @@ impl<'a> SemExprBuilder<'a> {
             pattern_expr_contracts: SynPatternMap::new(pattern_expr_region.pattern_expr_arena()),
             available_trai_items_table: AvailableTraitItemsTable::new_ad_hoc(db, module_path),
             regional_tokens_data,
-            context_itd,
+            context_ref,
         }
     }
 }
@@ -338,8 +340,8 @@ impl<'db> FlyTermEngine<'db> for SemExprBuilder<'db> {
         &self.obvious_trais_map
     }
 
-    fn context_itd(&self) -> EthSignatureBuilderContextItd {
-        self.context_itd
+    fn context_ref(&self) -> EthTermContextRef {
+        self.context_ref
     }
 }
 
@@ -598,7 +600,7 @@ impl<'a> SemExprBuilder<'a> {
             self.fly_term_region,
             self.return_ty,
             self.self_ty,
-            self.context_itd,
+            self.context_ref.context_itd(),
             self.db,
         )
     }

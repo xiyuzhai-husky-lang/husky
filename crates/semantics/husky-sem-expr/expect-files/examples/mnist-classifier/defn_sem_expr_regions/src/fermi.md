@@ -132,9 +132,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::vec::Vec(0)::collect_leashes`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: None,
@@ -488,9 +490,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::vec::Vec(0)::ilen`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: StackPure {
                                                             place: Idx(
@@ -963,9 +967,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::vec::Vec(0)::pop_with_largest_opt_f32`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
                                                             place: Idx(
@@ -1126,9 +1132,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::vec::Vec(0)::push`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
                                                             place: Idx(
@@ -1230,9 +1238,11 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`mnist_classifier::fermi::FermiMatchResult`),
-                                            task_ty: Some(
-                                                EthTerm(`MnistTask`),
-                                            ),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [],
                                             separator: None,
@@ -2948,12 +2958,10 @@
                 EthTerm(`FermiMatchResult`),
             ),
             self_ty: None,
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -3235,9 +3243,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::vec::Vec(0)::ilen`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: Some(
@@ -3732,9 +3742,11 @@
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`),
-                                                task_ty: Some(
-                                                    EthTerm(`MnistTask`),
-                                                ),
+                                                context_itd: EthTermContextItd {
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
+                                                },
                                                 env: MemoizedField,
                                                 symbol_map: [],
                                                 separator: Some(
@@ -3841,9 +3853,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::num::f32(0)::max`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
                                                             place: Idx(
@@ -4981,12 +4995,10 @@
             self_ty: Some(
                 EthTerm(`FermiMatchResult`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -5268,9 +5280,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::vec::Vec(0)::ilen`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: Some(
@@ -5765,9 +5779,11 @@
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`),
-                                                task_ty: Some(
-                                                    EthTerm(`MnistTask`),
-                                                ),
+                                                context_itd: EthTermContextItd {
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
+                                                },
                                                 env: MemoizedField,
                                                 symbol_map: [],
                                                 separator: Some(
@@ -5874,9 +5890,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::num::f32(0)::max`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
                                                             place: Idx(
@@ -7014,12 +7032,10 @@
             self_ty: Some(
                 EthTerm(`FermiMatchResult`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -7301,9 +7317,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::vec::Vec(0)::ilen`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: Some(
@@ -7798,9 +7816,11 @@
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`),
-                                                task_ty: Some(
-                                                    EthTerm(`MnistTask`),
-                                                ),
+                                                context_itd: EthTermContextItd {
+                                                    task_ty: Some(
+                                                        EthTerm(`MnistTask`),
+                                                    ),
+                                                },
                                                 env: MemoizedField,
                                                 symbol_map: [],
                                                 separator: Some(
@@ -7891,9 +7911,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::num::f32(0)::abs`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: Leashed {
                                                             place_idx: None,
@@ -8005,9 +8027,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::num::f32(0)::max`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: MutableOnStack {
                                                             place: Idx(
@@ -9166,12 +9190,10 @@
             self_ty: Some(
                 EthTerm(`FermiMatchResult`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },

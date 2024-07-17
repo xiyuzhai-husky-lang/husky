@@ -1,6 +1,7 @@
 use self::fmt::EthTermFmtContext;
 use crate::fmt::with_eth_term_fmt_context;
 use crate::{term::symbolic_variable::EthSymbolicVariable, *};
+use context::EthTermContextItd;
 use husky_entity_path::{
     path::{ItemPath, ItemPathId},
     region::RegionPath,
@@ -15,7 +16,7 @@ use vec_like::{SmallVecPairMap, VecMap};
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct EthInstantiation {
     path: ItemPath,
-    task_ty: Option<EthTerm>,
+    context_itd: EthTermContextItd,
     symbol_map: SmallVecPairMap<EthSymbolicVariable, EthTerm, 4>,
     /// indicates the separation for associated item template instantiation
     separator: Option<u8>,
@@ -55,8 +56,12 @@ pub fn item_fmt_context(db: &::salsa::Db, path_id: ItemPathId) -> EthTermFmtCont
 }
 
 impl EthInstantiation {
-    pub fn task_ty(&self) -> Option<EthTerm> {
-        self.task_ty
+    pub fn context_itd(&self) -> EthTermContextItd {
+        self.context_itd
+    }
+
+    pub fn task_ty(&self, db: &::salsa::Db) -> Option<EthTerm> {
+        self.context_itd.task_ty(db)
     }
 
     pub fn symbol_map(&self) -> &[(EthSymbolicVariable, EthTerm)] {
@@ -103,18 +108,19 @@ pub trait EthInstantiate: Copy {
     fn instantiate(
         self,
         instantiation: &EthInstantiation,
-        ctx: &impl IsEthInstantiationContext,
+        ctx: impl IsEthTermContextRef,
         db: &::salsa::Db,
     ) -> Self::Output;
 }
 
-pub trait IsEthInstantiationContext<'db> {
+pub trait IsEthTermContextRef<'db>: Copy {
     fn reduce_ty_as_trai_item(&self, term: EthTypeAsTraitItem) -> EthTerm;
     /// ideally speaking we should returns Ok(None) if there is no dependency on the task type,
     /// but at this stage, it's impossible to reliably tell whether there is a dependency on the task type
     ///
     /// It will be deferred to the hir stage to remove unnecessary task type dependency
     fn task_ty(&self) -> Option<EthTerm>;
+    fn context_itd(&self) -> EthTermContextItd;
 }
 
 impl<T> EthInstantiate for Option<T>
@@ -126,7 +132,7 @@ where
     fn instantiate(
         self,
         instantiation: &EthInstantiation,
-        ctx: &impl IsEthInstantiationContext,
+        ctx: impl IsEthTermContextRef,
         db: &::salsa::Db,
     ) -> Self::Output {
         self.map(|slf| slf.instantiate(instantiation, ctx, db))
@@ -142,7 +148,7 @@ where
     fn instantiate(
         self,
         instantiation: &EthInstantiation,
-        ctx: &impl IsEthInstantiationContext,
+        ctx: impl IsEthTermContextRef,
         db: &::salsa::Db,
     ) -> Self::Output {
         self.iter()
@@ -162,7 +168,7 @@ pub trait EthTermInstantiateRef {
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct EthInstantiationBuilder {
     path: ItemPath,
-    task_ty: Option<EthTerm>,
+    context_itd: EthTermContextItd,
     symbol_map: SmallVecPairMap<EthSymbolicVariable, Option<EthTerm>, 4>,
     /// indicates the separation for associated item template instantiation
     separator: Option<u8>,
@@ -176,13 +182,13 @@ impl EthInstantiationBuilder {
         path: ItemPath,
         symbols: impl Iterator<Item = EthSymbolicVariable>,
         is_associated: bool,
-        ctx: &'db impl IsEthInstantiationContext,
+        ctx: impl IsEthTermContextRef,
     ) -> Self {
         let symbol_map: SmallVecPairMap<EthSymbolicVariable, Option<EthTerm>, 4> =
             symbols.map(|symbol| (symbol, None)).collect();
         Self {
             path,
-            task_ty: ctx.task_ty(),
+            context_itd: ctx.context_itd(),
             separator: is_associated.then_some(symbol_map.len().try_into().unwrap()),
             symbol_map,
         }
@@ -313,7 +319,7 @@ impl EthInstantiationBuilder {
         }
         Some(EthInstantiation {
             path: self.path,
-            task_ty: self.task_ty,
+            context_itd: self.context_itd,
             symbol_map,
             separator: self.separator,
         })
@@ -330,7 +336,7 @@ impl EthInstantiationBuilder {
         }
         Self {
             path: self.path,
-            task_ty: self.task_ty,
+            context_itd: self.context_itd,
             symbol_map,
             separator: Some(len),
         }

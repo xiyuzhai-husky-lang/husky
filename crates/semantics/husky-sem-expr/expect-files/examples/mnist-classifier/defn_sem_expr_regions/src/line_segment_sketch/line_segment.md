@@ -332,9 +332,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`mnist_classifier::geom2d::Point2d(0)::to`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: StackPure {
                                                             place: Idx(
@@ -747,12 +749,10 @@
             self_ty: Some(
                 EthTerm(`LineSegment`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
@@ -880,9 +880,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: StackPure {
                                                             place: Idx(
@@ -1165,9 +1167,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`mnist_classifier::geom2d::Point2d(0)::to`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: StackPure {
                                                             place: Idx(
@@ -1402,9 +1406,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`mnist_classifier::geom2d::Vector2d(0)::dot`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: ImmutableOnStack {
                                                             place: Idx(
@@ -1668,9 +1674,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: ImmutableOnStack {
                                                             place: Idx(
@@ -1953,9 +1961,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`mnist_classifier::geom2d::Point2d(0)::to`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: StackPure {
                                                             place: Idx(
@@ -2190,9 +2200,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`mnist_classifier::geom2d::Vector2d(0)::dot`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: ImmutableOnStack {
                                                             place: Idx(
@@ -2456,9 +2468,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: ImmutableOnStack {
                                                             place: Idx(
@@ -2662,9 +2676,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`mnist_classifier::geom2d::Vector2d(0)::cross`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: ImmutableOnStack {
                                                             place: Idx(
@@ -2789,9 +2805,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::num::f32(0)::abs`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: Transient,
                                                     },
@@ -2934,9 +2952,11 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
-                                                    task_ty: Some(
-                                                        EthTerm(`MnistTask`),
-                                                    ),
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: Some(
+                                                            EthTerm(`MnistTask`),
+                                                        ),
+                                                    },
                                                     env: MethodFn {
                                                         self_place: ImmutableOnStack {
                                                             place: Idx(
@@ -4737,12 +4757,10 @@
             self_ty: Some(
                 EthTerm(`LineSegment`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: Some(
-                        EthTerm(`MnistTask`),
-                    ),
-                },
+            context_itd: EthTermContextItd {
+                task_ty: Some(
+                    EthTerm(`MnistTask`),
+                ),
             },
         },
     },
