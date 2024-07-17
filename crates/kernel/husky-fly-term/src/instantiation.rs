@@ -189,6 +189,14 @@ impl FlyInstantiation {
 }
 
 impl FlyInstantiation {
+    pub fn path(&self) -> ItemPath {
+        self.path
+    }
+
+    pub fn context_itd(&self) -> EthTermContextItd {
+        self.context_itd
+    }
+
     pub fn task_ty(&self, db: &::salsa::Db) -> Option<EthTerm> {
         self.context_itd.task_ty(db)
     }

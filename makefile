@@ -72,7 +72,7 @@ test-digitize-ultraman:
 	cargo run --bin digitize -- data/ultraman/leo/images.jpeg
 
 install-devtools:
-	cargo install --path crates/devtools/cargo-organise
+	cargo install --path crates/gadgets/cargo-organise
 
 organise: install-devtools
 	cargo organise
@@ -93,7 +93,7 @@ save:
 # git commit -m "save"
 # git push
 	cargo fmt
-	cargo install --path crates/devtools/git-save
+	cargo install --path crates/gadgets/git-save
 	git-save
 
 fix:
