@@ -15,6 +15,7 @@ use husky_hir_decl::decl::{HasHirDecl, TypeHirDecl, TypeVariantHirDecl};
 use husky_hir_ty::{ritchie::HirContract, trai::HirTrait, HirType};
 use husky_javelin::template_argument::constant::JavelinConstant;
 use husky_linkage::{
+    context::LinComptimeVarOverride,
     instantiation::{LinInstantiation, LinTermSymbolResolution, LinkageInstantiate},
     linkage::LinkageField,
     template_argument::{
@@ -195,13 +196,17 @@ impl TranspileToRustWith<()> for Linkage {
             } => builder.macro_call(RustMacroName::EnumVariantFieldLinkageImpl, |builder| {
                 path.parent_ty_path(db).transpile_to_rust(builder);
                 if !instantiation.is_empty() {
+                    // todo: should we allow comptime var here?
                     builder.delimited_comma_list(
                         RustDelimiter::Angle,
-                        instantiation.iter().map(|(_, res)| match res {
-                            LinTermSymbolResolution::Explicit(arg) => arg,
-                            LinTermSymbolResolution::SelfLifetime
-                            | LinTermSymbolResolution::SelfQual(_) => unreachable!(),
-                        }),
+                        instantiation
+                            .symbol_resolutions()
+                            .iter()
+                            .map(|(_, res)| match res {
+                                LinTermSymbolResolution::Explicit(arg) => arg,
+                                LinTermSymbolResolution::SelfLifetime
+                                | LinTermSymbolResolution::SelfQual(_) => unreachable!(),
+                            }),
                     );
                 }
                 builder.punctuation(RustPunctuation::CommaSpaced);
@@ -320,14 +325,30 @@ fn turbo_fish_instantiation<E>(
     builder: &mut RustTranspilationBuilder<'_, '_, E>,
 ) {
     if !instantiation.is_empty() {
-        builder.delimited_comma_list(
-            RustDelimiter::TurboFish,
-            instantiation.iter().map(|&(_, res)| match res {
-                LinTermSymbolResolution::Explicit(arg) => arg,
-                LinTermSymbolResolution::SelfLifetime => todo!(),
-                LinTermSymbolResolution::SelfQual(_) => todo!(),
-            }),
-        )
+        builder.delimited_heterogeneous_list_with(RustDelimiter::TurboFish, |builder| {
+            builder.heterogeneous_comma_list_items(
+                instantiation
+                    .context()
+                    .comptime_var_overrides()
+                    .iter()
+                    .map(|&(_, ovrd)| ovrd),
+            );
+            builder.heterogeneous_comma_list_items(instantiation.symbol_resolutions().iter().map(
+                |&(_, res)| match res {
+                    LinTermSymbolResolution::Explicit(arg) => arg,
+                    LinTermSymbolResolution::SelfLifetime => todo!(),
+                    LinTermSymbolResolution::SelfQual(_) => todo!(),
+                },
+            ));
+        })
+    }
+}
+
+impl<E> TranspileToRustWith<E> for LinComptimeVarOverride {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
+        match self {
+            LinComptimeVarOverride::Type(ty) => ty.transpile_to_rust(builder),
+        }
     }
 }
 

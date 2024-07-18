@@ -6,7 +6,7 @@ use ad_hoc_devsoul_dependency::ki_control_flow::KiControlFlow;
 use smallvec::SmallVec;
 
 #[allow(warnings, non_snake_case)]
-pub struct narrow_down<Label>(std::marker::PhantomData<Label>);
+pub struct narrow_down<Task, Label>(std::marker::PhantomData<(Task, Label)>);
 
 #[derive(Debug, PartialEq, Eq, Clone, __Serialize)]
 // #[value_conversion]
@@ -73,7 +73,7 @@ where
     }
 }
 
-impl<Label> __IsGnItem for narrow_down<Label>
+impl<Task, Label> __IsGnItem for narrow_down<Task, Label>
 where
     Label: IsLabel,
 {

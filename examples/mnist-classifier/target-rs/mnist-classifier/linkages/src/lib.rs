@@ -264,7 +264,7 @@ linkage_impls![
     fn_linkage_impl!(<Vec<Leash<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>>>::ilen),
     fn_linkage_impl!(|v: Vec<fn (Leash<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32>>|v),
     fn_linkage_impl!(<Vec<mnist_classifier::connected_component::ConnectedComponent>>::ilen),
-    gn_linkage_impl!(malamute::narrow_down::<mnist::MnistLabel>),
+    gn_linkage_impl!(malamute::narrow_down::<mnist::task::MnistTask, mnist::MnistLabel>),
     ty_default_linkage_impl!(malamute::OneVsAll),
     fn_linkage_impl!(<Vec<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent>>::ilen),
     enum_variant_constructor_linkage_impl!(Option<f32>, Option::Some, (v0)),

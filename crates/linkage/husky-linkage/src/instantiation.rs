@@ -23,14 +23,6 @@ pub struct LinInstantiation {
     separator: Option<u8>,
 }
 
-impl std::ops::Deref for LinInstantiation {
-    type Target = [(HirTemplateVariable, LinTermSymbolResolution)];
-
-    fn deref(&self) -> &Self::Target {
-        &self.symbol_resolutions
-    }
-}
-
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum LinTermSymbolResolution {
     Explicit(LinTemplateArgument),
@@ -83,6 +75,12 @@ impl LinInstantiation {
             symbol_resolutions,
             separator,
         }
+    }
+}
+
+impl LinInstantiation {
+    pub fn is_empty(&self) -> bool {
+        self.context.comptime_var_overrides().is_empty() && self.symbol_resolutions.is_empty()
     }
 
     #[track_caller]
@@ -142,12 +140,12 @@ impl LinInstantiation {
         lin_instantiations: &mut SmallVec<[Self; 4]>,
         db: &::salsa::Db,
     ) {
-        if prefix.len() == jav_instantiation.len() {
+        if prefix.symbol_resolutions.len() == jav_instantiation.symbol_resolutions.len() {
             lin_instantiations.push(prefix);
             return;
         }
         let (symbol, javelin_resolution) =
-            jav_instantiation.symbol_resolutions.data()[prefix.len()];
+            jav_instantiation.symbol_resolutions.data()[prefix.symbol_resolutions.len()];
         let linkage_resolutions =
             LinTermSymbolResolution::from_jav(javelin_resolution, &prefix, db);
         for linkage_resolution in linkage_resolutions {
