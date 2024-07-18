@@ -152,11 +152,10 @@ impl Linkage {
     pub fn new_props_struct_field(
         self_ty: HirType,
         ident: Ident,
-        lin_instantiation: &LinInstantiation,
+        instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
-        let LinType::PathLeading(self_ty) = LinType::from_hir(self_ty, Some(lin_instantiation), db)
-        else {
+        let LinType::PathLeading(self_ty) = LinType::from_hir(self_ty, instantiation, db) else {
             unreachable!()
         };
         let data = LinkageData::StructField {
@@ -240,13 +239,13 @@ impl Linkage {
 
     pub fn new_vec_constructor(
         element_ty: HirType,
-        lin_instantiation: &LinInstantiation,
+        instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         Self::new(
             db,
             LinkageData::VecConstructor {
-                element_ty: LinType::from_hir(element_ty, Some(lin_instantiation), db),
+                element_ty: LinType::from_hir(element_ty, instantiation, db),
             },
         )
     }
@@ -296,15 +295,11 @@ impl Linkage {
         )
     }
 
-    pub fn new_ty_default(
-        ty: HirType,
-        lin_instantiation: &LinInstantiation,
-        db: &::salsa::Db,
-    ) -> Self {
+    pub fn new_ty_default(ty: HirType, instantiation: &LinInstantiation, db: &::salsa::Db) -> Self {
         Self::new(
             db,
             LinkageData::TypeDefault {
-                ty: LinType::from_hir(ty, Some(lin_instantiation), db),
+                ty: LinType::from_hir(ty, instantiation, db),
             },
         )
     }

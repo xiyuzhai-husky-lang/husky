@@ -62,7 +62,7 @@ impl LinComptimeVarOverride {
     ) -> Self {
         match hir_ovrd {
             HirComptimeVarOverride::Type(hir_ty) => {
-                LinComptimeVarOverride::Type(LinType::from_hir(hir_ty, Some(instantiation), db))
+                LinComptimeVarOverride::Type(LinType::from_hir(hir_ty, instantiation, db))
             }
         }
     }

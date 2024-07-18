@@ -196,12 +196,12 @@ impl LinTermSymbolResolution {
 
     fn from_hir(
         resolution: HirTermSymbolicVariableResolution,
-        lin_instantiation: &LinInstantiation,
+        instantiation: &LinInstantiation,
         db: &salsa::Db,
     ) -> LinTermSymbolResolution {
         match resolution {
             HirTermSymbolicVariableResolution::Explicit(arg) => LinTermSymbolResolution::Explicit(
-                LinTemplateArgument::from_hir(arg, Some(lin_instantiation), db),
+                LinTemplateArgument::from_hir(arg, instantiation, db),
             ),
             HirTermSymbolicVariableResolution::SelfLifetime => {
                 LinTermSymbolResolution::SelfLifetime
