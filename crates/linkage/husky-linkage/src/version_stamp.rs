@@ -12,14 +12,14 @@ use husky_hir_defn::{
     version_stamp::HirDefnVersionStamp,
 };
 
-#[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = new)]
+#[salsa::interned(constructor = new)]
 pub struct LinkageVersionStamp {
     data: LinkageVersionStampData,
     dependencies: Vec<LinkageVersionStampDependency>,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[enum_class::from_variants]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum LinkageVersionStampData {
     HirDefn(Linkage),
     Type(LinType),

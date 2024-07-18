@@ -48,7 +48,7 @@ impl LinkageInstantiate for HirType {
     }
 }
 
-#[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = pub(crate) new)]
+#[salsa::interned(constructor = pub(crate) new)]
 pub struct LinTypePathLeading {
     pub ty_path: TypePath,
     /// phantom arguments are ignored
@@ -78,7 +78,7 @@ impl LinTypePathLeading {
     }
 }
 
-#[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = new)]
+#[salsa::interned(constructor = new)]
 pub struct LinkageRitchieType {
     pub parameters: SmallVec<[LinkageRitchieParameter; 4]>,
     pub return_ty: LinType,
