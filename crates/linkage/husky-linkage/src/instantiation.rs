@@ -104,15 +104,15 @@ impl LinInstantiation {
 impl LinInstantiation {
     /// a nondeterminstic map basically
     pub(crate) fn from_javelin(
-        javelin_instantiation: &JavInstantiation,
+        jav_instantiation: &JavInstantiation,
         db: &::salsa::Db,
     ) -> SmallVec<[Self; 4]> {
         let mut lin_instantiations = smallvec![];
         Self::from_javelin_aux(
-            javelin_instantiation,
+            jav_instantiation,
             LinInstantiation {
                 symbol_resolutions: Default::default(),
-                separator: javelin_instantiation.separator,
+                separator: jav_instantiation.separator,
             },
             &mut lin_instantiations,
             db,
@@ -121,17 +121,17 @@ impl LinInstantiation {
     }
 
     fn from_javelin_aux(
-        javelin_instantiation: &JavInstantiation,
+        jav_instantiation: &JavInstantiation,
         prefix: LinInstantiation,
         lin_instantiations: &mut SmallVec<[Self; 4]>,
         db: &::salsa::Db,
     ) {
-        if prefix.len() == javelin_instantiation.len() {
+        if prefix.len() == jav_instantiation.len() {
             lin_instantiations.push(prefix);
             return;
         }
         let (symbol, javelin_resolution) =
-            javelin_instantiation.symbol_resolutions.data()[prefix.len()];
+            jav_instantiation.symbol_resolutions.data()[prefix.len()];
         let linkage_resolutions =
             LinTermSymbolResolution::from_javelin(javelin_resolution, &prefix, db);
         for linkage_resolution in linkage_resolutions {
@@ -141,7 +141,7 @@ impl LinInstantiation {
                     .symbol_resolutions
                     .insert_new_unchecked((symbol, linkage_resolution))
             };
-            Self::from_javelin_aux(javelin_instantiation, prefix, lin_instantiations, db)
+            Self::from_javelin_aux(jav_instantiation, prefix, lin_instantiations, db)
         }
     }
 }

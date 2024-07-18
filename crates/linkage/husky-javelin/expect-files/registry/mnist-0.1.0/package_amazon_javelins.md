@@ -7,6 +7,9 @@
                     TypePath(`mnist::MnistLabel`, `Enum`),
                 ),
                 instantiation: JavInstantiation {
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -20,6 +23,9 @@
                     MajorFormPath(`mnist::INPUT`, `StaticVar`),
                 ),
                 instantiation: JavInstantiation {
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -38,6 +44,9 @@
                     ),
                 ),
                 instantiation: JavInstantiation {
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: Some(
                         0,
@@ -56,6 +65,9 @@
                     ),
                 ),
                 instantiation: JavInstantiation {
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: Some(
                         0,
@@ -76,6 +88,9 @@
                     ),
                 ),
                 instantiation: JavInstantiation {
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: Some(
                         0,
@@ -94,6 +109,9 @@
                     ),
                 ),
                 instantiation: JavInstantiation {
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: Some(
                         0,
@@ -114,6 +132,9 @@
                     ),
                 ),
                 instantiation: JavInstantiation {
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: Some(
                         0,
@@ -129,6 +150,9 @@
                     MajorFormPath(`mnist::TASK`, `StaticVar`),
                 ),
                 instantiation: JavInstantiation {
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },

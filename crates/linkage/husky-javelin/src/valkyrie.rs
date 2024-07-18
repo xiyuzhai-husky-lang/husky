@@ -54,7 +54,7 @@ pub enum ValkyrieRide {
 impl ValkyrieRide {
     fn to_javelin(
         &self,
-        javelin_instantiation: &JavInstantiation,
+        jav_instantiation: &JavInstantiation,
         db: &::salsa::Db,
     ) -> ValkyrieJavelin {
         match *self {
@@ -64,7 +64,7 @@ impl ValkyrieRide {
             } => {
                 debug_assert!(!hir_instantiation.is_univalent_for_javelin());
                 let instantiation =
-                    JavInstantiation::from_hir(hir_instantiation, javelin_instantiation, db);
+                    JavInstantiation::from_hir(hir_instantiation, jav_instantiation, db);
                 ValkyrieJavelin(Javelin::new(
                     db,
                     JavelinData::PathLeading {
@@ -76,13 +76,13 @@ impl ValkyrieRide {
             ValkyrieRide::VecConstructor { element_ty } => ValkyrieJavelin(Javelin::new(
                 db,
                 JavelinData::VecConstructor {
-                    element_ty: JavelinType::from_hir(element_ty, javelin_instantiation, db),
+                    element_ty: JavelinType::from_hir(element_ty, jav_instantiation, db),
                 },
             )),
             ValkyrieRide::TypeDefault { ty } => ValkyrieJavelin(Javelin::new(
                 db,
                 JavelinData::TypeDefault {
-                    ty: JavelinType::from_hir(ty, javelin_instantiation, db),
+                    ty: JavelinType::from_hir(ty, jav_instantiation, db),
                 },
             )),
         }

@@ -8,6 +8,7 @@
 //! - Valkyrie. Those javelins contain nonempty template parameters and thus are collected if invoked. So we need to do some "tree walk" to completely collect valkyrie javelins. In a sense, valkyries are summoned by amazons.
 /// the name amazon comes from diablo 2
 pub mod amazon;
+pub mod context;
 pub mod instantiation;
 pub mod jar;
 pub mod javelin;

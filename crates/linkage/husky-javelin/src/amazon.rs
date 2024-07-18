@@ -1,8 +1,10 @@
 use super::*;
 use crate::{instantiation::JavInstantiation, javelin::JavelinData, path::JavPath};
-use husky_entity_path::path::ItemPath;
+use husky_entity_kind::MajorFormKind;
+use husky_entity_path::path::{major_item::MajorItemPath, ItemPath};
 use husky_entity_tree::helpers::paths::{crate_module_paths, module_item_paths};
 use husky_hir_decl::parameter::template::item_hir_template_parameter_stats;
+use husky_sem_var_deps::{item_sem_var_deps, var_deps::SemVarDep};
 use husky_vfs::path::package_path::PackagePath;
 use vec_like::VecSet;
 
@@ -15,6 +17,37 @@ pub struct AmazonJavelin(Javelin);
 
 impl AmazonJavelin {
     pub fn from_item_path(path: ItemPath, db: &::salsa::Db) -> Option<Self> {
+        for dep in item_sem_var_deps(path, db) {
+            match dep {
+                SemVarDep::Item(dep_item_path) => match dep_item_path {
+                    ItemPath::Submodule(_, _) => todo!(),
+                    ItemPath::MajorItem(dep_major_item_path) => match dep_major_item_path {
+                        MajorItemPath::Type(_) => todo!(),
+                        MajorItemPath::Trait(_) => todo!(),
+                        MajorItemPath::Form(dep_major_form_path) => {
+                            match dep_major_form_path.kind(db) {
+                                MajorFormKind::Ritchie(_) => todo!(),
+                                MajorFormKind::TypeAlias => todo!(),
+                                MajorFormKind::TypeVar => {
+                                    // amazon javelin shouldn't have any type var dep
+                                    return None;
+                                }
+                                MajorFormKind::Val => (),
+                                MajorFormKind::StaticMut => (),
+                                MajorFormKind::StaticVar => (),
+                                MajorFormKind::Compterm => todo!(),
+                                MajorFormKind::Conceptual => todo!(),
+                            }
+                        }
+                    },
+                    ItemPath::AssocItem(_) => todo!(),
+                    ItemPath::TypeVariant(_, _) => todo!(),
+                    ItemPath::ImplBlock(_) => todo!(),
+                    ItemPath::Attr(_, _) => todo!(),
+                    ItemPath::Chunk(_, _) => todo!(),
+                },
+            }
+        }
         let stats = item_hir_template_parameter_stats(db, *path)?;
         if stats.tys + stats.constants > 0 {
             return None;
@@ -24,7 +57,7 @@ impl AmazonJavelin {
             JavelinData::PathLeading {
                 path: JavPath::try_from_item_path(path, db)?,
                 // ad hoc consider places
-                instantiation: JavInstantiation::new_amazon(path),
+                instantiation: JavInstantiation::new_amazon(path, db),
             },
         )))
     }

@@ -94,3 +94,11 @@ impl HirTypeContext {
         }
     }
 }
+
+impl HirTypeContext {
+    pub fn comptime_var_overrides(
+        &self,
+    ) -> &OrderedSmallVecPairMap<ItemPath, Option<HirTemplateArgument>, 4> {
+        &self.comptime_var_overrides
+    }
+}
