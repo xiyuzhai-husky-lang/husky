@@ -34,7 +34,7 @@ update-jar-tree:
 	cargo test -p husky-jar-utils
 	cargo check
 
-update-expect: update-jar-tree
+update-expect:
 	scripts/update_expect.sh
 
 update-expect-plain:

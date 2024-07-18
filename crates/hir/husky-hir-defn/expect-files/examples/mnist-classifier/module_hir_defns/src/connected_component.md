@@ -708,6 +708,9 @@
                                                     ),
                                                 ),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [],
                                                     separator: Some(
                                                         0,
@@ -923,6 +926,9 @@
                                                     Fn,
                                                 )`),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
@@ -1109,6 +1115,9 @@
                                                     ),
                                                 ),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [],
                                                     separator: Some(
                                                         0,
@@ -1142,6 +1151,9 @@
                                                     ),
                                                 ),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [
                                                         (
                                                             HirTemplateVariable::Type(
@@ -1280,6 +1292,9 @@
                                                     ),
                                                 ),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [
                                                         (
                                                             HirTemplateVariable::Type(
@@ -1439,6 +1454,9 @@
                                                     ),
                                                 ),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [
                                                         (
                                                             HirTemplateVariable::Type(
@@ -1527,6 +1545,9 @@
                                                     ),
                                                 ),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [
                                                         (
                                                             HirTemplateVariable::Type(
@@ -1696,6 +1717,9 @@
                                                     ),
                                                 ),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [
                                                         (
                                                             HirTemplateVariable::Type(
@@ -1784,6 +1808,9 @@
                                                     ),
                                                 ),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [
                                                         (
                                                             HirTemplateVariable::Type(
@@ -1898,6 +1925,9 @@
                                             data: HirEagerExprData::TypeConstructorCall {
                                                 path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
@@ -2194,6 +2224,9 @@
                                                     ),
                                                 ),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [],
                                                     separator: Some(
                                                         0,
@@ -2259,6 +2292,9 @@
                                                     ),
                                                 ),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [
                                                         (
                                                             HirTemplateVariable::Type(
@@ -2417,6 +2453,9 @@
                                                     ),
                                                 ),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [
                                                         (
                                                             HirTemplateVariable::Type(
@@ -3093,6 +3132,9 @@
                                                     ),
                                                 ),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [],
                                                     separator: Some(
                                                         0,
@@ -3123,6 +3165,9 @@
                                                     ),
                                                 ),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [],
                                                     separator: Some(
                                                         0,
@@ -3605,6 +3650,9 @@
                                                     ),
                                                 ),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [],
                                                     separator: Some(
                                                         0,
@@ -4607,6 +4655,9 @@
                                                     ),
                                                 ),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [],
                                                     separator: Some(
                                                         0,
@@ -4898,6 +4949,9 @@
                                                     ),
                                                 ),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [],
                                                     separator: Some(
                                                         0,
@@ -5039,6 +5093,9 @@
                                             data: HirEagerExprData::TypeConstructorCall {
                                                 path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [],
                                                     separator: None,
                                                 },
@@ -5595,6 +5652,9 @@
                                                     ),
                                                 ),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [],
                                                     separator: Some(
                                                         0,
@@ -5823,6 +5883,9 @@
                                                     ),
                                                 ),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [],
                                                     separator: Some(
                                                         0,
@@ -6544,6 +6607,9 @@
                                                     ),
                                                 ),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [],
                                                     separator: Some(
                                                         0,
@@ -7411,6 +7477,9 @@
                                                     ),
                                                 ),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [],
                                                     separator: Some(
                                                         0,
