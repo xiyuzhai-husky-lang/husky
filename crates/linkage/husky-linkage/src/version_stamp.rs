@@ -6,6 +6,7 @@ use crate::{
     *,
 };
 use ::version_stamp::HasVersionStamp;
+use context::LinComptimeVarOverride;
 use husky_entity_path::path::major_item::ty::TypePath;
 use husky_hir_defn::{
     defn::{HasHirDefn, HirDefn},
@@ -219,8 +220,17 @@ impl<'a> LinkageVersionStampBuilder<'a> {
     }
 
     fn add_instantiation(&mut self, instantiation: &LinInstantiation) {
-        for &(_, res) in &**instantiation {
+        for &(_, ovrd) in instantiation.context().comptime_var_overrides() {
+            self.add_comptime_var_override(ovrd);
+        }
+        for &(_, res) in instantiation.symbol_resolutions() {
             self.add_symbol_resolution(res);
+        }
+    }
+
+    fn add_comptime_var_override(&mut self, ovrd: LinComptimeVarOverride) {
+        match ovrd {
+            LinComptimeVarOverride::Type(ty) => self.add_ty(ty),
         }
     }
 
