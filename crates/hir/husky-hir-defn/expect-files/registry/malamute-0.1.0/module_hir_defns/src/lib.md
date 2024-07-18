@@ -1213,6 +1213,9 @@
                                             data: HirEagerExprData::TypeVariantConstructorCall {
                                                 path: TypeVariantPath(`malamute::Class::Known`),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [
                                                         (
                                                             HirTemplateVariable::Type(
@@ -1277,6 +1280,9 @@
                                             data: HirEagerExprData::TypeVariantConstructorCall {
                                                 path: TypeVariantPath(`core::ops::ControlFlow::Break`),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [
                                                         (
                                                             HirTemplateVariable::Type(
@@ -1386,6 +1392,9 @@
                                             data: HirEagerExprData::TypeVariantConstructorCall {
                                                 path: TypeVariantPath(`core::ops::ControlFlow::Continue`),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [
                                                         (
                                                             HirTemplateVariable::Type(
@@ -1895,6 +1904,9 @@
                                             data: HirEagerExprData::TypeVariantConstructorCall {
                                                 path: TypeVariantPath(`core::ops::ControlFlow::Break`),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [
                                                         (
                                                             HirTemplateVariable::Type(
@@ -1992,6 +2004,9 @@
                                             data: HirEagerExprData::TypeVariantConstructorCall {
                                                 path: TypeVariantPath(`core::ops::ControlFlow::Break`),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [
                                                         (
                                                             HirTemplateVariable::Type(
@@ -2089,6 +2104,9 @@
                                             data: HirEagerExprData::TypeVariantConstructorCall {
                                                 path: TypeVariantPath(`core::ops::ControlFlow::Continue`),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [
                                                         (
                                                             HirTemplateVariable::Type(

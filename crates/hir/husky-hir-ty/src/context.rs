@@ -1,8 +1,13 @@
-use crate::HirTemplateArgument;
-use husky_entity_path::path::ItemPath;
+use crate::{HirTemplateArgument, HirType};
+use either::*;
+use husky_entity_kind::MajorFormKind;
+use husky_entity_path::path::{
+    major_item::{form::PreludeMajorFormPath, MajorItemPath},
+    ItemPath,
+};
 use husky_eth_term::{context::EthTermContextItd, instantiation::EthInstantiation};
 use husky_fly_term::instantiation::FlyInstantiation;
-use husky_sem_var_deps::item_sem_var_deps;
+use husky_sem_var_deps::{item_sem_var_deps, var_deps::SemVarDep};
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
@@ -39,8 +44,50 @@ impl HirTypeContext {
             Option<HirTemplateArgument>,
             4,
         > = Default::default();
-        for _ in item_sem_var_deps(path, db) {
-            todo!()
+        for dep in item_sem_var_deps(path, db) {
+            match dep {
+                SemVarDep::Item(dep_item_path) => match dep_item_path {
+                    ItemPath::Submodule(_, _) => todo!(),
+                    ItemPath::MajorItem(dep_major_item_path) => match dep_major_item_path {
+                        MajorItemPath::Type(_) => todo!(),
+                        MajorItemPath::Trait(_) => todo!(),
+                        MajorItemPath::Form(dep_major_form_path) => {
+                            match dep_major_form_path.kind(db) {
+                                MajorFormKind::Ritchie(_) => todo!(),
+                                MajorFormKind::TypeAlias => (),
+                                MajorFormKind::TypeVar => {
+                                    // ad hoc
+                                    let r#override = match dep_major_form_path.refine(db) {
+                                        Left(dep_prelude_major_form_path) => {
+                                            match dep_prelude_major_form_path {
+                                                PreludeMajorFormPath::TaskType => {
+                                                    context_itd.task_ty(db).map(|term| {
+                                                        HirType::from_eth(term, db)
+                                                            .expect("this should be always some because task_ty is always a valid type")
+                                                            .into()
+                                                    })
+                                                }
+                                            }
+                                        }
+                                        Right(_) => todo!(),
+                                    };
+                                    comptime_var_overrides.insert((dep_item_path, r#override));
+                                }
+                                MajorFormKind::Val => todo!(),
+                                MajorFormKind::StaticMut => (),
+                                MajorFormKind::StaticVar => (),
+                                MajorFormKind::Compterm => todo!(),
+                                MajorFormKind::Conceptual => todo!(),
+                            }
+                        }
+                    },
+                    ItemPath::AssocItem(_) => todo!(),
+                    ItemPath::TypeVariant(_, _) => todo!(),
+                    ItemPath::ImplBlock(_) => todo!(),
+                    ItemPath::Attr(_, _) => todo!(),
+                    ItemPath::Chunk(_, _) => todo!(),
+                },
+            }
         }
         Self {
             comptime_var_overrides,
