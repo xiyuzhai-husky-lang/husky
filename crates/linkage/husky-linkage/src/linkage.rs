@@ -148,7 +148,7 @@ impl Linkage {
     }
 
     // todo: lin_instantiation
-    // todo: change to `JavelinType`
+    // todo: change to `JavType`
     pub fn new_props_struct_field(
         self_ty: HirType,
         ident: Ident,
@@ -326,7 +326,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                 f: impl Fn(LinInstantiation) -> Linkage,
                 db: &::salsa::Db,
             ) -> SmallVec<[Linkage; 4]> {
-                LinInstantiation::from_javelin(instantiation, db)
+                LinInstantiation::from_jav(instantiation, db)
                     .into_iter()
                     .map(f)
                     .collect()
@@ -480,7 +480,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                     TraitItemKind::AssocRitchie(ritchie_item_kind) => {
                         match path.impl_block(db).trai_path(db).refine(db) {
                             Left(PreludeTraitPath::UNVEIL) => {
-                                LinInstantiation::from_javelin(instantiation, db)
+                                LinInstantiation::from_jav(instantiation, db)
                                     .into_iter()
                                     .flat_map(|instantiation| {
                                         [
@@ -531,7 +531,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
         JavelinData::VecConstructor { element_ty } => smallvec![Linkage::new(
             db,
             LinkageData::VecConstructor {
-                element_ty: LinType::from_javelin(
+                element_ty: LinType::from_jav(
                     element_ty,
                     // ad hoc
                     &LinInstantiation::new_empty(false),
@@ -542,7 +542,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
         JavelinData::TypeDefault { ty } => smallvec![Linkage::new(
             db,
             LinkageData::TypeDefault {
-                ty: LinType::from_javelin(
+                ty: LinType::from_jav(
                     ty,
                     // ad hoc
                     &LinInstantiation::new_empty(false),

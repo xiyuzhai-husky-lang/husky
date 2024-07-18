@@ -10,13 +10,15 @@ use husky_javelin::{
 use smallvec::*;
 use vec_like::{SmallVecMap, SmallVecPairMap};
 
-use crate::template_argument::{
-    constant::LinConstant, qual::LinQual, ty::LinType, LinTemplateArgument,
+use crate::{
+    context::LinTypeContext,
+    template_argument::{constant::LinConstant, qual::LinQual, ty::LinType, LinTemplateArgument},
 };
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct LinInstantiation {
+    context: LinTypeContext,
     symbol_resolutions: SmallVecPairMap<HirTemplateVariable, LinTermSymbolResolution, 4>,
     separator: Option<u8>,
 }
@@ -39,6 +41,8 @@ pub enum LinTermSymbolResolution {
 impl LinInstantiation {
     pub fn new_empty(is_associated: bool) -> Self {
         LinInstantiation {
+            // todo: is this correct?
+            context: LinTypeContext::new_empty(),
             symbol_resolutions: Default::default(),
             separator: is_associated.then_some(0),
         }
@@ -69,6 +73,7 @@ impl LinInstantiation {
             ));
         let separator = hir_instantiation.separator();
         LinInstantiation {
+            context: LinTypeContext::from_hir(hir_instantiation.context(), lin_instantiation, db),
             symbol_resolutions,
             separator,
         }
@@ -99,18 +104,23 @@ impl LinInstantiation {
     pub fn separator(&self) -> Option<u8> {
         self.separator
     }
+
+    pub fn context(&self) -> &LinTypeContext {
+        &self.context
+    }
 }
 
 impl LinInstantiation {
     /// a nondeterminstic map basically
-    pub(crate) fn from_javelin(
+    pub(crate) fn from_jav(
         jav_instantiation: &JavInstantiation,
         db: &::salsa::Db,
     ) -> SmallVec<[Self; 4]> {
         let mut lin_instantiations = smallvec![];
-        Self::from_javelin_aux(
+        Self::from_jav_aux(
             jav_instantiation,
             LinInstantiation {
+                context: LinTypeContext::from_jav(jav_instantiation.context(), db),
                 symbol_resolutions: Default::default(),
                 separator: jav_instantiation.separator,
             },
@@ -120,7 +130,7 @@ impl LinInstantiation {
         lin_instantiations
     }
 
-    fn from_javelin_aux(
+    fn from_jav_aux(
         jav_instantiation: &JavInstantiation,
         prefix: LinInstantiation,
         lin_instantiations: &mut SmallVec<[Self; 4]>,
@@ -133,7 +143,7 @@ impl LinInstantiation {
         let (symbol, javelin_resolution) =
             jav_instantiation.symbol_resolutions.data()[prefix.len()];
         let linkage_resolutions =
-            LinTermSymbolResolution::from_javelin(javelin_resolution, &prefix, db);
+            LinTermSymbolResolution::from_jav(javelin_resolution, &prefix, db);
         for linkage_resolution in linkage_resolutions {
             let mut prefix = prefix.clone();
             unsafe {
@@ -141,13 +151,13 @@ impl LinInstantiation {
                     .symbol_resolutions
                     .insert_new_unchecked((symbol, linkage_resolution))
             };
-            Self::from_javelin_aux(jav_instantiation, prefix, lin_instantiations, db)
+            Self::from_jav_aux(jav_instantiation, prefix, lin_instantiations, db)
         }
     }
 }
 
 impl LinTermSymbolResolution {
-    fn from_javelin(
+    fn from_jav(
         javelin_resolution: JavTermSymbolResolution,
         lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
@@ -157,7 +167,7 @@ impl LinTermSymbolResolution {
                 JavTemplateArgument::Vacant => todo!(),
                 JavTemplateArgument::Type(javelin_ty) => {
                     smallvec![LinTermSymbolResolution::Explicit(
-                        LinTemplateArgument::Type(LinType::from_javelin(
+                        LinTemplateArgument::Type(LinType::from_jav(
                             javelin_ty,
                             lin_instantiation,
                             db

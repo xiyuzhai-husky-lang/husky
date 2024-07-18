@@ -52,7 +52,7 @@ impl LinTemplateArgument {
         }
     }
 
-    pub(crate) fn from_javelin(
+    pub(crate) fn from_jav(
         arg: JavTemplateArgument,
         lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
@@ -60,7 +60,7 @@ impl LinTemplateArgument {
         match arg {
             JavTemplateArgument::Vacant => todo!(),
             JavTemplateArgument::Type(javelin_ty) => {
-                LinTemplateArgument::Type(LinType::from_javelin(javelin_ty, lin_instantiation, db))
+                LinTemplateArgument::Type(LinType::from_jav(javelin_ty, lin_instantiation, db))
             }
             JavTemplateArgument::Constant(constant) => {
                 LinTemplateArgument::Constant(LinConstant(constant))
