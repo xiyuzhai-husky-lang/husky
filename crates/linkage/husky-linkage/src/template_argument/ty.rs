@@ -4,9 +4,7 @@ use husky_hir_ty::{
     ritchie::{HirContract, HirRitchieParameter},
     HirType,
 };
-use husky_javelin::template_argument::ty::{
-    JavelinRitchieParameter, JavelinType, JavelinTypePathLeading,
-};
+use husky_javelin::template_argument::ty::{JavRitchieParameter, JavType, JavTypePathLeading};
 
 use smallvec::SmallVec;
 
@@ -96,14 +94,14 @@ pub struct LinkageRitchieParameter {
     parameter_ty: LinType,
 }
 impl LinkageRitchieParameter {
-    fn from_javelin(
-        param: JavelinRitchieParameter,
+    fn from_jav(
+        param: JavRitchieParameter,
         lin_instantiation: &LinInstantiation,
         db: &salsa::Db,
     ) -> Self {
         Self {
             contract: param.contract(),
-            parameter_ty: LinType::from_javelin(param.parameter_ty(), lin_instantiation, db),
+            parameter_ty: LinType::from_jav(param.parameter_ty(), lin_instantiation, db),
         }
     }
 
@@ -178,25 +176,23 @@ impl LinType {
         }
     }
 
-    pub(crate) fn from_javelin(
-        javelin_ty: JavelinType,
-        lin_instantiation: &LinInstantiation,
+    pub(crate) fn from_jav(
+        jav_ty: JavType,
+        instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
-        match javelin_ty {
-            JavelinType::PathLeading(javelin_ty) => {
-                LinTypePathLeading::from_javelin(javelin_ty, lin_instantiation, db).into()
+        match jav_ty {
+            JavType::PathLeading(javelin_ty) => {
+                LinTypePathLeading::from_jav(javelin_ty, instantiation, db).into()
             }
-            JavelinType::Ritchie(javelin_ty) => LinkageRitchieType::new(
+            JavType::Ritchie(javelin_ty) => LinkageRitchieType::new(
                 db,
                 javelin_ty
                     .parameters(db)
                     .iter()
-                    .map(|&param| {
-                        LinkageRitchieParameter::from_javelin(param, lin_instantiation, db)
-                    })
+                    .map(|&param| LinkageRitchieParameter::from_jav(param, instantiation, db))
                     .collect(),
-                LinType::from_javelin(javelin_ty.return_ty(db), lin_instantiation, db),
+                LinType::from_jav(javelin_ty.return_ty(db), instantiation, db),
             )
             .into(),
         }
@@ -204,8 +200,8 @@ impl LinType {
 }
 
 impl LinTypePathLeading {
-    fn from_javelin(
-        javelin_ty: JavelinTypePathLeading,
+    fn from_jav(
+        javelin_ty: JavTypePathLeading,
         lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
@@ -215,7 +211,7 @@ impl LinTypePathLeading {
             javelin_ty
                 .template_arguments(db)
                 .iter()
-                .map(|&arg| LinTemplateArgument::from_javelin(arg, lin_instantiation, db))
+                .map(|&arg| LinTemplateArgument::from_jav(arg, lin_instantiation, db))
                 .collect(),
         )
     }

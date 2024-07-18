@@ -15,16 +15,16 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
+                    element_ty: JavType::PathLeading(
+                        JavTypePathLeading {
                             ty_path: TypePath(`core::mem::Ref`, `Extern`),
                             template_arguments: [
                                 JavTemplateArgument::Constant(
                                     JavelinConstant::StaticLifetime,
                                 ),
                                 JavTemplateArgument::Type(
-                                    JavelinType::PathLeading(
-                                        JavelinTypePathLeading {
+                                    JavType::PathLeading(
+                                        JavTypePathLeading {
                                             ty_path: TypePath(`core::str::str`, `Extern`),
                                             template_arguments: [],
                                         },
@@ -49,8 +49,8 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
+                    element_ty: JavType::PathLeading(
+                        JavTypePathLeading {
                             ty_path: TypePath(`core::num::i32`, `Extern`),
                             template_arguments: [],
                         },
@@ -73,8 +73,8 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
+                    element_ty: JavType::PathLeading(
+                        JavTypePathLeading {
                             ty_path: TypePath(`core::num::i32`, `Extern`),
                             template_arguments: [],
                         },
@@ -85,16 +85,16 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
+                    element_ty: JavType::PathLeading(
+                        JavTypePathLeading {
                             ty_path: TypePath(`core::mem::Ref`, `Extern`),
                             template_arguments: [
                                 JavTemplateArgument::Constant(
                                     JavelinConstant::StaticLifetime,
                                 ),
                                 JavTemplateArgument::Type(
-                                    JavelinType::PathLeading(
-                                        JavelinTypePathLeading {
+                                    JavType::PathLeading(
+                                        JavTypePathLeading {
                                             ty_path: TypePath(`core::str::str`, `Extern`),
                                             template_arguments: [],
                                         },

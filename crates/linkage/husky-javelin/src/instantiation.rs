@@ -1,6 +1,6 @@
 use crate::{
     context::JavTypeContext,
-    template_argument::{ty::JavelinType, JavTemplateArgument},
+    template_argument::{ty::JavType, JavTemplateArgument},
 };
 use husky_entity_path::path::ItemPath;
 use husky_hir_ty::{
@@ -83,11 +83,15 @@ impl JavInstantiation {
     }
 
     #[track_caller]
-    pub fn resolve_ty(&self, symbol: impl Into<HirTemplateVariable>) -> JavelinType {
+    pub fn resolve_ty(&self, symbol: impl Into<HirTemplateVariable>) -> JavType {
         match self.symbol_resolutions[symbol.into()].1 {
             JavTermSymbolResolution::Explicit(JavTemplateArgument::Type(ty)) => ty,
             _ => unreachable!("expect type"),
         }
+    }
+
+    pub fn context(&self) -> &JavTypeContext {
+        &self.context
     }
 }
 
@@ -100,7 +104,7 @@ pub enum JavTermSymbolResolution {
 }
 
 impl JavTermSymbolResolution {
-    fn from_hir(
+    pub(crate) fn from_hir(
         resolution: HirTermSymbolicVariableResolution,
         jav_instantiation: &JavInstantiation,
         db: &::salsa::Db,

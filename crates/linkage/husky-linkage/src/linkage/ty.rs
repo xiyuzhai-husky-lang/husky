@@ -26,7 +26,7 @@ pub(super) fn enum_ty_linkages_emancipated_by_javelin(
     if enum_ty_has_only_unit_variants(db, path) {
         linkages.push(Linkage::new_enum_index_presenter(path, db))
     }
-    for instantiation in LinInstantiation::from_javelin(instantiation, db) {
+    for instantiation in LinInstantiation::from_jav(instantiation, db) {
         let self_ty = LinTypePathLeading::from_path_instantiation(path, &instantiation, db);
         for &(_, path) in path.ty_variant_paths(db) {
             let hir_defn = path.hir_decl(db).unwrap();
@@ -117,7 +117,7 @@ pub(super) fn struct_ty_linkages_emancipated_by_javelin(
         TypeHirDecl::Union(_) => todo!(),
         _ => unreachable!(),
     };
-    for instantiation in LinInstantiation::from_javelin(instantiation, db) {
+    for instantiation in LinInstantiation::from_jav(instantiation, db) {
         let self_ty = LinTypePathLeading::from_path_instantiation(path, &instantiation, db);
         linkages.push(Linkage::new(
             db,

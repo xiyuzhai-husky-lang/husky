@@ -9,13 +9,13 @@ use smallvec::SmallVec;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
-pub enum JavelinType {
-    PathLeading(JavelinTypePathLeading),
-    Ritchie(JavelinRitchieType),
+pub enum JavType {
+    PathLeading(JavTypePathLeading),
+    Ritchie(JavRitchieType),
 }
 
 #[salsa::interned(db = JavelinDb, constructor = new)]
-pub struct JavelinTypePathLeading {
+pub struct JavTypePathLeading {
     pub ty_path: TypePath,
     /// phantom arguments are ignored
     #[return_ref]
@@ -23,18 +23,18 @@ pub struct JavelinTypePathLeading {
 }
 
 #[salsa::interned(db = JavelinDb, constructor = new)]
-pub struct JavelinRitchieType {
-    pub parameters: SmallVec<[JavelinRitchieParameter; 4]>,
-    pub return_ty: JavelinType,
+pub struct JavRitchieType {
+    pub parameters: SmallVec<[JavRitchieParameter; 4]>,
+    pub return_ty: JavType,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct JavelinRitchieParameter {
+pub struct JavRitchieParameter {
     contract: HirContract,
-    parameter_ty: JavelinType,
+    parameter_ty: JavType,
 }
 
-impl JavelinRitchieParameter {
+impl JavRitchieParameter {
     fn from_hir(
         param: HirRitchieParameter,
         jav_instantiation: &JavInstantiation,
@@ -43,7 +43,7 @@ impl JavelinRitchieParameter {
         match param {
             HirRitchieParameter::Simple(param) => Self {
                 contract: param.contract(),
-                parameter_ty: JavelinType::from_hir(param.ty, jav_instantiation, db),
+                parameter_ty: JavType::from_hir(param.ty, jav_instantiation, db),
             },
             HirRitchieParameter::Variadic(_) => todo!(),
             HirRitchieParameter::Keyed(_) => todo!(),
@@ -54,39 +54,39 @@ impl JavelinRitchieParameter {
         self.contract
     }
 
-    pub fn parameter_ty(&self) -> JavelinType {
+    pub fn parameter_ty(&self) -> JavType {
         self.parameter_ty
     }
 }
 
-impl JavelinType {
+impl JavType {
     pub(crate) fn from_hir(
         hir_ty: HirType,
-        jav_instantiation: &JavInstantiation,
+        instantiation: &JavInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         match hir_ty {
-            HirType::PathLeading(hir_ty) => JavelinTypePathLeading::new(
+            HirType::PathLeading(hir_ty) => JavTypePathLeading::new(
                 db,
                 hir_ty.ty_path(db),
                 JavTemplateArgument::from_hir_template_arguments(
                     hir_ty.template_arguments(db),
-                    jav_instantiation,
+                    instantiation,
                     db,
                 ),
             )
             .into(),
-            HirType::Variable(symbol) => jav_instantiation.resolve_ty(symbol),
+            HirType::Variable(symbol) => instantiation.resolve_ty(symbol),
             HirType::TypeAssocType(_) => todo!(),
             HirType::TraitAssocType(_) => todo!(),
-            HirType::Ritchie(hir_ty) => JavelinRitchieType::new(
+            HirType::Ritchie(hir_ty) => JavRitchieType::new(
                 db,
                 hir_ty
                     .parameters(db)
                     .iter()
-                    .map(|&param| JavelinRitchieParameter::from_hir(param, jav_instantiation, db))
+                    .map(|&param| JavRitchieParameter::from_hir(param, instantiation, db))
                     .collect(),
-                JavelinType::from_hir(hir_ty.return_ty(db), jav_instantiation, db),
+                JavType::from_hir(hir_ty.return_ty(db), instantiation, db),
             )
             .into(),
             HirType::TypeVar(_) => todo!(),

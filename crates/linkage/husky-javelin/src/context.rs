@@ -1,18 +1,28 @@
-use crate::{instantiation::JavInstantiation, template_argument::JavTemplateArgument};
+use crate::{
+    instantiation::{JavInstantiation, JavTermSymbolResolution},
+    template_argument::ty::JavType,
+};
 use either::*;
 use husky_entity_kind::MajorFormKind;
 use husky_entity_path::path::{
     major_item::{form::PreludeMajorFormPath, MajorItemPath},
     ItemPath,
 };
-use husky_hir_ty::context::HirTypeContext;
+use husky_hir_ty::context::{HirComptimeVarOverride, HirTypeContext};
 use husky_sem_var_deps::{item_sem_var_deps, var_deps::SemVarDep};
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct JavTypeContext {
     /// overrides of type var, compterm var, lifetime var
-    comptime_var_overrides: OrderedSmallVecPairMap<ItemPath, Option<JavTemplateArgument>, 4>,
+    comptime_var_overrides: OrderedSmallVecPairMap<ItemPath, JavComptimeVarOverride, 4>,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum JavComptimeVarOverride {
+    /// type var
+    Type(JavType),
+    // todo: compterm var, lifetime var
 }
 
 impl JavTypeContext {
@@ -21,9 +31,13 @@ impl JavTypeContext {
         instantiation: &JavInstantiation,
         db: &::salsa::Db,
     ) -> Self {
-        let comptime_var_overrides = hir_context.comptime_var_overrides().map_collect(|&arg| {
-            arg.map(|arg| JavTemplateArgument::from_hir(arg, instantiation, db))
-        });
+        let comptime_var_overrides =
+            hir_context
+                .comptime_var_overrides()
+                .map_collect2(|item_path, &arg| match arg {
+                    Some(arg) => JavComptimeVarOverride::from_hir(arg, instantiation, db),
+                    None => instantiation.context().comptime_var_overrides[item_path].1,
+                });
         Self {
             comptime_var_overrides,
         }
@@ -64,5 +78,28 @@ impl JavTypeContext {
         Self {
             comptime_var_overrides: Default::default(),
         }
+    }
+}
+
+impl JavComptimeVarOverride {
+    fn from_hir(
+        hir_ovrd: HirComptimeVarOverride,
+        instantiation: &JavInstantiation,
+        db: &::salsa::Db,
+    ) -> Self {
+        match hir_ovrd {
+            HirComptimeVarOverride::Type(hir_ty) => {
+                JavComptimeVarOverride::Type(JavType::from_hir(hir_ty, instantiation, db))
+            }
+        }
+    }
+}
+
+/// # getters
+impl JavTypeContext {
+    pub fn comptime_var_overrides(
+        &self,
+    ) -> &OrderedSmallVecPairMap<ItemPath, JavComptimeVarOverride, 4> {
+        &self.comptime_var_overrides
     }
 }

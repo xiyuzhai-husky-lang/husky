@@ -10,11 +10,20 @@ use husky_fly_term::instantiation::FlyInstantiation;
 use husky_sem_var_deps::{item_sem_var_deps, var_deps::SemVarDep};
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirTypeContext {
     /// overrides of type var, compterm var, lifetime var
-    comptime_var_overrides: OrderedSmallVecPairMap<ItemPath, Option<HirTemplateArgument>, 4>,
+    comptime_var_overrides: OrderedSmallVecPairMap<ItemPath, Option<HirComptimeVarOverride>, 4>,
     // todo: trait constraints
+}
+
+#[enum_class::from_variants]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum HirComptimeVarOverride {
+    /// type var
+    Type(HirType),
+    // todo: compterm var, lifetime var
 }
 
 impl HirTypeContext {
@@ -24,7 +33,7 @@ impl HirTypeContext {
         let context_itd = eth_instantiation.context_itd();
         let mut comptime_var_overrides: OrderedSmallVecPairMap<
             ItemPath,
-            Option<HirTemplateArgument>,
+            Option<HirComptimeVarOverride>,
             4,
         > = Default::default();
         for _ in item_sem_var_deps(path, db) {
@@ -41,7 +50,7 @@ impl HirTypeContext {
         let context_itd = fly_instantiation.context_itd();
         let mut comptime_var_overrides: OrderedSmallVecPairMap<
             ItemPath,
-            Option<HirTemplateArgument>,
+            Option<HirComptimeVarOverride>,
             4,
         > = Default::default();
         for dep in item_sem_var_deps(path, db) {
@@ -57,12 +66,12 @@ impl HirTypeContext {
                                 MajorFormKind::TypeAlias => (),
                                 MajorFormKind::TypeVar => {
                                     // ad hoc
-                                    let r#override = match dep_major_form_path.refine(db) {
+                                    let ovrd = match dep_major_form_path.refine(db) {
                                         Left(dep_prelude_major_form_path) => {
                                             match dep_prelude_major_form_path {
                                                 PreludeMajorFormPath::TaskType => {
                                                     context_itd.task_ty(db).map(|term| {
-                                                        HirType::from_eth(term, db)
+                                                      HirType::from_eth(term, db)
                                                             .expect("this should be always some because task_ty is always a valid type")
                                                             .into()
                                                     })
@@ -71,7 +80,7 @@ impl HirTypeContext {
                                         }
                                         Right(_) => todo!(),
                                     };
-                                    comptime_var_overrides.insert((dep_item_path, r#override));
+                                    comptime_var_overrides.insert((dep_item_path, ovrd));
                                 }
                                 MajorFormKind::Val => todo!(),
                                 MajorFormKind::StaticMut => (),
@@ -98,7 +107,7 @@ impl HirTypeContext {
 impl HirTypeContext {
     pub fn comptime_var_overrides(
         &self,
-    ) -> &OrderedSmallVecPairMap<ItemPath, Option<HirTemplateArgument>, 4> {
+    ) -> &OrderedSmallVecPairMap<ItemPath, Option<HirComptimeVarOverride>, 4> {
         &self.comptime_var_overrides
     }
 }

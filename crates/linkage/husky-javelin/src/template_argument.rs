@@ -10,7 +10,7 @@ use husky_hir_ty::HirTemplateArgument;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum JavTemplateArgument {
     Vacant,
-    Type(JavelinType),
+    Type(JavType),
     Constant(JavelinConstant),
     Lifetime,
     Place,
@@ -38,7 +38,7 @@ impl JavTemplateArgument {
         match template_argument {
             HirTemplateArgument::Vacant => JavTemplateArgument::Vacant,
             HirTemplateArgument::Type(hir_ty) => {
-                JavTemplateArgument::Type(JavelinType::from_hir(hir_ty, instantiation, db))
+                JavTemplateArgument::Type(JavType::from_hir(hir_ty, instantiation, db))
             }
             HirTemplateArgument::Constant(hir_constant) => JavTemplateArgument::Constant(
                 JavelinConstant::from_hir(hir_constant, instantiation),

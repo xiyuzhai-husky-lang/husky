@@ -1,6 +1,6 @@
 use crate::{
     amazon::package_amazon_javelins, instantiation::JavInstantiation, path::JavPath,
-    template_argument::ty::JavelinType, valkyrie::package_valkyrie_javelins,
+    template_argument::ty::JavType, valkyrie::package_valkyrie_javelins,
 };
 
 use husky_vfs::path::package_path::PackagePath;
@@ -25,10 +25,10 @@ pub enum JavelinData {
         instantiation: JavInstantiation,
     },
     VecConstructor {
-        element_ty: JavelinType,
+        element_ty: JavType,
     },
     TypeDefault {
-        ty: JavelinType,
+        ty: JavType,
     },
 }
 

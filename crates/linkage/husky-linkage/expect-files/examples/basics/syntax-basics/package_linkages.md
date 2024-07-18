@@ -8,6 +8,9 @@
             },
             path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::UnitVariant`),
             instantiation: LinInstantiation {
+                context: LinTypeContext {
+                    comptime_var_overrides: [],
+                },
                 symbol_resolutions: [],
                 separator: None,
             },
@@ -21,6 +24,9 @@
             },
             path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::UnitVariant`),
             instantiation: LinInstantiation {
+                context: LinTypeContext {
+                    comptime_var_overrides: [],
+                },
                 symbol_resolutions: [],
                 separator: None,
             },
@@ -34,6 +40,9 @@
             },
             path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithOneField`),
             instantiation: LinInstantiation {
+                context: LinTypeContext {
+                    comptime_var_overrides: [],
+                },
                 symbol_resolutions: [],
                 separator: None,
             },
@@ -47,6 +56,9 @@
             },
             path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithOneField`),
             instantiation: LinInstantiation {
+                context: LinTypeContext {
+                    comptime_var_overrides: [],
+                },
                 symbol_resolutions: [],
                 separator: None,
             },
@@ -60,6 +72,9 @@
             },
             path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithOneField`),
             instantiation: LinInstantiation {
+                context: LinTypeContext {
+                    comptime_var_overrides: [],
+                },
                 symbol_resolutions: [],
                 separator: None,
             },
@@ -69,6 +84,9 @@
         data: LinkageData::EnumVariantField {
             path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithOneField`),
             instantiation: LinInstantiation {
+                context: LinTypeContext {
+                    comptime_var_overrides: [],
+                },
                 symbol_resolutions: [],
                 separator: None,
             },
@@ -91,6 +109,9 @@
             },
             path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithTwoFields`),
             instantiation: LinInstantiation {
+                context: LinTypeContext {
+                    comptime_var_overrides: [],
+                },
                 symbol_resolutions: [],
                 separator: None,
             },
@@ -104,6 +125,9 @@
             },
             path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithTwoFields`),
             instantiation: LinInstantiation {
+                context: LinTypeContext {
+                    comptime_var_overrides: [],
+                },
                 symbol_resolutions: [],
                 separator: None,
             },
@@ -117,6 +141,9 @@
             },
             path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithTwoFields`),
             instantiation: LinInstantiation {
+                context: LinTypeContext {
+                    comptime_var_overrides: [],
+                },
                 symbol_resolutions: [],
                 separator: None,
             },
@@ -126,6 +153,9 @@
         data: LinkageData::EnumVariantField {
             path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithTwoFields`),
             instantiation: LinInstantiation {
+                context: LinTypeContext {
+                    comptime_var_overrides: [],
+                },
                 symbol_resolutions: [],
                 separator: None,
             },
@@ -144,6 +174,9 @@
         data: LinkageData::EnumVariantField {
             path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithTwoFields`),
             instantiation: LinInstantiation {
+                context: LinTypeContext {
+                    comptime_var_overrides: [],
+                },
                 symbol_resolutions: [],
                 separator: None,
             },
@@ -166,6 +199,9 @@
             },
             path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithOneField`),
             instantiation: LinInstantiation {
+                context: LinTypeContext {
+                    comptime_var_overrides: [],
+                },
                 symbol_resolutions: [],
                 separator: None,
             },
@@ -179,6 +215,9 @@
             },
             path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithOneField`),
             instantiation: LinInstantiation {
+                context: LinTypeContext {
+                    comptime_var_overrides: [],
+                },
                 symbol_resolutions: [],
                 separator: None,
             },
@@ -192,6 +231,9 @@
             },
             path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithOneField`),
             instantiation: LinInstantiation {
+                context: LinTypeContext {
+                    comptime_var_overrides: [],
+                },
                 symbol_resolutions: [],
                 separator: None,
             },
@@ -201,6 +243,9 @@
         data: LinkageData::EnumVariantField {
             path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithOneField`),
             instantiation: LinInstantiation {
+                context: LinTypeContext {
+                    comptime_var_overrides: [],
+                },
                 symbol_resolutions: [],
                 separator: None,
             },
@@ -217,6 +262,9 @@
             },
             path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithTwoFields`),
             instantiation: LinInstantiation {
+                context: LinTypeContext {
+                    comptime_var_overrides: [],
+                },
                 symbol_resolutions: [],
                 separator: None,
             },
@@ -230,6 +278,9 @@
             },
             path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithTwoFields`),
             instantiation: LinInstantiation {
+                context: LinTypeContext {
+                    comptime_var_overrides: [],
+                },
                 symbol_resolutions: [],
                 separator: None,
             },
@@ -243,6 +294,9 @@
             },
             path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithTwoFields`),
             instantiation: LinInstantiation {
+                context: LinTypeContext {
+                    comptime_var_overrides: [],
+                },
                 symbol_resolutions: [],
                 separator: None,
             },
@@ -252,6 +306,9 @@
         data: LinkageData::EnumVariantField {
             path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithTwoFields`),
             instantiation: LinInstantiation {
+                context: LinTypeContext {
+                    comptime_var_overrides: [],
+                },
                 symbol_resolutions: [],
                 separator: None,
             },
@@ -264,6 +321,9 @@
         data: LinkageData::EnumVariantField {
             path: TypeVariantPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithTwoFields`),
             instantiation: LinInstantiation {
+                context: LinTypeContext {
+                    comptime_var_overrides: [],
+                },
                 symbol_resolutions: [],
                 separator: None,
             },
@@ -278,6 +338,9 @@
                 Fn,
             )`),
             instantiation: LinInstantiation {
+                context: LinTypeContext {
+                    comptime_var_overrides: [],
+                },
                 symbol_resolutions: [],
                 separator: None,
             },
@@ -289,6 +352,9 @@
                 Fn,
             )`),
             instantiation: LinInstantiation {
+                context: LinTypeContext {
+                    comptime_var_overrides: [],
+                },
                 symbol_resolutions: [],
                 separator: None,
             },
@@ -300,6 +366,9 @@
                 Fn,
             )`),
             instantiation: LinInstantiation {
+                context: LinTypeContext {
+                    comptime_var_overrides: [],
+                },
                 symbol_resolutions: [],
                 separator: None,
             },
