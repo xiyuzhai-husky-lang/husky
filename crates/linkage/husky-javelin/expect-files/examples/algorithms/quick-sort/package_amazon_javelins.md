@@ -9,6 +9,9 @@
                     )`),
                 ),
                 instantiation: JavInstantiation {
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -24,6 +27,9 @@
                     )`),
                 ),
                 instantiation: JavInstantiation {
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },

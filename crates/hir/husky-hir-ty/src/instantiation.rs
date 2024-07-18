@@ -15,7 +15,6 @@ use vec_like::{SmallVecMap, SmallVecPairMap};
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirInstantiation {
-    // todo: task_ty: Option<HirType>, should check whether this is actually needed to avoid redundancy
     context: HirTypeContext,
     symbol_map: SmallVecPairMap<HirTemplateVariable, HirTermSymbolicVariableResolution, 4>,
     separator: Option<u8>,
@@ -129,6 +128,12 @@ impl HirInstantiation {
             separator,
             context: HirTypeContext::from_eth(eth_instantiation, db),
         }
+    }
+}
+
+impl HirInstantiation {
+    pub fn context(&self) -> &HirTypeContext {
+        &self.context
     }
 
     pub fn symbol_map(&self) -> &[(HirTemplateVariable, HirTermSymbolicVariableResolution)] {

@@ -1,4 +1,7 @@
-use crate::template_argument::{ty::JavelinType, JavTemplateArgument};
+use crate::{
+    context::JavTypeContext,
+    template_argument::{ty::JavelinType, JavTemplateArgument},
+};
 use husky_entity_path::path::ItemPath;
 use husky_hir_ty::{
     instantiation::{HirInstantiation, HirTermSymbolicVariableResolution},
@@ -9,6 +12,8 @@ use vec_like::SmallVecPairMap;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct JavInstantiation {
+    context: JavTypeContext,
+    // todo: getters
     pub symbol_resolutions: SmallVecPairMap<HirTemplateVariable, JavTermSymbolResolution, 4>,
     pub separator: Option<u8>,
 }
@@ -24,10 +29,11 @@ impl std::ops::Deref for JavInstantiation {
 impl JavInstantiation {
     pub(crate) fn from_hir(
         hir_instantiation: &HirInstantiation,
-        javelin_instantiation: &JavInstantiation,
+        jav_instantiation: &JavInstantiation,
         db: &::salsa::Db,
     ) -> JavInstantiation {
         JavInstantiation {
+            context: JavTypeContext::from_hir(hir_instantiation.context(), jav_instantiation, db),
             symbol_resolutions: hir_instantiation
                 .symbol_map()
                 .iter()
@@ -42,7 +48,7 @@ impl JavInstantiation {
                     }
                     Some((
                         symbol,
-                        JavTermSymbolResolution::from_hir(resolution, javelin_instantiation, db),
+                        JavTermSymbolResolution::from_hir(resolution, jav_instantiation, db),
                     ))
                 })
                 .collect(),
@@ -50,8 +56,9 @@ impl JavInstantiation {
         }
     }
 
-    pub(crate) fn new_amazon(item_path: ItemPath) -> Self {
+    pub(crate) fn new_amazon(item_path: ItemPath, db: &::salsa::Db) -> Self {
         Self {
+            context: JavTypeContext::new_amazon(item_path, db),
             symbol_resolutions: Default::default(),
             separator: match item_path {
                 ItemPath::Submodule(_, _) => todo!(),
@@ -95,14 +102,14 @@ pub enum JavTermSymbolResolution {
 impl JavTermSymbolResolution {
     fn from_hir(
         resolution: HirTermSymbolicVariableResolution,
-        javelin_instantiation: &JavInstantiation,
+        jav_instantiation: &JavInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         match resolution {
             HirTermSymbolicVariableResolution::Explicit(template_argument) => {
                 JavTermSymbolResolution::Explicit(JavTemplateArgument::from_hir(
                     template_argument,
-                    javelin_instantiation,
+                    jav_instantiation,
                     db,
                 ))
             }

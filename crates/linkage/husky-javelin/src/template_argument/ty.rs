@@ -37,13 +37,13 @@ pub struct JavelinRitchieParameter {
 impl JavelinRitchieParameter {
     fn from_hir(
         param: HirRitchieParameter,
-        javelin_instantiation: &JavInstantiation,
+        jav_instantiation: &JavInstantiation,
         db: &salsa::Db,
     ) -> Self {
         match param {
             HirRitchieParameter::Simple(param) => Self {
                 contract: param.contract(),
-                parameter_ty: JavelinType::from_hir(param.ty, javelin_instantiation, db),
+                parameter_ty: JavelinType::from_hir(param.ty, jav_instantiation, db),
             },
             HirRitchieParameter::Variadic(_) => todo!(),
             HirRitchieParameter::Keyed(_) => todo!(),
@@ -62,7 +62,7 @@ impl JavelinRitchieParameter {
 impl JavelinType {
     pub(crate) fn from_hir(
         hir_ty: HirType,
-        javelin_instantiation: &JavInstantiation,
+        jav_instantiation: &JavInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         match hir_ty {
@@ -71,12 +71,12 @@ impl JavelinType {
                 hir_ty.ty_path(db),
                 JavTemplateArgument::from_hir_template_arguments(
                     hir_ty.template_arguments(db),
-                    javelin_instantiation,
+                    jav_instantiation,
                     db,
                 ),
             )
             .into(),
-            HirType::Variable(symbol) => javelin_instantiation.resolve_ty(symbol),
+            HirType::Variable(symbol) => jav_instantiation.resolve_ty(symbol),
             HirType::TypeAssocType(_) => todo!(),
             HirType::TraitAssocType(_) => todo!(),
             HirType::Ritchie(hir_ty) => JavelinRitchieType::new(
@@ -84,11 +84,9 @@ impl JavelinType {
                 hir_ty
                     .parameters(db)
                     .iter()
-                    .map(|&param| {
-                        JavelinRitchieParameter::from_hir(param, javelin_instantiation, db)
-                    })
+                    .map(|&param| JavelinRitchieParameter::from_hir(param, jav_instantiation, db))
                     .collect(),
-                JavelinType::from_hir(hir_ty.return_ty(db), javelin_instantiation, db),
+                JavelinType::from_hir(hir_ty.return_ty(db), jav_instantiation, db),
             )
             .into(),
             HirType::TypeVar(_) => todo!(),

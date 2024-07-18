@@ -24,6 +24,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -82,6 +85,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -156,6 +162,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -208,6 +217,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -288,6 +300,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -364,6 +379,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -438,6 +456,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -485,6 +506,9 @@ ValkyrieJavelinPantheon {
                         TypePath(`malamute::Class`, `Enum`),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -604,6 +628,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -671,6 +698,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -723,6 +753,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -775,6 +808,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -827,6 +863,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -885,6 +924,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -943,6 +985,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -995,6 +1040,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1041,6 +1089,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1121,6 +1172,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1213,6 +1267,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1254,6 +1311,9 @@ ValkyrieJavelinPantheon {
                         TypePath(`core::ops::ControlFlow`, `Enum`),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1334,6 +1394,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1386,6 +1449,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1438,6 +1504,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1554,6 +1623,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1606,6 +1678,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1664,6 +1739,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1716,6 +1794,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1768,6 +1849,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1826,6 +1910,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1878,6 +1965,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1936,6 +2026,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1994,6 +2087,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2046,6 +2142,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2113,6 +2212,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2171,6 +2273,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2218,6 +2323,9 @@ ValkyrieJavelinPantheon {
                         TypePath(`core::option::Option`, `Enum`),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2265,6 +2373,34 @@ ValkyrieJavelinPantheon {
                         )`),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [
+                                (
+                                    MajorItem(
+                                        Form(
+                                            MajorFormPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 2,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    Some(
+                                        Type(
+                                            PathLeading(
+                                                JavelinTypePathLeading(
+                                                    Id {
+                                                        value: 16,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2315,6 +2451,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2376,6 +2515,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2453,6 +2595,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2500,6 +2645,9 @@ ValkyrieJavelinPantheon {
                         TypePath(`core::ops::ControlFlow`, `Enum`),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2602,6 +2750,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2656,6 +2807,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2692,6 +2846,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2740,6 +2897,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2812,6 +2972,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2869,6 +3032,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2935,6 +3101,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2977,6 +3146,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3043,6 +3215,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3091,6 +3266,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3139,6 +3317,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3187,6 +3368,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3235,6 +3419,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3277,6 +3464,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3313,6 +3503,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3367,6 +3560,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3409,6 +3605,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3457,6 +3656,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3499,6 +3701,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3547,6 +3752,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3589,6 +3797,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3637,6 +3848,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3685,6 +3899,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3739,6 +3956,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3781,6 +4001,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3829,6 +4052,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3871,6 +4097,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3913,6 +4142,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3955,6 +4187,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3997,6 +4232,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -4069,6 +4307,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -4136,6 +4377,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -4193,6 +4437,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -4259,6 +4506,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -4347,6 +4597,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -4386,6 +4639,34 @@ ValkyrieJavelinPantheon {
                         )`),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [
+                                (
+                                    MajorItem(
+                                        Form(
+                                            MajorFormPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 2,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    Some(
+                                        Type(
+                                            PathLeading(
+                                                JavelinTypePathLeading(
+                                                    Id {
+                                                        value: 16,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -4438,6 +4719,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -4475,6 +4759,9 @@ ValkyrieJavelinPantheon {
                         TypePath(`core::option::Option`, `Enum`),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -4510,6 +4797,9 @@ ValkyrieJavelinPantheon {
                         TypePath(`malamute::Class`, `Enum`),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -4545,6 +4835,9 @@ ValkyrieJavelinPantheon {
                         TypePath(`core::ops::ControlFlow`, `Enum`),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(

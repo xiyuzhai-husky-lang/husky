@@ -19,6 +19,9 @@ ValkyrieJavelinPantheon {
                         TypePath(`core::ops::ControlFlow`, `Enum`),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -87,6 +90,9 @@ ValkyrieJavelinPantheon {
                         TypePath(`core::ops::ControlFlow`, `Enum`),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
