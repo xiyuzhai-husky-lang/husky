@@ -70,7 +70,11 @@ impl LinComptimeVarOverride {
     fn from_jav(jav_ovrd: JavComptimeVarOverride, db: &::salsa::Db) -> Self {
         match jav_ovrd {
             JavComptimeVarOverride::Type(jav_ty) => {
-                LinComptimeVarOverride::Type(LinType::from_jav(jav_ty, todo!(), db))
+                LinComptimeVarOverride::Type(LinType::from_jav(
+                    jav_ty,
+                    &LinInstantiation::new_empty_for_comptime_var_overrides(),
+                    db,
+                ))
             }
         }
     }

@@ -48,6 +48,12 @@ impl LinInstantiation {
         }
     }
 
+    /// this is quite casual. We don't have any complications like nondeterminism for comptime vars,
+    /// as compared with symbol resolutions, by design.
+    pub(crate) fn new_empty_for_comptime_var_overrides() -> Self {
+        Self::new_empty(false)
+    }
+
     #[track_caller]
     pub(crate) fn from_hir(
         hir_instantiation: &HirInstantiation,

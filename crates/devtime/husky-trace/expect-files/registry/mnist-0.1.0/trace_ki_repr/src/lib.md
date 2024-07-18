@@ -34,6 +34,9 @@
                         data: LinkageData::MajorStaticVar {
                             path: MajorFormPath(`mnist::INPUT`, `StaticVar`),
                             instantiation: LinInstantiation {
+                                context: LinTypeContext {
+                                    comptime_var_overrides: [],
+                                },
                                 symbol_resolutions: [],
                                 separator: None,
                             },
