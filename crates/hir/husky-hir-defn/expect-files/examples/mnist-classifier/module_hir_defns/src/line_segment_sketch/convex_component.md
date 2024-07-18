@@ -180,7 +180,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 46,
+                                        value: 47,
                                     },
                                 ),
                             ),
@@ -338,6 +338,9 @@
                                                     ),
                                                 ),
                                                 instantiation: HirInstantiation {
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
                                                     symbol_map: [
                                                         (
                                                             HirTemplateVariable::Type(

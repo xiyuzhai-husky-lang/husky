@@ -1,13 +1,10 @@
 use super::*;
 use husky_entity_path::path::{assoc_item::AssocItemPath, major_item::ty::TypePath};
-use husky_eth_signature::{
-    context::EthSignatureBuilderContextItd,
-    signature::{
-        assoc_item::trai_for_ty_item::method_ritchie::{
-            TraitForTypeMethodRitchieEthSignature, TraitForTypeMethodRitchieEthTemplate,
-        },
-        HasEthTemplate,
+use husky_eth_signature::signature::{
+    assoc_item::trai_for_ty_item::method_ritchie::{
+        TraitForTypeMethodRitchieEthSignature, TraitForTypeMethodRitchieEthTemplate,
     },
+    HasEthTemplate,
 };
 use husky_eth_term::term::symbolic_variable::EthTermSymbolIndexImpl;
 use husky_regional_token::IdentRegionalToken;

@@ -4,6 +4,7 @@
 #![feature(let_chains)]
 #![feature(if_let_guard)]
 #![feature(anonymous_lifetime_in_impl_trait)]
+pub mod context;
 mod conversion;
 mod db;
 mod error;

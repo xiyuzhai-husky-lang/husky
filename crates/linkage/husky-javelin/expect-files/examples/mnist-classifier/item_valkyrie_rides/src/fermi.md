@@ -33,6 +33,9 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            context: HirTypeContext {
+                                comptime_var_overrides: [],
+                            },
                             symbol_map: [
                                 (
                                     HirTemplateVariable::Type(
@@ -101,6 +104,9 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            context: HirTypeContext {
+                                comptime_var_overrides: [],
+                            },
                             symbol_map: [
                                 (
                                     HirTemplateVariable::Type(
@@ -183,6 +189,9 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            context: HirTypeContext {
+                                comptime_var_overrides: [],
+                            },
                             symbol_map: [
                                 (
                                     HirTemplateVariable::Type(
@@ -238,6 +247,9 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            context: HirTypeContext {
+                                comptime_var_overrides: [],
+                            },
                             symbol_map: [
                                 (
                                     HirTemplateVariable::Type(
@@ -326,6 +338,9 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            context: HirTypeContext {
+                                comptime_var_overrides: [],
+                            },
                             symbol_map: [
                                 (
                                     HirTemplateVariable::Type(
@@ -385,6 +400,9 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            context: HirTypeContext {
+                                comptime_var_overrides: [],
+                            },
                             symbol_map: [
                                 (
                                     HirTemplateVariable::Type(
@@ -444,6 +462,9 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            context: HirTypeContext {
+                                comptime_var_overrides: [],
+                            },
                             symbol_map: [
                                 (
                                     HirTemplateVariable::Type(

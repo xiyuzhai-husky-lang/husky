@@ -1,4 +1,5 @@
 use super::*;
+use context::EthTermContextItd;
 use husky_coword::coword_menu;
 use husky_entity_path::{
     menu::item_path_menu,
@@ -6,7 +7,6 @@ use husky_entity_path::{
 };
 use husky_entity_tree::node::HasAssocItemPaths;
 use husky_eth_signature::{
-    context::EthSignatureBuilderContextItd,
     error::{EthSignatureError, EthSignatureMaybeResult, EthSignatureResult},
     helpers::trai_for_ty::*,
     signature::{
@@ -169,7 +169,7 @@ impl Unveiler {
     pub(crate) fn initialize_if_not<'db>(
         &mut self,
         return_ty: Option<EthTerm>,
-        context_itd: EthSignatureBuilderContextItd,
+        context_itd: EthTermContextItd,
         db: &'db ::salsa::Db,
     ) {
         match self {
@@ -190,7 +190,7 @@ impl Unveiler {
     fn new_aux<'db>(
         db: &'db ::salsa::Db,
         return_ty: EthTerm,
-        context_itd: EthSignatureBuilderContextItd,
+        context_itd: EthTermContextItd,
     ) -> EthSignatureMaybeResult<Self> {
         let templates = unveil_impl_block_signature_templates(return_ty, context_itd, db)?;
         match templates.len() {
@@ -238,7 +238,7 @@ fn unveil_assoc_fn_path(
 
 fn unveil_impl_block_signature_templates<'db>(
     term: EthTerm,
-    context_itd: EthSignatureBuilderContextItd,
+    context_itd: EthTermContextItd,
     db: &'db ::salsa::Db,
 ) -> EthSignatureMaybeResult<SmallVec<[EthTraitForTypeImplBlockSignatureBuilderItd; 2]>> {
     match term {
@@ -257,7 +257,7 @@ fn unveil_impl_block_signature_templates<'db>(
 
 fn ty_ontology_path_unveil_impl_block_signature_templates<'db>(
     ty_path: TypePath,
-    context_itd: EthSignatureBuilderContextItd,
+    context_itd: EthTermContextItd,
     db: &'db ::salsa::Db,
 ) -> EthSignatureMaybeResult<SmallVec<[EthTraitForTypeImplBlockSignatureBuilderItd; 2]>> {
     unveil_impl_block_signature_templates_aux(
@@ -272,7 +272,7 @@ fn ty_ontology_path_unveil_impl_block_signature_templates<'db>(
 fn ty_ontology_application_unveil_impl_block_signature_templates<'db>(
     db: &'db ::salsa::Db,
     ty_target: EthApplication,
-    context_itd: EthSignatureBuilderContextItd,
+    context_itd: EthTermContextItd,
 ) -> EthSignatureMaybeResult<SmallVec<[EthTraitForTypeImplBlockSignatureBuilderItd; 2]>> {
     let application_expansion = ty_target.application_expansion(db);
     let TermFunctionReduced::TypeOntology(ty_path) = application_expansion.function() else {
@@ -292,7 +292,7 @@ fn unveil_impl_block_signature_templates_aux<'db>(
     ty_path: TypePath,
     arguments: &[EthTerm],
     ty_target: EthTerm,
-    context_itd: EthSignatureBuilderContextItd,
+    context_itd: EthTermContextItd,
 ) -> EthSignatureMaybeResult<SmallVec<[EthTraitForTypeImplBlockSignatureBuilderItd; 2]>> {
     let item_path_menu = item_path_menu(db, ty_path.toolchain(db));
     let templates = ty_side_trai_for_ty_impl_block_signature_templates(

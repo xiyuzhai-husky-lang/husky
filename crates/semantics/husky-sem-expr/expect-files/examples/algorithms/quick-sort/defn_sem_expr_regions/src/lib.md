@@ -124,7 +124,9 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::slice::Slice(0)::len`),
-                                                    task_ty: None,
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: None,
+                                                    },
                                                     env: MethodFn {
                                                         self_place: RefMut {
                                                             place: Idx(
@@ -198,7 +200,9 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`quick_sort::quick_sort_aux`),
-                                            task_ty: None,
+                                            context_itd: EthTermContextItd {
+                                                task_ty: None,
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -1604,10 +1608,8 @@
             },
             return_ty: None,
             self_ty: None,
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -1780,7 +1782,9 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`quick_sort::partition`),
-                                            task_ty: None,
+                                            context_itd: EthTermContextItd {
+                                                task_ty: None,
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -2119,7 +2123,9 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`quick_sort::quick_sort_aux`),
-                                            task_ty: None,
+                                            context_itd: EthTermContextItd {
+                                                task_ty: None,
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -2536,7 +2542,9 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`quick_sort::quick_sort_aux`),
-                                            task_ty: None,
+                                            context_itd: EthTermContextItd {
+                                                task_ty: None,
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -4778,10 +4786,8 @@
             },
             return_ty: None,
             self_ty: None,
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -7259,7 +7265,9 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::slice::Slice(0)::swap`),
-                                                    task_ty: None,
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: None,
+                                                    },
                                                     env: MethodFn {
                                                         self_place: RefMut {
                                                             place: Idx(
@@ -7749,7 +7757,9 @@
                                                 },
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath(`core::slice::Slice(0)::swap`),
-                                                    task_ty: None,
+                                                    context_itd: EthTermContextItd {
+                                                        task_ty: None,
+                                                    },
                                                     env: MethodFn {
                                                         self_place: RefMut {
                                                             place: Idx(
@@ -11167,10 +11177,8 @@
                 EthTerm(`isize`),
             ),
             self_ty: None,
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -12840,10 +12848,8 @@
             },
             return_ty: None,
             self_ty: None,
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -13779,10 +13785,8 @@
             },
             return_ty: None,
             self_ty: None,
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },

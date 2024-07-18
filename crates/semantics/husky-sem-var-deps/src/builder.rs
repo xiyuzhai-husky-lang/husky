@@ -98,12 +98,8 @@ where
         /// todo: make this expr dependent, because of possible overrides
         let mut deps = (self.f)(path.into()).clone();
         let db = self.db;
-        match self
-            .sem_expr_region_data
-            .context_itd()
-            .context(db)
-            .task_ty()
-        {
+        // todo: we can make this things much more general, not just task ty
+        match self.sem_expr_region_data.context_itd().task_ty(db) {
             Some(_) => {
                 deps.remove_item_path(self.item_path_menu.task_ty_var_path());
                 deps.remove_item_path(self.item_path_menu.task_static_var_path());

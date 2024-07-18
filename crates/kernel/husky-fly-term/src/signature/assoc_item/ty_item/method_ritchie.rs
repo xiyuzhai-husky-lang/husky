@@ -1,15 +1,13 @@
 use super::*;
+use context::EthTermContextItd;
 use husky_entity_path::path::major_item::ty::TypePath;
-use husky_eth_signature::{
-    context::EthSignatureBuilderContextItd,
-    signature::{
-        assoc_item::ty_item::{
-            method_curry::TypeMethodCurryEthTemplate,
-            method_ritchie::{TypeMethodRitchieEthSignature, TypeMethodRitchieEthTemplate},
-            HasTypeItemTemplates, TypeItemEthTemplates,
-        },
-        HasEthTemplate,
+use husky_eth_signature::signature::{
+    assoc_item::ty_item::{
+        method_curry::TypeMethodCurryEthTemplate,
+        method_ritchie::{TypeMethodRitchieEthSignature, TypeMethodRitchieEthTemplate},
+        HasTypeItemTemplates, TypeItemEthTemplates,
     },
+    HasEthTemplate,
 };
 use husky_eth_term::term::symbolic_variable::EthTermSymbolIndexImpl;
 use husky_regional_token::IdentRegionalToken;
@@ -87,7 +85,7 @@ pub(crate) fn ty_method_fly_signature<'db, Term: Copy + Into<FlyTerm>>(
     method_template_arguments: &[FlyTerm],
     ident_token: IdentRegionalToken,
     self_place: FlyQuary,
-    context_itd: EthSignatureBuilderContextItd,
+    context_itd: EthTermContextItd,
 ) -> FlyTermMaybeResult<TypeMethodRitchieFlySignature> {
     let ident = ident_token.ident();
     match ty_path.ty_item_eth_templates(engine.db(), ident)? {
@@ -132,7 +130,7 @@ fn ty_method_ritchie_fly_signature<'db, Term: Copy + Into<FlyTerm>>(
     ty_template_arguments: &[Term],
     method_template_arguments: &[FlyTerm],
     self_place: FlyQuary,
-    context_itd: EthSignatureBuilderContextItd,
+    context_itd: EthTermContextItd,
 ) -> FlyTermMaybeResult<TypeMethodRitchieFlySignature> {
     let db = engine.db();
     let self_ty_application_expansion = template.self_ty(db).application_expansion(db);

@@ -12,14 +12,14 @@ use husky_hir_defn::{
     version_stamp::HirDefnVersionStamp,
 };
 
-#[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = new)]
+#[salsa::interned(constructor = new)]
 pub struct LinkageVersionStamp {
     data: LinkageVersionStampData,
     dependencies: Vec<LinkageVersionStampDependency>,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[enum_class::from_variants]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum LinkageVersionStampData {
     HirDefn(Linkage),
     Type(LinType),
@@ -40,7 +40,7 @@ impl HasVersionStamp for Linkage {
     }
 }
 
-#[salsa::tracked(jar = LinkageJar)]
+#[salsa::tracked]
 fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionStamp {
     let mut builder = LinkageVersionStampBuilder::new(linkage, db);
     match *linkage.data(db) {
@@ -157,7 +157,7 @@ impl HasVersionStamp for LinType {
     }
 }
 
-#[salsa::tracked(jar = LinkageJar)]
+#[salsa::tracked]
 fn linkage_ty_path_leading_version_stamp(
     db: &::salsa::Db,
     linkage_ty: LinTypePathLeading,
@@ -169,7 +169,7 @@ fn linkage_ty_path_leading_version_stamp(
     builder.finish()
 }
 
-#[salsa::tracked(jar = LinkageJar)]
+#[salsa::tracked]
 fn linkage_ty_ritchie_version_stamp(
     db: &::salsa::Db,
     linkage_ty: LinkageRitchieType,

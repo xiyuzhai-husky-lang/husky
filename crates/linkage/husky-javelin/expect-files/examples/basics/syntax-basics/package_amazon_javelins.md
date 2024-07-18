@@ -7,6 +7,9 @@
                     TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
                 ),
                 instantiation: JavInstantiation {
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -22,6 +25,9 @@
                     )`),
                 ),
                 instantiation: JavInstantiation {
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -37,6 +43,9 @@
                     )`),
                 ),
                 instantiation: JavInstantiation {
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -52,6 +61,9 @@
                     )`),
                 ),
                 instantiation: JavInstantiation {
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },

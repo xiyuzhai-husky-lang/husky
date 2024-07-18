@@ -42,7 +42,7 @@ impl EthTemplateParameters {
         &self,
         path: ItemPath,
         is_associated: bool,
-        ctx: &'db impl IsEthInstantiationContext,
+        ctx: impl IsEthTermContextRef,
     ) -> EthInstantiationBuilder {
         EthInstantiationBuilder::new(
             path,

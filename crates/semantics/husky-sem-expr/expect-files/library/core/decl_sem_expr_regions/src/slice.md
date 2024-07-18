@@ -74,10 +74,8 @@
             self_ty: Some(
                 EthTerm(`Slice E`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -155,10 +153,8 @@
             self_ty: Some(
                 EthTerm(`CyclicSlice E`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -505,10 +501,8 @@
             self_ty: Some(
                 EthTerm(`Slice E`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -678,10 +672,8 @@
             self_ty: Some(
                 EthTerm(`Slice E`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -977,10 +969,8 @@
             self_ty: Some(
                 EthTerm(`Slice E`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -1407,10 +1397,8 @@
             self_ty: Some(
                 EthTerm(`CyclicSlice E`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -1586,10 +1574,8 @@
             self_ty: Some(
                 EthTerm(`CyclicSlice E`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -1936,10 +1922,8 @@
             self_ty: Some(
                 EthTerm(`CyclicSlice E`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -2109,10 +2093,8 @@
             self_ty: Some(
                 EthTerm(`CyclicSlice E`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -2282,10 +2264,8 @@
             self_ty: Some(
                 EthTerm(`CyclicSlice E`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -2455,10 +2435,8 @@
             self_ty: Some(
                 EthTerm(`CyclicSlice E`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -2784,10 +2762,8 @@
             self_ty: Some(
                 EthTerm(`CyclicSlice E`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -3113,10 +3089,8 @@
             self_ty: Some(
                 EthTerm(`CyclicSlice E`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },

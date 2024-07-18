@@ -21,20 +21,20 @@ pub enum LinTemplateArgument {
 impl LinTemplateArgument {
     pub(crate) fn from_hir_template_arguments(
         template_arguments: &[HirTemplateArgument],
-        lin_instantiation: Option<&LinInstantiation>,
+        instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> LinTemplateArguments {
         template_arguments
             .iter()
             .map(|&template_argument| {
-                LinTemplateArgument::from_hir(template_argument, lin_instantiation, db)
+                LinTemplateArgument::from_hir(template_argument, instantiation, db)
             })
             .collect()
     }
 
     pub(crate) fn from_hir(
         arg: HirTemplateArgument,
-        instantiation: Option<&LinInstantiation>,
+        instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         match arg {
@@ -52,7 +52,7 @@ impl LinTemplateArgument {
         }
     }
 
-    pub(crate) fn from_javelin(
+    pub(crate) fn from_jav(
         arg: JavTemplateArgument,
         lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
@@ -60,7 +60,7 @@ impl LinTemplateArgument {
         match arg {
             JavTemplateArgument::Vacant => todo!(),
             JavTemplateArgument::Type(javelin_ty) => {
-                LinTemplateArgument::Type(LinType::from_javelin(javelin_ty, lin_instantiation, db))
+                LinTemplateArgument::Type(LinType::from_jav(javelin_ty, lin_instantiation, db))
             }
             JavTemplateArgument::Constant(constant) => {
                 LinTemplateArgument::Constant(LinConstant(constant))

@@ -33,7 +33,7 @@ pub struct HirTemplateVariableAttrs {
 pub enum HirTemplateVariableClass {
     /// monomorphic
     Mono,
-    /// polymorphic
+    /// polymorphic, means there is no need to monomorphize
     Poly,
 }
 

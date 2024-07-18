@@ -9,6 +9,9 @@
                     data: LinkageData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                         instantiation: LinInstantiation {
+                            context: LinTypeContext {
+                                comptime_var_overrides: [],
+                            },
                             symbol_resolutions: [],
                             separator: None,
                         },
@@ -31,6 +34,9 @@
                     data: LinkageData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                         instantiation: LinInstantiation {
+                            context: LinTypeContext {
+                                comptime_var_overrides: [],
+                            },
                             symbol_resolutions: [],
                             separator: None,
                         },

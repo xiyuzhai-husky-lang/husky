@@ -17,6 +17,9 @@
                 },
                 path: TypeVariantPath(`mnist::MnistLabel::Zero`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -33,6 +36,9 @@
                 },
                 path: TypeVariantPath(`mnist::MnistLabel::Zero`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -49,6 +55,9 @@
                 },
                 path: TypeVariantPath(`mnist::MnistLabel::One`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -65,6 +74,9 @@
                 },
                 path: TypeVariantPath(`mnist::MnistLabel::One`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -81,6 +93,9 @@
                 },
                 path: TypeVariantPath(`mnist::MnistLabel::Two`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -97,6 +112,9 @@
                 },
                 path: TypeVariantPath(`mnist::MnistLabel::Two`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -113,6 +131,9 @@
                 },
                 path: TypeVariantPath(`mnist::MnistLabel::Three`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -129,6 +150,9 @@
                 },
                 path: TypeVariantPath(`mnist::MnistLabel::Three`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -145,6 +169,9 @@
                 },
                 path: TypeVariantPath(`mnist::MnistLabel::Four`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -161,6 +188,9 @@
                 },
                 path: TypeVariantPath(`mnist::MnistLabel::Four`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -177,6 +207,9 @@
                 },
                 path: TypeVariantPath(`mnist::MnistLabel::Five`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -193,6 +226,9 @@
                 },
                 path: TypeVariantPath(`mnist::MnistLabel::Five`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -209,6 +245,9 @@
                 },
                 path: TypeVariantPath(`mnist::MnistLabel::Six`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -225,6 +264,9 @@
                 },
                 path: TypeVariantPath(`mnist::MnistLabel::Six`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -241,6 +283,9 @@
                 },
                 path: TypeVariantPath(`mnist::MnistLabel::Seven`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -257,6 +302,9 @@
                 },
                 path: TypeVariantPath(`mnist::MnistLabel::Seven`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -273,6 +321,9 @@
                 },
                 path: TypeVariantPath(`mnist::MnistLabel::Eight`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -289,6 +340,9 @@
                 },
                 path: TypeVariantPath(`mnist::MnistLabel::Eight`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -305,6 +359,9 @@
                 },
                 path: TypeVariantPath(`mnist::MnistLabel::Nine`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -321,6 +378,9 @@
                 },
                 path: TypeVariantPath(`mnist::MnistLabel::Nine`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -333,6 +393,9 @@
             data: LinkageData::MajorStaticVar {
                 path: MajorFormPath(`mnist::INPUT`, `StaticVar`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -352,6 +415,9 @@
                     ),
                 ),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: Some(
                         0,
@@ -373,6 +439,9 @@
                     ),
                 ),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: Some(
                         0,
@@ -394,6 +463,9 @@
                     ),
                 ),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: Some(
                         0,
@@ -408,6 +480,9 @@
             data: LinkageData::MajorStaticVar {
                 path: MajorFormPath(`mnist::TASK`, `StaticVar`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
