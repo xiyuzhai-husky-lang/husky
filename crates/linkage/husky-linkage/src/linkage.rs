@@ -309,7 +309,7 @@ impl Linkage {
     }
 }
 
-#[salsa::tracked(jar = LinkageJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallVec<[Linkage; 4]> {
     match *javelin.data(db) {
         JavelinData::PathLeading {
@@ -548,7 +548,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
     }
 }
 
-#[salsa::tracked(jar = LinkageJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub fn package_linkages(db: &::salsa::Db, package_path: PackagePath) -> Vec<Linkage> {
     package_javelins(db, package_path)
         .flat_map(|javelin| linkages_emancipated_by_javelin(db, javelin).iter().copied())

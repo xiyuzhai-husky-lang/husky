@@ -40,7 +40,7 @@ impl HasVersionStamp for Linkage {
     }
 }
 
-#[salsa::tracked(jar = LinkageJar)]
+#[salsa::tracked]
 fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionStamp {
     let mut builder = LinkageVersionStampBuilder::new(linkage, db);
     match *linkage.data(db) {
@@ -157,7 +157,7 @@ impl HasVersionStamp for LinType {
     }
 }
 
-#[salsa::tracked(jar = LinkageJar)]
+#[salsa::tracked]
 fn linkage_ty_path_leading_version_stamp(
     db: &::salsa::Db,
     linkage_ty: LinTypePathLeading,
@@ -169,7 +169,7 @@ fn linkage_ty_path_leading_version_stamp(
     builder.finish()
 }
 
-#[salsa::tracked(jar = LinkageJar)]
+#[salsa::tracked]
 fn linkage_ty_ritchie_version_stamp(
     db: &::salsa::Db,
     linkage_ty: LinkageRitchieType,
