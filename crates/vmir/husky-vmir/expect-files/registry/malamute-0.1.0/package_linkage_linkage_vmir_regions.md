@@ -17,6 +17,9 @@
                 },
                 path: TypeVariantPath(`malamute::OneVsAll::Yes`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -33,6 +36,9 @@
                 },
                 path: TypeVariantPath(`malamute::OneVsAll::Yes`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -49,6 +55,9 @@
                 },
                 path: TypeVariantPath(`malamute::OneVsAll::No`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -65,6 +74,9 @@
                 },
                 path: TypeVariantPath(`malamute::OneVsAll::No`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -89,6 +101,9 @@
                 },
                 path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentYes`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -105,6 +120,9 @@
                 },
                 path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentYes`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -121,6 +139,9 @@
                 },
                 path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentNo`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -137,6 +158,9 @@
                 },
                 path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentNo`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -153,6 +177,9 @@
                 },
                 path: TypeVariantPath(`malamute::OneVsAllResult::Unconfident`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -169,6 +196,9 @@
                 },
                 path: TypeVariantPath(`malamute::OneVsAllResult::Unconfident`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: None,
                 },
@@ -188,6 +218,9 @@
                     ),
                 ),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: Some(
                         0,
@@ -208,6 +241,9 @@
                             ),
                         ),
                         instantiation: LinInstantiation {
+                            context: LinTypeContext {
+                                comptime_var_overrides: [],
+                            },
                             symbol_resolutions: [],
                             separator: Some(
                                 0,
@@ -261,6 +297,9 @@
                     ),
                 ),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: Some(
                         0,
@@ -281,6 +320,9 @@
                             ),
                         ),
                         instantiation: LinInstantiation {
+                            context: LinTypeContext {
+                                comptime_var_overrides: [],
+                            },
                             symbol_resolutions: [],
                             separator: Some(
                                 0,
@@ -325,6 +367,9 @@
                                         },
                                         path: TypeVariantPath(`core::ops::ControlFlow::Break`),
                                         instantiation: LinInstantiation {
+                                            context: LinTypeContext {
+                                                comptime_var_overrides: [],
+                                            },
                                             symbol_resolutions: [
                                                 (
                                                     Type(
@@ -413,6 +458,9 @@
                                         },
                                         path: TypeVariantPath(`core::ops::ControlFlow::Break`),
                                         instantiation: LinInstantiation {
+                                            context: LinTypeContext {
+                                                comptime_var_overrides: [],
+                                            },
                                             symbol_resolutions: [
                                                 (
                                                     Type(
@@ -505,6 +553,9 @@
                                         },
                                         path: TypeVariantPath(`core::ops::ControlFlow::Continue`),
                                         instantiation: LinInstantiation {
+                                            context: LinTypeContext {
+                                                comptime_var_overrides: [],
+                                            },
                                             symbol_resolutions: [
                                                 (
                                                     Type(
@@ -661,6 +712,9 @@
                     ),
                 ),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [],
                     separator: Some(
                         0,
@@ -679,6 +733,9 @@
                             ),
                         ),
                         instantiation: LinInstantiation {
+                            context: LinTypeContext {
+                                comptime_var_overrides: [],
+                            },
                             symbol_resolutions: [],
                             separator: Some(
                                 0,
@@ -723,6 +780,9 @@
                                         },
                                         path: TypeVariantPath(`core::ops::ControlFlow::Break`),
                                         instantiation: LinInstantiation {
+                                            context: LinTypeContext {
+                                                comptime_var_overrides: [],
+                                            },
                                             symbol_resolutions: [
                                                 (
                                                     Type(
@@ -811,6 +871,9 @@
                                         },
                                         path: TypeVariantPath(`core::ops::ControlFlow::Break`),
                                         instantiation: LinInstantiation {
+                                            context: LinTypeContext {
+                                                comptime_var_overrides: [],
+                                            },
                                             symbol_resolutions: [
                                                 (
                                                     Type(
@@ -903,6 +966,9 @@
                                         },
                                         path: TypeVariantPath(`core::ops::ControlFlow::Continue`),
                                         instantiation: LinInstantiation {
+                                            context: LinTypeContext {
+                                                comptime_var_overrides: [],
+                                            },
                                             symbol_resolutions: [
                                                 (
                                                     Type(
@@ -1075,6 +1141,9 @@
                 },
                 path: TypeVariantPath(`core::ops::ControlFlow::Continue`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [
                         (
                             Type(
@@ -1153,6 +1222,9 @@
                 },
                 path: TypeVariantPath(`core::ops::ControlFlow::Continue`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [
                         (
                             Type(
@@ -1231,6 +1303,9 @@
                 },
                 path: TypeVariantPath(`core::ops::ControlFlow::Continue`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [
                         (
                             Type(
@@ -1288,6 +1363,9 @@
             data: LinkageData::EnumVariantField {
                 path: TypeVariantPath(`core::ops::ControlFlow::Continue`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [
                         (
                             Type(
@@ -1369,6 +1447,9 @@
                 },
                 path: TypeVariantPath(`core::ops::ControlFlow::Break`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [
                         (
                             Type(
@@ -1447,6 +1528,9 @@
                 },
                 path: TypeVariantPath(`core::ops::ControlFlow::Break`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [
                         (
                             Type(
@@ -1525,6 +1609,9 @@
                 },
                 path: TypeVariantPath(`core::ops::ControlFlow::Break`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [
                         (
                             Type(
@@ -1582,6 +1669,9 @@
             data: LinkageData::EnumVariantField {
                 path: TypeVariantPath(`core::ops::ControlFlow::Break`),
                 instantiation: LinInstantiation {
+                    context: LinTypeContext {
+                        comptime_var_overrides: [],
+                    },
                     symbol_resolutions: [
                         (
                             Type(

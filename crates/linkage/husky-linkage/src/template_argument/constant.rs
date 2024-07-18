@@ -17,7 +17,7 @@ impl std::ops::Deref for LinConstant {
 impl LinConstant {
     pub(crate) fn from_hir(
         hir_constant: HirConstant,
-        _javelin_instantiation: Option<&LinInstantiation>,
+        _jav_instantiation: &LinInstantiation,
     ) -> Self {
         Self(match hir_constant {
             HirConstant::Unit(value) => JavelinConstant::Unit(value),

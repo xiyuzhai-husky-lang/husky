@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_path::region::RegionPath;
-use husky_eth_signature::context::EthSignatureBuilderContextItd;
+use husky_eth_term::context::EthTermContextItd;
 use husky_eth_term::{
     fmt::EthTermFmtContext,
     term::{symbolic_variable::EthSymbolicVariable, EthTerm},
@@ -89,7 +89,7 @@ impl SemExprRegion {
         fly_term_region: FlyTermRegion,
         return_ty: Option<EthTerm>,
         self_ty: Option<EthTerm>,
-        context_itd: EthSignatureBuilderContextItd,
+        context_itd: EthTermContextItd,
         db: &::salsa::Db,
     ) -> Self {
         SemExprRegion::new_inner(
@@ -133,7 +133,7 @@ pub struct SemExprRegionData {
     return_ty: Option<EthTerm>,
     self_ty: Option<EthTerm>,
     // todo: this should be expr dependent, i.e., for any expr, this could be overriden
-    context_itd: EthSignatureBuilderContextItd,
+    context_itd: EthTermContextItd,
 }
 
 impl SemExprRegionData {
@@ -242,7 +242,7 @@ impl SemExprRegionData {
     }
 
     /// todo: make this expr dependent, because of possible overrides
-    pub fn context_itd(&self) -> EthSignatureBuilderContextItd {
+    pub fn context_itd(&self) -> EthTermContextItd {
         self.context_itd
     }
 }

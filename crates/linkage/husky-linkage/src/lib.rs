@@ -1,3 +1,4 @@
+pub mod context;
 mod helpers;
 pub mod instantiation;
 pub mod jar;
@@ -10,7 +11,7 @@ pub mod trai;
 pub mod version_stamp;
 
 use self::instantiation::*;
-use self::jar::*;
+use self::jar::LinkageJar as Jar;
 use self::linkage::*;
 #[cfg(test)]
 use self::tests::*;

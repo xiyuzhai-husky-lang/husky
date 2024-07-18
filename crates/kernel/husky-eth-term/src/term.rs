@@ -16,6 +16,7 @@ use self::{
 };
 use crate::{instantiation::*, term::application::TermFunctionReduced};
 use crate::{term::application::term_uncheck_from_dec_term_application_aux, *};
+use context::EthTermContextItd;
 use husky_coword::Ident;
 use husky_dec_term::term::DecTerm;
 use husky_entity_path::{
@@ -399,10 +400,10 @@ impl EthInstantiate for EthTerm {
     fn instantiate(
         self,
         instantiation: &EthInstantiation,
-        ctx: &impl IsEthInstantiationContext,
+        ctx: impl IsEthTermContextRef,
         db: &::salsa::Db,
     ) -> Self::Output {
-        if let Some(task_ty) = instantiation.task_ty() {
+        if let Some(task_ty) = instantiation.context_itd().task_ty(db) {
             match self {
                 EthTerm::ItemPath(ItemPathTerm::MajorForm(form_path))
                     if form_path.refine(db) == Left(PreludeMajorFormPath::TaskType) =>

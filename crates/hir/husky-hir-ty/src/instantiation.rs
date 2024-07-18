@@ -1,6 +1,7 @@
 use super::*;
 use crate::place_contract_site::HirPlaceContractSite;
 use crate::quary::HirContractedQuary;
+use context::HirTypeContext;
 use husky_eth_term::instantiation::EthInstantiation;
 use husky_fly_term::{
     instantiation::{FlyInstantiation, FlyTermSymbolResolution},
@@ -14,7 +15,7 @@ use vec_like::{SmallVecMap, SmallVecPairMap};
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirInstantiation {
-    // todo: task_ty: Option<HirType>, should check whether this is actually needed to avoid redundancy
+    context: HirTypeContext,
     symbol_map: SmallVecPairMap<HirTemplateVariable, HirTermSymbolicVariableResolution, 4>,
     separator: Option<u8>,
 }
@@ -95,11 +96,12 @@ impl HirInstantiation {
         Self {
             symbol_map,
             separator,
+            context: HirTypeContext::from_fly(instantiation, db),
         }
     }
 
-    pub fn from_eth(ethereal_instantiation: &EthInstantiation, db: &::salsa::Db) -> Self {
-        let (symbol_map0, symbol_map1) = &ethereal_instantiation.symbol_map_splitted();
+    pub fn from_eth(eth_instantiation: &EthInstantiation, db: &::salsa::Db) -> Self {
+        let (symbol_map0, symbol_map1) = &eth_instantiation.symbol_map_splitted();
         let t = |&(symbol, term)| match HirTemplateVariable::from_eth(symbol, db) {
             Some(symbol) => Some((
                 symbol,
@@ -124,7 +126,14 @@ impl HirInstantiation {
         Self {
             symbol_map,
             separator,
+            context: HirTypeContext::from_eth(eth_instantiation, db),
         }
+    }
+}
+
+impl HirInstantiation {
+    pub fn context(&self) -> &HirTypeContext {
+        &self.context
     }
 
     pub fn symbol_map(&self) -> &[(HirTemplateVariable, HirTermSymbolicVariableResolution)] {

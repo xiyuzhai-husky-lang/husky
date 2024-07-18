@@ -471,6 +471,21 @@ where
             entries: self.entries.iter().map(|(k, v)| (*k, f(v))).collect(),
         }
     }
+
+    #[inline(always)]
+    pub fn map_collect2<U>(&self, f: impl Fn(K, &V) -> U) -> OrderedSmallVecPairMap<K, U, N>
+    where
+        K: Copy,
+        [(K, U); N]: Array<Item = (K, U)>,
+    {
+        OrderedSmallVecPairMap {
+            entries: self
+                .entries
+                .iter()
+                .map(|&(k, ref v)| (k, f(k, v)))
+                .collect(),
+        }
+    }
 }
 
 impl<E, const N: usize> Deref for OrderedSmallVecMap<E, N>

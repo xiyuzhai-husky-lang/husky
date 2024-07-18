@@ -32,7 +32,7 @@ impl EthInstantiate for EthRitchieSimpleParameter {
     fn instantiate(
         self,
         instantiation: &EthInstantiation,
-        ctx: &impl IsEthInstantiationContext,
+        ctx: impl IsEthTermContextRef,
         db: &::salsa::Db,
     ) -> Self {
         Self {

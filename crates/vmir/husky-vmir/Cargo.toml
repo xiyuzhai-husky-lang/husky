@@ -81,6 +81,9 @@ husky-linkage.workspace = true
 husky-corgi-config.workspace = true
 husky-sem-expr.workspace = true
 husky-sem-place-contract.workspace = true
+husky-sem-item-path-deps.workspace = true
+husky-sem-static-mut-deps.workspace = true
+husky-sem-var-deps.workspace = true
 # syntax
 husky-ast = { workspace = true, features = ["test_utils"] }
 husky-toml-ast.workspace = true

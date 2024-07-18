@@ -4,9 +4,7 @@ use husky_hir_ty::{
     ritchie::{HirContract, HirRitchieParameter},
     HirType,
 };
-use husky_javelin::template_argument::ty::{
-    JavelinRitchieParameter, JavelinType, JavelinTypePathLeading,
-};
+use husky_javelin::template_argument::ty::{JavRitchieParameter, JavType, JavTypePathLeading};
 
 use smallvec::SmallVec;
 
@@ -21,21 +19,17 @@ pub enum LinType {
 impl LinkageInstantiate for HirType {
     type Output = LinType;
 
-    fn linkage_instantiate(
-        self,
-        lin_instantiation: &LinInstantiation,
-        db: &salsa::Db,
-    ) -> Self::Output {
+    fn linkage_instantiate(self, instantiation: &LinInstantiation, db: &salsa::Db) -> Self::Output {
         match self {
             HirType::PathLeading(slf) => LinType::PathLeading(LinTypePathLeading::new(
                 db,
                 slf.ty_path(db),
                 slf.template_arguments(db)
                     .iter()
-                    .map(|&arg| LinTemplateArgument::from_hir(arg, Some(lin_instantiation), db))
+                    .map(|&arg| LinTemplateArgument::from_hir(arg, instantiation, db))
                     .collect(),
             )),
-            HirType::Variable(slf) => match lin_instantiation.resolve(slf.into()) {
+            HirType::Variable(slf) => match instantiation.resolve(slf.into()) {
                 LinTermSymbolResolution::Explicit(arg) => match arg {
                     LinTemplateArgument::Vacant => todo!(),
                     LinTemplateArgument::Type(linkage_ty) => linkage_ty,
@@ -54,7 +48,7 @@ impl LinkageInstantiate for HirType {
     }
 }
 
-#[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = pub(crate) new)]
+#[salsa::interned(constructor = pub(crate) new)]
 pub struct LinTypePathLeading {
     pub ty_path: TypePath,
     /// phantom arguments are ignored
@@ -84,7 +78,7 @@ impl LinTypePathLeading {
     }
 }
 
-#[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = new)]
+#[salsa::interned(constructor = new)]
 pub struct LinkageRitchieType {
     pub parameters: SmallVec<[LinkageRitchieParameter; 4]>,
     pub return_ty: LinType,
@@ -96,26 +90,26 @@ pub struct LinkageRitchieParameter {
     parameter_ty: LinType,
 }
 impl LinkageRitchieParameter {
-    fn from_javelin(
-        param: JavelinRitchieParameter,
+    fn from_jav(
+        param: JavRitchieParameter,
         lin_instantiation: &LinInstantiation,
         db: &salsa::Db,
     ) -> Self {
         Self {
             contract: param.contract(),
-            parameter_ty: LinType::from_javelin(param.parameter_ty(), lin_instantiation, db),
+            parameter_ty: LinType::from_jav(param.parameter_ty(), lin_instantiation, db),
         }
     }
 
     fn from_hir(
         param: HirRitchieParameter,
-        lin_instantiation: Option<&LinInstantiation>,
+        instantiation: &LinInstantiation,
         db: &salsa::Db,
     ) -> Self {
         match param {
             HirRitchieParameter::Simple(param) => Self {
                 contract: param.contract(),
-                parameter_ty: LinType::from_hir(param.ty(), lin_instantiation, db),
+                parameter_ty: LinType::from_hir(param.ty(), instantiation, db),
             },
             HirRitchieParameter::Variadic(_) => todo!(),
             HirRitchieParameter::Keyed(_) => todo!(),
@@ -134,7 +128,7 @@ impl LinkageRitchieParameter {
 impl LinType {
     pub(crate) fn from_hir(
         hir_ty: HirType,
-        lin_instantiation: Option<&LinInstantiation>,
+        instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         match hir_ty {
@@ -143,24 +137,21 @@ impl LinType {
                 hir_ty.ty_path(db),
                 LinTemplateArgument::from_hir_template_arguments(
                     hir_ty.template_arguments(db),
-                    lin_instantiation,
+                    instantiation,
                     db,
                 ),
             )
             .into(),
-            HirType::Variable(symbol) => match lin_instantiation {
-                Some(lin_instantiation) => match lin_instantiation.resolve(symbol.into()) {
-                    LinTermSymbolResolution::Explicit(arg) => match arg {
-                        LinTemplateArgument::Vacant => todo!(),
-                        LinTemplateArgument::Type(linkage_ty) => linkage_ty,
-                        LinTemplateArgument::Constant(_) => todo!(),
-                        LinTemplateArgument::Lifetime => todo!(),
-                        LinTemplateArgument::Qual(_) => todo!(),
-                    },
-                    LinTermSymbolResolution::SelfLifetime => todo!(),
-                    LinTermSymbolResolution::SelfQual(_) => todo!(),
+            HirType::Variable(symbol) => match instantiation.resolve(symbol.into()) {
+                LinTermSymbolResolution::Explicit(arg) => match arg {
+                    LinTemplateArgument::Vacant => todo!(),
+                    LinTemplateArgument::Type(linkage_ty) => linkage_ty,
+                    LinTemplateArgument::Constant(_) => todo!(),
+                    LinTemplateArgument::Lifetime => todo!(),
+                    LinTemplateArgument::Qual(_) => todo!(),
                 },
-                None => todo!(),
+                LinTermSymbolResolution::SelfLifetime => todo!(),
+                LinTermSymbolResolution::SelfQual(_) => todo!(),
             },
             HirType::TypeAssocType(_) => unreachable!(),
             HirType::TraitAssocType(_) => unreachable!(),
@@ -169,34 +160,32 @@ impl LinType {
                 hir_ty
                     .parameters(db)
                     .iter()
-                    .map(|&param| LinkageRitchieParameter::from_hir(param, lin_instantiation, db))
+                    .map(|&param| LinkageRitchieParameter::from_hir(param, instantiation, db))
                     .collect(),
-                LinType::from_hir(hir_ty.return_ty(db), lin_instantiation, db),
+                LinType::from_hir(hir_ty.return_ty(db), instantiation, db),
             )
             .into(),
             HirType::TypeVar(_) => todo!(),
         }
     }
 
-    pub(crate) fn from_javelin(
-        javelin_ty: JavelinType,
-        lin_instantiation: &LinInstantiation,
+    pub(crate) fn from_jav(
+        jav_ty: JavType,
+        instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
-        match javelin_ty {
-            JavelinType::PathLeading(javelin_ty) => {
-                LinTypePathLeading::from_javelin(javelin_ty, lin_instantiation, db).into()
+        match jav_ty {
+            JavType::PathLeading(javelin_ty) => {
+                LinTypePathLeading::from_jav(javelin_ty, instantiation, db).into()
             }
-            JavelinType::Ritchie(javelin_ty) => LinkageRitchieType::new(
+            JavType::Ritchie(javelin_ty) => LinkageRitchieType::new(
                 db,
                 javelin_ty
                     .parameters(db)
                     .iter()
-                    .map(|&param| {
-                        LinkageRitchieParameter::from_javelin(param, lin_instantiation, db)
-                    })
+                    .map(|&param| LinkageRitchieParameter::from_jav(param, instantiation, db))
                     .collect(),
-                LinType::from_javelin(javelin_ty.return_ty(db), lin_instantiation, db),
+                LinType::from_jav(javelin_ty.return_ty(db), instantiation, db),
             )
             .into(),
         }
@@ -204,8 +193,8 @@ impl LinType {
 }
 
 impl LinTypePathLeading {
-    fn from_javelin(
-        javelin_ty: JavelinTypePathLeading,
+    fn from_jav(
+        javelin_ty: JavTypePathLeading,
         lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
@@ -215,7 +204,7 @@ impl LinTypePathLeading {
             javelin_ty
                 .template_arguments(db)
                 .iter()
-                .map(|&arg| LinTemplateArgument::from_javelin(arg, lin_instantiation, db))
+                .map(|&arg| LinTemplateArgument::from_jav(arg, lin_instantiation, db))
                 .collect(),
         )
     }

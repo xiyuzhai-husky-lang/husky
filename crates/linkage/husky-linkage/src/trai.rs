@@ -6,7 +6,7 @@ use crate::{
 use husky_entity_path::path::major_item::trai::TraitPath;
 use husky_hir_ty::trai::HirTrait;
 
-#[salsa::interned(jar = LinkageJar, constructor = new)]
+#[salsa::interned(constructor = new)]
 pub struct LinkageTrait {
     pub trai_path: TraitPath,
     /// phantom arguments are ignored
@@ -17,15 +17,11 @@ pub struct LinkageTrait {
 impl LinkageInstantiate for HirTrait {
     type Output = LinkageTrait;
 
-    fn linkage_instantiate(
-        self,
-        lin_instantiation: &LinInstantiation,
-        db: &salsa::Db,
-    ) -> Self::Output {
+    fn linkage_instantiate(self, instantiation: &LinInstantiation, db: &salsa::Db) -> Self::Output {
         let trai_path = self.trai_path(db);
         let template_arguments = LinTemplateArgument::from_hir_template_arguments(
             self.template_arguments(db),
-            Some(lin_instantiation),
+            instantiation,
             db,
         );
         LinkageTrait::new(db, trai_path, template_arguments)

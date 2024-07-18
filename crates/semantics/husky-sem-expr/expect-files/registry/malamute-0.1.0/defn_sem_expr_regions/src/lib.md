@@ -25,7 +25,9 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`malamute::OneVsAll::No`),
-                                            task_ty: None,
+                                            context_itd: EthTermContextItd {
+                                                task_ty: None,
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -484,10 +486,8 @@
             self_ty: Some(
                 EthTerm(`OneVsAll Label label`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -561,7 +561,9 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`core::ops::ControlFlow::Break`),
-                                            task_ty: None,
+                                            context_itd: EthTermContextItd {
+                                                task_ty: None,
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -631,7 +633,9 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`malamute::Class::Known`),
-                                            task_ty: None,
+                                            context_itd: EthTermContextItd {
+                                                task_ty: None,
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -871,7 +875,9 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`core::ops::ControlFlow::Continue`),
-                                            task_ty: None,
+                                            context_itd: EthTermContextItd {
+                                                task_ty: None,
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -2304,10 +2310,8 @@
             self_ty: Some(
                 EthTerm(`Class Label`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -2381,7 +2385,9 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`core::ops::ControlFlow::Break`),
-                                            task_ty: None,
+                                            context_itd: EthTermContextItd {
+                                                task_ty: None,
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -2451,7 +2457,9 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`malamute::OneVsAll::Yes`),
-                                            task_ty: None,
+                                            context_itd: EthTermContextItd {
+                                                task_ty: None,
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -2593,7 +2601,9 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`core::ops::ControlFlow::Break`),
-                                            task_ty: None,
+                                            context_itd: EthTermContextItd {
+                                                task_ty: None,
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -2663,7 +2673,9 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`malamute::OneVsAll::No`),
-                                            task_ty: None,
+                                            context_itd: EthTermContextItd {
+                                                task_ty: None,
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -2805,7 +2817,9 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath(`core::ops::ControlFlow::Continue`),
-                                            task_ty: None,
+                                            context_itd: EthTermContextItd {
+                                                task_ty: None,
+                                            },
                                             env: TypeOntologyConstructor,
                                             symbol_map: [
                                                 (
@@ -4788,10 +4802,8 @@
             self_ty: Some(
                 EthTerm(`OneVsAll Label label`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },

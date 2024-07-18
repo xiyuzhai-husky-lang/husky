@@ -24,6 +24,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -37,8 +40,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -82,6 +85,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -95,8 +101,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -125,8 +131,8 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
+                    element_ty: JavType::PathLeading(
+                        JavTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                             template_arguments: [],
                         },
@@ -156,6 +162,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -169,8 +178,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -208,6 +217,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -221,8 +233,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -257,8 +269,8 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
+                    element_ty: JavType::PathLeading(
+                        JavTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                             template_arguments: [],
                         },
@@ -288,6 +300,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -301,18 +316,18 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`core::option::Option`, `Enum`),
                                                 template_arguments: [
                                                     JavTemplateArgument::Type(
-                                                        JavelinType::PathLeading(
-                                                            JavelinTypePathLeading {
+                                                        JavType::PathLeading(
+                                                            JavTypePathLeading {
                                                                 ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                                 template_arguments: [
                                                                     JavTemplateArgument::Type(
-                                                                        JavelinType::PathLeading(
-                                                                            JavelinTypePathLeading {
+                                                                        JavType::PathLeading(
+                                                                            JavTypePathLeading {
                                                                                 ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                                 template_arguments: [],
                                                                             },
@@ -364,6 +379,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -377,8 +395,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -407,8 +425,8 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
+                    element_ty: JavType::PathLeading(
+                        JavTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             template_arguments: [],
                         },
@@ -438,6 +456,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -451,8 +472,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -485,6 +506,9 @@ ValkyrieJavelinPantheon {
                         TypePath(`malamute::Class`, `Enum`),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -498,8 +522,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                 template_arguments: [],
                                             },
@@ -526,8 +550,8 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::TypeDefault {
-                    ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
+                    ty: JavType::PathLeading(
+                        JavTypePathLeading {
                             ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                             template_arguments: [],
                         },
@@ -548,13 +572,13 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::Ritchie(
-                        JavelinRitchieType {
+                    element_ty: JavType::Ritchie(
+                        JavRitchieType {
                             parameters: [
-                                JavelinRitchieParameter {
+                                JavRitchieParameter {
                                     contract: Pure,
                                     parameter_ty: PathLeading(
-                                        JavelinTypePathLeading(
+                                        JavTypePathLeading(
                                             Id {
                                                 value: 12,
                                             },
@@ -562,13 +586,13 @@ ValkyrieJavelinPantheon {
                                     ),
                                 },
                             ],
-                            return_ty: JavelinType::PathLeading(
-                                JavelinTypePathLeading {
+                            return_ty: JavType::PathLeading(
+                                JavTypePathLeading {
                                     ty_path: TypePath(`core::option::Option`, `Enum`),
                                     template_arguments: [
                                         JavTemplateArgument::Type(
-                                            JavelinType::PathLeading(
-                                                JavelinTypePathLeading {
+                                            JavType::PathLeading(
+                                                JavTypePathLeading {
                                                     ty_path: TypePath(`core::num::f32`, `Extern`),
                                                     template_arguments: [],
                                                 },
@@ -604,6 +628,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -617,13 +644,13 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                 template_arguments: [
                                                     JavTemplateArgument::Type(
-                                                        JavelinType::PathLeading(
-                                                            JavelinTypePathLeading {
+                                                        JavType::PathLeading(
+                                                            JavTypePathLeading {
                                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                                 template_arguments: [],
                                                             },
@@ -671,6 +698,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -684,8 +714,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -723,6 +753,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -736,8 +769,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -775,6 +808,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -788,8 +824,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -827,6 +863,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -840,8 +879,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -885,6 +924,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -898,8 +940,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -943,6 +985,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -956,8 +1001,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -995,6 +1040,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1002,8 +1050,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -1041,6 +1089,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1054,8 +1105,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -1090,8 +1141,8 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
+                    element_ty: JavType::PathLeading(
+                        JavTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                             template_arguments: [],
                         },
@@ -1121,6 +1172,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1134,8 +1188,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -1164,18 +1218,18 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
+                    element_ty: JavType::PathLeading(
+                        JavTypePathLeading {
                             ty_path: TypePath(`core::option::Option`, `Enum`),
                             template_arguments: [
                                 JavTemplateArgument::Type(
-                                    JavelinType::PathLeading(
-                                        JavelinTypePathLeading {
+                                    JavType::PathLeading(
+                                        JavTypePathLeading {
                                             ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                             template_arguments: [
                                                 JavTemplateArgument::Type(
-                                                    JavelinType::PathLeading(
-                                                        JavelinTypePathLeading {
+                                                    JavType::PathLeading(
+                                                        JavTypePathLeading {
                                                             ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                             template_arguments: [],
                                                         },
@@ -1213,6 +1267,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1220,8 +1277,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                 template_arguments: [],
                                             },
@@ -1254,6 +1311,9 @@ ValkyrieJavelinPantheon {
                         TypePath(`core::ops::ControlFlow`, `Enum`),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1267,13 +1327,13 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`malamute::Class`, `Enum`),
                                                 template_arguments: [
                                                     JavTemplateArgument::Type(
-                                                        JavelinType::PathLeading(
-                                                            JavelinTypePathLeading {
+                                                        JavType::PathLeading(
+                                                            JavTypePathLeading {
                                                                 ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                                 template_arguments: [],
                                                             },
@@ -1297,8 +1357,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`core::basic::unit`, `Extern`),
                                                 template_arguments: [],
                                             },
@@ -1334,6 +1394,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1347,8 +1410,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -1386,6 +1449,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1399,8 +1465,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -1438,6 +1504,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1451,18 +1520,18 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`core::option::Option`, `Enum`),
                                                 template_arguments: [
                                                     JavTemplateArgument::Type(
-                                                        JavelinType::PathLeading(
-                                                            JavelinTypePathLeading {
+                                                        JavType::PathLeading(
+                                                            JavTypePathLeading {
                                                                 ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                                 template_arguments: [
                                                                     JavTemplateArgument::Type(
-                                                                        JavelinType::PathLeading(
-                                                                            JavelinTypePathLeading {
+                                                                        JavType::PathLeading(
+                                                                            JavTypePathLeading {
                                                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                                                 template_arguments: [],
                                                                             },
@@ -1505,18 +1574,18 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
+                    element_ty: JavType::PathLeading(
+                        JavTypePathLeading {
                             ty_path: TypePath(`core::option::Option`, `Enum`),
                             template_arguments: [
                                 JavTemplateArgument::Type(
-                                    JavelinType::PathLeading(
-                                        JavelinTypePathLeading {
+                                    JavType::PathLeading(
+                                        JavTypePathLeading {
                                             ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                             template_arguments: [
                                                 JavTemplateArgument::Type(
-                                                    JavelinType::PathLeading(
-                                                        JavelinTypePathLeading {
+                                                    JavType::PathLeading(
+                                                        JavTypePathLeading {
                                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                             template_arguments: [],
                                                         },
@@ -1554,6 +1623,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1567,8 +1639,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -1606,6 +1678,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1619,8 +1694,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -1664,6 +1739,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1677,8 +1755,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -1716,6 +1794,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1729,8 +1810,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -1768,6 +1849,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1781,8 +1865,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -1826,6 +1910,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1839,8 +1926,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -1878,6 +1965,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1891,8 +1981,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -1936,6 +2026,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -1949,8 +2042,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -1994,6 +2087,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2007,8 +2103,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -2046,6 +2142,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2059,13 +2158,13 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                 template_arguments: [
                                                     JavTemplateArgument::Type(
-                                                        JavelinType::PathLeading(
-                                                            JavelinTypePathLeading {
+                                                        JavType::PathLeading(
+                                                            JavTypePathLeading {
                                                                 ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                 template_arguments: [],
                                                             },
@@ -2113,6 +2212,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2126,8 +2228,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -2171,6 +2273,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2184,8 +2289,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                 template_arguments: [],
                                             },
@@ -2218,6 +2323,9 @@ ValkyrieJavelinPantheon {
                         TypePath(`core::option::Option`, `Enum`),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2231,8 +2339,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                                 template_arguments: [],
                                             },
@@ -2265,6 +2373,32 @@ ValkyrieJavelinPantheon {
                         )`),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [
+                                (
+                                    MajorItem(
+                                        Form(
+                                            MajorFormPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 2,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    Type(
+                                        PathLeading(
+                                            JavTypePathLeading(
+                                                Id {
+                                                    value: 16,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2278,8 +2412,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                 template_arguments: [],
                                             },
@@ -2315,6 +2449,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2328,13 +2465,13 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                 template_arguments: [
                                                     JavTemplateArgument::Type(
-                                                        JavelinType::PathLeading(
-                                                            JavelinTypePathLeading {
+                                                        JavType::PathLeading(
+                                                            JavTypePathLeading {
                                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                                 template_arguments: [],
                                                             },
@@ -2376,6 +2513,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2389,13 +2529,13 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::Ritchie(
-                                            JavelinRitchieType {
+                                        JavType::Ritchie(
+                                            JavRitchieType {
                                                 parameters: [
-                                                    JavelinRitchieParameter {
+                                                    JavRitchieParameter {
                                                         contract: Pure,
                                                         parameter_ty: PathLeading(
-                                                            JavelinTypePathLeading(
+                                                            JavTypePathLeading(
                                                                 Id {
                                                                     value: 12,
                                                                 },
@@ -2403,13 +2543,13 @@ ValkyrieJavelinPantheon {
                                                         ),
                                                     },
                                                 ],
-                                                return_ty: JavelinType::PathLeading(
-                                                    JavelinTypePathLeading {
+                                                return_ty: JavType::PathLeading(
+                                                    JavTypePathLeading {
                                                         ty_path: TypePath(`core::option::Option`, `Enum`),
                                                         template_arguments: [
                                                             JavTemplateArgument::Type(
-                                                                JavelinType::PathLeading(
-                                                                    JavelinTypePathLeading {
+                                                                JavType::PathLeading(
+                                                                    JavTypePathLeading {
                                                                         ty_path: TypePath(`core::num::f32`, `Extern`),
                                                                         template_arguments: [],
                                                                     },
@@ -2453,6 +2593,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2466,8 +2609,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -2500,6 +2643,9 @@ ValkyrieJavelinPantheon {
                         TypePath(`core::ops::ControlFlow`, `Enum`),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2513,8 +2659,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                                                 template_arguments: [],
                                             },
@@ -2534,8 +2680,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`core::basic::unit`, `Extern`),
                                                 template_arguments: [],
                                             },
@@ -2569,8 +2715,8 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
+                    element_ty: JavType::PathLeading(
+                        JavTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                             template_arguments: [],
                         },
@@ -2602,6 +2748,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2615,8 +2764,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                 template_arguments: [],
                                             },
@@ -2635,8 +2784,8 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
+                    element_ty: JavType::PathLeading(
+                        JavTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             template_arguments: [],
                         },
@@ -2656,6 +2805,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2663,8 +2815,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                 template_arguments: [],
                                             },
@@ -2692,6 +2844,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2705,8 +2860,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -2740,6 +2895,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2753,8 +2911,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -2773,18 +2931,18 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
+                    element_ty: JavType::PathLeading(
+                        JavTypePathLeading {
                             ty_path: TypePath(`core::option::Option`, `Enum`),
                             template_arguments: [
                                 JavTemplateArgument::Type(
-                                    JavelinType::PathLeading(
-                                        JavelinTypePathLeading {
+                                    JavType::PathLeading(
+                                        JavTypePathLeading {
                                             ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                             template_arguments: [
                                                 JavTemplateArgument::Type(
-                                                    JavelinType::PathLeading(
-                                                        JavelinTypePathLeading {
+                                                    JavType::PathLeading(
+                                                        JavTypePathLeading {
                                                             ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                             template_arguments: [],
                                                         },
@@ -2812,6 +2970,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2825,13 +2986,13 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                 template_arguments: [
                                                     JavTemplateArgument::Type(
-                                                        JavelinType::PathLeading(
-                                                            JavelinTypePathLeading {
+                                                        JavType::PathLeading(
+                                                            JavTypePathLeading {
                                                                 ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                 template_arguments: [],
                                                             },
@@ -2869,6 +3030,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2882,18 +3046,18 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`core::option::Option`, `Enum`),
                                                 template_arguments: [
                                                     JavTemplateArgument::Type(
-                                                        JavelinType::PathLeading(
-                                                            JavelinTypePathLeading {
+                                                        JavType::PathLeading(
+                                                            JavTypePathLeading {
                                                                 ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                                 template_arguments: [
                                                                     JavTemplateArgument::Type(
-                                                                        JavelinType::PathLeading(
-                                                                            JavelinTypePathLeading {
+                                                                        JavType::PathLeading(
+                                                                            JavTypePathLeading {
                                                                                 ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                                 template_arguments: [],
                                                                             },
@@ -2935,6 +3099,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2948,8 +3115,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -2977,6 +3144,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -2990,8 +3160,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -3010,8 +3180,8 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
+                    element_ty: JavType::PathLeading(
+                        JavTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                             template_arguments: [],
                         },
@@ -3022,8 +3192,8 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
+                    element_ty: JavType::PathLeading(
+                        JavTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                             template_arguments: [],
                         },
@@ -3043,6 +3213,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3056,8 +3229,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -3091,6 +3264,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3104,8 +3280,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -3139,6 +3315,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3152,8 +3331,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -3187,6 +3366,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3200,8 +3382,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -3235,6 +3417,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3248,8 +3433,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -3277,6 +3462,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3284,8 +3472,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -3313,6 +3501,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3326,8 +3517,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -3346,8 +3537,8 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
+                    element_ty: JavType::PathLeading(
+                        JavTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                             template_arguments: [],
                         },
@@ -3367,6 +3558,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3380,8 +3574,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -3409,6 +3603,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3422,8 +3619,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -3457,6 +3654,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3470,8 +3670,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -3499,6 +3699,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3512,8 +3715,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -3547,6 +3750,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3560,8 +3766,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -3589,6 +3795,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3602,8 +3811,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -3637,6 +3846,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3650,8 +3862,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -3685,6 +3897,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3698,8 +3913,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -3718,8 +3933,8 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
+                    element_ty: JavType::PathLeading(
+                        JavTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                             template_arguments: [],
                         },
@@ -3739,6 +3954,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3752,8 +3970,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -3781,6 +3999,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3794,8 +4015,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -3829,6 +4050,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3842,8 +4066,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -3871,6 +4095,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3884,8 +4111,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -3913,6 +4140,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3926,8 +4156,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -3955,6 +4185,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -3968,8 +4201,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -3997,6 +4230,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -4010,8 +4246,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -4030,18 +4266,18 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
+                    element_ty: JavType::PathLeading(
+                        JavTypePathLeading {
                             ty_path: TypePath(`core::option::Option`, `Enum`),
                             template_arguments: [
                                 JavTemplateArgument::Type(
-                                    JavelinType::PathLeading(
-                                        JavelinTypePathLeading {
+                                    JavType::PathLeading(
+                                        JavTypePathLeading {
                                             ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                             template_arguments: [
                                                 JavTemplateArgument::Type(
-                                                    JavelinType::PathLeading(
-                                                        JavelinTypePathLeading {
+                                                    JavType::PathLeading(
+                                                        JavTypePathLeading {
                                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                             template_arguments: [],
                                                         },
@@ -4069,6 +4305,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -4082,13 +4321,13 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::Ritchie(
-                                            JavelinRitchieType {
+                                        JavType::Ritchie(
+                                            JavRitchieType {
                                                 parameters: [
-                                                    JavelinRitchieParameter {
+                                                    JavRitchieParameter {
                                                         contract: Pure,
                                                         parameter_ty: PathLeading(
-                                                            JavelinTypePathLeading(
+                                                            JavTypePathLeading(
                                                                 Id {
                                                                     value: 12,
                                                                 },
@@ -4096,13 +4335,13 @@ ValkyrieJavelinPantheon {
                                                         ),
                                                     },
                                                 ],
-                                                return_ty: JavelinType::PathLeading(
-                                                    JavelinTypePathLeading {
+                                                return_ty: JavType::PathLeading(
+                                                    JavTypePathLeading {
                                                         ty_path: TypePath(`core::option::Option`, `Enum`),
                                                         template_arguments: [
                                                             JavTemplateArgument::Type(
-                                                                JavelinType::PathLeading(
-                                                                    JavelinTypePathLeading {
+                                                                JavType::PathLeading(
+                                                                    JavTypePathLeading {
                                                                         ty_path: TypePath(`core::num::f32`, `Extern`),
                                                                         template_arguments: [],
                                                                     },
@@ -4136,6 +4375,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -4149,13 +4391,13 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                 template_arguments: [
                                                     JavTemplateArgument::Type(
-                                                        JavelinType::PathLeading(
-                                                            JavelinTypePathLeading {
+                                                        JavType::PathLeading(
+                                                            JavTypePathLeading {
                                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                                 template_arguments: [],
                                                             },
@@ -4193,6 +4435,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -4206,18 +4451,18 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`core::option::Option`, `Enum`),
                                                 template_arguments: [
                                                     JavTemplateArgument::Type(
-                                                        JavelinType::PathLeading(
-                                                            JavelinTypePathLeading {
+                                                        JavType::PathLeading(
+                                                            JavTypePathLeading {
                                                                 ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                                 template_arguments: [
                                                                     JavTemplateArgument::Type(
-                                                                        JavelinType::PathLeading(
-                                                                            JavelinTypePathLeading {
+                                                                        JavType::PathLeading(
+                                                                            JavTypePathLeading {
                                                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                                                 template_arguments: [],
                                                                             },
@@ -4259,6 +4504,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -4272,13 +4520,13 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                 template_arguments: [
                                                     JavTemplateArgument::Type(
-                                                        JavelinType::PathLeading(
-                                                            JavelinTypePathLeading {
+                                                        JavType::PathLeading(
+                                                            JavTypePathLeading {
                                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                                 template_arguments: [],
                                                             },
@@ -4301,13 +4549,13 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::VecConstructor {
-                    element_ty: JavelinType::Ritchie(
-                        JavelinRitchieType {
+                    element_ty: JavType::Ritchie(
+                        JavRitchieType {
                             parameters: [
-                                JavelinRitchieParameter {
+                                JavRitchieParameter {
                                     contract: Pure,
                                     parameter_ty: PathLeading(
-                                        JavelinTypePathLeading(
+                                        JavTypePathLeading(
                                             Id {
                                                 value: 12,
                                             },
@@ -4315,13 +4563,13 @@ ValkyrieJavelinPantheon {
                                     ),
                                 },
                             ],
-                            return_ty: JavelinType::PathLeading(
-                                JavelinTypePathLeading {
+                            return_ty: JavType::PathLeading(
+                                JavTypePathLeading {
                                     ty_path: TypePath(`core::option::Option`, `Enum`),
                                     template_arguments: [
                                         JavTemplateArgument::Type(
-                                            JavelinType::PathLeading(
-                                                JavelinTypePathLeading {
+                                            JavType::PathLeading(
+                                                JavTypePathLeading {
                                                     ty_path: TypePath(`core::num::f32`, `Extern`),
                                                     template_arguments: [],
                                                 },
@@ -4347,6 +4595,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -4360,8 +4611,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -4386,6 +4637,32 @@ ValkyrieJavelinPantheon {
                         )`),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [
+                                (
+                                    MajorItem(
+                                        Form(
+                                            MajorFormPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 2,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    Type(
+                                        PathLeading(
+                                            JavTypePathLeading(
+                                                Id {
+                                                    value: 16,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -4399,8 +4676,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                 template_arguments: [],
                                             },
@@ -4417,8 +4694,8 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::TypeDefault {
-                    ty: JavelinType::PathLeading(
-                        JavelinTypePathLeading {
+                    ty: JavType::PathLeading(
+                        JavTypePathLeading {
                             ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                             template_arguments: [],
                         },
@@ -4438,6 +4715,9 @@ ValkyrieJavelinPantheon {
                         ),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -4451,8 +4731,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 template_arguments: [],
                                             },
@@ -4475,6 +4755,9 @@ ValkyrieJavelinPantheon {
                         TypePath(`core::option::Option`, `Enum`),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -4488,8 +4771,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                                 template_arguments: [],
                                             },
@@ -4510,6 +4793,9 @@ ValkyrieJavelinPantheon {
                         TypePath(`malamute::Class`, `Enum`),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -4523,8 +4809,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                 template_arguments: [],
                                             },
@@ -4545,6 +4831,9 @@ ValkyrieJavelinPantheon {
                         TypePath(`core::ops::ControlFlow`, `Enum`),
                     ),
                     instantiation: JavInstantiation {
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
                         symbol_resolutions: [
                             (
                                 HirTemplateVariable::Type(
@@ -4558,13 +4847,13 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`malamute::Class`, `Enum`),
                                                 template_arguments: [
                                                     JavTemplateArgument::Type(
-                                                        JavelinType::PathLeading(
-                                                            JavelinTypePathLeading {
+                                                        JavType::PathLeading(
+                                                            JavTypePathLeading {
                                                                 ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                                 template_arguments: [],
                                                             },
@@ -4588,8 +4877,8 @@ ValkyrieJavelinPantheon {
                                 ),
                                 JavTermSymbolResolution::Explicit(
                                     JavTemplateArgument::Type(
-                                        JavelinType::PathLeading(
-                                            JavelinTypePathLeading {
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
                                                 ty_path: TypePath(`core::basic::unit`, `Extern`),
                                                 template_arguments: [],
                                             },

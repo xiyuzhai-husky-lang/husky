@@ -9,6 +9,9 @@
                     data: LinkageData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                         instantiation: LinInstantiation {
+                            context: LinTypeContext {
+                                comptime_var_overrides: [],
+                            },
                             symbol_resolutions: [],
                             separator: None,
                         },
@@ -31,6 +34,9 @@
                     data: LinkageData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                         instantiation: LinInstantiation {
+                            context: LinTypeContext {
+                                comptime_var_overrides: [],
+                            },
                             symbol_resolutions: [],
                             separator: None,
                         },
@@ -53,6 +59,9 @@
                     data: LinkageData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                         instantiation: LinInstantiation {
+                            context: LinTypeContext {
+                                comptime_var_overrides: [],
+                            },
                             symbol_resolutions: [],
                             separator: None,
                         },

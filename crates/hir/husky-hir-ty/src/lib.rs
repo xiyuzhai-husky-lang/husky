@@ -1,4 +1,5 @@
 #![feature(if_let_guard)]
+pub mod context;
 pub mod indirections;
 pub mod instantiation;
 pub mod jar;

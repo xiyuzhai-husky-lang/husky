@@ -29,7 +29,7 @@ use husky_javelin::{
 use husky_vfs::path::package_path::PackagePath;
 use smallvec::{smallvec, SmallVec};
 
-#[salsa::interned(jar = LinkageJar, constructor = pub(crate) new)]
+#[salsa::interned(constructor = pub(crate) new)]
 pub struct Linkage {
     #[return_ref]
     pub data: LinkageData,
@@ -148,15 +148,14 @@ impl Linkage {
     }
 
     // todo: lin_instantiation
-    // todo: change to `JavelinType`
+    // todo: change to `JavType`
     pub fn new_props_struct_field(
         self_ty: HirType,
         ident: Ident,
-        lin_instantiation: &LinInstantiation,
+        instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
-        let LinType::PathLeading(self_ty) = LinType::from_hir(self_ty, Some(lin_instantiation), db)
-        else {
+        let LinType::PathLeading(self_ty) = LinType::from_hir(self_ty, instantiation, db) else {
             unreachable!()
         };
         let data = LinkageData::StructField {
@@ -240,13 +239,13 @@ impl Linkage {
 
     pub fn new_vec_constructor(
         element_ty: HirType,
-        lin_instantiation: &LinInstantiation,
+        instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         Self::new(
             db,
             LinkageData::VecConstructor {
-                element_ty: LinType::from_hir(element_ty, Some(lin_instantiation), db),
+                element_ty: LinType::from_hir(element_ty, instantiation, db),
             },
         )
     }
@@ -296,15 +295,11 @@ impl Linkage {
         )
     }
 
-    pub fn new_ty_default(
-        ty: HirType,
-        lin_instantiation: &LinInstantiation,
-        db: &::salsa::Db,
-    ) -> Self {
+    pub fn new_ty_default(ty: HirType, instantiation: &LinInstantiation, db: &::salsa::Db) -> Self {
         Self::new(
             db,
             LinkageData::TypeDefault {
-                ty: LinType::from_hir(ty, Some(lin_instantiation), db),
+                ty: LinType::from_hir(ty, instantiation, db),
             },
         )
     }
@@ -314,7 +309,7 @@ impl Linkage {
     }
 }
 
-#[salsa::tracked(jar = LinkageJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallVec<[Linkage; 4]> {
     match *javelin.data(db) {
         JavelinData::PathLeading {
@@ -326,7 +321,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                 f: impl Fn(LinInstantiation) -> Linkage,
                 db: &::salsa::Db,
             ) -> SmallVec<[Linkage; 4]> {
-                LinInstantiation::from_javelin(instantiation, db)
+                LinInstantiation::from_jav(instantiation, db)
                     .into_iter()
                     .map(f)
                     .collect()
@@ -480,7 +475,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                     TraitItemKind::AssocRitchie(ritchie_item_kind) => {
                         match path.impl_block(db).trai_path(db).refine(db) {
                             Left(PreludeTraitPath::UNVEIL) => {
-                                LinInstantiation::from_javelin(instantiation, db)
+                                LinInstantiation::from_jav(instantiation, db)
                                     .into_iter()
                                     .flat_map(|instantiation| {
                                         [
@@ -531,7 +526,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
         JavelinData::VecConstructor { element_ty } => smallvec![Linkage::new(
             db,
             LinkageData::VecConstructor {
-                element_ty: LinType::from_javelin(
+                element_ty: LinType::from_jav(
                     element_ty,
                     // ad hoc
                     &LinInstantiation::new_empty(false),
@@ -542,7 +537,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
         JavelinData::TypeDefault { ty } => smallvec![Linkage::new(
             db,
             LinkageData::TypeDefault {
-                ty: LinType::from_javelin(
+                ty: LinType::from_jav(
                     ty,
                     // ad hoc
                     &LinInstantiation::new_empty(false),
@@ -553,7 +548,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
     }
 }
 
-#[salsa::tracked(jar = LinkageJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub fn package_linkages(db: &::salsa::Db, package_path: PackagePath) -> Vec<Linkage> {
     package_javelins(db, package_path)
         .flat_map(|javelin| linkages_emancipated_by_javelin(db, javelin).iter().copied())

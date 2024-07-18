@@ -90,10 +90,8 @@
             self_ty: Some(
                 EthTerm(`Ref 'a E`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -187,10 +185,8 @@
             self_ty: Some(
                 EthTerm(`RefMut 'a E`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -268,10 +264,8 @@
             self_ty: Some(
                 EthTerm(`Leash E`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -365,10 +359,8 @@
             self_ty: Some(
                 EthTerm(`At 'α E`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -795,10 +787,8 @@
             self_ty: Some(
                 EthTerm(`Leash E`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },

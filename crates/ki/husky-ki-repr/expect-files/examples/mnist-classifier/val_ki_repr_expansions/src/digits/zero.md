@@ -76,6 +76,9 @@
                                 data: LinkageData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: None,
                                     },
@@ -100,6 +103,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,
@@ -149,6 +155,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [
                                             (
                                                 Type(
@@ -165,7 +174,7 @@
                                                         PathLeading(
                                                             LinTypePathLeading(
                                                                 Id {
-                                                                    value: 12,
+                                                                    value: 13,
                                                                 },
                                                             ),
                                                         ),
@@ -284,6 +293,9 @@
                                 data: LinkageData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: None,
                                     },
@@ -314,6 +326,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,
@@ -367,6 +382,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,
@@ -494,6 +512,9 @@
                                 data: LinkageData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: None,
                                     },
@@ -644,6 +665,9 @@
                                 data: LinkageData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: None,
                                     },
@@ -676,6 +700,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [
                                             (
                                                 Type(
@@ -692,7 +719,7 @@
                                                         PathLeading(
                                                             LinTypePathLeading(
                                                                 Id {
-                                                                    value: 13,
+                                                                    value: 14,
                                                                 },
                                                             ),
                                                         ),
@@ -823,6 +850,9 @@
                                 data: LinkageData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: None,
                                     },
@@ -1022,6 +1052,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,
@@ -1080,6 +1113,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,
@@ -1138,6 +1174,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,
@@ -1298,6 +1337,9 @@
                                 data: LinkageData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: None,
                                     },
@@ -1329,7 +1371,7 @@
                                                     parameter_ty: PathLeading(
                                                         LinTypePathLeading(
                                                             Id {
-                                                                value: 3,
+                                                                value: 4,
                                                             },
                                                         ),
                                                     ),
@@ -1393,6 +1435,9 @@
                                         Fn,
                                     )`),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: None,
                                     },
@@ -1451,6 +1496,9 @@
                                         Fn,
                                     )`),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: None,
                                     },
@@ -1513,6 +1561,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,
@@ -1563,6 +1614,9 @@
                                         Fn,
                                     )`),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: None,
                                     },
@@ -1625,6 +1679,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,
@@ -1675,6 +1732,9 @@
                                         Fn,
                                     )`),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: None,
                                     },
@@ -1737,6 +1797,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,
@@ -1819,6 +1882,32 @@
                                         Gn,
                                     )`),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [
+                                                (
+                                                    MajorItem(
+                                                        Form(
+                                                            MajorFormPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 116,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    Type(
+                                                        PathLeading(
+                                                            LinTypePathLeading(
+                                                                Id {
+                                                                    value: 2,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ],
+                                        },
                                         symbol_resolutions: [
                                             (
                                                 Type(
@@ -1923,6 +2012,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,
@@ -1976,6 +2068,9 @@
                                         Fn,
                                     )`),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: None,
                                     },
@@ -2038,6 +2133,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,
@@ -2164,6 +2262,9 @@
                                 data: LinkageData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: None,
                                     },
@@ -2194,6 +2295,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,
@@ -2367,6 +2471,9 @@
                                 data: LinkageData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: None,
                                     },
@@ -2397,6 +2504,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,
@@ -2570,6 +2680,9 @@
                                 data: LinkageData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: None,
                                     },
@@ -2600,6 +2713,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,
@@ -2864,6 +2980,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,
@@ -2919,6 +3038,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,
@@ -3055,6 +3177,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,
@@ -3110,6 +3235,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,
@@ -3202,6 +3330,9 @@
                                 data: LinkageData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: None,
                                     },
@@ -3232,6 +3363,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,
@@ -3287,6 +3421,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,
@@ -3332,6 +3469,9 @@
                                 data: LinkageData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: None,
                                     },
@@ -3362,6 +3502,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,
@@ -3417,6 +3560,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,
@@ -3792,6 +3938,9 @@
                                         Fn,
                                     )`),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: None,
                                     },
@@ -3854,6 +4003,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,
@@ -4439,6 +4591,9 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        context: LinTypeContext {
+                                            comptime_var_overrides: [],
+                                        },
                                         symbol_resolutions: [],
                                         separator: Some(
                                             0,

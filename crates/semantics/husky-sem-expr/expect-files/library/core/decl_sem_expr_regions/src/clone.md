@@ -56,10 +56,8 @@
             self_ty: Some(
                 EthTerm(`Self`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -203,10 +201,8 @@
             self_ty: Some(
                 EthTerm(`Self`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },
@@ -353,10 +349,8 @@
             self_ty: Some(
                 EthTerm(`Self`),
             ),
-            context_itd: EthSignatureBuilderContextItd {
-                context: EthSignatureBuilderContext {
-                    task_ty: None,
-                },
+            context_itd: EthTermContextItd {
+                task_ty: None,
             },
         },
     },

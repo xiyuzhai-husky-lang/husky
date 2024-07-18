@@ -113,9 +113,13 @@ impl FlyTerm {
         indirections: FlyIndirections,
     ) -> FlyTermMaybeResult<FlyFieldInstanceDispatch> {
         match self.base_resolved(engine) {
-            FlyTermBase::Eth(term) => {
-                ethereal_ty_field_dispatch(engine.db(), term, ident, indirections, engine.context())
-            }
+            FlyTermBase::Eth(term) => ethereal_ty_field_dispatch(
+                engine.db(),
+                term,
+                ident,
+                indirections,
+                engine.context_ref(),
+            ),
             FlyTermBase::Sol(term) => {
                 term.field_dispatch_aux(engine, ident, available_traits, indirections)
             }

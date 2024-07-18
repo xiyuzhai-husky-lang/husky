@@ -312,6 +312,9 @@
                             TypePath(`malamute::Class`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {
+                            context: HirTypeContext {
+                                comptime_var_overrides: [],
+                            },
                             symbol_map: [
                                 (
                                     HirTemplateVariable::Type(
@@ -346,6 +349,9 @@
                             TypePath(`core::ops::ControlFlow`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {
+                            context: HirTypeContext {
+                                comptime_var_overrides: [],
+                            },
                             symbol_map: [
                                 (
                                     HirTemplateVariable::Type(
@@ -452,6 +458,9 @@
                             TypePath(`core::ops::ControlFlow`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {
+                            context: HirTypeContext {
+                                comptime_var_overrides: [],
+                            },
                             symbol_map: [
                                 (
                                     HirTemplateVariable::Type(
