@@ -6,7 +6,7 @@ use crate::{
 use husky_entity_path::path::major_item::trai::TraitPath;
 use husky_hir_ty::trai::HirTrait;
 
-#[salsa::interned(jar = LinkageJar, constructor = new)]
+#[salsa::interned(constructor = new)]
 pub struct LinkageTrait {
     pub trai_path: TraitPath,
     /// phantom arguments are ignored

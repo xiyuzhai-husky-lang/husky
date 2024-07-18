@@ -29,7 +29,7 @@ use husky_javelin::{
 use husky_vfs::path::package_path::PackagePath;
 use smallvec::{smallvec, SmallVec};
 
-#[salsa::interned(jar = LinkageJar, constructor = pub(crate) new)]
+#[salsa::interned(constructor = pub(crate) new)]
 pub struct Linkage {
     #[return_ref]
     pub data: LinkageData,

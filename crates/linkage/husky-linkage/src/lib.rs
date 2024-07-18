@@ -11,6 +11,7 @@ pub mod trai;
 pub mod version_stamp;
 
 use self::instantiation::*;
+use self::jar::LinkageJar as Jar;
 use self::jar::*;
 use self::linkage::*;
 #[cfg(test)]
