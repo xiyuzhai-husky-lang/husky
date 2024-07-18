@@ -19,21 +19,17 @@ pub enum LinType {
 impl LinkageInstantiate for HirType {
     type Output = LinType;
 
-    fn linkage_instantiate(
-        self,
-        lin_instantiation: &LinInstantiation,
-        db: &salsa::Db,
-    ) -> Self::Output {
+    fn linkage_instantiate(self, instantiation: &LinInstantiation, db: &salsa::Db) -> Self::Output {
         match self {
             HirType::PathLeading(slf) => LinType::PathLeading(LinTypePathLeading::new(
                 db,
                 slf.ty_path(db),
                 slf.template_arguments(db)
                     .iter()
-                    .map(|&arg| LinTemplateArgument::from_hir(arg, Some(lin_instantiation), db))
+                    .map(|&arg| LinTemplateArgument::from_hir(arg, instantiation, db))
                     .collect(),
             )),
-            HirType::Variable(slf) => match lin_instantiation.resolve(slf.into()) {
+            HirType::Variable(slf) => match instantiation.resolve(slf.into()) {
                 LinTermSymbolResolution::Explicit(arg) => match arg {
                     LinTemplateArgument::Vacant => todo!(),
                     LinTemplateArgument::Type(linkage_ty) => linkage_ty,
@@ -107,13 +103,13 @@ impl LinkageRitchieParameter {
 
     fn from_hir(
         param: HirRitchieParameter,
-        lin_instantiation: Option<&LinInstantiation>,
+        instantiation: &LinInstantiation,
         db: &salsa::Db,
     ) -> Self {
         match param {
             HirRitchieParameter::Simple(param) => Self {
                 contract: param.contract(),
-                parameter_ty: LinType::from_hir(param.ty(), lin_instantiation, db),
+                parameter_ty: LinType::from_hir(param.ty(), instantiation, db),
             },
             HirRitchieParameter::Variadic(_) => todo!(),
             HirRitchieParameter::Keyed(_) => todo!(),
@@ -132,7 +128,7 @@ impl LinkageRitchieParameter {
 impl LinType {
     pub(crate) fn from_hir(
         hir_ty: HirType,
-        lin_instantiation: Option<&LinInstantiation>,
+        instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         match hir_ty {
@@ -141,24 +137,21 @@ impl LinType {
                 hir_ty.ty_path(db),
                 LinTemplateArgument::from_hir_template_arguments(
                     hir_ty.template_arguments(db),
-                    lin_instantiation,
+                    instantiation,
                     db,
                 ),
             )
             .into(),
-            HirType::Variable(symbol) => match lin_instantiation {
-                Some(lin_instantiation) => match lin_instantiation.resolve(symbol.into()) {
-                    LinTermSymbolResolution::Explicit(arg) => match arg {
-                        LinTemplateArgument::Vacant => todo!(),
-                        LinTemplateArgument::Type(linkage_ty) => linkage_ty,
-                        LinTemplateArgument::Constant(_) => todo!(),
-                        LinTemplateArgument::Lifetime => todo!(),
-                        LinTemplateArgument::Qual(_) => todo!(),
-                    },
-                    LinTermSymbolResolution::SelfLifetime => todo!(),
-                    LinTermSymbolResolution::SelfQual(_) => todo!(),
+            HirType::Variable(symbol) => match instantiation.resolve(symbol.into()) {
+                LinTermSymbolResolution::Explicit(arg) => match arg {
+                    LinTemplateArgument::Vacant => todo!(),
+                    LinTemplateArgument::Type(linkage_ty) => linkage_ty,
+                    LinTemplateArgument::Constant(_) => todo!(),
+                    LinTemplateArgument::Lifetime => todo!(),
+                    LinTemplateArgument::Qual(_) => todo!(),
                 },
-                None => todo!(),
+                LinTermSymbolResolution::SelfLifetime => todo!(),
+                LinTermSymbolResolution::SelfQual(_) => todo!(),
             },
             HirType::TypeAssocType(_) => unreachable!(),
             HirType::TraitAssocType(_) => unreachable!(),
@@ -167,9 +160,9 @@ impl LinType {
                 hir_ty
                     .parameters(db)
                     .iter()
-                    .map(|&param| LinkageRitchieParameter::from_hir(param, lin_instantiation, db))
+                    .map(|&param| LinkageRitchieParameter::from_hir(param, instantiation, db))
                     .collect(),
-                LinType::from_hir(hir_ty.return_ty(db), lin_instantiation, db),
+                LinType::from_hir(hir_ty.return_ty(db), instantiation, db),
             )
             .into(),
             HirType::TypeVar(_) => todo!(),

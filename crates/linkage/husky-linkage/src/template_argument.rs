@@ -21,20 +21,20 @@ pub enum LinTemplateArgument {
 impl LinTemplateArgument {
     pub(crate) fn from_hir_template_arguments(
         template_arguments: &[HirTemplateArgument],
-        lin_instantiation: Option<&LinInstantiation>,
+        instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> LinTemplateArguments {
         template_arguments
             .iter()
             .map(|&template_argument| {
-                LinTemplateArgument::from_hir(template_argument, lin_instantiation, db)
+                LinTemplateArgument::from_hir(template_argument, instantiation, db)
             })
             .collect()
     }
 
     pub(crate) fn from_hir(
         arg: HirTemplateArgument,
-        instantiation: Option<&LinInstantiation>,
+        instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         match arg {
