@@ -194,23 +194,15 @@ pub trait IsUnveilFnLinkageImplSource<LinkageImpl: IsLinkageImpl, Target, FnPoin
 #[macro_export]
 macro_rules! unveil_linkage_impl {
     ($fn_item: expr) => {{
-        fn fn_wrapper(
-            ctx: __DevEvalContext,
-            arguments: &[__KiArgumentReprInterface],
-        ) -> __KiControlFlow {
-            __with_dev_eval_context(ctx, || {
-                // todo: catch unwind
-                __KiControlFlow::Continue(
-                    __ValueLeashTest(
-                        UnveilFnLinkageImplSource(
-                            std::marker::PhantomData::<__LinkageImpl>,
-                            $fn_item,
-                        )
-                        .unveil_fn_wrapper_aux(ctx, arguments)?,
-                    )
-                    .into_value(),
+        fn fn_wrapper(arguments: &[__KiArgumentReprInterface]) -> __KiControlFlow {
+            // todo: catch unwind
+            __KiControlFlow::Continue(
+                __ValueLeashTest(
+                    UnveilFnLinkageImplSource(std::marker::PhantomData::<__LinkageImpl>, $fn_item)
+                        .unveil_fn_wrapper_aux(arguments)?,
                 )
-            })
+                .into_value(),
+            )
         }
         // pass `$fn_item` two times
         // - one time is to determine the parameter types and return type

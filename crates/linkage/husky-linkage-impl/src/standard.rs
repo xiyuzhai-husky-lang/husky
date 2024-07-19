@@ -44,6 +44,7 @@ where
     RitchieGn {
         gn_ki_wrapper: (),
     },
+    // todo: this should be merged into RichieFn?
     EnumVariantConstructor {
         enum_variant_constructor_ki_wrapper: fn(&[KiArgumentReprInterface]) -> Value,
         enum_variant_constructor_vm_wrapper: fn(Vec<Value>) -> Value,
