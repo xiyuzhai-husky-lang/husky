@@ -1,4 +1,4 @@
-pub(crate) use husky_linkage::test_utils::TestLinkage;
+pub(crate) use husky_linket::test_utils::TestLinket;
 pub(crate) use husky_vfs::test_utils::*;
 
 use husky_corgi_config::jar::CorgiConfigJar;
@@ -58,7 +58,7 @@ use husky_toml_ast::TomlAstJar;
     husky_hir_decl::jar::HirDeclJar,
     husky_hir_defn::jar::HirDefnJar,
     husky_javelin::jar::JavelinJar,
-    husky_linkage::jar::LinkageJar,
+    husky_linket::jar::LinketJar,
     husky_vmir::jar::VmirJar
 )]
 #[derive(Default)]

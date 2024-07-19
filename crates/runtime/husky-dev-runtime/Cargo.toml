@@ -32,9 +32,9 @@ husky-ki-repr.workspace = true
 # lex
 husky-text-protocol.workspace = true
 husky-token.workspace = true
-# linkage
-husky-linkage.workspace = true
-husky-linkage-impl.workspace = true
+# linket
+husky-linket.workspace = true
+husky-linket-impl.workspace = true
 # protocols
 husky-visual-protocol.workspace = true
 # syntax

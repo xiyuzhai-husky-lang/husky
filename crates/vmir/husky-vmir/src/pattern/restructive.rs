@@ -5,34 +5,34 @@ use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
 /// takes (mutable) reference of the match src, keep it
 #[derive(Debug, PartialEq, Eq)]
-pub enum VmirRestructivePatternData<LinkageImpl: IsLinkageImpl> {
+pub enum VmirRestructivePatternData<LinketImpl: IsLinketImpl> {
     Literal,
     Some,
-    Todo(LinkageImpl),
+    Todo(LinketImpl),
     UnitPath,
 }
 
-pub type VmirRestructivePatternArena<LinkageImpl> = Arena<VmirRestructivePatternData<LinkageImpl>>;
-pub type VmirRestructivePatternIdx<LinkageImpl> = ArenaIdx<VmirRestructivePatternData<LinkageImpl>>;
-pub type VmirRestructivePatternIdxRange<LinkageImpl> =
-    ArenaIdxRange<VmirRestructivePatternData<LinkageImpl>>;
+pub type VmirRestructivePatternArena<LinketImpl> = Arena<VmirRestructivePatternData<LinketImpl>>;
+pub type VmirRestructivePatternIdx<LinketImpl> = ArenaIdx<VmirRestructivePatternData<LinketImpl>>;
+pub type VmirRestructivePatternIdxRange<LinketImpl> =
+    ArenaIdxRange<VmirRestructivePatternData<LinketImpl>>;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[repr(u8)]
-pub enum VmirRestructivePattern<LinkageImpl: IsLinkageImpl> {
+pub enum VmirRestructivePattern<LinketImpl: IsLinketImpl> {
     Default(Option<PlaceIdx>) = 1,
     Literal,
     UnitPath,
-    OneOf(VmirRestructivePatternIdxRange<LinkageImpl>),
-    Other(VmirRestructivePatternIdx<LinkageImpl>),
+    OneOf(VmirRestructivePatternIdxRange<LinketImpl>),
+    Other(VmirRestructivePatternIdx<LinketImpl>),
 }
 
 impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
     pub(super) fn build_restructive_pattern(
         &mut self,
         hir_eager_pattern: HirEagerPatternIdx,
-    ) -> VmirRestructivePattern<Linktime::LinkageImpl> {
+    ) -> VmirRestructivePattern<Linktime::LinketImpl> {
         let pattern = self.build_restructive_pattern_aux(hir_eager_pattern);
         match pattern {
             Left(pattern) => pattern,
@@ -46,8 +46,8 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
         &mut self,
         hir_eager_pattern: HirEagerPatternIdx,
     ) -> Either<
-        VmirRestructivePattern<Linktime::LinkageImpl>,
-        VmirRestructivePatternData<Linktime::LinkageImpl>,
+        VmirRestructivePattern<Linktime::LinketImpl>,
+        VmirRestructivePatternData<Linktime::LinketImpl>,
     > {
         match *self.hir_eager_pattern_arena()[hir_eager_pattern].data() {
             HirEagerPatternData::Literal(_) => Left(VmirRestructivePattern::Literal),

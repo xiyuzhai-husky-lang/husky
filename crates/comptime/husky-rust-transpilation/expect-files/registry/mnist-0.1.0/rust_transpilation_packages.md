@@ -56,7 +56,7 @@
                 path: "../../../registry/mnist-0.1.0",
             },
         },
-        kind: Linkages,
+        kind: Linkets,
     },
 ]
 ```

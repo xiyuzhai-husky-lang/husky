@@ -56,7 +56,7 @@
                 path: "../../../examples/algorithms/quick-sort",
             },
         },
-        kind: Linkages,
+        kind: Linkets,
     },
 ]
 ```

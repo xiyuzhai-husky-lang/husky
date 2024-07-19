@@ -34,8 +34,8 @@ husky-term-prelude.workspace = true
 husky-devsoul.workspace = true
 # lex
 husky-regional-token.workspace = true
-# linkage
-husky-linkage.workspace = true
+# linket
+husky-linket.workspace = true
 # semantics
 husky-sem-expr.workspace = true
 husky-sem-item-path-deps.workspace = true
@@ -69,7 +69,7 @@ husky-text.workspace = true
 husky-token-data.workspace = true
 husky-token.workspace = true
 husky-toml-token.workspace = true
-# linkage
+# linket
 husky-javelin.workspace = true
 # protocols
 husky-visual-protocol.workspace = true

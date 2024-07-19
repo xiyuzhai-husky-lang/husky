@@ -1,7 +1,7 @@
 use super::*;
 use husky_cargo_utils::compile::compile_workspace;
 use husky_corgi_config::transpilation_setup::HasTranspilationSetup;
-use husky_linkage_impl::AnyLinkageImpls;
+use husky_linket_impl::AnyLinketImpls;
 use husky_manifest::helpers::upstream::HasAllUpstreamPackages;
 use husky_rust_transpilation::transpile_to_fs::TranspileToFsFull;
 
@@ -11,7 +11,7 @@ use libloading::Library;
 use std::path::PathBuf;
 use vec_like::{VecMap, VecPairMap};
 
-pub struct MonoLinkageLibraries {
+pub struct MonoLinketLibraries {
     pub cdylibs: VecPairMap<PackagePath, Cdylib>,
 }
 
@@ -19,14 +19,14 @@ pub struct MonoLinkageLibraries {
 pub struct Cdylib(HuskyJarIndex, Library);
 
 impl Cdylib {
-    pub(crate) fn linkage_impls<LinkageImpl: IsLinkageImpl>(&self) -> Vec<LinkageImpl> {
-        let package_linkage_impls: libloading::Symbol<fn(HuskyJarIndex) -> AnyLinkageImpls> =
-            unsafe { self.1.get(b"linkage_impls").unwrap() };
-        package_linkage_impls(self.0).downcast()
+    pub(crate) fn linket_impls<LinketImpl: IsLinketImpl>(&self) -> Vec<LinketImpl> {
+        let package_linket_impls: libloading::Symbol<fn(HuskyJarIndex) -> AnyLinketImpls> =
+            unsafe { self.1.get(b"linket_impls").unwrap() };
+        package_linket_impls(self.0).downcast()
     }
 }
 
-impl MonoLinkageLibraries {
+impl MonoLinketLibraries {
     pub(super) fn generate(target_path: LinktimeTargetPath, db: &::salsa::Db) -> Result<Self, ()> {
         // useful for debugging
         match std::env::var("SKIP_COMPILATION") {
@@ -49,11 +49,11 @@ impl MonoLinkageLibraries {
                 .copied()
                 .enumerate()
                 .map(|(i, package_path)| {
-                    let linkages_cargo_toml_path = rust_workspace_dir
+                    let linkets_cargo_toml_path = rust_workspace_dir
                         .join(package_path.name(db).data(db))
-                        .join("linkages/Cargo.toml");
+                        .join("linkets/Cargo.toml");
                     (
-                        linkages_cargo_toml_path,
+                        linkets_cargo_toml_path,
                         (HuskyJarIndex::from_index(i), package_path),
                     )
                 }),
@@ -83,16 +83,16 @@ impl MonoLinkageLibraries {
 }
 
 #[test]
-fn generate_linkage_storage_works() {
+fn generate_linket_storage_works() {
     use husky_dev_comptime::db::DevComptimeDb;
 
     DevComptimeDb::vfs_plain_test(
         |db, package_path: PackagePath| {
-            MonoLinkageLibraries::generate(LinktimeTargetPath::new_package(package_path, db), db)
+            MonoLinketLibraries::generate(LinktimeTargetPath::new_package(package_path, db), db)
                 .unwrap();
         },
         &VfsTestConfig::new(
-            "generate_linkage_storage",
+            "generate_linket_storage",
             FileExtensionConfig::Markdown,
             TestDomainsConfig::LINKTIME,
         ),

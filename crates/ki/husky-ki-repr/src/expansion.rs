@@ -20,7 +20,7 @@ use husky_hir_ty::{
     HirConstant, HirTemplateArgument, HirTemplateVariable, HirTemplateVariableClass,
 };
 use husky_ki::{KiOpn, KiPatternData, KiRuntimeConstant, KiRuntimeConstantData};
-use husky_linkage::{instantiation::LinInstantiation, linkage::Linkage};
+use husky_linket::{instantiation::LinInstantiation, linket::Linket};
 use smallvec::{smallvec, SmallVec};
 
 #[salsa::tracked]
@@ -224,7 +224,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 let db = self.db;
                 let default = ki_domain_repr_guard.new_ki_repr(
                     KiReprExpansionSource::RequireDefault { stmt },
-                    KiOpn::Linkage(Linkage::new_ty_default(
+                    KiOpn::Linket(Linket::new_ty_default(
                         return_ty,
                         &self.lin_instantiation,
                         db,
@@ -429,7 +429,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 unveil_assoc_fn_path,
                 ref instantiation,
             } => {
-                let opn = KiOpn::Linkage(Linkage::new_unveil_assoc_fn(
+                let opn = KiOpn::Linket(Linket::new_unveil_assoc_fn(
                     unveil_assoc_fn_path,
                     instantiation,
                     &self.lin_instantiation,
@@ -458,7 +458,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 ref item_groups,
                 ..
             } => {
-                let opn = KiOpn::Linkage(Linkage::new_ty_constructor_fn(
+                let opn = KiOpn::Linket(Linket::new_ty_constructor_fn(
                     path,
                     instantiation,
                     &self.lin_instantiation,
@@ -479,7 +479,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 ref item_groups,
                 ..
             } => {
-                let opn = KiOpn::Linkage(Linkage::new_ty_variant_constructor_fn(
+                let opn = KiOpn::Linket(Linket::new_ty_variant_constructor_fn(
                     path,
                     instantiation,
                     &self.lin_instantiation,
@@ -501,21 +501,19 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 ..
             } => {
                 let opn = match path.kind(db).ritchie() {
-                    RitchieItemKind::Fn => {
-                        KiOpn::Linkage(Linkage::new_major_function_ritchie_item(
-                            path,
-                            instantiation,
-                            &self.lin_instantiation,
-                            self.db,
-                        ))
-                    }
+                    RitchieItemKind::Fn => KiOpn::Linket(Linket::new_major_function_ritchie_item(
+                        path,
+                        instantiation,
+                        &self.lin_instantiation,
+                        self.db,
+                    )),
                     RitchieItemKind::Gn => {
                         let Some(MajorFormHirDefn::Ritchie(hir_defn)) = path.hir_defn(db) else {
                             unreachable!()
                         };
                         match hir_defn.body_with_hir_expr_region(db) {
                             Some((body, _)) => todo!(),
-                            None => KiOpn::Linkage(Linkage::new_major_function_ritchie_item(
+                            None => KiOpn::Linket(Linket::new_major_function_ritchie_item(
                                 path,
                                 instantiation,
                                 &self.lin_instantiation,
@@ -545,7 +543,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 ref item_groups,
                 ..
             } => {
-                let opn = KiOpn::Linkage(Linkage::new_assoc_function_ritchie_item(
+                let opn = KiOpn::Linket(Linket::new_assoc_function_ritchie_item(
                     path,
                     instantiation,
                     &self.lin_instantiation,
@@ -566,7 +564,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 ident,
                 ..
             } => (
-                KiOpn::Linkage(Linkage::new_props_struct_field(
+                KiOpn::Linket(Linket::new_props_struct_field(
                     owner_base_ty,
                     ident,
                     &self.lin_instantiation,
@@ -583,7 +581,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 ref instantiation,
                 ..
             } => (
-                KiOpn::Linkage(Linkage::new_memo_field(
+                KiOpn::Linket(Linket::new_memo_field(
                     path,
                     instantiation,
                     &self.lin_instantiation,
@@ -611,7 +609,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
                     &mut arguments,
                 );
                 (
-                    KiOpn::Linkage(Linkage::new_method(
+                    KiOpn::Linket(Linket::new_method(
                         path,
                         instantiation,
                         &self.lin_instantiation,
@@ -630,7 +628,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
                         self.build_expr(ki_domain_repr_guard, item),
                     ))
                 }
-                // (ValOpn::Linkage(Linkage::new_index(self.db)), arguments)
+                // (ValOpn::Linket(Linket::new_index(self.db)), arguments)
                 (KiOpn::Index, arguments)
             }
             HirLazyExprData::ConstructList {
@@ -638,7 +636,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 element_ty,
             } => (
                 // todo: disambiguate between Vec, SmallVec, Array
-                KiOpn::Linkage(Linkage::new_vec_constructor(
+                KiOpn::Linket(Linket::new_vec_constructor(
                     element_ty,
                     &self.lin_instantiation,
                     self.db,

@@ -54,7 +54,7 @@ impl TestDomainsConfig {
     pub const HIR: Self = TestDomainsConfig(TestDomainsConfigImpl::Full);
     pub const IDE: Self = TestDomainsConfig(TestDomainsConfigImpl::Full);
     pub const LEX: Self = TestDomainsConfig(TestDomainsConfigImpl::Full);
-    pub const LINKAGE: Self = TestDomainsConfig(TestDomainsConfigImpl::ExcludeLibrary);
+    pub const LINKET: Self = TestDomainsConfig(TestDomainsConfigImpl::ExcludeLibrary);
     pub const LINKTIME: Self = TestDomainsConfig(TestDomainsConfigImpl::ExcludeLibrary);
     pub const KERNEL: Self = TestDomainsConfig(TestDomainsConfigImpl::Full);
     pub const SYNTAX: Self = TestDomainsConfig(TestDomainsConfigImpl::Full);

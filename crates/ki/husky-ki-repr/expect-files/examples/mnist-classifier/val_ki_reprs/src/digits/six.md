@@ -4,9 +4,9 @@
         MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
         KiRepr {
             ki_domain_repr: Omni,
-            opn: KiOpn::Linkage(
-                Linkage {
-                    data: LinkageData::MajorVal {
+            opn: KiOpn::Linket(
+                Linket {
+                    data: LinketData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                         instantiation: LinInstantiation {
                             context: LinTypeContext {
@@ -29,9 +29,9 @@
         MajorFormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
         KiRepr {
             ki_domain_repr: Omni,
-            opn: KiOpn::Linkage(
-                Linkage {
-                    data: LinkageData::MajorVal {
+            opn: KiOpn::Linket(
+                Linket {
+                    data: LinketData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                         instantiation: LinInstantiation {
                             context: LinTypeContext {

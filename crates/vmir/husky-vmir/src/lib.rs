@@ -18,40 +18,40 @@ use self::jar::VmirJar as Jar;
 #[cfg(test)]
 use self::tests::*;
 use husky_devsoul::linktime::IsLinktime;
-use husky_devsoul_interface::IsLinkageImpl;
+use husky_devsoul_interface::IsLinketImpl;
 use husky_value_interface::IsValue;
 
-pub(crate) trait ToVmir<LinkageImpl: IsLinkageImpl>: Copy {
+pub(crate) trait ToVmir<LinketImpl: IsLinketImpl>: Copy {
     type Output;
 
     fn to_vmir<Linktime>(self, builder: &mut VmirBuilder<Linktime>) -> Self::Output
     where
-        Linktime: IsLinktime<LinkageImpl = LinkageImpl>;
+        Linktime: IsLinktime<LinketImpl = LinketImpl>;
 }
 
-impl<T, LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for Option<T>
+impl<T, LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for Option<T>
 where
-    T: ToVmir<LinkageImpl>,
+    T: ToVmir<LinketImpl>,
 {
     type Output = Option<T::Output>;
 
     fn to_vmir<Linktime>(self, builder: &mut VmirBuilder<Linktime>) -> Self::Output
     where
-        Linktime: IsLinktime<LinkageImpl = LinkageImpl>,
+        Linktime: IsLinktime<LinketImpl = LinketImpl>,
     {
         self.map(|slf| slf.to_vmir(builder))
     }
 }
 
-impl<'a, T, LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for &'a [T]
+impl<'a, T, LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for &'a [T]
 where
-    &'a T: ToVmir<LinkageImpl>,
+    &'a T: ToVmir<LinketImpl>,
 {
-    type Output = Vec<<&'a T as ToVmir<LinkageImpl>>::Output>;
+    type Output = Vec<<&'a T as ToVmir<LinketImpl>>::Output>;
 
     fn to_vmir<Linktime>(self, builder: &mut VmirBuilder<Linktime>) -> Self::Output
     where
-        Linktime: IsLinktime<LinkageImpl = LinkageImpl>,
+        Linktime: IsLinktime<LinketImpl = LinketImpl>,
     {
         self.iter().map(|elem| elem.to_vmir(builder)).collect()
     }

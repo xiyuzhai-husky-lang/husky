@@ -44,7 +44,7 @@ pub(crate) struct RustTranspilationBuilderBase<'a> {
     current_indent: u32,
     is_list_start: Option<bool>,
     spaced: bool,
-    /// None if transpile linkages
+    /// None if transpile linkets
     pub(crate) crate_path: Option<CratePath>,
 }
 

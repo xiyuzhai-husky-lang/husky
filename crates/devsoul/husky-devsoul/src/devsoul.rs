@@ -6,7 +6,7 @@ use husky_devsoul_interface::{
     DevEvalContext, IsDevRuntime, IsDevRuntimeDyn,
 };
 use husky_devsoul_interface::{
-    HuskyIngredientIndex, HuskyJarIndex, IsLinkageImpl, LinkageImplKiControlFlow,
+    HuskyIngredientIndex, HuskyJarIndex, IsLinketImpl, LinketImplKiControlFlow,
 };
 use husky_entity_path::path::ItemPath;
 use husky_ki::Ki;
@@ -21,31 +21,31 @@ use std::{cell::Cell, thread::LocalKey};
 
 pub trait IsDevsoul: 'static {
     type Pedestal: IsPedestalFull;
-    type LinkageImpl: IsLinkageImpl<Pedestal = Self::Pedestal>;
-    type Linktime: IsLinktime<LinkageImpl = Self::LinkageImpl>;
-    type RuntimeStorage: IsRuntimeStorage<Self::LinkageImpl>;
+    type LinketImpl: IsLinketImpl<Pedestal = Self::Pedestal>;
+    type Linktime: IsLinktime<LinketImpl = Self::LinketImpl>;
+    type RuntimeStorage: IsRuntimeStorage<Self::LinketImpl>;
     type RuntimeSpecificConfig: Default + Send;
     type TraceProtocol: IsTraceProtocol<Pedestal = Self::Pedestal> + IsTraceProtocolFull;
     fn calc_figure(
         followed: Option<(TraceId, KiReprInterface, KiDomainReprInterface)>,
         accompanyings_except_followed: &[(TraceId, KiReprInterface)],
         pedestal: Self::Pedestal,
-        runtime: &dyn IsDevRuntimeDyn<Self::LinkageImpl>,
+        runtime: &dyn IsDevRuntimeDyn<Self::LinketImpl>,
         visual_synchrotron: &mut VisualSynchrotron,
         val_visual_cache: &mut ValVisualCache<Self::Pedestal>,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure;
-    fn dev_eval_context_local_key() -> &'static DevEvalContextLocalKey<Self::LinkageImpl>;
+    fn dev_eval_context_local_key() -> &'static DevEvalContextLocalKey<Self::LinketImpl>;
 
     /// final
     #[track_caller]
-    fn dev_eval_context() -> DevEvalContext<Self::LinkageImpl> {
+    fn dev_eval_context() -> DevEvalContext<Self::LinketImpl> {
         Self::dev_eval_context_local_key().get().unwrap()
     }
 
     /// final
     fn get_ki_visual(
         ki_repr: KiReprInterface,
-        runtime: &dyn IsDevRuntimeDyn<Self::LinkageImpl>,
+        runtime: &dyn IsDevRuntimeDyn<Self::LinketImpl>,
         visual_synchrotron: &mut VisualSynchrotron,
         val_visual_cache: &mut ValVisualCache<Self::Pedestal>,
     ) -> Visual {
@@ -64,24 +64,24 @@ pub trait IsDevsoul: 'static {
     }
 }
 
-pub trait IsRuntimeStorage<LinkageImpl: IsLinkageImpl>: Default + Send {
+pub trait IsRuntimeStorage<LinketImpl: IsLinketImpl>: Default + Send {
     // todo: consider caching policy
     fn get_or_try_init_ki_value(
         &self,
         ki: Ki,
-        var_deps: impl Iterator<Item = (ItemPath, <LinkageImpl::Pedestal as IsPedestal>::StaticVarId)>,
-        f: impl FnOnce() -> LinkageImplKiControlFlow<LinkageImpl>,
+        var_deps: impl Iterator<Item = (ItemPath, <LinketImpl::Pedestal as IsPedestal>::StaticVarId)>,
+        f: impl FnOnce() -> LinketImplKiControlFlow<LinketImpl>,
         db: &::salsa::Db,
-    ) -> LinkageImplKiControlFlow<LinkageImpl>;
+    ) -> LinketImplKiControlFlow<LinketImpl>;
 
     fn get_or_try_init_memo_field_value(
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
         slf: &'static std::ffi::c_void,
-        f: impl FnOnce(&'static std::ffi::c_void) -> LinkageImplKiControlFlow<LinkageImpl>,
-    ) -> LinkageImplKiControlFlow<LinkageImpl>;
+        f: impl FnOnce(&'static std::ffi::c_void) -> LinketImplKiControlFlow<LinketImpl>,
+    ) -> LinketImplKiControlFlow<LinketImpl>;
 }
 
-pub type DevEvalContextLocalKey<LinkageImpl> =
-    LocalKey<Cell<std::option::Option<DevEvalContext<LinkageImpl>>>>;
+pub type DevEvalContextLocalKey<LinketImpl> =
+    LocalKey<Cell<std::option::Option<DevEvalContext<LinketImpl>>>>;

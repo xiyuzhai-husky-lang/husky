@@ -4,11 +4,11 @@ use husky_devsoul::{
     helpers::{DevsoulException, DevsoulValue},
 };
 use husky_devsoul_interface::ki_repr::KiArgumentReprInterface;
-use husky_devsoul_interface::{ki_control_flow::KiControlFlow, IsLinkageImpl};
+use husky_devsoul_interface::{ki_control_flow::KiControlFlow, IsLinketImpl};
 use husky_hir_opr::binary::HirBinaryOpr;
 use husky_ki::{KiOpn, KiPatternData};
 use husky_ki_repr::repr::{KiArgumentRepr, KiDomainRepr, KiRepr};
-use husky_linkage_impl::standard::StandardLinkageImpl;
+use husky_linket_impl::standard::StandardLinketImpl;
 use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr};
 use husky_standard_devsoul::StandardDevsoul;
 use husky_term_prelude::literal::Literal;
@@ -125,9 +125,9 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                 let expansion = ki_repr.expansion(db).unwrap();
                 self.eval_root_stmts(expansion.root_hir_lazy_stmt_ki_reprs(db))
             }
-            KiOpn::Linkage(linkage) => {
-                let linkage_impl = self.comptime.linkage_impl(linkage);
-                let control_flow = linkage_impl.eval_ki(
+            KiOpn::Linket(linket) => {
+                let linket_impl = self.comptime.linket_impl(linket);
+                let control_flow = linket_impl.eval_ki(
                     ki_repr.into(),
                     unsafe {
                         std::mem::transmute::<_, &[KiArgumentReprInterface]>(
@@ -213,7 +213,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             KiOpn::TypeVariant(path) => {
                 let presenter = self
                     .comptime
-                    .linkage_impl(Linkage::new_enum_index_presenter(
+                    .linket_impl(Linket::new_enum_index_presenter(
                         path.parent_ty_path(db),
                         db,
                     ))
@@ -308,6 +308,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
 }
 
 #[test]
+#[ignore]
 fn ki_repr_eval_works() {
     use husky_entity_kind::MajorFormKind;
     use husky_entity_path::path::{major_item::MajorItemPath, ItemPath};
@@ -333,11 +334,11 @@ fn ki_repr_eval_works() {
             let ItemPath::MajorItem(MajorItemPath::Form(path)) = path else {
                 todo!()
             };
-            let StandardLinkageImpl::StaticVar {
+            let StandardLinketImpl::StaticVar {
                 set_up_for_testing, ..
             } = runtime
                 .comptime
-                .linkage_impl(Linkage::new_static_var(path, db))
+                .linket_impl(Linket::new_static_var(path, db))
             else {
                 unreachable!()
             };

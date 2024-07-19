@@ -1,7 +1,7 @@
 use crate::{
     defn::module_defn_rust_transpilation,
-    linkage::package_linkages_transpilation,
-    manifest::{package_linkages_rust_package_manifest, package_source_rust_package_manifest},
+    linket::package_linkets_transpilation,
+    manifest::{package_linkets_rust_package_manifest, package_source_rust_package_manifest},
     *,
 };
 use ::relative_path::RelativePathBuf;
@@ -31,15 +31,15 @@ pub(crate) struct RustTranspilationPackage {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum RustTranspilationPackageKind {
     Source,
-    Linkages,
+    Linkets,
 }
 
 impl RustTranspilationPackage {
     pub(crate) fn name(self, db: &::salsa::Db) -> String {
         match self.kind {
             RustTranspilationPackageKind::Source => self.package_path.name(db).data(db).to_string(),
-            RustTranspilationPackageKind::Linkages => {
-                format!("{}-linkages", self.package_path.name(db).data(db))
+            RustTranspilationPackageKind::Linkets => {
+                format!("{}-linkets", self.package_path.name(db).data(db))
             }
         }
     }
@@ -65,8 +65,8 @@ impl RustTranspilationPackage {
                     self.package_path.name(db).data(db).to_string()
                 }
             }
-            RustTranspilationPackageKind::Linkages => {
-                format!("{}/linkages", self.package_path.name(db).data(db))
+            RustTranspilationPackageKind::Linkets => {
+                format!("{}/linkets", self.package_path.name(db).data(db))
             }
         }
     }
@@ -95,7 +95,7 @@ pub(crate) fn rust_transpilation_packages(
                             RustTranspilationPackage {
                                 target_path,
                                 package_path: dep_package_path,
-                                kind: RustTranspilationPackageKind::Linkages,
+                                kind: RustTranspilationPackageKind::Linkets,
                             },
                         ]
                     }),
@@ -132,8 +132,8 @@ impl RustTranspilationPackage {
             package::RustTranspilationPackageKind::Source => {
                 transpile_package_source_to_fs(setup, workspace_dir, self.package_path, db)
             }
-            package::RustTranspilationPackageKind::Linkages => {
-                transpile_package_linkages_to_fs(setup, workspace_dir, self.package_path, db)
+            package::RustTranspilationPackageKind::Linkets => {
+                transpile_package_linkets_to_fs(setup, workspace_dir, self.package_path, db)
             }
         }
     }
@@ -199,7 +199,7 @@ fn module_relative_path_for_transpilation(
     }
 }
 
-fn transpile_package_linkages_to_fs(
+fn transpile_package_linkets_to_fs(
     setup: TranspilationSetup,
     rust_workspace_dir: &std::path::Path,
     package_path: PackagePath,
@@ -207,17 +207,17 @@ fn transpile_package_linkages_to_fs(
 ) -> IOResult<()> {
     let package_dir = rust_workspace_dir
         .join(package_path.name(db).data(db))
-        .join("linkages");
+        .join("linkets");
     let src_dir = package_dir.join("src");
     let cargo_toml_path = package_dir.join("Cargo.toml");
     husky_io_utils::diff_write(
         &cargo_toml_path,
-        package_linkages_rust_package_manifest(db, package_path, setup),
+        package_linkets_rust_package_manifest(db, package_path, setup),
         true,
     );
     husky_io_utils::diff_write(
         &src_dir.join("lib.rs"),
-        package_linkages_transpilation(db, package_path, setup),
+        package_linkets_transpilation(db, package_path, setup),
         true,
     );
     Ok(())

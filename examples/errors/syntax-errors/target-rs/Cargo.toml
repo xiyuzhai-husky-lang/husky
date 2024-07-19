@@ -1,5 +1,5 @@
 [workspace]
-members = ["syntax-errors", "syntax-errors/linkages"]
+members = ["syntax-errors", "syntax-errors/linkets"]
 resolver = "2"
 
 [workspace.dependencies.ad-hoc-devsoul-dependency]
@@ -11,5 +11,5 @@ path = "../../../../library/core"
 [workspace.dependencies.syntax-errors]
 path = "syntax-errors"
 
-[workspace.dependencies.syntax-errors-linkages]
-path = "syntax-errors/linkages"
+[workspace.dependencies.syntax-errors-linkets]
+path = "syntax-errors/linkets"

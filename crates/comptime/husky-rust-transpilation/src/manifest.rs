@@ -172,7 +172,7 @@ pub(crate) fn package_source_rust_package_manifest(
 }
 
 #[salsa::tracked(return_ref)]
-pub(crate) fn package_linkages_rust_package_manifest(
+pub(crate) fn package_linkets_rust_package_manifest(
     db: &::salsa::Db,
     package_path: PackagePath,
     transpilation_setup: TranspilationSetup,
@@ -198,7 +198,7 @@ pub(crate) fn package_linkages_rust_package_manifest(
     .collect();
     toml::to_string(&Manifest {
         package: Some(Package::<toml::Value> {
-            name: format!("{}-linkages", package_path.name(db).data(db)),
+            name: format!("{}-linkets", package_path.name(db).data(db)),
             edition: Some(MaybeInherited::Local(Edition::E2021)),
             version: Some(MaybeInherited::Local("0.1.0".to_string())),
             build: None,

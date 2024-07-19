@@ -120,9 +120,9 @@
                 hir_lazy_expr_ki_repr_map: [
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -142,9 +142,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`,
@@ -192,9 +192,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -240,9 +240,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorFunctionRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorFunctionRitchie {
                                     path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -356,9 +356,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::UnveilAssocRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -409,9 +409,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -437,13 +437,13 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::VecConstructor {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::VecConstructor {
                                     element_ty: LinType::Ritchie(
-                                        LinkageRitchieType {
+                                        LinketRitchieType {
                                             parameters: [
-                                                LinkageRitchieParameter {
+                                                LinketRitchieParameter {
                                                     contract: Pure,
                                                     parameter_ty: PathLeading(
                                                         LinTypePathLeading(
@@ -505,9 +505,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorFunctionRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorFunctionRitchie {
                                     path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -566,9 +566,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorFunctionRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorFunctionRitchie {
                                     path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -628,9 +628,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
@@ -762,9 +762,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -790,9 +790,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`,
@@ -878,9 +878,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorFunctionRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorFunctionRitchie {
                                     path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -995,9 +995,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::UnveilAssocRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -1048,9 +1048,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -1076,9 +1076,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`,
@@ -1210,9 +1210,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -1238,9 +1238,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`,
@@ -1402,9 +1402,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -1430,9 +1430,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`,
@@ -1564,9 +1564,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -1670,9 +1670,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -1698,9 +1698,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::StructField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                         template_arguments: [],
@@ -1823,9 +1823,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -1851,9 +1851,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::StructField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                         template_arguments: [],
@@ -1976,9 +1976,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -2004,9 +2004,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::StructField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                         template_arguments: [],
@@ -2179,9 +2179,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorFunctionRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorFunctionRitchie {
                                     path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -2241,9 +2241,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
@@ -2381,9 +2381,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorFunctionRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorFunctionRitchie {
                                     path: MajorFormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -2443,9 +2443,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
@@ -2499,9 +2499,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `core::num::f32(0)::abs`,
@@ -2592,9 +2592,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorFunctionRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorFunctionRitchie {
                                     path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -2709,9 +2709,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::UnveilAssocRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -2799,9 +2799,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -2827,9 +2827,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
@@ -2924,9 +2924,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -2952,9 +2952,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
@@ -3249,9 +3249,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::StructField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                         template_arguments: [
@@ -3312,9 +3312,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `core::slice::CyclicSlice(0)::end`,
@@ -3476,9 +3476,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::StructField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                         template_arguments: [
@@ -3539,9 +3539,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `core::slice::CyclicSlice(0)::start`,
@@ -3664,9 +3664,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -3692,9 +3692,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
@@ -3826,9 +3826,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -3886,9 +3886,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`,
@@ -3948,9 +3948,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -3976,9 +3976,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
@@ -4026,9 +4026,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -4054,9 +4054,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
@@ -4104,9 +4104,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -4132,9 +4132,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
@@ -4220,9 +4220,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorFunctionRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorFunctionRitchie {
                                     path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -4352,9 +4352,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::UnveilAssocRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -4405,9 +4405,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -4433,9 +4433,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::StructField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                         template_arguments: [],
@@ -4600,9 +4600,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`,
@@ -4650,9 +4650,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -4678,9 +4678,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::StructField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                         template_arguments: [],
@@ -4845,9 +4845,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`,
@@ -4901,9 +4901,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `core::num::f32(0)::abs`,
@@ -4994,9 +4994,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorFunctionRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorFunctionRitchie {
                                     path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -5116,9 +5116,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::UnveilAssocRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -5299,9 +5299,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::StructField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                         template_arguments: [
@@ -5362,9 +5362,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `core::slice::CyclicSlice(0)::end`,
@@ -5526,9 +5526,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::StructField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                         template_arguments: [
@@ -5589,9 +5589,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `core::slice::CyclicSlice(0)::start`,
@@ -5879,9 +5879,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::StructField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                         template_arguments: [
@@ -6022,9 +6022,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::StructField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                         template_arguments: [
@@ -6085,9 +6085,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `core::slice::CyclicSlice(0)::start`,
@@ -6335,9 +6335,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
@@ -6396,9 +6396,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
@@ -6458,9 +6458,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::StructField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                         template_arguments: [],
@@ -6676,9 +6676,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`,
@@ -6812,9 +6812,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`,
@@ -6948,9 +6948,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`,
@@ -7004,9 +7004,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `core::num::f32(0)::abs`,
@@ -7097,9 +7097,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorFunctionRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorFunctionRitchie {
                                     path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -7224,9 +7224,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::UnveilAssocRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -7283,9 +7283,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
@@ -7345,9 +7345,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::geom2d::Vector2d(0)::norm`,
@@ -7406,9 +7406,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
@@ -7468,9 +7468,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::StructField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                         template_arguments: [],
@@ -7522,9 +7522,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
@@ -7584,9 +7584,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::StructField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                         template_arguments: [],
@@ -7717,9 +7717,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorFunctionRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorFunctionRitchie {
                                     path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -7839,9 +7839,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::UnveilAssocRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -7936,9 +7936,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -7964,9 +7964,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::StructField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                         template_arguments: [],
@@ -8131,9 +8131,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`,
@@ -8181,9 +8181,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -8209,9 +8209,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::StructField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                         template_arguments: [],
@@ -8376,9 +8376,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`,
@@ -8426,9 +8426,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -8454,9 +8454,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::StructField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                         template_arguments: [],
@@ -8621,9 +8621,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`,
@@ -8677,9 +8677,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `core::num::f32(0)::abs`,
@@ -8770,9 +8770,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorFunctionRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorFunctionRitchie {
                                     path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -8897,9 +8897,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::UnveilAssocRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -9163,9 +9163,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::StructField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                         template_arguments: [
@@ -9306,9 +9306,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::StructField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                         template_arguments: [
@@ -9369,9 +9369,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `core::slice::CyclicSlice(0)::start`,
@@ -9540,9 +9540,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
@@ -9681,9 +9681,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::StructField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                         template_arguments: [
@@ -9824,9 +9824,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::StructField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                         template_arguments: [
@@ -9887,9 +9887,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `core::slice::CyclicSlice(0)::start`,
@@ -10137,9 +10137,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
@@ -10198,9 +10198,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
@@ -10260,9 +10260,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::StructField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                         template_arguments: [],
@@ -10314,9 +10314,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MethodRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
@@ -10376,9 +10376,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::StructField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                         template_arguments: [],
@@ -10462,9 +10462,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorFunctionRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorFunctionRitchie {
                                     path: MajorFormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -10584,9 +10584,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::UnveilAssocRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -10764,9 +10764,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -10792,9 +10792,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
@@ -10842,9 +10842,9 @@
                     },
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MajorVal {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         context: LinTypeContext {
@@ -10870,9 +10870,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
@@ -10926,9 +10926,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
@@ -10983,9 +10983,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
@@ -11135,9 +11135,9 @@
                                 },
                             ),
                         ),
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::MemoizedField {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
@@ -12461,9 +12461,9 @@
                 root_hir_lazy_stmt_ki_reprs: [
                     KiRepr {
                         ki_domain_repr: Omni,
-                        opn: KiOpn::Linkage(
-                            Linkage {
-                                data: LinkageData::UnveilAssocRitchie {
+                        opn: KiOpn::Linket(
+                            Linket {
+                                data: LinketData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(

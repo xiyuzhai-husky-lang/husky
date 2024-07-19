@@ -16,17 +16,17 @@ use husky_devsoul::{
 };
 use husky_devsoul_interface::{
     ki_repr::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface},
-    DevEvalContext, HuskyIngredientIndex, HuskyJarIndex, IsDevRuntime, IsLinkageImpl,
-    LinkageImplKiControlFlow,
+    DevEvalContext, HuskyIngredientIndex, HuskyJarIndex, IsDevRuntime, IsLinketImpl,
+    LinketImplKiControlFlow,
 };
 use husky_entity_path::path::{major_item::MajorItemPath, ItemPath};
 use husky_ki::{KiRuntimeConstant, KiRuntimeConstantData};
 use husky_ki_repr::repr::KiRepr;
-use husky_linkage::linkage::Linkage;
+use husky_linket::linket::Linket;
 use husky_vfs::{error::VfsResult, path::linktime_target_path::LinktimeTargetPath};
 use std::{convert::Infallible, path::Path};
 
-/// Dropping libraries or linkage_impls before runtime storage will lead to segmentation fault
+/// Dropping libraries or linket_impls before runtime storage will lead to segmentation fault
 ///
 /// so it's necessary to pub `storage` field before `comptime`
 pub struct DevRuntime<Devsoul: IsDevsoul> {
@@ -55,7 +55,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         self.comptime.target()
     }
 
-    pub(crate) fn eval_context(&self) -> DevEvalContext<Devsoul::LinkageImpl> {
+    pub(crate) fn eval_context(&self) -> DevEvalContext<Devsoul::LinketImpl> {
         DevEvalContext::new(unsafe { husky_wild_utils::arb_ref(self) })
     }
 
@@ -67,8 +67,8 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         &self,
         ki: husky_ki::Ki,
         var_deps: &husky_ki_repr::var_deps::KiStaticVarDeps,
-        f: impl FnOnce() -> LinkageImplKiControlFlow<Devsoul::LinkageImpl>,
-    ) -> LinkageImplKiControlFlow<Devsoul::LinkageImpl> {
+        f: impl FnOnce() -> LinketImplKiControlFlow<Devsoul::LinketImpl>,
+    ) -> LinketImplKiControlFlow<Devsoul::LinketImpl> {
         self.storage.get_or_try_init_ki_value(
             ki,
             var_deps
@@ -84,9 +84,9 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         let ItemPath::MajorItem(MajorItemPath::Form(path)) = path else {
             todo!()
         };
-        let linkage = Linkage::new_static_var(path, db);
-        let linkage_impl = self.comptime.linkage_impl(linkage);
-        linkage_impl.get_static_var_id()
+        let linket = Linket::new_static_var(path, db);
+        let linket_impl = self.comptime.linket_impl(linket);
+        linket_impl.get_static_var_id()
     }
 }
 
@@ -103,7 +103,7 @@ where
     }
 }
 
-impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinkageImpl> for DevRuntime<Devsoul> {
+impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinketImpl> for DevRuntime<Devsoul> {
     type StaticSelf = Self;
 
     unsafe fn cast_to_static_self_static_ref(&self) -> &'static Self::StaticSelf {
@@ -187,7 +187,7 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinkageImpl> for DevRuntime<Devso
             KiRuntimeConstantData::TypeVariantPath(path) => {
                 let presenter = self
                     .comptime
-                    .linkage_impl(Linkage::new_enum_index_presenter(
+                    .linket_impl(Linket::new_enum_index_presenter(
                         path.parent_ty_path(db),
                         db,
                     ))

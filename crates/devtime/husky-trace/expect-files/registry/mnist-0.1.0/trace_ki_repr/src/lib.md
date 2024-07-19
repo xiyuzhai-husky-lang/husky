@@ -29,9 +29,9 @@
         Some(
             KiRepr {
                 ki_domain_repr: Omni,
-                opn: KiOpn::Linkage(
-                    Linkage {
-                        data: LinkageData::MajorStaticVar {
+                opn: KiOpn::Linket(
+                    Linket {
+                        data: LinketData::MajorStaticVar {
                             path: MajorFormPath(`mnist::INPUT`, `StaticVar`),
                             instantiation: LinInstantiation {
                                 context: LinTypeContext {

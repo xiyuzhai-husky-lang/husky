@@ -56,7 +56,7 @@
                 path: "../../../examples/basics/syntax-basics",
             },
         },
-        kind: Linkages,
+        kind: Linkets,
     },
 ]
 ```

@@ -7,7 +7,7 @@ name = "ad-hoc-devsoul-dependency"
 version = "0.1.0"
 dependencies = [
  "husky-devsoul-interface",
- "husky-linkage-impl",
+ "husky-linket-impl",
  "husky-standard-devsoul-interface",
  "husky-standard-value",
 ]
@@ -44,9 +44,9 @@ checksum = "b048fb63fd8b5923fc5aa7b340d8e156aec7ec02f0c78fa8a6ddc2613f6f71de"
 
 [[package]]
 name = "cc"
-version = "1.1.5"
+version = "1.1.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "324c74f2155653c90b04f25b2a47a8a631360cb908f92a772695f430c7e31052"
+checksum = "2aba8f4e9906c7ce3c73463f62a7f0c65183ada1a2d47e397cc8810827f9694f"
 
 [[package]]
 name = "cfg-if"
@@ -300,7 +300,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-linkage-impl"
+name = "husky-linket-impl"
 version = "0.1.0"
 dependencies = [
  "colored",
@@ -377,7 +377,7 @@ version = "0.1.0"
 dependencies = [
  "enum-class",
  "husky-devsoul-interface",
- "husky-linkage-impl",
+ "husky-linket-impl",
  "husky-standard-devsoul-interface-macros",
  "husky-standard-value",
  "serde",
@@ -518,7 +518,7 @@ version = "0.1.0"
 dependencies = [
  "husky-core",
  "husky-devsoul-interface",
- "husky-linkage-impl",
+ "husky-linket-impl",
  "husky-rng-utils",
  "husky-standard-devsoul-interface",
  "husky-standard-value",
@@ -528,7 +528,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "mnist-linkages"
+name = "mnist-linkets"
 version = "0.1.0"
 dependencies = [
  "ad-hoc-devsoul-dependency",
@@ -832,18 +832,18 @@ dependencies = [
 
 [[package]]
 name = "thiserror"
-version = "1.0.62"
+version = "1.0.63"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f2675633b1499176c2dff06b0856a27976a8f9d436737b4cf4f312d4d91d8bbb"
+checksum = "c0342370b38b6a11b6cc11d6a805569958d54cfa061a29969c3b5ce2ea405724"
 dependencies = [
  "thiserror-impl",
 ]
 
 [[package]]
 name = "thiserror-impl"
-version = "1.0.62"
+version = "1.0.63"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d20468752b09f49e909e55a5d338caa8bedf615594e9d80bc4c565d30faf798c"
+checksum = "a4558b58466b9ad7ca0f102865eccc95938dca1a74a856f2b57b6629050da261"
 dependencies = [
  "proc-macro2",
  "quote",

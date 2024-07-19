@@ -4,9 +4,9 @@
         MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
         KiRepr {
             ki_domain_repr: Omni,
-            opn: KiOpn::Linkage(
-                Linkage {
-                    data: LinkageData::MajorVal {
+            opn: KiOpn::Linket(
+                Linket {
+                    data: LinketData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         instantiation: LinInstantiation {
                             context: LinTypeContext {

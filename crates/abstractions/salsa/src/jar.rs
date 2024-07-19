@@ -163,9 +163,9 @@ pub enum JarIndex {
     TokenJar,
     TokenDataJar,
     TomlTokenJar,
-    // linkage
+    // linket
     JavelinJar,
-    LinkageJar,
+    LinketJar,
     // namekian
     NamAstJar,
     // semantics

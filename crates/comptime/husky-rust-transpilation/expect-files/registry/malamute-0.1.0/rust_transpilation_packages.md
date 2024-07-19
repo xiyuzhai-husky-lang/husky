@@ -56,7 +56,7 @@
                 path: "../../../registry/malamute-0.1.0",
             },
         },
-        kind: Linkages,
+        kind: Linkets,
     },
     RustTranspilationPackage {
         target_path: LinktimeTargetPath {
@@ -128,7 +128,7 @@
                 },
             },
         },
-        kind: Linkages,
+        kind: Linkets,
     },
 ]
 ```

@@ -56,7 +56,7 @@
                 path: "../../../examples/basics/semantics-basics",
             },
         },
-        kind: Linkages,
+        kind: Linkets,
     },
 ]
 ```

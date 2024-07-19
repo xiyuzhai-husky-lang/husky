@@ -56,7 +56,7 @@
                 path: "../../../examples/errors/syntax-errors",
             },
         },
-        kind: Linkages,
+        kind: Linkets,
     },
 ]
 ```

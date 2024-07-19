@@ -9,7 +9,7 @@ mod expr;
 mod fmt;
 mod ingredient;
 pub mod jar;
-mod linkage;
+mod linket;
 mod manifest;
 mod package;
 mod path;

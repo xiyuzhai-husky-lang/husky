@@ -15,9 +15,9 @@ husky-vfs.workspace = true
 husky-entity-path.workspace = true
 # ki
 husky-ki.workspace = true
-# linkage
-husky-linkage.workspace = true
-husky-linkage-impl.workspace = true
+# linket
+husky-linket.workspace = true
+husky-linket-impl.workspace = true
 # protocols
 husky-visual-protocol.workspace = true
 husky-trace-protocol = { workspace = true, features = ["server"] }
