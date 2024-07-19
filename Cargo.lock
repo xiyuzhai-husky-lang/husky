@@ -4579,6 +4579,7 @@ dependencies = [
  "husky-visual-protocol",
  "husky-vm",
  "husky-vmir",
+ "husky-wild-utils",
  "idx-arena",
  "lsp-types 0.95.0",
  "relative-path",

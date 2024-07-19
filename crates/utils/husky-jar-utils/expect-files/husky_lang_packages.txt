@@ -3160,6 +3160,7 @@
             "husky-visual-protocol",
             "husky-vm",
             "husky-vmir",
+            "husky-wild-utils",
             "idx-arena",
             "lsp-types",
             "relative-path",

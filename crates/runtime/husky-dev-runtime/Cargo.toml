@@ -50,8 +50,9 @@ husky-check-utils.workspace = true
 husky-path-utils.workspace = true
 husky-print-utils.workspace = true
 husky-sync-utils.workspace = true
-husky-vm.workspace = true
+husky-wild-utils.workspace = true
 # vm
+husky-vm.workspace = true
 husky-vmir.workspace = true
 # value
 husky-value-interface.workspace = true

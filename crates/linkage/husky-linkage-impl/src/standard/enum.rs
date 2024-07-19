@@ -365,3 +365,22 @@ fn enum_tuple_variant_field_linkage_impl_works() {
     let _: StandardLinkageImpl<()> = enum_variant_field_linkage_impl!(Animal, Animal::Cat, (v0));
     let _: StandardLinkageImpl<()> = enum_variant_field_linkage_impl!(Animal, Animal::Cat, (v1));
 }
+
+#[macro_export]
+macro_rules! enum_index_presenter_linkage_impl {
+    ($ty: ty) => {
+        __LinkageImpl::EnumUnitValuePresenter {
+            presenter: |index: usize, _, _| {
+                let index: u8 = index.try_into().unwrap();
+                let slf: $ty = unsafe { std::mem::transmute(index) };
+                __ValuePresentation::AdHoc(format!("{slf:?}"))
+            },
+        }
+    };
+}
+
+#[test]
+#[ignore]
+fn enum_index_presenter_linkage_impl_works() {
+    todo!()
+}
