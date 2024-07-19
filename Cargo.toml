@@ -16,7 +16,7 @@ members = [
     "crates/ki/*",
     "crates/lex/*",
     "crates/lean/*",
-    "crates/linkage/*",
+    "crates/linket/*",
     "crates/linktime/*",
     "crates/mir/*",
     "crates/namekian/*",
@@ -276,10 +276,10 @@ husky-token-data = { path = "crates/lex/husky-token-data" }
 husky-token = { path = "crates/lex/husky-token" }
 husky-text = { path = "crates/lex/husky-text" }
 husky-text-span = { path = "crates/lex/husky-text-span" }
-# linkage
-husky-javelin = { path = "crates/linkage/husky-javelin" }
-husky-linkage = { path = "crates/linkage/husky-linkage" }
-husky-linkage-impl = { path = "crates/linkage/husky-linkage-impl" }
+# linket
+husky-javelin = { path = "crates/linket/husky-javelin" }
+husky-linket = { path = "crates/linket/husky-linket" }
+husky-linket-impl = { path = "crates/linket/husky-linket-impl" }
 # linktime
 husky-mono-linktime = { path = "crates/linktime/husky-mono-linktime" }
 # protocols

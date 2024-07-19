@@ -3,13 +3,13 @@
 pub mod devsoul;
 pub mod ki_control_flow;
 pub mod ki_repr;
-pub mod linkage_impl;
+pub mod linket_impl;
 pub mod pedestal;
 pub mod ugly;
 pub mod vm_control_flow;
 
 pub use self::ki_control_flow::KiControlFlow;
-pub use self::linkage_impl::*;
+pub use self::linket_impl::*;
 pub use husky_devsoul_interface_macros::*;
 
 use self::ki_repr::{
@@ -125,11 +125,11 @@ impl HuskyIngredientIndex {
 
 pub type HuskyJarIndexOnceCell = OnceCell<HuskyJarIndex>;
 
-pub struct DevEvalContext<LinkageImpl: IsLinkageImpl> {
-    runtime: &'static dyn IsDevRuntimeDyn<LinkageImpl>,
+pub struct DevEvalContext<LinketImpl: IsLinketImpl> {
+    runtime: &'static dyn IsDevRuntimeDyn<LinketImpl>,
 }
 
-impl<LinkageImpl: IsLinkageImpl> Clone for DevEvalContext<LinkageImpl> {
+impl<LinketImpl: IsLinketImpl> Clone for DevEvalContext<LinketImpl> {
     fn clone(&self) -> Self {
         Self {
             runtime: self.runtime,
@@ -137,10 +137,10 @@ impl<LinkageImpl: IsLinkageImpl> Clone for DevEvalContext<LinkageImpl> {
     }
 }
 
-impl<LinkageImpl: IsLinkageImpl> Copy for DevEvalContext<LinkageImpl> {}
+impl<LinketImpl: IsLinketImpl> Copy for DevEvalContext<LinketImpl> {}
 
-impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
-    pub fn new(runtime: &'static dyn IsDevRuntimeDyn<LinkageImpl>) -> Self {
+impl<LinketImpl: IsLinketImpl> DevEvalContext<LinketImpl> {
+    pub fn new(runtime: &'static dyn IsDevRuntimeDyn<LinketImpl>) -> Self {
         Self { runtime }
     }
 
@@ -148,8 +148,8 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        f: fn() -> LinkageImplKiControlFlow<LinkageImpl>,
-    ) -> LinkageImpl::Value {
+        f: fn() -> LinketImplKiControlFlow<LinketImpl>,
+    ) -> LinketImpl::Value {
         self.runtime
             .eval_eager_val_with_dyn(jar_index, ingredient_index, f)
             .unwrap()
@@ -159,7 +159,7 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-    ) -> LinkageImpl::Value {
+    ) -> LinketImpl::Value {
         self.runtime
             .eval_lazy_val_dyn(jar_index, ingredient_index)
             .unwrap()
@@ -168,14 +168,14 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
     pub fn eval_ki_repr_interface(
         self,
         ki_repr_interface: KiReprInterface,
-    ) -> LinkageImplKiControlFlow<LinkageImpl> {
+    ) -> LinketImplKiControlFlow<LinketImpl> {
         self.runtime.eval_ki_repr_interface_dyn(ki_repr_interface)
     }
 
     pub fn eval_ki_domain_repr_interface(
         self,
         ki_domain_repr_interface: KiDomainReprInterface,
-    ) -> KiControlFlow<(), Infallible, LinkageImpl::Exception> {
+    ) -> KiControlFlow<(), Infallible, LinketImpl::Exception> {
         self.runtime
             .eval_ki_domain_repr_interface_dyn(ki_domain_repr_interface)
     }
@@ -185,10 +185,10 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
         slf: &'static Slf,
-        f: fn(&'static Slf) -> LinkageImplKiControlFlow<LinkageImpl>,
-    ) -> LinkageImpl::Value {
+        f: fn(&'static Slf) -> LinketImplKiControlFlow<LinketImpl>,
+    ) -> LinketImpl::Value {
         let slf: &'static std::ffi::c_void = unsafe { std::mem::transmute(slf) };
-        let f: fn(&'static std::ffi::c_void) -> LinkageImplKiControlFlow<LinkageImpl> =
+        let f: fn(&'static std::ffi::c_void) -> LinketImplKiControlFlow<LinketImpl> =
             unsafe { std::mem::transmute(f) };
         self.runtime
             .eval_memo_field_with_dyn(jar_index, ingredient_index, slf, f)
@@ -198,14 +198,14 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
     pub fn eval_val_runtime_constant(
         &self,
         val_runtime_constant: KiRuntimeConstantInterface,
-    ) -> LinkageImpl::Value {
+    ) -> LinketImpl::Value {
         self.runtime
             .eval_val_runtime_constant_dyn(val_runtime_constant)
     }
 }
 
-pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
-    type StaticSelf: IsDevRuntime<LinkageImpl> + 'static;
+pub trait IsDevRuntime<LinketImpl: IsLinketImpl> {
+    type StaticSelf: IsDevRuntime<LinketImpl> + 'static;
 
     unsafe fn cast_to_static_self_static_ref(&self) -> &'static Self::StaticSelf;
 
@@ -215,8 +215,8 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        f: impl FnOnce() -> LinkageImplKiControlFlow<LinkageImpl>,
-    ) -> LinkageImplKiControlFlow<LinkageImpl>;
+        f: impl FnOnce() -> LinketImplKiControlFlow<LinketImpl>,
+    ) -> LinketImplKiControlFlow<LinketImpl>;
 
     /// the computation is done by the runtime
     /// returns `Value` because there is guaranteed to be no control flow
@@ -224,90 +224,90 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-    ) -> LinkageImplKiControlFlow<LinkageImpl>;
+    ) -> LinketImplKiControlFlow<LinketImpl>;
 
     /// the computation is done by the runtime
-    /// returns `LinkageImplKiControlFlow<LinkageImpl>` because there is not guaranteed to be no control flow
+    /// returns `LinketImplKiControlFlow<LinketImpl>` because there is not guaranteed to be no control flow
     fn eval_ki_repr_interface(
         &self,
         ki_repr: KiReprInterface,
-    ) -> LinkageImplKiControlFlow<LinkageImpl>;
+    ) -> LinketImplKiControlFlow<LinketImpl>;
 
     fn eval_ki_domain_repr_interface(
         &self,
         ki_domain_repr: KiDomainReprInterface,
-    ) -> KiControlFlow<(), Infallible, LinkageImpl::Exception>;
+    ) -> KiControlFlow<(), Infallible, LinketImpl::Exception>;
 
     /// the computation is done by `f`
-    /// returns `LinkageImplKiControlFlow<LinkageImpl>` because there is not guaranteed to be no control flow
+    /// returns `LinketImplKiControlFlow<LinketImpl>` because there is not guaranteed to be no control flow
     fn eval_ki_repr_with(
         &self,
         ki_repr: KiReprInterface,
-        f: impl FnOnce(KiDomainReprInterface) -> LinkageImplKiControlFlow<LinkageImpl>,
-    ) -> LinkageImplKiControlFlow<LinkageImpl>;
+        f: impl FnOnce(KiDomainReprInterface) -> LinketImplKiControlFlow<LinketImpl>,
+    ) -> LinketImplKiControlFlow<LinketImpl>;
 
     fn eval_memo_field(
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
         slf: &'static std::ffi::c_void,
-        f: fn(&'static std::ffi::c_void) -> LinkageImplKiControlFlow<LinkageImpl>,
-    ) -> LinkageImplKiControlFlow<LinkageImpl>;
+        f: fn(&'static std::ffi::c_void) -> LinketImplKiControlFlow<LinketImpl>,
+    ) -> LinketImplKiControlFlow<LinketImpl>;
 
     fn eval_val_runtime_constant(
         &self,
         val_runtime_constant: KiRuntimeConstantInterface,
-    ) -> LinkageImpl::Value;
+    ) -> LinketImpl::Value;
 }
 
-pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
+pub trait IsDevRuntimeDyn<LinketImpl: IsLinketImpl> {
     fn eval_eager_val_with_dyn(
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        f: fn() -> LinkageImplKiControlFlow<LinkageImpl>,
-    ) -> LinkageImplKiControlFlow<LinkageImpl>;
+        f: fn() -> LinketImplKiControlFlow<LinketImpl>,
+    ) -> LinketImplKiControlFlow<LinketImpl>;
 
     fn eval_lazy_val_dyn(
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-    ) -> LinkageImplKiControlFlow<LinkageImpl>;
+    ) -> LinketImplKiControlFlow<LinketImpl>;
 
     fn eval_ki_repr_interface_dyn(
         &self,
         ki_repr: KiReprInterface,
-    ) -> LinkageImplKiControlFlow<LinkageImpl>;
+    ) -> LinketImplKiControlFlow<LinketImpl>;
 
     fn eval_ki_domain_repr_interface_dyn(
         &self,
         ki_domain_repr: KiDomainReprInterface,
-    ) -> KiControlFlow<(), Infallible, LinkageImpl::Exception>;
+    ) -> KiControlFlow<(), Infallible, LinketImpl::Exception>;
 
     fn eval_memo_field_with_dyn(
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
         slf: &'static std::ffi::c_void,
-        f: fn(&'static std::ffi::c_void) -> LinkageImplKiControlFlow<LinkageImpl>,
-    ) -> LinkageImplKiControlFlow<LinkageImpl>;
+        f: fn(&'static std::ffi::c_void) -> LinketImplKiControlFlow<LinketImpl>,
+    ) -> LinketImplKiControlFlow<LinketImpl>;
 
     fn eval_val_runtime_constant_dyn(
         &self,
         val_runtime_constant: KiRuntimeConstantInterface,
-    ) -> LinkageImpl::Value;
+    ) -> LinketImpl::Value;
 }
 
-impl<LinkageImpl: IsLinkageImpl, Runtime> IsDevRuntimeDyn<LinkageImpl> for Runtime
+impl<LinketImpl: IsLinketImpl, Runtime> IsDevRuntimeDyn<LinketImpl> for Runtime
 where
-    Runtime: IsDevRuntime<LinkageImpl>,
+    Runtime: IsDevRuntime<LinketImpl>,
 {
     fn eval_eager_val_with_dyn(
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-        f: fn() -> LinkageImplKiControlFlow<LinkageImpl>,
-    ) -> LinkageImplKiControlFlow<LinkageImpl> {
+        f: fn() -> LinketImplKiControlFlow<LinketImpl>,
+    ) -> LinketImplKiControlFlow<LinketImpl> {
         self.eval_ingredient_with(jar_index, ingredient_index, f)
     }
 
@@ -315,21 +315,21 @@ where
         &self,
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
-    ) -> LinkageImplKiControlFlow<LinkageImpl> {
+    ) -> LinketImplKiControlFlow<LinketImpl> {
         self.eval_ingredient(jar_index, ingredient_index)
     }
 
     fn eval_ki_repr_interface_dyn(
         &self,
         ki_repr_interface: KiReprInterface,
-    ) -> LinkageImplKiControlFlow<LinkageImpl> {
+    ) -> LinketImplKiControlFlow<LinketImpl> {
         self.eval_ki_repr_interface(ki_repr_interface)
     }
 
     fn eval_ki_domain_repr_interface_dyn(
         &self,
         ki_domain_repr_interface: KiDomainReprInterface,
-    ) -> KiControlFlow<(), Infallible, LinkageImpl::Exception> {
+    ) -> KiControlFlow<(), Infallible, LinketImpl::Exception> {
         self.eval_ki_domain_repr_interface(ki_domain_repr_interface)
     }
 
@@ -338,15 +338,15 @@ where
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
         slf: &'static std::ffi::c_void,
-        f: fn(&'static std::ffi::c_void) -> LinkageImplKiControlFlow<LinkageImpl>,
-    ) -> LinkageImplKiControlFlow<LinkageImpl> {
+        f: fn(&'static std::ffi::c_void) -> LinketImplKiControlFlow<LinketImpl>,
+    ) -> LinketImplKiControlFlow<LinketImpl> {
         self.eval_memo_field(jar_index, ingredient_index, slf, f)
     }
 
     fn eval_val_runtime_constant_dyn(
         &self,
         val_runtime_constant: KiRuntimeConstantInterface,
-    ) -> <LinkageImpl as IsLinkageImpl>::Value {
+    ) -> <LinketImpl as IsLinketImpl>::Value {
         self.eval_val_runtime_constant(val_runtime_constant)
     }
 }

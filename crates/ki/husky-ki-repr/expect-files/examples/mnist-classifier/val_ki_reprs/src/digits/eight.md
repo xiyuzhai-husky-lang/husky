@@ -4,9 +4,9 @@
         MajorFormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
         KiRepr {
             ki_domain_repr: Omni,
-            opn: KiOpn::Linkage(
-                Linkage {
-                    data: LinkageData::MajorVal {
+            opn: KiOpn::Linket(
+                Linket {
+                    data: LinketData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                         instantiation: LinInstantiation {
                             context: LinTypeContext {
@@ -29,9 +29,9 @@
         MajorFormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
         KiRepr {
             ki_domain_repr: Omni,
-            opn: KiOpn::Linkage(
-                Linkage {
-                    data: LinkageData::MajorVal {
+            opn: KiOpn::Linket(
+                Linket {
+                    data: LinketData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                         instantiation: LinInstantiation {
                             context: LinTypeContext {

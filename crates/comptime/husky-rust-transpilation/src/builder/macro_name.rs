@@ -10,17 +10,17 @@ pub enum RustMacroName {
     Assert,
     Matches,
     Unveil,
-    LinkageImpls,
-    FnLinkageImpl,
-    GnLinkageImpl,
-    EnumVariantConstructorLinkageImpl,
-    EnumVariantDestructorLinkageImpl,
-    EnumVariantDiscriminatorLinkageImpl,
-    EnumVariantFieldLinkageImpl,
-    StructDestructorLinkageImpl,
-    StructFieldLinkageImpl,
-    UnveilLinkageImpl,
-    StaticVarLinkageImpl,
+    LinketImpls,
+    FnLinketImpl,
+    GnLinketImpl,
+    EnumVariantConstructorLinketImpl,
+    EnumVariantDestructorLinketImpl,
+    EnumVariantDiscriminatorLinketImpl,
+    EnumVariantFieldLinketImpl,
+    StructDestructorLinketImpl,
+    StructFieldLinketImpl,
+    UnveilLinketImpl,
+    StaticVarLinketImpl,
     TypeDefault,
     EnumUnitPresenter,
     HtmlTag(husky_coword::Ident),
@@ -44,25 +44,25 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
             RustMacroName::Assert => "assert!",
             RustMacroName::Matches => "matches!",
             RustMacroName::Unveil => "unveil!",
-            RustMacroName::LinkageImpls => "linkage_impls!",
-            RustMacroName::FnLinkageImpl => "fn_linkage_impl!",
-            RustMacroName::StructDestructorLinkageImpl => "struct_destructor_linkage_impl!",
-            RustMacroName::EnumVariantConstructorLinkageImpl => {
-                "enum_variant_constructor_linkage_impl!"
+            RustMacroName::LinketImpls => "linket_impls!",
+            RustMacroName::FnLinketImpl => "fn_linket_impl!",
+            RustMacroName::StructDestructorLinketImpl => "struct_destructor_linket_impl!",
+            RustMacroName::EnumVariantConstructorLinketImpl => {
+                "enum_variant_constructor_linket_impl!"
             }
-            RustMacroName::EnumVariantDestructorLinkageImpl => {
-                "enum_variant_destructor_linkage_impl!"
+            RustMacroName::EnumVariantDestructorLinketImpl => {
+                "enum_variant_destructor_linket_impl!"
             }
-            RustMacroName::EnumVariantDiscriminatorLinkageImpl => {
-                "enum_variant_discriminator_linkage_impl!"
+            RustMacroName::EnumVariantDiscriminatorLinketImpl => {
+                "enum_variant_discriminator_linket_impl!"
             }
-            RustMacroName::EnumVariantFieldLinkageImpl => "enum_variant_field_linkage_impl!",
-            RustMacroName::UnveilLinkageImpl => "unveil_fn_linkage_impl!",
-            RustMacroName::GnLinkageImpl => "gn_linkage_impl!",
-            RustMacroName::StaticVarLinkageImpl => "static_var_linkage_impl!",
-            RustMacroName::StructFieldLinkageImpl => "struct_field_linkage_impl!",
-            RustMacroName::TypeDefault => "ty_default_linkage_impl!",
-            RustMacroName::EnumUnitPresenter => "enum_index_presenter_linkage_impl!",
+            RustMacroName::EnumVariantFieldLinketImpl => "enum_variant_field_linket_impl!",
+            RustMacroName::UnveilLinketImpl => "unveil_fn_linket_impl!",
+            RustMacroName::GnLinketImpl => "gn_linket_impl!",
+            RustMacroName::StaticVarLinketImpl => "static_var_linket_impl!",
+            RustMacroName::StructFieldLinketImpl => "struct_field_linket_impl!",
+            RustMacroName::TypeDefault => "ty_default_linket_impl!",
+            RustMacroName::EnumUnitPresenter => "enum_index_presenter_linket_impl!",
             RustMacroName::HtmlTag(ident) => {
                 self.result += ident.data(db);
                 self.result += "!";

@@ -83,7 +83,7 @@ impl<Task, Label> __IsGnItem for narrow_down<Task, Label>
 where
     Label: IsLabel,
 {
-    type LinkageImpl = __LinkageImpl;
+    type LinketImpl = __LinketImpl;
 
     fn generic_pedestal(generic_pedestal: __Pedestal) -> __Pedestal {
         todo!()

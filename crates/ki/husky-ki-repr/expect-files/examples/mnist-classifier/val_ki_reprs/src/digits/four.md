@@ -4,9 +4,9 @@
         MajorFormPath(`mnist_classifier::digits::four::left_components`, `Val`),
         KiRepr {
             ki_domain_repr: Omni,
-            opn: KiOpn::Linkage(
-                Linkage {
-                    data: LinkageData::MajorVal {
+            opn: KiOpn::Linket(
+                Linket {
+                    data: LinketData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                         instantiation: LinInstantiation {
                             context: LinTypeContext {
@@ -29,9 +29,9 @@
         MajorFormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
         KiRepr {
             ki_domain_repr: Omni,
-            opn: KiOpn::Linkage(
-                Linkage {
-                    data: LinkageData::MajorVal {
+            opn: KiOpn::Linket(
+                Linket {
+                    data: LinketData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                         instantiation: LinInstantiation {
                             context: LinTypeContext {
@@ -54,9 +54,9 @@
         MajorFormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
         KiRepr {
             ki_domain_repr: Omni,
-            opn: KiOpn::Linkage(
-                Linkage {
-                    data: LinkageData::MajorVal {
+            opn: KiOpn::Linket(
+                Linket {
+                    data: LinketData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                         instantiation: LinInstantiation {
                             context: LinTypeContext {
@@ -79,9 +79,9 @@
         MajorFormPath(`mnist_classifier::digits::four::is_four`, `Val`),
         KiRepr {
             ki_domain_repr: Omni,
-            opn: KiOpn::Linkage(
-                Linkage {
-                    data: LinkageData::MajorVal {
+            opn: KiOpn::Linket(
+                Linket {
+                    data: LinketData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::digits::four::is_four`, `Val`),
                         instantiation: LinInstantiation {
                             context: LinTypeContext {

@@ -13,7 +13,7 @@ use husky_ki_repr::{
     repr::{KiCachingClass, KiRepr},
     var_deps::KiStaticVarDeps,
 };
-use husky_linkage::linkage::Linkage;
+use husky_linket::linket::Linket;
 use husky_manifest::helpers::upstream::HasAllUpstreamPackages;
 use husky_toolchain_config::toolchain_config;
 use husky_vfs::{
@@ -115,8 +115,8 @@ impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
         self.target_path
     }
 
-    pub fn linkage_impl(&self, linkage: Linkage) -> Devsoul::LinkageImpl {
-        self.linktime.linkage_impl(linkage, self.db())
+    pub fn linket_impl(&self, linket: Linket) -> Devsoul::LinketImpl {
+        self.linktime.linket_impl(linket, self.db())
     }
 
     pub fn ingredient_ki_and_var_deps(

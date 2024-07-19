@@ -86,12 +86,12 @@
     "husky-hir-defn"
   ],
   "husky-ki": [
-    "husky-linkage"
+    "husky-linket"
   ],
   "husky-ki-repr": [
     "husky-ki"
   ],
-  "husky-linkage": [
+  "husky-linket": [
     "husky-javelin"
   ],
   "husky-manifest": [
@@ -106,7 +106,7 @@
     "husky-eth-term"
   ],
   "husky-rust-transpilation": [
-    "husky-linkage"
+    "husky-linket"
   ],
   "husky-sem-expr": [
     "husky-fly-term",
@@ -174,6 +174,6 @@
     "husky-coword"
   ],
   "husky-vmir": [
-    "husky-linkage"
+    "husky-linket"
   ]
 }

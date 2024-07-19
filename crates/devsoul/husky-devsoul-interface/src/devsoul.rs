@@ -1,7 +1,7 @@
-use crate::{DevEvalContext, IsLinkageImpl};
+use crate::{DevEvalContext, IsLinketImpl};
 
 pub trait IsDevsoulInterface {
-    type LinkageImpl: IsLinkageImpl;
+    type LinketImpl: IsLinketImpl;
 
-    fn eval_context() -> DevEvalContext<Self::LinkageImpl>;
+    fn eval_context() -> DevEvalContext<Self::LinketImpl>;
 }

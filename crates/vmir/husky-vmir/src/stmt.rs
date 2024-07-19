@@ -13,71 +13,71 @@ use crate::{
     },
     *,
 };
-use husky_devsoul_interface::vm_control_flow::{LinkageImplVmControlFlow, VmControlFlow};
+use husky_devsoul_interface::vm_control_flow::{LinketImplVmControlFlow, VmControlFlow};
 use husky_expr::stmt::ConditionConversion;
 use husky_hir_eager_expr::{HirEagerCondition, HirEagerStmtData, HirEagerStmtIdxRange};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub enum VmirStmtData<LinkageImpl: IsLinkageImpl> {
+pub enum VmirStmtData<LinketImpl: IsLinketImpl> {
     Let {
-        pattern: VmirPattern<LinkageImpl>,
-        initial_value: VmirExprIdx<LinkageImpl>,
+        pattern: VmirPattern<LinketImpl>,
+        initial_value: VmirExprIdx<LinketImpl>,
         coercion: Option<VmirCoercion>,
     },
     Return {
-        result: VmirExprIdx<LinkageImpl>,
+        result: VmirExprIdx<LinketImpl>,
         coercion: VmirCoercion,
     },
     Require {
-        condition: VmirCondition<LinkageImpl>,
+        condition: VmirCondition<LinketImpl>,
     },
     Assert {
-        condition: VmirCondition<LinkageImpl>,
+        condition: VmirCondition<LinketImpl>,
     },
     Break,
     Eval {
-        expr: VmirExprIdx<LinkageImpl>,
+        expr: VmirExprIdx<LinketImpl>,
         coercion: Option<VmirCoercion>,
         discarded: bool,
     },
     ForBetween {
-        stmts: VmirStmtIdxRange<LinkageImpl>,
+        stmts: VmirStmtIdxRange<LinketImpl>,
     },
     Forext {
-        stmts: VmirStmtIdxRange<LinkageImpl>,
+        stmts: VmirStmtIdxRange<LinketImpl>,
     },
     ForIn {
-        stmts: VmirStmtIdxRange<LinkageImpl>,
+        stmts: VmirStmtIdxRange<LinketImpl>,
     },
     While {
-        condition: VmirCondition<LinkageImpl>,
-        stmts: VmirStmtIdxRange<LinkageImpl>,
+        condition: VmirCondition<LinketImpl>,
+        stmts: VmirStmtIdxRange<LinketImpl>,
     },
     DoWhile {
-        condition: VmirCondition<LinkageImpl>,
-        stmts: VmirStmtIdxRange<LinkageImpl>,
+        condition: VmirCondition<LinketImpl>,
+        stmts: VmirStmtIdxRange<LinketImpl>,
     },
     IfElse {
-        if_branch: VmirIfBranch<LinkageImpl>,
-        elif_branches: VmirElifBranchs<LinkageImpl>,
-        else_branch: Option<VmirElseBranch<LinkageImpl>>,
+        if_branch: VmirIfBranch<LinketImpl>,
+        elif_branches: VmirElifBranchs<LinketImpl>,
+        else_branch: Option<VmirElseBranch<LinketImpl>>,
     },
     Match {
-        opd: VmirExprIdx<LinkageImpl>,
-        case_branches: VmirCaseBranches<LinkageImpl>,
+        opd: VmirExprIdx<LinketImpl>,
+        case_branches: VmirCaseBranches<LinketImpl>,
     },
 }
 
-pub type VmirStmtArena<LinkageImpl> = Arena<VmirStmtData<LinkageImpl>>;
+pub type VmirStmtArena<LinketImpl> = Arena<VmirStmtData<LinketImpl>>;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct VmirStmtIdx<LinkageImpl: IsLinkageImpl>(ArenaIdx<VmirStmtData<LinkageImpl>>);
+pub struct VmirStmtIdx<LinketImpl: IsLinketImpl>(ArenaIdx<VmirStmtData<LinketImpl>>);
 
-impl<LinkageImpl: IsLinkageImpl> std::ops::Deref for VmirStmtIdx<LinkageImpl> {
-    type Target = ArenaIdx<VmirStmtData<LinkageImpl>>;
+impl<LinketImpl: IsLinketImpl> std::ops::Deref for VmirStmtIdx<LinketImpl> {
+    type Target = ArenaIdx<VmirStmtData<LinketImpl>>;
 
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -86,31 +86,31 @@ impl<LinkageImpl: IsLinkageImpl> std::ops::Deref for VmirStmtIdx<LinkageImpl> {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct VmirStmtIdxRange<LinkageImpl: IsLinkageImpl>(ArenaIdxRange<VmirStmtData<LinkageImpl>>);
+pub struct VmirStmtIdxRange<LinketImpl: IsLinketImpl>(ArenaIdxRange<VmirStmtData<LinketImpl>>);
 
-impl<LinkageImpl: IsLinkageImpl> IntoIterator for VmirStmtIdxRange<LinkageImpl> {
-    type Item = VmirStmtIdx<LinkageImpl>;
+impl<LinketImpl: IsLinketImpl> IntoIterator for VmirStmtIdxRange<LinketImpl> {
+    type Item = VmirStmtIdx<LinketImpl>;
 
-    type IntoIter = impl Iterator<Item = VmirStmtIdx<LinkageImpl>>;
+    type IntoIter = impl Iterator<Item = VmirStmtIdx<LinketImpl>>;
 
     fn into_iter(self) -> Self::IntoIter {
         self.0.into_iter().map(VmirStmtIdx)
     }
 }
 
-impl<LinkageImpl: IsLinkageImpl> VmirStmtIdxRange<LinkageImpl> {
-    fn split_last(self) -> (Self, VmirStmtIdx<LinkageImpl>) {
+impl<LinketImpl: IsLinketImpl> VmirStmtIdxRange<LinketImpl> {
+    fn split_last(self) -> (Self, VmirStmtIdx<LinketImpl>) {
         let (non_lasts, last) = self.0.split_last();
         (Self(non_lasts), VmirStmtIdx(last))
     }
 }
 
-impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerStmtIdxRange {
-    type Output = VmirStmtIdxRange<LinkageImpl>;
+impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for HirEagerStmtIdxRange {
+    type Output = VmirStmtIdxRange<LinketImpl>;
 
     fn to_vmir<Linktime>(self, builder: &mut crate::builder::VmirBuilder<Linktime>) -> Self::Output
     where
-        Linktime: IsLinktime<LinkageImpl = LinkageImpl>,
+        Linktime: IsLinktime<LinketImpl = LinketImpl>,
     {
         let stmts = self
             .into_iter()
@@ -201,35 +201,35 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerStmtIdxRange {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum VmirCondition<LinkageImpl: IsLinkageImpl> {
+pub enum VmirCondition<LinketImpl: IsLinketImpl> {
     /// `be` condition with syntactically correct pattern.
     /// This requires special handling for many cases.
     Be {
-        opd: VmirExprIdx<LinkageImpl>,
-        pattern: VmirPattern<LinkageImpl>,
+        opd: VmirExprIdx<LinketImpl>,
+        pattern: VmirPattern<LinketImpl>,
     },
     /// all other conditions.
     /// for simplicity, `be` with a syntactically broken pattern is also included in there
     Other {
-        opd: VmirExprIdx<LinkageImpl>,
-        conversion: VmirConditionConversion<LinkageImpl>,
+        opd: VmirExprIdx<LinketImpl>,
+        conversion: VmirConditionConversion<LinketImpl>,
     },
 }
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum VmirConditionConversion<LinkageImpl> {
+pub enum VmirConditionConversion<LinketImpl> {
     None,
     IntToBool,
-    Todo(LinkageImpl),
+    Todo(LinketImpl),
 }
 
-impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for &HirEagerCondition {
-    type Output = VmirCondition<LinkageImpl>;
+impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for &HirEagerCondition {
+    type Output = VmirCondition<LinketImpl>;
 
     fn to_vmir<Linktime>(self, builder: &mut VmirBuilder<Linktime>) -> Self::Output
     where
-        Linktime: IsLinktime<LinkageImpl = LinkageImpl>,
+        Linktime: IsLinktime<LinketImpl = LinketImpl>,
     {
         match *self {
             HirEagerCondition::Be { opd, ref pattern } => VmirCondition::Be {
@@ -244,12 +244,12 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for &HirEagerCondition {
     }
 }
 
-impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for ConditionConversion {
-    type Output = VmirConditionConversion<LinkageImpl>;
+impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for ConditionConversion {
+    type Output = VmirConditionConversion<LinketImpl>;
 
     fn to_vmir<Linktime>(self, builder: &mut VmirBuilder<Linktime>) -> Self::Output
     where
-        Linktime: IsLinktime<LinkageImpl = LinkageImpl>,
+        Linktime: IsLinktime<LinketImpl = LinketImpl>,
     {
         match self {
             ConditionConversion::None => VmirConditionConversion::None,
@@ -260,35 +260,35 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for ConditionConversion {
 
 /// # eval
 
-impl<LinkageImpl: IsLinkageImpl> VmirStmtIdxRange<LinkageImpl> {
+impl<LinketImpl: IsLinketImpl> VmirStmtIdxRange<LinketImpl> {
     pub fn eval<'comptime>(
         self,
-        ctx: &mut impl EvalVmir<'comptime, LinkageImpl>,
-    ) -> LinkageImplVmControlFlow<LinkageImpl> {
+        ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
+    ) -> LinketImplVmControlFlow<LinketImpl> {
         ctx.eval_stmts(self, |ctx| self.eval_aux(ctx))
     }
 
     pub fn eval_aux<'comptime>(
         self,
-        ctx: &mut impl EvalVmir<'comptime, LinkageImpl>,
-    ) -> LinkageImplVmControlFlow<LinkageImpl> {
+        ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
+    ) -> LinketImplVmControlFlow<LinketImpl> {
         let (non_lasts, last) = self.split_last();
         last.eval(ctx)
     }
 }
 
-impl<LinkageImpl: IsLinkageImpl> VmirStmtIdx<LinkageImpl> {
+impl<LinketImpl: IsLinketImpl> VmirStmtIdx<LinketImpl> {
     pub fn eval<'comptime>(
         self,
-        ctx: &mut impl EvalVmir<'comptime, LinkageImpl>,
-    ) -> LinkageImplVmControlFlow<LinkageImpl> {
+        ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
+    ) -> LinketImplVmControlFlow<LinketImpl> {
         ctx.eval_stmt(self, |ctx| self.eval_aux(ctx))
     }
 
     pub fn eval_aux<'comptime>(
         self,
-        ctx: &mut impl EvalVmir<'comptime, LinkageImpl>,
-    ) -> LinkageImplVmControlFlow<LinkageImpl> {
+        ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
+    ) -> LinketImplVmControlFlow<LinketImpl> {
         use VmControlFlow::*;
 
         match *self.entry(ctx.vmir_stmt_arena()) {
@@ -340,11 +340,11 @@ impl<LinkageImpl: IsLinkageImpl> VmirStmtIdx<LinkageImpl> {
     }
 }
 
-impl<LinkageImpl: IsLinkageImpl> VmirCondition<LinkageImpl> {
+impl<LinketImpl: IsLinketImpl> VmirCondition<LinketImpl> {
     fn eval<'comptime>(
         self,
-        ctx: &mut impl EvalVmir<'comptime, LinkageImpl>,
-    ) -> VmControlFlow<bool, LinkageImpl::Value, LinkageImpl::Exception> {
+        ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
+    ) -> VmControlFlow<bool, LinketImpl::Value, LinketImpl::Exception> {
         match self {
             VmirCondition::Be { opd, pattern } => todo!(),
             VmirCondition::Other { opd, conversion } => opd.eval(None, ctx).map(|v| v.to_bool()),

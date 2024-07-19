@@ -2,22 +2,22 @@ mod internal;
 
 use self::internal::BootLinkTimeInternal;
 use husky_devsoul::linktime::IsLinktime;
-use husky_devsoul_interface::IsLinkageImpl;
-use husky_linkage::linkage::Linkage;
+use husky_devsoul_interface::IsLinketImpl;
+use husky_linket::linket::Linket;
 use husky_vfs::path::linktime_target_path::LinktimeTargetPath;
 use std::collections::HashMap;
 
 // this will transpile everything compilable to Rust
-pub struct BootLinkTime<LinkageImpl>
+pub struct BootLinkTime<LinketImpl>
 where
-    LinkageImpl: IsLinkageImpl,
+    LinketImpl: IsLinketImpl,
 {
-    internal: std::sync::RwLock<BootLinkTimeInternal<LinkageImpl>>,
+    internal: std::sync::RwLock<BootLinkTimeInternal<LinketImpl>>,
 }
 
-impl<LinkageImpl> Default for BootLinkTime<LinkageImpl>
+impl<LinketImpl> Default for BootLinkTime<LinketImpl>
 where
-    LinkageImpl: IsLinkageImpl,
+    LinketImpl: IsLinketImpl,
 {
     fn default() -> Self {
         Self {
@@ -27,22 +27,22 @@ where
 }
 
 // ad hoc
-unsafe impl<LinkageImpl> Send for BootLinkTime<LinkageImpl> where LinkageImpl: IsLinkageImpl {}
+unsafe impl<LinketImpl> Send for BootLinkTime<LinketImpl> where LinketImpl: IsLinketImpl {}
 
-impl<LinkageImpl> IsLinktime for BootLinkTime<LinkageImpl>
+impl<LinketImpl> IsLinktime for BootLinkTime<LinketImpl>
 where
-    LinkageImpl: IsLinkageImpl<Pedestal = ()>,
+    LinketImpl: IsLinketImpl<Pedestal = ()>,
 {
-    type LinkageImpl = LinkageImpl;
+    type LinketImpl = LinketImpl;
 
-    fn linkage_impl(&self, key: Linkage, db: &::salsa::Db) -> LinkageImpl {
-        if let Some(linkage) = self.internal.read().expect("todo").get_linkage(key, db) {
-            linkage
+    fn linket_impl(&self, key: Linket, db: &::salsa::Db) -> LinketImpl {
+        if let Some(linket) = self.internal.read().expect("todo").get_linket(key, db) {
+            linket
         } else {
             self.internal
                 .write()
                 .expect("todo")
-                .get_linkage_with_reload(key, db)
+                .get_linket_with_reload(key, db)
         }
     }
 

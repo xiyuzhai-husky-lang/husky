@@ -1,5 +1,5 @@
 [workspace]
-members = ["semantics-basics", "semantics-basics/linkages"]
+members = ["semantics-basics", "semantics-basics/linkets"]
 resolver = "2"
 
 [workspace.dependencies.ad-hoc-devsoul-dependency]
@@ -11,5 +11,5 @@ path = "../../../../library/core"
 [workspace.dependencies.semantics-basics]
 path = "semantics-basics"
 
-[workspace.dependencies.semantics-basics-linkages]
-path = "semantics-basics/linkages"
+[workspace.dependencies.semantics-basics-linkets]
+path = "semantics-basics/linkets"

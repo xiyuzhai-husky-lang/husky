@@ -16,9 +16,9 @@ husky-vfs.workspace = true
 # kernel
 husky-standard-value.workspace = true
 husky-entity-path.workspace = true
-# linkage
-husky-linkage.workspace = true
-husky-linkage-impl.workspace = true
+# linket
+husky-linket.workspace = true
+husky-linket-impl.workspace = true
 # linktime
 husky-mono-linktime.workspace = true
 # protocols

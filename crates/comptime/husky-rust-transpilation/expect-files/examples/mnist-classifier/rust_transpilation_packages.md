@@ -56,7 +56,7 @@
                 path: "../../../examples/mnist-classifier",
             },
         },
-        kind: Linkages,
+        kind: Linkets,
     },
     RustTranspilationPackage {
         target_path: LinktimeTargetPath {
@@ -128,7 +128,7 @@
                 },
             },
         },
-        kind: Linkages,
+        kind: Linkets,
     },
     RustTranspilationPackage {
         target_path: LinktimeTargetPath {
@@ -200,7 +200,7 @@
                 },
             },
         },
-        kind: Linkages,
+        kind: Linkets,
     },
     RustTranspilationPackage {
         target_path: LinktimeTargetPath {
@@ -272,7 +272,7 @@
                 },
             },
         },
-        kind: Linkages,
+        kind: Linkets,
     },
 ]
 ```

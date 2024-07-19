@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 shifted-unsigned-int.workspace = true
 husky-core.workspace = true
-husky-linkage-impl.workspace = true
+husky-linket-impl.workspace = true
 husky-standard-devsoul-interface.workspace = true
 husky-standard-value.workspace = true
 husky-devsoul-interface.workspace = true

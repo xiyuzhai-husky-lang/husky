@@ -1,5 +1,5 @@
 [workspace]
-members = ["ml-task/linkages"]
+members = ["ml-task/linkets"]
 resolver = "2"
 
 [workspace.dependencies.ad-hoc-devsoul-dependency]
@@ -11,5 +11,5 @@ path = "../../../library/core"
 [workspace.dependencies.ml-task]
 path = ".."
 
-[workspace.dependencies.ml-task-linkages]
-path = "ml-task/linkages"
+[workspace.dependencies.ml-task-linkets]
+path = "ml-task/linkets"

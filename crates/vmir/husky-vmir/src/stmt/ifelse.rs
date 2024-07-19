@@ -3,24 +3,24 @@ use husky_hir_eager_expr::{HirEagerElifBranch, HirEagerElseBranch, HirEagerIfBra
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct VmirIfBranch<LinkageImpl: IsLinkageImpl> {
-    condition: VmirCondition<LinkageImpl>,
-    stmts: VmirStmtIdxRange<LinkageImpl>,
+pub struct VmirIfBranch<LinketImpl: IsLinketImpl> {
+    condition: VmirCondition<LinketImpl>,
+    stmts: VmirStmtIdxRange<LinketImpl>,
 }
 
 /// # getters
-impl<LinkageImpl: IsLinkageImpl> VmirIfBranch<LinkageImpl> {
-    pub fn stmts(&self) -> VmirStmtIdxRange<LinkageImpl> {
+impl<LinketImpl: IsLinketImpl> VmirIfBranch<LinketImpl> {
+    pub fn stmts(&self) -> VmirStmtIdxRange<LinketImpl> {
         self.stmts
     }
 }
 
-impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for &HirEagerIfBranch {
-    type Output = VmirIfBranch<LinkageImpl>;
+impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for &HirEagerIfBranch {
+    type Output = VmirIfBranch<LinketImpl>;
 
     fn to_vmir<Linktime>(self, builder: &mut VmirBuilder<Linktime>) -> Self::Output
     where
-        Linktime: IsLinktime<LinkageImpl = LinkageImpl>,
+        Linktime: IsLinktime<LinketImpl = LinketImpl>,
     {
         VmirIfBranch {
             condition: self.condition.to_vmir(builder),
@@ -31,26 +31,26 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for &HirEagerIfBranch {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct VmirElifBranch<LinkageImpl: IsLinkageImpl> {
-    condition: VmirCondition<LinkageImpl>,
-    stmts: VmirStmtIdxRange<LinkageImpl>,
+pub struct VmirElifBranch<LinketImpl: IsLinketImpl> {
+    condition: VmirCondition<LinketImpl>,
+    stmts: VmirStmtIdxRange<LinketImpl>,
 }
 
-pub type VmirElifBranchs<LinkageImpl> = Vec<VmirElifBranch<LinkageImpl>>;
+pub type VmirElifBranchs<LinketImpl> = Vec<VmirElifBranch<LinketImpl>>;
 
 /// # getters
-impl<LinkageImpl: IsLinkageImpl> VmirElifBranch<LinkageImpl> {
-    pub fn stmts(&self) -> VmirStmtIdxRange<LinkageImpl> {
+impl<LinketImpl: IsLinketImpl> VmirElifBranch<LinketImpl> {
+    pub fn stmts(&self) -> VmirStmtIdxRange<LinketImpl> {
         self.stmts
     }
 }
 
-impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for &HirEagerElifBranch {
-    type Output = VmirElifBranch<LinkageImpl>;
+impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for &HirEagerElifBranch {
+    type Output = VmirElifBranch<LinketImpl>;
 
     fn to_vmir<Linktime>(self, builder: &mut VmirBuilder<Linktime>) -> Self::Output
     where
-        Linktime: IsLinktime<LinkageImpl = LinkageImpl>,
+        Linktime: IsLinktime<LinketImpl = LinketImpl>,
     {
         VmirElifBranch {
             condition: self.condition.to_vmir(builder),
@@ -61,23 +61,23 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for &HirEagerElifBranch {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct VmirElseBranch<LinkageImpl: IsLinkageImpl> {
-    stmts: VmirStmtIdxRange<LinkageImpl>,
+pub struct VmirElseBranch<LinketImpl: IsLinketImpl> {
+    stmts: VmirStmtIdxRange<LinketImpl>,
 }
 
 /// # getters
-impl<LinkageImpl: IsLinkageImpl> VmirElseBranch<LinkageImpl> {
-    pub fn stmts(&self) -> VmirStmtIdxRange<LinkageImpl> {
+impl<LinketImpl: IsLinketImpl> VmirElseBranch<LinketImpl> {
+    pub fn stmts(&self) -> VmirStmtIdxRange<LinketImpl> {
         self.stmts
     }
 }
 
-impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerElseBranch {
-    type Output = VmirElseBranch<LinkageImpl>;
+impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for HirEagerElseBranch {
+    type Output = VmirElseBranch<LinketImpl>;
 
     fn to_vmir<Linktime>(self, builder: &mut VmirBuilder<Linktime>) -> Self::Output
     where
-        Linktime: IsLinktime<LinkageImpl = LinkageImpl>,
+        Linktime: IsLinktime<LinketImpl = LinketImpl>,
     {
         VmirElseBranch {
             stmts: self.stmts.to_vmir(builder),

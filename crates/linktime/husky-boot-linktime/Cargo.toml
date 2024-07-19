@@ -13,8 +13,8 @@ version-stamp.workspace = true
 husky-devsoul.workspace = true
 husky-standard-value.workspace = true
 husky-vfs.workspace = true
-# linkage
-husky-linkage.workspace = true
-husky-linkage-impl.workspace = true
+# linket
+husky-linket.workspace = true
+husky-linket-impl.workspace = true
 # devsoul
 husky-devsoul-interface.workspace = true

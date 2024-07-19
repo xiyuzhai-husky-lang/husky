@@ -13,8 +13,8 @@ husky-entity-path.workspace = true
 husky-term-prelude.workspace = true
 # hir
 husky-hir-opr.workspace = true
-# linkage
-husky-linkage.workspace = true
+# linket
+husky-linket.workspace = true
 # devsoul
 husky-devsoul-interface.workspace = true
 

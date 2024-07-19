@@ -36,9 +36,9 @@ husky-place.workspace = true
 husky-opr.workspace = true
 husky-expr = { path = "../../kernel/husky-expr" }
 # lex
-# linkage
+# linket
 husky-javelin.workspace = true
-husky-linkage.workspace = true
+husky-linket.workspace = true
 # semantics
 husky-manifest.workspace = true
 husky-corgi-config.workspace = true
@@ -65,7 +65,7 @@ husky-text.workspace = true
 husky-token-data.workspace = true
 husky-token.workspace = true
 husky-toml-token.workspace = true
-# linkage
+# linket
 husky-javelin.workspace = true
 # semantics
 husky-manifest.workspace = true

@@ -1,22 +1,22 @@
-use husky_devsoul_interface::IsLinkageImpl;
-use husky_linkage::linkage::{virtual_linkage_impl::VirtualLinkageImpl, Linkage};
+use husky_devsoul_interface::IsLinketImpl;
+use husky_linket::linket::{virtual_linket_impl::VirtualLinketImpl, Linket};
 use husky_vfs::path::linktime_target_path::LinktimeTargetPath;
 
 pub trait IsLinktime: Sized + Send {
-    type LinkageImpl: IsLinkageImpl;
-    // linktime has the responsibility to guarantee that the linkage provided is up to date.
-    fn linkage_impl(&self, linkage: Linkage, db: &::salsa::Db) -> Self::LinkageImpl;
+    type LinketImpl: IsLinketImpl;
+    // linktime has the responsibility to guarantee that the linket provided is up to date.
+    fn linket_impl(&self, linket: Linket, db: &::salsa::Db) -> Self::LinketImpl;
     fn new_linktime(target_path: LinktimeTargetPath, db: &::salsa::Db) -> Self;
 }
 
 pub struct VirtualLinktime;
 
 impl IsLinktime for VirtualLinktime {
-    type LinkageImpl = VirtualLinkageImpl;
+    type LinketImpl = VirtualLinketImpl;
 
     #[inline(always)]
-    fn linkage_impl(&self, linkage: Linkage, _db: &salsa::Db) -> Self::LinkageImpl {
-        linkage.into()
+    fn linket_impl(&self, linket: Linket, _db: &salsa::Db) -> Self::LinketImpl {
+        linket.into()
     }
 
     fn new_linktime(_target_path: LinktimeTargetPath, _db: &salsa::Db) -> Self {

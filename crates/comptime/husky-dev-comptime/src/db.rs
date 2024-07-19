@@ -36,9 +36,9 @@ use std::panic::RefUnwindSafe;
     husky_token::jar::TokenJar,
     husky_toml_token::jar::TomlTokenJar,
     husky_text::jar::TextJar,
-    // linkage
+    // linket
     husky_javelin::jar::JavelinJar,
-    husky_linkage::jar::LinkageJar,
+    husky_linket::jar::LinketJar,
     // semantics
     husky_sem_expr::SemExprJar,
     husky_sem_place_contract::jar::SemPlaceContractJar,

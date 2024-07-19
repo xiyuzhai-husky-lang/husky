@@ -3,26 +3,26 @@ use husky_hir_eager_expr::HirEagerCaseBranch;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct VmirCaseBranch<LinkageImpl: IsLinkageImpl> {
-    pattern: VmirPattern<LinkageImpl>,
-    stmts: VmirStmtIdxRange<LinkageImpl>,
+pub struct VmirCaseBranch<LinketImpl: IsLinketImpl> {
+    pattern: VmirPattern<LinketImpl>,
+    stmts: VmirStmtIdxRange<LinketImpl>,
 }
 
-pub type VmirCaseBranches<LinkageImpl> = Vec<VmirCaseBranch<LinkageImpl>>;
+pub type VmirCaseBranches<LinketImpl> = Vec<VmirCaseBranch<LinketImpl>>;
 
 /// # getters
-impl<LinkageImpl: IsLinkageImpl> VmirCaseBranch<LinkageImpl> {
-    pub fn stmts(&self) -> VmirStmtIdxRange<LinkageImpl> {
+impl<LinketImpl: IsLinketImpl> VmirCaseBranch<LinketImpl> {
+    pub fn stmts(&self) -> VmirStmtIdxRange<LinketImpl> {
         self.stmts
     }
 }
 
-impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for &HirEagerCaseBranch {
-    type Output = VmirCaseBranch<LinkageImpl>;
+impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for &HirEagerCaseBranch {
+    type Output = VmirCaseBranch<LinketImpl>;
 
     fn to_vmir<Linktime>(self, builder: &mut VmirBuilder<Linktime>) -> Self::Output
     where
-        Linktime: IsLinktime<LinkageImpl = LinkageImpl>,
+        Linktime: IsLinktime<LinketImpl = LinketImpl>,
     {
         VmirCaseBranch {
             pattern: self.pattern.to_vmir(builder),

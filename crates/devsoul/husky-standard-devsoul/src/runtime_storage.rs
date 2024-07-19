@@ -1,10 +1,10 @@
 use crate::*;
 use dashmap::DashMap;
 use husky_devsoul::devsoul::IsRuntimeStorage;
-use husky_devsoul_interface::{HuskyIngredientIndex, HuskyJarIndex, IsLinkageImpl};
+use husky_devsoul_interface::{HuskyIngredientIndex, HuskyJarIndex, IsLinketImpl};
 use husky_entity_path::path::ItemPath;
 use husky_ki::{version_stamp::KiVersionStamp, Ki};
-use husky_linkage_impl::standard::StandardLinkageImplKiControlFlow;
+use husky_linket_impl::standard::StandardLinketImplKiControlFlow;
 use husky_standard_devsoul_interface::static_var::StandardStaticVarId;
 use std::sync::{Arc, Mutex};
 
@@ -12,11 +12,11 @@ use std::sync::{Arc, Mutex};
 pub struct StandardDevRuntimeStorage {
     ki_values: DashMap<
         StandardDevRuntimeKiStorageKey,
-        Arc<Mutex<Option<(KiVersionStamp, StandardLinkageImplKiControlFlow)>>>,
+        Arc<Mutex<Option<(KiVersionStamp, StandardLinketImplKiControlFlow)>>>,
     >,
     memo_field_values: DashMap<
         StandardDevRuntimeMemoizedFieldStorageKey,
-        Arc<Mutex<Option<StandardLinkageImplKiControlFlow>>>,
+        Arc<Mutex<Option<StandardLinketImplKiControlFlow>>>,
     >,
 }
 
@@ -40,20 +40,20 @@ pub struct AnyPointer(*const std::ffi::c_void);
 
 unsafe impl Send for AnyPointer {}
 
-impl IsRuntimeStorage<LinkageImpl> for StandardDevRuntimeStorage
+impl IsRuntimeStorage<LinketImpl> for StandardDevRuntimeStorage
 where
-    LinkageImpl: IsLinkageImpl,
+    LinketImpl: IsLinketImpl,
 {
     fn get_or_try_init_ki_value(
         &self,
         ki: Ki,
         var_deps: impl Iterator<Item = (ItemPath, StandardStaticVarId)>,
-        f: impl FnOnce() -> StandardLinkageImplKiControlFlow,
+        f: impl FnOnce() -> StandardLinketImplKiControlFlow,
         db: &::salsa::Db,
-    ) -> StandardLinkageImplKiControlFlow {
+    ) -> StandardLinketImplKiControlFlow {
         use husky_devsoul_interface::pedestal::IsPedestal;
 
-        let pedestal = <LinkageImpl as IsLinkageImpl>::Pedestal::from_ids(
+        let pedestal = <LinketImpl as IsLinketImpl>::Pedestal::from_ids(
             var_deps.map(|(path, id)| (unsafe { std::mem::transmute(*path) }, id)),
         );
         let key = StandardDevRuntimeKiStorageKey { ki, pedestal };
@@ -82,8 +82,8 @@ where
         jar_index: HuskyJarIndex,
         ingredient_index: HuskyIngredientIndex,
         slf: &'static std::ffi::c_void,
-        f: impl FnOnce(&'static std::ffi::c_void) -> StandardLinkageImplKiControlFlow,
-    ) -> StandardLinkageImplKiControlFlow {
+        f: impl FnOnce(&'static std::ffi::c_void) -> StandardLinketImplKiControlFlow,
+    ) -> StandardLinketImplKiControlFlow {
         // todo: maybe add version stamp?
         let key = StandardDevRuntimeMemoizedFieldStorageKey {
             jar_index,
