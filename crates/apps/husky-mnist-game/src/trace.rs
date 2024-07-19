@@ -7,9 +7,9 @@ pub mod skeleton;
 use crate::{op::history::OpTime, MnistDb, *};
 use enum_index::{bitset::EnumBitSet, IsEnumIndex};
 use husky_devsoul_interface::ki_repr::KiReprInterface;
-use husky_standard_devsoul_interface::DeprecatedInputId;
 use husky_trace_protocol::id::TraceId;
 use husky_visual_protocol::visual::Visual;
+use mnist::input_id::MnistInputId;
 
 #[derive(IsEnumIndex, Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Trace {
@@ -75,7 +75,7 @@ impl Trace {
     pub(crate) fn visual<'a>(
         self,
         db: &'a MnistDb,
-        input_id: DeprecatedInputId,
+        input_id: MnistInputId,
         op_time: OpTime,
     ) -> Visual {
         match self {

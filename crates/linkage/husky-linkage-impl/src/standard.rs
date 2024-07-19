@@ -32,34 +32,20 @@ where
 {
     RitchieFn {
         /// it's the wrapper's responsibility to properly set ctx
-        fn_ki_wrapper: fn(
-            DevEvalContext<StandardLinkageImpl<Pedestal>>,
-            &[KiArgumentReprInterface],
-        ) -> StandardLinkageImplKiControlFlow,
-        fn_ki_pointer: fn(),
+        fn_ki_wrapper: fn(&[KiArgumentReprInterface]) -> StandardLinkageImplKiControlFlow,
+        // todo: fn_vm_wrapper
+        fn_pointer: fn(),
     },
     RitchieUnveilFn {
         /// it's the wrapper's responsibility to properly set ctx
-        fn_wrapper: fn(
-            DevEvalContext<StandardLinkageImpl<Pedestal>>,
-            &[KiArgumentReprInterface],
-        ) -> StandardLinkageImplKiControlFlow,
+        fn_wrapper: fn(&[KiArgumentReprInterface]) -> StandardLinkageImplKiControlFlow,
         fn_pointer: fn(),
     },
     RitchieGn {
-        /// it's the wrapper's responsibility to properly set ctx to that with generic pedestal
-        gn_generic_wrapper: fn(
-            DevEvalContext<StandardLinkageImpl<Pedestal>>,
-            KiDomainReprInterface,
-            &[KiArgumentReprInterface],
-        ) -> StandardLinkageImplKiControlFlow,
-        /// no need to set ctx
-        gn_specific_wrapper:
-            fn(&[KiArgumentReprInterface], Value) -> StandardLinkageImplKiControlFlow,
+        gn_ki_wrapper: (),
     },
     EnumVariantConstructor {
-        enum_variant_constructor_ki_wrapper:
-            fn(DevEvalContext<StandardLinkageImpl<Pedestal>>, &[KiArgumentReprInterface]) -> Value,
+        enum_variant_constructor_ki_wrapper: fn(&[KiArgumentReprInterface]) -> Value,
         enum_variant_constructor_vm_wrapper: fn(Vec<Value>) -> Value,
     },
     EnumVariantDestructor {
@@ -72,7 +58,9 @@ where
         enum_variant_field_wrapper: fn(Value) -> Value,
     },
     /// used to get the json value of an enum u8-represented given only the index
-    EnumUnitValuePresenter { presenter: EnumUnitValuePresenter },
+    EnumUnitValuePresenter {
+        presenter: EnumUnitValuePresenter,
+    },
     StructDestructor {
         struct_destructor_wrapper: fn(Value) -> Vec<Value>,
     },
@@ -99,20 +87,17 @@ where
     fn eval_ki(
         self,
         ki_repr: KiReprInterface,
-        ctx: DevEvalContext<Self>,
         ki_argument_reprs: &[KiArgumentReprInterface],
+        ctx: DevEvalContext<StandardLinkageImpl<Pedestal>>,
     ) -> StandardLinkageImplKiControlFlow {
         match self {
             StandardLinkageImpl::RitchieFn { fn_ki_wrapper, .. } => {
-                fn_ki_wrapper(ctx, ki_argument_reprs)
+                fn_ki_wrapper(ki_argument_reprs)
             }
             StandardLinkageImpl::RitchieUnveilFn { fn_wrapper, .. } => {
-                fn_wrapper(ctx, ki_argument_reprs)
+                fn_wrapper(ki_argument_reprs)
             }
-            StandardLinkageImpl::RitchieGn {
-                gn_generic_wrapper,
-                gn_specific_wrapper,
-            } => {
+            StandardLinkageImpl::RitchieGn { gn_ki_wrapper } => {
                 todo!()
                 // let value_at_generic_pedestal = ctx
                 //     .eval_ki_repr_interface_at_generic_pedestal_with(
@@ -179,11 +164,17 @@ where
     }
 }
 
-pub struct FnLinkageImplSource<Pedestal, T>(pub std::marker::PhantomData<Pedestal>, pub T);
+pub struct FnLinkageImplSource<Pedestal, DevsoulInterface, T>(
+    pub std::marker::PhantomData<(Pedestal, DevsoulInterface)>,
+    pub T,
+);
 
 for_all_ritchie_tys! {impl_is_fn_linkage_impl_source}
 
-pub struct UnveilFnLinkageImplSource<Pedestal, T>(pub std::marker::PhantomData<Pedestal>, pub T);
+pub struct UnveilFnLinkageImplSource<Pedestal, DevsoulInterface, T>(
+    pub std::marker::PhantomData<(Pedestal, DevsoulInterface)>,
+    pub T,
+);
 
 for_all_ritchie_tys! {impl_is_unveil_linkage_impl_source}
 
@@ -213,27 +204,8 @@ pub trait IsGnItem {
 #[macro_export]
 macro_rules! gn_linkage_impl {
     ($gn_item: ty) => {{
-        /// generic_pedestal is a pedestal that is not closed (minimal)
-        ///
-        /// it's the counterpart of generic point in algebraic geometry
-        fn gn_generic_wrapper(
-            ctx: __DevEvalContext,
-            ki_domain_repr: __ValDomainReprInterface,
-            val_argument_reprs: &[__KiArgumentReprInterface],
-        ) -> __KiControlFlow {
-            __with_dev_eval_context(ctx, || {
-                __KiControlFlow::Continue(
-                    __ValueLeashTest(<$gn_item as __IsGnItem>::train(
-                        ki_domain_repr,
-                        val_argument_reprs,
-                    )?)
-                    .into_value(),
-                )
-            })
-        }
         fn gn_specific_wrapper(
             val_argument_reprs: &[__KiArgumentReprInterface],
-            value_at_generic_pedestal: __Value,
         ) -> __KiControlFlow {
             let value_stands = &mut Default::default();
             let value_at_generic_pedestal: &<$gn_item as __IsGnItem>::ValueAtGenericPedestal =
@@ -250,11 +222,7 @@ macro_rules! gn_linkage_impl {
                 .into_value(),
             )
         }
-        __LinkageImpl::RitchieGn {
-            // ad hoc
-            gn_generic_wrapper,
-            gn_specific_wrapper,
-        }
+        __LinkageImpl::RitchieGn { gn_generic_wrapper }
     }};
 }
 

@@ -34,8 +34,8 @@ impl IsLinkageImpl for VirtualLinkageImpl {
     fn eval_ki(
         self,
         ki_repr_interface: husky_devsoul_interface::ugly::__KiReprInterface,
-        ctx: husky_devsoul_interface::DevEvalContext<Self>,
         arguments: &[husky_devsoul_interface::ugly::__KiArgumentReprInterface],
+        ctx: husky_devsoul_interface::DevEvalContext<Self>,
     ) -> husky_devsoul_interface::LinkageImplKiControlFlow<Self> {
         todo!()
     }
