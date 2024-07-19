@@ -16,7 +16,8 @@ use husky_devsoul::{
 };
 use husky_devsoul_interface::{
     ki_repr::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface},
-    HuskyIngredientIndex, HuskyJarIndex, IsDevRuntime, IsLinkageImpl, LinkageImplKiControlFlow,
+    DevEvalContext, HuskyIngredientIndex, HuskyJarIndex, IsDevRuntime, IsLinkageImpl,
+    LinkageImplKiControlFlow,
 };
 use husky_entity_path::path::{major_item::MajorItemPath, ItemPath};
 use husky_ki::{KiRuntimeConstant, KiRuntimeConstantData};
@@ -52,6 +53,10 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
 
     pub fn comptime_target(&self) -> DevComptimeTarget {
         self.comptime.target()
+    }
+
+    pub(crate) fn eval_context(&self) -> DevEvalContext<Devsoul::LinkageImpl> {
+        DevEvalContext::new(unsafe { husky_wild_utils::arb_ref(self) })
     }
 
     pub fn linktime_target_path(&self) -> Option<LinktimeTargetPath> {

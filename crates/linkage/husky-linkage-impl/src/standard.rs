@@ -42,7 +42,7 @@ where
         fn_pointer: fn(),
     },
     RitchieGn {
-        gn_ki_wrapper: (),
+        gn_ki_wrapper: fn(&[KiArgumentReprInterface]) -> StandardLinkageImplKiControlFlow,
     },
     // todo: this should be merged into RichieFn?
     EnumVariantConstructor {
@@ -59,9 +59,7 @@ where
         enum_variant_field_wrapper: fn(Value) -> Value,
     },
     /// used to get the json value of an enum u8-represented given only the index
-    EnumUnitValuePresenter {
-        presenter: EnumUnitValuePresenter,
-    },
+    EnumUnitValuePresenter { presenter: EnumUnitValuePresenter },
     StructDestructor {
         struct_destructor_wrapper: fn(Value) -> Vec<Value>,
     },
@@ -205,35 +203,31 @@ pub trait IsGnItem {
 #[macro_export]
 macro_rules! gn_linkage_impl {
     ($gn_item: ty) => {{
-        fn gn_ki_wrapper(val_argument_reprs: &[__KiArgumentReprInterface]) -> __KiControlFlow {
-            let value_stands = &mut Default::default();
-            let value_at_generic_pedestal: &<$gn_item as __IsGnItem>::ValueAtGenericPedestal =
-                <&<$gn_item as __IsGnItem>::ValueAtGenericPedestal as FromValue>::from_value_temp(
-                    value_at_generic_pedestal,
-                    value_stands,
-                );
-            // todo: catch unwind
-            __KiControlFlow::Continue(
-                __ValueLeashTest(<$gn_item as __IsGnItem>::eval(
-                    val_argument_reprs,
-                    value_at_generic_pedestal,
-                ))
-                .into_value(),
-            )
+        __LinkageImpl::RitchieGn {
+            gn_ki_wrapper: <$gn_item>::gn_ki_wrapper,
         }
-        __LinkageImpl::RitchieGn { gn_ki_wrapper }
     }};
 }
 
-#[macro_export]
-macro_rules! enum_index_presenter_linkage_impl {
-    ($ty: ty) => {
-        __LinkageImpl::EnumUnitValuePresenter {
-            presenter: |index: usize, _, _| {
-                let index: u8 = index.try_into().unwrap();
-                let slf: $ty = unsafe { std::mem::transmute(index) };
-                __ValuePresentation::AdHoc(format!("{slf:?}"))
-            },
-        }
-    };
+#[test]
+#[ignore]
+fn gn_linkage_impl_works() {
+    todo!()
 }
+
+// fn gn_ki_wrapper(val_argument_reprs: &[__KiArgumentReprInterface]) -> __KiControlFlow {
+//     let value_stands = &mut Default::default();
+//     let value_at_generic_pedestal: &<$gn_item as __IsGnItem>::ValueAtGenericPedestal =
+//         <&<$gn_item as __IsGnItem>::ValueAtGenericPedestal as FromValue>::from_value_temp(
+//             value_at_generic_pedestal,
+//             value_stands,
+//         );
+//     // todo: catch unwind
+//     __KiControlFlow::Continue(
+//         __ValueLeashTest(<$gn_item as __IsGnItem>::eval(
+//             val_argument_reprs,
+//             value_at_generic_pedestal,
+//         ))
+//         .into_value(),
+//     )
+// }

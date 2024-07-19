@@ -8,6 +8,12 @@ use smallvec::SmallVec;
 #[allow(warnings, non_snake_case)]
 pub struct narrow_down<Task, Label>(std::marker::PhantomData<(Task, Label)>);
 
+impl<Task, Label> narrow_down<Task, Label> {
+    pub fn gn_ki_wrapper(arguments: &[__KiArgumentReprInterface]) -> __KiControlFlow {
+        todo!()
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, __Serialize)]
 // #[value_conversion]
 pub struct NarrowDownInternal<Label> {
