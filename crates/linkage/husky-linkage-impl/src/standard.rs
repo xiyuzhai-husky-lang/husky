@@ -177,7 +177,7 @@ pub struct UnveilFnLinkageImplSource<Pedestal, DevsoulInterface, T>(
     pub T,
 );
 
-for_all_ritchie_tys! {impl_is_unveil_linkage_impl_source}
+for_all_ritchie_tys! {impl_is_unveil_fn_linkage_impl_source}
 
 pub trait IsGnItem {
     type LinkageImpl: IsLinkageImpl;
@@ -205,9 +205,7 @@ pub trait IsGnItem {
 #[macro_export]
 macro_rules! gn_linkage_impl {
     ($gn_item: ty) => {{
-        fn gn_specific_wrapper(
-            val_argument_reprs: &[__KiArgumentReprInterface],
-        ) -> __KiControlFlow {
+        fn gn_ki_wrapper(val_argument_reprs: &[__KiArgumentReprInterface]) -> __KiControlFlow {
             let value_stands = &mut Default::default();
             let value_at_generic_pedestal: &<$gn_item as __IsGnItem>::ValueAtGenericPedestal =
                 <&<$gn_item as __IsGnItem>::ValueAtGenericPedestal as FromValue>::from_value_temp(
@@ -223,7 +221,7 @@ macro_rules! gn_linkage_impl {
                 .into_value(),
             )
         }
-        __LinkageImpl::RitchieGn { gn_generic_wrapper }
+        __LinkageImpl::RitchieGn { gn_ki_wrapper }
     }};
 }
 
