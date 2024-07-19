@@ -19,7 +19,7 @@ linkage_impls![
     enum_variant_discriminator_linkage_impl!(malamute::OneVsAllResult, malamute::OneVsAllResult::Unconfident),
     fn_linkage_impl!(<malamute::OneVsAll as Default>::default),
     fn_linkage_impl!(<malamute::OneVsAll as Unveil<malamute::OneVsAllResult>>::unveil),
-    unveil_linkage_impl!(<malamute::OneVsAll as Unveil<malamute::OneVsAllResult>>::unveil),
+    unveil_fn_linkage_impl!(<malamute::OneVsAll as Unveil<malamute::OneVsAllResult>>::unveil),
     enum_variant_constructor_linkage_impl!(husky_core::ops::ControlFlow<malamute::OneVsAll, ()>, husky_core::ops::ControlFlow::Continue, (v0)),
     enum_variant_discriminator_linkage_impl!(husky_core::ops::ControlFlow<malamute::OneVsAll, ()>, husky_core::ops::ControlFlow::Continue, ()),
     enum_variant_destructor_linkage_impl!(husky_core::ops::ControlFlow<malamute::OneVsAll, ()>, husky_core::ops::ControlFlow::Continue, (v0)),

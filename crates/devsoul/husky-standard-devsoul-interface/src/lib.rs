@@ -1,3 +1,4 @@
+pub mod devsoul_interface;
 pub mod label;
 pub mod pedestal;
 pub mod static_var;

@@ -72,14 +72,12 @@ macro_rules! fn_linkage_impl {
 
 #[test]
 fn fn_linkage_impl_works() {
+    use crate::standard::{ugly::*, *};
+    use crate::IsFnLinkageImplSource;
     use husky_devsoul_interface::ugly::*;
     use husky_standard_devsoul_interface::ugly::*;
 
-    // avoid using crate here, because they are different, although with the same name
-    use husky_linkage_impl::standard::{ugly::*, *};
-    use husky_linkage_impl::IsFnLinkageImplSource;
-
-    type __LinkageImpl = husky_linkage_impl::standard::StandardLinkageImpl<__Pedestal>;
+    type __LinkageImpl = StandardLinkageImpl<__Pedestal>;
     type __DevEvalContext = DevEvalContext<__LinkageImpl>;
     struct __DevsoulInterface;
     impl IsDevsoulInterface for __DevsoulInterface {
@@ -192,14 +190,17 @@ pub trait IsUnveilFnLinkageImplSource<LinkageImpl: IsLinkageImpl, Target, FnPoin
 }
 
 #[macro_export]
-macro_rules! unveil_linkage_impl {
+macro_rules! unveil_fn_linkage_impl {
     ($fn_item: expr) => {{
         fn fn_wrapper(arguments: &[__KiArgumentReprInterface]) -> __KiControlFlow {
             // todo: catch unwind
             __KiControlFlow::Continue(
                 __ValueLeashTest(
-                    UnveilFnLinkageImplSource(std::marker::PhantomData::<__LinkageImpl>, $fn_item)
-                        .unveil_fn_wrapper_aux(arguments)?,
+                    UnveilFnLinkageImplSource::<__Pedestal, __DevsoulInterface, _>(
+                        std::marker::PhantomData,
+                        $fn_item,
+                    )
+                    .unveil_fn_wrapper_aux(arguments)?,
                 )
                 .into_value(),
             )
@@ -207,14 +208,42 @@ macro_rules! unveil_linkage_impl {
         // pass `$fn_item` two times
         // - one time is to determine the parameter types and return type
         // - the other time is to actually give the fn pointer with implicit coercion
-        UnveilFnLinkageImplSource(std::marker::PhantomData::<__LinkageImpl>, $fn_item)
-            .into_unveil_linkage_impl(fn_wrapper, $fn_item)
+        UnveilFnLinkageImplSource::<__Pedestal, __DevsoulInterface, _>(
+            std::marker::PhantomData,
+            $fn_item,
+        )
+        .into_unveil_linkage_impl(fn_wrapper, $fn_item)
     }};
+}
+
+#[test]
+fn unveil_fn_linkage_impl_works() {
+    use crate::{
+        standard::{ugly::*, *},
+        IsFnLinkageImplSource, IsUnveilFnLinkageImplSource,
+    };
+    use husky_devsoul_interface::ugly::*;
+    use husky_standard_devsoul_interface::ugly::*;
+
+    type __LinkageImpl = StandardLinkageImpl<__Pedestal>;
+    type __DevEvalContext = DevEvalContext<__LinkageImpl>;
+    struct __DevsoulInterface;
+    impl IsDevsoulInterface for __DevsoulInterface {
+        type LinkageImpl = __LinkageImpl;
+
+        fn eval_context() -> DevEvalContext<Self::LinkageImpl> {
+            todo!()
+        }
+    }
+
+    unveil_fn_linkage_impl!(|_: i32, ()| -> std::ops::ControlFlow<i32, i32> {
+        std::ops::ControlFlow::Continue(0)
+    });
 }
 
 /// meant to be used in `LinkageImpl` definition
 #[macro_export]
-macro_rules! impl_is_unveil_linkage_impl_source {
+macro_rules! impl_is_unveil_fn_linkage_impl_source {
     (
         [$($runtime_constant: ident),*], $output:ident
     ) => {
