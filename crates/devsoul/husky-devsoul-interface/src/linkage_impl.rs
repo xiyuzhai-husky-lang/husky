@@ -15,8 +15,8 @@ pub trait IsLinkageImpl: Send + Copy + 'static {
     fn eval_ki(
         self,
         ki_repr_interface: KiReprInterface,
-        ctx: DevEvalContext<Self>,
         arguments: &[KiArgumentReprInterface],
+        ctx: DevEvalContext<Self>,
     ) -> LinkageImplKiControlFlow<Self>;
 
     fn eval_vm(

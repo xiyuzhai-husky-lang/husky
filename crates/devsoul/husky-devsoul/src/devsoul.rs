@@ -85,36 +85,3 @@ pub trait IsRuntimeStorage<LinkageImpl: IsLinkageImpl>: Default + Send {
 
 pub type DevEvalContextLocalKey<LinkageImpl> =
     LocalKey<Cell<std::option::Option<DevEvalContext<LinkageImpl>>>>;
-
-pub fn dev_eval_context<Devsoul: IsDevsoul>(
-) -> DevEvalContext<<Devsoul::Linktime as IsLinktime>::LinkageImpl> {
-    Devsoul::dev_eval_context_local_key()
-        .get()
-        .expect("`DEV_EVAL_CONTEXT` not set")
-}
-
-pub fn with_dev_eval_context<Devsoul: IsDevsoul, R>(
-    ctx: DevEvalContext<<Devsoul::Linktime as IsLinktime>::LinkageImpl>,
-    f: impl FnOnce() -> R,
-) -> R {
-    let local_key = Devsoul::dev_eval_context_local_key();
-    let old = local_key.replace(Some(ctx));
-    let r = f();
-    local_key.set(old);
-    r
-}
-
-pub fn with_runtime<
-    Devsoul: IsDevsoul,
-    Runtime: IsDevRuntime<<Devsoul::Linktime as IsLinktime>::LinkageImpl>,
-    R,
->(
-    runtime: &Runtime,
-    f: impl FnOnce() -> R,
-) -> R {
-    let _local_dev_eval_context = Devsoul::dev_eval_context_local_key();
-    with_dev_eval_context::<Devsoul, _>(
-        DevEvalContext::new(unsafe { runtime.cast_to_static_self_static_ref() }),
-        f,
-    )
-}

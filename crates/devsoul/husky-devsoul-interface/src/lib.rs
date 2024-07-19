@@ -1,5 +1,6 @@
 #![feature(try_trait_v2)]
 #![feature(try_trait_v2_residual)]
+pub mod devsoul;
 pub mod ki_control_flow;
 pub mod ki_repr;
 pub mod linkage_impl;
@@ -163,25 +164,6 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
             .eval_lazy_val_dyn(jar_index, ingredient_index)
             .unwrap()
     }
-
-    // pub fn eval_ki_repr_interface_at_generic_pedestal_with(
-    //     &self,
-    //     ki_repr_interface: KiReprInterface,
-    //     generic_pedestal: fn(LinkageImpl::Pedestal) -> LinkageImpl::Pedestal,
-    //     gn_generic_wrapper: fn(
-    //         DevEvalContext<LinkageImpl>,
-    //         KiDomainReprInterface,
-    //         &[KiArgumentReprInterface],
-    //     ) -> LinkageImplKiControlFlow<LinkageImpl>,
-    //     val_argument_reprs: &[KiArgumentReprInterface],
-    // ) -> LinkageImplKiControlFlow<LinkageImpl> {
-    //     self.runtime.eval_ki_repr_interface_at_generic_pedestal_dyn(
-    //         ki_repr_interface,
-    //         generic_pedestal(self.pedestal),
-    //         gn_generic_wrapper,
-    //         val_argument_reprs,
-    //     )
-    // }
 
     pub fn eval_ki_repr_interface(
         self,
@@ -350,36 +332,6 @@ where
     ) -> KiControlFlow<(), Infallible, LinkageImpl::Exception> {
         self.eval_ki_domain_repr_interface(ki_domain_repr_interface)
     }
-
-    // fn eval_ki_repr_interface_at_generic_pedestal_dyn(
-    //     &self,
-    //     ki_repr_interface: KiReprInterface,
-    //     gn_generic_wrapper: fn(
-    //         KiDomainReprInterface,
-    //         &[KiArgumentReprInterface],
-    //         LinkageImpl::Pedestal,
-    //     ) -> LinkageImplKiControlFlow<LinkageImpl>,
-    //     val_argument_reprs: &[KiArgumentReprInterface],
-    //     pedestal: LinkageImpl::Pedestal,
-    // ) -> LinkageImplKiControlFlow<LinkageImpl> {
-    //     self.eval_ki_repr_with(
-    //         ki_repr_interface,
-    //         generic_pedestal,
-    //         |ki_domain_repr: KiDomainReprInterface| {
-    //             gn_generic_wrapper(
-    //                 DevEvalContext {
-    //                     runtime: unsafe {
-    //                         std::mem::transmute::<_, &'static dyn IsDevRuntimeDyn<LinkageImpl>>(
-    //                             self as &dyn IsDevRuntimeDyn<LinkageImpl>,
-    //                         )
-    //                     },
-    //                 },
-    //                 ki_domain_repr,
-    //                 val_argument_reprs,
-    //             )
-    //         },
-    //     )
-    // }
 
     fn eval_memo_field_with_dyn(
         &self,

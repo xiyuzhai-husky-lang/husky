@@ -1,6 +1,6 @@
 use crate::*;
 use husky_devsoul::{
-    devsoul::{dev_eval_context, with_runtime, IsDevsoul},
+    devsoul::IsDevsoul,
     helpers::{DevsoulException, DevsoulValue},
 };
 use husky_devsoul_interface::ki_repr::KiArgumentReprInterface;
@@ -15,10 +15,6 @@ use husky_term_prelude::literal::Literal;
 use husky_value_interface::IsValue;
 
 impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
-    // pub fn eval_ki_repr(&self, ki_repr: KiRepr) -> DevsoulKiControlFlow<Devsoul> {
-    //     with_runtime::<Devsoul, _, _>(self, || self.eval_ki_repr(ki_repr))
-    // }
-
     pub fn eval_ki_domain_repr(
         &self,
         ki_domain_repr: KiDomainRepr,
@@ -63,9 +59,8 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     }
 
     pub fn eval_ki_repr(&self, ki_repr: KiRepr) -> DevsoulKiControlFlow<Devsoul> {
-        // todo!("set up dev eval context");
-        // todo: consider domain
         let db = self.db();
+        let ctx = todo!();
         let result: DevsoulKiControlFlow<Devsoul> = match ki_repr.opn(db) {
             KiOpn::Return => todo!(),
             KiOpn::Require => {
@@ -132,12 +127,15 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             }
             KiOpn::Linkage(linkage) => {
                 let linkage_impl = self.comptime.linkage_impl(linkage);
-                let control_flow =
-                    linkage_impl.eval_ki(ki_repr.into(), dev_eval_context::<Devsoul>(), unsafe {
+                let control_flow = linkage_impl.eval_ki(
+                    ki_repr.into(),
+                    unsafe {
                         std::mem::transmute::<_, &[KiArgumentReprInterface]>(
                             ki_repr.arguments(db) as &[KiArgumentRepr]
                         )
-                    });
+                    },
+                    ctx,
+                );
                 control_flow
             }
             KiOpn::FunctionRitchie(_) => todo!(),
@@ -310,13 +308,11 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
 }
 
 #[test]
-#[ignore]
 fn ki_repr_eval_works() {
     use husky_entity_kind::MajorFormKind;
     use husky_entity_path::path::{major_item::MajorItemPath, ItemPath};
     use husky_entity_tree::helpers::paths::module_item_paths;
     use husky_path_utils::dev_paths::*;
-    use husky_standard_devsoul_interface::DeprecatedInputId;
 
     let dev_paths = HuskyLangDevPaths::new();
     let runtime: DevRuntime<StandardDevsoul<()>> =
@@ -325,30 +321,28 @@ fn ki_repr_eval_works() {
     let DevComptimeTarget::SingleCrate(crate_path) = runtime.comptime_target() else {
         unreachable!()
     };
-    with_runtime::<StandardDevsoul<()>, _, _>(&runtime, || {
-        for &item_path in module_item_paths(db, crate_path.root_module_path(db)) {
-            let ItemPath::MajorItem(MajorItemPath::Form(form_path)) = item_path else {
-                continue;
-            };
-            if form_path.kind(db) != MajorFormKind::Val {
-                continue;
-            }
-            let ki_repr = KiRepr::new_val(form_path, db);
-            for path in ki_repr.var_deps(db) {
-                let ItemPath::MajorItem(MajorItemPath::Form(path)) = path else {
-                    todo!()
-                };
-                let StandardLinkageImpl::StaticVar {
-                    set_up_for_testing, ..
-                } = runtime
-                    .comptime
-                    .linkage_impl(Linkage::new_static_var(path, db))
-                else {
-                    unreachable!()
-                };
-                set_up_for_testing(0)
-            }
-            runtime.eval_ki_repr(ki_repr);
+    for &item_path in module_item_paths(db, crate_path.root_module_path(db)) {
+        let ItemPath::MajorItem(MajorItemPath::Form(form_path)) = item_path else {
+            continue;
+        };
+        if form_path.kind(db) != MajorFormKind::Val {
+            continue;
         }
-    })
+        let ki_repr = KiRepr::new_val(form_path, db);
+        for path in ki_repr.var_deps(db) {
+            let ItemPath::MajorItem(MajorItemPath::Form(path)) = path else {
+                todo!()
+            };
+            let StandardLinkageImpl::StaticVar {
+                set_up_for_testing, ..
+            } = runtime
+                .comptime
+                .linkage_impl(Linkage::new_static_var(path, db))
+            else {
+                unreachable!()
+            };
+            set_up_for_testing(0)
+        }
+        runtime.eval_ki_repr(ki_repr);
+    }
 }

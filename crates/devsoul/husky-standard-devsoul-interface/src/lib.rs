@@ -13,32 +13,6 @@ use serde::{Deserialize, Serialize};
 use shifted_unsigned_int::ShiftedU32;
 use std::{cell::Cell, convert::Infallible};
 
-#[deprecated]
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize, Hash)]
-pub struct DeprecatedInputId(ShiftedU32);
-
-impl DeprecatedInputId {
-    pub fn from_index(index: usize) -> Self {
-        Self(index.into())
-    }
-
-    pub fn index(self) -> usize {
-        self.0.into()
-    }
-}
-
-#[test]
-fn sample_id_size_works() {
-    assert_eq!(
-        std::mem::size_of::<DeprecatedInputId>(),
-        std::mem::size_of::<u32>()
-    );
-    assert_eq!(
-        std::mem::size_of::<Option<DeprecatedInputId>>(),
-        std::mem::size_of::<u32>()
-    )
-}
-
 pub type DevEvalContext = husky_devsoul_interface::DevEvalContext<
     husky_linkage_impl::standard::StandardLinkageImpl<StandardPedestal>,
 >;
