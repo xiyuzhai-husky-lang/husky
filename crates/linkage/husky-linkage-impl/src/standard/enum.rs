@@ -6,10 +6,7 @@ use super::*;
 #[macro_export]
 macro_rules! enum_variant_constructor_linkage_impl {
     ($self_ty: ty, $variant_path: path) => {{
-        fn enum_variant_constructor_ki_wrapper(
-            ctx: __DevEvalContext,
-            args: &[__KiArgumentReprInterface],
-        ) -> __Value {
+        fn enum_variant_constructor_ki_wrapper(args: &[__KiArgumentReprInterface]) -> __Value {
             todo!()
         }
         fn enum_variant_constructor_vm_wrapper(_args: Vec<__Value>) -> __Value {
@@ -21,10 +18,7 @@ macro_rules! enum_variant_constructor_linkage_impl {
         }
     }}; // todo: props and tuple variant
     ($self_ty: ty, $variant_path: path, {$($fields: ident),* $(,)?}) => {{
-        fn enum_variant_constructor_ki_wrapper(
-            ctx: __DevEvalContext,
-            args: &[__KiArgumentReprInterface],
-        ) -> __Value {
+        fn enum_variant_constructor_ki_wrapper(args: &[__KiArgumentReprInterface]) -> __Value {
             todo!()
         }
         fn enum_variant_constructor_vm_wrapper(args: Vec<__Value>) -> __Value {
@@ -36,10 +30,7 @@ macro_rules! enum_variant_constructor_linkage_impl {
         }
     }};
     ($self_ty: ty, $variant_path: path, ($($fields: ident),* $(,)?)) => {{
-        fn enum_variant_constructor_ki_wrapper(
-            ctx: __DevEvalContext,
-            args: &[__KiArgumentReprInterface],
-        ) -> __Value {
+        fn enum_variant_constructor_ki_wrapper(args: &[__KiArgumentReprInterface]) -> __Value {
             todo!()
         }
         fn enum_variant_constructor_vm_wrapper(_args: Vec<__Value>) -> __Value {
