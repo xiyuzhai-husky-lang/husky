@@ -1,4 +1,4 @@
-mod memo_field;
+mod memo;
 mod utils;
 mod val;
 mod value;
@@ -17,6 +17,6 @@ pub fn val(args: TokenStream, input: TokenStream) -> TokenStream {
 }
 
 #[proc_macro_attribute]
-pub fn memo_field(args: TokenStream, input: TokenStream) -> TokenStream {
-    memo_field::memo_field(args, input)
+pub fn memo(args: TokenStream, input: TokenStream) -> TokenStream {
+    memo::memo(args, input)
 }

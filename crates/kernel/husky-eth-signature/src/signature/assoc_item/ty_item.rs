@@ -1,12 +1,12 @@
 pub mod assoc_ritchie;
 pub mod assoc_ty;
 pub mod assoc_val;
-pub mod memo_field;
+pub mod memo;
 pub mod method_curry;
 pub mod method_ritchie;
 
 use self::assoc_ritchie::*;
-use self::memo_field::*;
+use self::memo::*;
 use self::method_curry::*;
 use self::method_ritchie::*;
 use super::*;

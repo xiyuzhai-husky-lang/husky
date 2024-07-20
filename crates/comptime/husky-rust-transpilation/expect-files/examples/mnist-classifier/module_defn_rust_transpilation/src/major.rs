@@ -1,7 +1,7 @@
 use crate::*;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 48, return_ref)]
+#[ad_hoc_devsoul_dependency::val(ingredient_index = 48, return_leash)]
 pub fn connected_components() -> Vec<crate::connected_component::ConnectedComponent> {
     crate::connected_component::find_connected_components(&INPUT())
 }

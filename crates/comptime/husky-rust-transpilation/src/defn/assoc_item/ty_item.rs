@@ -1,7 +1,7 @@
 use husky_hir_decl::decl::{TypeMemoFieldHirDecl, TypeMethodRitchieHirDecl};
 use husky_hir_defn::defn::assoc_item::ty_item::{
     assoc_ritchie::TypeAssocRitchieHirDefn, assoc_ty::TypeAssocTypeHirDefn,
-    assoc_val::TypeAssocValHirDefn, memo_field::TypeMemoizedFieldHirDefn,
+    assoc_val::TypeAssocValHirDefn, memo::TypeMemoizedFieldHirDefn,
     method_ritchie::TypeMethodRitchieHirDefn, TypeItemHirDefn,
 };
 

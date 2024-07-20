@@ -16,7 +16,7 @@ use super::*;
 use crate::quary::FlyQuary;
 use husky_entity_path::path::assoc_item::AssocItemPath;
 use husky_eth_signature::signature::{
-    assoc_item::ty_item::memo_field::TypeMemoizedFieldEthSignature,
+    assoc_item::ty_item::memo::TypeMemoizedFieldEthSignature,
     major_item::ty::PropsFieldEthSignature,
 };
 

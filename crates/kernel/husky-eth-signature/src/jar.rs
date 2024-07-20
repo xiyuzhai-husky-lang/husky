@@ -17,7 +17,7 @@ pub struct EthSignatureJar(
     crate::signature::assoc_item::ty_item::assoc_ty::TypeAssocTypeEthTemplate,
     crate::signature::assoc_item::ty_item::method_ritchie::TypeMethodRitchieEthTemplate,
     crate::signature::assoc_item::ty_item::method_curry::TypeMethodCurryEthTemplate,
-    crate::signature::assoc_item::ty_item::memo_field::TypeMemoizedFieldEthTemplate,
+    crate::signature::assoc_item::ty_item::memo::TypeMemoizedFieldEthTemplate,
     // - trait items
     crate::signature::assoc_item::trai_item::trai_item_eth_template,
     crate::signature::assoc_item::trai_item::assoc_ritchie::TraitAssocRitchieEthTemplate,
@@ -27,7 +27,7 @@ pub struct EthSignatureJar(
     crate::signature::assoc_item::trai_item::assoc_static_var::TraitAssocStaticVarEthTemplate,
     crate::signature::assoc_item::trai_item::method_ritchie::TraitMethodRitchieEthTemplate,
     crate::signature::assoc_item::trai_item::method_curry::TraitMethodCurryEthTemplate,
-    crate::signature::assoc_item::trai_item::memo_field::TraitMemoizedFieldEthTemplate,
+    crate::signature::assoc_item::trai_item::memo::TraitMemoizedFieldEthTemplate,
     // - trait for type items
     crate::signature::assoc_item::trai_for_ty_item::trai_for_ty_item_eth_template,
     crate::signature::assoc_item::trai_for_ty_item::assoc_ritchie::TraitForTypeAssocRitchieEthTemplate,

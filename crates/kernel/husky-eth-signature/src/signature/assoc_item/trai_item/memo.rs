@@ -1,6 +1,6 @@
 use super::*;
 use crate::signature::impl_block::ty_impl_block::TypeImplBlockEthTemplate;
-use husky_dec_signature::signature::assoc_item::trai_item::memo_field::TraitMemoizedFieldDecTemplate;
+use husky_dec_signature::signature::assoc_item::trai_item::memo::TraitMemoizedFieldDecTemplate;
 use package::PackageEthSignatureData;
 
 #[salsa::interned]

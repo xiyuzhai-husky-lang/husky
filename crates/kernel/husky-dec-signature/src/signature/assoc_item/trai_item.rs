@@ -3,7 +3,7 @@ pub mod assoc_static_mut;
 pub mod assoc_static_var;
 pub mod assoc_ty;
 pub mod assoc_val;
-pub mod memo_field;
+pub mod memo;
 pub mod method_ritchie;
 
 use self::{

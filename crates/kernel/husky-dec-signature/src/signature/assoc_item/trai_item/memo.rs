@@ -1,45 +1,35 @@
 use super::*;
-use husky_entity_path::path::assoc_item::ty_item::TypeItemPath;
-use husky_syn_decl::decl::assoc_item::ty_item::memo_field::TypeMemoizedFieldSynDecl;
+use husky_entity_path::path::assoc_item::trai_item::TraitItemPath;
+use husky_syn_decl::decl::assoc_item::trai_item::memo::TraitMemoizedFieldSynDecl;
 
 #[salsa::interned]
-pub struct TypeMemoizedFieldDecTemplate {
-    pub path: TypeItemPath,
-    pub impl_block: TypeImplBlockDecTemplate,
+pub struct TraitMemoizedFieldDecTemplate {
+    pub path: TraitItemPath,
     pub return_ty: DecTerm,
 }
 
-impl TypeMemoizedFieldDecTemplate {
+impl TraitMemoizedFieldDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
-        path: TypeItemPath,
-        decl: TypeMemoizedFieldSynDecl,
-    ) -> DecSignatureResult<TypeMemoizedFieldDecTemplate> {
-        let impl_block_syn_dec_template = decl.impl_block_path(db).dec_template(db)?;
+        path: TraitItemPath,
+        decl: TraitMemoizedFieldSynDecl,
+    ) -> DecSignatureResult<TraitMemoizedFieldDecTemplate> {
         let syn_expr_region = decl.syn_expr_region(db);
         let dec_term_region = syn_expr_dec_term_region(db, syn_expr_region);
         let dec_term_menu = db.dec_term_menu(syn_expr_region.toolchain(db)).unwrap();
-        let return_ty = match decl.return_ty(db) {
-            Some(return_ty) => dec_term_region.expr_term(return_ty.syn_expr_idx())?,
-            None => dec_term_menu.unit(),
-        };
-        Ok(TypeMemoizedFieldDecTemplate::new(
-            db,
-            path,
-            impl_block_syn_dec_template,
-            return_ty,
-        ))
+        let return_ty = dec_term_region.expr_term(decl.return_ty(db).syn_expr_idx())?;
+        Ok(TraitMemoizedFieldDecTemplate::new(db, path, return_ty))
     }
 }
 
-// pub trait HasTypeMemoizedFieldDecTemplates: Copy {
+// pub trait HasTraitMemoizedFieldDecTemplates: Copy {
 //     fn ty_memo_field_dec_templates_map<'a>(
 //         self,
 //         db: &'a ::salsa::Db,
 //     ) -> DecSignatureResult<
 //         &'a [(
 //             Ident,
-//             DecSignatureResult<SmallVecImpl<TypeMemoizedFieldDecTemplate>>,
+//             DecSignatureResult<SmallVecImpl<TraitMemoizedFieldDecTemplate>>,
 //         )],
 //     >;
 
@@ -47,7 +37,7 @@ impl TypeMemoizedFieldDecTemplate {
 //         self,
 //         db: &'a ::salsa::Db,
 //         ident: Ident,
-//     ) -> DecSignatureResult<Option<&'a [TypeMemoizedFieldDecTemplate]>>
+//     ) -> DecSignatureResult<Option<&'a [TraitMemoizedFieldDecTemplate]>>
 //     {
 //         use vec_like::VecMapGetEntry;
 //         match self
@@ -61,14 +51,14 @@ impl TypeMemoizedFieldDecTemplate {
 //     }
 // }
 
-// impl HasTypeMemoizedFieldDecTemplates for TypePath {
+// impl HasTraitMemoizedFieldDecTemplates for TraitPath {
 //     fn ty_memo_field_dec_templates_map<'a>(
 //         self,
 //         db: &'a ::salsa::Db,
 //     ) -> DecSignatureResult<
 //         &'a [(
 //             Ident,
-//             DecSignatureResult<SmallVecImpl<TypeMemoizedFieldDecTemplate>>,
+//             DecSignatureResult<SmallVecImpl<TraitMemoizedFieldDecTemplate>>,
 //         )],
 //     > {
 //         ty_memo_field_dec_templates_map(db, self)
@@ -81,10 +71,10 @@ impl TypeMemoizedFieldDecTemplate {
 // #[salsa::tracked(return_ref)]
 // pub(crate) fn ty_memo_field_dec_templates_map(
 //     db: &::salsa::Db,
-//     ty_path: TypePath,
+//     ty_path: TraitPath,
 // ) -> DecSignatureResult<
 //     IdentPairMap<
-//         DecSignatureResult<SmallVecImpl<TypeMemoizedFieldDecTemplate>>,
+//         DecSignatureResult<SmallVecImpl<TraitMemoizedFieldDecTemplate>>,
 //     >,
 // > {
 //     let item_syn_decls_map = ty_path.item_syn_decls_map(db)?;
@@ -92,7 +82,7 @@ impl TypeMemoizedFieldDecTemplate {
 //         IdentPairMap::from_iter_assuming_no_repetitions(item_syn_decls_map.iter().filter_map(
 //             |(ident, decls)| {
 //                 match decls {
-//                     Ok(TypeItemDecls::MemoizedField(decls)) => Some((
+//                     Ok(TraitItemDecls::MemoizedField(decls)) => Some((
 //                         *ident,
 //                         decls
 //                             .iter()

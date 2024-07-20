@@ -1,7 +1,7 @@
 use super::*;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 38, return_ref)]
+#[ad_hoc_devsoul_dependency::val(ingredient_index = 38, return_leash)]
 pub fn simple_seven_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![simple_leftdown_pattern])
 }
@@ -14,7 +14,7 @@ pub fn simple_leftdown_pattern(cc: Leash<crate::line_segment_sketch::concave_com
 }
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 39, return_ref)]
+#[ad_hoc_devsoul_dependency::val(ingredient_index = 39, return_leash)]
 pub fn special_seven_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![leftupcc_pattern, leftdowncc_pattern])
 }

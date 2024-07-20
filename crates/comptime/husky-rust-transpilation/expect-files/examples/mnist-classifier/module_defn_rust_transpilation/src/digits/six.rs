@@ -1,13 +1,13 @@
 use super::*;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 28, return_ref)]
+#[ad_hoc_devsoul_dependency::val(ingredient_index = 28, return_leash)]
 pub fn six_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![upmost])
 }
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 29, return_ref)]
+#[ad_hoc_devsoul_dependency::val(ingredient_index = 29, return_leash)]
 pub fn six_match_refined1() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![upmost, bottom1])
 }

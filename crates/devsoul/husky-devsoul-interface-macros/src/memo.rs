@@ -2,10 +2,11 @@ use super::*;
 use quote::quote;
 use syn::{Ident, ItemFn, ReturnType, Signature};
 
-pub(crate) fn memo_field(args: TokenStream, input: TokenStream) -> TokenStream {
+pub(crate) fn memo(args: TokenStream, input: TokenStream) -> TokenStream {
     let MemoizedFieldArgs {
         ingredient_index,
-        return_ref,
+        return_leash,
+        return_leash_ty,
     } = syn::parse_macro_input!(args as MemoizedFieldArgs);
     let ItemFn {
         attrs: _,
@@ -30,9 +31,13 @@ pub(crate) fn memo_field(args: TokenStream, input: TokenStream) -> TokenStream {
         unreachable!()
     };
     let aux_ident = Ident::new(&format!("__{}", ident), ident.span());
-    if return_ref {
+    let return_leash_ty = match return_leash_ty {
+        Some(return_leash_ty) => quote! { #return_leash_ty },
+        None => quote! { Leash<#return_ty> },
+    };
+    if return_leash {
         quote! {
-            #vis fn #ident(&'static self) -> Leash<#return_ty> {
+            #vis fn #ident(&'static self) -> #return_leash_ty {
                 todo!("return leash for eager val, change the return type")
                 // __eval_memo_field_return_ref_with(
                 //     self,
@@ -70,7 +75,8 @@ pub(crate) fn memo_field(args: TokenStream, input: TokenStream) -> TokenStream {
 struct MemoizedFieldArgs {
     ingredient_index: usize,
     // default false
-    return_ref: bool,
+    return_leash: bool,
+    return_leash_ty: Option<syn::Type>,
 }
 
 impl syn::parse::Parse for MemoizedFieldArgs {
@@ -82,7 +88,8 @@ impl syn::parse::Parse for MemoizedFieldArgs {
         let ingredient_index: usize = lit.base10_parse()?;
         let mut slf = Self {
             ingredient_index,
-            return_ref: false,
+            return_leash: false,
+            return_leash_ty: None,
         };
         loop {
             if input.is_empty() {
@@ -90,9 +97,16 @@ impl syn::parse::Parse for MemoizedFieldArgs {
             }
             let _comma = Comma::parse(input)?;
             let ident: syn::Ident = syn::Ident::parse_any(input)?;
-            if ident == "return_ref" {
-                assert!(!slf.return_ref);
-                slf.return_ref = true
+            if ident == "return_leash" {
+                use syn::token::Token;
+
+                assert!(!slf.return_leash);
+                slf.return_leash = true;
+                assert!(slf.return_leash_ty.is_none());
+                if <syn::Token![=]>::peek(input.cursor()) {
+                    let _: syn::Token![=] = input.parse()?;
+                    slf.return_leash_ty = Some(input.parse()?);
+                }
             } else {
                 panic!()
             }

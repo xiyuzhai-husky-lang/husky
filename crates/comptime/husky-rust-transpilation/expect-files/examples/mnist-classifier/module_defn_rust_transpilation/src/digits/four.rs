@@ -1,7 +1,7 @@
 use super::*;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 33, return_ref)]
+#[ad_hoc_devsoul_dependency::val(ingredient_index = 33, return_leash)]
 pub fn left_components() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![left_coordinate_max, left_coordinate_max])
 }
@@ -12,13 +12,13 @@ pub fn left_coordinate_max(cc: Leash<crate::line_segment_sketch::concave_compone
 }
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 34, return_ref)]
+#[ad_hoc_devsoul_dependency::val(ingredient_index = 34, return_leash)]
 pub fn components_max_downwards() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![displacement_downwards])
 }
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 35, return_ref)]
+#[ad_hoc_devsoul_dependency::val(ingredient_index = 35, return_leash)]
 pub fn components_max_heights() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![cc_box_heights])
 }
