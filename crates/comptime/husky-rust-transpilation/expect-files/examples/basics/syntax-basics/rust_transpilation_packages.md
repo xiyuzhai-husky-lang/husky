@@ -16,18 +16,13 @@
                 },
             ),
         },
-        package_path: PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
+        data: Source {
+            package_path: PackagePath(
+                Id {
+                    value: 1,
                 },
-            },
-            name: `syntax-basics`,
-            data: PackagePathSource::Local {
-                path: "../../../examples/basics/syntax-basics",
-            },
+            ),
         },
-        kind: Source,
     },
     RustTranspilationPackage {
         target_path: LinktimeTargetPath {
@@ -45,18 +40,7 @@
                 },
             ),
         },
-        package_path: PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `syntax-basics`,
-            data: PackagePathSource::Local {
-                path: "../../../examples/basics/syntax-basics",
-            },
-        },
-        kind: Linkages,
+        data: Linkets,
     },
 ]
 ```

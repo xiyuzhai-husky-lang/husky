@@ -1,7 +1,6 @@
 use self::op::history::{MnistOpHistory, OpTime};
 use super::*;
 use crate::op::frame::MnistOpFrame;
-use husky_standard_devsoul_interface::DeprecatedInputId;
 use mnist::{dataset::MnistDataset, input_id::MnistInputId};
 
 pub struct MnistDb {
@@ -27,15 +26,15 @@ impl MnistDb {
 
 /// # getters
 impl MnistDb {
-    pub fn op_frames(&self, input_id: DeprecatedInputId) -> &[MnistOpFrame] {
+    pub fn op_frames(&self, input_id: MnistInputId) -> &[MnistOpFrame] {
         self.op_history(input_id).op_frames()
     }
 
-    pub(crate) fn input_visual(&self, input_id: DeprecatedInputId) -> Visual {
+    pub(crate) fn input_visual(&self, input_id: MnistInputId) -> Visual {
         self.input_visuals[input_id.index()]
     }
 
-    pub fn op_history(&self, input_id: DeprecatedInputId) -> &MnistOpHistory {
+    pub fn op_history(&self, input_id: MnistInputId) -> &MnistOpHistory {
         &self.op_histories[input_id.index()]
     }
 }

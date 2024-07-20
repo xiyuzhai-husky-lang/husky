@@ -98,7 +98,7 @@ name = "ad-hoc-devsoul-dependency"
 version = "0.1.0"
 dependencies = [
  "husky-devsoul-interface",
- "husky-linkage-impl",
+ "husky-linket-impl",
  "husky-standard-devsoul-interface",
  "husky-standard-value",
 ]
@@ -4135,8 +4135,8 @@ dependencies = [
  "dashmap 6.0.1",
  "husky-devsoul",
  "husky-devsoul-interface",
- "husky-linkage",
- "husky-linkage-impl",
+ "husky-linket",
+ "husky-linket-impl",
  "husky-standard-value",
  "husky-vfs",
  "salsa",
@@ -4514,7 +4514,7 @@ dependencies = [
  "husky-javelin",
  "husky-ki",
  "husky-ki-repr",
- "husky-linkage",
+ "husky-linket",
  "husky-manifest",
  "husky-manifest-ast",
  "husky-place",
@@ -4562,8 +4562,8 @@ dependencies = [
  "husky-hir-opr",
  "husky-ki",
  "husky-ki-repr",
- "husky-linkage",
- "husky-linkage-impl",
+ "husky-linket",
+ "husky-linket-impl",
  "husky-mono-linktime",
  "husky-opr",
  "husky-path-utils",
@@ -4579,6 +4579,7 @@ dependencies = [
  "husky-visual-protocol",
  "husky-vm",
  "husky-vmir",
+ "husky-wild-utils",
  "idx-arena",
  "lsp-types 0.95.0",
  "relative-path",
@@ -4599,8 +4600,8 @@ dependencies = [
  "husky-devsoul-interface",
  "husky-entity-path",
  "husky-ki",
- "husky-linkage",
- "husky-linkage-impl",
+ "husky-linket",
+ "husky-linket-impl",
  "husky-trace-protocol",
  "husky-value-interface",
  "husky-vfs",
@@ -5459,7 +5460,7 @@ dependencies = [
  "husky-entity-path",
  "husky-hir-opr",
  "husky-ki",
- "husky-linkage",
+ "husky-linket",
  "husky-term-prelude",
  "salsa",
  "smallvec",
@@ -5496,7 +5497,7 @@ dependencies = [
  "husky-javelin",
  "husky-ki",
  "husky-ki-repr",
- "husky-linkage",
+ "husky-linket",
  "husky-manifest",
  "husky-manifest-ast",
  "husky-place",
@@ -5547,7 +5548,7 @@ name = "husky-lifetime-utils"
 version = "0.1.0"
 
 [[package]]
-name = "husky-linkage"
+name = "husky-linket"
 version = "0.1.0"
 dependencies = [
  "either",
@@ -5604,13 +5605,13 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-linkage-impl"
+name = "husky-linket-impl"
 version = "0.1.0"
 dependencies = [
  "colored",
  "husky-decl-macro-utils",
  "husky-devsoul-interface",
- "husky-linkage-impl",
+ "husky-linket-impl",
  "husky-standard-devsoul-interface",
  "husky-standard-value",
  "husky-value-protocol",
@@ -5744,8 +5745,8 @@ dependencies = [
  "husky-dev-comptime",
  "husky-devsoul",
  "husky-devsoul-interface",
- "husky-linkage",
- "husky-linkage-impl",
+ "husky-linket",
+ "husky-linket-impl",
  "husky-manifest",
  "husky-print-utils",
  "husky-rust-transpilation",
@@ -5964,7 +5965,7 @@ dependencies = [
  "husky-hir-ty",
  "husky-io-utils",
  "husky-javelin",
- "husky-linkage",
+ "husky-linket",
  "husky-manifest",
  "husky-manifest-ast",
  "husky-opr",
@@ -6312,8 +6313,8 @@ dependencies = [
  "husky-devsoul-interface",
  "husky-entity-path",
  "husky-ki",
- "husky-linkage",
- "husky-linkage-impl",
+ "husky-linket",
+ "husky-linket-impl",
  "husky-mono-linktime",
  "husky-rust-transpilation",
  "husky-standard-devsoul-interface",
@@ -6333,7 +6334,7 @@ dependencies = [
  "egui",
  "enum-class",
  "husky-devsoul-interface",
- "husky-linkage-impl",
+ "husky-linket-impl",
  "husky-standard-devsoul-interface-macros",
  "husky-standard-value",
  "husky-trace-protocol",
@@ -6875,7 +6876,7 @@ dependencies = [
  "husky-javelin",
  "husky-ki",
  "husky-ki-repr",
- "husky-linkage",
+ "husky-linket",
  "husky-manifest",
  "husky-manifest-ast",
  "husky-place",
@@ -7079,7 +7080,7 @@ dependencies = [
  "husky-hir-prelude",
  "husky-hir-ty",
  "husky-javelin",
- "husky-linkage",
+ "husky-linket",
  "husky-manifest",
  "husky-manifest-ast",
  "husky-place",
@@ -7137,7 +7138,7 @@ dependencies = [
  "husky-hir-ty",
  "husky-javelin",
  "husky-lifetime-utils",
- "husky-linkage",
+ "husky-linket",
  "husky-literal-value",
  "husky-manifest",
  "husky-manifest-ast",
@@ -8155,7 +8156,7 @@ version = "0.1.0"
 dependencies = [
  "husky-core",
  "husky-devsoul-interface",
- "husky-linkage-impl",
+ "husky-linket-impl",
  "husky-rng-utils",
  "husky-standard-devsoul-interface",
  "husky-standard-value",

@@ -1,6 +1,6 @@
 use super::*;
 use husky_javelin::template_argument::constant::JavelinConstant;
-use husky_linkage::template_argument::constant::LinConstant;
+use husky_linket::template_argument::constant::LinConstant;
 
 impl<E> TranspileToRustWith<E> for LinConstant {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {

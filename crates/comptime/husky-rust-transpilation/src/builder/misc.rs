@@ -5,7 +5,7 @@ use husky_entity_path::path::{
     ty_variant::TypeVariantPath,
 };
 use husky_hir_defn::defn::{major_item::ty::TypeHirDefn, HasHirDefn};
-use husky_linkage::template_argument::{qual::LinQual, ty::LinType};
+use husky_linket::template_argument::{qual::LinQual, ty::LinType};
 use husky_manifest::dependency::PackageDependency;
 
 impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {

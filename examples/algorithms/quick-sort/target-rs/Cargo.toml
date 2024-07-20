@@ -1,5 +1,5 @@
 [workspace]
-members = ["quick-sort", "quick-sort/linkages"]
+members = ["quick-sort", "quick-sort-linkets"]
 resolver = "2"
 
 [workspace.dependencies.ad-hoc-devsoul-dependency]
@@ -11,5 +11,5 @@ path = "../../../../library/core"
 [workspace.dependencies.quick-sort]
 path = "quick-sort"
 
-[workspace.dependencies.quick-sort-linkages]
-path = "quick-sort/linkages"
+[workspace.dependencies.quick-sort-linkets]
+path = "quick-sort-linkets"

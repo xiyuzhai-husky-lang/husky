@@ -1,24 +1,20 @@
 use crate::*;
 use husky_devsoul::{
-    devsoul::{dev_eval_context, with_runtime, IsDevsoul},
+    devsoul::IsDevsoul,
     helpers::{DevsoulException, DevsoulValue},
 };
 use husky_devsoul_interface::ki_repr::KiArgumentReprInterface;
-use husky_devsoul_interface::{ki_control_flow::KiControlFlow, IsLinkageImpl};
+use husky_devsoul_interface::{ki_control_flow::KiControlFlow, IsLinketImpl};
 use husky_hir_opr::binary::HirBinaryOpr;
 use husky_ki::{KiOpn, KiPatternData};
 use husky_ki_repr::repr::{KiArgumentRepr, KiDomainRepr, KiRepr};
-use husky_linkage_impl::standard::StandardLinkageImpl;
+use husky_linket_impl::standard::StandardLinketImpl;
 use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr};
 use husky_standard_devsoul::StandardDevsoul;
 use husky_term_prelude::literal::Literal;
 use husky_value_interface::IsValue;
 
 impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
-    // pub fn eval_ki_repr(&self, ki_repr: KiRepr) -> DevsoulKiControlFlow<Devsoul> {
-    //     with_runtime::<Devsoul, _, _>(self, || self.eval_ki_repr(ki_repr))
-    // }
-
     pub fn eval_ki_domain_repr(
         &self,
         ki_domain_repr: KiDomainRepr,
@@ -63,9 +59,8 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     }
 
     pub fn eval_ki_repr(&self, ki_repr: KiRepr) -> DevsoulKiControlFlow<Devsoul> {
-        // todo!("set up dev eval context");
-        // todo: consider domain
         let db = self.db();
+        let ctx = self.eval_context();
         let result: DevsoulKiControlFlow<Devsoul> = match ki_repr.opn(db) {
             KiOpn::Return => todo!(),
             KiOpn::Require => {
@@ -130,14 +125,17 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                 let expansion = ki_repr.expansion(db).unwrap();
                 self.eval_root_stmts(expansion.root_hir_lazy_stmt_ki_reprs(db))
             }
-            KiOpn::Linkage(linkage) => {
-                let linkage_impl = self.comptime.linkage_impl(linkage);
-                let control_flow =
-                    linkage_impl.eval_ki(ki_repr.into(), dev_eval_context::<Devsoul>(), unsafe {
+            KiOpn::Linket(linket) => {
+                let linket_impl = self.comptime.linket_impl(linket);
+                let control_flow = linket_impl.eval_ki(
+                    ki_repr.into(),
+                    unsafe {
                         std::mem::transmute::<_, &[KiArgumentReprInterface]>(
                             ki_repr.arguments(db) as &[KiArgumentRepr]
                         )
-                    });
+                    },
+                    ctx,
+                );
                 control_flow
             }
             KiOpn::FunctionRitchie(_) => todo!(),
@@ -215,7 +213,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             KiOpn::TypeVariant(path) => {
                 let presenter = self
                     .comptime
-                    .linkage_impl(Linkage::new_enum_index_presenter(
+                    .linket_impl(Linket::new_enum_index_presenter(
                         path.parent_ty_path(db),
                         db,
                     ))
@@ -316,7 +314,6 @@ fn ki_repr_eval_works() {
     use husky_entity_path::path::{major_item::MajorItemPath, ItemPath};
     use husky_entity_tree::helpers::paths::module_item_paths;
     use husky_path_utils::dev_paths::*;
-    use husky_standard_devsoul_interface::DeprecatedInputId;
 
     let dev_paths = HuskyLangDevPaths::new();
     let runtime: DevRuntime<StandardDevsoul<()>> =
@@ -325,30 +322,28 @@ fn ki_repr_eval_works() {
     let DevComptimeTarget::SingleCrate(crate_path) = runtime.comptime_target() else {
         unreachable!()
     };
-    with_runtime::<StandardDevsoul<()>, _, _>(&runtime, || {
-        for &item_path in module_item_paths(db, crate_path.root_module_path(db)) {
-            let ItemPath::MajorItem(MajorItemPath::Form(form_path)) = item_path else {
-                continue;
-            };
-            if form_path.kind(db) != MajorFormKind::Val {
-                continue;
-            }
-            let ki_repr = KiRepr::new_val(form_path, db);
-            for path in ki_repr.var_deps(db) {
-                let ItemPath::MajorItem(MajorItemPath::Form(path)) = path else {
-                    todo!()
-                };
-                let StandardLinkageImpl::StaticVar {
-                    set_up_for_testing, ..
-                } = runtime
-                    .comptime
-                    .linkage_impl(Linkage::new_static_var(path, db))
-                else {
-                    unreachable!()
-                };
-                set_up_for_testing(0)
-            }
-            runtime.eval_ki_repr(ki_repr);
+    for &item_path in module_item_paths(db, crate_path.root_module_path(db)) {
+        let ItemPath::MajorItem(MajorItemPath::Form(form_path)) = item_path else {
+            continue;
+        };
+        if form_path.kind(db) != MajorFormKind::Val {
+            continue;
         }
-    })
+        let ki_repr = KiRepr::new_val(form_path, db);
+        for path in ki_repr.var_deps(db) {
+            let ItemPath::MajorItem(MajorItemPath::Form(path)) = path else {
+                todo!()
+            };
+            let StandardLinketImpl::StaticVar {
+                set_up_for_testing, ..
+            } = runtime
+                .comptime
+                .linket_impl(Linket::new_static_var(path, db))
+            else {
+                unreachable!()
+            };
+            set_up_for_testing(0)
+        }
+        runtime.eval_ki_repr(ki_repr);
+    }
 }

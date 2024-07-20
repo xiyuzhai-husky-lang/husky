@@ -1,23 +1,23 @@
 use crate::region::{
-    linkage_virtual_vmir_region, linkage_vmir_region, VirtualVmirRegion, VmirRegion,
+    linket_virtual_vmir_region, linket_vmir_region, VirtualVmirRegion, VmirRegion,
 };
 use husky_devsoul::linktime::IsLinktime;
-use husky_devsoul_interface::IsLinkageImpl;
-use husky_linkage::{
-    linkage::{virtual_linkage_impl::VirtualLinkageImpl, Linkage},
-    version_stamp::LinkageVersionStamp,
+use husky_devsoul_interface::IsLinketImpl;
+use husky_linket::{
+    linket::{virtual_linket_impl::VirtualLinketImpl, Linket},
+    version_stamp::LinketVersionStamp,
 };
 use std::{
     collections::HashMap,
     sync::{Arc, Mutex},
 };
 
-pub trait IsVmirStorage<LinkageImpl: IsLinkageImpl> {
-    type VmirRegionWrapper<'a>: std::ops::Deref<Target = VmirRegion<LinkageImpl>>;
+pub trait IsVmirStorage<LinketImpl: IsLinketImpl> {
+    type VmirRegionWrapper<'a>: std::ops::Deref<Target = VmirRegion<LinketImpl>>;
 
-    fn linkage_vmir_region<'db, Linktime: IsLinktime<LinkageImpl = LinkageImpl>>(
+    fn linket_vmir_region<'db, Linktime: IsLinktime<LinketImpl = LinketImpl>>(
         &self,
-        linkage: Linkage,
+        linket: Linket,
         db: &'db ::salsa::Db,
         linktime: &Linktime,
     ) -> Option<Self::VmirRegionWrapper<'db>>;
@@ -26,68 +26,68 @@ pub trait IsVmirStorage<LinkageImpl: IsLinkageImpl> {
 #[derive(Default)]
 pub struct VirtualVmirStorage;
 
-impl IsVmirStorage<VirtualLinkageImpl> for VirtualVmirStorage {
+impl IsVmirStorage<VirtualLinketImpl> for VirtualVmirStorage {
     type VmirRegionWrapper<'db> = &'db VirtualVmirRegion;
 
-    fn linkage_vmir_region<'db, Linktime: IsLinktime<LinkageImpl = VirtualLinkageImpl>>(
+    fn linket_vmir_region<'db, Linktime: IsLinktime<LinketImpl = VirtualLinketImpl>>(
         &self,
-        linkage: Linkage,
+        linket: Linket,
         db: &'db salsa::Db,
         _linktime: &Linktime,
     ) -> Option<Self::VmirRegionWrapper<'db>> {
-        linkage_virtual_vmir_region(db, linkage)
+        linket_virtual_vmir_region(db, linket)
     }
 }
 
 /// # standard
 
-pub struct StandardVmirStorage<LinkageImpl: IsLinkageImpl>(
-    Arc<Mutex<StandardVmirStorageImpl<LinkageImpl>>>,
+pub struct StandardVmirStorage<LinketImpl: IsLinketImpl>(
+    Arc<Mutex<StandardVmirStorageImpl<LinketImpl>>>,
 );
 
-pub struct StandardVmirStorageImpl<LinkageImpl: IsLinkageImpl> {
-    map: HashMap<Linkage, (LinkageVersionStamp, Arc<VmirRegion<LinkageImpl>>)>,
+pub struct StandardVmirStorageImpl<LinketImpl: IsLinketImpl> {
+    map: HashMap<Linket, (LinketVersionStamp, Arc<VmirRegion<LinketImpl>>)>,
 }
 
-impl<LinkageImpl: IsLinkageImpl> IsVmirStorage<LinkageImpl> for StandardVmirStorage<LinkageImpl> {
-    type VmirRegionWrapper<'a> = Arc<VmirRegion<LinkageImpl>>;
+impl<LinketImpl: IsLinketImpl> IsVmirStorage<LinketImpl> for StandardVmirStorage<LinketImpl> {
+    type VmirRegionWrapper<'a> = Arc<VmirRegion<LinketImpl>>;
 
-    fn linkage_vmir_region<'db, Linktime: IsLinktime<LinkageImpl = LinkageImpl>>(
+    fn linket_vmir_region<'db, Linktime: IsLinktime<LinketImpl = LinketImpl>>(
         &self,
-        linkage: Linkage,
+        linket: Linket,
         db: &'db ::salsa::Db,
         linktime: &Linktime,
     ) -> Option<Self::VmirRegionWrapper<'db>> {
         self.0
             .lock()
             .unwrap()
-            .linkage_vmir_region(linkage, db, linktime)
+            .linket_vmir_region(linket, db, linktime)
     }
 }
 
-impl<LinkageImpl: IsLinkageImpl> StandardVmirStorageImpl<LinkageImpl> {
-    fn linkage_vmir_region<Linktime: IsLinktime<LinkageImpl = LinkageImpl>>(
+impl<LinketImpl: IsLinketImpl> StandardVmirStorageImpl<LinketImpl> {
+    fn linket_vmir_region<Linktime: IsLinktime<LinketImpl = LinketImpl>>(
         &mut self,
-        linkage: Linkage,
+        linket: Linket,
         db: &::salsa::Db,
         linktime: &Linktime,
-    ) -> Option<Arc<VmirRegion<LinkageImpl>>> {
+    ) -> Option<Arc<VmirRegion<LinketImpl>>> {
         use version_stamp::HasVersionStamp;
 
-        // it's okay to just return None if linkage_vmir_region returns None
-        // if linkage_vmir_region returns None, it means linkage is not defined in Husky itself, ffi or something
+        // it's okay to just return None if linket_vmir_region returns None
+        // if linket_vmir_region returns None, it means linket is not defined in Husky itself, ffi or something
         // so the computation will be fast and no need to cache it
-        match self.map.entry(linkage) {
+        match self.map.entry(linket) {
             std::collections::hash_map::Entry::Occupied(entry) => {
-                let (linkage_version_stamp, vim_region) = entry.into_mut();
-                if *linkage_version_stamp != linkage.version_stamp(db) {
-                    *vim_region = Arc::new(linkage_vmir_region(linkage, db, linktime)?)
+                let (linket_version_stamp, vim_region) = entry.into_mut();
+                if *linket_version_stamp != linket.version_stamp(db) {
+                    *vim_region = Arc::new(linket_vmir_region(linket, db, linktime)?)
                 }
                 Some(vim_region.clone())
             }
             std::collections::hash_map::Entry::Vacant(entry) => {
-                let vim_region = Arc::new(linkage_vmir_region(linkage, db, linktime)?);
-                entry.insert((linkage.version_stamp(db), vim_region.clone()));
+                let vim_region = Arc::new(linket_vmir_region(linket, db, linktime)?);
+                entry.insert((linket.version_stamp(db), vim_region.clone()));
                 Some(vim_region)
             }
         }

@@ -1,5 +1,5 @@
 [workspace]
-members = ["syntax-basics", "syntax-basics/linkages"]
+members = ["syntax-basics", "syntax-basics-linkets"]
 resolver = "2"
 
 [workspace.dependencies.ad-hoc-devsoul-dependency]
@@ -11,5 +11,5 @@ path = "../../../../library/core"
 [workspace.dependencies.syntax-basics]
 path = "syntax-basics"
 
-[workspace.dependencies.syntax-basics-linkages]
-path = "syntax-basics/linkages"
+[workspace.dependencies.syntax-basics-linkets]
+path = "syntax-basics-linkets"

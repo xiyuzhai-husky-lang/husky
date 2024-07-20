@@ -1,7 +1,4 @@
-use crate::{
-    package::{rust_transpilation_packages, RustTranspilationPackageKind},
-    *,
-};
+use crate::{package::rust_transpilation_packages, *};
 use cargo_manifest::{
     Dependency, DependencyDetail, Edition, InheritedDependencyDetail, Manifest, MaybeInherited,
     Package, Product, Resolver, True, Workspace,
@@ -26,8 +23,7 @@ pub(crate) fn linktime_target_rust_workspace_manifest(
     let members = rust_transpilation_packages
         .iter()
         .filter_map(|package| {
-            (!(package.package_path.is_virtual(db)
-                && package.kind == RustTranspilationPackageKind::Source))
+            (!package.is_virtual_source(db))
                 .then(|| package.path_in_workspace(&rust_workspace_abs_dir, db))
         })
         .collect();
@@ -112,7 +108,7 @@ pub(crate) fn linktime_target_rust_workspace_manifest(
 }
 
 #[salsa::tracked(return_ref)]
-pub(crate) fn package_source_rust_package_manifest(
+pub(crate) fn source_package_manifest(
     db: &::salsa::Db,
     package_path: PackagePath,
     transpilation_setup: TranspilationSetup,
@@ -172,9 +168,9 @@ pub(crate) fn package_source_rust_package_manifest(
 }
 
 #[salsa::tracked(return_ref)]
-pub(crate) fn package_linkages_rust_package_manifest(
+pub(crate) fn linkets_package_manifest(
     db: &::salsa::Db,
-    package_path: PackagePath,
+    target_path: LinktimeTargetPath,
     transpilation_setup: TranspilationSetup,
 ) -> String {
     let rust_transpilation_setup_data = transpilation_setup.rust_data(db).unwrap();
@@ -187,18 +183,17 @@ pub(crate) fn package_linkages_rust_package_manifest(
     ]
     .into_iter()
     .chain(
-        package_path
-            .dependencies(db)
+        target_path
+            .full_dependencies(db)
             .unwrap()
             .iter()
-            .map(|dep| dep.package_path().name_string(db)),
+            .map(|dep| dep.name_string(db)),
     )
-    .chain([package_path.name_string(db)])
     .map(|name| (name, INHERITED))
     .collect();
     toml::to_string(&Manifest {
         package: Some(Package::<toml::Value> {
-            name: format!("{}-linkages", package_path.name(db).data(db)),
+            name: format!("{}-linkets", target_path.name(db).data(db)),
             edition: Some(MaybeInherited::Local(Edition::E2021)),
             version: Some(MaybeInherited::Local("0.1.0".to_string())),
             build: None,

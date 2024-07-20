@@ -6,8 +6,6 @@ pub use self::narrow_down_::*;
 use ad_hoc_devsoul_dependency::{ugly::*, *};
 use husky_core::*;
 
-ad_hoc_devsoul_dependency::init_crate!();
-
 // #[ad_hoc_devsoul_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq, Eq, Copy, __Serialize)]
 pub enum Class<Label> {

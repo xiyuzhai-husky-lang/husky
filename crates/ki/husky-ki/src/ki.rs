@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_path::path::{major_item::form::MajorFormPath, ty_variant::TypeVariantPath};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
-use husky_linkage::linkage::Linkage;
+use husky_linket::linket::Linket;
 use husky_term_prelude::literal::Literal;
 use smallvec::SmallVec;
 
@@ -70,7 +70,7 @@ pub enum KiOpn {
     Prefix(HirPrefixOpr),
     Suffix(HirSuffixOpr),
     Binary(HirBinaryOpr),
-    Linkage(Linkage),
+    Linket(Linket),
     EvalDiscarded,
     Literal(Literal),
     Branches,

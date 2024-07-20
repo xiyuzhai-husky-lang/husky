@@ -70,7 +70,7 @@ impl KiReprSource {
                     }
                 }
                 KiOpn::FunctionRitchie(_) => todo!(),
-                KiOpn::Linkage(linkage) => todo!(),
+                KiOpn::Linket(linket) => todo!(),
                 _ => unreachable!(),
             },
         }

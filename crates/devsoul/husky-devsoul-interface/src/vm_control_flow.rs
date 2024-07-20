@@ -27,12 +27,8 @@ impl<C, B, E> VmControlFlow<C, B, E> {
 
 pub type ValuePresentationVmControlFlow =
     VmControlFlow<ValuePresentation, ValuePresentation, ValuePresentation>;
-pub type LinkageImplVmControlFlow<LinkageImpl, C = <LinkageImpl as IsLinkageImpl>::Value> =
-    VmControlFlow<
-        C,
-        <LinkageImpl as IsLinkageImpl>::Value,
-        <LinkageImpl as IsLinkageImpl>::Exception,
-    >;
+pub type LinketImplVmControlFlow<LinketImpl, C = <LinketImpl as IsLinketImpl>::Value> =
+    VmControlFlow<C, <LinketImpl as IsLinketImpl>::Value, <LinketImpl as IsLinketImpl>::Exception>;
 
 impl<C, B, E> Residual<C> for VmControlFlow<Infallible, B, E> {
     type TryType = VmControlFlow<C, B, E>;

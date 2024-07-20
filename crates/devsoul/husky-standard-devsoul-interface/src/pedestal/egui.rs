@@ -48,7 +48,7 @@ impl PedestalUi<Ui> for StandardPedestal {
                 {
                     match pedestal_ui_buffer.input_id_to_be.parse::<usize>() {
                         Ok(index) => {
-                            let input_id = DeprecatedInputId::from_index(index);
+                            // let input_id = DeprecatedInputId::from_index(index);
                             todo!()
                             // match self {
                             //     StandardPedestal::Specific(_) => {

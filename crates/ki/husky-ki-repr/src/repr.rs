@@ -9,7 +9,7 @@ use husky_devsoul_interface::ki_repr::{KiDomainReprInterface, KiReprInterface};
 use husky_entity_path::path::major_item::form::MajorFormPath;
 use husky_hir_defn::defn::{major_item::form::MajorFormHirDefn, HasHirDefn};
 use husky_ki::{Ki, KiArgument, KiDomain, KiOpn, KiRuntimeConstant};
-use husky_linkage::linkage::Linkage;
+use husky_linket::linket::Linket;
 use smallvec::{smallvec, SmallVec};
 
 #[salsa::tracked(constructor = new_inner)]
@@ -114,8 +114,8 @@ fn val_ki_repr(db: &::salsa::Db, path: MajorFormPath) -> KiRepr {
         husky_print_utils::p!(path.debug(db));
         unreachable!()
     };
-    let opn = match Linkage::new_val(path, db) {
-        Some(linkage) => KiOpn::Linkage(linkage),
+    let opn = match Linket::new_val(path, db) {
+        Some(linket) => KiOpn::Linket(linket),
         None => KiOpn::ValLazilyDefined(path),
     };
     let opds = smallvec![];
@@ -129,7 +129,7 @@ fn static_var_item_ki_repr(db: &::salsa::Db, path: MajorFormPath) -> KiRepr {
     let MajorFormHirDefn::StaticVar(hir_defn) = path.hir_defn(db).unwrap() else {
         unreachable!()
     };
-    let opn = KiOpn::Linkage(Linkage::new_static_var(path, db));
+    let opn = KiOpn::Linket(Linket::new_static_var(path, db));
     let opds = smallvec![];
     let caching_class = KiCachingClass::StaticVar;
     KiRepr::new(domain, opn, opds, KiReprSource::Val(path), db)
