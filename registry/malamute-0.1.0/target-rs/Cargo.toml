@@ -1,5 +1,5 @@
 [workspace]
-members = ["malamute/linkets", "ml-task/linkets"]
+members = ["malamute-linkets"]
 resolver = "2"
 
 [workspace.dependencies.ad-hoc-devsoul-dependency]
@@ -12,10 +12,7 @@ path = "../../../library/core"
 path = ".."
 
 [workspace.dependencies.malamute-linkets]
-path = "malamute/linkets"
+path = "malamute-linkets"
 
 [workspace.dependencies.ml-task]
 path = "../../ml-task-0.1.0"
-
-[workspace.dependencies.ml-task-linkets]
-path = "ml-task/linkets"

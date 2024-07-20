@@ -516,16 +516,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "malamute-linkets"
-version = "0.1.0"
-dependencies = [
- "ad-hoc-devsoul-dependency",
- "husky-core",
- "malamute",
- "ml-task",
-]
-
-[[package]]
 name = "maybe-result"
 version = "0.1.0"
 dependencies = [
@@ -538,15 +528,6 @@ version = "0.1.0"
 dependencies = [
  "ad-hoc-devsoul-dependency",
  "husky-core",
-]
-
-[[package]]
-name = "ml-task-linkets"
-version = "0.1.0"
-dependencies = [
- "ad-hoc-devsoul-dependency",
- "husky-core",
- "ml-task",
 ]
 
 [[package]]
@@ -581,17 +562,9 @@ dependencies = [
  "ad-hoc-devsoul-dependency",
  "husky-core",
  "malamute",
+ "ml-task",
  "mnist",
  "mnist-classifier",
-]
-
-[[package]]
-name = "mnist-linkets"
-version = "0.1.0"
-dependencies = [
- "ad-hoc-devsoul-dependency",
- "husky-core",
- "mnist",
 ]
 
 [[package]]

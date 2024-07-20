@@ -1,5 +1,5 @@
 [workspace]
-members = ["mnist-classifier", "mnist-classifier/linkets", "malamute/linkets", "mnist/linkets", "ml-task/linkets"]
+members = ["mnist-classifier", "mnist-classifier-linkets"]
 resolver = "2"
 
 [workspace.dependencies.ad-hoc-devsoul-dependency]
@@ -11,14 +11,8 @@ path = "../../../library/core"
 [workspace.dependencies.malamute]
 path = "../../../registry/malamute-0.1.0"
 
-[workspace.dependencies.malamute-linkets]
-path = "malamute/linkets"
-
 [workspace.dependencies.ml-task]
 path = "../../../registry/ml-task-0.1.0"
-
-[workspace.dependencies.ml-task-linkets]
-path = "ml-task/linkets"
 
 [workspace.dependencies.mnist]
 path = "../../../registry/mnist-0.1.0"
@@ -27,7 +21,4 @@ path = "../../../registry/mnist-0.1.0"
 path = "mnist-classifier"
 
 [workspace.dependencies.mnist-classifier-linkets]
-path = "mnist-classifier/linkets"
-
-[workspace.dependencies.mnist-linkets]
-path = "mnist/linkets"
+path = "mnist-classifier-linkets"

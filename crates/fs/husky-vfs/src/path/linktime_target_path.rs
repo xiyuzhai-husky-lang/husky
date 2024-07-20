@@ -18,7 +18,15 @@ impl LinktimeTargetPath {
     pub fn new_package(package_path: PackagePath, db: &::salsa::Db) -> Self {
         Self::new_inner(db, LinktimeTargetPathData::Package(package_path))
     }
+}
 
+impl LinktimeTargetPath {
+    pub fn name(self, db: &::salsa::Db) -> Kebab {
+        match self.data(db) {
+            LinktimeTargetPathData::Package(package_path) => package_path.name(db),
+            LinktimeTargetPathData::Workspace(_) => todo!(),
+        }
+    }
     pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
         match self.data(db) {
             LinktimeTargetPathData::Package(package_path) => package_path.toolchain(db),

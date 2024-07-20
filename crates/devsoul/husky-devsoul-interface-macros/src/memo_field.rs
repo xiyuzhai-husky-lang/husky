@@ -33,14 +33,15 @@ pub(crate) fn memo_field(args: TokenStream, input: TokenStream) -> TokenStream {
     if return_ref {
         quote! {
             #vis fn #ident(&'static self) -> &'static #return_ty {
-                __eval_memo_field_return_ref_with(
-                    self,
-                    #ingredient_index,
-                    |slf| {
-                        // todo: catch unwind
-                        __KiControlFlow::Continue(__ValueLeashTest(slf.#aux_ident()).into_value())
-                    }
-                )
+                todo!("return leash for eager val, change the return type")
+                // __eval_memo_field_return_ref_with(
+                //     self,
+                //     #ingredient_index,
+                //     |slf| {
+                //         // todo: catch unwind
+                //         __KiControlFlow::Continue(__ValueLeashTest(slf.#aux_ident()).into_value())
+                //     }
+                // )
             }
 
             #vis fn #aux_ident(&'static self) -> #return_ty #block
@@ -49,14 +50,15 @@ pub(crate) fn memo_field(args: TokenStream, input: TokenStream) -> TokenStream {
     } else {
         quote! {
             #vis fn #ident(&'static self) -> #return_ty {
-                __eval_memo_field_with(
-                    self,
-                    #ingredient_index,
-                    |slf| {
-                        // todo: catch unwind
-                        __KiControlFlow::Continue(__ValueLeashTest(slf.#aux_ident()).into_value())
-                    }
-                )
+                todo!("return copied for eager val")
+                // __eval_memo_field_with(
+                //     self,
+                //     #ingredient_index,
+                //     |slf| {
+                //         // todo: catch unwind
+                //         __KiControlFlow::Continue(__ValueLeashTest(slf.#aux_ident()).into_value())
+                //     }
+                // )
             }
 
             #vis fn #aux_ident(&'static self) -> #return_ty #block

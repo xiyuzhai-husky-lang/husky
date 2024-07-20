@@ -329,6 +329,20 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         self.write_str(delimiter.right_code());
     }
 
+    pub(crate) fn multiline_comma_list<A: TranspileToRustWith<E>>(
+        &mut self,
+        items: impl IntoIterator<Item = A>,
+    ) {
+        self.current_indent += INDENT_UNIT;
+        for item in items {
+            self.fresh_line();
+            item.transpile_to_rust(self);
+            self.write_str(",")
+        }
+        self.current_indent -= INDENT_UNIT;
+        self.fresh_line();
+    }
+
     pub(crate) fn delimited_multiline_comma_list_without_last_comma<A: TranspileToRustWith<E>>(
         &mut self,
         delimiter: RustDelimiter,

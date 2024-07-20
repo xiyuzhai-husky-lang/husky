@@ -34,11 +34,8 @@ pub(crate) fn module_defn_rust_transpilation(
 use husky_core::*;
 use {}::{{*, ugly::*}};
 
-{}::init_crate!();
-
 "#,
             setup.rust_data(db).unwrap().task_dependency_ident.data(db),
-            setup.rust_data(db).unwrap().task_dependency_ident.data(db)
         ))
     } else {
         None

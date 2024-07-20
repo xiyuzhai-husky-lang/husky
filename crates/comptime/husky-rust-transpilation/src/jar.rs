@@ -5,6 +5,6 @@ pub struct RustTranspilationJar(
     crate::package::module_relative_path_for_transpilation,
     crate::linket::package_linkets_transpilation,
     crate::manifest::linktime_target_rust_workspace_manifest,
-    crate::manifest::package_source_rust_package_manifest,
-    crate::manifest::package_linkets_rust_package_manifest,
+    crate::manifest::source_package_manifest,
+    crate::manifest::linkets_package_manifest,
 );

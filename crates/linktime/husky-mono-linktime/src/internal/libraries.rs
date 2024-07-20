@@ -11,22 +11,22 @@ use libloading::Library;
 use std::path::PathBuf;
 use vec_like::{VecMap, VecPairMap};
 
-pub struct MonoLinketLibraries {
-    pub cdylibs: VecPairMap<PackagePath, Cdylib>,
+pub struct MonoLinketsLibrary {
+    pub cdylib: Cdylib,
 }
 
 #[salsa::derive_debug_with_db]
-pub struct Cdylib(HuskyJarIndex, Library);
+pub struct Cdylib(Library);
 
 impl Cdylib {
     pub(crate) fn linket_impls<LinketImpl: IsLinketImpl>(&self) -> Vec<LinketImpl> {
-        let package_linket_impls: libloading::Symbol<fn(HuskyJarIndex) -> AnyLinketImpls> =
-            unsafe { self.1.get(b"linket_impls").unwrap() };
-        package_linket_impls(self.0).downcast()
+        let package_linket_impls: libloading::Symbol<fn() -> AnyLinketImpls> =
+            unsafe { self.0.get(b"linket_impls").unwrap() };
+        package_linket_impls().downcast()
     }
 }
 
-impl MonoLinketLibraries {
+impl MonoLinketsLibrary {
     pub(super) fn generate(target_path: LinktimeTargetPath, db: &::salsa::Db) -> Result<Self, ()> {
         // useful for debugging
         match std::env::var("SKIP_COMPILATION") {
@@ -41,44 +41,15 @@ impl MonoLinketLibraries {
             }
         }
         let rust_workspace_dir = target_path.rust_workspace_abs_dir(db);
-        let all_packages: HashMap<PathBuf, (HuskyJarIndex, PackagePath)> = HashMap::from_iter(
-            target_path
-                .all_upstream_packages(db)
-                .unwrap()
-                .iter()
-                .copied()
-                .enumerate()
-                .map(|(i, package_path)| {
-                    let linkets_cargo_toml_path = rust_workspace_dir
-                        .join(package_path.name(db).data(db))
-                        .join("linkets/Cargo.toml");
-                    (
-                        linkets_cargo_toml_path,
-                        (HuskyJarIndex::from_index(i), package_path),
-                    )
-                }),
-        );
-        let cdylibs: VecPairMap<PackagePath, Cdylib> = compile_workspace(
+        let cdylib: Cdylib = compile_workspace(
             target_path.rust_workspace_manifest_path(db),
             |compilation| unsafe {
-                VecMap::from_iter_assuming_no_repetitions_unchecked(
-                    compilation
-                        .cdylibs
-                        .iter()
-                        .enumerate()
-                        .map(|(_i, unit_output)| {
-                            let (jar_index, package_path) =
-                                all_packages[unit_output.unit.pkg.manifest_path()];
-                            (
-                                package_path,
-                                Cdylib(jar_index, Library::new(unit_output.path.clone()).unwrap()),
-                            )
-                        }),
-                )
+                assert_eq!(compilation.cdylibs.len(), 1, "expect only one dylib");
+                let cdylib = &compilation.cdylibs[0];
+                Cdylib(Library::new(cdylib.path.clone()).unwrap())
             },
         )?;
-        assert_eq!(cdylibs.len(), all_packages.len());
-        Ok(Self { cdylibs })
+        Ok(Self { cdylib })
     }
 }
 
@@ -88,7 +59,7 @@ fn generate_linket_storage_works() {
 
     DevComptimeDb::vfs_plain_test(
         |db, package_path: PackagePath| {
-            MonoLinketLibraries::generate(LinktimeTargetPath::new_package(package_path, db), db)
+            MonoLinketsLibrary::generate(LinktimeTargetPath::new_package(package_path, db), db)
                 .unwrap();
         },
         &VfsTestConfig::new(
