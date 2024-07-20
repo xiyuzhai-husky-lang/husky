@@ -35,8 +35,7 @@ pub trait IsFnLinketImplSource<LinketImpl: IsLinketImpl, FnPointer> {
 macro_rules! linket_impls {
     ($($linket_impl: expr),* $(,)?) => {
         #[no_mangle]
-        pub extern "C" fn linket_impls(jar_index: __HuskyJarIndex) -> AnyLinketImpls {
-            __set_jar_index(jar_index);
+        pub extern "C" fn linket_impls() -> AnyLinketImpls {
             let linkets: Vec<__LinketImpl> =
                 vec![
                     $($linket_impl),*

@@ -1,3 +1,5 @@
+use husky_vfs::path::linktime_target_path::{LinktimeTargetPath, LinktimeTargetPathData};
+
 use crate::*;
 
 pub trait HasManifest: Copy {
@@ -36,4 +38,21 @@ fn package_full_dependencies_works() {
             TestDomainsConfig::FS,
         ),
     );
+}
+
+impl HasManifest for LinktimeTargetPath {
+    fn manifest(self, db: &salsa::Db) -> ManifestResultRef<PackageManifest> {
+        todo!()
+    }
+
+    fn dependencies(self, db: &salsa::Db) -> ManifestResultRef<&[PackageDependency]> {
+        todo!()
+    }
+
+    fn full_dependencies(self, db: &salsa::Db) -> ManifestResultRef<&[PackagePath]> {
+        match self.data(db) {
+            LinktimeTargetPathData::Package(package_path) => package_path.full_dependencies(db),
+            LinktimeTargetPathData::Workspace(_) => todo!(),
+        }
+    }
 }

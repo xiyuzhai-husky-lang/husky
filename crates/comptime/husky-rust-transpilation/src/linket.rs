@@ -30,36 +30,44 @@ use husky_linket::{
     linket::{package_linkets, Linket, LinketData},
     template_argument::ty::LinTypePathLeading,
 };
+use husky_vfs::path::linktime_target_path::LinktimeTargetPath;
 
 use self::helpers::TupleFieldVariable;
 
 #[salsa::tracked(return_ref)]
 pub(crate) fn package_linkets_transpilation(
     db: &::salsa::Db,
-    package_path: PackagePath,
+    target_path: LinktimeTargetPath,
     setup: TranspilationSetup,
 ) -> String {
     let mut builder_base = RustTranspilationBuilderBase::new(
         db,
-        package_path.toolchain(db),
+        target_path.toolchain(db),
         setup,
         Some(format!(
             r#"#![feature(trait_upcasting)]
 use husky_core::*;
 use {}::{{*, ugly::*}};
-use {}::*;
 "#,
             setup.rust_data(db).unwrap().task_dependency_ident.data(db),
-            package_path.ident(db).data(db)
         )),
         None,
     );
     let mut builder = RustTranspilationBuilder::new(&mut builder_base);
     builder.on_fresh_semicolon_paragraph(|builder| {
+        use husky_manifest::HasManifest;
+
         builder.rustfmt_skip();
         builder.macro_name(RustMacroName::LinketImpls);
-        builder
-            .delimited_multiline_comma_list(RustDelimiter::Box, package_linkets(db, package_path))
+        builder.delimited_multiline_comma_list(
+            RustDelimiter::Box,
+            target_path
+                .full_dependencies(db)
+                .unwrap()
+                .iter()
+                .map(|&package_path| package_linkets(db, package_path))
+                .flatten(),
+        );
     });
     builder_base.finish()
 }

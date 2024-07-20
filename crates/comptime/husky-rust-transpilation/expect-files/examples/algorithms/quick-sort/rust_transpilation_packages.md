@@ -16,18 +16,13 @@
                 },
             ),
         },
-        package_path: PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
+        data: Source {
+            package_path: PackagePath(
+                Id {
+                    value: 1,
                 },
-            },
-            name: `quick-sort`,
-            data: PackagePathSource::Local {
-                path: "../../../examples/algorithms/quick-sort",
-            },
+            ),
         },
-        kind: Source,
     },
     RustTranspilationPackage {
         target_path: LinktimeTargetPath {
@@ -45,18 +40,7 @@
                 },
             ),
         },
-        package_path: PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `quick-sort`,
-            data: PackagePathSource::Local {
-                path: "../../../examples/algorithms/quick-sort",
-            },
-        },
-        kind: Linkets,
+        data: Linkets,
     },
 ]
 ```

@@ -20,82 +20,69 @@ use once_cell::sync::OnceCell;
 use shifted_unsigned_int::ShiftedU32;
 use std::convert::Infallible;
 
-#[macro_export]
-macro_rules! init_crate {
-    () => {
-        pub(crate) static __HUSKY_JAR_INDEX: __HuskyJarIndexOnceCell =
-            __HuskyJarIndexOnceCell::new();
+// #[macro_export]
+// macro_rules! init_crate {
+//     () => {
+//         pub(crate) fn __eval_eager_val_with<T>(
+//             ingredient_index: usize,
+//             f: fn() -> __KiControlFlow,
+//         ) -> T
+//         where
+//             T: __FromValue + 'static,
+//         {
+//             <T as __FromValue>::from_value_static(__dev_eval_context().eval_eager_val_with(
+//                 __jar_index(),
+//                 __HuskyIngredientIndex::from_index(ingredient_index),
+//                 f,
+//             ))
+//         }
 
-        pub fn __set_jar_index(jar_index: __HuskyJarIndex) {
-            __HUSKY_JAR_INDEX.set(jar_index).unwrap();
-        }
+//         pub(crate) fn __eval_lazy_val<T>(ingredient_index: usize) -> T
+//         where
+//             T: __FromValue + 'static,
+//         {
+//             <T as __FromValue>::from_value_static(__dev_eval_context().eval_lazy_val(
+//                 __jar_index(),
+//                 __HuskyIngredientIndex::from_index(ingredient_index),
+//             ))
+//         }
 
-        pub(crate) fn __jar_index() -> __HuskyJarIndex {
-            *__HUSKY_JAR_INDEX
-                .get()
-                .expect("`__HUSKY_JAR_INDEX` is not initialized")
-        }
+//         pub(crate) fn __eval_memo_field_with<Slf, T>(
+//             slf: &'static Slf,
+//             ingredient_index: usize,
+//             f: fn(&'static Slf) -> __KiControlFlow,
+//         ) -> T
+//         where
+//             T: __FromValue + 'static,
+//         {
+//             <T as __FromValue>::from_value_static(__dev_eval_context().eval_memo_field_with(
+//                 __jar_index(),
+//                 __HuskyIngredientIndex::from_index(ingredient_index),
+//                 slf,
+//                 f,
+//             ))
+//         }
 
-        pub(crate) fn __eval_eager_val_with<T>(
-            ingredient_index: usize,
-            f: fn() -> __KiControlFlow,
-        ) -> T
-        where
-            T: __FromValue + 'static,
-        {
-            <T as __FromValue>::from_value_static(__dev_eval_context().eval_eager_val_with(
-                __jar_index(),
-                __HuskyIngredientIndex::from_index(ingredient_index),
-                f,
-            ))
-        }
-
-        pub(crate) fn __eval_lazy_val<T>(ingredient_index: usize) -> T
-        where
-            T: __FromValue + 'static,
-        {
-            <T as __FromValue>::from_value_static(__dev_eval_context().eval_lazy_val(
-                __jar_index(),
-                __HuskyIngredientIndex::from_index(ingredient_index),
-            ))
-        }
-
-        pub(crate) fn __eval_memo_field_with<Slf, T>(
-            slf: &'static Slf,
-            ingredient_index: usize,
-            f: fn(&'static Slf) -> __KiControlFlow,
-        ) -> T
-        where
-            T: __FromValue + 'static,
-        {
-            <T as __FromValue>::from_value_static(__dev_eval_context().eval_memo_field_with(
-                __jar_index(),
-                __HuskyIngredientIndex::from_index(ingredient_index),
-                slf,
-                f,
-            ))
-        }
-
-        pub(crate) fn __eval_memo_field_return_ref_with<Slf, T>(
-            slf: &'static Slf,
-            ingredient_index: usize,
-            f: fn(&'static Slf) -> __KiControlFlow,
-        ) -> &'static T
-        where
-            T: 'static,
-            &'static T: __FromValue,
-        {
-            <&'static T as __FromValue>::from_value_static(
-                __dev_eval_context().eval_memo_field_with(
-                    __jar_index(),
-                    __HuskyIngredientIndex::from_index(ingredient_index),
-                    slf,
-                    f,
-                ),
-            )
-        }
-    };
-}
+//         pub(crate) fn __eval_memo_field_return_ref_with<Slf, T>(
+//             slf: &'static Slf,
+//             ingredient_index: usize,
+//             f: fn(&'static Slf) -> __KiControlFlow,
+//         ) -> &'static T
+//         where
+//             T: 'static,
+//             &'static T: __FromValue,
+//         {
+//             <&'static T as __FromValue>::from_value_static(
+//                 __dev_eval_context().eval_memo_field_with(
+//                     __jar_index(),
+//                     __HuskyIngredientIndex::from_index(ingredient_index),
+//                     slf,
+//                     f,
+//                 ),
+//             )
+//         }
+//     };
+// }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct HuskyJarIndex(ShiftedU32);

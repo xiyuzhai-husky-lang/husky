@@ -523,15 +523,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "ml-task-linkets"
-version = "0.1.0"
-dependencies = [
- "ad-hoc-devsoul-dependency",
- "husky-core",
- "ml-task",
-]
-
-[[package]]
 name = "num-traits"
 version = "0.2.19"
 source = "registry+https://github.com/rust-lang/crates.io-index"

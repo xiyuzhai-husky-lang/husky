@@ -16,18 +16,13 @@
                 },
             ),
         },
-        package_path: PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
+        data: Source {
+            package_path: PackagePath(
+                Id {
+                    value: 1,
                 },
-            },
-            name: `mnist`,
-            data: PackagePathSource::Local {
-                path: "../../../registry/mnist-0.1.0",
-            },
+            ),
         },
-        kind: Source,
     },
     RustTranspilationPackage {
         target_path: LinktimeTargetPath {
@@ -45,18 +40,7 @@
                 },
             ),
         },
-        package_path: PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `mnist`,
-            data: PackagePathSource::Local {
-                path: "../../../registry/mnist-0.1.0",
-            },
-        },
-        kind: Linkets,
+        data: Linkets,
     },
 ]
 ```

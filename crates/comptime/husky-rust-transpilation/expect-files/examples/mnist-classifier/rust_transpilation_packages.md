@@ -16,18 +16,13 @@
                 },
             ),
         },
-        package_path: PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
+        data: Source {
+            package_path: PackagePath(
+                Id {
+                    value: 1,
                 },
-            },
-            name: `mnist-classifier`,
-            data: PackagePathSource::Local {
-                path: "../../../examples/mnist-classifier",
-            },
+            ),
         },
-        kind: Source,
     },
     RustTranspilationPackage {
         target_path: LinktimeTargetPath {
@@ -45,18 +40,13 @@
                 },
             ),
         },
-        package_path: PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
+        data: Source {
+            package_path: PackagePath(
+                Id {
+                    value: 2,
                 },
-            },
-            name: `mnist-classifier`,
-            data: PackagePathSource::Local {
-                path: "../../../examples/mnist-classifier",
-            },
+            ),
         },
-        kind: Linkets,
     },
     RustTranspilationPackage {
         target_path: LinktimeTargetPath {
@@ -74,25 +64,13 @@
                 },
             ),
         },
-        package_path: PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
+        data: Source {
+            package_path: PackagePath(
+                Id {
+                    value: 3,
                 },
-            },
-            name: `malamute`,
-            data: PackagePathSource::Registry {
-                registry_path: RegistryPath(
-                    "../../../.corgi/../registry",
-                ),
-                version: Version {
-                    major: 0,
-                    minor: 1,
-                    patch: 0,
-                },
-            },
+            ),
         },
-        kind: Source,
     },
     RustTranspilationPackage {
         target_path: LinktimeTargetPath {
@@ -110,25 +88,13 @@
                 },
             ),
         },
-        package_path: PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
+        data: Source {
+            package_path: PackagePath(
+                Id {
+                    value: 4,
                 },
-            },
-            name: `malamute`,
-            data: PackagePathSource::Registry {
-                registry_path: RegistryPath(
-                    "../../../.corgi/../registry",
-                ),
-                version: Version {
-                    major: 0,
-                    minor: 1,
-                    patch: 0,
-                },
-            },
+            ),
         },
-        kind: Linkets,
     },
     RustTranspilationPackage {
         target_path: LinktimeTargetPath {
@@ -146,133 +112,7 @@
                 },
             ),
         },
-        package_path: PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `mnist`,
-            data: PackagePathSource::Registry {
-                registry_path: RegistryPath(
-                    "../../../.corgi/../registry",
-                ),
-                version: Version {
-                    major: 0,
-                    minor: 1,
-                    patch: 0,
-                },
-            },
-        },
-        kind: Source,
-    },
-    RustTranspilationPackage {
-        target_path: LinktimeTargetPath {
-            data: LinktimeTargetPathData::Package(
-                PackagePath {
-                    toolchain: Toolchain {
-                        data: ToolchainData::Local {
-                            library_path: "../../../library",
-                        },
-                    },
-                    name: `mnist-classifier`,
-                    data: PackagePathSource::Local {
-                        path: "../../../examples/mnist-classifier",
-                    },
-                },
-            ),
-        },
-        package_path: PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `mnist`,
-            data: PackagePathSource::Registry {
-                registry_path: RegistryPath(
-                    "../../../.corgi/../registry",
-                ),
-                version: Version {
-                    major: 0,
-                    minor: 1,
-                    patch: 0,
-                },
-            },
-        },
-        kind: Linkets,
-    },
-    RustTranspilationPackage {
-        target_path: LinktimeTargetPath {
-            data: LinktimeTargetPathData::Package(
-                PackagePath {
-                    toolchain: Toolchain {
-                        data: ToolchainData::Local {
-                            library_path: "../../../library",
-                        },
-                    },
-                    name: `mnist-classifier`,
-                    data: PackagePathSource::Local {
-                        path: "../../../examples/mnist-classifier",
-                    },
-                },
-            ),
-        },
-        package_path: PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `ml-task`,
-            data: PackagePathSource::Registry {
-                registry_path: RegistryPath(
-                    "../../../.corgi/../registry",
-                ),
-                version: Version {
-                    major: 0,
-                    minor: 1,
-                    patch: 0,
-                },
-            },
-        },
-        kind: Source,
-    },
-    RustTranspilationPackage {
-        target_path: LinktimeTargetPath {
-            data: LinktimeTargetPathData::Package(
-                PackagePath {
-                    toolchain: Toolchain {
-                        data: ToolchainData::Local {
-                            library_path: "../../../library",
-                        },
-                    },
-                    name: `mnist-classifier`,
-                    data: PackagePathSource::Local {
-                        path: "../../../examples/mnist-classifier",
-                    },
-                },
-            ),
-        },
-        package_path: PackagePath {
-            toolchain: Toolchain {
-                data: ToolchainData::Local {
-                    library_path: "../../../library",
-                },
-            },
-            name: `ml-task`,
-            data: PackagePathSource::Registry {
-                registry_path: RegistryPath(
-                    "../../../.corgi/../registry",
-                ),
-                version: Version {
-                    major: 0,
-                    minor: 1,
-                    patch: 0,
-                },
-            },
-        },
-        kind: Linkets,
+        data: Linkets,
     },
 ]
 ```

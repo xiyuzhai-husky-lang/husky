@@ -1,5 +1,5 @@
 [workspace]
-members = ["mnist/linkets"]
+members = ["mnist-linkets"]
 resolver = "2"
 
 [workspace.dependencies.ad-hoc-devsoul-dependency]
@@ -12,4 +12,4 @@ path = "../../../library/core"
 path = ".."
 
 [workspace.dependencies.mnist-linkets]
-path = "mnist/linkets"
+path = "mnist-linkets"

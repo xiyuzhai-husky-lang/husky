@@ -1,7 +1,8 @@
+//! this is about the rust packages, not the husky packages
 use crate::{
     defn::module_defn_rust_transpilation,
     linket::package_linkets_transpilation,
-    manifest::{package_linkets_rust_package_manifest, package_source_rust_package_manifest},
+    manifest::{linkets_package_manifest, source_package_manifest},
     *,
 };
 use ::relative_path::RelativePathBuf;
@@ -24,22 +25,23 @@ use std::path::Path;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub(crate) struct RustTranspilationPackage {
     pub(crate) target_path: LinktimeTargetPath,
-    pub(crate) package_path: PackagePath,
-    pub(crate) kind: RustTranspilationPackageKind,
+    pub(crate) data: RustTranspilationPackageData,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum RustTranspilationPackageKind {
-    Source,
+pub enum RustTranspilationPackageData {
+    Source { package_path: PackagePath },
     Linkets,
 }
 
 impl RustTranspilationPackage {
     pub(crate) fn name(self, db: &::salsa::Db) -> String {
-        match self.kind {
-            RustTranspilationPackageKind::Source => self.package_path.name(db).data(db).to_string(),
-            RustTranspilationPackageKind::Linkets => {
-                format!("{}-linkets", self.package_path.name(db).data(db))
+        match self.data {
+            RustTranspilationPackageData::Source { package_path } => {
+                package_path.name(db).data(db).to_string()
+            }
+            RustTranspilationPackageData::Linkets => {
+                format!("{}-linkets", self.target_path.name(db).data(db))
             }
         }
     }
@@ -49,11 +51,11 @@ impl RustTranspilationPackage {
         rust_workspace_abs_dir: &Path,
         db: &::salsa::Db,
     ) -> String {
-        match self.kind {
-            RustTranspilationPackageKind::Source => {
-                if self.package_path.is_virtual(db) {
+        match self.data {
+            RustTranspilationPackageData::Source { package_path } => {
+                if package_path.is_virtual(db) {
                     diff_paths(
-                        self.package_path.dir(db).unwrap().abs_path(db).unwrap(),
+                        package_path.dir(db).unwrap().abs_path(db).unwrap(),
                         rust_workspace_abs_dir,
                     )
                     .unwrap()
@@ -62,12 +64,17 @@ impl RustTranspilationPackage {
                     .unwrap()
                     .to_string()
                 } else {
-                    self.package_path.name(db).data(db).to_string()
+                    self.name(db)
                 }
             }
-            RustTranspilationPackageKind::Linkets => {
-                format!("{}/linkets", self.package_path.name(db).data(db))
-            }
+            RustTranspilationPackageData::Linkets => self.name(db),
+        }
+    }
+
+    pub(crate) fn is_virtual_source(self, db: &::salsa::Db) -> bool {
+        match self.data {
+            RustTranspilationPackageData::Source { package_path } => package_path.is_virtual(db),
+            RustTranspilationPackageData::Linkets => false,
         }
     }
 }
@@ -77,33 +84,26 @@ pub(crate) fn rust_transpilation_packages(
     db: &::salsa::Db,
     target_path: LinktimeTargetPath,
 ) -> Vec<RustTranspilationPackage> {
-    match target_path.data(db) {
-        LinktimeTargetPathData::Package(package_path) => {
-            let mut packages = vec![];
-            packages.extend(
-                package_path
-                    .full_dependencies(db)
-                    .expect("no error at this stage")
-                    .iter()
-                    .flat_map(|&dep_package_path| {
-                        [
-                            RustTranspilationPackage {
-                                target_path,
-                                package_path: dep_package_path,
-                                kind: RustTranspilationPackageKind::Source,
-                            },
-                            RustTranspilationPackage {
-                                target_path,
-                                package_path: dep_package_path,
-                                kind: RustTranspilationPackageKind::Linkets,
-                            },
-                        ]
-                    }),
-            );
-            packages
-        }
-        LinktimeTargetPathData::Workspace(_) => todo!(),
-    }
+    let mut packages = vec![];
+    packages.extend(
+        target_path
+            .full_dependencies(db)
+            .expect("no error at this stage")
+            .iter()
+            .flat_map(|&dep_package_path| {
+                [RustTranspilationPackage {
+                    target_path,
+                    data: RustTranspilationPackageData::Source {
+                        package_path: dep_package_path,
+                    },
+                }]
+            }),
+    );
+    packages.push(RustTranspilationPackage {
+        target_path,
+        data: RustTranspilationPackageData::Linkets,
+    });
+    packages
 }
 
 #[test]
@@ -128,18 +128,18 @@ impl RustTranspilationPackage {
         db: &::salsa::Db,
     ) -> IOResult<()> {
         let workspace_dir = self.target_path.rust_workspace_abs_dir(db);
-        match self.kind {
-            package::RustTranspilationPackageKind::Source => {
-                transpile_package_source_to_fs(setup, workspace_dir, self.package_path, db)
+        match self.data {
+            package::RustTranspilationPackageData::Source { package_path } => {
+                transpile_source_package_to_fs(setup, workspace_dir, package_path, db)
             }
-            package::RustTranspilationPackageKind::Linkets => {
-                transpile_package_linkets_to_fs(setup, workspace_dir, self.package_path, db)
+            package::RustTranspilationPackageData::Linkets => {
+                transpile_linkets_package_to_fs(setup, workspace_dir, self.target_path, db)
             }
         }
     }
 }
 
-fn transpile_package_source_to_fs(
+fn transpile_source_package_to_fs(
     setup: TranspilationSetup,
     rust_workspace_dir: &std::path::Path,
     package_path: PackagePath,
@@ -152,7 +152,7 @@ fn transpile_package_source_to_fs(
     let cargo_toml_path = package_dir.join("Cargo.toml");
     husky_io_utils::diff_write(
         &cargo_toml_path,
-        package_source_rust_package_manifest(db, package_path, setup),
+        source_package_manifest(db, package_path, setup),
         true,
     );
     for &crate_path in package_path
@@ -199,25 +199,23 @@ fn module_relative_path_for_transpilation(
     }
 }
 
-fn transpile_package_linkets_to_fs(
+fn transpile_linkets_package_to_fs(
     setup: TranspilationSetup,
     rust_workspace_dir: &std::path::Path,
-    package_path: PackagePath,
+    target_path: LinktimeTargetPath,
     db: &::salsa::Db,
 ) -> IOResult<()> {
-    let package_dir = rust_workspace_dir
-        .join(package_path.name(db).data(db))
-        .join("linkets");
+    let package_dir = rust_workspace_dir.join(format!("{}-linkets", target_path.name(db).data(db)));
     let src_dir = package_dir.join("src");
     let cargo_toml_path = package_dir.join("Cargo.toml");
     husky_io_utils::diff_write(
         &cargo_toml_path,
-        package_linkets_rust_package_manifest(db, package_path, setup),
+        linkets_package_manifest(db, target_path, setup),
         true,
     );
     husky_io_utils::diff_write(
         &src_dir.join("lib.rs"),
-        package_linkets_transpilation(db, package_path, setup),
+        package_linkets_transpilation(db, target_path, setup),
         true,
     );
     Ok(())
