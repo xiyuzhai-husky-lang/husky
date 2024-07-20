@@ -32,7 +32,7 @@ pub(crate) fn memo_field(args: TokenStream, input: TokenStream) -> TokenStream {
     let aux_ident = Ident::new(&format!("__{}", ident), ident.span());
     if return_ref {
         quote! {
-            #vis fn #ident(&'static self) -> &'static #return_ty {
+            #vis fn #ident(&'static self) -> Leash<#return_ty> {
                 todo!("return leash for eager val, change the return type")
                 // __eval_memo_field_return_ref_with(
                 //     self,

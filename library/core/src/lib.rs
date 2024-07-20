@@ -1,9 +1,11 @@
+pub mod mem;
 pub mod num;
 pub mod ops;
 pub mod slice;
 pub mod vec;
 pub mod visual;
 
+pub use self::mem::*;
 pub use self::num::*;
 pub use self::ops::*;
 pub use self::slice::*;
