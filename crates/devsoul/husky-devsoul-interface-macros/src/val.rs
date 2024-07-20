@@ -34,7 +34,7 @@ pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
     if lazy {
         if return_ref {
             quote! {
-                #vis fn #ident() -> &'static #return_ty {
+                #vis fn #ident() -> Leash<#return_ty> {
                     todo!("return leash for lazy val, change the return type")
                     // __eval_lazy_val(#ingredient_index)
                 }
@@ -52,7 +52,7 @@ pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
     } else {
         if return_ref {
             quote! {
-                #vis fn #ident() -> &'static #return_ty {
+                #vis fn #ident() -> Leash<#return_ty> {
                     todo!("return leash for eager val, change the return type")
                     // __eval_eager_val_with(
                     //     #ingredient_index,
