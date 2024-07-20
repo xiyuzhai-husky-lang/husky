@@ -4,7 +4,7 @@ use husky_eth_signature::{
     context::EthTermContextRef,
     error::EthSignatureResult,
     signature::{
-        assoc_item::ty_item::memo_field::HasTypeMemoizedFieldEthSignature,
+        assoc_item::ty_item::memo::HasTypeMemoizedFieldEthSignature,
         major_item::ty::HasPropsFieldEthSignature, package::PackageEthSignatureData,
     },
 };
