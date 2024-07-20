@@ -4,13 +4,13 @@ use crate::{
     *,
 };
 use husky_devsoul_interface::{
-    vm_control_flow::{LinkageImplVmControlFlow, VmControlFlow},
+    vm_control_flow::{LinketImplVmControlFlow, VmControlFlow},
     VmArgumentValue,
 };
 use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx, HirEagerRitchieArgument};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_lifetime_utils::capture::Captures;
-use husky_linkage::{linkage::Linkage, template_argument::qual::LinQual};
+use husky_linket::{linket::Linket, template_argument::qual::LinQual};
 use husky_literal_value::LiteralValue;
 use husky_opr::{BinaryClosedOpr, BinaryShiftOpr};
 use husky_place::place::{idx::PlaceIdx, EthPlace};
@@ -19,7 +19,7 @@ use smallvec::{smallvec, SmallVec};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub enum VmirExprData<LinkageImpl: IsLinkageImpl> {
+pub enum VmirExprData<LinketImpl: IsLinketImpl> {
     Literal {
         value: LiteralValue,
     },
@@ -28,56 +28,56 @@ pub enum VmirExprData<LinkageImpl: IsLinkageImpl> {
         qual: LinQual,
     },
     Binary {
-        lopd: VmirExprIdx<LinkageImpl>,
+        lopd: VmirExprIdx<LinketImpl>,
         opr: HirBinaryOpr,
-        ropd: VmirExprIdx<LinkageImpl>,
+        ropd: VmirExprIdx<LinketImpl>,
     },
     Be {
-        opd: VmirExprIdx<LinkageImpl>,
-        pattern: VmirPattern<LinkageImpl>,
+        opd: VmirExprIdx<LinketImpl>,
+        pattern: VmirPattern<LinketImpl>,
     },
     Prefix {
         opr: HirPrefixOpr,
-        opd: VmirExprIdx<LinkageImpl>,
+        opd: VmirExprIdx<LinketImpl>,
     },
     Suffix {
-        opd: VmirExprIdx<LinkageImpl>,
+        opd: VmirExprIdx<LinketImpl>,
         opr: HirSuffixOpr,
     },
     Unveil {
-        linkage_impl: LinkageImpl,
-        opd: VmirExprIdx<LinkageImpl>,
+        linket_impl: LinketImpl,
+        opd: VmirExprIdx<LinketImpl>,
     },
-    Linkage {
-        linkage_impl: LinkageImpl,
-        arguments: VmirArguments<LinkageImpl>,
+    Linket {
+        linket_impl: LinketImpl,
+        arguments: VmirArguments<LinketImpl>,
     },
     Block {
-        stmts: VmirStmtIdxRange<LinkageImpl>,
+        stmts: VmirStmtIdxRange<LinketImpl>,
         destroyers: VmirDestroyerIdxRange,
     },
     Closure,
     Todo,
     Unreachable,
     As {
-        opd: VmirExprIdx<LinkageImpl>,
+        opd: VmirExprIdx<LinketImpl>,
     },
     Index,
     PrincipalEntityPath,
     Unwrap {
-        opd: VmirExprIdx<LinkageImpl>,
+        opd: VmirExprIdx<LinketImpl>,
     },
     ConstTemplateVariable,
 }
 
-pub type VmirExprArena<LinkageImpl> = Arena<VmirExprData<LinkageImpl>>;
+pub type VmirExprArena<LinketImpl> = Arena<VmirExprData<LinketImpl>>;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct VmirExprIdx<LinkageImpl: IsLinkageImpl>(ArenaIdx<VmirExprData<LinkageImpl>>);
+pub struct VmirExprIdx<LinketImpl: IsLinketImpl>(ArenaIdx<VmirExprData<LinketImpl>>);
 
-impl<LinkageImpl: IsLinkageImpl> std::ops::Deref for VmirExprIdx<LinkageImpl> {
-    type Target = ArenaIdx<VmirExprData<LinkageImpl>>;
+impl<LinketImpl: IsLinketImpl> std::ops::Deref for VmirExprIdx<LinketImpl> {
+    type Target = ArenaIdx<VmirExprData<LinketImpl>>;
 
     fn deref(&self) -> &Self::Target {
         &self.0
@@ -86,19 +86,19 @@ impl<LinkageImpl: IsLinkageImpl> std::ops::Deref for VmirExprIdx<LinkageImpl> {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct VmirExprIdxRange<LinkageImpl: IsLinkageImpl>(ArenaIdxRange<VmirExprData<LinkageImpl>>);
+pub struct VmirExprIdxRange<LinketImpl: IsLinketImpl>(ArenaIdxRange<VmirExprData<LinketImpl>>);
 
 impl<'db, Linktime: IsLinktime> VmirBuilder<'db, Linktime> {
     pub(crate) fn alloc_exprs(
         &mut self,
-        exprs: Vec<VmirExprData<Linktime::LinkageImpl>>,
-    ) -> VmirExprIdxRange<Linktime::LinkageImpl> {
+        exprs: Vec<VmirExprData<Linktime::LinketImpl>>,
+    ) -> VmirExprIdxRange<Linktime::LinketImpl> {
         VmirExprIdxRange(self.alloc_exprs_aux(exprs))
     }
 }
 
-impl<LinkageImpl: IsLinkageImpl> IntoIterator for VmirExprIdxRange<LinkageImpl> {
-    type Item = VmirExprIdx<LinkageImpl>;
+impl<LinketImpl: IsLinketImpl> IntoIterator for VmirExprIdxRange<LinketImpl> {
+    type Item = VmirExprIdx<LinketImpl>;
 
     type IntoIter = impl Iterator<Item = Self::Item>;
 
@@ -107,8 +107,8 @@ impl<LinkageImpl: IsLinkageImpl> IntoIterator for VmirExprIdxRange<LinkageImpl> 
     }
 }
 
-impl<LinkageImpl: IsLinkageImpl> IntoIterator for &VmirExprIdxRange<LinkageImpl> {
-    type Item = VmirExprIdx<LinkageImpl>;
+impl<LinketImpl: IsLinketImpl> IntoIterator for &VmirExprIdxRange<LinketImpl> {
+    type Item = VmirExprIdx<LinketImpl>;
 
     type IntoIter = impl Iterator<Item = Self::Item>;
 
@@ -119,24 +119,24 @@ impl<LinkageImpl: IsLinkageImpl> IntoIterator for &VmirExprIdxRange<LinkageImpl>
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub enum VmirArgument<LinkageImpl: IsLinkageImpl> {
+pub enum VmirArgument<LinketImpl: IsLinketImpl> {
     SelfValue {
-        expr: VmirExprIdx<LinkageImpl>,
+        expr: VmirExprIdx<LinketImpl>,
     },
     Simple {
-        expr: VmirExprIdx<LinkageImpl>,
+        expr: VmirExprIdx<LinketImpl>,
         coercion: VmirCoercion,
     },
     Variadic {
-        exprs: VmirExprIdxRange<LinkageImpl>,
+        exprs: VmirExprIdxRange<LinketImpl>,
     },
 }
-pub type VmirArguments<LinkageImpl> = SmallVec<[VmirArgument<LinkageImpl>; 4]>;
+pub type VmirArguments<LinketImpl> = SmallVec<[VmirArgument<LinketImpl>; 4]>;
 
-impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerExprIdx {
-    type Output = VmirExprIdx<LinkageImpl>;
+impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for HirEagerExprIdx {
+    type Output = VmirExprIdx<LinketImpl>;
 
-    fn to_vmir<Linktime: IsLinktime<LinkageImpl = LinkageImpl>>(
+    fn to_vmir<Linktime: IsLinktime<LinketImpl = LinketImpl>>(
         self,
         builder: &mut VmirBuilder<Linktime>,
     ) -> Self::Output {
@@ -146,7 +146,7 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerExprIdx {
 }
 
 impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
-    fn build_vmir_expr(&mut self, expr: HirEagerExprIdx) -> VmirExprData<Linktime::LinkageImpl> {
+    fn build_vmir_expr(&mut self, expr: HirEagerExprIdx) -> VmirExprData<Linktime::LinketImpl> {
         let entry = &self.hir_eager_expr_arena()[expr];
         match *entry.data() {
             HirEagerExprData::Literal(lit) => VmirExprData::Literal {
@@ -195,7 +195,7 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 opd,
                 ..
             } => VmirExprData::Unveil {
-                linkage_impl: self.linkage_impl(Linkage::new_unveil_assoc_fn(
+                linket_impl: self.linket_impl(Linket::new_unveil_assoc_fn(
                     unveil_assoc_fn_path,
                     instantiation,
                     self.lin_instantiation(),
@@ -214,16 +214,16 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 ref instantiation,
                 arguments: ref item_groups,
             } => {
-                let linkage = Linkage::new_ty_constructor_fn(
+                let linket = Linket::new_ty_constructor_fn(
                     path,
                     instantiation,
                     self.lin_instantiation(),
                     self.db(),
                 );
-                let linkage_impl = self.linkage_impl(linkage);
+                let linket_impl = self.linket_impl(linket);
                 let arguments = self.build_arguments(item_groups).collect();
-                VmirExprData::Linkage {
-                    linkage_impl,
+                VmirExprData::Linket {
+                    linket_impl,
                     arguments,
                 }
             }
@@ -232,16 +232,16 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 ref instantiation,
                 ref arguments,
             } => {
-                let linkage = Linkage::new_ty_variant_constructor_fn(
+                let linket = Linket::new_ty_variant_constructor_fn(
                     path,
                     instantiation,
                     self.lin_instantiation(),
                     self.db(),
                 );
-                let linkage_impl = self.linkage_impl(linkage);
+                let linket_impl = self.linket_impl(linket);
                 let arguments = self.build_arguments(arguments).collect();
-                VmirExprData::Linkage {
-                    linkage_impl,
+                VmirExprData::Linket {
+                    linket_impl,
                     arguments,
                 }
             }
@@ -250,16 +250,16 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 ref instantiation,
                 ref arguments,
             } => {
-                let linkage = Linkage::new_major_function_ritchie_item(
+                let linket = Linket::new_major_function_ritchie_item(
                     path,
                     instantiation,
                     self.lin_instantiation(),
                     self.db(),
                 );
-                let linkage_impl = self.linkage_impl(linkage);
+                let linket_impl = self.linket_impl(linket);
                 let arguments = self.build_arguments(arguments).collect();
-                VmirExprData::Linkage {
-                    linkage_impl,
+                VmirExprData::Linket {
+                    linket_impl,
                     arguments,
                 }
             }
@@ -268,16 +268,16 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 ref instantiation,
                 ref arguments,
             } => {
-                let linkage = Linkage::new_assoc_function_ritchie_item(
+                let linket = Linket::new_assoc_function_ritchie_item(
                     path,
                     instantiation,
                     self.lin_instantiation(),
                     self.db(),
                 );
-                let linkage_impl = self.linkage_impl(linkage);
+                let linket_impl = self.linket_impl(linket);
                 let arguments = self.build_arguments(arguments).collect();
-                VmirExprData::Linkage {
-                    linkage_impl,
+                VmirExprData::Linket {
+                    linket_impl,
                     arguments,
                 }
             }
@@ -287,18 +287,18 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 ident,
                 ..
             } => {
-                let linkage = Linkage::new_props_struct_field(
+                let linket = Linket::new_props_struct_field(
                     self_ty,
                     ident,
                     self.lin_instantiation(),
                     self.db(),
                 );
-                let linkage_impl = self.linkage_impl(linkage);
+                let linket_impl = self.linket_impl(linket);
                 let arguments = smallvec![VmirArgument::SelfValue {
                     expr: self_argument.to_vmir(self)
                 }];
-                VmirExprData::Linkage {
-                    linkage_impl,
+                VmirExprData::Linket {
+                    linket_impl,
                     arguments,
                 }
             }
@@ -309,18 +309,18 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 path,
                 ref instantiation,
             } => {
-                let linkage = Linkage::new_memo_field(
+                let linket = Linket::new_memo_field(
                     path,
                     instantiation,
                     self.lin_instantiation(),
                     self.db(),
                 );
-                let linkage_impl = self.linkage_impl(linkage);
+                let linket_impl = self.linket_impl(linket);
                 let arguments = smallvec![VmirArgument::SelfValue {
                     expr: self_argument.to_vmir(self)
                 }];
-                VmirExprData::Linkage {
-                    linkage_impl,
+                VmirExprData::Linket {
+                    linket_impl,
                     arguments,
                 }
             }
@@ -332,20 +332,20 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 ref instantiation,
                 arguments: ref hir_arguments,
             } => {
-                let linkage =
-                    Linkage::new_method(path, instantiation, self.lin_instantiation(), self.db());
-                let linkage_impl = self.linkage_impl(linkage);
+                let linket =
+                    Linket::new_method(path, instantiation, self.lin_instantiation(), self.db());
+                let linket_impl = self.linket_impl(linket);
                 let mut arguments = smallvec![VmirArgument::SelfValue {
                     expr: self_argument.to_vmir(self)
                 }];
                 arguments.extend(self.build_arguments(hir_arguments));
-                VmirExprData::Linkage {
-                    linkage_impl,
+                VmirExprData::Linket {
+                    linket_impl,
                     arguments,
                 }
             }
-            HirEagerExprData::NewTuple { .. } => VmirExprData::Linkage {
-                linkage_impl: todo!(),
+            HirEagerExprData::NewTuple { .. } => VmirExprData::Linket {
+                linket_impl: todo!(),
                 arguments: todo!(),
             },
             HirEagerExprData::Index { owner, ref items } => VmirExprData::Index,
@@ -353,15 +353,15 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 ref exprs,
                 element_ty,
             } => {
-                let linkage =
-                    Linkage::new_vec_constructor(element_ty, self.lin_instantiation(), self.db());
-                let linkage_impl = self.linkage_impl(linkage);
+                let linket =
+                    Linket::new_vec_constructor(element_ty, self.lin_instantiation(), self.db());
+                let linket_impl = self.linket_impl(linket);
                 let exprs = exprs
                     .iter()
                     .map(|&item| self.build_vmir_expr(item))
                     .collect();
-                VmirExprData::Linkage {
-                    linkage_impl,
+                VmirExprData::Linket {
+                    linket_impl,
                     arguments: smallvec![VmirArgument::Variadic {
                         exprs: self.alloc_exprs(exprs),
                     }],
@@ -384,8 +384,8 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 ref arguments,
             } => {
                 let arguments = todo!();
-                VmirExprData::Linkage {
-                    linkage_impl: todo!(),
+                VmirExprData::Linket {
+                    linket_impl: todo!(),
                     arguments,
                 }
             }
@@ -397,7 +397,7 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
     fn build_arguments<'a>(
         &'a mut self,
         arguments: &'comptime [HirEagerRitchieArgument],
-    ) -> impl Iterator<Item = VmirArgument<Linktime::LinkageImpl>> + Captures<'comptime> + 'a {
+    ) -> impl Iterator<Item = VmirArgument<Linktime::LinketImpl>> + Captures<'comptime> + 'a {
         arguments.iter().map(move |m| match m {
             HirEagerRitchieArgument::Simple(_, arg, coercion) => VmirArgument::Simple {
                 expr: arg.to_vmir(self),
@@ -411,13 +411,13 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
     }
 }
 
-impl<LinkageImpl: IsLinkageImpl> VmirExprIdx<LinkageImpl> {
+impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
     #[inline(always)]
     pub fn eval<'comptime>(
         self,
         coercion: impl Into<Option<VmirCoercion>>,
-        ctx: &mut impl EvalVmir<'comptime, LinkageImpl>,
-    ) -> LinkageImplVmControlFlow<LinkageImpl> {
+        ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
+    ) -> LinketImplVmControlFlow<LinketImpl> {
         let value = ctx.eval_expr(self, |ctx| self.eval_aux(ctx))?;
         VmControlFlow::Continue(match coercion.into() {
             Some(coercion) => match coercion {
@@ -434,8 +434,8 @@ impl<LinkageImpl: IsLinkageImpl> VmirExprIdx<LinkageImpl> {
     #[inline(always)]
     fn eval_aux<'comptime>(
         self,
-        ctx: &mut impl EvalVmir<'comptime, LinkageImpl>,
-    ) -> LinkageImplVmControlFlow<LinkageImpl> {
+        ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
+    ) -> LinketImplVmControlFlow<LinketImpl> {
         use VmControlFlow::*;
 
         match *self.entry(ctx.vmir_expr_arena()) {
@@ -482,35 +482,31 @@ impl<LinkageImpl: IsLinkageImpl> VmirExprIdx<LinkageImpl> {
                 })
             }
             VmirExprData::Suffix { opd, opr } => todo!(),
-            VmirExprData::Unveil { linkage_impl, opd } => todo!(),
-            VmirExprData::Linkage {
-                linkage_impl,
+            VmirExprData::Unveil { linket_impl, opd } => todo!(),
+            VmirExprData::Linket {
+                linket_impl,
                 ref arguments,
             } => {
-                let arguments =
-                    arguments
-                        .iter()
-                        .map(
-                            |arg| -> LinkageImplVmControlFlow<
-                                LinkageImpl,
-                                VmArgumentValue<LinkageImpl>,
-                            > {
-                                match arg {
-                                    VmirArgument::SelfValue { expr } => todo!(),
-                                    VmirArgument::Simple { expr, coercion } => todo!(),
-                                    VmirArgument::Variadic { exprs } => {
-                                        VmControlFlow::Continue(VmArgumentValue::Variadic(
-                                            exprs
-                                                .into_iter()
-                                                .map(|expr| expr.eval(None, ctx))
-                                                .collect::<VmControlFlow<_, _, _>>()?,
-                                        ))
-                                    }
+                let arguments = arguments
+                    .iter()
+                    .map(
+                        |arg| -> LinketImplVmControlFlow<LinketImpl, VmArgumentValue<LinketImpl>> {
+                            match arg {
+                                VmirArgument::SelfValue { expr } => todo!(),
+                                VmirArgument::Simple { expr, coercion } => todo!(),
+                                VmirArgument::Variadic { exprs } => {
+                                    VmControlFlow::Continue(VmArgumentValue::Variadic(
+                                        exprs
+                                            .into_iter()
+                                            .map(|expr| expr.eval(None, ctx))
+                                            .collect::<VmControlFlow<_, _, _>>()?,
+                                    ))
                                 }
-                            },
-                        )
-                        .collect::<VmControlFlow<_, _, _>>()?;
-                ctx.eval_expr_itself(self, |ctx| linkage_impl.eval_vm(arguments, ctx.db()))
+                            }
+                        },
+                    )
+                    .collect::<VmControlFlow<_, _, _>>()?;
+                ctx.eval_expr_itself(self, |ctx| linket_impl.eval_vm(arguments, ctx.db()))
             }
             VmirExprData::Block { stmts, destroyers } => stmts.eval(ctx),
             VmirExprData::Closure => todo!(),

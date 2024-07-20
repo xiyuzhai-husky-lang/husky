@@ -6,38 +6,33 @@ use self::internal::MonoLinktimeInternal;
 #[cfg(test)]
 use self::tests::*;
 use husky_devsoul::linktime::IsLinktime;
-use husky_devsoul_interface::IsLinkageImpl;
-use husky_linkage::linkage::Linkage;
+use husky_devsoul_interface::IsLinketImpl;
+use husky_linket::linket::Linket;
 use husky_vfs::path::linktime_target_path::LinktimeTargetPath;
 use std::collections::HashMap;
 
 // this will transpile everything compilable to Rust
-pub struct MonoLinktime<LinkageImpl>
+pub struct MonoLinktime<LinketImpl>
 where
-    LinkageImpl: IsLinkageImpl,
+    LinketImpl: IsLinketImpl,
 {
-    /* ad hoc pub*/ pub internal: std::sync::RwLock<MonoLinktimeInternal<LinkageImpl>>,
+    /* ad hoc pub*/ pub internal: std::sync::RwLock<MonoLinktimeInternal<LinketImpl>>,
 }
 
-impl<LinkageImpl> IsLinktime for MonoLinktime<LinkageImpl>
+impl<LinketImpl> IsLinktime for MonoLinktime<LinketImpl>
 where
-    LinkageImpl: IsLinkageImpl,
+    LinketImpl: IsLinketImpl,
 {
-    type LinkageImpl = LinkageImpl;
+    type LinketImpl = LinketImpl;
 
-    fn linkage_impl(&self, key: Linkage, db: &::salsa::Db) -> LinkageImpl {
-        if let Some(linkage) = self
-            .internal
-            .read()
-            .expect("todo")
-            .get_linkage_impl(key, db)
-        {
-            linkage
+    fn linket_impl(&self, key: Linket, db: &::salsa::Db) -> LinketImpl {
+        if let Some(linket) = self.internal.read().expect("todo").get_linket_impl(key, db) {
+            linket
         } else {
             self.internal
                 .write()
                 .expect("todo")
-                .get_linkage_impl_with_reload(key, db)
+                .get_linket_impl_with_reload(key, db)
         }
     }
 

@@ -2,8 +2,6 @@
 use husky_core::*;
 use ad_hoc_devsoul_dependency::{*, ugly::*};
 
-ad_hoc_devsoul_dependency::init_crate!();
-
 pub mod connected_component;
 pub mod raw_contour;
 pub mod geom2d;

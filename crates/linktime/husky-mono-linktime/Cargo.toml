@@ -21,9 +21,9 @@ husky-corgi-config.workspace = true
 husky-standard-value.workspace = true
 husky-devsoul.workspace = true
 husky-vfs.workspace = true
-# linkage
-husky-linkage.workspace = true
-husky-linkage-impl.workspace = true
+# linket
+husky-linket.workspace = true
+husky-linket-impl.workspace = true
 # semantics
 # devsoul
 husky-devsoul-interface.workspace = true

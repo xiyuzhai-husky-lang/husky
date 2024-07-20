@@ -14,8 +14,8 @@ keywords.workspace = true
 [dependencies]
 # abstractions
 salsa.workspace = true
-# linkage
-husky-linkage.workspace = true
+# linket
+husky-linket.workspace = true
 # kernel
 husky-place.workspace = true
 # devsoul
@@ -55,9 +55,9 @@ husky-text.workspace = true
 husky-token-data.workspace = true
 husky-token.workspace = true
 husky-toml-token.workspace = true
-# linkage
+# linket
 husky-javelin.workspace = true
-husky-linkage.workspace = true
+husky-linket.workspace = true
 # semantics
 husky-corgi-config.workspace = true
 husky-sem-expr.workspace = true

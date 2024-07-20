@@ -1,7 +1,6 @@
 #[cfg(feature = "egui")]
 mod egui;
 
-use super::DeprecatedInputId;
 use super::*;
 use husky_devsoul_interface::pedestal::{IsPedestal, IsPedestalUiBuffer};
 use static_var::StandardStaticVarId;
@@ -45,19 +44,9 @@ impl IsPedestal for StandardPedestal {
     }
 }
 
-impl StandardPedestal {
-    #[deprecated]
-    pub fn input_id(self) -> Option<DeprecatedInputId> {
-        todo!()
-        // match self {
-        //     StandardPedestal::Specific(input_id) => Some(input_id),
-        //     StandardPedestal::Generic => None,
-        // }
-    }
-}
+impl StandardPedestal {}
 
 pub struct MlPedestalUiBuffer {
-    base_input_id: DeprecatedInputId,
     input_id_to_be: String,
     error: Option<String>,
 }

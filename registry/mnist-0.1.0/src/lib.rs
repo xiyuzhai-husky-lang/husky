@@ -5,12 +5,10 @@ pub mod task;
 use self::input_id::*;
 use dataset::MNIST_DATASET;
 use husky_core::*;
-use husky_linkage_impl::standard::ugly::*;
+use husky_linket_impl::standard::ugly::*;
 use husky_standard_devsoul_interface::{label::IsLabel, static_var::StandardStaticVarId, ugly::*};
 
-use husky_devsoul_interface::{init_crate, ugly::*};
-
-init_crate!();
+use husky_devsoul_interface::ugly::*;
 
 #[husky_standard_value::value_conversion]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

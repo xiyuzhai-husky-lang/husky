@@ -1,18 +1,16 @@
 mod runtime_storage;
 
-use husky_standard_devsoul_interface::DeprecatedInputId;
 pub use husky_standard_devsoul_interface::{pedestal::StandardPedestal, DEV_EVAL_CONTEXT};
-use husky_standard_trace_protocol::StandardTraceProtocol;
 
 use self::runtime_storage::*;
-use husky_mono_linktime::MonoLinktime;
-
 use husky_devsoul::devsoul::{DevEvalContextLocalKey, IsDevsoul};
 use husky_devsoul_interface::{
     ki_control_flow::KiControlFlow,
     ki_repr::{KiDomainReprInterface, KiReprInterface},
     IsDevRuntime, IsDevRuntimeDyn,
 };
+use husky_mono_linktime::MonoLinktime;
+use husky_standard_trace_protocol::StandardTraceProtocol;
 use husky_trace_protocol::{
     figure::IsFigure, id::TraceId, protocol::IsTraceProtocol, server::ValVisualCache,
 };
@@ -24,7 +22,7 @@ pub struct StandardDevsoul<Figure>(PhantomData<Figure>)
 where
     Figure: IsFigure<StandardPedestal>;
 
-type LinkageImpl = husky_linkage_impl::standard::StandardLinkageImpl<StandardPedestal>;
+type LinketImpl = husky_linket_impl::standard::StandardLinketImpl<StandardPedestal>;
 
 impl<Figure> IsDevsoul for StandardDevsoul<Figure>
 where
@@ -32,9 +30,9 @@ where
 {
     type Pedestal = StandardPedestal;
 
-    type LinkageImpl = LinkageImpl;
+    type LinketImpl = LinketImpl;
 
-    type Linktime = MonoLinktime<LinkageImpl>;
+    type Linktime = MonoLinktime<LinketImpl>;
 
     type RuntimeStorage = StandardDevRuntimeStorage;
 
@@ -42,7 +40,7 @@ where
 
     type TraceProtocol = StandardTraceProtocol<Figure>;
 
-    fn dev_eval_context_local_key() -> &'static DevEvalContextLocalKey<LinkageImpl> {
+    fn dev_eval_context_local_key() -> &'static DevEvalContextLocalKey<LinketImpl> {
         &DEV_EVAL_CONTEXT
     }
 
@@ -50,7 +48,7 @@ where
         followed: Option<(TraceId, KiReprInterface, KiDomainReprInterface)>,
         accompanyings: &[(TraceId, KiReprInterface)],
         pedestal: Self::Pedestal,
-        runtime: &dyn IsDevRuntimeDyn<Self::LinkageImpl>,
+        runtime: &dyn IsDevRuntimeDyn<Self::LinketImpl>,
         visual_synchrotron: &mut VisualSynchrotron,
         val_visual_cache: &mut ValVisualCache<Self::Pedestal>,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {

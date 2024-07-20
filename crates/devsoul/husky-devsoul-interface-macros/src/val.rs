@@ -35,14 +35,16 @@ pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
         if return_ref {
             quote! {
                 #vis fn #ident() -> &'static #return_ty {
-                    __eval_lazy_val(#ingredient_index)
+                    todo!("return leash for lazy val, change the return type")
+                    // __eval_lazy_val(#ingredient_index)
                 }
             }
             .into()
         } else {
             quote! {
                 #vis fn #ident() -> #return_ty {
-                    __eval_lazy_val(#ingredient_index)
+                    todo!("return copied for lazy val")
+                    // __eval_lazy_val(#ingredient_index)
                 }
             }
             .into()
@@ -51,10 +53,11 @@ pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
         if return_ref {
             quote! {
                 #vis fn #ident() -> &'static #return_ty {
-                    __eval_eager_val_with(
-                        #ingredient_index,
-                        || __KiControlFlow::Continue(__ValueLeashTest(#aux_ident()).into_value())
-                    )
+                    todo!("return leash for eager val, change the return type")
+                    // __eval_eager_val_with(
+                    //     #ingredient_index,
+                    //     || __KiControlFlow::Continue(__ValueLeashTest(#aux_ident()).into_value())
+                    // )
                 }
 
                 #vis fn #aux_ident() -> #return_ty #block
@@ -63,10 +66,11 @@ pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
         } else {
             quote! {
                 #vis fn #ident() -> #return_ty {
-                    __eval_eager_val_with(
-                        #ingredient_index,
-                        || __KiControlFlow::Continue(__ValueLeashTest(#aux_ident()).into_value())
-                    )
+                    todo!("return copied for eager val")
+                    // __eval_eager_val_with(
+                    //     #ingredient_index,
+                    //     || __KiControlFlow::Continue(__ValueLeashTest(#aux_ident()).into_value())
+                    // )
                 }
 
                 #vis fn #aux_ident() -> #return_ty #block
