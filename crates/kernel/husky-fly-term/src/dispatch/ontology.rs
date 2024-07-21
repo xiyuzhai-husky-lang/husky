@@ -117,7 +117,7 @@ impl FlyTerm {
     ) -> FlyTermMaybeResult<OntologyDispatch> {
         // todo: optimize for ethereal etc.
         let db = engine.db();
-        match self.data(engine) {
+        match self.base_term_data(engine) {
             FlyTermData::Literal(_) => todo!(),
             FlyTermData::TypeOntology {
                 ty_path,
@@ -235,7 +235,7 @@ impl FlyTerm {
         ident: Ident,
     ) -> FlyTermMaybeResult<OntologyDispatch> {
         let db = engine.db();
-        match self.data(engine) {
+        match self.base_term_data(engine) {
             FlyTermData::Literal(_) => todo!(),
             FlyTermData::TypeOntology {
                 ty_path,
@@ -267,7 +267,7 @@ impl FlyTerm {
             FlyTermData::LambdaVariable { ty, index } => todo!(),
             FlyTermData::TypeVariant { path } => todo!(),
             FlyTermData::MajorTypeVar(_) => {
-                let trai_path: TraitPath = match trai.data(engine) {
+                let trai_path: TraitPath = match trai.base_term_data(engine) {
                     FlyTermData::Trait { trai_path, .. } => trai_path,
                     _ => todo!(),
                 };

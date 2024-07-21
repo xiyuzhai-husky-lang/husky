@@ -21,8 +21,8 @@ pub struct LineSegmentStroke {
 
 impl LineSegmentStroke {
     pub fn __constructor(points: CyclicSliceLeashed<crate::geom2d::Point2d>) -> Self {
-        let start = points.first().unwrap().clone();
-        let end = points.last().unwrap().clone();
+        let start = points.deleash().first().unwrap().deleash().clone();
+        let end = points.deleash().last().unwrap().deleash().clone();
         Self{
             points,
             start,
@@ -71,12 +71,12 @@ pub fn go_left(u: &crate::geom2d::Vector2d, r: f32) -> crate::geom2d::Vector2d {
 #[rustfmt::skip]
 pub fn extend_end(ct: Leash<crate::raw_contour::RawContour>, start: i32, r: f32) -> i32 {
     let mut end = start;
-    let mut dp = ct.displacement(start, end + 1);
-    let N = ct.points.ilen();
+    let mut dp = ct.deleash().displacement(start, end + 1);
+    let N = ct.deleash().points.ilen();
     let max_end = start + N;
     while end <= max_end && dp.norm() < r {
         end += 1;
-        dp = ct.displacement(start, end + 1)
+        dp = ct.deleash().displacement(start, end + 1)
     }
     if dp.norm() < r {
         return end;
@@ -102,7 +102,7 @@ pub fn extend_end(ct: Leash<crate::raw_contour::RawContour>, start: i32, r: f32)
             }
         }
         end += 1;
-        dp = ct.displacement(start, end + 1)
+        dp = ct.deleash().displacement(start, end + 1)
     }
     assert!(end > start);
     return end;
@@ -111,11 +111,11 @@ pub fn extend_end(ct: Leash<crate::raw_contour::RawContour>, start: i32, r: f32)
 #[rustfmt::skip]
 pub fn extend_start(ct: Leash<crate::raw_contour::RawContour>, start0: i32, end: i32, r: f32) -> i32 {
     let mut start = end;
-    let mut dp0 = ct.displacement(end, start - 1);
-    let min_start = end - ct.points.ilen();
+    let mut dp0 = ct.deleash().displacement(end, start - 1);
+    let min_start = end - ct.deleash().points.ilen();
     while start >= min_start && dp0.norm() < r {
         start -= 1;
-        dp0 = ct.displacement(end, start - 1)
+        dp0 = ct.deleash().displacement(end, start - 1)
     }
     if dp0.norm() < r {
         return start.min(start0);
@@ -124,7 +124,7 @@ pub fn extend_start(ct: Leash<crate::raw_contour::RawContour>, start0: i32, end:
     let mut left_bound = crate::line_segment_sketch::go_left(&dp0, r);
     let mut r_max = 0.0f32;
     while start >= min_start {
-        let dp = ct.displacement(end, start - 1);
+        let dp = ct.deleash().displacement(end, start - 1);
         let dp_norm = dp.norm();
         if dp_norm < r_max - r {
             break;
@@ -162,7 +162,7 @@ pub fn find_line_segments(ct: Leash<crate::raw_contour::RawContour>, r: f32) -> 
     let mut line_segments: Vec<crate::line_segment_sketch::LineSegmentStroke> = vec![];
     let mut start = 0;
     let mut end = 1;
-    let mut max_end = ct.points.ilen();
+    let mut max_end = ct.deleash().points.ilen();
     while end <= max_end {
         end = crate::line_segment_sketch::extend_end(ct, start, r);
         let ls_extend_end = crate::line_segment_sketch::LineSegmentStroke::new(ct, start, end);
@@ -171,8 +171,8 @@ pub fn find_line_segments(ct: Leash<crate::raw_contour::RawContour>, r: f32) -> 
             let dp_extend_end = ls_extend_end.displacement();
             let dp_previous = line_segments.last().unwrap().displacement();
             if dp_extend_end.cross(&dp_previous).abs() < 0.01f32 && dp_extend_end.dot(&dp_previous) > 0.0f32 {
-                let N = ct.points.ilen();
-                *line_segments.last_mut().unwrap() = crate::line_segment_sketch::LineSegmentStroke::new(ct, line_segments.last().unwrap().points.start(), end);
+                let N = ct.deleash().points.ilen();
+                *line_segments.last_mut().unwrap() = crate::line_segment_sketch::LineSegmentStroke::new(ct, line_segments.last().unwrap().points.deleash().start(), end);
                 extend_start_flag = false
             }
         }
@@ -186,22 +186,22 @@ pub fn find_line_segments(ct: Leash<crate::raw_contour::RawContour>, r: f32) -> 
                 let dp1 = ls_last.start.to(&ls.end);
                 if dp.cross(&dp_last).abs() < 0.001f32 && dp.dot(&dp_last) > 0.0f32 && dp.cross(&dp1).abs() < 0.001f32 && dp.dot(&dp1) > 0.0f32 {
                     let ls_last = line_segments.pop().unwrap();
-                    ls = crate::line_segment_sketch::LineSegmentStroke::new(ct, ls_last.points.start(), ls.points.end())
+                    ls = crate::line_segment_sketch::LineSegmentStroke::new(ct, ls_last.points.deleash().start(), ls.points.deleash().end())
                 }
             } else {
-                max_end = start + ct.points.ilen()
+                max_end = start + ct.deleash().points.ilen()
             }
             line_segments.push(ls)
         }
         start = end;
         end = start + 1
     }
-    let N = ct.points.ilen();
-    let first_line_segment_points_end = line_segments.first().unwrap().points.end();
+    let N = ct.deleash().points.ilen();
+    let first_line_segment_points_end = line_segments.first().unwrap().points.deleash().end();
     let last_line_segment = line_segments.last().unwrap();
-    if last_line_segment.points.end() >= first_line_segment_points_end + N {
+    if last_line_segment.points.deleash().end() >= first_line_segment_points_end + N {
         let last_line_segment = line_segments.pop().unwrap();
-        *line_segments.first_mut().unwrap() = crate::line_segment_sketch::LineSegmentStroke::new(ct, last_line_segment.points.start() - N, line_segments.first().unwrap().points.end() - 1)
+        *line_segments.first_mut().unwrap() = crate::line_segment_sketch::LineSegmentStroke::new(ct, last_line_segment.points.deleash().start() - N, line_segments.first().unwrap().points.deleash().end() - 1)
     }
     line_segments
 }
@@ -217,7 +217,7 @@ impl Visualize for crate::line_segment_sketch::LineSegmentStroke {
 impl crate::line_segment_sketch::LineSegmentStroke {
     pub fn new(ct: Leash<crate::raw_contour::RawContour>, from: i32, to: i32) -> crate::line_segment_sketch::LineSegmentStroke {
         assert!(from <= to);
-        crate::line_segment_sketch::LineSegmentStroke::__constructor(ct.points.cyclic_slice_leashed(from, to + 1))
+        crate::line_segment_sketch::LineSegmentStroke::__constructor(ct.deleash().points.cyclic_slice_leashed(from, to + 1))
     }
 
     pub fn displacement(&self) -> crate::geom2d::Vector2d {

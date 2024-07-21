@@ -28,6 +28,7 @@ use husky_hir_ty::{
     quary::HirQuary, ritchie::HirContract, HirTemplateVariable, HirTemplateVariableClass, HirType,
 };
 use husky_opr::BinaryClosedOpr;
+use salsa::DebugWithDb;
 use smallvec::SmallVec;
 
 impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprSite) {
@@ -56,6 +57,8 @@ impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprS
         if needs_releash {
             site.rust_bindings.push(RustBinding::Releash)
         }
+        use husky_print_utils::p;
+        p!(site.rust_bindings);
         let mut releash_flag = false;
         let mut wrap_in_some_flag = false;
         if let Some(rust_binding) = site.rust_bindings.last() {
@@ -91,12 +94,25 @@ impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprS
         if needs_extra_pars {
             builder.lpar();
         }
-        for &rust_binding in &*site.rust_bindings {
+        for (i, rust_binding) in site.rust_bindings.iter().copied().enumerate() {
             match rust_binding {
                 RustBinding::Deref | RustBinding::DerefCustomed => {
                     builder.punctuation(RustPunctuation::DerefStar)
                 }
-                RustBinding::Deleash => builder.deleash(),
+                RustBinding::Deleash => {
+                    if i < site.rust_bindings.len() - 1 {
+                        match site.rust_bindings[i + 1] {
+                            RustBinding::Deref => todo!(),
+                            RustBinding::DerefCustomed => todo!(),
+                            RustBinding::Deleash => todo!(),
+                            RustBinding::Reref => todo!(),
+                            RustBinding::RerefMut => todo!(),
+                            RustBinding::Releash => todo!(),
+                            RustBinding::SelfValue => (),
+                            RustBinding::WrapInSome => todo!(),
+                        }
+                    }
+                }
                 RustBinding::Reref => builder.punctuation(RustPunctuation::Ambersand),
                 RustBinding::RerefMut => {
                     builder.punctuation(RustPunctuation::Ambersand);
@@ -113,6 +129,31 @@ impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprS
             })
         } else {
             transpile_hir_eager_expr_to_rust(data, place_contract_site, precedence, builder)
+        }
+        for (i, rust_binding) in site.rust_bindings.iter().copied().enumerate() {
+            match rust_binding {
+                RustBinding::Deref | RustBinding::DerefCustomed => (),
+                RustBinding::Deleash => {
+                    if i < site.rust_bindings.len() - 1 {
+                        match site.rust_bindings[i + 1] {
+                            RustBinding::Deref => todo!(),
+                            RustBinding::DerefCustomed => todo!(),
+                            RustBinding::Deleash => todo!(),
+                            RustBinding::Reref => todo!(),
+                            RustBinding::RerefMut => todo!(),
+                            RustBinding::Releash => todo!(),
+                            RustBinding::SelfValue => (),
+                            RustBinding::WrapInSome => todo!(),
+                        }
+                    }
+                    builder.deleash()
+                }
+                RustBinding::Reref => (),
+                RustBinding::RerefMut => (),
+                RustBinding::Releash => (),
+                RustBinding::SelfValue => (),
+                RustBinding::WrapInSome => (),
+            }
         }
         if releash_flag {
             builder.releash_right()
@@ -279,13 +320,24 @@ fn transpile_hir_eager_expr_to_rust(
             builder.delimited_comma_list(RustDelimiter::Par, arguments)
         }
         HirEagerExprData::PropsStructField {
-            self_argument: owner_hir_expr_idx,
+            self_argument,
+            self_ty,
             ident,
             ref indirections,
             ..
         } => {
+            if ident.data(db) == "points"
+                && (self_ty.is_always_leashed(db))
+                && (indirections.is_empty())
+            {
+                use husky_print_utils::p;
+                use salsa::DebugWithDb;
+
+                p!(self_ty.debug(db), indirections.debug(db));
+                todo!()
+            }
             (
-                owner_hir_expr_idx,
+                self_argument,
                 HirEagerExprSite::self_argument_with_indirections(indirections),
             )
                 .transpile_to_rust(builder);
@@ -334,9 +386,12 @@ fn transpile_hir_eager_expr_to_rust(
             path,
             ref indirections,
             ref instantiation,
-            arguments: ref argument,
+            ref arguments,
         } => {
-            (self_argument, HirEagerExprSite::simple_self_argument(true))
+            (
+                self_argument,
+                HirEagerExprSite::self_argument_with_indirections(indirections),
+            )
                 .transpile_to_rust(builder);
             builder.punctuation(RustPunctuation::Dot);
             let contracted_quaries = instantiation.contracted_quaries();
@@ -361,7 +416,7 @@ fn transpile_hir_eager_expr_to_rust(
                 "visualize" => builder.delimited(RustDelimiter::Par, |builder| {
                     builder.visual_synchrotron_argument()
                 }),
-                _ => builder.delimited_comma_list(RustDelimiter::Par, argument),
+                _ => builder.delimited_comma_list(RustDelimiter::Par, arguments),
             }
         }
         HirEagerExprData::NewTuple { items: _ } => {

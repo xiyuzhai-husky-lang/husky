@@ -153,7 +153,7 @@ pub enum FlyLifetime {
 
 impl FlyLifetime {
     pub(crate) fn from_term(term: FlyTerm, db: &::salsa::Db, terms: &mut FlyTerms) -> Self {
-        match term.data2(db, terms) {
+        match term.base_term_data2(db, terms) {
             FlyTermData::Literal(lit) => match lit {
                 Literal::StaticLifetime => FlyLifetime::StaticLifetime,
                 _ => todo!(),

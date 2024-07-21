@@ -184,7 +184,11 @@ impl FlyTerm {
     }
 
     pub fn show2(self, db: &::salsa::Db, terms: &FlyTerms) -> String {
-        self.data2(db, terms).show(db, terms)
+        format!(
+            "{} @ {:?}",
+            self.base_term_data2(db, terms).show(db, terms),
+            self.place
+        )
     }
 
     pub(crate) fn base(&self) -> FlyTermBase {

@@ -154,7 +154,7 @@
                                                     ),
                                                 },
                                                 indirections: [
-                                                    Deleash,
+                                                    HirIndirection::Deleash,
                                                 ],
                                                 final_place: Leashed {
                                                     place_idx: None,
@@ -235,7 +235,7 @@
                                             indirections: HirIndirections {
                                                 initial_place: Transient,
                                                 indirections: [
-                                                    Deleash,
+                                                    HirIndirection::Deleash,
                                                 ],
                                                 final_place: Leashed {
                                                     place_idx: None,
@@ -333,7 +333,7 @@
                                                     ),
                                                 },
                                                 indirections: [
-                                                    Deleash,
+                                                    HirIndirection::Deleash,
                                                 ],
                                                 final_place: Leashed {
                                                     place_idx: None,
@@ -414,7 +414,7 @@
                                             indirections: HirIndirections {
                                                 initial_place: Transient,
                                                 indirections: [
-                                                    Deleash,
+                                                    HirIndirection::Deleash,
                                                 ],
                                                 final_place: Leashed {
                                                     place_idx: None,
@@ -1816,7 +1816,7 @@
                                                         ),
                                                     },
                                                     indirections: [
-                                                        Deleash,
+                                                        HirIndirection::Deleash,
                                                     ],
                                                     final_place: Leashed {
                                                         place_idx: None,

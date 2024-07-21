@@ -26,7 +26,7 @@ impl FlyTerm {
                 todo!()
             }
             _ => {
-                let data = match function.data(engine) {
+                let data = match function.base_term_data(engine) {
                     FlyTermData::TypeOntology {
                         ty_path: path,
                         refined_ty_path: refined_path,
@@ -92,7 +92,7 @@ impl FlyTerm {
                 }
                 FlyTermDataKind::Solid => fly_terms
                     .sol_terms_mut()
-                    .intern_new(SolidTermData::TypeOntology {
+                    .intern_new(SolTermData::TypeOntology {
                         path,
                         refined_path,
                         arguments,

@@ -32,7 +32,7 @@ impl<'a> SemExprBuilder<'a> {
             );
         };
         let ropd = self.build_expr(ropd, ExpectCoercion::new_pure(self, lopd_ty));
-        let ty_result = match lopd_ty.data(self) {
+        let ty_result = match lopd_ty.base_term_data(self) {
             FlyTermData::Literal(_) => todo!(),
             FlyTermData::TypeOntology {
                 ty_path,

@@ -37,7 +37,7 @@ impl<'a> SemExprBuilder<'a> {
                 Err(DerivedSemExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into()),
             );
         };
-        match lopd_ty.data(self) {
+        match lopd_ty.base_term_data(self) {
             FlyTermData::TypeOntology {
                 refined_ty_path: Left(PreludeTypePath::Num(_)),
                 ..

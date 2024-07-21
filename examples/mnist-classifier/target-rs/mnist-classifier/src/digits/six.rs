@@ -18,19 +18,19 @@ pub fn is_six() -> malamute::OneVsAll {}
 
 #[rustfmt::skip]
 pub fn upmost(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
-    let dp = cc.displacement();
+    let dp = cc.deleash().displacement();
     require!(dp.y > 0.0f32);
     Some(dp.y)
 }
 
 #[rustfmt::skip]
 pub fn bottom1(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
-    let dp = cc.displacement();
+    let dp = cc.deleash().displacement();
     if dp.y < -3.0f32 {
         require!((dp.x / dp.y).abs() > 1.4f32);
     }
     require!(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(cc).ymax() < 0.6f32);
-    let relative_end = <crate::line_segment_sketch::LineSegmentSketch>::bounding_box(cc.line_segment_sketch).relative_point(&cc.end());
+    let relative_end = <crate::line_segment_sketch::LineSegmentSketch>::bounding_box(cc.deleash().line_segment_sketch).relative_point(&cc.deleash().end());
     require!(relative_end.x > 0.5f32);
-    Some(-cc.end().y)
+    Some(-cc.deleash().end().y)
 }

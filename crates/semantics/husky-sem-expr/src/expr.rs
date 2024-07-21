@@ -1169,7 +1169,9 @@ impl<'a> SemExprBuilder<'a> {
                     TypePathDisambiguation::InstanceConstructor => {
                         let element_ty: FlyTerm = match expr_ty_expectation.destination() {
                             FlyTermDestination::Specific(ty_pattern) => {
-                                match ty_pattern.data2(self.db(), self.fly_term_region().terms()) {
+                                match ty_pattern
+                                    .base_term_data2(self.db(), self.fly_term_region().terms())
+                                {
                                     FlyTermData::Literal(_) => todo!(),
                                     FlyTermData::TypeOntology {
                                         refined_ty_path,

@@ -5,6 +5,7 @@ pub trait __VecX {
 
     fn ilen(&self) -> i32;
 
+    // todo: change this to associated function with the first argument being of type Leash<[Self::Element]>
     fn collect_leashes(&'static self) -> Vec<&'static Self::Element>;
 
     fn pop_with_largest_opt_f32(

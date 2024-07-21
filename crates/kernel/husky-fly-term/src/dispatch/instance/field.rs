@@ -1,8 +1,8 @@
-mod ethereal;
-mod hollow;
-mod solid;
+mod eth;
+mod hol;
+mod sol;
 
-pub(crate) use self::ethereal::*;
+pub(crate) use self::eth::*;
 
 use super::*;
 use crate::dispatch::instance::method::HasFlyMethodDispatch;
@@ -113,13 +113,9 @@ impl FlyTerm {
         indirections: FlyIndirections,
     ) -> FlyTermMaybeResult<FlyFieldInstanceDispatch> {
         match self.base_resolved(engine) {
-            FlyTermBase::Eth(term) => ethereal_ty_field_dispatch(
-                engine.db(),
-                term,
-                ident,
-                indirections,
-                engine.context_ref(),
-            ),
+            FlyTermBase::Eth(term) => {
+                eth_ty_field_dispatch(engine.db(), term, ident, indirections, engine.context_ref())
+            }
             FlyTermBase::Sol(term) => {
                 term.field_dispatch_aux(engine, ident, available_traits, indirections)
             }
