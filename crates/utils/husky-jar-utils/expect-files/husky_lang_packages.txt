@@ -1943,6 +1943,7 @@
             "husky-token-protocol",
             "husky-vfs",
             "salsa",
+            "smallvec",
             "husky-ast",
             "husky-corgi-config",
             "husky-corgi-config-ast",

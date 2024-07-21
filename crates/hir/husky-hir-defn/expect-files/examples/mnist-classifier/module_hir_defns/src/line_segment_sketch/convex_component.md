@@ -302,6 +302,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(

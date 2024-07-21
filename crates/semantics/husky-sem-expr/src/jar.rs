@@ -15,7 +15,6 @@ impl SemExprDb for ::salsa::Db {
 pub struct SemExprJar(
     SemExprRegion,
     crate::region::sem_expr_region,
-    crate::region::sem_expr_region_eth_term_fmt_context,
     crate::helpers::analysis::sem_expr_region_requires_lazy,
     crate::helpers::range::SemExprRangeRegion,
     crate::helpers::range::sem_expr_range_region,

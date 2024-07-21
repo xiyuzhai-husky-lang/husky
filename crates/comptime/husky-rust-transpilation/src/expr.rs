@@ -281,11 +281,12 @@ fn transpile_hir_eager_expr_to_rust(
         HirEagerExprData::PropsStructField {
             self_argument: owner_hir_expr_idx,
             ident,
+            ref indirections,
             ..
         } => {
             (
                 owner_hir_expr_idx,
-                HirEagerExprSite::simple_self_argument(true),
+                HirEagerExprSite::self_argument_with_indirections(indirections),
             )
                 .transpile_to_rust(builder);
             builder.punctuation(RustPunctuation::Dot);

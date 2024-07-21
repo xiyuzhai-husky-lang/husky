@@ -147,6 +147,7 @@ pub enum HirEagerExprData {
         self_ty: HirType,
         ident: Ident,
         field_ty: HirType,
+        indirections: HirIndirections,
     },
     MemoizedField {
         self_argument: HirEagerExprIdx,
@@ -447,6 +448,7 @@ impl ToHirEager for SemExprIdx {
                         .unwrap(),
                     ident: ident_token.ident(),
                     field_ty: HirType::from_fly(ty, builder.db(), builder.fly_terms()).unwrap(),
+                    indirections: HirIndirections::from_fly(dispatch.indirections()),
                 },
                 FieldFlySignature::Memoized {
                     ty: _,
