@@ -12,7 +12,7 @@ pub(crate) fn collect_semantic_tokens(
     let token_infer_sheet = db.token_info_sheet(module_path)?;
     let iter0 = token_infer_sheet
         .informative_ranged_token_iter(ranged_token_sheet, db)
-        .filter_map(|(info, (range, token))| token_to_semantic_token(db, info, token, range));
+        .filter_map(|(infos, (range, token))| token_to_semantic_token(db, infos, token, range));
     let iter1 = ranged_token_sheet
         .comments()
         .iter()
@@ -22,12 +22,12 @@ pub(crate) fn collect_semantic_tokens(
 
 fn token_to_semantic_token(
     db: &::salsa::Db,
-    info: Option<&TokenInfo>,
+    infos: &[TokenInfo],
     token_data: &TokenData,
     range: &husky_text_protocol::range::TextRange,
 ) -> Option<SemanticToken> {
     Some(SemanticToken {
-        token_class: match info {
+        token_class: match infos.last() {
             Some(info) => info.data().token_class(db),
             None => token_data.default_token_class(),
         },

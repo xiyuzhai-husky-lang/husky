@@ -201,7 +201,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
     ) {
         let base = self.regional_token_idx_base;
         self.sheet
-            .override_add(regional_token_idx.token_idx(base), src, token_info_data)
+            .add(regional_token_idx.token_idx(base), src, token_info_data)
     }
 
     fn visit_all(mut self) {

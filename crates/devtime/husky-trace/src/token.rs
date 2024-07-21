@@ -75,7 +75,7 @@ where
         let text_range = self.ranged_token_sheet.token_text_range(token_idx);
         let text = self.text.text_within(text_range);
         let db = self.db;
-        let (token_class, src) = match self.token_info_sheet[token_idx].as_ref() {
+        let (token_class, src) = match self.token_info_sheet[token_idx].last() {
             Some(token_info) => (token_info.data().token_class(db), Some(token_info.src())),
             None => (
                 self.ranged_token_sheet.token_sheet_data(db)[token_idx].default_token_class(),
