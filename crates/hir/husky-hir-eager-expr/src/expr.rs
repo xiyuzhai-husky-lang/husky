@@ -46,7 +46,7 @@ pub type HirEagerExprMap<V> = ArenaMap<HirEagerExprEntry, V>;
 pub struct HirEagerExprEntry {
     data: HirEagerExprData,
     contracted_quary: HirContractedQuary,
-    is_always_copyable: bool,
+    is_always_copyable_before_coercion: bool,
     place_contract_site: HirPlaceContractSite,
     /// None means it's not entirely known from expectation alone,
     /// todo: remove Option
@@ -71,8 +71,8 @@ impl HirEagerExprEntry {
         self.coersion
     }
 
-    pub fn is_always_copyable(&self) -> bool {
-        self.is_always_copyable
+    pub fn is_always_copyable_before_coercion(&self) -> bool {
+        self.is_always_copyable_before_coercion
     }
 
     pub fn place_contract_site(&self) -> &HirPlaceContractSite {
@@ -596,7 +596,7 @@ impl ToHirEager for SemExprIdx {
         let entry = HirEagerExprEntry {
             data,
             contracted_quary,
-            is_always_copyable: ty
+            is_always_copyable_before_coercion: ty
                 .is_always_copyable(builder.db(), builder.fly_terms())
                 .unwrap()
                 .unwrap(),

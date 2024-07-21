@@ -53,7 +53,8 @@ impl RustBindings {
         slf.add_coercion(expr_entry.coercion());
         slf.add_contracted_quary(
             expr_entry.contracted_quary(),
-            expr_entry.is_always_copyable(),
+            expr_entry.is_always_copyable_before_coercion(),
+            expr_entry.coercion(),
         );
         slf.add_role(role);
         slf
@@ -175,35 +176,6 @@ impl RustBindings {
 }
 
 impl RustBindings {
-    pub(crate) fn add_outer_binding(&mut self, binding: RustBinding) {
-        match self.bindings.last() {
-            Some(last_binding) => match (last_binding, binding) {
-                // any binding except `DerefCustomed` can be merged into self value
-                // (*a).<field_name> -> (*a).<field_name>
-                // (&a).<field_name> -> (*a).<field_name>
-                // (&mut a).<field_name> -> (*a).<field_name>
-                //
-                // in Rust, if type `A` doesn't implement Clone, for a value `a` of type `A`
-                // `a.clone()` actually clones a reference to `a`, but in husky, no.
-                (RustBinding::SelfValue, binding) if binding != RustBinding::DerefCustomed => (),
-                // the following is automatically coercible, so we can cancel the last binding out
-                // *&a -> a
-                // *&mut a -> a
-                // &*a -> a
-                // &mut *a -> a
-                (RustBinding::Deref, RustBinding::Reref | RustBinding::RerefMut)
-                | (RustBinding::Reref | RustBinding::RerefMut, RustBinding::Deref) => {
-                    self.bindings.pop();
-                }
-                (RustBinding::DerefCustomed, RustBinding::Reref | RustBinding::RerefMut) => {
-                    unreachable!()
-                }
-                _ => self.bindings.push(binding),
-            },
-            None => self.bindings.push(binding),
-        }
-    }
-
     pub(crate) fn add_coercion(&mut self, coercion: Option<HirEagerCoercion>) {
         let Some(coercion) = coercion else { return };
         match coercion {
@@ -230,11 +202,28 @@ impl RustBindings {
     pub(crate) fn add_contracted_quary(
         &mut self,
         contracted_quary: HirContractedQuary,
-        is_always_copyable: bool,
+        is_always_copyable_before_coercion: bool,
+        coercion: Option<HirEagerCoercion>,
     ) {
         if let Some(contract) = contracted_quary.contract() {
             match contract {
                 HirContract::Pure => {
+                    let is_always_copyable: bool = match coercion {
+                        Some(coercion) => match coercion {
+                            HirEagerCoercion::Trivial(_) => is_always_copyable_before_coercion,
+                            HirEagerCoercion::Never => true,
+                            HirEagerCoercion::WrapInSome => is_always_copyable_before_coercion,
+                            HirEagerCoercion::Redirection(redirection_coercion) => {
+                                match redirection_coercion {
+                                    RedirectionHirEagerCoercion::Releash => true,
+                                    RedirectionHirEagerCoercion::Reref => true,
+                                    RedirectionHirEagerCoercion::RerefMut => false,
+                                }
+                            }
+                            HirEagerCoercion::Dedirection(_) => todo!(),
+                        },
+                        None => is_always_copyable_before_coercion,
+                    };
                     if !is_always_copyable {
                         self.add_outer_binding(RustBinding::Reref)
                     }
@@ -279,6 +268,35 @@ impl RustBindings {
             HirEagerExprRole::RegularCallItem => (),
             HirEagerExprRole::Root => (),
             HirEagerExprRole::LetInitialValue => (),
+        }
+    }
+
+    fn add_outer_binding(&mut self, binding: RustBinding) {
+        match self.bindings.last() {
+            Some(last_binding) => match (last_binding, binding) {
+                // any binding except `DerefCustomed` can be merged into self value
+                // (*a).<field_name> -> (*a).<field_name>
+                // (&a).<field_name> -> (*a).<field_name>
+                // (&mut a).<field_name> -> (*a).<field_name>
+                //
+                // in Rust, if type `A` doesn't implement Clone, for a value `a` of type `A`
+                // `a.clone()` actually clones a reference to `a`, but in husky, no.
+                (RustBinding::SelfValue, binding) if binding != RustBinding::DerefCustomed => (),
+                // the following is automatically coercible, so we can cancel the last binding out
+                // *&a -> a
+                // *&mut a -> a
+                // &*a -> a
+                // &mut *a -> a
+                (RustBinding::Deref, RustBinding::Reref | RustBinding::RerefMut)
+                | (RustBinding::Reref | RustBinding::RerefMut, RustBinding::Deref) => {
+                    self.bindings.pop();
+                }
+                (RustBinding::DerefCustomed, RustBinding::Reref | RustBinding::RerefMut) => {
+                    unreachable!()
+                }
+                _ => self.bindings.push(binding),
+            },
+            None => self.bindings.push(binding),
         }
     }
 }

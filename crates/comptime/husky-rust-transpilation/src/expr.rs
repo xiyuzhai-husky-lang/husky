@@ -61,6 +61,17 @@ impl<'db> TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEager
         if needs_outermost_extra_pars {
             builder.lpar();
         }
+        if builder.is_defn_region("major_concave_components") {
+            match data {
+                HirEagerExprData::MemoizedField { .. } => {
+                    use husky_print_utils::p;
+
+                    p!(role, bindings);
+                    todo!()
+                }
+                _ => (),
+            }
+        }
         builder.transpile_bindings(bindings, |builder| {
             if !innermost_precedence_range.include(innermost_precedence) {
                 builder.delimited_heterogeneous_list_with(RustDelimiter::Par, |builder| {
