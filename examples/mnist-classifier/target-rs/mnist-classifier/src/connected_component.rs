@@ -12,7 +12,7 @@ pub struct ConnectedComponentDistribution {
 
 impl ConnectedComponentDistribution {
     pub fn __constructor(row_start: i32, row_end: i32, upper_mass: i32, lower_mass: i32) -> Self {
-        Self {
+        Self{
             row_start,
             row_end,
             upper_mass,
@@ -30,7 +30,9 @@ pub struct EffHoles {
 
 impl EffHoles {
     pub fn __constructor(matches: Vec<Option<Leash<crate::raw_contour::RawContour>>>) -> Self {
-        Self { matches }
+        Self{
+            matches,
+        }
     }
 }
 
@@ -50,7 +52,9 @@ pub struct ConnectedComponent {
 
 impl ConnectedComponent {
     pub fn __constructor(mask: mnist::BinaryImage28) -> Self {
-        Self { mask }
+        Self{
+            mask,
+        }
     }
 }
 
