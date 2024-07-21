@@ -490,7 +490,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nfield\n\ncoercion = Some(\n    Releash,\n)\n\ntype = `Vec RawContour @ Some(Leashed { place_idx: None })`",
+                            value: "\n\nfield\n\ncoercion = Some(\n    Redirection(\n        Releash,\n    ),\n)\n\ntype = `Vec RawContour @ Some(Leashed { place_idx: None })`",
                         },
                     ),
                     range: Some(
@@ -640,7 +640,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nfield\n\ncoercion = Some(\n    Releash,\n)\n\ntype = `Vec ConcaveComponent @ Some(Leashed { place_idx: None })`",
+                            value: "\n\nfield\n\ncoercion = Some(\n    Redirection(\n        Releash,\n    ),\n)\n\ntype = `Vec ConcaveComponent @ Some(Leashed { place_idx: None })`",
                         },
                     ),
                     range: Some(

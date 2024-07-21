@@ -29,7 +29,7 @@ impl<'a> PlaceContractEngine<'a> {
         {
             match outcome.coercion() {
                 FlyCoercion::Trivial(_) => (outer_contract, outer_site),
-                FlyCoercion::Never | FlyCoercion::Releash | FlyCoercion::Deref(_) => {
+                FlyCoercion::Never | FlyCoercion::Redirection(_) | FlyCoercion::Dedirection(_) => {
                     (Contract::Pure, Default::default())
                 }
                 FlyCoercion::WrapInSome => (Contract::Move, Default::default()),

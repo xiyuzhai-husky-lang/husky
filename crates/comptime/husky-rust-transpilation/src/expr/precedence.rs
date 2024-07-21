@@ -50,6 +50,8 @@ impl Default for RustPrecedenceRange {
 
 impl RustPrecedenceRange {
     pub(crate) const ANY: Self = RustPrecedenceRange::Any;
+    pub(crate) const GEQ_PREFIX: Self = RustPrecedenceRange::Geq(RustPrecedence::Prefix);
+    pub(crate) const GEQ_SUFFIX: Self = RustPrecedenceRange::Geq(RustPrecedence::Suffix);
 
     pub(crate) fn include(self, precedence: RustPrecedence) -> bool {
         match self {
@@ -68,61 +70,100 @@ pub trait HasRustPrecedence {
     fn rust_precedence(&self) -> RustPrecedence;
 }
 
-pub(super) fn hir_eager_expr_precedence(data: &HirEagerExprData) -> RustPrecedence {
-    match data {
-        HirEagerExprData::Literal(_)
-        | HirEagerExprData::PrincipalEntityPath(_)
-        | HirEagerExprData::ComptimeVariable { .. }
-        | HirEagerExprData::RuntimeVariable(_)
-        | HirEagerExprData::NewTuple { .. }
-        | HirEagerExprData::NewList { .. }
-        | HirEagerExprData::EmptyHtmlTag { .. }
-        | HirEagerExprData::Todo
-        | HirEagerExprData::Unreachable
-        | HirEagerExprData::AssocRitchie { .. } => RustPrecedence::Atom,
-        HirEagerExprData::Binary { opr, .. } => match opr {
-            HirBinaryOpr::Closed(opr) => match opr {
-                BinaryClosedOpr::Add => RustPrecedence::Additive,
-                BinaryClosedOpr::BitAnd => RustPrecedence::BitAnd,
-                BinaryClosedOpr::BitOr => RustPrecedence::BitOr,
-                BinaryClosedOpr::BitXor => RustPrecedence::BitXor,
-                BinaryClosedOpr::Div => RustPrecedence::Multiplicative,
-                BinaryClosedOpr::Mul => RustPrecedence::Multiplicative,
-                BinaryClosedOpr::RemEuclid => RustPrecedence::Atom, // because it's implemented through function
-                BinaryClosedOpr::Power => RustPrecedence::Atom, // because it's implemented through function
-                BinaryClosedOpr::Sub => RustPrecedence::Additive,
+impl RustPrecedenceRange {
+    pub(super) fn innermost(bindings: &RustBindings, role: HirEagerExprRole) -> Self {
+        bindings
+            .innermost()
+            .map(Self::from_binding)
+            .unwrap_or_else(|| Self::outermost(role))
+    }
+
+    pub(super) fn outermost(role: HirEagerExprRole) -> Self {
+        match role {
+            HirEagerExprRole::SimpleSelfArgument
+            | HirEagerExprRole::SelfArgumentWithIndirection { .. } => Self::GEQ_SUFFIX,
+            HirEagerExprRole::MemoizedFieldSelfArgument { .. }
+            | HirEagerExprRole::RegularCallItem
+            | HirEagerExprRole::Root
+            | HirEagerExprRole::LetInitialValue => Self::ANY,
+            HirEagerExprRole::Subexpr {
+                outermost_precedence_range,
+            } => outermost_precedence_range,
+        }
+    }
+
+    fn from_binding(binding: RustBinding) -> Self {
+        match binding {
+            RustBinding::Deref
+            | RustBinding::DerefCustomed
+            | RustBinding::Reref
+            | RustBinding::RerefMut
+            | RustBinding::Releash => RustPrecedenceRange::GEQ_PREFIX,
+            RustBinding::Deleash | RustBinding::SelfValue => RustPrecedenceRange::GEQ_SUFFIX,
+            RustBinding::WrapInSome => RustPrecedenceRange::ANY,
+        }
+    }
+}
+
+impl RustPrecedence {
+    pub(super) fn from_expr(data: &HirEagerExprData) -> RustPrecedence {
+        match data {
+            HirEagerExprData::Literal(_)
+            | HirEagerExprData::PrincipalEntityPath(_)
+            | HirEagerExprData::ComptimeVariable { .. }
+            | HirEagerExprData::RuntimeVariable(_)
+            | HirEagerExprData::NewTuple { .. }
+            | HirEagerExprData::NewList { .. }
+            | HirEagerExprData::EmptyHtmlTag { .. }
+            | HirEagerExprData::Todo
+            | HirEagerExprData::Unreachable
+            | HirEagerExprData::AssocRitchie { .. } => RustPrecedence::Atom,
+            HirEagerExprData::Binary { opr, .. } => match opr {
+                HirBinaryOpr::Closed(opr) => match opr {
+                    BinaryClosedOpr::Add => RustPrecedence::Additive,
+                    BinaryClosedOpr::BitAnd => RustPrecedence::BitAnd,
+                    BinaryClosedOpr::BitOr => RustPrecedence::BitOr,
+                    BinaryClosedOpr::BitXor => RustPrecedence::BitXor,
+                    BinaryClosedOpr::Div => RustPrecedence::Multiplicative,
+                    BinaryClosedOpr::Mul => RustPrecedence::Multiplicative,
+                    BinaryClosedOpr::RemEuclid => RustPrecedence::Atom, // because it's implemented through function
+                    BinaryClosedOpr::Power => RustPrecedence::Atom, // because it's implemented through function
+                    BinaryClosedOpr::Sub => RustPrecedence::Additive,
+                },
+                HirBinaryOpr::Shift(_) => RustPrecedence::Shift,
+                HirBinaryOpr::Assign
+                | HirBinaryOpr::AssignClosed(_)
+                | HirBinaryOpr::AssignShift(_) => RustPrecedence::Assign,
+                HirBinaryOpr::Comparison(opr) => match opr {
+                    BinaryComparisonOpr::Eq | BinaryComparisonOpr::Neq => {
+                        RustPrecedence::EqComparison
+                    }
+                    BinaryComparisonOpr::Geq
+                    | BinaryComparisonOpr::Greater
+                    | BinaryComparisonOpr::Leq
+                    | BinaryComparisonOpr::Less => RustPrecedence::OrdComparison,
+                },
+                HirBinaryOpr::ShortCircuitLogic(opr) => match opr {
+                    BinaryShortcuitLogicOpr::And => RustPrecedence::And,
+                    BinaryShortcuitLogicOpr::Or => RustPrecedence::Or,
+                },
             },
-            HirBinaryOpr::Shift(_) => RustPrecedence::Shift,
-            HirBinaryOpr::Assign | HirBinaryOpr::AssignClosed(_) | HirBinaryOpr::AssignShift(_) => {
-                RustPrecedence::Assign
-            }
-            HirBinaryOpr::Comparison(opr) => match opr {
-                BinaryComparisonOpr::Eq | BinaryComparisonOpr::Neq => RustPrecedence::EqComparison,
-                BinaryComparisonOpr::Geq
-                | BinaryComparisonOpr::Greater
-                | BinaryComparisonOpr::Leq
-                | BinaryComparisonOpr::Less => RustPrecedence::OrdComparison,
-            },
-            HirBinaryOpr::ShortCircuitLogic(opr) => match opr {
-                BinaryShortcuitLogicOpr::And => RustPrecedence::And,
-                BinaryShortcuitLogicOpr::Or => RustPrecedence::Or,
-            },
-        },
-        HirEagerExprData::Be { .. } => RustPrecedence::Be,
-        HirEagerExprData::Prefix { .. }
-        | HirEagerExprData::Suffix { .. }
-        | HirEagerExprData::TypeConstructorCall { .. }
-        | HirEagerExprData::TypeVariantConstructorCall { .. }
-        | HirEagerExprData::FunctionRitchieCall { .. }
-        | HirEagerExprData::AssocFunctionRitchieCall { .. }
-        | HirEagerExprData::PropsStructField { .. }
-        | HirEagerExprData::MemoizedField { .. }
-        | HirEagerExprData::MethodRitchieCall { .. }
-        | HirEagerExprData::Index { .. }
-        | HirEagerExprData::Unwrap { .. } => RustPrecedence::Suffix,
-        HirEagerExprData::Block { .. } => RustPrecedence::None,
-        HirEagerExprData::As { .. } => RustPrecedence::As,
-        HirEagerExprData::Unveil { .. } => RustPrecedence::None,
-        HirEagerExprData::Closure { .. } => RustPrecedence::Closure, // this is because we use macro to do unveil
+            HirEagerExprData::Be { .. } => RustPrecedence::Be,
+            HirEagerExprData::Prefix { .. }
+            | HirEagerExprData::Suffix { .. }
+            | HirEagerExprData::TypeConstructorCall { .. }
+            | HirEagerExprData::TypeVariantConstructorCall { .. }
+            | HirEagerExprData::FunctionRitchieCall { .. }
+            | HirEagerExprData::AssocFunctionRitchieCall { .. }
+            | HirEagerExprData::PropsStructField { .. }
+            | HirEagerExprData::MemoizedField { .. }
+            | HirEagerExprData::MethodRitchieCall { .. }
+            | HirEagerExprData::Index { .. }
+            | HirEagerExprData::Unwrap { .. } => RustPrecedence::Suffix,
+            HirEagerExprData::Block { .. } => RustPrecedence::None,
+            HirEagerExprData::As { .. } => RustPrecedence::As,
+            HirEagerExprData::Unveil { .. } => RustPrecedence::None,
+            HirEagerExprData::Closure { .. } => RustPrecedence::Closure, // this is because we use macro to do unveil
+        }
     }
 }

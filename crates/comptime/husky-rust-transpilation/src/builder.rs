@@ -13,7 +13,7 @@ pub(crate) use self::keyword::*;
 pub(crate) use self::macro_name::*;
 pub(crate) use self::punctuation::*;
 
-use crate::{expr::site::HirEagerExprSite, *};
+use crate::{expr::role::HirEagerExprRole, *};
 use husky_corgi_config::transpilation_setup::{RustTranspilationSetupData, TranspilationSetup};
 use husky_coword::{Ident, Label};
 use husky_hir_eager_expr::{
@@ -153,7 +153,7 @@ impl<'a> RustTranspilationBuilderBase<'a> {
         hir_eager_expr_region: HirEagerExprRegion,
         body: HirEagerExprIdx,
     ) {
-        (body, HirEagerExprSite::new_root(None)).transpile_to_rust(&mut RustTranspilationBuilder {
+        (body, HirEagerExprRole::new_root()).transpile_to_rust(&mut RustTranspilationBuilder {
             base: self,
             extension: hir_eager_expr_region,
         })

@@ -4,8 +4,15 @@
 use super::*;
 use husky_entity_path::path::major_item::ty::{PreludeIndirectionTypePath, PreludeTypePath};
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum RedirectionFlyCoercion {
+    Reref,
+    RerefMut,
+    Releash,
+}
+
 impl ExpectCoercion {
-    pub(super) fn resolve_reref(
+    pub(super) fn resolve_redirection(
         &self,
         db: &::salsa::Db,
         terms: &mut FlyTerms,
@@ -27,7 +34,7 @@ impl ExpectCoercion {
                     self.try_finalize_coercion(
                         state.expectee(),
                         expected_ty_arguments[0],
-                        FlyCoercion::Releash,
+                        RedirectionFlyCoercion::Releash,
                         db,
                         terms,
                         state,
