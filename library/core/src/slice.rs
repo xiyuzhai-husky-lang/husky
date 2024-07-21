@@ -99,23 +99,23 @@ impl<T> CyclicSliceLeashed<T> {
         self
     }
 
-    pub fn first(self) -> Option<&'static T> {
+    pub fn first(self) -> Option<Leash<T>> {
         if self.slice.len() == 0 {
             None
         } else if self.start >= self.end {
             None
         } else {
-            Some(self.index_i32(self.start))
+            Some(Leash(self.index_i32(self.start)))
         }
     }
 
-    pub fn last(self) -> Option<&'static T> {
+    pub fn last(self) -> Option<Leash<T>> {
         if self.slice.len() == 0 {
             None
         } else if self.start >= self.end {
             None
         } else {
-            Some(self.index_i32(self.end - 1))
+            Some(Leash(self.index_i32(self.end - 1)))
         }
     }
 
