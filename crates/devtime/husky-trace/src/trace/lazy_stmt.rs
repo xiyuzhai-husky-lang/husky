@@ -245,16 +245,16 @@ impl<'a> IsAssocTraceRegistry for LazyStmtAssocTraceRegistry<'a> {
     ) -> Option<Trace> {
         match source {
             TokenInfoSource::UseExpr(_) => None,
-            TokenInfoSource::SemExpr(sem_expr_idx) => Some(
+            TokenInfoSource::SemExpr(_, expr) => Some(
                 self.lazy_expr_traces_issued
-                    .get_value_copied_or_insert_with(sem_expr_idx, || {
+                    .get_value_copied_or_insert_with(expr, || {
                         let hir_lazy_expr_idx = self
                             .hir_lazy_expr_source_map_data
-                            .sem_to_hir_lazy_expr_idx(sem_expr_idx);
+                            .sem_to_hir_lazy_expr_idx(expr);
                         Trace::new_lazy_expr(
                             self.biological_parent_path,
                             self.biological_parent,
-                            sem_expr_idx,
+                            expr,
                             hir_lazy_expr_idx,
                             self.sem_expr_region,
                             self.hir_lazy_expr_region,
@@ -275,18 +275,18 @@ impl<'a> IsAssocTraceRegistry for LazyStmtAssocTraceRegistry<'a> {
                 }
                 PrincipalEntityPath::TypeVariant(_) => None,
             },
-            TokenInfoSource::Pattern(syn_pattern_idx) => Some(
+            TokenInfoSource::Pattern(_, pattern) => Some(
                 self.lazy_pattern_expr_traces_issued
-                    .get_value_copied_or_insert_with(syn_pattern_idx, || {
+                    .get_value_copied_or_insert_with(pattern, || {
                         Trace::new_lazy_pattern_expr(
                             self.biological_parent_path,
                             self.biological_parent,
-                            syn_pattern_idx,
+                            pattern,
                             self.hir_lazy_expr_source_map_data
-                                .syn_to_hir_lazy_pattern_idx(syn_pattern_idx),
+                                .syn_to_hir_lazy_pattern_idx(pattern),
                             self.syn_expr_region_data
                                 .syn_pattern_expr_current_variables_mapped(
-                                    syn_pattern_idx,
+                                    pattern,
                                     |current_variable_idx| {
                                         self.hir_lazy_expr_source_map_data
                                             .current_variable_to_hir_lazy_variable(

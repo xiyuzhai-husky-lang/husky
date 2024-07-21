@@ -466,13 +466,13 @@ impl SemExprIdx {
     /// None means something is wrong
     pub fn expectation_outcome<'a>(
         self,
-        sem_expr_region: &'a SemExprRegionData,
+        sem_expr_region_data: &'a SemExprRegionData,
     ) -> Option<&'a ExpectationOutcome> {
-        let (expectation_idx, _) = sem_expr_region
+        let (expectation_idx, _) = sem_expr_region_data
             .sem_expr_arena()
             .index(self)
             .expectation_idx_and_ty?;
-        sem_expr_region.fly_term_region()[expectation_idx]
+        sem_expr_region_data.fly_term_region()[expectation_idx]
             .resolve_progress()
             .outcome2()
     }
