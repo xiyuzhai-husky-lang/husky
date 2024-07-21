@@ -5,6 +5,7 @@ use husky_text_protocol::{
 };
 use husky_token::TokenDb;
 
+#[deprecated]
 pub trait HoverDb {
     fn hover_result(&self, module_path: ModulePath, position: TextPosition) -> Option<HoverResult>;
 
@@ -14,8 +15,6 @@ pub trait HoverDb {
     ) -> Option<RangeInfo<Vec<NavigationTarget>>> {
         unimplemented!()
     }
-
-    fn hover_config(&self) -> HoverConfig;
 }
 
 impl HoverDb for ::salsa::Db {
@@ -25,9 +24,5 @@ impl HoverDb for ::salsa::Db {
             return None;
         };
         calc_hover_result(self, module_path, token_idx)
-    }
-
-    fn hover_config(&self) -> HoverConfig {
-        hover_config(self)
     }
 }

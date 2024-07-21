@@ -89,7 +89,7 @@ pub enum TokenInfoData {
     UnitRightParenthesis,
     Todo,
     Unreachable,
-    SemaPrefixTypeOpr,
+    PrefixTypeOpr,
     CallPar,
     NestedBlockCurl,
     ClosureVert,
@@ -156,7 +156,7 @@ impl TokenInfoData {
             }
             TokenInfoData::Todo => TokenClass::Todo,
             TokenInfoData::Unreachable => TokenClass::Unreachable,
-            TokenInfoData::SemaPrefixTypeOpr => TokenClass::TypeEntity,
+            TokenInfoData::PrefixTypeOpr => TokenClass::TypeEntity,
             TokenInfoData::CallPar => TokenClass::Punctuation,
             TokenInfoData::NestedBlockCurl => TokenClass::Punctuation,
             TokenInfoData::ClosureVert => TokenClass::Punctuation,

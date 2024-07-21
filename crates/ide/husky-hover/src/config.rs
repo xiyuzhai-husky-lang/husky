@@ -1,14 +1,16 @@
 use crate::*;
 
-#[salsa::input(db = HoverDb, jar = HoverJar)]
-pub struct HoverConfig {
-    #[return_ref]
-    pub data: HoverConfigData,
-}
-
 #[derive(Debug, PartialEq, Eq)]
-pub struct HoverConfigData {
+pub struct HoverConfig {
     pub debug: bool,
+    pub description: bool,
+    // lex
+    pub token_idx: bool,
+    pub token_line_group_idx: bool,
+    pub token: bool,
+    pub token_info: bool,
+    // syntax
+    // semantics
 }
 
 impl HoverConfig {
@@ -17,6 +19,18 @@ impl HoverConfig {
     }
     pub fn client_commands_config(&self) -> &ClientCommandsConfig {
         todo!()
+    }
+}
+
+#[salsa::tracked(return_ref)]
+pub(crate) fn hover_config(db: &::salsa::Db, module_path: ModulePath) -> HoverConfig {
+    HoverConfig {
+        debug: true,
+        description: true,
+        token_idx: false,
+        token_line_group_idx: false,
+        token: false,
+        token_info: false,
     }
 }
 

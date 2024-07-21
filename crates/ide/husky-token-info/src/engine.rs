@@ -305,7 +305,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                     self.add(
                         *opr_regional_token_idx,
                         sem_expr_idx,
-                        TokenInfoData::SemaPrefixTypeOpr,
+                        TokenInfoData::PrefixTypeOpr,
                     );
                 }
             },
