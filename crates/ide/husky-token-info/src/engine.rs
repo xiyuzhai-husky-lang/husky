@@ -1,4 +1,5 @@
 use crate::*;
+use config::{token_info_config, TokenInfoConfig};
 use husky_ast::HasAstSheet;
 use husky_ast::{AstData, AstSheet};
 use husky_entity_tree::{
@@ -26,23 +27,26 @@ use husky_syn_expr::{
     },
 };
 
-pub(crate) struct TokenInfoEngine<'a> {
-    db: &'a ::salsa::Db,
+pub(crate) struct TokenInfoEngine<'db> {
+    db: &'db ::salsa::Db,
     module_path: ModulePath,
-    token_sheet_data: &'a TokenSheetData,
-    ast_sheet: &'a AstSheet,
-    item_tree_presheet: &'a EntityTreePresheet,
-    item_tree_sheet: &'a EntityTreeSheet,
-    module_symbol_context: ModuleSymbolContext<'a>,
+    config: &'db TokenInfoConfig,
+    token_sheet_data: &'db TokenSheetData,
+    ast_sheet: &'db AstSheet,
+    item_tree_presheet: &'db EntityTreePresheet,
+    item_tree_sheet: &'db EntityTreeSheet,
+    module_symbol_context: ModuleSymbolContext<'db>,
     sheet: TokenInfoSheet,
 }
 
-impl<'a> TokenInfoEngine<'a> {
-    pub(crate) fn new(db: &'a ::salsa::Db, module_path: ModulePath) -> EntityTreeResult<Self> {
+impl<'db> TokenInfoEngine<'db> {
+    pub(crate) fn new(db: &'db ::salsa::Db, module_path: ModulePath) -> EntityTreeResult<Self> {
         let token_sheet_data = &db.token_sheet_data(module_path);
+        let config = token_info_config(db, module_path);
         Ok(Self {
             db,
             module_path,
+            config,
             token_sheet_data,
             ast_sheet: module_path.ast_sheet(db),
             item_tree_presheet: db.item_syn_tree_presheet(module_path),

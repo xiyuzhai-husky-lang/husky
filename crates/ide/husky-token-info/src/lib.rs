@@ -1,3 +1,4 @@
+pub mod config;
 mod engine;
 mod info;
 pub mod jar;
@@ -9,6 +10,7 @@ pub use self::info::*;
 pub use self::jar::*;
 pub use self::sheet::*;
 
+use self::jar::TokenInfoJar as Jar;
 use engine::*;
 use husky_entity_tree::error::*;
 use husky_token::*;
