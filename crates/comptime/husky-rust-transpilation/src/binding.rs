@@ -1,8 +1,12 @@
 use husky_hir_eager_expr::{
     coercion::{DedirectionHirEagerCoercion, HirEagerCoercion, RedirectionHirEagerCoercion},
-    HirEagerExprEntry,
+    HirEagerExprData, HirEagerExprEntry,
 };
-use husky_hir_ty::{indirections::HirIndirection, quary::HirContractedQuary, ritchie::HirContract};
+use husky_hir_ty::{
+    indirections::HirIndirection,
+    quary::{HirContractedQuary, HirQuary},
+    ritchie::HirContract,
+};
 use smallvec::*;
 
 use crate::{
@@ -20,12 +24,14 @@ pub(crate) enum RustBinding {
     Releash,
     SelfValue,
     WrapInSome,
+    DerefMut,
 }
 
 impl RustBinding {
     pub(crate) fn precedence_range(self) -> RustPrecedenceRange {
         match self {
             RustBinding::Deref
+            | RustBinding::DerefMut
             | RustBinding::DerefCustomed
             | RustBinding::Reref
             | RustBinding::RerefMut
@@ -46,14 +52,39 @@ pub(crate) struct RustBindings {
 
 impl RustBindings {
     pub(crate) fn new(expr_entry: &HirEagerExprEntry, role: HirEagerExprRole) -> Self {
-        let mut slf = RustBindings {
-            bindings: smallvec![],
+        let mut slf = match expr_entry.data() {
+            HirEagerExprData::RuntimeVariable(_) => {
+                let variable_bindings = match expr_entry.contracted_quary().quary() {
+                    HirQuary::Compterm => todo!(),
+                    HirQuary::StackPure { place } => {
+                        if expr_entry.is_always_copyable() {
+                            smallvec![]
+                        } else {
+                            smallvec![RustBinding::Deref]
+                        }
+                    }
+                    HirQuary::ImmutableOnStack { place } => smallvec![],
+                    HirQuary::MutableOnStack { place } => smallvec![],
+                    HirQuary::Transient => unreachable!(),
+                    HirQuary::Ref { guard } => smallvec![RustBinding::Deref],
+                    HirQuary::RefMut { place, lifetime } => smallvec![RustBinding::DerefMut],
+                    HirQuary::Leashed { place_idx } => smallvec![RustBinding::Deleash],
+                    HirQuary::Todo => todo!(),
+                    HirQuary::Variable(_) => todo!(),
+                };
+                RustBindings {
+                    bindings: variable_bindings,
+                }
+            }
+            _ => RustBindings {
+                bindings: smallvec![],
+            },
         };
         // the order is important!!!
         slf.add_coercion(expr_entry.coercion());
         slf.add_contracted_quary(
             expr_entry.contracted_quary(),
-            expr_entry.is_always_copyable_before_coercion(),
+            expr_entry.is_always_copyable(),
             expr_entry.coercion(),
         );
         slf.add_role(role);
@@ -80,18 +111,19 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         match from_outermost_to_innermost.next() {
             Some((binding, next_inner)) => {
                 match binding {
-                    RustBinding::Deref | RustBinding::DerefCustomed => {
+                    RustBinding::Deref | RustBinding::DerefMut | RustBinding::DerefCustomed => {
                         self.punctuation(RustPunctuation::DerefStar)
                     }
                     RustBinding::Deleash => {
-                        if let Some(next_inner_binding) = next_inner {
-                            match next_inner_binding {
+                        if let Some(next_inner) = next_inner {
+                            match next_inner {
                                 RustBinding::Deref => todo!(),
+                                RustBinding::DerefMut => todo!(),
                                 RustBinding::DerefCustomed => todo!(),
                                 RustBinding::Deleash => todo!(),
                                 RustBinding::Reref => todo!(),
                                 RustBinding::RerefMut => todo!(),
-                                RustBinding::Releash => todo!(),
+                                RustBinding::Releash => unreachable!("should be absorbed"),
                                 RustBinding::SelfValue => (),
                                 RustBinding::WrapInSome => todo!(),
                             }
@@ -103,16 +135,35 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
                         self.keyword(RustKeyword::Mut)
                     }
                     RustBinding::Releash => self.releash_left(),
-                    RustBinding::SelfValue => (),
+                    RustBinding::SelfValue => {
+                        if let Some(next_inner) = next_inner {
+                            match next_inner {
+                                RustBinding::Deref
+                                | RustBinding::DerefMut
+                                | RustBinding::DerefCustomed
+                                | RustBinding::Reref
+                                | RustBinding::RerefMut => {
+                                    unreachable!("should be absorbed into self value")
+                                }
+                                RustBinding::Deleash => (),
+                                RustBinding::Releash => (),
+                                RustBinding::SelfValue => {
+                                    unreachable!("self value binding couldn't appear twice")
+                                }
+                                RustBinding::WrapInSome => (),
+                            }
+                        }
+                    }
                     RustBinding::WrapInSome => self.wrap_in_some_left(),
                 }
                 self.transpile_bindings_aux(from_outermost_to_innermost, f);
                 match binding {
-                    RustBinding::Deref | RustBinding::DerefCustomed => (),
+                    RustBinding::Deref | RustBinding::DerefMut | RustBinding::DerefCustomed => (),
                     RustBinding::Deleash => {
                         if let Some(next_inner_binding) = next_inner {
                             match next_inner_binding {
                                 RustBinding::Deref => todo!(),
+                                RustBinding::DerefMut => todo!(),
                                 RustBinding::DerefCustomed => todo!(),
                                 RustBinding::Deleash => todo!(),
                                 RustBinding::Reref => todo!(),
@@ -127,7 +178,25 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
                     RustBinding::Reref => (),
                     RustBinding::RerefMut => (),
                     RustBinding::Releash => self.releash_right(),
-                    RustBinding::SelfValue => (),
+                    RustBinding::SelfValue => {
+                        if let Some(next_inner) = next_inner {
+                            match next_inner {
+                                RustBinding::Deref
+                                | RustBinding::DerefMut
+                                | RustBinding::DerefCustomed
+                                | RustBinding::Reref
+                                | RustBinding::RerefMut => {
+                                    unreachable!("should be absorbed into self value")
+                                }
+                                RustBinding::Deleash => (),
+                                RustBinding::Releash => (),
+                                RustBinding::SelfValue => {
+                                    unreachable!("self value binding couldn't appear twice")
+                                }
+                                RustBinding::WrapInSome => (),
+                            }
+                        }
+                    }
                     RustBinding::WrapInSome => self.wrap_in_some_right(),
                 }
             }
@@ -202,17 +271,17 @@ impl RustBindings {
     pub(crate) fn add_contracted_quary(
         &mut self,
         contracted_quary: HirContractedQuary,
-        is_always_copyable_before_coercion: bool,
+        is_always_copyable: bool,
         coercion: Option<HirEagerCoercion>,
     ) {
         if let Some(contract) = contracted_quary.contract() {
             match contract {
                 HirContract::Pure => {
-                    let is_always_copyable: bool = match coercion {
+                    let is_always_copyable_after_coercion: bool = match coercion {
                         Some(coercion) => match coercion {
-                            HirEagerCoercion::Trivial(_) => is_always_copyable_before_coercion,
+                            HirEagerCoercion::Trivial(_) => is_always_copyable,
                             HirEagerCoercion::Never => true,
-                            HirEagerCoercion::WrapInSome => is_always_copyable_before_coercion,
+                            HirEagerCoercion::WrapInSome => is_always_copyable,
                             HirEagerCoercion::Redirection(redirection_coercion) => {
                                 match redirection_coercion {
                                     RedirectionHirEagerCoercion::Releash => true,
@@ -222,9 +291,9 @@ impl RustBindings {
                             }
                             HirEagerCoercion::Dedirection(_) => todo!(),
                         },
-                        None => is_always_copyable_before_coercion,
+                        None => is_always_copyable,
                     };
-                    if !is_always_copyable {
+                    if !is_always_copyable_after_coercion {
                         self.add_outer_binding(RustBinding::Reref)
                     }
                 }
@@ -232,7 +301,8 @@ impl RustBindings {
                 HirContract::Borrow => self.add_outer_binding(RustBinding::Reref),
                 HirContract::BorrowMut => self.add_outer_binding(RustBinding::RerefMut),
                 HirContract::Compterm => todo!(),
-                HirContract::Leash => todo!(),
+                // ad hoc
+                HirContract::Leash => self.add_outer_binding(RustBinding::Releash),
                 HirContract::At => todo!(),
             }
         }
@@ -241,6 +311,7 @@ impl RustBindings {
     pub(crate) fn add_role(&mut self, role: HirEagerExprRole) {
         match role {
             HirEagerExprRole::SimpleSelfArgument => self.add_outer_binding(RustBinding::SelfValue),
+            HirEagerExprRole::AssignSelfArgument => self.add_outer_binding(RustBinding::DerefMut),
             HirEagerExprRole::SelfArgumentWithIndirection { indirections } => {
                 // the order matters!!!
                 // indirection order is from innermost to outermost
@@ -272,73 +343,119 @@ impl RustBindings {
     }
 
     fn add_outer_binding(&mut self, binding: RustBinding) {
-        match self.bindings.last() {
-            Some(last_binding) => match (last_binding, binding) {
-                // any binding except `DerefCustomed` can be merged into self value
-                // (*a).<field_name> -> (*a).<field_name>
-                // (&a).<field_name> -> (*a).<field_name>
-                // (&mut a).<field_name> -> (*a).<field_name>
-                //
-                // in Rust, if type `A` doesn't implement Clone, for a value `a` of type `A`
-                // `a.clone()` actually clones a reference to `a`, but in husky, no.
-                (RustBinding::SelfValue, binding) if binding != RustBinding::DerefCustomed => (),
-                // the following is automatically coercible, so we can cancel the last binding out
-                // *&a -> a
-                // *&mut a -> a
-                // &*a -> a
-                // &mut *a -> a
-                (RustBinding::Deref, RustBinding::Reref | RustBinding::RerefMut)
-                | (RustBinding::Reref | RustBinding::RerefMut, RustBinding::Deref) => {
-                    self.bindings.pop();
+        if binding == RustBinding::SelfValue {
+            while let Some(last_binding) = self.bindings.last() {
+                match last_binding {
+                    RustBinding::Deref
+                    | RustBinding::DerefCustomed
+                    | RustBinding::DerefMut
+                    | RustBinding::Reref
+                    | RustBinding::RerefMut => {
+                        self.bindings.pop();
+                    }
+                    RustBinding::Deleash | RustBinding::Releash | RustBinding::WrapInSome => break,
+                    RustBinding::SelfValue => unreachable!(),
                 }
-                (RustBinding::DerefCustomed, RustBinding::Reref | RustBinding::RerefMut) => {
-                    unreachable!()
-                }
-                _ => self.bindings.push(binding),
-            },
-            None => self.bindings.push(binding),
+            }
+            self.bindings.push(RustBinding::SelfValue)
+        } else {
+            match self.bindings.last() {
+                Some(last_binding) => match (last_binding, binding) {
+                    // any binding except `DerefCustomed` can be merged into self value
+                    // (*a).<field_name> -> (*a).<field_name>
+                    // (&a).<field_name> -> (*a).<field_name>
+                    // (&mut a).<field_name> -> (*a).<field_name>
+                    //
+                    // in Rust, if type `A` doesn't implement Clone, for a value `a` of type `A`
+                    // `a.clone()` actually clones a reference to `a`, but in husky, no.
+                    (RustBinding::SelfValue, binding) if binding != RustBinding::DerefCustomed => {
+                        ()
+                    }
+                    // the followings are automatically coercible, so we can cancel the last binding out
+                    // *&a -> a
+                    // *&mut a -> a
+                    // &*a -> a
+                    // &mut *a -> a
+                    // *~a -> a
+                    // ~*a -> a
+                    (
+                        RustBinding::Deref | RustBinding::DerefMut,
+                        RustBinding::Reref | RustBinding::RerefMut,
+                    )
+                    | (
+                        RustBinding::Reref | RustBinding::RerefMut,
+                        RustBinding::Deref | RustBinding::DerefMut,
+                    )
+                    | (RustBinding::Deleash, RustBinding::Releash)
+                    | (RustBinding::Releash, RustBinding::Deleash) => {
+                        self.bindings.pop();
+                    }
+                    (RustBinding::DerefCustomed, RustBinding::Reref | RustBinding::RerefMut) => {
+                        unreachable!()
+                    }
+                    // (RustBinding::Reref, RustBinding:)
+                    _ => self.bindings.push(binding),
+                },
+                None => self.bindings.push(binding),
+            }
         }
     }
 }
 
-// #[test]
-// fn rust_bindings_works() {
-//     {
-//         // &*a -> a
-//         let mut bindings: RustBindings = RustBinding::Deref.into();
-//         bindings.add(RustBinding::Reref);
-//         assert!(bindings.is_empty())
-//     }
-//     {
-//         // &mut *a -> a
-//         let mut bindings: RustBindings = RustBinding::Deref.into();
-//         bindings.add(RustBinding::RerefMut);
-//         assert!(bindings.is_empty())
-//     }
-//     {
-//         // **a -> **a
-//         let mut bindings: RustBindings = RustBinding::Deref.into();
-//         bindings.add(RustBinding::Deref);
-//         assert_eq!(bindings.len(), 2)
-//     }
-//     {
-//         // &mut **a -> *a
-//         let mut bindings: RustBindings = RustBinding::Deref.into();
-//         bindings.add(RustBinding::Deref);
-//         bindings.add(RustBinding::RerefMut);
-//         assert_eq!(bindings.len(), 1)
-//     }
-//     {
-//         // (*a).<field_name> -> a.<field_name>
-//         let mut bindings: RustBindings = RustBinding::SelfValue.into();
-//         bindings.add(RustBinding::Deref);
-//         assert_eq!(bindings.len(), 1)
-//     }
-//     {
-//         // (&mut *a).<field_name> -> a.<field_name>
-//         let mut bindings: RustBindings = RustBinding::SelfValue.into();
-//         bindings.add(RustBinding::Deref);
-//         bindings.add(RustBinding::RerefMut);
-//         assert_eq!(bindings.len(), 1)
-//     }
-// }
+#[test]
+fn rust_bindings_works() {
+    #[cfg(test)]
+    impl From<RustBinding> for RustBindings {
+        fn from(binding: RustBinding) -> Self {
+            Self {
+                bindings: smallvec![binding],
+            }
+        }
+    }
+
+    #[cfg(test)]
+    impl RustBindings {
+        fn is_empty(&self) -> bool {
+            self.bindings.is_empty()
+        }
+    }
+
+    {
+        // &*a -> a
+        let mut bindings: RustBindings = RustBinding::Deref.into();
+        bindings.add_outer_binding(RustBinding::Reref);
+        assert!(bindings.is_empty())
+    }
+    {
+        // &mut *a -> a
+        let mut bindings: RustBindings = RustBinding::Deref.into();
+        bindings.add_outer_binding(RustBinding::RerefMut);
+        assert!(bindings.is_empty())
+    }
+    {
+        // **a -> **a
+        let mut bindings: RustBindings = RustBinding::Deref.into();
+        bindings.add_outer_binding(RustBinding::Deref);
+        assert_eq!(bindings.len(), 2)
+    }
+    {
+        // &mut **a -> *a
+        let mut bindings: RustBindings = RustBinding::Deref.into();
+        bindings.add_outer_binding(RustBinding::Deref);
+        bindings.add_outer_binding(RustBinding::RerefMut);
+        assert_eq!(bindings.len(), 1)
+    }
+    {
+        // (*a).<field_name> -> a.<field_name>
+        let mut bindings: RustBindings = RustBinding::SelfValue.into();
+        bindings.add_outer_binding(RustBinding::Deref);
+        assert_eq!(bindings.len(), 1)
+    }
+    {
+        // (&mut *a).<field_name> -> a.<field_name>
+        let mut bindings: RustBindings = RustBinding::SelfValue.into();
+        bindings.add_outer_binding(RustBinding::Deref);
+        bindings.add_outer_binding(RustBinding::RerefMut);
+        assert_eq!(bindings.len(), 1)
+    }
+}

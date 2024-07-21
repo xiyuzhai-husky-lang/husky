@@ -47,6 +47,7 @@ impl<'db> TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEager
             .outermost()
             .map(|binding| match binding {
                 RustBinding::Deref
+                | RustBinding::DerefMut
                 | RustBinding::DerefCustomed
                 | RustBinding::Reref
                 | RustBinding::RerefMut => {
@@ -133,7 +134,7 @@ fn transpile_hir_eager_expr_to_rust(
         HirEagerExprData::RuntimeVariable(variable) => variable.transpile_to_rust(builder),
         HirEagerExprData::Binary { lopd, opr, ropd } => match opr {
             HirBinaryOpr::Closed(BinaryClosedOpr::RemEuclid) => {
-                (lopd, HirEagerExprRole::simple_self_argument(false)).transpile_to_rust(builder);
+                (lopd, HirEagerExprRole::simple_self_argument()).transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Dot);
                 builder.rem_eulid();
                 builder.delimited_heterogeneous_list_with(RustDelimiter::Par, |builder| {
@@ -142,7 +143,8 @@ fn transpile_hir_eager_expr_to_rust(
                 })
             }
             HirBinaryOpr::Closed(BinaryClosedOpr::Power) => {
-                (lopd, HirEagerExprRole::simple_self_argument(false)).transpile_to_rust(builder);
+                // ad hoc
+                (lopd, HirEagerExprRole::simple_self_argument()).transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Dot);
                 builder.pow();
                 builder.delimited_heterogeneous_list_with(RustDelimiter::Par, |builder| {
@@ -151,7 +153,7 @@ fn transpile_hir_eager_expr_to_rust(
                 })
             }
             HirBinaryOpr::Assign | HirBinaryOpr::AssignClosed(_) | HirBinaryOpr::AssignShift(_) => {
-                (lopd, HirEagerExprRole::simple_self_argument(false)).transpile_to_rust(builder);
+                (lopd, HirEagerExprRole::assign_self_argument()).transpile_to_rust(builder);
                 opr.transpile_to_rust(builder);
                 (ropd, subexpr_greater()).transpile_to_rust(builder)
             }
@@ -183,7 +185,7 @@ fn transpile_hir_eager_expr_to_rust(
         }
         HirEagerExprData::Suffix { opd, opr } => match opr {
             HirSuffixOpr::Incr | HirSuffixOpr::Decr => {
-                (opd, subexpr_geq()).transpile_to_rust(builder);
+                (opd, HirEagerExprRole::assign_self_argument()).transpile_to_rust(builder);
                 opr.transpile_to_rust(builder)
             }
         },
@@ -214,7 +216,7 @@ fn transpile_hir_eager_expr_to_rust(
             })
         }
         HirEagerExprData::Unwrap { opd } => {
-            (opd, HirEagerExprRole::simple_self_argument(false)).transpile_to_rust(builder);
+            (opd, HirEagerExprRole::simple_self_argument()).transpile_to_rust(builder);
             builder.call_unwrap()
         }
         HirEagerExprData::TypeConstructorCall {
@@ -344,7 +346,7 @@ fn transpile_hir_eager_expr_to_rust(
         }
         HirEagerExprData::Index { owner, ref items } => {
             // ad hoc
-            (owner, HirEagerExprRole::simple_self_argument(true)).transpile_to_rust(builder);
+            (owner, HirEagerExprRole::simple_self_argument()).transpile_to_rust(builder);
             builder.delimited(RustDelimiter::Box, |builder| {
                 (
                     items[0],

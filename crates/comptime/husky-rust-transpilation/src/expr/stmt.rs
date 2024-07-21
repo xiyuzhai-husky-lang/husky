@@ -113,7 +113,9 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 let t = |opd| {
                     (
                         opd,
-                        HirEagerExprRole::new(RustPrecedenceRange::Greater(RustPrecedence::Range)),
+                        HirEagerExprRole::subexpr(RustPrecedenceRange::Greater(
+                            RustPrecedence::Range,
+                        )),
                     )
                 };
                 match range.step {
@@ -128,7 +130,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                                             builder.delimited(RustDelimiter::Par, |builder| {
                                                 (
                                                     initial_bound,
-                                                    HirEagerExprRole::new(
+                                                    HirEagerExprRole::subexpr(
                                                         RustPrecedenceRange::Greater(
                                                             RustPrecedence::Additive,
                                                         ),
@@ -173,7 +175,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                                                 builder.delimited(RustDelimiter::Par, |builder| {
                                                     (
                                                         final_bound,
-                                                        HirEagerExprRole::new(
+                                                        HirEagerExprRole::subexpr(
                                                             RustPrecedenceRange::Greater(
                                                                 RustPrecedence::Additive,
                                                             ),
@@ -230,7 +232,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 }
                 (
                     particulars.bound_expr_hir_eager_expr_idx,
-                    HirEagerExprRole::new(RustPrecedenceRange::Greater(
+                    HirEagerExprRole::subexpr(RustPrecedenceRange::Greater(
                         RustPrecedence::OrdComparison,
                     )),
                 )
@@ -284,7 +286,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                                         builder.punctuation(RustPunctuation::Not);
                                         (
                                             hir_eager_expr_idx,
-                                            HirEagerExprRole::new(RustPrecedenceRange::Geq(
+                                            HirEagerExprRole::subexpr(RustPrecedenceRange::Geq(
                                                 RustPrecedence::Prefix,
                                             )),
                                         )
@@ -293,7 +295,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                                     ConditionConversion::IntToBool(_) => {
                                         (
                                             hir_eager_expr_idx,
-                                            HirEagerExprRole::new(RustPrecedenceRange::Geq(
+                                            HirEagerExprRole::subexpr(RustPrecedenceRange::Geq(
                                                 RustPrecedence::EqComparison,
                                             )),
                                         )
@@ -358,7 +360,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for &HirEagerCondition {
                 ConditionConversion::IntToBool(_) => {
                     (
                         hir_eager_expr_idx,
-                        HirEagerExprRole::new(RustPrecedenceRange::Geq(
+                        HirEagerExprRole::subexpr(RustPrecedenceRange::Geq(
                             RustPrecedence::EqComparison,
                         )),
                     )
