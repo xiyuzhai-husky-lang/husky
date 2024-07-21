@@ -6,7 +6,7 @@ pub use self::html::*;
 
 use crate::{
     be_variable::HirEagerBeVariablesPattern, closure_parameter::HirEagerClosureParameterPattern,
-    variable::runtime::HirEagerRvarIdx, *,
+    variable::runtime::HirEagerRuntimeVariableIdx, *,
 };
 use coercion::HirEagerCoercion;
 use husky_entity_path::path::{
@@ -88,10 +88,10 @@ pub enum HirEagerExprData {
     AssocRitchie {
         assoc_item_path: AssocItemPath,
     },
-    ConstVariable {
+    ComptimeVariable {
         ident: Ident,
     },
-    Variable(HirEagerRvarIdx),
+    RuntimeVariable(HirEagerRuntimeVariableIdx),
     Binary {
         lopd: HirEagerExprIdx,
         opr: HirBinaryOpr,
@@ -251,11 +251,11 @@ impl ToHirEager for SemExprIdx {
                     InheritedTemplateVariable::Place { label: _ } => todo!(),
                     InheritedTemplateVariable::Type { ident: _ } => todo!(),
                     InheritedTemplateVariable::Constant { ident } => {
-                        HirEagerExprData::ConstVariable { ident }
+                        HirEagerExprData::ComptimeVariable { ident }
                     }
                 },
                 InheritedVariableKind::Parenate { .. }
-                | InheritedVariableKind::SelfField { .. } => HirEagerExprData::Variable(
+                | InheritedVariableKind::SelfField { .. } => HirEagerExprData::RuntimeVariable(
                     builder
                         .inherited_variable_to_hir_eager_runtime_symbol(inherited_variable_idx)
                         .unwrap(),
@@ -264,7 +264,7 @@ impl ToHirEager for SemExprIdx {
             SemExprData::CurrentVariable {
                 current_variable_idx,
                 ..
-            } => HirEagerExprData::Variable(
+            } => HirEagerExprData::RuntimeVariable(
                 builder
                     .current_variable_to_hir_eager_runtime_symbol(current_variable_idx)
                     .unwrap(),
@@ -274,7 +274,7 @@ impl ToHirEager for SemExprIdx {
                 unreachable!()
             }
             SemExprData::SelfValue(_) => {
-                HirEagerExprData::Variable(builder.self_value_variable().unwrap())
+                HirEagerExprData::RuntimeVariable(builder.self_value_variable().unwrap())
             }
             SemExprData::Binary {
                 lopd, opr, ropd, ..

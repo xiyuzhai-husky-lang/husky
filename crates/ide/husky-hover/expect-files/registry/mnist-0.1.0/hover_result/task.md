@@ -790,7 +790,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\ncall par\n\ncoercion = None\n\ntype = `MnistTask`",
+                            value: "\n\ncall par\n\ncoercion = None\n\ntype = `MnistTask @ None`",
                         },
                     ),
                     range: Some(
@@ -820,7 +820,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\ncall par\n\ncoercion = None\n\ntype = `MnistTask`",
+                            value: "\n\ncall par\n\ncoercion = None\n\ntype = `MnistTask @ None`",
                         },
                     ),
                     range: Some(

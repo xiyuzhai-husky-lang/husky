@@ -31,7 +31,7 @@ pub(super) fn ethereal_owner_ty_int_index_signature(
     .expect("fully instantiated")
     .ty_term();
     JustOk(FlyIndexSignature::Int {
-        element_ty: FlyTerm::new_ethereal(final_place, element_ty),
+        element_ty: FlyTerm::new_eth(final_place, element_ty),
     })
 }
 

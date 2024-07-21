@@ -29,10 +29,10 @@ pub struct FlyTerm {
 }
 
 impl FlyTerm {
-    pub(crate) fn new_ethereal(place: FlyQuary, ethereal_term: EthTerm) -> Self {
+    pub(crate) fn new_eth(place: FlyQuary, eth_term: EthTerm) -> Self {
         Self {
             place: Some(place),
-            base: ethereal_term.into(),
+            base: eth_term.into(),
         }
     }
 
@@ -151,7 +151,7 @@ fn term_to_fly_term_works() {
     }
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
-    let term_menu = db.ethereal_term_menu(toolchain);
+    let term_menu = db.eth_term_menu(toolchain);
     t(Literal::I8(1))
 }
 

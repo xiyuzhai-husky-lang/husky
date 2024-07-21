@@ -6,7 +6,7 @@ use husky_syn_opr::SynPrefixOpr;
 /// # type
 
 impl<'a> SemExprBuilder<'a> {
-    pub(super) fn build_prefix_sem_expr(
+    pub(super) fn build_prefix_expr(
         &mut self,
         expr_idx: SynExprIdx,
         opr: SynPrefixOpr,
@@ -157,7 +157,7 @@ impl<'a> SemExprBuilder<'a> {
             SemaPrefixOpr::Minus => todo!(),
             SemaPrefixOpr::Not => todo!(),
             SemaPrefixOpr::BitNot => todo!(),
-            SemaPrefixOpr::LeashType => Ok(FlyTerm::new_leashed(self, opd_term)?),
+            SemaPrefixOpr::LeashType => Ok(opd_term.leashed(self)?),
             SemaPrefixOpr::RefType => {
                 // let opd_ty = self.infer
                 // match

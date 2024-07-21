@@ -331,18 +331,18 @@ impl Visualize for crate::raw_contour::RawContour {
 impl crate::raw_contour::RawContour {
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 9, return_leash)]
     pub fn line_segment_sketch(&'static self) -> crate::line_segment_sketch::LineSegmentSketch {
-        crate::line_segment_sketch::LineSegmentSketch::new(&Leash(&self), 1.4f32)
+        crate::line_segment_sketch::LineSegmentSketch::new(__self, 1.4f32)
     }
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 10, return_leash)]
     pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
-        let start_point = &self.points[0 as usize];
+        let start_point = &__self.deleash().points[0 as usize];
         let mut xmin = start_point.x;
         let mut xmax = start_point.x;
         let mut ymin = start_point.y;
         let mut ymax = start_point.y;
-        for i in 0..self.points.ilen() {
-            let point = &self.points[i as usize];
+        for i in 0..__self.deleash().points.ilen() {
+            let point = &__self.deleash().points[i as usize];
             xmin = xmin.min(point.x);
             xmax = xmax.max(point.x);
             ymin = ymin.min(point.y);
@@ -353,19 +353,19 @@ impl crate::raw_contour::RawContour {
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 11, return_leash)]
     pub fn relative_bounding_box(&'static self) -> crate::geom2d::RelativeBoundingBox {
-        <crate::raw_contour::RawContour>::bounding_box(Leash(&<crate::connected_component::ConnectedComponent>::raw_contours(self.cc)[0 as usize])).relative_bounding_box(&<crate::raw_contour::RawContour>::bounding_box(Leash(&self)))
+        <crate::raw_contour::RawContour>::bounding_box(Leash(&<crate::connected_component::ConnectedComponent>::raw_contours(__self.deleash().cc)[0 as usize])).relative_bounding_box(&<crate::raw_contour::RawContour>::bounding_box(__self))
     }
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 12)]
     pub fn contour_len(&'static self) -> f32 {
         let mut contour_len = 0.0f32;
-        for i in (0 + 1)..self.points.ilen() {
-            let a = &self.points[(i - 1) as usize];
-            let b = &self.points[i as usize];
+        for i in (0 + 1)..__self.deleash().points.ilen() {
+            let a = &__self.deleash().points[(i - 1) as usize];
+            let b = &__self.deleash().points[i as usize];
             contour_len += (a.x - b.x).abs() + (a.y - b.y).abs()
         }
-        let a = &self.points[(self.points.ilen() - 1) as usize];
-        let b = &self.points[0 as usize];
+        let a = &__self.deleash().points[(__self.deleash().points.ilen() - 1) as usize];
+        let b = &__self.deleash().points[0 as usize];
         contour_len += (a.x - b.x).abs() + (a.y - b.y).abs();
         return contour_len;
     }

@@ -1,6 +1,6 @@
 use crate::{
-    jar::HirEagerExprJar, variable::runtime::HirEagerRvarIdx, HirEagerExprIdx, HirEagerPatternIdx,
-    HirEagerStmtIdx,
+    jar::HirEagerExprJar, variable::runtime::HirEagerRuntimeVariableIdx, HirEagerExprIdx,
+    HirEagerPatternIdx, HirEagerStmtIdx,
 };
 use husky_sem_expr::{SemExprIdx, SemExprMap, SemStmtIdx, SemStmtMap};
 use husky_syn_expr::{
@@ -21,7 +21,7 @@ pub struct HirEagerExprSourceMapData {
     syn_to_hir_eager_pattern_idx_map: SynPatternMap<HirEagerPatternIdx>,
     sem_to_hir_eager_expr_idx_map: SemExprMap<HirEagerExprIdx>,
     sem_to_hir_eager_stmt_idx_map: SemStmtMap<HirEagerStmtIdx>,
-    variable_to_hir_eager_runtime_symbol_map: VariableMap<HirEagerRvarIdx>,
+    variable_to_hir_eager_runtime_symbol_map: VariableMap<HirEagerRuntimeVariableIdx>,
 }
 
 impl HirEagerExprSourceMap {
@@ -30,7 +30,7 @@ impl HirEagerExprSourceMap {
         syn_to_hir_eager_pattern_idx_map: SynPatternMap<HirEagerPatternIdx>,
         sem_to_hir_eager_expr_idx_map: SemExprMap<HirEagerExprIdx>,
         sem_to_hir_eager_stmt_idx_map: SemStmtMap<HirEagerStmtIdx>,
-        variable_to_hir_eager_runtime_symbol_map: VariableMap<HirEagerRvarIdx>,
+        variable_to_hir_eager_runtime_symbol_map: VariableMap<HirEagerRuntimeVariableIdx>,
     ) -> Self {
         Self::new_inner(
             db,
@@ -72,7 +72,7 @@ impl HirEagerExprSourceMapData {
     pub fn current_variable_to_hir_eager_runtime_symbol(
         &self,
         current_variable_idx: CurrentVariableIdx,
-    ) -> Option<HirEagerRvarIdx> {
+    ) -> Option<HirEagerRuntimeVariableIdx> {
         self.variable_to_hir_eager_runtime_symbol_map
             .get_current(current_variable_idx)
             .copied()

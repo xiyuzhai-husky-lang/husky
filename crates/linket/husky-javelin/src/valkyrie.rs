@@ -208,8 +208,8 @@ impl<'db> ValkyrieRidesBuilder<'db> {
                     }
                 }
                 HirEagerExprData::Literal(_)
-                | HirEagerExprData::ConstVariable { .. }
-                | HirEagerExprData::Variable(_)
+                | HirEagerExprData::ComptimeVariable { .. }
+                | HirEagerExprData::RuntimeVariable(_)
                 | HirEagerExprData::Binary { .. }
                 | HirEagerExprData::Prefix { .. }
                 | HirEagerExprData::Suffix { .. }

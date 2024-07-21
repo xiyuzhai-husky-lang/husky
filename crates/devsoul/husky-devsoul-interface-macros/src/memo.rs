@@ -2,6 +2,7 @@ use super::*;
 use quote::quote;
 use syn::{Ident, ItemFn, ReturnType, Signature};
 
+// todo: allow customization on self value type
 pub(crate) fn memo(args: TokenStream, input: TokenStream) -> TokenStream {
     let MemoizedFieldArgs {
         ingredient_index,
@@ -37,7 +38,7 @@ pub(crate) fn memo(args: TokenStream, input: TokenStream) -> TokenStream {
     };
     if return_leash {
         quote! {
-            #vis fn #ident(&'static self) -> #return_leash_ty {
+            #vis fn #ident(__self: Leash<Self>) -> #return_leash_ty {
                 todo!("return leash for eager val, change the return type")
                 // __eval_memo_field_return_ref_with(
                 //     self,
@@ -49,12 +50,12 @@ pub(crate) fn memo(args: TokenStream, input: TokenStream) -> TokenStream {
                 // )
             }
 
-            #vis fn #aux_ident(&'static self) -> #return_ty #block
+            #vis fn #aux_ident(__self: Leash<Self>) -> #return_ty #block
         }
         .into()
     } else {
         quote! {
-            #vis fn #ident(&'static self) -> #return_ty {
+            #vis fn #ident(__self: Leash<Self>) -> #return_ty {
                 todo!("return copied for eager val")
                 // __eval_memo_field_with(
                 //     self,
@@ -66,7 +67,7 @@ pub(crate) fn memo(args: TokenStream, input: TokenStream) -> TokenStream {
                 // )
             }
 
-            #vis fn #aux_ident(&'static self) -> #return_ty #block
+            #vis fn #aux_ident(__self: Leash<Self>) -> #return_ty #block
         }
         .into()
     }

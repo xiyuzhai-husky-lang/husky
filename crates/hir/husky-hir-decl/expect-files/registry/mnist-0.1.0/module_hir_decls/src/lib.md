@@ -17,6 +17,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist::MnistLabel`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -26,12 +27,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -50,6 +51,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist::MnistLabel::Zero`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -59,12 +61,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -82,6 +84,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist::MnistLabel::One`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -91,12 +94,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -114,6 +117,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist::MnistLabel::Two`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -123,12 +127,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -146,6 +150,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist::MnistLabel::Three`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -155,12 +160,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -178,6 +183,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist::MnistLabel::Four`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -187,12 +193,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -210,6 +216,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist::MnistLabel::Five`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -219,12 +226,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -242,6 +249,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist::MnistLabel::Six`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -251,12 +259,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -274,6 +282,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist::MnistLabel::Seven`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -283,12 +292,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -306,6 +315,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist::MnistLabel::Eight`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -315,12 +325,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -338,6 +348,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist::MnistLabel::Nine`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -347,12 +358,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -374,6 +385,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist::BinaryImage28`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -383,12 +395,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -417,6 +429,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist::BinaryImage28::#derive(0)`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -426,12 +439,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -453,6 +466,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist::BinaryGrid28`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -462,12 +476,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -494,6 +508,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist::INPUT`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -503,12 +518,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -541,6 +556,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist::BinaryImage28 as core::visual::Visualize(0)`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -550,12 +566,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -602,6 +618,15 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`),
                         ),
+                        self_value_ty: Some(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
+                                    template_arguments: [],
+                                    always_copyable: false,
+                                },
+                            ),
+                        ),
                         expr_arena: Arena {
                             data: [],
                         },
@@ -611,12 +636,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -652,6 +677,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist::BinaryImage28(0)`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -661,12 +687,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -703,6 +729,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist::BinaryImage28(0)::new_zeros`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -712,12 +739,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -757,6 +784,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist::BinaryImage28 as core::ops::IntIndex(0)`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -766,12 +794,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -803,6 +831,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -812,12 +841,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -850,6 +879,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist::BinaryGrid28 as core::visual::Visualize(0)`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -859,12 +889,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -911,6 +941,15 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`),
                         ),
+                        self_value_ty: Some(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`mnist::BinaryGrid28`, `Extern`),
+                                    template_arguments: [],
+                                    always_copyable: false,
+                                },
+                            ),
+                        ),
                         expr_arena: Arena {
                             data: [],
                         },
@@ -920,12 +959,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -961,6 +1000,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist::BinaryGrid28(0)`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -970,12 +1010,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -1012,6 +1052,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist::BinaryGrid28(0)::new_zeros`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -1021,12 +1062,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -1066,6 +1107,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist::BinaryGrid28 as core::ops::IntIndex(0)`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -1075,12 +1117,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -1112,6 +1154,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -1121,12 +1164,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },

@@ -966,18 +966,18 @@ impl<'a> SemExprBuilder<'a> {
                 opr_regional_token_idx,
                 opd,
             } => {
-                let (opd_sem_expr_idx_and_opr_result, ty_result) = self.build_prefix_sem_expr(
+                let (opd_and_opr_result, ty_result) = self.build_prefix_expr(
                     syn_expr_idx,
                     opr,
                     opd,
                     expr_ty_expectation.final_destination(self),
                 );
-                match opd_sem_expr_idx_and_opr_result {
-                    Ok((opd_sem_expr_idx, opr)) => (
+                match opd_and_opr_result {
+                    Ok((opd, opr)) => (
                         Ok(SemExprData::Prefix {
                             opr,
                             opr_regional_token_idx,
-                            opd: opd_sem_expr_idx,
+                            opd,
                         }),
                         ty_result,
                     ),

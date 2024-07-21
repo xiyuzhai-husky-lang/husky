@@ -400,7 +400,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\nself type\n\ncoercion = None\n\ntype = `Type`",
+                            value: "Other keyword\n\nself type\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(
@@ -820,7 +820,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\nself type\n\ncoercion = None\n\ntype = `Type`",
+                            value: "Other keyword\n\nself type\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(

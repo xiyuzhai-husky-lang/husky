@@ -236,18 +236,18 @@ impl Visualize for crate::line_segment_sketch::LineSegmentSketch {
 impl crate::line_segment_sketch::LineSegmentSketch {
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 13, return_leash)]
     pub fn concave_components(&'static self) -> Vec<crate::line_segment_sketch::concave_component::ConcaveComponent> {
-        crate::line_segment_sketch::concave_component::find_concave_components(&Leash(&self))
+        crate::line_segment_sketch::concave_component::find_concave_components(__self)
     }
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 14, return_leash)]
     pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
-        let start_point = &self.strokes[0 as usize].start;
+        let start_point = &__self.deleash().strokes[0 as usize].start;
         let mut xmin = start_point.x;
         let mut xmax = start_point.x;
         let mut ymin = start_point.y;
         let mut ymax = start_point.y;
-        for i in 0..self.strokes.ilen() {
-            let point = &self.strokes[i as usize].end;
+        for i in 0..__self.deleash().strokes.ilen() {
+            let point = &__self.deleash().strokes[i as usize].end;
             xmin = xmin.min(point.x);
             xmax = xmax.max(point.x);
             ymin = ymin.min(point.y);

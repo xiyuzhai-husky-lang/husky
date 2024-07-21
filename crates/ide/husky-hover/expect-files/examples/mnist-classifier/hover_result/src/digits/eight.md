@@ -430,7 +430,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nvariable\n\ncoercion = None\n\ntype = `Leash ConcaveComponent`",
+                            value: "\n\nvariable\n\ncoercion = None\n\ntype = `Leash ConcaveComponent @ Some(StackPure { place: Idx(PlaceIdx(0)) })`",
                         },
                     ),
                     range: Some(
@@ -550,7 +550,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nvariable\n\ncoercion = None\n\ntype = `Leash ConcaveComponent`",
+                            value: "\n\nvariable\n\ncoercion = None\n\ntype = `Leash ConcaveComponent @ Some(StackPure { place: Idx(PlaceIdx(0)) })`",
                         },
                     ),
                     range: Some(
@@ -610,7 +610,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nvariable\n\ncoercion = None\n\ntype = `Leash ConcaveComponent`",
+                            value: "\n\nvariable\n\ncoercion = None\n\ntype = `Leash ConcaveComponent @ Some(StackPure { place: Idx(PlaceIdx(0)) })`",
                         },
                     ),
                     range: Some(

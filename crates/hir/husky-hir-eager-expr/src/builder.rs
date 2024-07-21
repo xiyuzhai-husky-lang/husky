@@ -1,7 +1,7 @@
 use crate::{
     variable::{
         comptime::HirEagerComptimeVariableRegionData,
-        runtime::{HirEagerRuntimeVariableRegionData, HirEagerRvarIdx},
+        runtime::{HirEagerRuntimeVariableIdx, HirEagerRuntimeVariableRegionData},
     },
     *,
 };
@@ -33,7 +33,7 @@ pub(crate) struct HirEagerExprBuilder<'a> {
     sem_to_hir_eager_stmt_idx_map: SemStmtMap<HirEagerStmtIdx>,
     hir_eager_comptime_symbol_region_data: HirEagerComptimeVariableRegionData,
     hir_eager_runtime_symbol_region_data: HirEagerRuntimeVariableRegionData,
-    variable_to_hir_eager_runtime_symbol_map: VariableMap<HirEagerRvarIdx>,
+    variable_to_hir_eager_runtime_symbol_map: VariableMap<HirEagerRuntimeVariableIdx>,
 }
 
 impl<'a> HirEagerExprBuilder<'a> {
@@ -213,7 +213,7 @@ impl<'a> HirEagerExprBuilder<'a> {
     pub(crate) fn inherited_variable_to_hir_eager_runtime_symbol(
         &self,
         inherited_variable_idx: InheritedVariableIdx,
-    ) -> Option<HirEagerRvarIdx> {
+    ) -> Option<HirEagerRuntimeVariableIdx> {
         self.variable_to_hir_eager_runtime_symbol_map
             .get_inherited(inherited_variable_idx)
             .copied()
@@ -222,17 +222,26 @@ impl<'a> HirEagerExprBuilder<'a> {
     pub(crate) fn current_variable_to_hir_eager_runtime_symbol(
         &self,
         current_variable_idx: CurrentVariableIdx,
-    ) -> Option<HirEagerRvarIdx> {
+    ) -> Option<HirEagerRuntimeVariableIdx> {
         self.variable_to_hir_eager_runtime_symbol_map
             .get_current(current_variable_idx)
             .copied()
     }
 
     fn finish(self) -> (HirEagerExprRegion, HirEagerExprSourceMap) {
+        let self_value_ty = self.sem_expr_region_data.self_value_ty().map(|term| {
+            HirType::from_fly(
+                term,
+                self.db,
+                self.sem_expr_region_data.fly_term_region().terms(),
+            )
+            .expect("no error at this stage")
+        });
         (
             HirEagerExprRegion::new(
                 self.db,
                 self.sem_expr_region_data.region_path(),
+                self_value_ty,
                 self.hir_eager_expr_arena,
                 self.hir_eager_stmt_arena,
                 self.hir_eager_pattern_arena,
@@ -249,7 +258,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         )
     }
 
-    pub(crate) fn self_value_variable(&self) -> Option<HirEagerRvarIdx> {
+    pub(crate) fn self_value_variable(&self) -> Option<HirEagerRuntimeVariableIdx> {
         self.hir_eager_runtime_symbol_region_data
             .self_value_variable()
     }

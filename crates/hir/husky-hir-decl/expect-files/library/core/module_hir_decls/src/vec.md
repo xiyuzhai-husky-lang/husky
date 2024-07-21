@@ -30,6 +30,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::vec::Vec`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -39,7 +40,7 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -62,7 +63,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -95,6 +96,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`core::vec::Vec::#derive(0)`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -104,7 +106,7 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [
                                 HirEagerComptimeVariableEntry {
@@ -127,7 +129,7 @@
                             ],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -183,6 +185,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`core::vec::Vec(0)`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -192,7 +195,7 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [
                                 HirEagerComptimeVariableEntry {
@@ -213,7 +216,7 @@
                             ],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -260,6 +263,27 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::vec::Vec(0)::ilen`),
                         ),
+                        self_value_ty: Some(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                    template_arguments: [
+                                        HirTemplateArgument::Type(
+                                            HirType::Variable(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
+                                                        class: Mono,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                    always_copyable: false,
+                                },
+                            ),
+                        ),
                         expr_arena: Arena {
                             data: [],
                         },
@@ -269,7 +293,7 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -290,7 +314,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -359,6 +383,27 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::vec::Vec(0)::push`),
                         ),
+                        self_value_ty: Some(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                    template_arguments: [
+                                        HirTemplateArgument::Type(
+                                            HirType::Variable(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
+                                                        class: Mono,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                    always_copyable: false,
+                                },
+                            ),
+                        ),
                         expr_arena: Arena {
                             data: [],
                         },
@@ -378,7 +423,7 @@
                                 },
                             ],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -399,7 +444,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -487,6 +532,27 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::vec::Vec(0)::first`),
                         ),
+                        self_value_ty: Some(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                    template_arguments: [
+                                        HirTemplateArgument::Type(
+                                            HirType::Variable(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
+                                                        class: Mono,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                    always_copyable: false,
+                                },
+                            ),
+                        ),
                         expr_arena: Arena {
                             data: [],
                         },
@@ -496,7 +562,7 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -517,7 +583,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -599,6 +665,27 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::vec::Vec(0)::last`),
                         ),
+                        self_value_ty: Some(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                    template_arguments: [
+                                        HirTemplateArgument::Type(
+                                            HirType::Variable(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
+                                                        class: Mono,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                    always_copyable: false,
+                                },
+                            ),
+                        ),
                         expr_arena: Arena {
                             data: [],
                         },
@@ -608,7 +695,7 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -629,7 +716,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -696,6 +783,27 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::vec::Vec(0)::pop`),
                         ),
+                        self_value_ty: Some(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                    template_arguments: [
+                                        HirTemplateArgument::Type(
+                                            HirType::Variable(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
+                                                        class: Mono,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                    always_copyable: false,
+                                },
+                            ),
+                        ),
                         expr_arena: Arena {
                             data: [],
                         },
@@ -705,7 +813,7 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -726,7 +834,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -803,6 +911,27 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::vec::Vec(0)::collect_leashes`),
                         ),
+                        self_value_ty: Some(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                    template_arguments: [
+                                        HirTemplateArgument::Type(
+                                            HirType::Variable(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
+                                                        class: Mono,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                    always_copyable: false,
+                                },
+                            ),
+                        ),
                         expr_arena: Arena {
                             data: [],
                         },
@@ -812,7 +941,7 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -833,7 +962,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -933,6 +1062,27 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::vec::Vec(0)::cyclic_slice_leashed`),
                         ),
+                        self_value_ty: Some(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                    template_arguments: [
+                                        HirTemplateArgument::Type(
+                                            HirType::Variable(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
+                                                        class: Mono,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                    always_copyable: false,
+                                },
+                            ),
+                        ),
                         expr_arena: Arena {
                             data: [],
                         },
@@ -957,7 +1107,7 @@
                                 },
                             ],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -978,7 +1128,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -1104,6 +1254,27 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::vec::Vec(0)::pop_with_largest_opt_f32`),
                         ),
+                        self_value_ty: Some(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                    template_arguments: [
+                                        HirTemplateArgument::Type(
+                                            HirType::Variable(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
+                                                        class: Mono,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                    always_copyable: false,
+                                },
+                            ),
+                        ),
                         expr_arena: Arena {
                             data: [],
                         },
@@ -1121,7 +1292,7 @@
                                 },
                             ],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -1142,7 +1313,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {

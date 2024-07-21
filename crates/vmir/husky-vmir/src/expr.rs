@@ -154,8 +154,8 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
             },
             HirEagerExprData::PrincipalEntityPath(_) => VmirExprData::PrincipalEntityPath,
             HirEagerExprData::AssocRitchie { assoc_item_path } => todo!(),
-            HirEagerExprData::ConstVariable { ident } => VmirExprData::ConstTemplateVariable,
-            HirEagerExprData::Variable(_) => {
+            HirEagerExprData::ComptimeVariable { ident } => VmirExprData::ConstTemplateVariable,
+            HirEagerExprData::RuntimeVariable(_) => {
                 let place_idx = match entry.quary().place() {
                     Some(place) => match place {
                         EthPlace::Idx(place_idx) => place_idx,

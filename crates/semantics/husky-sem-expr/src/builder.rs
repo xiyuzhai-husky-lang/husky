@@ -165,7 +165,7 @@ impl<'a> SemExprBuilder<'a> {
             db,
             toolchain,
             item_path_menu: item_path_menu(db, toolchain),
-            term_menu: db.ethereal_term_menu(toolchain),
+            term_menu: db.eth_term_menu(toolchain),
             syn_expr_region,
             syn_expr_region_data,
             dec_term_region,
@@ -222,14 +222,15 @@ fn calc_self_value_ty(
         };
         VariableModifier::new(self_value_parameter.ephem_symbol_modifier_token_verse())
     }
-    let self_ty: FlyTerm = self_ty?.into();
-    let modifier = match syn_expr_region_data.path() {
+    let self_ty = self_ty?;
+    let (self_value_ty, modifier) = match syn_expr_region_data.path() {
         SynNodeRegionPath::CrateDecl(_) => todo!(),
         SynNodeRegionPath::ItemDecl(syn_node_path) | SynNodeRegionPath::ItemDefn(syn_node_path) => {
             match syn_node_path.syn_node_decl(db) {
                 ItemSynNodeDecl::AssocItem(syn_node_decl) => match syn_node_decl {
                     AssocItemSynNodeDecl::TypeItem(syn_node_decl) => match syn_node_decl {
-                        TypeItemSynNodeDecl::MethodFn(syn_node_decl) => Some(
+                        TypeItemSynNodeDecl::MethodFn(syn_node_decl) => (
+                            self_ty,
                             method_ritchie_self_value_modifier_from_self_value_parameter(
                                 syn_node_decl
                                     .parenate_parameters(db)
@@ -238,11 +239,14 @@ fn calc_self_value_ty(
                                     .self_value_parameter(),
                             ),
                         ),
-                        TypeItemSynNodeDecl::MemoizedField(_) => Some(VariableModifier::Le),
-                        _ => None,
+                        TypeItemSynNodeDecl::MemoizedField(_) => {
+                            (self_ty.leashed(db), VariableModifier::Pure)
+                        }
+                        _ => return None,
                     },
                     AssocItemSynNodeDecl::TraitItem(syn_node_decl) => match syn_node_decl {
-                        TraitItemSynNodeDecl::MethodRitchie(syn_node_decl) => Some(
+                        TraitItemSynNodeDecl::MethodRitchie(syn_node_decl) => (
+                            self_ty,
                             method_ritchie_self_value_modifier_from_self_value_parameter(
                                 syn_node_decl
                                     .parenate_parameter_decl_list(db)
@@ -251,11 +255,14 @@ fn calc_self_value_ty(
                                     .self_value_parameter(),
                             ),
                         ),
-                        TraitItemSynNodeDecl::MemoizedField(_) => Some(VariableModifier::Le),
-                        _ => None,
+                        TraitItemSynNodeDecl::MemoizedField(_) => {
+                            (self_ty.leashed(db), VariableModifier::Pure)
+                        }
+                        _ => return None,
                     },
                     AssocItemSynNodeDecl::TraitForTypeItem(syn_node_decl) => match syn_node_decl {
-                        TraitForTypeItemSynNodeDecl::MethodFn(syn_node_decl) => Some(
+                        TraitForTypeItemSynNodeDecl::MethodFn(syn_node_decl) => (
+                            self_ty,
                             method_ritchie_self_value_modifier_from_self_value_parameter(
                                 syn_node_decl
                                     .parenate_parameter_decl_list(db)
@@ -264,14 +271,15 @@ fn calc_self_value_ty(
                                     .self_value_parameter(),
                             ),
                         ),
-                        _ => None,
+                        // todo: memo
+                        _ => return None,
                     },
-                    AssocItemSynNodeDecl::IllFormedItem(_) => None,
+                    AssocItemSynNodeDecl::IllFormedItem(_) => return None,
                 },
-                _ => None,
+                _ => return None,
             }
         }
-    }?;
+    };
     let place_data = PlaceInfo::SelfValue;
     let place = match modifier {
         VariableModifier::Pure => FlyQuary::StackPure {
@@ -301,7 +309,8 @@ fn calc_self_value_ty(
         },
         VariableModifier::At => FlyQuary::EtherealSymbol(self_place?),
     };
-    Some(self_ty.with_quary(place))
+    let self_value_ty: FlyTerm = self_value_ty.into();
+    Some(self_value_ty.with_quary(place))
 }
 
 /// # getters
@@ -600,6 +609,7 @@ impl<'a> SemExprBuilder<'a> {
             self.fly_term_region,
             self.return_ty,
             self.self_ty,
+            self.self_value_ty,
             self.context_ref.context_itd(),
             self.db,
         )
