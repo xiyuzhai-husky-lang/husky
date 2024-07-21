@@ -197,6 +197,9 @@ impl<'a> HoverResultCalculator<'a> {
         let db = self.db;
         match self.token_infos.last() {
             Some(ref info) => match info.data() {
+                TokenInfoData::Literal => {
+                    write!(debug_content, "literal")
+                }
                 TokenInfoData::Entity(path) => {
                     write!(debug_content, "entity `{}`", path.display_with(db))
                 }

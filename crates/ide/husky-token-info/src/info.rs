@@ -99,6 +99,7 @@ pub enum TokenInfoData {
     ClosureVert,
     ClosureLightArrow,
     ClosureEq,
+    Literal,
 }
 
 #[cfg(feature = "protocol_support")]
@@ -166,6 +167,7 @@ impl TokenInfoData {
             TokenInfoData::ClosureVert => TokenClass::Punctuation,
             TokenInfoData::ClosureLightArrow => TokenClass::Punctuation,
             TokenInfoData::ClosureEq => TokenClass::Punctuation,
+            TokenInfoData::Literal => TokenClass::Literal,
         }
     }
 }
