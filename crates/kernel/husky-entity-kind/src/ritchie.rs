@@ -15,12 +15,12 @@ pub enum RitchieItemKind {
 
 impl std::fmt::Display for RitchieItemKind {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.code().fmt(f)
+        self.display_str().fmt(f)
     }
 }
 
 impl RitchieItemKind {
-    pub fn code(self) -> &'static str {
+    pub fn display_str(self) -> &'static str {
         match self {
             RitchieItemKind::Fn => "fn",
             RitchieItemKind::Gn => "gn",

@@ -5,6 +5,7 @@ use husky_text_protocol::range::TextRange;
 use husky_token::{verse::idx::TokenVerseIdx, TokenDb};
 use husky_token_data::{Keyword, TokenData};
 use husky_token_info::{TokenInfo, TokenInfoData, TokenInfoDb, TokenInfoSource};
+use salsa::fmt::WithFmtContext;
 
 use crate::*;
 
@@ -169,15 +170,22 @@ impl<'a> HoverResultCalculator<'a> {
                     TokenInfoSource::UseExpr(_) => (),
                     TokenInfoSource::SemExpr(_, expr) => {
                         let sem_expr_region_data = &self.sem_expr_region_data.unwrap();
-                        match expr.ty_result(sem_expr_region_data.sem_expr_arena2()) {
-                            Ok(ty) => write!(
-                                debug_content,
-                                "\n\ntype = `{}`",
-                                ty.show2(db, sem_expr_region_data.fly_term_region().terms())
+                        sem_expr_region_data
+                            .with_fmt_context(
+                                || match expr.ty_result(sem_expr_region_data.sem_expr_arena2()) {
+                                    Ok(ty) => write!(
+                                        debug_content,
+                                        "\n\ntype = `{}`",
+                                        ty.show2(
+                                            db,
+                                            sem_expr_region_data.fly_term_region().terms()
+                                        )
+                                    ),
+                                    Err(e) => write!(debug_content, "\n\ntype = Type Error: {e}",),
+                                },
+                                db,
                             )
-                            .unwrap(),
-                            Err(e) => write!(debug_content, "\n\ntype = Type Error: {e}",).unwrap(),
-                        }
+                            .unwrap()
                     }
                     TokenInfoSource::SynPrincipalEntityPathExpr(_, _) => (),
                     TokenInfoSource::Pattern(_, _) => (),
