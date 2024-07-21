@@ -12,6 +12,7 @@ pub struct HoverConfig {
     // syntax
     // semantics
     pub coersion: bool,
+    pub ty: bool,
 }
 
 impl HoverConfig {
@@ -33,6 +34,7 @@ pub(crate) fn hover_config(db: &::salsa::Db, module_path: ModulePath) -> HoverCo
         token: false,
         token_info: false,
         coersion: true,
+        ty: true,
     }
 }
 

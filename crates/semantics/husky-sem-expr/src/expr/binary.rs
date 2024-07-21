@@ -153,7 +153,7 @@ impl<'a> SemExprBuilder<'a> {
                     .data_result(self.sem_expr_arena())
                     .debug(self.db()),
                 ropd_sem_expr_idx
-                    .immediate_ty_result(self.sem_expr_arena())
+                    .ty_result(self.sem_expr_arena())
                     .debug(self.db())
             );
             todo!()

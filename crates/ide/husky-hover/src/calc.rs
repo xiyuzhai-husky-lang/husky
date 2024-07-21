@@ -70,7 +70,8 @@ impl<'a> HoverResultCalculator<'a> {
     fn gen_content(mut self) -> Option<HoverResult> {
         self.markdown_content += &self.content();
         if self.config.debug {
-            self.markdown_content += &self.debug_content()
+            self.markdown_content += "\n\n";
+            self.markdown_content += &self.debug_content();
         }
         Some(self.finish())
     }
@@ -90,8 +91,8 @@ impl<'a> HoverResultCalculator<'a> {
 
     fn gen_keyword_content(&self, kw: Keyword) -> &'static str {
         match kw {
-            Keyword::Form(_keyword) => "This is a paradigm",
-            _ => "Other",
+            Keyword::Form(_) => "This is a form keyword",
+            _ => "Other keyword",
         }
     }
 
@@ -146,7 +147,7 @@ impl<'a> HoverResultCalculator<'a> {
 
         if self.config.coersion {
             if let Some(token_info) = self.token_info
-                && let TokenInfoSource::SemExpr(region_path, expr) = token_info.src()
+                && let TokenInfoSource::SemExpr(_, expr) = token_info.src()
             {
                 let sem_expr_region_data = self.sem_expr_region_data.unwrap();
                 write!(
@@ -157,6 +158,31 @@ impl<'a> HoverResultCalculator<'a> {
                         .flatten()
                 )
                 .unwrap();
+            }
+        }
+
+        if self.config.ty {
+            if let Some(token_info) = self.token_info {
+                // ad hoc
+                match token_info.src() {
+                    TokenInfoSource::UseExpr(_) => (),
+                    TokenInfoSource::SemExpr(_, expr) => {
+                        let sem_expr_region_data = &self.sem_expr_region_data.unwrap();
+                        match expr.ty_result(sem_expr_region_data.sem_expr_arena2()) {
+                            Ok(ty) => write!(
+                                debug_content,
+                                "\n\ntype = `{}`",
+                                ty.show2(db, sem_expr_region_data.fly_term_region().terms())
+                            )
+                            .unwrap(),
+                            Err(e) => write!(debug_content, "\n\ntype = Type Error: {e}",).unwrap(),
+                        }
+                    }
+                    TokenInfoSource::SynPrincipalEntityPathExpr(_, _) => (),
+                    TokenInfoSource::Pattern(_, _) => (),
+                    TokenInfoSource::TemplateParameter(_) => (),
+                    TokenInfoSource::AstIdentifiable => (),
+                }
             }
         }
 
