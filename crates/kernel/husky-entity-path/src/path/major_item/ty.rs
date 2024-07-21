@@ -161,6 +161,7 @@ impl PreludeTypePath {
     pub const REF: Self = PreludeTypePath::Indirection(PreludeIndirectionTypePath::Ref);
     pub const REF_MUT: Self = PreludeTypePath::Indirection(PreludeIndirectionTypePath::RefMut);
     pub const NEVER: Self = PreludeTypePath::Basic(PreludeBasicTypePath::Never);
+    pub const LEASH: Self = PreludeTypePath::Indirection(PreludeIndirectionTypePath::Leash);
     pub const ARRAY: Self = PreludeTypePath::Container(PreludeContainerTypePath::Array);
     pub const VEC: Self = PreludeTypePath::Container(PreludeContainerTypePath::Vec);
     pub const SLICE: Self = PreludeTypePath::Container(PreludeContainerTypePath::Slice);

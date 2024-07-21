@@ -91,7 +91,7 @@ impl Diagnose for OriginalSemExprDataError {
         // MOM
         match self {
             OriginalSemExprDataError::NoSuchField {
-                owner_ty,
+                self_argument_ty: owner_ty,
                 ident_token,
             } => {
                 format!(

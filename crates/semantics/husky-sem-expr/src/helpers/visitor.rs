@@ -138,7 +138,7 @@ impl SemExprIdx {
                 } => todo!(),
                 SemExprData::MethodRitchieCall {
                     self_argument,
-                    instance_dispatch: ref dispatch,
+                    ref dispatch,
                     ref template_arguments,
                     ref ritchie_parameter_argument_matches,
                     ..

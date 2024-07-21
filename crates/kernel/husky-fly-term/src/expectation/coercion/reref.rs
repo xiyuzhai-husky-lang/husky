@@ -27,7 +27,7 @@ impl ExpectCoercion {
                     self.try_finalize_coercion(
                         state.expectee(),
                         expected_ty_arguments[0],
-                        FlyCoercion::PlaceToLeash,
+                        FlyCoercion::Releash,
                         db,
                         terms,
                         state,

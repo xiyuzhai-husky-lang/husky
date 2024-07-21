@@ -34,7 +34,7 @@ impl<'a> SemExprBuilder<'a> {
                 syn_pattern_root,
                 variables,
                 colon_token: ty.map(|(colon_token, _)| colon_token),
-                ty: ty.map(|(_, ty)| self.build_sem_expr(ty, ExpectSort::TYPE)),
+                ty: ty.map(|(_, ty)| self.build_expr(ty, ExpectSort::TYPE)),
             },
         }
     }

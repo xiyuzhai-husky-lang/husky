@@ -323,7 +323,7 @@ impl ToHirLazy for SemExprIdx {
             } => todo!(),
             SemExprData::Field {
                 self_argument: owner,
-                self_ty: owner_ty,
+                self_argument_ty: owner_ty,
                 ident_token,
                 ref dispatch,
                 ..
@@ -368,7 +368,7 @@ impl ToHirLazy for SemExprIdx {
             SemExprData::MethodRitchieCall {
                 self_argument: self_argument_sem_expr_idx,
                 ident_token,
-                ref instance_dispatch,
+                dispatch: ref instance_dispatch,
                 ref ritchie_parameter_argument_matches,
                 ..
             } => {

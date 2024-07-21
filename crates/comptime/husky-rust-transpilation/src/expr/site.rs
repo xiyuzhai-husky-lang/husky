@@ -1,7 +1,10 @@
 use super::*;
 use crate::binding::{RustBinding, RustBindings};
 use husky_hir_eager_expr::coercion::HirEagerCoercion;
-use husky_hir_ty::ritchie::HirRitchieSimpleParameter;
+use husky_hir_ty::{
+    indirections::{HirIndirection, HirIndirections},
+    ritchie::HirRitchieSimpleParameter,
+};
 use husky_place::place::EthPlace;
 use vec_like::{SmallVecMap, SmallVecPairMap};
 
@@ -14,7 +17,8 @@ pub(crate) struct HirEagerExprSite {
 impl HirEagerExprSite {
     /// generate self subexpr on site
     /// `self` refers to the parent expr on site
-    pub(crate) fn self_expr_on_site(has_self_value_binding: bool) -> Self {
+    /// this excludes self argument of memoized field, where things are more complicated so that we have to use associated form for calling
+    pub(crate) fn simple_self_argument(has_self_value_binding: bool) -> Self {
         Self {
             rust_precedence_range: RustPrecedenceRange::Geq(RustPrecedence::Suffix),
             // this is because `RustBinding::SelfValue` automatically covers the contract
@@ -23,6 +27,46 @@ impl HirEagerExprSite {
             } else {
                 Default::default()
             },
+        }
+    }
+
+    pub(crate) fn method_self_argument(indirections: &HirIndirections) -> Self {
+        let mut rust_precedence_range = RustPrecedenceRange::Geq(RustPrecedence::Suffix);
+        let mut rust_bindings: RustBindings = RustBinding::SelfValue.into();
+        if indirections.len() > 0 {
+            for indirection in &**indirections {
+                match indirection {
+                    HirIndirection::Place(_) => todo!(),
+                    HirIndirection::Deleash => rust_bindings.push(RustBinding::Deleash),
+                }
+            }
+        }
+        Self {
+            rust_precedence_range,
+            rust_bindings,
+        }
+    }
+
+    /// we have to do more because the contract will not be automatically covered as in previous function
+    pub(crate) fn memoized_field_self_argument(
+        self_argument_ty: HirType,
+        indirections: &HirIndirections,
+        db: &::salsa::Db,
+    ) -> Self {
+        let mut rust_precedence_range = RustPrecedenceRange::Any;
+        let mut rust_bindings = RustBindings::default();
+        // ad hoc
+        if !self_argument_ty.is_always_leashed(db) {
+            rust_precedence_range = RustPrecedenceRange::Geq(RustPrecedence::Prefix);
+            rust_bindings.push(RustBinding::Releash);
+        }
+        // ad hoc
+        // if indirections.len() > 0 {
+        //     todo!();
+        // }
+        Self {
+            rust_precedence_range,
+            rust_bindings,
         }
     }
 
@@ -69,7 +113,7 @@ impl HirEagerExprSite {
             HirEagerCoercion::Trivial(_) => (),
             HirEagerCoercion::Never => (),
             HirEagerCoercion::WrapInSome => rust_bindings.push(RustBinding::WrapInSome),
-            HirEagerCoercion::PlaceToLeash => rust_bindings.push(RustBinding::Reref),
+            HirEagerCoercion::Releash => rust_bindings.push(RustBinding::Reref),
             HirEagerCoercion::Deref(_) => rust_bindings.push(RustBinding::Deref),
         }
         Self {
@@ -86,7 +130,7 @@ impl HirEagerExprSite {
                     HirEagerCoercion::Trivial(_) => Default::default(),
                     HirEagerCoercion::Never => Default::default(),
                     HirEagerCoercion::WrapInSome => RustBinding::WrapInSome.into(),
-                    HirEagerCoercion::PlaceToLeash => RustBinding::Reref.into(),
+                    HirEagerCoercion::Releash => RustBinding::Reref.into(),
                     HirEagerCoercion::Deref(_) => RustBinding::Deref.into(),
                 },
                 None => Default::default(),

@@ -347,6 +347,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -408,6 +409,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -422,7 +424,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`#derive _ as core::visual::Visualize(0)`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -468,6 +484,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -483,6 +506,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                     ],
                                 },
@@ -651,11 +681,12 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MemoizedField {
                                                 self_argument: 0,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -669,7 +700,21 @@
                                                         TypeItemKind::MemoizedField,
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -691,6 +736,17 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Leashed {
+                                                            place_idx: Some(
+                                                                PlaceIdx(0),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -700,16 +756,19 @@
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Leashed {
-                                                    place_idx: Some(
-                                                        PlaceIdx(0),
-                                                    ),
-                                                },
+                                                quary: Transient,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                     ],
                                 },
@@ -838,11 +897,12 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MemoizedField {
                                                 self_argument: 0,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -856,7 +916,21 @@
                                                         TypeItemKind::MemoizedField,
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -878,6 +952,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -895,6 +970,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -909,7 +985,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -928,6 +1018,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -942,7 +1033,13 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Transient,
+                                                    indirections: [],
+                                                    final_place: Transient,
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -961,6 +1058,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -978,6 +1082,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -993,6 +1104,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                     ],
                                 },
@@ -1120,6 +1238,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -1137,6 +1256,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -1189,6 +1309,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -1203,7 +1324,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`core::slice::CyclicSlice(0)::first`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -1245,6 +1380,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unwrap {
@@ -1258,6 +1394,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -1298,6 +1435,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -1315,6 +1453,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -1329,7 +1468,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -1348,6 +1501,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -1374,6 +1528,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -1388,7 +1543,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: ImmutableOnStack {
+                                                        place: Idx(
+                                                            PlaceIdx(3),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: ImmutableOnStack {
+                                                        place: Idx(
+                                                            PlaceIdx(3),
+                                                        ),
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -1407,6 +1576,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -1421,7 +1591,13 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Transient,
+                                                    indirections: [],
+                                                    final_place: Transient,
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -1440,6 +1616,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -1457,6 +1634,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -1509,6 +1687,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -1523,7 +1702,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`core::slice::CyclicSlice(0)::start`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -1565,6 +1758,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -1582,6 +1776,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -1634,6 +1829,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -1648,7 +1844,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`core::slice::CyclicSlice(0)::end`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -1690,6 +1900,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -1707,6 +1924,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -1759,6 +1977,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -1785,6 +2004,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -1803,6 +2023,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -1833,6 +2054,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -1859,6 +2081,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -1876,6 +2099,17 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Leashed {
+                                                            place_idx: Some(
+                                                                PlaceIdx(6),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -1890,7 +2124,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: ImmutableOnStack {
+                                                        place: Idx(
+                                                            PlaceIdx(3),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: ImmutableOnStack {
+                                                        place: Idx(
+                                                            PlaceIdx(3),
+                                                        ),
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -1932,6 +2180,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -1958,6 +2207,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -1984,6 +2234,17 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: MutableOnStack {
+                                                            place: Idx(
+                                                                PlaceIdx(1),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -2001,6 +2262,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -2027,6 +2289,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -2053,6 +2316,17 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: ImmutableOnStack {
+                                                            place: Idx(
+                                                                PlaceIdx(7),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -2068,6 +2342,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -2094,6 +2375,17 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: MutableOnStack {
+                                                            place: Idx(
+                                                                PlaceIdx(1),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -2109,6 +2401,9 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Never,
+                                            ),
                                         },
                                     ],
                                 },
@@ -2433,6 +2728,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -2450,6 +2746,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -2502,6 +2799,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -2519,6 +2817,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -2571,6 +2870,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -2585,7 +2885,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`core::slice::CyclicSlice(0)::start`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -2627,6 +2941,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -2645,6 +2960,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -2659,7 +2975,17 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -2678,6 +3004,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -2695,6 +3022,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -2747,6 +3075,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -2761,7 +3090,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`core::slice::CyclicSlice(0)::start`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -2803,6 +3146,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -2820,6 +3164,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -2872,6 +3217,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -2886,7 +3232,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`core::slice::CyclicSlice(0)::end`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -2928,6 +3288,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -2945,6 +3312,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -2997,6 +3365,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -3023,6 +3392,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -3041,6 +3411,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -3055,7 +3426,17 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -3074,6 +3455,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -3100,6 +3482,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -3126,6 +3509,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -3152,6 +3536,17 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: ImmutableOnStack {
+                                                            place: Idx(
+                                                                PlaceIdx(4),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -3167,6 +3562,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Compterm,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -3181,7 +3583,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: MutableOnStack {
+                                                        place: Idx(
+                                                            PlaceIdx(2),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: MutableOnStack {
+                                                        place: Idx(
+                                                            PlaceIdx(2),
+                                                        ),
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle_to`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -3241,6 +3657,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -3258,6 +3681,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -3284,6 +3714,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -3310,6 +3741,17 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: ImmutableOnStack {
+                                                            place: Idx(
+                                                                PlaceIdx(4),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -3325,6 +3767,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -3351,6 +3800,17 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: MutableOnStack {
+                                                            place: Idx(
+                                                                PlaceIdx(1),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -3366,6 +3826,9 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Never,
+                                            ),
                                         },
                                     ],
                                 },
@@ -3621,6 +4084,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -3673,6 +4137,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -3687,7 +4152,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`core::slice::CyclicSlice(0)::first`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -3729,6 +4208,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unwrap {
@@ -3742,6 +4222,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -3782,6 +4263,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -3799,6 +4281,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -3831,6 +4314,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -3848,6 +4332,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -3880,6 +4365,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -3897,6 +4383,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -3929,6 +4416,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -3946,6 +4434,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -3978,6 +4467,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -3995,6 +4485,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -4047,6 +4538,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -4061,7 +4553,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`core::slice::CyclicSlice(0)::start`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -4103,6 +4609,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -4120,6 +4627,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -4172,6 +4680,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -4186,7 +4695,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`core::slice::CyclicSlice(0)::end`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -4228,6 +4751,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -4245,6 +4775,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -4297,6 +4828,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -4323,6 +4855,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Index {
@@ -4341,6 +4874,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -4371,6 +4905,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -4397,6 +4932,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -4423,6 +4959,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -4440,6 +4977,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -4472,6 +5010,17 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Leashed {
+                                                            place_idx: Some(
+                                                                PlaceIdx(7),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -4486,7 +5035,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: MutableOnStack {
+                                                        place: Idx(
+                                                            PlaceIdx(2),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: MutableOnStack {
+                                                        place: Idx(
+                                                            PlaceIdx(2),
+                                                        ),
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`core::num::f32(0)::min`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -4528,6 +5091,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -4543,6 +5113,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -4569,6 +5146,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -4595,6 +5173,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -4612,6 +5191,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -4644,6 +5224,17 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Leashed {
+                                                            place_idx: Some(
+                                                                PlaceIdx(7),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -4658,7 +5249,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: MutableOnStack {
+                                                        place: Idx(
+                                                            PlaceIdx(3),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: MutableOnStack {
+                                                        place: Idx(
+                                                            PlaceIdx(3),
+                                                        ),
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`core::num::f32(0)::max`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -4700,6 +5305,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -4715,6 +5327,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -4741,6 +5360,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -4767,6 +5387,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -4784,6 +5405,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -4816,6 +5438,17 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Leashed {
+                                                            place_idx: Some(
+                                                                PlaceIdx(7),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -4830,7 +5463,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: MutableOnStack {
+                                                        place: Idx(
+                                                            PlaceIdx(4),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: MutableOnStack {
+                                                        place: Idx(
+                                                            PlaceIdx(4),
+                                                        ),
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`core::num::f32(0)::min`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -4872,6 +5519,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -4887,6 +5541,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -4913,6 +5574,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -4939,6 +5601,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -4956,6 +5619,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -4988,6 +5652,17 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Leashed {
+                                                            place_idx: Some(
+                                                                PlaceIdx(7),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -5002,7 +5677,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: MutableOnStack {
+                                                        place: Idx(
+                                                            PlaceIdx(5),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: MutableOnStack {
+                                                        place: Idx(
+                                                            PlaceIdx(5),
+                                                        ),
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`core::num::f32(0)::max`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -5044,6 +5733,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Binary {
@@ -5059,6 +5755,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -5085,6 +5788,17 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: MutableOnStack {
+                                                            place: Idx(
+                                                                PlaceIdx(2),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -5111,11 +5825,23 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: MutableOnStack {
+                                                            place: Idx(
+                                                                PlaceIdx(3),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeConstructorCall {
                                                 path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::geom2d::ClosedRange`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -5177,6 +5903,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -5203,6 +5936,17 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: MutableOnStack {
+                                                            place: Idx(
+                                                                PlaceIdx(4),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -5229,11 +5973,23 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: MutableOnStack {
+                                                            place: Idx(
+                                                                PlaceIdx(5),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeConstructorCall {
                                                 path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::geom2d::ClosedRange`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -5295,11 +6051,19 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeConstructorCall {
                                                 path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::geom2d::BoundingBox`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -5353,6 +6117,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -5368,6 +6139,9 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Never,
+                                            ),
                                         },
                                     ],
                                 },
@@ -5711,6 +6485,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -5753,11 +6528,12 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MemoizedField {
                                                 self_argument: 1,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -5781,7 +6557,21 @@
                                                         TypeItemKind::MemoizedField,
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -5801,6 +6591,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -5818,11 +6609,12 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MemoizedField {
                                                 self_argument: 3,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         template_arguments: [],
@@ -5836,7 +6628,21 @@
                                                         TypeItemKind::MemoizedField,
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -5858,6 +6664,17 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Leashed {
+                                                            place_idx: Some(
+                                                                PlaceIdx(0),
+                                                            ),
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -5872,7 +6689,17 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -5914,6 +6741,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -5929,6 +6763,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                     ],
                                 },
@@ -6082,6 +6923,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -6143,6 +6985,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -6157,7 +7000,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`core::slice::CyclicSlice(0)::first`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -6199,6 +7056,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unwrap {
@@ -6212,6 +7070,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -6252,6 +7111,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -6266,7 +7126,17 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`#derive _ as core::clone::Clone(0)`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -6302,6 +7172,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
@@ -6328,6 +7205,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -6389,6 +7267,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -6403,7 +7282,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`core::slice::CyclicSlice(0)::last`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -6445,6 +7338,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unwrap {
@@ -6458,6 +7352,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -6498,6 +7393,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -6512,7 +7408,17 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`#derive _ as core::clone::Clone(0)`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -6548,11 +7454,19 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeConstructorCall {
                                                 path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -6606,6 +7520,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -6621,6 +7542,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                     ],
                                 },
@@ -6774,6 +7702,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -6835,6 +7764,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -6849,7 +7779,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`core::slice::CyclicSlice(0)::first`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -6891,6 +7835,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unwrap {
@@ -6904,6 +7849,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -6944,6 +7890,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -6958,7 +7905,17 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`#derive _ as core::clone::Clone(0)`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -6994,6 +7951,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -7009,6 +7973,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                     ],
                                 },
@@ -7162,6 +8133,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -7223,6 +8195,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -7237,7 +8210,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`core::slice::CyclicSlice(0)::last`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -7279,6 +8266,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unwrap {
@@ -7292,6 +8280,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -7332,6 +8321,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -7346,7 +8336,17 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`#derive _ as core::clone::Clone(0)`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -7382,6 +8382,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -7397,6 +8404,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                     ],
                                 },
@@ -7550,6 +8564,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -7564,7 +8579,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -7583,6 +8612,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -7597,7 +8627,13 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Transient,
+                                                    indirections: [],
+                                                    final_place: Transient,
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -7616,6 +8652,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -7631,6 +8674,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                     ],
                                 },
@@ -7784,6 +8834,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -7845,6 +8896,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -7859,7 +8911,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`core::slice::CyclicSlice(0)::first`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -7901,6 +8967,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unwrap {
@@ -7914,6 +8981,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -7928,7 +8996,17 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Transient,
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -7947,6 +9025,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -7962,6 +9047,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                     ],
                                 },
@@ -8115,6 +9207,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -8176,6 +9269,7 @@
                                                     ),
                                                 ],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -8190,7 +9284,21 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`core::slice::CyclicSlice(0)::last`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -8232,6 +9340,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Unwrap {
@@ -8245,6 +9354,7 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: None,
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
@@ -8259,7 +9369,17 @@
                                                         ),
                                                     ),
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Transient,
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                                 instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
@@ -8278,6 +9398,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -8293,6 +9420,13 @@
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
+                                            coersion: Some(
+                                                Trivial(
+                                                    TrivialHirEagerCoercion {
+                                                        expectee_quary: Transient,
+                                                    },
+                                                ),
+                                            ),
                                         },
                                     ],
                                 },

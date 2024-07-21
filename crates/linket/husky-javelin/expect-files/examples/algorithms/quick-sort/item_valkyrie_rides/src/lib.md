@@ -41,6 +41,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::slice::Slice(0)::len`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -82,6 +83,7 @@
                             )`),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`quick_sort::quick_sort_aux`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -156,6 +158,7 @@
                             )`),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`quick_sort::partition`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -195,6 +198,7 @@
                             )`),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`quick_sort::quick_sort_aux`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -272,6 +276,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::slice::Slice(0)::swap`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },

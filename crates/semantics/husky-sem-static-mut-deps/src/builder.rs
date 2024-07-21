@@ -259,7 +259,7 @@ where
             SemExprData::MethodRitchieCall {
                 self_argument,
                 self_contract,
-                ref instance_dispatch,
+                dispatch: ref instance_dispatch,
                 ref ritchie_parameter_argument_matches,
                 ..
             } => {
@@ -463,7 +463,7 @@ where
             SemExprData::MethodRitchieCall {
                 self_argument,
                 self_contract,
-                ref instance_dispatch,
+                dispatch: ref instance_dispatch,
                 ref ritchie_parameter_argument_matches,
                 ..
             } => {

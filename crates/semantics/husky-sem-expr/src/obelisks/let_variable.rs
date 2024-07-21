@@ -38,7 +38,7 @@ impl<'a> SemExprBuilder<'a> {
             colon_token: let_pattern_syn_obelisk.colon_token()?,
             ty_sem_expr_idx: let_pattern_syn_obelisk
                 .ty_syn_expr_idx()
-                .map(|ty_syn_expr_idx| self.build_sem_expr(ty_syn_expr_idx, ExpectSort::TYPE)),
+                .map(|ty_syn_expr_idx| self.build_expr(ty_syn_expr_idx, ExpectSort::TYPE)),
         })
     }
 }

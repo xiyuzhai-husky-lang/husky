@@ -51,12 +51,12 @@ impl Visualize for crate::line_segment_sketch::concave_component::ConcaveCompone
 impl crate::line_segment_sketch::concave_component::ConcaveComponent {
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 15)]
     pub fn norm(&'static self) -> f32 {
-        self.hausdorff_norm()
+        <crate::line_segment_sketch::concave_component::ConcaveComponent>::hausdorff_norm(Leash(&self))
     }
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 16)]
     pub fn rel_norm(&'static self) -> f32 {
-        self.norm() / self.displacement().norm()
+        <crate::line_segment_sketch::concave_component::ConcaveComponent>::norm(Leash(&self)) / self.displacement().norm()
     }
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 17)]
@@ -106,7 +106,7 @@ impl crate::line_segment_sketch::concave_component::ConcaveComponent {
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 20, return_leash)]
     pub fn relative_bounding_box(&'static self) -> crate::geom2d::RelativeBoundingBox {
-        self.line_segment_sketch.bounding_box().relative_bounding_box(&self.bounding_box())
+        <crate::line_segment_sketch::LineSegmentSketch>::bounding_box(self.line_segment_sketch).relative_bounding_box(&<crate::line_segment_sketch::concave_component::ConcaveComponent>::bounding_box(Leash(&self)))
     }
 
     pub fn line_segment(&self) -> crate::line_segment_sketch::line_segment::LineSegment {

@@ -36,6 +36,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::slice::CyclicSlice(0)::first`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -78,6 +79,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`#derive _ as core::clone::Clone(0)`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -114,6 +116,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::slice::CyclicSlice(0)::last`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -209,6 +212,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::vec::Vec(0)::ilen`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -265,6 +269,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::vec::Vec(0)::ilen`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -330,6 +335,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::vec::Vec(0)::ilen`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -372,6 +378,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::vec::Vec(0)::ilen`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -414,6 +421,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::vec::Vec(0)::last`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -473,6 +481,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::vec::Vec(0)::last`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -532,6 +541,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::slice::CyclicSlice(0)::start`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -574,6 +584,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::vec::Vec(0)::pop`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -622,6 +633,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::slice::CyclicSlice(0)::end`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -664,6 +676,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::vec::Vec(0)::push`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -712,6 +725,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::vec::Vec(0)::first`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -771,6 +785,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::vec::Vec(0)::first`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -883,6 +898,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::vec::Vec(0)::cyclic_slice_leashed`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -996,6 +1012,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::vec::Vec(0)::ilen`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },

@@ -8,6 +8,7 @@ use crate::{
     be_variable::HirEagerBeVariablesPattern, closure_parameter::HirEagerClosureParameterPattern,
     variable::runtime::HirEagerRvarIdx, *,
 };
+use coercion::HirEagerCoercion;
 use husky_entity_path::path::{
     assoc_item::{trai_for_ty_item::TraitForTypeItemPath, AssocItemPath},
     major_item::{form::MajorFormPath, ty::TypePath, MajorItemPath},
@@ -18,9 +19,11 @@ use husky_eth_term::term::EthTerm;
 use husky_fly_term::{
     dispatch::{field::FieldFlySignature, method::MethodFlySignature, OntologyDispatch},
     signature::assoc_item::ty_item::TypeItemFlySignature,
+    ExpectationOutcome,
 };
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
+    indirections::HirIndirections,
     instantiation::HirInstantiation,
     place_contract_site::HirPlaceContractSite,
     quary::{HirContractedQuary, HirQuary},
@@ -45,6 +48,9 @@ pub struct HirEagerExprEntry {
     contracted_quary: HirContractedQuary,
     is_always_copyable: bool,
     place_contract_site: HirPlaceContractSite,
+    /// None means it's not entirely known from expectation alone,
+    /// todo: remove Option
+    coersion: Option<HirEagerCoercion>,
 }
 
 /// # getters
@@ -59,6 +65,10 @@ impl HirEagerExprEntry {
 
     pub fn quary(&self) -> HirQuary {
         self.contracted_quary.quary()
+    }
+
+    pub fn coercion(&self) -> Option<HirEagerCoercion> {
+        self.coersion
     }
 
     pub fn is_always_copyable(&self) -> bool {
@@ -140,9 +150,10 @@ pub enum HirEagerExprData {
     },
     MemoizedField {
         self_argument: HirEagerExprIdx,
-        self_ty: HirType,
+        self_argument_ty: HirType,
         ident: Ident,
         path: AssocItemPath,
+        indirections: HirIndirections,
         instantiation: HirInstantiation,
     },
     MethodRitchieCall {
@@ -150,6 +161,7 @@ pub enum HirEagerExprData {
         self_contract: HirContract,
         ident: Ident,
         path: AssocItemPath,
+        indirections: HirIndirections,
         instantiation: HirInstantiation,
         arguments: SmallVec<[HirEagerRitchieArgument; 4]>,
     },
@@ -424,14 +436,15 @@ impl ToHirEager for SemExprIdx {
             SemExprData::Ritchie { .. } => todo!(),
             SemExprData::Field {
                 self_argument,
-                self_ty,
+                self_argument_ty,
                 ident_token,
                 ref dispatch,
                 ..
             } => match *dispatch.signature() {
                 FieldFlySignature::PropsStruct { ty } => HirEagerExprData::PropsStructField {
                     self_argument: self_argument.to_hir_eager(builder),
-                    self_ty: HirType::from_fly(self_ty, builder.db(), builder.fly_terms()).unwrap(),
+                    self_ty: HirType::from_fly(self_argument_ty, builder.db(), builder.fly_terms())
+                        .unwrap(),
                     ident: ident_token.ident(),
                     field_ty: HirType::from_fly(ty, builder.db(), builder.fly_terms()).unwrap(),
                 },
@@ -443,10 +456,15 @@ impl ToHirEager for SemExprIdx {
                     debug_assert!(instantiation.separator().is_some());
                     HirEagerExprData::MemoizedField {
                         self_argument: self_argument.to_hir_eager(builder),
-                        self_ty: HirType::from_fly(self_ty, builder.db(), builder.fly_terms())
-                            .unwrap(),
+                        self_argument_ty: HirType::from_fly(
+                            self_argument_ty,
+                            builder.db(),
+                            builder.fly_terms(),
+                        )
+                        .unwrap(),
                         ident: ident_token.ident(),
                         path,
+                        indirections: HirIndirections::from_fly(dispatch.indirections()),
                         instantiation: HirInstantiation::from_fly(
                             instantiation,
                             &place_contract_site,
@@ -461,16 +479,17 @@ impl ToHirEager for SemExprIdx {
                 self_argument: self_argument_sem_expr_idx,
                 self_contract,
                 ident_token,
-                ref instance_dispatch,
+                ref dispatch,
                 ref ritchie_parameter_argument_matches,
                 ..
             } => {
-                let signature = instance_dispatch.signature();
+                let signature = dispatch.signature();
                 HirEagerExprData::MethodRitchieCall {
                     self_argument: self_argument_sem_expr_idx.to_hir_eager(builder),
                     self_contract: HirContract::from_contract(self_contract),
                     ident: ident_token.ident(),
                     path: signature.path(),
+                    indirections: HirIndirections::from_fly(dispatch.indirections()),
                     instantiation: HirInstantiation::from_fly(
                         signature.instantiation(),
                         &place_contract_site,
@@ -563,6 +582,15 @@ impl ToHirEager for SemExprIdx {
             .quary()
             .map(|quary| HirContractedQuary::from_fly(quary, &place_contract_site))
             .unwrap_or_default();
+        let coersion = match self.expectation_outcome(builder.sem_expr_region_data) {
+            Some(ref outcome) => match outcome {
+                ExpectationOutcome::Coercion(coersion_outcome) => {
+                    Some(coersion_outcome.coercion().to_hir_eager(builder))
+                }
+                _ => None,
+            },
+            None => None,
+        };
         let entry = HirEagerExprEntry {
             data,
             contracted_quary,
@@ -571,6 +599,7 @@ impl ToHirEager for SemExprIdx {
                 .unwrap()
                 .unwrap(),
             place_contract_site,
+            coersion,
         };
         builder.alloc_expr(*self, entry)
     }

@@ -357,11 +357,11 @@ impl<'a> SemExprBuilder<'a> {
                 result,
             } => {
                 let (result, coercion_outcome) = match self.return_ty() {
-                    Some(return_ty) => self.build_sem_expr_with_outcome(
+                    Some(return_ty) => self.build_expr_with_outcome(
                         result,
                         ExpectCoercion::new_move(return_ty.into()),
                     ),
-                    None => (self.build_sem_expr(result, ExpectAnyDerived), None),
+                    None => (self.build_expr(result, ExpectAnyDerived), None),
                 };
                 (
                     Ok(SemStmtData::Return {
@@ -407,13 +407,21 @@ impl<'a> SemExprBuilder<'a> {
                 eol_semicolon,
             } => match eol_semicolon {
                 Ok(eol_semicolon) => {
-                    let (sem_expr_idx, ty, outcome) = match eol_semicolon {
-                        None => {
-                            self.build_sem_expr_with_ty_and_outcome(expr_idx, stmt_ty_expectation)
-                        }
+                    let (expr, ty, outcome) = match eol_semicolon {
+                        None => match stmt_ty_expectation.destination() {
+                            FlyTermDestination::AnyOriginal | FlyTermDestination::AnyDerived => {
+                                self.build_expr_with_ty_and_outcome(expr_idx, stmt_ty_expectation)
+                            }
+                            FlyTermDestination::Specific(stmt_ty) => {
+                                let (expr, outcome) =
+                                    self.build_expr_with_outcome(expr_idx, stmt_ty_expectation);
+                                // we don't use type of expression here because of possible coersion
+                                (expr, Some(stmt_ty), outcome.map(Into::into))
+                            }
+                        },
                         Some(_) => {
-                            let (sem_expr_idx, expr_ty, outcome) = self
-                                .build_sem_expr_with_ty_and_outcome(expr_idx, ExpectAnyOriginal);
+                            let (sem_expr_idx, expr_ty, outcome) =
+                                self.build_expr_with_ty_and_outcome(expr_idx, ExpectAnyOriginal);
                             let ty_result = match expr_ty {
                                 Some(ty) => match ty.base_resolved(self) {
                                     FlyTermBase::Eth(ty) if ty == self.term_menu().never() => {
@@ -428,7 +436,7 @@ impl<'a> SemExprBuilder<'a> {
                     };
                     (
                         Ok(SemStmtData::Eval {
-                            expr: sem_expr_idx,
+                            expr,
                             eol_semicolon,
                             outcome,
                         }),
@@ -436,7 +444,7 @@ impl<'a> SemExprBuilder<'a> {
                     )
                 }
                 Err(_) => {
-                    let _ = self.build_sem_expr_with_ty_and_outcome(expr_idx, ExpectAnyDerived);
+                    let _ = self.build_expr_with_ty_and_outcome(expr_idx, ExpectAnyDerived);
                     todo!()
                 }
             },
@@ -478,10 +486,7 @@ impl<'a> SemExprBuilder<'a> {
                 ref eol_colon,
             } => {
                 let (forext_loop_var_sem_expr_idx, forext_loop_var_ty) = self
-                    .build_sem_expr_with_ty(
-                        particulars.forext_loop_var_expr_idx,
-                        ExpectAnyOriginal,
-                    );
+                    .build_expr_with_ty(particulars.forext_loop_var_expr_idx, ExpectAnyOriginal);
                 let Some(forext_loop_var_ty) = forext_loop_var_ty else {
                     todo!()
                 };
@@ -582,7 +587,7 @@ impl<'a> SemExprBuilder<'a> {
 
     pub(crate) fn build_sem_condition(&mut self, syn_expr_idx: SynExprIdx) -> SemCondition {
         let (sem_expr_idx, outcome) =
-            self.build_sem_expr_with_outcome(syn_expr_idx, ExpectConditionType);
+            self.build_expr_with_outcome(syn_expr_idx, ExpectConditionType);
         match *sem_expr_idx.data(self.sem_expr_arena().arena_ref()) {
             SemExprData::Be {
                 src,

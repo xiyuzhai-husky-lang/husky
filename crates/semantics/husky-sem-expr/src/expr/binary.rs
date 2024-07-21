@@ -74,8 +74,8 @@ impl<'a> SemExprBuilder<'a> {
         SemExprTypeResult<FlyTerm>,
     ) {
         // todo: indirections
-        let lopd_sem_expr_idx = self.build_sem_expr(lopd, self.expect_argument_ty_bool());
-        let ropd_sem_expr_idx = self.build_sem_expr(ropd, self.expect_argument_ty_bool());
+        let lopd_sem_expr_idx = self.build_expr(lopd, self.expect_argument_ty_bool());
+        let ropd_sem_expr_idx = self.build_expr(ropd, self.expect_argument_ty_bool());
         (
             lopd_sem_expr_idx,
             SemBinaryOpr::ShortCircuitLogic(opr),
@@ -96,9 +96,9 @@ impl<'a> SemExprBuilder<'a> {
         SemExprDataResult<SemaBinaryOprInstanceDispatch>,
         SemExprTypeResult<FlyTerm>,
     ) {
-        let (ropd_sem_expr_idx, ropd_ty) = self.build_sem_expr_with_ty(ropd, ExpectAnyOriginal);
+        let (ropd_sem_expr_idx, ropd_ty) = self.build_expr_with_ty(ropd, ExpectAnyOriginal);
         let Some(ropd_ty) = ropd_ty else {
-            let lopd_sem_expr_idx = self.build_sem_expr(lopd, ExpectAnyDerived);
+            let lopd_sem_expr_idx = self.build_expr(lopd, ExpectAnyDerived);
             return (
                 lopd_sem_expr_idx,
                 SemBinaryOpr::Ins,
@@ -143,7 +143,7 @@ impl<'a> SemExprBuilder<'a> {
         SemExprDataResult<SemaBinaryOprInstanceDispatch>,
         SemExprTypeResult<FlyTerm>,
     ) {
-        let (ropd_sem_expr_idx, ropd_ty) = self.build_sem_expr_with_ty(ropd, ExpectSortOrTrait);
+        let (ropd_sem_expr_idx, ropd_ty) = self.build_expr_with_ty(ropd, ExpectSortOrTrait);
         let Some(ropd_ty) = ropd_ty else {
             use husky_print_utils::p;
 
@@ -176,7 +176,7 @@ impl<'a> SemExprBuilder<'a> {
             FlyBaseTypeData::Hole(_, _) => todo!(),
             FlyBaseTypeData::Sort(_) => {
                 let Some(ropd_term) = self.infer_expr_term(ropd_sem_expr_idx) else {
-                    let lopd_sem_expr_idx = self.build_sem_expr(lopd, ExpectAnyDerived);
+                    let lopd_sem_expr_idx = self.build_expr(lopd, ExpectAnyDerived);
                     return (
                         lopd_sem_expr_idx,
                         SemBinaryOpr::As,
@@ -188,7 +188,7 @@ impl<'a> SemExprBuilder<'a> {
                         ),
                     );
                 };
-                let lopd_sem_expr_idx = self.build_sem_expr(lopd, ExpectCasting::new(ropd_term));
+                let lopd_sem_expr_idx = self.build_expr(lopd, ExpectCasting::new(ropd_term));
                 (
                     lopd_sem_expr_idx,
                     SemBinaryOpr::As,
@@ -220,7 +220,7 @@ impl<'a> SemExprBuilder<'a> {
     ) {
         let expect_any_sort = ExpectSort::ANY;
         let (lopd_sem_expr_idx, lopd_universe) =
-            self.build_sem_expr_with_outcome(lopd, expect_any_sort);
+            self.build_expr_with_outcome(lopd, expect_any_sort);
         let Some(lopd_universe) = lopd_universe else {
             return (
                 lopd_sem_expr_idx,
@@ -231,7 +231,7 @@ impl<'a> SemExprBuilder<'a> {
             );
         };
         let (ropd_sem_expr_idx, ropd_universe) =
-            self.build_sem_expr_with_outcome(ropd, expect_any_sort);
+            self.build_expr_with_outcome(ropd, expect_any_sort);
         let Some(ropd_universe) = ropd_universe else {
             return (
                 lopd_sem_expr_idx,
@@ -272,7 +272,7 @@ impl<'a> SemExprBuilder<'a> {
     }
 
     fn infer_basic_assign_ropd_ty(&mut self, lopd_ty: FlyTerm, ropd: SynExprIdx) {
-        let (ropd_sem_expr_idx, ropd_ty) = self.build_sem_expr_with_ty(ropd, ExpectAnyOriginal);
+        let (ropd_sem_expr_idx, ropd_ty) = self.build_expr_with_ty(ropd, ExpectAnyOriginal);
         let Some(ropd_ty) = ropd_ty else { return };
         todo!()
         // let lopd_ty = match lopd_ty {

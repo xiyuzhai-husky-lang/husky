@@ -13,7 +13,7 @@ impl<'a> SemExprBuilder<'a> {
         opd: SynExprIdx,
         opr_regional_token_idx: RegionalTokenIdx,
     ) -> (SemExprDataResult<SemExprData>, SemExprTypeResult<FlyTerm>) {
-        let (opd_sem_expr_idx, opd_ty) = self.build_sem_expr_with_ty(opd, ExpectAnyOriginal);
+        let (opd_sem_expr_idx, opd_ty) = self.build_expr_with_ty(opd, ExpectAnyOriginal);
         let Some(opd_ty) = opd_ty else {
             // p!(self.expr_region_data.path().debug(self.db));
             // todo!();

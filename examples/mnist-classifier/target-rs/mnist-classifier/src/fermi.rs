@@ -34,7 +34,7 @@ impl crate::fermi::FermiMatchResult {
     pub fn norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
         for i in 0..self.others.ilen() {
-            norm = norm.max(self.others[i as usize].norm())
+            norm = norm.max(<crate::line_segment_sketch::concave_component::ConcaveComponent>::norm(self.others[i as usize]))
         }
         return norm;
     }
@@ -43,7 +43,7 @@ impl crate::fermi::FermiMatchResult {
     pub fn rel_norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
         for i in 0..self.others.ilen() {
-            norm = norm.max(self.others[i as usize].rel_norm())
+            norm = norm.max(<crate::line_segment_sketch::concave_component::ConcaveComponent>::rel_norm(self.others[i as usize]))
         }
         return norm;
     }
@@ -52,7 +52,7 @@ impl crate::fermi::FermiMatchResult {
     pub fn angle_change_norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
         for i in 0..self.others.ilen() {
-            norm = norm.max(self.others[i as usize].angle_change().abs())
+            norm = norm.max(<crate::line_segment_sketch::concave_component::ConcaveComponent>::angle_change(self.others[i as usize]).abs())
         }
         return norm;
     }

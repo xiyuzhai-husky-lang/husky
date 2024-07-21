@@ -15,8 +15,6 @@ pub use ordered_float::NotNan;
 
 use husky_standard_value::ugly::*;
 
-pub type Leash<T> = &'static T;
-
 #[macro_export]
 macro_rules! require {
     (let $($tt: tt)*) => {

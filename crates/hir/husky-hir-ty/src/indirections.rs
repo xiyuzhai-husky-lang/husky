@@ -12,7 +12,7 @@ pub struct HirIndirections {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum HirIndirection {
     Place(HirQuary),
-    Leash,
+    Deleash,
 }
 
 impl std::ops::Deref for HirIndirections {
@@ -42,7 +42,7 @@ impl HirIndirection {
             FlyIndirection::QualifiedPlace(place) => {
                 HirIndirection::Place(HirQuary::from_fly(place))
             }
-            FlyIndirection::Leash => HirIndirection::Leash,
+            FlyIndirection::Leash => HirIndirection::Deleash,
         }
     }
 }

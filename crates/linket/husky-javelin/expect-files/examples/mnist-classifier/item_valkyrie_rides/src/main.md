@@ -44,6 +44,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -120,6 +121,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -196,6 +198,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -272,6 +275,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -348,6 +352,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -424,6 +429,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -500,6 +506,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -576,6 +583,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -652,6 +660,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },

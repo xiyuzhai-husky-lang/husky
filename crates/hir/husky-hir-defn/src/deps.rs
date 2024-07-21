@@ -256,7 +256,7 @@ impl<'a> HirDefnDepsBuilder<'a> {
         for indirection in indirections.iter() {
             match indirection {
                 HirIndirection::Place(_) => (),
-                HirIndirection::Leash => (),
+                HirIndirection::Deleash => (),
             }
         }
     }
