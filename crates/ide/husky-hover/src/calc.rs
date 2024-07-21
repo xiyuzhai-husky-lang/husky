@@ -26,7 +26,7 @@ struct HoverResultCalculator<'a> {
     token_info: Option<&'a TokenInfo>,
     markdown_content: String,
     actions: Vec<CommandLinkGroup>,
-    hover_config_data: &'a HoverConfigData,
+    config: &'a HoverConfig,
     token_verse_idx: TokenVerseIdx,
 }
 
@@ -49,14 +49,14 @@ impl<'a> HoverResultCalculator<'a> {
             token_info: token_info_sheet[token_idx].as_ref(),
             markdown_content: String::new(),
             actions: vec![],
-            hover_config_data: db.hover_config().data(db),
+            config: hover_config(db, module_path),
             token_verse_idx,
         })
     }
 
     fn gen_content(mut self) -> Option<HoverResult> {
         self.markdown_content += &self.content();
-        if self.hover_config_data.debug {
+        if self.config.debug {
             self.markdown_content += &self.debug_content()
         }
         Some(self.finish())
@@ -90,72 +90,107 @@ impl<'a> HoverResultCalculator<'a> {
     }
 
     fn debug_content(&self) -> String {
-        let additional_debug_content: String = match self.token_info {
-            Some(info) => match info.data() {
-                TokenInfoData::Entity(_) => format!(""),
-                TokenInfoData::EntityNode(_, _) => format!(""),
+        use std::fmt::Write;
+
+        let mut debug_content = String::new();
+        if self.config.description {
+            self.add_description(&mut debug_content);
+        }
+
+        if self.config.token_idx {
+            write!(debug_content, "\ntoken_idx = {};\n", self.token_idx.index()).unwrap();
+        }
+
+        if self.config.token_line_group_idx {
+            write!(
+                debug_content,
+                "token_line_group_idx = {}\n",
+                self.token_verse_idx
+            )
+            .unwrap();
+        }
+
+        if self.config.token {
+            write!(debug_content, "token = {:#?};\n", self.token.debug(self.db)).unwrap();
+        }
+
+        if self.config.token_info {
+            write!(
+                debug_content,
+                "token_info = {:#?};\n",
+                self.token_info.debug(self.db)
+            )
+            .unwrap();
+        }
+
+        debug_content
+    }
+
+    fn add_description(&self, debug_content: &mut String) {
+        use salsa::DisplayWithDb;
+        use std::fmt::Write;
+
+        let db = self.db;
+        match self.token_info {
+            Some(ref info) => match info.data() {
+                TokenInfoData::Entity(path) => {
+                    write!(debug_content, "entity `{}`", path.display_with(db))
+                }
+                TokenInfoData::EntityNode(path, _) => {
+                    write!(debug_content, "entity node")
+                }
                 TokenInfoData::CurrentVariable {
                     current_variable_idx,
                     syn_expr_region,
                     ..
-                } => {
-                    format!(
-                        "{:#?}",
-                        syn_expr_region.data(self.db).variable_region()[*current_variable_idx]
-                            .debug(self.db)
-                    )
-                }
+                } => write!(
+                    debug_content,
+                    "variable",
+                    // syn_expr_region.data(self.db).variable_region()[*current_variable_idx]
+                    //     .debug(self.db)
+                ),
                 TokenInfoData::InheritedVariable {
                     inherited_variable_idx,
                     syn_expr_region,
                     ..
-                } => {
-                    format!(
-                        "{:#?}",
-                        syn_expr_region.data(self.db).variable_region()[*inherited_variable_idx]
-                            .debug(self.db)
-                    )
+                } => write!(
+                    debug_content,
+                    "variable",
+                    // syn_expr_region.data(self.db).variable_region()[*inherited_variable_idx]
+                    //     .debug(self.db)
+                ),
+                TokenInfoData::Field => write!(debug_content, "field"),
+                TokenInfoData::Method => write!(debug_content, "method"),
+                TokenInfoData::BoxColon => write!(debug_content, "box colon"),
+                TokenInfoData::VecFunctorBoxPrefix => {
+                    write!(debug_content, "vec functor box prefix")
                 }
-                TokenInfoData::Field => format!(""),
-                TokenInfoData::Method => format!(""),
-                TokenInfoData::BoxColon => format!("box colon"),
-                TokenInfoData::VecFunctorBoxPrefix => format!("vec functor box prefix"),
-                TokenInfoData::ArrayFunctorBoxPrefix => format!("array functor box prefix"),
-                TokenInfoData::UseExpr { .. } => format!("use"),
-                TokenInfoData::UseExprStar => format!("use expr star"),
-                TokenInfoData::SelfType => format!("self type"),
-                TokenInfoData::SelfValue => format!("self value"),
-                TokenInfoData::HtmlFunctionIdent => format!("html function ident"),
-                TokenInfoData::HtmlPropertyIdent => format!("html property ident"),
-                TokenInfoData::UnitLeftParenthesis => format!("unit `(`"),
-                TokenInfoData::UnitRightParenthesis => format!("unit `)`"),
-                TokenInfoData::Todo => format!("todo"),
-                TokenInfoData::Unreachable => format!("unreachable"),
-                TokenInfoData::SemaPrefixTypeOpr => format!("SemaPrefixTypeOpr"),
-                TokenInfoData::CallPar => format!("call par"),
-                TokenInfoData::NestedBlockCurl => format!("NestedBlockCurl"),
-                TokenInfoData::ClosureVert => format!("ClosureVert"),
-                TokenInfoData::ClosureLightArrow => format!("ClosureLightArrow"),
-                TokenInfoData::ClosureEq => format!("ClosureEq"),
+                TokenInfoData::ArrayFunctorBoxPrefix => {
+                    write!(debug_content, "array functor box prefix")
+                }
+                TokenInfoData::UseExpr { .. } => write!(debug_content, "use"),
+                TokenInfoData::UseExprStar => write!(debug_content, "use expr star"),
+                TokenInfoData::SelfType => write!(debug_content, "self type"),
+                TokenInfoData::SelfValue => write!(debug_content, "self value"),
+                TokenInfoData::HtmlFunctionIdent => write!(debug_content, "html function ident"),
+                TokenInfoData::HtmlPropertyIdent => write!(debug_content, "html property ident"),
+                TokenInfoData::UnitLeftParenthesis => {
+                    write!(debug_content, "unit left parenthesis")
+                }
+                TokenInfoData::UnitRightParenthesis => {
+                    write!(debug_content, "unit right parenthesis")
+                }
+                TokenInfoData::Todo => write!(debug_content, "todo"),
+                TokenInfoData::Unreachable => write!(debug_content, "unreachable"),
+                TokenInfoData::PrefixTypeOpr => write!(debug_content, "prefix type operator"),
+                TokenInfoData::CallPar => write!(debug_content, "call par"),
+                TokenInfoData::NestedBlockCurl => write!(debug_content, "nested block curl"),
+                TokenInfoData::ClosureVert => write!(debug_content, "closure vert"),
+                TokenInfoData::ClosureLightArrow => write!(debug_content, "closure light arrow"),
+                TokenInfoData::ClosureEq => write!(debug_content, "closure eq"),
             },
-            None => format!(""),
-        };
-        format!(
-            r#"
-token_idx = {};
-
-token_line_group_idx = {}
-
-token = {:#?};
-
-token_info = {:#?};
-
-{additional_debug_content}
-"#,
-            self.token_idx.index(),
-            self.token_verse_idx,
-            self.token.debug(self.db),
-            self.token_info.debug(self.db),
-        )
+            None => write!(debug_content, ""),
+        }
+        .unwrap();
     }
 }
