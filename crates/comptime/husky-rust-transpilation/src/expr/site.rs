@@ -30,7 +30,7 @@ impl HirEagerExprSite {
         }
     }
 
-    pub(crate) fn method_self_argument(indirections: &HirIndirections) -> Self {
+    pub(crate) fn self_argument_with_indirections(indirections: &HirIndirections) -> Self {
         let mut rust_precedence_range = RustPrecedenceRange::Geq(RustPrecedence::Suffix);
         let mut rust_bindings: RustBindings = RustBinding::SelfValue.into();
         if indirections.len() > 0 {

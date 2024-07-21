@@ -387,6 +387,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -1296,6 +1309,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -1424,6 +1450,15 @@
                                                         always_copyable: false,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Transient,
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -1674,6 +1709,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -1816,6 +1864,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -1964,6 +2025,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -2043,6 +2117,15 @@
                                                         always_copyable: false,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -2786,6 +2869,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -2857,6 +2953,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -3062,6 +3171,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -3204,6 +3326,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -3352,6 +3487,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -4124,6 +4272,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -4252,6 +4413,15 @@
                                                         always_copyable: false,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Transient,
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -4301,6 +4471,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(1),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(1),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -4352,6 +4535,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(1),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(1),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -4403,6 +4599,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(1),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(1),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -4454,6 +4663,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(1),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(1),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -4525,6 +4747,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -4667,6 +4902,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -4815,6 +5063,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -4894,6 +5155,15 @@
                                                         always_copyable: false,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -4997,6 +5267,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(7),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(7),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -5211,6 +5494,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(7),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(7),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -5425,6 +5721,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(7),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(7),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -5639,6 +5948,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(7),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(7),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -6515,6 +6837,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: Leashed {
+                                                        place_idx: Some(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -6963,6 +7298,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -7100,6 +7448,15 @@
                                                         always_copyable: false,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Transient,
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -7245,6 +7602,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -7382,6 +7752,15 @@
                                                         always_copyable: false,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Transient,
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -7742,6 +8121,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -7879,6 +8271,15 @@
                                                         always_copyable: false,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Transient,
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -8173,6 +8574,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -8310,6 +8724,15 @@
                                                         always_copyable: false,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: Transient,
+                                                    indirections: [
+                                                        Deleash,
+                                                    ],
+                                                    final_place: Leashed {
+                                                        place_idx: None,
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
@@ -8874,6 +9297,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -9247,6 +9683,19 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
+                                                indirections: HirIndirections {
+                                                    initial_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                    indirections: [],
+                                                    final_place: StackPure {
+                                                        place: Idx(
+                                                            PlaceIdx(0),
+                                                        ),
+                                                    },
+                                                },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(

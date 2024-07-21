@@ -26,51 +26,15 @@ impl WithFmtContext for SemExprRegion {
         f: impl FnOnce() -> ::std::fmt::Result,
         db: &::salsa::Db,
     ) -> ::std::fmt::Result {
-        use husky_eth_term::fmt::with_eth_term_fmt_context;
+        use husky_eth_term::fmt::with_item_eth_term_fmt_context;
 
-        let ctx = sem_expr_region_eth_term_fmt_context(db, *self);
-        with_eth_term_fmt_context(ctx, f, db)
+        match self.path(db) {
+            RegionPath::CrateDecl(_) => todo!(),
+            RegionPath::ItemDecl(path) => with_item_eth_term_fmt_context(path, f, db),
+            RegionPath::ItemDefn(_) => todo!(),
+            RegionPath::Chunk(_) => todo!(),
+        }
     }
-}
-
-#[salsa::tracked(jar = SemExprJar)]
-fn sem_expr_region_eth_term_fmt_context(
-    db: &::salsa::Db,
-    region: SemExprRegion,
-) -> EthTermFmtContext {
-    let syn_expr_region_data = region.syn_expr_region(db).data(db);
-    let sem_expr_region_data = region.data(db);
-    let fly_terms = sem_expr_region_data.fly_term_region().terms();
-    let symbol_names = VecMap::from_iter_assuming_no_repetitions(
-        sem_expr_region_data
-            .symbol_terms
-            .inherited_variable_map()
-            .key_value_iter()
-            .map(|(idx, term)| {
-                let FlyTermBase::Eth(EthTerm::SymbolicVariable(symbol)) =
-                    term.base_resolved_inner(fly_terms)
-                else {
-                    todo!();
-                };
-                (symbol, syn_expr_region_data.variable_region()[idx].name())
-            })
-            .chain(
-                sem_expr_region_data
-                    .symbol_terms
-                    .current_variable_map()
-                    .key_value_iter()
-                    .map(|(idx, term)| {
-                        let FlyTermBase::Eth(EthTerm::SymbolicVariable(symbol)) =
-                            term.base_resolved_inner(fly_terms)
-                        else {
-                            todo!();
-                        };
-                        (symbol, syn_expr_region_data.variable_region()[idx].name())
-                    }),
-            ),
-    )
-    .expect("no repetitions");
-    EthTermFmtContext::new(db, sem_expr_region_data.path, symbol_names)
 }
 
 impl SemExprRegion {
