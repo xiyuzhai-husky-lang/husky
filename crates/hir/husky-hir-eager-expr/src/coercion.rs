@@ -1,6 +1,9 @@
 use crate::*;
 use either::*;
-use husky_fly_term::{deref::DerefFlyCoercion, trival::TrivialFlyCoercion, FlyCoercion};
+use husky_fly_term::{
+    deref::DedirectionFlyCoercion, redirection::RedirectionFlyCoercion, trival::TrivialFlyCoercion,
+    FlyCoercion,
+};
 use husky_hir_ty::{lifetime::HirLifetime, quary::HirQuary};
 
 #[enum_class::from_variants]
@@ -9,8 +12,8 @@ pub enum HirEagerCoercion {
     Trivial(TrivialHirEagerCoercion),
     Never,
     WrapInSome,
-    Releash,
-    Deref(DerefHirEagerCoercion),
+    Redirection(RedirectionHirEagerCoercion),
+    Dedirection(DedirectionHirEagerCoercion),
 }
 
 impl HirEagerCoercion {
@@ -21,10 +24,10 @@ impl HirEagerCoercion {
     pub fn quary_after_coercion(self) -> HirQuary {
         match self {
             HirEagerCoercion::Trivial(slf) => slf.place_after_coercion(),
-            HirEagerCoercion::Deref(slf) => slf.place_after_coercion(),
-            HirEagerCoercion::Never | HirEagerCoercion::WrapInSome | HirEagerCoercion::Releash => {
-                HirQuary::Transient
-            }
+            HirEagerCoercion::Dedirection(slf) => slf.place_after_coercion(),
+            HirEagerCoercion::Never
+            | HirEagerCoercion::WrapInSome
+            | HirEagerCoercion::Redirection(_) => HirQuary::Transient,
         }
     }
 }
@@ -40,17 +43,27 @@ impl TrivialHirEagerCoercion {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum DerefHirEagerCoercion {
-    Leash,
-    Ref { lifetime: HirLifetime },
+pub enum RedirectionHirEagerCoercion {
+    Releash,
+    Reref,
+    RerefMut,
 }
-impl DerefHirEagerCoercion {
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub enum DedirectionHirEagerCoercion {
+    Deleash,
+    Deref { lifetime: HirLifetime },
+    DerefMut,
+}
+
+impl DedirectionHirEagerCoercion {
     fn place_after_coercion(self) -> HirQuary {
         match self {
-            DerefHirEagerCoercion::Leash => HirQuary::Leashed { place_idx: None },
-            DerefHirEagerCoercion::Ref { lifetime } => HirQuary::Ref {
+            DedirectionHirEagerCoercion::Deleash => HirQuary::Leashed { place_idx: None },
+            DedirectionHirEagerCoercion::Deref { lifetime } => HirQuary::Ref {
                 guard: Right(lifetime),
             },
+            DedirectionHirEagerCoercion::DerefMut => todo!(),
         }
     }
 }
@@ -63,8 +76,12 @@ impl ToHirEager for FlyCoercion {
             FlyCoercion::Trivial(slf) => HirEagerCoercion::Trivial(slf.to_hir_eager(builder)),
             FlyCoercion::Never => HirEagerCoercion::Never,
             FlyCoercion::WrapInSome => HirEagerCoercion::WrapInSome,
-            FlyCoercion::Releash => HirEagerCoercion::Releash,
-            FlyCoercion::Deref(slf) => HirEagerCoercion::Deref(slf.to_hir_eager(builder)),
+            FlyCoercion::Redirection(slf) => {
+                HirEagerCoercion::Redirection(slf.to_hir_eager(builder))
+            }
+            FlyCoercion::Dedirection(slf) => {
+                HirEagerCoercion::Dedirection(slf.to_hir_eager(builder))
+            }
         }
     }
 }
@@ -79,13 +96,25 @@ impl ToHirEager for TrivialFlyCoercion {
     }
 }
 
-impl ToHirEager for DerefFlyCoercion {
-    type Output = DerefHirEagerCoercion;
+impl ToHirEager for RedirectionFlyCoercion {
+    type Output = RedirectionHirEagerCoercion;
 
     fn to_hir_eager(&self, _builder: &mut HirEagerExprBuilder) -> Self::Output {
         match *self {
-            DerefFlyCoercion::Leash => DerefHirEagerCoercion::Leash,
-            DerefFlyCoercion::Ref { lifetime } => DerefHirEagerCoercion::Ref {
+            RedirectionFlyCoercion::Releash => RedirectionHirEagerCoercion::Releash,
+            RedirectionFlyCoercion::Reref => RedirectionHirEagerCoercion::Reref,
+            RedirectionFlyCoercion::RerefMut => RedirectionHirEagerCoercion::RerefMut,
+        }
+    }
+}
+
+impl ToHirEager for DedirectionFlyCoercion {
+    type Output = DedirectionHirEagerCoercion;
+
+    fn to_hir_eager(&self, _builder: &mut HirEagerExprBuilder) -> Self::Output {
+        match *self {
+            DedirectionFlyCoercion::Deleash => DedirectionHirEagerCoercion::Deleash,
+            DedirectionFlyCoercion::Deref { lifetime } => DedirectionHirEagerCoercion::Deref {
                 lifetime: HirLifetime::from_fly(lifetime),
             },
         }

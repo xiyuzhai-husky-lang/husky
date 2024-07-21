@@ -10,7 +10,10 @@ pub struct Point2d {
 
 impl Point2d {
     pub fn __constructor(x: f32, y: f32) -> Self {
-        Self { x, y }
+        Self{
+            x,
+            y,
+        }
     }
 }
 
@@ -24,7 +27,10 @@ pub struct RelativePoint2d {
 
 impl RelativePoint2d {
     pub fn __constructor(x: f32, y: f32) -> Self {
-        Self { x, y }
+        Self{
+            x,
+            y,
+        }
     }
 }
 
@@ -38,7 +44,10 @@ pub struct Vector2d {
 
 impl Vector2d {
     pub fn __constructor(x: f32, y: f32) -> Self {
-        Self { x, y }
+        Self{
+            x,
+            y,
+        }
     }
 }
 
@@ -52,7 +61,10 @@ pub struct ClosedRange {
 
 impl ClosedRange {
     pub fn __constructor(min: f32, max: f32) -> Self {
-        Self { min, max }
+        Self{
+            min,
+            max,
+        }
     }
 }
 
@@ -65,11 +77,11 @@ pub struct BoundingBox {
 }
 
 impl BoundingBox {
-    pub fn __constructor(
-        xrange: crate::geom2d::ClosedRange,
-        yrange: crate::geom2d::ClosedRange,
-    ) -> Self {
-        Self { xrange, yrange }
+    pub fn __constructor(xrange: crate::geom2d::ClosedRange, yrange: crate::geom2d::ClosedRange) -> Self {
+        Self{
+            xrange,
+            yrange,
+        }
     }
 }
 
@@ -82,11 +94,11 @@ pub struct RelativeBoundingBox {
 }
 
 impl RelativeBoundingBox {
-    pub fn __constructor(
-        xrange: crate::geom2d::ClosedRange,
-        yrange: crate::geom2d::ClosedRange,
-    ) -> Self {
-        Self { xrange, yrange }
+    pub fn __constructor(xrange: crate::geom2d::ClosedRange, yrange: crate::geom2d::ClosedRange) -> Self {
+        Self{
+            xrange,
+            yrange,
+        }
     }
 }
 
