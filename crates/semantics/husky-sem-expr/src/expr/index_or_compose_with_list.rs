@@ -21,7 +21,7 @@ impl<'a> SemExprBuilder<'a> {
                 ),
             );
         };
-        match owner_ty.data(self) {
+        match owner_ty.base_term_data(self) {
             FlyTermData::Curry { .. } => todo!(),
             _ => match self.calc_index_expr_ty(expr_idx, owner_ty, items) {
                 Ok((index_sem_list_items, index_dynamic_dispatch, ty_result)) => (

@@ -22,7 +22,7 @@ impl<'a> SemExprBuilder<'a> {
                 Err(DerivedSemExprTypeError::UnableToInferUnwrapOperand.into()),
             );
         };
-        match opd_ty.data(self) {
+        match opd_ty.base_term_data(self) {
             FlyTermData::Literal(_) => todo!(),
             FlyTermData::TypeOntology {
                 ty_path,

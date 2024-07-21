@@ -34,7 +34,7 @@ impl<'a> SemExprBuilder<'a> {
                     ritchie_kind,
                     parameter_contracted_tys,
                     return_ty,
-                } = destination.data(self) =>
+                } = destination.base_term_data(self) =>
             {
                 for (i, param) in parameter_obelisk.iter().enumerate() {
                     let parameter_contracted_ty_expected = parameter_contracted_tys[i];

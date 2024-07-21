@@ -19,7 +19,7 @@ impl FermiMatchResult {
 
 #[rustfmt::skip]
 pub fn fermi_match(concave_components: Leash<Vec<crate::line_segment_sketch::concave_component::ConcaveComponent>>, templates: &Vec<fn(Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32>>) -> crate::fermi::FermiMatchResult {
-    let mut others = concave_components.collect_leashes();
+    let mut others = concave_components.deleash().collect_leashes();
     let mut matches: Vec<Option<Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>>> = vec![];
     for i in 0..templates.ilen() {
         let template = templates[i as usize];

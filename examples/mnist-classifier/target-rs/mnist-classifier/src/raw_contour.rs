@@ -233,8 +233,8 @@ pub fn find_raw_contours(cc: Leash<crate::connected_component::ConnectedComponen
     let mut result: Vec<crate::raw_contour::RawContour> = vec![];
     let mut boundary_unsearched = mnist::BinaryGrid28::new_zeros();
     for i in 1..=29 {
-        let r_ur = cc.mask[(i - 1) as usize];
-        let r_dr = cc.mask[i as usize];
+        let r_ur = cc.deleash().mask[(i - 1) as usize];
+        let r_dr = cc.deleash().mask[i as usize];
         let r_ul = r_ur << 1;
         let r_dl = r_dr << 1;
         boundary_unsearched[i as usize] = (r_ur | r_dr | r_ul | r_dl) & !(r_ur & r_dr & r_ul & r_dl)
@@ -244,8 +244,8 @@ pub fn find_raw_contours(cc: Leash<crate::connected_component::ConnectedComponen
             let mut contour: Vec<crate::geom2d::Point2d> = vec![];
             let mut i = k;
             let mut j = boundary_unsearched[k as usize].ctz();
-            let mut row_above = cc.mask[(i - 1) as usize];
-            let mut row_below = cc.mask[i as usize];
+            let mut row_above = cc.deleash().mask[(i - 1) as usize];
+            let mut row_below = cc.deleash().mask[i as usize];
             let mut inward_direction = crate::raw_contour::get_inward_direction(row_above, row_below, j);
             let i0 = i;
             let j0 = j;
@@ -288,12 +288,12 @@ pub fn find_raw_contours(cc: Leash<crate::connected_component::ConnectedComponen
                         crate::raw_contour::Direction::Up => {
                             i = i - 1;
                             row_below = row_above;
-                            row_above = cc.mask[(i - 1) as usize]
+                            row_above = cc.deleash().mask[(i - 1) as usize]
                         }
                         crate::raw_contour::Direction::Down => {
                             i = i + 1;
                             row_above = row_below;
-                            row_below = cc.mask[i as usize]
+                            row_below = cc.deleash().mask[i as usize]
                         }
                         crate::raw_contour::Direction::Left => {
                             j = j + 1

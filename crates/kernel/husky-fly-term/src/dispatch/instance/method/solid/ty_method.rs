@@ -9,7 +9,7 @@ impl HasFlyTypeMethodDispatch for SolTerm {
         indirections: FlyIndirections,
     ) -> FlyTermMaybeResult<MethodFlyInstanceDispatch> {
         match self.data(engine) {
-            SolidTermData::TypeOntology {
+            SolTermData::TypeOntology {
                 path,
                 refined_path,
                 arguments,
@@ -31,7 +31,7 @@ impl HasFlyTypeMethodDispatch for SolTerm {
             //     }
             //     None => todo!(),
             // },
-            SolidTermData::Curry { .. } | SolidTermData::Ritchie { .. } => Nothing,
+            SolTermData::Curry { .. } | SolTermData::Ritchie { .. } => Nothing,
         }
     }
 }

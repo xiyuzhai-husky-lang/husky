@@ -44,7 +44,7 @@ fn list_like_index_signature(
     element_ty: FlyTerm,
     index_ty: FlyTerm,
 ) -> FlyTermMaybeResult<FlyIndexSignature> {
-    match index_ty.data(engine) {
+    match index_ty.base_term_data(engine) {
         FlyTermData::Literal(_) => todo!(),
         // todo: is this correct?
         FlyTermData::TypeOntology {

@@ -36,7 +36,7 @@ pub(super) fn ethereal_owner_ty_int_index_signature(
 }
 
 fn coersible_to_int(engine: &mut impl FlyTermEngineMut, index_ty: FlyTerm) -> bool {
-    match index_ty.data(engine) {
+    match index_ty.base_term_data(engine) {
         FlyTermData::Literal(_) => unreachable!(),
         FlyTermData::TypeOntology {
             refined_ty_path, ..

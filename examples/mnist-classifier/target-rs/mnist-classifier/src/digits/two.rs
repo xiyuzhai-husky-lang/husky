@@ -8,21 +8,21 @@ pub fn two_match() -> crate::fermi::FermiMatchResult {
 
 #[rustfmt::skip]
 pub fn left_cc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
-    let dp = cc.displacement();
+    let dp = cc.deleash().displacement();
     require!(dp.y < 0.0f32);
     Some(dp.y)
 }
 
 #[rustfmt::skip]
 pub fn right_cc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
-    let dp = cc.displacement();
+    let dp = cc.deleash().displacement();
     require!(dp.y > 0.0f32);
     Some(dp.y)
 }
 
 #[rustfmt::skip]
 pub fn down_cc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
-    let dp = cc.displacement();
+    let dp = cc.deleash().displacement();
     require!(dp.x > 0.0f32);
     Some(dp.x)
 }
@@ -30,7 +30,7 @@ pub fn down_cc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::val(ingredient_index = 47)]
 pub fn is_two() -> malamute::OneVsAll {
-    let cc_num = major_concave_components().ilen();
+    let cc_num = major_concave_components().deleash().ilen();
     let eff_holes = &<crate::connected_component::ConnectedComponent>::eff_holes(major_connected_component());
     require!(let Option::None = eff_holes.matches[1 as usize]);
     let left_cc = two_match().matches[0 as usize];
@@ -44,9 +44,9 @@ pub fn is_two() -> malamute::OneVsAll {
         require!(let Some(_) = right_cc);
         let a = <crate::line_segment_sketch::concave_component::ConcaveComponent>::angle_change(right_cc.unwrap());
         require!(a > -180.0f32);
-        let end_tan = left_cc.unwrap().end_tangent().angle(true);
-        let x = left_cc.unwrap().end_tangent().x;
-        let y = left_cc.unwrap().end_tangent().y;
+        let end_tan = left_cc.unwrap().deleash().end_tangent().angle(true);
+        let x = left_cc.unwrap().deleash().end_tangent().x;
+        let y = left_cc.unwrap().deleash().end_tangent().y;
         let left_ymax = <crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(left_cc.unwrap()).ymax();
         let left_ymin = <crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(left_cc.unwrap()).ymin();
         let left_mid_y = (left_ymax + left_ymin) / 2.0f32;

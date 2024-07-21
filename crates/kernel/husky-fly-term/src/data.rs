@@ -183,14 +183,14 @@ pub enum FlyBaseTypeData<'a> {
 }
 
 impl FlyTerm {
-    pub fn data<'a, 'b>(self, engine: &'a impl FlyTermEngine<'b>) -> FlyTermData<'a>
+    pub fn base_term_data<'a, 'b>(self, engine: &'a impl FlyTermEngine<'b>) -> FlyTermData<'a>
     where
         'b: 'a,
     {
-        self.data2(engine.db(), engine.fly_terms())
+        self.base_term_data2(engine.db(), engine.fly_terms())
     }
 
-    pub fn data2<'a>(self, db: &'a ::salsa::Db, terms: &'a FlyTerms) -> FlyTermData<'a> {
+    pub fn base_term_data2<'a>(self, db: &'a ::salsa::Db, terms: &'a FlyTerms) -> FlyTermData<'a> {
         match self.base_resolved_inner(terms) {
             FlyTermBase::Eth(term) => ethereal_term_data(db, term),
             FlyTermBase::Sol(term) => term.data_inner(terms.sol_terms()).into(),

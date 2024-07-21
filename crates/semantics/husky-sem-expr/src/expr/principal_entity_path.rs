@@ -157,7 +157,8 @@ impl<'a> SemExprBuilder<'a> {
                 FlyTermDestination::AnyOriginal | FlyTermDestination::AnyDerived => {
                     Ok(path.ty(db)?.into())
                 }
-                FlyTermDestination::Specific(destination) => match destination.data(self) {
+                FlyTermDestination::Specific(destination) => match destination.base_term_data(self)
+                {
                     FlyTermData::TypeOntology { ty_path, .. } if ty_path == parent_ty_path => {
                         Ok(destination)
                     }

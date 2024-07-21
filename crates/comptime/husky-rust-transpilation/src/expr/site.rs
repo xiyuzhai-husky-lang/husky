@@ -32,7 +32,8 @@ impl HirEagerExprSite {
 
     pub(crate) fn self_argument_with_indirections(indirections: &HirIndirections) -> Self {
         let mut rust_precedence_range = RustPrecedenceRange::Geq(RustPrecedence::Suffix);
-        let mut rust_bindings: RustBindings = RustBinding::SelfValue.into();
+        let mut rust_bindings = RustBindings::default();
+        // ad hoc, needs to rethink carefully
         if indirections.len() > 0 {
             for indirection in &**indirections {
                 match indirection {
@@ -41,6 +42,7 @@ impl HirEagerExprSite {
                 }
             }
         }
+        rust_bindings.push(RustBinding::SelfValue);
         Self {
             rust_precedence_range,
             rust_bindings,

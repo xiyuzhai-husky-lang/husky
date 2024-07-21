@@ -25,7 +25,7 @@ impl<'a> SemExprBuilder<'a> {
                         Err(DerivedSemExprTypeError::PrefixOperandTypeNotInferred.into()),
                     );
                 };
-                match opd_ty.data(self) {
+                match opd_ty.base_term_data(self) {
                     FlyTermData::Literal(_) => todo!(),
                     FlyTermData::TypeOntology {
                         ty_path,
@@ -121,7 +121,7 @@ impl<'a> SemExprBuilder<'a> {
 
     fn calc_bitnot_expr_ty(&mut self, opd_ty: Option<FlyTerm>) -> SemExprTypeResult<FlyTerm> {
         let opd_ty = opd_ty.ok_or(DerivedSemExprTypeError::BitNotOperandTypeNotInferred)?;
-        match opd_ty.data(self) {
+        match opd_ty.base_term_data(self) {
             FlyTermData::TypeOntology {
                 refined_ty_path: Left(prelude_ty_path),
                 ..

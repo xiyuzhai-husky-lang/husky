@@ -10,12 +10,12 @@ impl HasFlyTraitMethodDispatch for SolTerm {
         indirections: FlyIndirections,
     ) -> FlyTermMaybeResult<MethodFlyInstanceDispatch> {
         match self.data(engine) {
-            SolidTermData::TypeOntology {
+            SolTermData::TypeOntology {
                 path,
                 refined_path,
                 arguments,
             } => todo!(),
-            SolidTermData::Curry {
+            SolTermData::Curry {
                 toolchain,
                 curry_kind,
                 variance,
@@ -23,7 +23,7 @@ impl HasFlyTraitMethodDispatch for SolTerm {
                 parameter_ty,
                 return_ty,
             } => todo!(),
-            SolidTermData::Ritchie {
+            SolTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,

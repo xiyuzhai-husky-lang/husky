@@ -4033,7 +4033,7 @@
                                                         ),
                                                     },
                                                     indirections: [
-                                                        Deleash,
+                                                        HirIndirection::Deleash,
                                                     ],
                                                     final_place: Leashed {
                                                         place_idx: None,

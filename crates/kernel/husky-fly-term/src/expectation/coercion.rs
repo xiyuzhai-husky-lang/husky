@@ -73,7 +73,7 @@ impl ExpectCoercion {
     /// this will reduce place type to type
     #[inline(always)]
     pub fn new_pure(engine: &impl FlyTermEngine, ty: FlyTerm) -> Self {
-        let ty = match ty.data(engine) {
+        let ty = match ty.base_term_data(engine) {
             // FlyTermData::TypeOntologyAtPlace {
             //     ty_path,
             //     ty_arguments,
