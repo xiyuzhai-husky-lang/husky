@@ -95,10 +95,11 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [
                                 HirEagerExprEntry {
-                                    data: HirEagerExprData::Variable(
+                                    data: HirEagerExprData::RuntimeVariable(
                                         0,
                                     ),
                                     contracted_quary: HirContractedQuary {
@@ -277,7 +278,7 @@
                                     ),
                                 },
                                 HirEagerExprEntry {
-                                    data: HirEagerExprData::Variable(
+                                    data: HirEagerExprData::RuntimeVariable(
                                         0,
                                     ),
                                     contracted_quary: HirContractedQuary {
@@ -463,12 +464,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -554,6 +555,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -563,12 +565,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -972,6 +974,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -981,12 +984,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -1014,7 +1017,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 38,
+                                    value: 40,
                                 },
                             ),
                         ),
@@ -1033,6 +1036,15 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`),
                         ),
+                        self_value_ty: Some(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                    template_arguments: [],
+                                    always_copyable: false,
+                                },
+                            ),
+                        ),
                         expr_arena: Arena {
                             data: [],
                         },
@@ -1042,12 +1054,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -1083,6 +1095,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -1092,12 +1105,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -1178,6 +1191,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -1209,12 +1223,12 @@
                                 },
                             ],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -1268,7 +1282,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 38,
+                                    value: 40,
                                 },
                             ),
                         ),
@@ -1287,6 +1301,15 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`),
                         ),
+                        self_value_ty: Some(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                    template_arguments: [],
+                                    always_copyable: false,
+                                },
+                            ),
+                        ),
                         expr_arena: Arena {
                             data: [],
                         },
@@ -1296,12 +1319,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -1341,6 +1364,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -1350,12 +1374,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -1383,7 +1407,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 36,
+                                    value: 38,
                                 },
                             ),
                         ),
@@ -1402,6 +1426,15 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`),
                         ),
+                        self_value_ty: Some(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                    template_arguments: [],
+                                    always_copyable: false,
+                                },
+                            ),
+                        ),
                         expr_arena: Arena {
                             data: [],
                         },
@@ -1411,12 +1444,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -1452,6 +1485,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -1461,12 +1495,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -1505,6 +1539,25 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`),
                         ),
+                        self_value_ty: Some(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                    template_arguments: [
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                    always_copyable: true,
+                                },
+                            ),
+                        ),
                         expr_arena: Arena {
                             data: [],
                         },
@@ -1514,12 +1567,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -1556,6 +1609,25 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`),
                         ),
+                        self_value_ty: Some(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                    template_arguments: [
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                    always_copyable: true,
+                                },
+                            ),
+                        ),
                         expr_arena: Arena {
                             data: [],
                         },
@@ -1565,12 +1637,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -1648,6 +1720,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -1672,12 +1745,12 @@
                                 },
                             ],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {

@@ -95,6 +95,10 @@ impl<T> CyclicSliceLeashed<T> {
         Self { start, end, slice }
     }
 
+    pub fn deleash(self) -> Self {
+        self
+    }
+
     pub fn first(self) -> Option<&'static T> {
         if self.slice.len() == 0 {
             None

@@ -57,8 +57,6 @@ impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprS
         if needs_releash {
             site.rust_bindings.push(RustBinding::Releash)
         }
-        use husky_print_utils::p;
-        p!(site.rust_bindings);
         let mut releash_flag = false;
         let mut wrap_in_some_flag = false;
         if let Some(rust_binding) = site.rust_bindings.last() {
@@ -199,10 +197,8 @@ fn transpile_hir_eager_expr_to_rust(
                 PrincipalEntityPath::MajorItem(_) => (),
             }
         }
-        HirEagerExprData::ConstVariable { ident, .. } => ident.transpile_to_rust(builder),
-        HirEagerExprData::Variable(hir_eager_runtime_symbol_idx) => {
-            hir_eager_runtime_symbol_idx.transpile_to_rust(builder)
-        }
+        HirEagerExprData::ComptimeVariable { ident, .. } => ident.transpile_to_rust(builder),
+        HirEagerExprData::RuntimeVariable(variable) => variable.transpile_to_rust(builder),
         HirEagerExprData::Binary { lopd, opr, ropd } => match opr {
             HirBinaryOpr::Closed(BinaryClosedOpr::RemEuclid) => {
                 (lopd, HirEagerExprSite::simple_self_argument(false)).transpile_to_rust(builder);
@@ -326,16 +322,6 @@ fn transpile_hir_eager_expr_to_rust(
             ref indirections,
             ..
         } => {
-            if ident.data(db) == "points"
-                && (self_ty.is_always_leashed(db))
-                && (indirections.is_empty())
-            {
-                use husky_print_utils::p;
-                use salsa::DebugWithDb;
-
-                p!(self_ty.debug(db), indirections.debug(db));
-                todo!()
-            }
             (
                 self_argument,
                 HirEagerExprSite::self_argument_with_indirections(indirections),
@@ -514,13 +500,13 @@ fn transpile_hir_eager_expr_to_rust(
 impl HirEagerExprSite {
     fn hir_eager_expr_needs_deref(&self, entry: &HirEagerExprEntry) -> bool {
         match *entry.data() {
-            HirEagerExprData::Variable(_) => match entry.quary() {
+            HirEagerExprData::RuntimeVariable(_) => match entry.quary() {
                 HirQuary::Compterm | HirQuary::StackPure { .. } => !entry.is_always_copyable(),
                 HirQuary::Ref { .. } => true,
                 HirQuary::RefMut { .. } => true,
                 _ => false,
             },
-            HirEagerExprData::ConstVariable { .. }
+            HirEagerExprData::ComptimeVariable { .. }
             | HirEagerExprData::FunctionRitchieCall { .. }
             | HirEagerExprData::AssocFunctionRitchieCall { .. }
             | HirEagerExprData::MemoizedField { .. }

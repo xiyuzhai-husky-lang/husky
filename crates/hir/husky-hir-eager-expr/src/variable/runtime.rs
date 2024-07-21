@@ -8,8 +8,8 @@ use idx_arena::ArenaIdx;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirEagerRuntimeVariableRegionData {
-    arena: HirEagerRvarArena,
-    self_value_variable: Option<HirEagerRvarIdx>,
+    arena: HirEagerRuntimeVariableArena,
+    self_value_variable: Option<HirEagerRuntimeVariableIdx>,
 }
 
 #[salsa::derive_debug_with_db]
@@ -19,8 +19,8 @@ pub struct HirEagerRuntimeVariableEntry {
     data: HirEagerRuntimeVariableData,
 }
 
-pub type HirEagerRvarArena = Arena<HirEagerRuntimeVariableEntry>;
-pub type HirEagerRvarIdx = ArenaIdx<HirEagerRuntimeVariableEntry>;
+pub type HirEagerRuntimeVariableArena = Arena<HirEagerRuntimeVariableEntry>;
+pub type HirEagerRuntimeVariableIdx = ArenaIdx<HirEagerRuntimeVariableEntry>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db]
@@ -45,8 +45,8 @@ pub enum HirEagerRuntimeVariableData {
 impl HirEagerRuntimeVariableRegionData {
     pub(crate) fn from_syn(
         variable_region: &VariableRegionData,
-    ) -> (Self, VariableMap<HirEagerRvarIdx>) {
-        let mut arena = HirEagerRvarArena::default();
+    ) -> (Self, VariableMap<HirEagerRuntimeVariableIdx>) {
+        let mut arena = HirEagerRuntimeVariableArena::default();
         let self_value_variable = match variable_region.allow_self_value() {
             AllowSelfValue::True => Some(arena.alloc_one(HirEagerRuntimeVariableEntry {
                 name: HirEagerRuntimeVariableName::SelfValue,
@@ -55,7 +55,7 @@ impl HirEagerRuntimeVariableRegionData {
             AllowSelfValue::False => None,
         };
         let mut variable_to_hir_eager_runtime_symbol_map =
-            VariableMap::<HirEagerRvarIdx>::new(variable_region);
+            VariableMap::<HirEagerRuntimeVariableIdx>::new(variable_region);
 
         for (inherited_variable_idx, inherited_variable) in
             variable_region.indexed_inherited_variables()
@@ -87,15 +87,15 @@ impl HirEagerRuntimeVariableRegionData {
         )
     }
 
-    pub fn self_value_variable(&self) -> Option<HirEagerRvarIdx> {
+    pub fn self_value_variable(&self) -> Option<HirEagerRuntimeVariableIdx> {
         self.self_value_variable
     }
 }
 
-impl std::ops::Index<HirEagerRvarIdx> for HirEagerRuntimeVariableRegionData {
+impl std::ops::Index<HirEagerRuntimeVariableIdx> for HirEagerRuntimeVariableRegionData {
     type Output = HirEagerRuntimeVariableEntry;
 
-    fn index(&self, index: HirEagerRvarIdx) -> &Self::Output {
+    fn index(&self, index: HirEagerRuntimeVariableIdx) -> &Self::Output {
         &self.arena[index]
     }
 }

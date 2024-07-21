@@ -63,6 +63,7 @@ impl SemExprRegion {
         fly_term_region: FlyTermRegion,
         return_ty: Option<EthTerm>,
         self_ty: Option<EthTerm>,
+        self_value_ty: Option<FlyTerm>,
         context_itd: EthTermContextItd,
         db: &::salsa::Db,
     ) -> Self {
@@ -84,6 +85,7 @@ impl SemExprRegion {
                 fly_term_region,
                 return_ty,
                 self_ty,
+                self_value_ty,
                 context_itd,
             },
         )
@@ -106,6 +108,7 @@ pub struct SemExprRegionData {
     fly_term_region: FlyTermRegion,
     return_ty: Option<EthTerm>,
     self_ty: Option<EthTerm>,
+    self_value_ty: Option<FlyTerm>,
     // todo: this should be expr dependent, i.e., for any expr, this could be overriden
     context_itd: EthTermContextItd,
 }
@@ -209,6 +212,14 @@ impl SemExprRegionData {
 
     pub fn return_ty(&self) -> Option<EthTerm> {
         self.return_ty
+    }
+
+    pub fn self_ty(&self) -> Option<EthTerm> {
+        self.self_ty
+    }
+
+    pub fn self_value_ty(&self) -> Option<FlyTerm> {
+        self.self_value_ty
     }
 
     pub fn place_registry(&self) -> &PlaceRegistry {

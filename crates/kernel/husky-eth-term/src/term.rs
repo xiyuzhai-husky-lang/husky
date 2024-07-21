@@ -152,7 +152,7 @@ impl EthTerm {
             }
             DecTerm::LeashOrBitNot(toolchain) => match ty_expectation {
                 TypeFinalDestinationExpectation::EqsSort => {
-                    db.ethereal_term_menu(toolchain).leash_ty_ontology()
+                    db.eth_term_menu(toolchain).leash_ty_ontology()
                 }
                 TypeFinalDestinationExpectation::EqsNonSortTypePath(path) => {
                     match path.prelude(db) {
@@ -263,7 +263,7 @@ pub(crate) fn ethereal_term_from_list_declarative_term(
     match term_ty_expectation {
         TypeFinalDestinationExpectation::EqsSort => {
             let toolchain = list.toolchain(db);
-            let term_menu = db.ethereal_term_menu(toolchain);
+            let term_menu = db.eth_term_menu(toolchain);
             let items = list.items(db);
             match items.len() {
                 0 => Ok(term_menu.list_ty_ontology()),
@@ -318,7 +318,7 @@ pub(crate) fn ethereal_term_from_dec_term_wrapper(
             let Some(toolchain) = inner_ty.toolchain(db) else {
                 todo!()
             };
-            let leash_ty_ontology = db.ethereal_term_menu(toolchain).leash_ty_ontology();
+            let leash_ty_ontology = db.eth_term_menu(toolchain).leash_ty_ontology();
             Ok(EthApplication::new_reduced(
                 db,
                 leash_ty_ontology,

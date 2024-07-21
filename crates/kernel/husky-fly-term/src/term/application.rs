@@ -57,9 +57,9 @@ impl FlyTerm {
         }
     }
 
-    pub fn new_leashed(engine: &mut impl FlyTermEngineMut, ty: FlyTerm) -> EthTermResult<Self> {
+    pub fn leashed(self, engine: &mut impl FlyTermEngineMut) -> EthTermResult<Self> {
         let function: FlyTerm = engine.term_menu().leash_ty_ontology().into();
-        Self::new_application(engine, function, ty)
+        Self::new_application(engine, function, self)
     }
 
     pub fn new_ty_ontology(

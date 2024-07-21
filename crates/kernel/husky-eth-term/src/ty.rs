@@ -38,9 +38,9 @@ impl HasTypeGivenDisambiguation for PrincipalEntityPath {
         disambiguation: TypePathDisambiguation,
     ) -> EthTermResult<EthTerm> {
         match self {
-            PrincipalEntityPath::Module(path) => Ok(db
-                .ethereal_term_menu(path.toolchain(db))
-                .module_ty_ontology()),
+            PrincipalEntityPath::Module(path) => {
+                Ok(db.eth_term_menu(path.toolchain(db)).module_ty_ontology())
+            }
             PrincipalEntityPath::MajorItem(path) => path.ty(db, disambiguation),
             PrincipalEntityPath::TypeVariant(path) => path.ty(db),
         }

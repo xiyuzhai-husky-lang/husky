@@ -62,8 +62,8 @@ impl<'a> HirDefnDepsBuilder<'a> {
                         self.add_item_path(path.parent_ty_path(db))
                     }
                 },
-                HirEagerExprData::ConstVariable { .. } => (),
-                HirEagerExprData::Variable(_) => (),
+                HirEagerExprData::ComptimeVariable { .. } => (),
+                HirEagerExprData::RuntimeVariable(_) => (),
                 HirEagerExprData::Binary { .. } => (),
                 HirEagerExprData::Be { .. } => (),
                 HirEagerExprData::Prefix { .. } => (),

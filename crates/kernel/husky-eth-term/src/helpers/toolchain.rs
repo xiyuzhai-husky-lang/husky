@@ -25,6 +25,6 @@ impl EthTerm {
     }
 
     pub fn ethereal_term_menu(self, db: &::salsa::Db) -> Option<&EthTermMenu> {
-        Some(db.ethereal_term_menu(self.toolchain(db)?))
+        Some(db.eth_term_menu(self.toolchain(db)?))
     }
 }
