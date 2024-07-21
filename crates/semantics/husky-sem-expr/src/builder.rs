@@ -449,12 +449,12 @@ impl<'a> SemExprBuilder<'a> {
     pub(crate) fn alloc_expr(
         &mut self,
         data_result: Result<SemExprData, SemExprDataError>,
-        immediate_ty_result: Result<FlyTerm, SemExprTypeError>,
+        ty_result: Result<FlyTerm, SemExprTypeError>,
         expectation_idx_and_ty: Option<(FlyTermExpectationIdx, FlyTerm)>,
     ) -> SemExprIdx {
-        let expr =
-            self.sem_expr_arena
-                .alloc_one(data_result, immediate_ty_result, expectation_idx_and_ty);
+        let expr = self
+            .sem_expr_arena
+            .alloc_one(data_result, ty_result, expectation_idx_and_ty);
         self.fly_term_region.resolve_as_much_as_possible(self.db());
         expr
     }

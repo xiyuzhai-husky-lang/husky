@@ -339,7 +339,7 @@ pub enum SemExprData {
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemExprEntry {
     data_result: SemExprDataResult<SemExprData>,
-    immediate_ty_result: SemExprTypeResult<FlyTerm>,
+    ty_result: SemExprTypeResult<FlyTerm>,
     expectation_idx_and_ty: Option<(FlyTermExpectationIdx, FlyTerm)>,
 }
 
@@ -372,7 +372,7 @@ impl SemExprEntry {
     }
 
     pub fn original_ty_error(&self) -> Option<&OriginalSemExprTypeError> {
-        match self.immediate_ty_result {
+        match self.ty_result {
             Err(SemExprTypeError::Original(ref e)) => Some(e),
             _ => None,
         }
@@ -387,12 +387,12 @@ impl SemExprArena {
     pub(crate) fn alloc_one(
         &mut self,
         data_result: SemExprDataResult<SemExprData>,
-        immediate_ty_result: SemExprTypeResult<FlyTerm>,
+        ty_result: SemExprTypeResult<FlyTerm>,
         expectation_idx_and_ty: Option<(FlyTermExpectationIdx, FlyTerm)>,
     ) -> SemExprIdx {
         SemExprIdx(self.0.alloc_one(SemExprEntry {
             data_result,
-            immediate_ty_result,
+            ty_result,
             expectation_idx_and_ty,
         }))
     }
@@ -489,11 +489,8 @@ impl SemExprIdx {
         arena[self].ty().unwrap()
     }
 
-    pub(crate) fn immediate_ty_result<'a>(
-        self,
-        arena: &'a SemExprArena,
-    ) -> &'a SemExprTypeResult<FlyTerm> {
-        &arena[self].immediate_ty_result
+    pub fn ty_result<'a>(self, arena: &'a SemExprArena) -> &'a SemExprTypeResult<FlyTerm> {
+        &arena[self].ty_result
     }
 
     /// outside crate wouldn't need to access this
@@ -701,9 +698,9 @@ impl<'a> SemExprBuilder<'a> {
         expr: SynExprIdx,
         expr_ty_expectation: E,
     ) -> (SemExprIdx, Option<(FlyTermExpectationIdx, FlyTerm)>) {
-        let (data_result, immediate_ty_result) =
+        let (data_result, ty_result) =
             self.build_sem_expr_data_and_ty_result(expr, &expr_ty_expectation);
-        let expectation_and_ty = match immediate_ty_result {
+        let expectation_and_ty = match ty_result {
             Ok(ty) => Some(self.add_expectation(
                 ExpectationSource::new_expr(expr),
                 ty,
@@ -711,7 +708,7 @@ impl<'a> SemExprBuilder<'a> {
             )),
             _ => None,
         };
-        let expr = self.alloc_expr(data_result, immediate_ty_result, expectation_and_ty);
+        let expr = self.alloc_expr(data_result, ty_result, expectation_and_ty);
         (expr, expectation_and_ty)
     }
 
