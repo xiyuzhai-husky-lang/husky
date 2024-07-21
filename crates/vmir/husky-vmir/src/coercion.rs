@@ -7,7 +7,7 @@ pub enum VmirCoercion {
     Trivial,
     Never,
     WrapInSome,
-    PlaceToLeash,
+    Releash,
     Deref,
 }
 
@@ -22,7 +22,7 @@ impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for HirEagerCoercion {
             HirEagerCoercion::Trivial(_) => VmirCoercion::Trivial,
             HirEagerCoercion::Never => VmirCoercion::Never,
             HirEagerCoercion::WrapInSome => VmirCoercion::WrapInSome,
-            HirEagerCoercion::PlaceToLeash => VmirCoercion::PlaceToLeash,
+            HirEagerCoercion::Releash => VmirCoercion::Releash,
             HirEagerCoercion::Deref(_) => VmirCoercion::Deref,
         }
     }

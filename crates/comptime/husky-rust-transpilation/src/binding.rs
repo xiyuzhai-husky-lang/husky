@@ -4,15 +4,17 @@ use smallvec::*;
 pub(crate) enum RustBinding {
     Deref,
     DerefCustomed,
+    Deleash,
     Reref,
     RerefMut,
+    Releash,
     SelfValue,
     WrapInSome,
 }
 
 #[derive(Debug, Default)]
 pub(crate) struct RustBindings {
-    /// the order is the same as how it's written
+    /// the order is: the first is the innermost, the last is the outermost
     bindings: SmallVec<[RustBinding; 3]>,
 }
 

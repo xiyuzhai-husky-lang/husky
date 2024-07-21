@@ -75,6 +75,7 @@
                             )`),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`malamute::narrow_down`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [
                                     (
@@ -226,6 +227,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::slice::CyclicSlice(0)::end`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -268,6 +270,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::slice::CyclicSlice(0)::start`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },

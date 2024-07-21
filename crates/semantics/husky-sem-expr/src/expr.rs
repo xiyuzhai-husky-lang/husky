@@ -213,7 +213,7 @@ pub enum SemExprData {
     },
     Field {
         self_argument: SemExprIdx,
-        self_ty: FlyTerm,
+        self_argument_ty: FlyTerm,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
         dispatch: FlyFieldInstanceDispatch,
@@ -232,7 +232,7 @@ pub enum SemExprData {
         self_contract: Contract,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,
-        instance_dispatch: MethodFlyInstanceDispatch,
+        dispatch: MethodFlyInstanceDispatch,
         template_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
         ritchie_parameter_argument_matches: RitchieArgumentes,
@@ -576,46 +576,46 @@ impl<'a> SemExprBuilder<'a> {
                 | SynExprRootKind::TypeAliasValue
                 | SynExprRootKind::TypeVarDefault
                 | SynExprRootKind::AssocTypeValue => {
-                    let sem_expr_idx = self.build_sem_expr(root.syn_expr_idx(), ExpectSort::TYPE);
+                    let sem_expr_idx = self.build_expr(root.syn_expr_idx(), ExpectSort::TYPE);
                     self.infer_expr_term(sem_expr_idx);
                     sem_expr_idx
                 }
                 SynExprRootKind::PrimalTrait => {
-                    let sem_expr_idx = self.build_sem_expr(root.syn_expr_idx(), ExpectAnyOriginal);
+                    let sem_expr_idx = self.build_expr(root.syn_expr_idx(), ExpectAnyOriginal);
                     self.infer_expr_term(sem_expr_idx);
                     sem_expr_idx
                 }
                 SynExprRootKind::TraitInConstraint => {
                     // ad hoc
-                    let sem_expr_idx = self.build_sem_expr(root.syn_expr_idx(), ExpectAnyOriginal);
+                    let sem_expr_idx = self.build_expr(root.syn_expr_idx(), ExpectAnyOriginal);
                     self.infer_expr_term(sem_expr_idx);
                     sem_expr_idx
                 }
                 SynExprRootKind::DefaultConstExclude => {
-                    let sem_expr_idx = self.build_sem_expr(root.syn_expr_idx(), ExpectAnyOriginal);
+                    let sem_expr_idx = self.build_expr(root.syn_expr_idx(), ExpectAnyOriginal);
                     self.infer_expr_term(sem_expr_idx);
                     sem_expr_idx
                 }
                 SynExprRootKind::Dep => {
-                    let sem_expr_idx = self.build_sem_expr(root.syn_expr_idx(), ExpectAnyOriginal);
+                    let sem_expr_idx = self.build_expr(root.syn_expr_idx(), ExpectAnyOriginal);
                     self.infer_expr_term(sem_expr_idx);
                     sem_expr_idx
                 }
                 SynExprRootKind::RootBody
                 | SynExprRootKind::ValExpr
                 | SynExprRootKind::StaticExpr => match self.return_ty() {
-                    Some(return_ty) => self.build_sem_expr(
+                    Some(return_ty) => self.build_expr(
                         root.syn_expr_idx(),
                         ExpectCoercion::new_move(return_ty.into()),
                     ),
-                    None => self.build_sem_expr(root.syn_expr_idx(), ExpectAnyDerived),
+                    None => self.build_expr(root.syn_expr_idx(), ExpectAnyDerived),
                 },
                 SynExprRootKind::FieldBindInitialValue { ty_syn_expr_idx }
                 | SynExprRootKind::ParenateParameterDefaultValue { ty_syn_expr_idx } => {
                     let (ty_sem_expr_idx, _) = self.sem_expr_roots[ty_syn_expr_idx].1;
                     match self.infer_expr_term(ty_sem_expr_idx) {
                         Some(ty) => {
-                            self.build_sem_expr(root.syn_expr_idx(), ExpectCoercion::new_move(ty))
+                            self.build_expr(root.syn_expr_idx(), ExpectCoercion::new_move(ty))
                         }
                         _ => todo!(),
                     }
@@ -635,23 +635,23 @@ impl<'a> SemExprBuilder<'a> {
         }
     }
 
-    pub(crate) fn build_sem_expr_with_ty<E: ExpectFlyTerm>(
+    pub(crate) fn build_expr_with_ty<E: ExpectFlyTerm>(
         &mut self,
         expr_idx: SynExprIdx,
         expr_ty_expectation: E,
     ) -> (SemExprIdx, Option<FlyTerm>) {
         let (sem_expr_idx, expectation_idx_and_ty) =
-            self.build_sem_expr_aux(expr_idx, expr_ty_expectation);
+            self.build_expr_aux(expr_idx, expr_ty_expectation);
         (sem_expr_idx, expectation_idx_and_ty.map(|(_, ty)| ty))
     }
 
-    pub(crate) fn build_sem_expr_with_ty_and_outcome<E: ExpectFlyTerm>(
+    pub(crate) fn build_expr_with_ty_and_outcome<E: ExpectFlyTerm>(
         &mut self,
         expr_idx: SynExprIdx,
         expr_ty_expectation: E,
     ) -> (SemExprIdx, Option<FlyTerm>, Option<ExpectationOutcome>) {
         let (sem_expr_idx, expectation_idx_and_ty) =
-            self.build_sem_expr_aux(expr_idx, expr_ty_expectation);
+            self.build_expr_aux(expr_idx, expr_ty_expectation);
         let (ty, outcome) = match expectation_idx_and_ty {
             Some((expectation_idx, ty)) => (
                 Some(ty),
@@ -666,55 +666,53 @@ impl<'a> SemExprBuilder<'a> {
     }
 
     /// infer the type of a new expression but don't need the result for now
-    pub(crate) fn build_sem_expr<E: ExpectFlyTerm>(
+    pub(crate) fn build_expr<E: ExpectFlyTerm>(
         &mut self,
         syn_expr_idx: SynExprIdx,
         expr_ty_expectation: E,
     ) -> SemExprIdx {
-        let (sem_expr_idx, _) = self.build_sem_expr_aux(syn_expr_idx, expr_ty_expectation);
+        let (sem_expr_idx, _) = self.build_expr_aux(syn_expr_idx, expr_ty_expectation);
         sem_expr_idx
     }
 
     #[inline(always)]
-    pub(crate) fn build_sem_expr_with_outcome<E: ExpectFlyTerm>(
+    pub(crate) fn build_expr_with_outcome<E: ExpectFlyTerm>(
         &mut self,
-        syn_expr_idx: SynExprIdx,
+        expr: SynExprIdx,
         expr_ty_expectation: E,
     ) -> (SemExprIdx, Option<E::Outcome>)
     where
         E::Outcome: Clone,
     {
-        let (sem_expr_idx, expectation_idx) =
-            self.build_sem_expr_aux(syn_expr_idx, expr_ty_expectation);
-        let outcome = match expectation_idx {
-            Some((expectation_idx, _)) => self.fly_term_region()[expectation_idx]
+        let (expr, expectation) = self.build_expr_aux(expr, expr_ty_expectation);
+        let outcome = match expectation {
+            Some((expectation, _)) => self.fly_term_region()[expectation]
                 .resolve_progress()
                 .outcome::<E>()
                 .cloned(),
             None => None,
         };
-        (sem_expr_idx, outcome)
+        (expr, outcome)
     }
 
     #[inline(always)]
-    fn build_sem_expr_aux<E: ExpectFlyTerm>(
+    fn build_expr_aux<E: ExpectFlyTerm>(
         &mut self,
-        expr_idx: SynExprIdx,
+        expr: SynExprIdx,
         expr_ty_expectation: E,
     ) -> (SemExprIdx, Option<(FlyTermExpectationIdx, FlyTerm)>) {
         let (data_result, immediate_ty_result) =
-            self.build_sem_expr_data_and_ty_result(expr_idx, &expr_ty_expectation);
-        let expectation_idx_and_ty = match immediate_ty_result {
+            self.build_sem_expr_data_and_ty_result(expr, &expr_ty_expectation);
+        let expectation_and_ty = match immediate_ty_result {
             Ok(ty) => Some(self.add_expectation(
-                ExpectationSource::new_expr(expr_idx),
+                ExpectationSource::new_expr(expr),
                 ty,
                 expr_ty_expectation,
             )),
             _ => None,
         };
-        let sem_expr_idx =
-            self.alloc_expr(data_result, immediate_ty_result, expectation_idx_and_ty);
-        (sem_expr_idx, expectation_idx_and_ty)
+        let expr = self.alloc_expr(data_result, immediate_ty_result, expectation_and_ty);
+        (expr, expectation_and_ty)
     }
 
     pub(crate) fn build_unit_sem_expr<E: ExpectFlyTerm>(
@@ -835,7 +833,7 @@ impl<'a> SemExprBuilder<'a> {
                 ident,
                 ident_regional_token_idx,
             } => {
-                let parent_expr_idx = self.build_sem_expr(parent_expr_idx, ExpectAnyOriginal);
+                let parent_expr_idx = self.build_expr(parent_expr_idx, ExpectAnyOriginal);
                 let (ontology_dispatch_result, ty_result) = self.calc_assoc_item_ty(
                     syn_expr_idx,
                     parent_expr_idx,
@@ -944,7 +942,7 @@ impl<'a> SemExprBuilder<'a> {
                 be_regional_token_idx,
                 ref target,
             } => {
-                let (src, src_ty) = self.build_sem_expr_with_ty(src, ExpectAnyOriginal);
+                let (src, src_ty) = self.build_expr_with_ty(src, ExpectAnyOriginal);
                 match src_ty {
                     Some(src_ty) => match target {
                         Ok(target) => self.infer_variable_pattern_root_and_symbols_ty(
@@ -1024,7 +1022,7 @@ impl<'a> SemExprBuilder<'a> {
                 lpar_regional_token_idx,
                 ref items,
                 rpar_regional_token_idx,
-            } => self.build_function_call_sem_expr(
+            } => self.build_function_call_expr(
                 syn_expr_idx,
                 function,
                 expr_ty_expectation.final_destination(self),
@@ -1037,7 +1035,7 @@ impl<'a> SemExprBuilder<'a> {
                 owner,
                 dot_regional_token_idx,
                 ident_token,
-            } => self.calc_field_expr_ty(owner, dot_regional_token_idx, ident_token),
+            } => self.build_field_expr(owner, dot_regional_token_idx, ident_token),
             SynExprData::MethodApplicationOrCall {
                 self_argument,
                 dot_regional_token_idx,
@@ -1075,7 +1073,7 @@ impl<'a> SemExprBuilder<'a> {
                 rpar_regional_token_idx,
             } => {
                 let (item, infer_new_expr_ty) =
-                    self.build_sem_expr_with_ty(item, expr_ty_expectation.clone());
+                    self.build_expr_with_ty(item, expr_ty_expectation.clone());
                 (
                     Ok(SemExprData::Delimitered {
                         lpar_regional_token_idx,
@@ -1327,7 +1325,7 @@ impl<'a> SemExprBuilder<'a> {
                     })
                     .collect();
                 let return_ty_sem_expr_idx = return_ty_syn_expr_idx.map(|return_ty_syn_expr_idx| {
-                    self.build_sem_expr(return_ty_syn_expr_idx, self.expect_ty0_subtype())
+                    self.build_expr(return_ty_syn_expr_idx, self.expect_ty0_subtype())
                 });
                 (
                     Ok(SemExprData::Ritchie {

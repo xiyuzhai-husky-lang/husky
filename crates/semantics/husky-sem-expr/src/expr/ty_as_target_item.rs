@@ -17,8 +17,8 @@ impl<'a> SemExprBuilder<'a> {
         ident: Ident,
         ident_regional_token_idx: RegionalTokenIdx,
     ) -> (SemExprDataResult<SemExprData>, SemExprTypeResult<FlyTerm>) {
-        let ty = self.build_sem_expr(ty, ExpectSort::ANY);
-        let (target, outcome) = self.build_sem_expr_with_outcome(target, ExpectSortOrTrait);
+        let ty = self.build_expr(ty, ExpectSort::ANY);
+        let (target, outcome) = self.build_expr_with_outcome(target, ExpectSortOrTrait);
         let Some(outcome) = outcome else { todo!() };
         let Some(ty_term) = self.infer_expr_term(ty) else {
             todo!()

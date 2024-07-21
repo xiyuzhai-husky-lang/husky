@@ -91,6 +91,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::slice::CyclicSlice(0)::first`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },

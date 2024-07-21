@@ -23,7 +23,7 @@ pub fn special_seven_match() -> crate::fermi::FermiMatchResult {
 pub fn leftupcc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y < 0.0f32);
-    require!(cc.relative_bounding_box().ymax() > 0.6f32);
+    require!(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(cc).ymax() > 0.6f32);
     Some(cc.end().y)
 }
 
@@ -31,7 +31,7 @@ pub fn leftupcc_pattern(cc: Leash<crate::line_segment_sketch::concave_component:
 pub fn leftdowncc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.displacement();
     require!(dp.y < 0.0f32);
-    require!(cc.relative_bounding_box().ymin() < 0.3f32);
+    require!(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(cc).ymin() < 0.3f32);
     let ang = cc.start_tangent().angle(true);
     require!(ang < 30.0f32);
     Some(ang)
@@ -40,11 +40,11 @@ pub fn leftdowncc_pattern(cc: Leash<crate::line_segment_sketch::concave_componen
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::val(ingredient_index = 40)]
 pub fn is_seven() -> malamute::OneVsAll {
-    require!(major_connected_component().max_hole_ilen() == 0.0f32);
-    let simple_match_norm = simple_seven_match().norm();
+    require!(<crate::connected_component::ConnectedComponent>::max_hole_ilen(major_connected_component()) == 0.0f32);
+    let simple_match_norm = <crate::fermi::FermiMatchResult>::norm(Leash(&simple_seven_match()));
     if simple_match_norm < 1.0f32 {
         require!(let Some(_) = simple_seven_match().matches[0 as usize]);
-        let upper_excess = major_connected_component().upper_mass() - major_connected_component().lower_mass();
+        let upper_excess = <crate::connected_component::ConnectedComponent>::upper_mass(major_connected_component()) - <crate::connected_component::ConnectedComponent>::lower_mass(major_connected_component());
         if upper_excess < 10.0f32 {
             let end_tangent = simple_seven_match().matches[0 as usize].unwrap().end_tangent();
             let a = end_tangent.y;
@@ -53,7 +53,7 @@ pub fn is_seven() -> malamute::OneVsAll {
         return OneVsAll::Yes;
     }
     if simple_match_norm < 4.0f32 {
-        let upper_excess = major_connected_component().upper_mass() - major_connected_component().lower_mass();
+        let upper_excess = <crate::connected_component::ConnectedComponent>::upper_mass(major_connected_component()) - <crate::connected_component::ConnectedComponent>::lower_mass(major_connected_component());
         require!(upper_excess > 10.0f32);
         return OneVsAll::Yes;
     }

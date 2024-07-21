@@ -111,6 +111,16 @@ impl<'a, 'b, HirEagerExprRegion> RustTranspilationBuilder<'a, 'b, HirEagerExprRe
         self.write_str("()")
     }
 
+    pub(crate) fn releash_left(&mut self, releash_flag: &mut bool) {
+        debug_assert!(!*releash_flag);
+        *releash_flag = true;
+        self.write_str("Leash(&")
+    }
+
+    pub(crate) fn releash_right(&mut self) {
+        self.write_str(")")
+    }
+
     pub(crate) fn wrap_in_some_left(&mut self, wrap_in_some_flag: &mut bool) {
         debug_assert!(!*wrap_in_some_flag);
         *wrap_in_some_flag = true;
@@ -237,5 +247,9 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         use std::fmt::Write;
 
         write!(self.result, "v{index}").unwrap();
+    }
+
+    pub(crate) fn deleash(&mut self) {
+        self.result += ".deleash()";
     }
 }

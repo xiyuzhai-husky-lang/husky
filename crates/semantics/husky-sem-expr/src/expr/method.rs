@@ -14,20 +14,20 @@ impl<'a> SemExprBuilder<'a> {
         list_items: &[SynCommaListItem],
         rpar_regional_token_idx: RegionalTokenIdx,
     ) -> (SemExprDataResult<SemExprData>, SemExprTypeResult<FlyTerm>) {
-        let (self_argument_sem_expr_idx, self_argument_ty, outcome) =
-            self.build_sem_expr_with_ty_and_outcome(self_argument, ExpectAnyOriginal);
+        let (self_argument, self_argument_ty, outcome) =
+            self.build_expr_with_ty_and_outcome(self_argument, ExpectAnyOriginal);
         let Some(self_expr_ty) = self_argument_ty else {
-            if let Some(generic_arguments) = template_arguments {
+            if let Some(template_arguments) = template_arguments {
                 todo!()
             }
             let list_items = list_items
                 .iter()
-                .map(|list_item| self.build_sem_expr(list_item.syn_expr_idx(), ExpectAnyDerived))
+                .map(|list_item| self.build_expr(list_item.syn_expr_idx(), ExpectAnyDerived))
                 .collect();
             return (
                 Err(DerivedSemExprDataError::MethodOwnerTypeNotInferred {
-                    self_argument_sem_expr_idx,
-                    list_item_sem_expr_idxs: list_items,
+                    self_argument,
+                    list_items,
                 }
                 .into()),
                 Err(DerivedSemExprTypeError::MethodOwnerTypeNotInferred.into()),
@@ -55,11 +55,11 @@ impl<'a> SemExprBuilder<'a> {
                 };
                 (
                     Ok(SemExprData::MethodRitchieCall {
-                        self_argument: self_argument_sem_expr_idx,
+                        self_argument,
                         self_contract: signature.self_value_parameter.contract,
                         dot_regional_token_idx,
                         ident_token,
-                        instance_dispatch,
+                        dispatch: instance_dispatch,
                         template_arguments: template_arguments.map(|_| todo!()),
                         lpar_regional_token_idx,
                         ritchie_parameter_argument_matches,
@@ -80,11 +80,11 @@ impl<'a> SemExprBuilder<'a> {
                 };
                 (
                     Ok(SemExprData::MethodRitchieCall {
-                        self_argument: self_argument_sem_expr_idx,
+                        self_argument,
                         self_contract: signature.self_value_parameter.contract,
                         dot_regional_token_idx,
                         ident_token,
-                        instance_dispatch,
+                        dispatch: instance_dispatch,
                         template_arguments: template_arguments.map(|_| todo!()),
                         lpar_regional_token_idx,
                         ritchie_parameter_argument_matches,

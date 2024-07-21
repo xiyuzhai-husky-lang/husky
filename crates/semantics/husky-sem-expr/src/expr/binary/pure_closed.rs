@@ -15,14 +15,14 @@ impl<'a> SemExprBuilder<'a> {
         SemExprTypeResult<FlyTerm>,
     ) {
         let lopd_syn_expr_idx = lopd;
-        let (lopd, lopd_ty) = self.build_sem_expr_with_ty(lopd, ExpectAnyOriginal);
+        let (lopd, lopd_ty) = self.build_expr_with_ty(lopd, ExpectAnyOriginal);
         let Some(lopd_ty) = lopd_ty else {
             use husky_print_utils::p;
 
             p!(self.syn_expr_region_data()[lopd_syn_expr_idx].debug(self.db()));
             p!(self.sem_expr_arena()[lopd].debug(self.db()));
             todo!();
-            let ropd = self.build_sem_expr(ropd, ExpectAnyDerived);
+            let ropd = self.build_expr(ropd, ExpectAnyDerived);
             return (
                 lopd,
                 SemBinaryOpr::Closed(opr),
@@ -31,7 +31,7 @@ impl<'a> SemExprBuilder<'a> {
                 Err(DerivedSemExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into()),
             );
         };
-        let ropd = self.build_sem_expr(ropd, ExpectCoercion::new_pure(self, lopd_ty));
+        let ropd = self.build_expr(ropd, ExpectCoercion::new_pure(self, lopd_ty));
         let ty_result = match lopd_ty.data(self) {
             FlyTermData::Literal(_) => todo!(),
             FlyTermData::TypeOntology {

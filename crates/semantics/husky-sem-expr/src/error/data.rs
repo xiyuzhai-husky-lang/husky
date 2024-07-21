@@ -19,7 +19,7 @@ pub enum OriginalSemExprDataError {
     },
     #[error("no such field")]
     NoSuchField {
-        owner_ty: FlyTerm,
+        self_argument_ty: FlyTerm,
         ident_token: IdentRegionalToken,
     },
     #[error("no such method")]
@@ -42,11 +42,11 @@ pub enum DerivedSemExprDataError {
     ApplicationOrRitchieCallFunctionTypeNotInferred { function_sem_expr_idx: SemExprIdx },
     #[error("MethodOwnerTypeNotInferred")]
     MethodOwnerTypeNotInferred {
-        self_argument_sem_expr_idx: SemExprIdx,
-        list_item_sem_expr_idxs: Vec<SemExprIdx>,
+        self_argument: SemExprIdx,
+        list_items: Vec<SemExprIdx>,
     },
     #[error("FieldOwnerTypeNotInferred")]
-    FieldOwnerTypeNotInferred { owner_sem_expr_idx: SemExprIdx },
+    FieldOwnerTypeNotInferred { self_argument: SemExprIdx },
     #[error("UnableToInferIndexExprType")]
     UnableToInferIndexExprType,
     #[error("UnveilOutputTemplate")]

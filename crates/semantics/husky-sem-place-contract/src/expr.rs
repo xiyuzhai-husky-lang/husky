@@ -29,7 +29,7 @@ impl<'a> PlaceContractEngine<'a> {
         {
             match outcome.coercion() {
                 FlyCoercion::Trivial(_) => (outer_contract, outer_site),
-                FlyCoercion::Never | FlyCoercion::PlaceToLeash | FlyCoercion::Deref(_) => {
+                FlyCoercion::Never | FlyCoercion::Releash | FlyCoercion::Deref(_) => {
                     (Contract::Pure, Default::default())
                 }
                 FlyCoercion::WrapInSome => (Contract::Move, Default::default()),
@@ -124,7 +124,7 @@ impl<'a> PlaceContractEngine<'a> {
             SemExprData::Ritchie { .. } => (),
             SemExprData::Field {
                 self_argument: owner,
-                self_ty: owner_ty,
+                self_argument_ty: owner_ty,
                 dot_regional_token_idx,
                 ident_token,
                 ref dispatch,

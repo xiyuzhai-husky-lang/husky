@@ -19,7 +19,7 @@ impl<'a> SemExprBuilder<'a> {
         let return_ty = return_ty_syn_expr.map(|(light_arrow, return_ty_syn_expr, eq)| {
             (
                 light_arrow,
-                self.build_sem_expr(return_ty_syn_expr, ExpectSort::TYPE),
+                self.build_expr(return_ty_syn_expr, ExpectSort::TYPE),
                 eq,
             )
         });
@@ -28,78 +28,79 @@ impl<'a> SemExprBuilder<'a> {
             .map(|param| self.build_closure_parameter_obelisk(param))
             .collect();
         let mut param_tys: SemExprTypeResult<Vec<FlyRitchieParameter>> = Ok(vec![]);
-        let (body, return_ty_term) =
-            match destination {
-                FlyTermDestination::Specific(destination)
-                    if let FlyTermData::Ritchie {
-                        ritchie_kind,
-                        parameter_contracted_tys,
-                        return_ty,
-                    } = destination.data(self) =>
-                {
-                    for (i, param) in parameter_obelisk.iter().enumerate() {
-                        let parameter_contracted_ty_expected = parameter_contracted_tys[i];
-                        todo!()
-                    }
+        let (body, return_ty_term) = match destination {
+            FlyTermDestination::Specific(destination)
+                if let FlyTermData::Ritchie {
+                    ritchie_kind,
+                    parameter_contracted_tys,
+                    return_ty,
+                } = destination.data(self) =>
+            {
+                for (i, param) in parameter_obelisk.iter().enumerate() {
+                    let parameter_contracted_ty_expected = parameter_contracted_tys[i];
                     todo!()
                 }
-                FlyTermDestination::AnyOriginal => {
-                    for param in &parameter_obelisk {
-                        match *param {
-                            ClosureParameterObelisk::Simple {
+                todo!()
+            }
+            FlyTermDestination::AnyOriginal => {
+                for param in &parameter_obelisk {
+                    match *param {
+                        ClosureParameterObelisk::Simple {
+                            syn_pattern_root,
+                            variables,
+                            colon_token,
+                            ty,
+                        } => {
+                            let ty = match ty {
+                                Some(ty) => match self.infer_expr_term(ty) {
+                                    Some(ty) => ty,
+                                    None => self.new_hole(ty, HoleKind::ImplicitType),
+                                },
+                                None => self.new_hole(
+                                    syn_pattern_root.syn_pattern_idx(),
+                                    HoleKind::ImplicitType,
+                                ),
+                            };
+                            self.infer_variable_pattern_root_and_symbols_ty(
                                 syn_pattern_root,
-                                variables,
-                                colon_token,
                                 ty,
-                            } => {
-                                let ty = match ty {
-                                    Some(ty) => match self.infer_expr_term(ty) {
-                                        Some(ty) => ty,
-                                        None => self.new_hole(ty, HoleKind::ImplicitType),
-                                    },
-                                    None => self.new_hole(
-                                        syn_pattern_root.syn_pattern_idx(),
-                                        HoleKind::ImplicitType,
-                                    ),
-                                };
-                                self.infer_variable_pattern_root_and_symbols_ty(
-                                    syn_pattern_root,
-                                    ty,
-                                    variables,
-                                )
-                            }
+                                variables,
+                            )
                         }
                     }
-                    match return_ty {
-                        Some((_, return_ty, _)) => match self.infer_expr_term(return_ty) {
-                            Some(return_ty) => self
-                                .build_sem_expr_with_ty(body, ExpectCoercion::new_move(return_ty)),
-                            None => self.build_sem_expr_with_ty(body, ExpectAnyDerived),
-                        },
-                        None => self.build_sem_expr_with_ty(body, ExpectAnyOriginal),
-                    }
                 }
-                FlyTermDestination::Specific(_) | FlyTermDestination::AnyDerived => {
-                    for param in &parameter_obelisk {
-                        match param {
-                            ClosureParameterObelisk::Simple {
-                                syn_pattern_root,
-                                variables,
-                                colon_token,
-                                ty,
-                            } => todo!(),
+                match return_ty {
+                    Some((_, return_ty, _)) => match self.infer_expr_term(return_ty) {
+                        Some(return_ty) => {
+                            self.build_expr_with_ty(body, ExpectCoercion::new_move(return_ty))
                         }
-                    }
-                    match return_ty {
-                        Some((_, return_ty, _)) => match self.infer_expr_term(return_ty) {
-                            Some(return_ty) => self
-                                .build_sem_expr_with_ty(body, ExpectCoercion::new_move(return_ty)),
-                            None => self.build_sem_expr_with_ty(body, ExpectAnyDerived),
-                        },
-                        None => self.build_sem_expr_with_ty(body, ExpectAnyDerived),
+                        None => self.build_expr_with_ty(body, ExpectAnyDerived),
+                    },
+                    None => self.build_expr_with_ty(body, ExpectAnyOriginal),
+                }
+            }
+            FlyTermDestination::Specific(_) | FlyTermDestination::AnyDerived => {
+                for param in &parameter_obelisk {
+                    match param {
+                        ClosureParameterObelisk::Simple {
+                            syn_pattern_root,
+                            variables,
+                            colon_token,
+                            ty,
+                        } => todo!(),
                     }
                 }
-            };
+                match return_ty {
+                    Some((_, return_ty, _)) => match self.infer_expr_term(return_ty) {
+                        Some(return_ty) => {
+                            self.build_expr_with_ty(body, ExpectCoercion::new_move(return_ty))
+                        }
+                        None => self.build_expr_with_ty(body, ExpectAnyDerived),
+                    },
+                    None => self.build_expr_with_ty(body, ExpectAnyDerived),
+                }
+            }
+        };
         let return_ty_result = param_tys
             .map(|param_tys| match return_ty_term {
                 Some(return_ty) => FlyTerm::new_ritchie(self, ritchie_kind, param_tys, return_ty)

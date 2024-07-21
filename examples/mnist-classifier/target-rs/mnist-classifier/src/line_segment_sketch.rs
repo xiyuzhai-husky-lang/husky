@@ -236,7 +236,7 @@ impl Visualize for crate::line_segment_sketch::LineSegmentSketch {
 impl crate::line_segment_sketch::LineSegmentSketch {
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 13, return_leash)]
     pub fn concave_components(&'static self) -> Vec<crate::line_segment_sketch::concave_component::ConcaveComponent> {
-        crate::line_segment_sketch::concave_component::find_concave_components(&self)
+        crate::line_segment_sketch::concave_component::find_concave_components(&Leash(&self))
     }
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 14, return_leash)]

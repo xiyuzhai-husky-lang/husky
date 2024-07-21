@@ -304,9 +304,10 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
             }
             HirEagerExprData::MemoizedField {
                 self_argument,
-                self_ty,
+                self_argument_ty,
                 ident,
                 path,
+                ref indirections,
                 ref instantiation,
             } => {
                 let linket = Linket::new_memo_field(
@@ -319,6 +320,9 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 let arguments = smallvec![VmirArgument::SelfValue {
                     expr: self_argument.to_vmir(self)
                 }];
+                if indirections.len() > 0 {
+                    todo!()
+                }
                 VmirExprData::Linket {
                     linket_impl,
                     arguments,
@@ -329,6 +333,7 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 self_contract,
                 ident,
                 path,
+                ref indirections,
                 ref instantiation,
                 arguments: ref hir_arguments,
             } => {
@@ -339,6 +344,9 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                     expr: self_argument.to_vmir(self)
                 }];
                 arguments.extend(self.build_arguments(hir_arguments));
+                if indirections.len() > 0 {
+                    todo!()
+                }
                 VmirExprData::Linket {
                     linket_impl,
                     arguments,
@@ -424,7 +432,7 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
                 VmirCoercion::Trivial => value,
                 VmirCoercion::Never => todo!(),
                 VmirCoercion::WrapInSome => todo!(),
-                VmirCoercion::PlaceToLeash => todo!(),
+                VmirCoercion::Releash => todo!(),
                 VmirCoercion::Deref => todo!(),
             },
             None => value,

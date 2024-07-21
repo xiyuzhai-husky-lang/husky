@@ -78,6 +78,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::vec::Vec(0)::ilen`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -129,6 +130,7 @@
                             TypePath(`core::option::Option`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::option::Option::Some`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -178,6 +180,7 @@
                             TypePath(`core::option::Option`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::option::Option::Some`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -227,6 +230,7 @@
                             TypePath(`core::option::Option`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::option::Option::Some`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },

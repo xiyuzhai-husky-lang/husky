@@ -331,7 +331,7 @@ impl Visualize for crate::raw_contour::RawContour {
 impl crate::raw_contour::RawContour {
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 9, return_leash)]
     pub fn line_segment_sketch(&'static self) -> crate::line_segment_sketch::LineSegmentSketch {
-        crate::line_segment_sketch::LineSegmentSketch::new(&self, 1.4f32)
+        crate::line_segment_sketch::LineSegmentSketch::new(&Leash(&self), 1.4f32)
     }
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 10, return_leash)]
@@ -353,7 +353,7 @@ impl crate::raw_contour::RawContour {
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 11, return_leash)]
     pub fn relative_bounding_box(&'static self) -> crate::geom2d::RelativeBoundingBox {
-        self.cc.raw_contours()[0 as usize].bounding_box().relative_bounding_box(&self.bounding_box())
+        <crate::raw_contour::RawContour>::bounding_box(Leash(&<crate::connected_component::ConnectedComponent>::raw_contours(self.cc)[0 as usize])).relative_bounding_box(&<crate::raw_contour::RawContour>::bounding_box(Leash(&self)))
     }
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 12)]

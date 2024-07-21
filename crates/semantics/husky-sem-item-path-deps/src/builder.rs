@@ -123,7 +123,7 @@ impl<'db> SemItemPathDepsBuilder<'db> {
                 rpar_regional_token_idx,
             } => (),
             SemExprData::MethodRitchieCall {
-                ref instance_dispatch,
+                dispatch: ref instance_dispatch,
                 ref template_arguments,
                 ..
             } => {

@@ -18,7 +18,7 @@ pub enum FlyCoercion {
     Trivial(TrivialFlyCoercion),
     Never,
     WrapInSome,
-    PlaceToLeash,
+    Releash,
     Deref(DerefFlyCoercion),
 }
 
@@ -27,7 +27,7 @@ impl FlyCoercion {
         match self {
             FlyCoercion::Trivial(slf) => slf.place_after_coercion(),
             FlyCoercion::Deref(slf) => slf.place_after_coercion(),
-            FlyCoercion::Never | FlyCoercion::WrapInSome | FlyCoercion::PlaceToLeash => {
+            FlyCoercion::Never | FlyCoercion::WrapInSome | FlyCoercion::Releash => {
                 FlyQuary::Transient
             }
         }

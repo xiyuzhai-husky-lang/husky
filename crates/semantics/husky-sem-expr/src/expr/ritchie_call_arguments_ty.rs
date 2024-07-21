@@ -16,10 +16,7 @@ impl<'a> SemExprBuilder<'a> {
                     match_error,
                     ritchie_arguments: ritchie_arguments
                         .map(|ritchie_argument| {
-                            self.build_sem_expr(
-                                ritchie_argument.argument_expr_idx(),
-                                ExpectAnyDerived,
-                            )
+                            self.build_expr(ritchie_argument.argument_expr_idx(), ExpectAnyDerived)
                         })
                         .collect(),
                 }
@@ -93,7 +90,7 @@ mod matcher {
                     Some(item) => match item {
                         SynCallListItem::SimpleOrVariadic(item) => {
                             let (argument_sem_expr_idx, coercion) =
-                                self.engine.build_sem_expr_with_outcome(
+                                self.engine.build_expr_with_outcome(
                                     item.argument_expr_idx(),
                                     ExpectCoercion::new(param.contract(), param.ty()),
                                 );
@@ -117,7 +114,7 @@ mod matcher {
                         .next_if(|item| matches!(item, SynCallListItem::SimpleOrVariadic(_)))
                     {
                         let (argument_sem_expr_idx, coercion_outcome) =
-                            self.engine.build_sem_expr_with_outcome(
+                            self.engine.build_expr_with_outcome(
                                 item.argument_expr_idx(),
                                 ExpectCoercion::new(param.contract(), param.ty()),
                             );

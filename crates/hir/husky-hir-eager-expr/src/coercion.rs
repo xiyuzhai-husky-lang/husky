@@ -9,7 +9,7 @@ pub enum HirEagerCoercion {
     Trivial(TrivialHirEagerCoercion),
     Never,
     WrapInSome,
-    PlaceToLeash,
+    Releash,
     Deref(DerefHirEagerCoercion),
 }
 
@@ -22,9 +22,9 @@ impl HirEagerCoercion {
         match self {
             HirEagerCoercion::Trivial(slf) => slf.place_after_coercion(),
             HirEagerCoercion::Deref(slf) => slf.place_after_coercion(),
-            HirEagerCoercion::Never
-            | HirEagerCoercion::WrapInSome
-            | HirEagerCoercion::PlaceToLeash => HirQuary::Transient,
+            HirEagerCoercion::Never | HirEagerCoercion::WrapInSome | HirEagerCoercion::Releash => {
+                HirQuary::Transient
+            }
         }
     }
 }
@@ -63,7 +63,7 @@ impl ToHirEager for FlyCoercion {
             FlyCoercion::Trivial(slf) => HirEagerCoercion::Trivial(slf.to_hir_eager(builder)),
             FlyCoercion::Never => HirEagerCoercion::Never,
             FlyCoercion::WrapInSome => HirEagerCoercion::WrapInSome,
-            FlyCoercion::PlaceToLeash => HirEagerCoercion::PlaceToLeash,
+            FlyCoercion::Releash => HirEagerCoercion::Releash,
             FlyCoercion::Deref(slf) => HirEagerCoercion::Deref(slf.to_hir_eager(builder)),
         }
     }

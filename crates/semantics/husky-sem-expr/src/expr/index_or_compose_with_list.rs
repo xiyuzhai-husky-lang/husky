@@ -9,10 +9,10 @@ impl<'a> SemExprBuilder<'a> {
         items: &[SynCommaListItem],
         rbox_regional_token_idx: RegionalTokenIdx,
     ) -> (SemExprDataResult<SemExprData>, SemExprTypeResult<FlyTerm>) {
-        let (owner_sem_expr_idx, owner_ty) = self.build_sem_expr_with_ty(owner, ExpectAnyOriginal);
+        let (owner_sem_expr_idx, owner_ty) = self.build_expr_with_ty(owner, ExpectAnyOriginal);
         let Some(owner_ty) = owner_ty else {
             for index in items {
-                self.build_sem_expr_with_ty(index.syn_expr_idx(), ExpectAnyDerived);
+                self.build_expr_with_ty(index.syn_expr_idx(), ExpectAnyDerived);
             }
             return (
                 todo!(),

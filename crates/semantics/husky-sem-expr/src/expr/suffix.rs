@@ -23,7 +23,7 @@ impl<'a> SemExprBuilder<'a> {
         match opr {
             SynSuffixOpr::Incr => {
                 let (opd_sem_expr_idx, opd_ty) =
-                    self.build_sem_expr_with_ty(opd_syn_expr_idx, ExpectNumType);
+                    self.build_expr_with_ty(opd_syn_expr_idx, ExpectNumType);
                 (
                     Ok(SemExprData::Suffix {
                         opd: opd_sem_expr_idx,
@@ -35,7 +35,7 @@ impl<'a> SemExprBuilder<'a> {
             }
             SynSuffixOpr::Decr => {
                 let (opd_sem_expr_idx, opd_ty) =
-                    self.build_sem_expr_with_ty(opd_syn_expr_idx, ExpectNumType);
+                    self.build_expr_with_ty(opd_syn_expr_idx, ExpectNumType);
                 (
                     Ok(SemExprData::Suffix {
                         opd: opd_sem_expr_idx,
