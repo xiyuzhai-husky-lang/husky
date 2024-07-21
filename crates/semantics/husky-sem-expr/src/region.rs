@@ -26,12 +26,22 @@ impl WithFmtContext for SemExprRegion {
         f: impl FnOnce() -> ::std::fmt::Result,
         db: &::salsa::Db,
     ) -> ::std::fmt::Result {
+        self.data(db).with_fmt_context(f, db)
+    }
+}
+
+impl WithFmtContext for SemExprRegionData {
+    fn with_fmt_context(
+        &self,
+        f: impl FnOnce() -> ::std::fmt::Result,
+        db: &::salsa::Db,
+    ) -> ::std::fmt::Result {
         use husky_eth_term::fmt::with_item_eth_term_fmt_context;
 
-        match self.path(db) {
+        match self.path() {
             RegionPath::CrateDecl(_) => todo!(),
             RegionPath::ItemDecl(path) => with_item_eth_term_fmt_context(path, f, db),
-            RegionPath::ItemDefn(_) => todo!(),
+            RegionPath::ItemDefn(path) => with_item_eth_term_fmt_context(path, f, db),
             RegionPath::Chunk(_) => todo!(),
         }
     }

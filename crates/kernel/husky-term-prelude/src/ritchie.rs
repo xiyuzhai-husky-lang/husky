@@ -35,11 +35,18 @@ impl RitchieTypeKind {
             },
         }
     }
+
+    pub fn display_str(self) -> &'static str {
+        match self {
+            RitchieTypeKind::Item(slf) => slf.display_str(),
+            RitchieTypeKind::Closure(slf) => slf.display_str(),
+        }
+    }
 }
 
 impl std::fmt::Display for RitchieTypeKind {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        todo!()
+        self.display_str().fmt(f)
     }
 }
 
@@ -53,6 +60,20 @@ pub enum RitchieClosureKind {
     Bn,
     Sn,
     Tn,
+}
+impl RitchieClosureKind {
+    fn display_str(self) -> &'static str {
+        match self {
+            RitchieClosureKind::Fn => "{closure} Fn",
+            RitchieClosureKind::Gn => "{closure} Gn",
+            RitchieClosureKind::Vn => "{closure} Vn",
+            RitchieClosureKind::Pn => "{closure} Pn",
+            RitchieClosureKind::Qn => "{closure} Qn",
+            RitchieClosureKind::Bn => "{closure} Bn",
+            RitchieClosureKind::Sn => "{closure} Sn",
+            RitchieClosureKind::Tn => "{closure} Tn",
+        }
+    }
 }
 
 impl From<RitchieItemKind> for RitchieKind {
