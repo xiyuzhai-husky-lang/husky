@@ -1,7 +1,7 @@
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct Leash<T>(pub &'static T)
 where
-    T: 'static;
+    T: ?Sized + 'static;
 
 impl<T> std::hash::Hash for Leash<T> {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
@@ -11,7 +11,7 @@ impl<T> std::hash::Hash for Leash<T> {
 
 impl<T> Leash<T>
 where
-    T: 'static,
+    T: ?Sized + 'static,
 {
     pub fn new(t: &'static T) -> Self {
         Self(t)
@@ -20,7 +20,7 @@ where
 
 impl<T> Leash<T>
 where
-    T: 'static,
+    T: ?Sized + 'static,
 {
     pub fn deleash(self) -> &'static T {
         self.0
