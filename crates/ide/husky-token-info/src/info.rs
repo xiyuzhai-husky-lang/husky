@@ -1,10 +1,14 @@
 use crate::*;
 use husky_entity_kind::EntityKind;
-use husky_entity_path::path::{EntityPath, PrincipalEntityPath};
+use husky_entity_path::{
+    path::{EntityPath, PrincipalEntityPath},
+    region::RegionPath,
+};
 use husky_entity_tree::{
     expr::r#use::UseExprIdx,
     node::ItemSynNodePath,
     presheet::{OnceUseRuleIdx, UseOneRuleState},
+    region_path::SynNodeRegionPath,
 };
 use husky_sem_expr::SemExprIdx;
 use husky_syn_expr::{
@@ -21,7 +25,7 @@ use husky_token_protocol::*;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct TokenInfo {
-    src: TokenInfoSource,
+    source: TokenInfoSource,
     data: TokenInfoData,
 }
 
@@ -30,24 +34,24 @@ pub struct TokenInfo {
 #[enum_class::from_variants]
 pub enum TokenInfoSource {
     UseExpr(UseExprIdx),
-    SemExpr(SemExprIdx),
+    SemExpr(RegionPath, SemExprIdx),
     SynPrincipalEntityPathExpr(SynPrincipalEntityPathSynExprIdx, PrincipalEntityPath),
-    Pattern(SynPatternIdx),
+    Pattern(RegionPath, SynPatternIdx),
     // todo: add #[skip] attribute
     TemplateParameter(CurrentVariableIdx),
     AstIdentifiable,
 }
 
 impl TokenInfo {
-    pub fn new(src: impl Into<TokenInfoSource>, data: TokenInfoData) -> Self {
+    pub fn new(source: impl Into<TokenInfoSource>, data: TokenInfoData) -> Self {
         Self {
-            src: src.into(),
+            source: source.into(),
             data,
         }
     }
 
     pub fn src(&self) -> TokenInfoSource {
-        self.src
+        self.source
     }
 
     pub fn data(&self) -> &TokenInfoData {

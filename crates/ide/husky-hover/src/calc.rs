@@ -1,9 +1,10 @@
 use husky_entity_tree::error::EntityTreeResult;
+use husky_sem_expr::{helpers::region::sem_expr_region_from_region_path, SemExprRegionData};
 use husky_text_protocol::range::TextRange;
 
 use husky_token::{verse::idx::TokenVerseIdx, TokenDb};
 use husky_token_data::{Keyword, TokenData};
-use husky_token_info::{TokenInfo, TokenInfoData, TokenInfoDb};
+use husky_token_info::{TokenInfo, TokenInfoData, TokenInfoDb, TokenInfoSource};
 
 use crate::*;
 
@@ -17,17 +18,18 @@ pub(crate) fn calc_hover_result(
         .gen_content()
 }
 
-struct HoverResultCalculator<'a> {
-    db: &'a ::salsa::Db,
+struct HoverResultCalculator<'db> {
+    db: &'db ::salsa::Db,
     module_path: ModulePath,
     token_idx: TokenIdx,
-    token: &'a TokenData,
+    token: &'db TokenData,
     token_range: TextRange,
-    token_info: Option<&'a TokenInfo>,
+    token_info: Option<&'db TokenInfo>,
     markdown_content: String,
     actions: Vec<CommandLinkGroup>,
-    config: &'a HoverConfig,
+    config: &'db HoverConfig,
     token_verse_idx: TokenVerseIdx,
+    sem_expr_region_data: Option<&'db SemExprRegionData>,
 }
 
 impl<'a> HoverResultCalculator<'a> {
@@ -40,17 +42,28 @@ impl<'a> HoverResultCalculator<'a> {
         let token_sheet_data = db.token_sheet_data(module_path);
         let token_info_sheet = db.token_info_sheet(module_path)?;
         let token_verse_idx = token_sheet_data.token_verse_idx(token_idx);
+        let token_info = token_info_sheet[token_idx].as_ref();
+        let sem_expr_region_data = match token_info {
+            Some(token_info) => match token_info.src() {
+                TokenInfoSource::SemExpr(region_path, _) => {
+                    sem_expr_region_from_region_path(region_path, db).map(|region| region.data(db))
+                }
+                _ => None,
+            },
+            None => None,
+        };
         Ok(Self {
             db,
             module_path,
             token_idx,
             token: &token_sheet_data[token_idx],
             token_range: ranged_token_sheet.token_text_range(token_idx),
-            token_info: token_info_sheet[token_idx].as_ref(),
+            token_info,
             markdown_content: String::new(),
             actions: vec![],
             config: hover_config(db, module_path),
             token_verse_idx,
+            sem_expr_region_data,
         })
     }
 
@@ -92,10 +105,14 @@ impl<'a> HoverResultCalculator<'a> {
     fn debug_content(&self) -> String {
         use std::fmt::Write;
 
+        let db = self.db;
+
         let mut debug_content = String::new();
         if self.config.description {
             self.add_description(&mut debug_content);
         }
+
+        // lex
 
         if self.config.token_idx {
             write!(debug_content, "\ntoken_idx = {};\n", self.token_idx.index()).unwrap();
@@ -121,6 +138,26 @@ impl<'a> HoverResultCalculator<'a> {
                 self.token_info.debug(self.db)
             )
             .unwrap();
+        }
+
+        // syntax
+
+        // semantics
+
+        if self.config.coersion {
+            if let Some(token_info) = self.token_info
+                && let TokenInfoSource::SemExpr(region_path, expr) = token_info.src()
+            {
+                let sem_expr_region_data = self.sem_expr_region_data.unwrap();
+                write!(
+                    debug_content,
+                    "\n\ncoercion = {:#?}",
+                    expr.expectation_outcome(sem_expr_region_data)
+                        .map(|outcome| outcome.coercion())
+                        .flatten()
+                )
+                .unwrap();
+            }
         }
 
         debug_content

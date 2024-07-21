@@ -10,7 +10,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other\ntoken_idx = 0;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "Other",
                         },
                     ),
                     range: Some(
@@ -40,7 +40,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 1;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Ident(\n    `prelude`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                Room32,\n                SubmoduleSynNodePath(\n                    ItemSynNodePathId {\n                        data: ItemSynNodePathData::Submodule(\n                            SubmoduleSynNodePathData {\n                                disambiguated_item_path: DisambiguatedItemPath {\n                                    maybe_ambiguous_item_path: SubmoduleItemPath(`std::prelude),\n                                    disambiguator: 0,\n                                },\n                            },\n                        ),\n                    },\n                ),\n            ),\n            EntityKind::Module,\n        ),\n    },\n);\n\n\n",
+                            value: "entity node",
                         },
                     ),
                     range: Some(
@@ -70,7 +70,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other\ntoken_idx = 2;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "Other",
                         },
                     ),
                     range: Some(
@@ -100,7 +100,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 3;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `logic`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                Room32,\n                SubmoduleSynNodePath(\n                    ItemSynNodePathId {\n                        data: ItemSynNodePathData::Submodule(\n                            SubmoduleSynNodePathData {\n                                disambiguated_item_path: DisambiguatedItemPath {\n                                    maybe_ambiguous_item_path: SubmoduleItemPath(`std::logic),\n                                    disambiguator: 0,\n                                },\n                            },\n                        ),\n                    },\n                ),\n            ),\n            EntityKind::Module,\n        ),\n    },\n);\n\n\n",
+                            value: "entity node",
                         },
                     ),
                     range: Some(
@@ -130,7 +130,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other\ntoken_idx = 4;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "Other",
                         },
                     ),
                     range: Some(
@@ -160,7 +160,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 5;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Ident(\n    `ops`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::Submodule(\n                Room32,\n                SubmoduleSynNodePath(\n                    ItemSynNodePathId {\n                        data: ItemSynNodePathData::Submodule(\n                            SubmoduleSynNodePathData {\n                                disambiguated_item_path: DisambiguatedItemPath {\n                                    maybe_ambiguous_item_path: SubmoduleItemPath(`std::ops),\n                                    disambiguator: 0,\n                                },\n                            },\n                        ),\n                    },\n                ),\n            ),\n            EntityKind::Module,\n        ),\n    },\n);\n\n\n",
+                            value: "entity node",
                         },
                     ),
                     range: Some(
